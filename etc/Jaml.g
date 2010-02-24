@@ -23,10 +23,25 @@ package com.cadrlife.jaml;
 
 
 @lexer::members {
-int currentIndentation = 0;
-boolean textMode = true;
-boolean hashMode = false;
-boolean beginningOfLine = true;
+	int currentIndentation = 0;
+	boolean textMode = true;
+	boolean hashMode = false;
+	boolean beginningOfLine = true;
+	
+	List tokens = new ArrayList();
+	@Override
+	public void emit(Token token) {
+	        state.token = token;
+	    	tokens.add(token);
+	}
+	@Override
+	public Token nextToken() {
+	    	super.nextToken();
+	        if ( tokens.size()==0 ) {
+	            return Token.EOF_TOKEN;
+	        }
+	        return (Token)tokens.remove(0);
+	}
 }
 
 @parser::members {
@@ -34,16 +49,19 @@ String output = "";
 }
 
 prog returns [String rendering] @init {$rendering = "";}:
-  (line {$rendering += $line.rendering;} NEWLINE {$rendering += "\n";})*;
+  (line {$rendering += $line.rendering;} {$rendering += "\n";})*;
 
-element returns [String rendering] @init {String content = "";}:
-  elementDeclaration (content {content = $content.rendering;})?
-  {$rendering = Util.elem($elementDeclaration.type, $elementDeclaration.attrMap, content);}
+element returns [String rendering] @init {String content = ""; boolean selfClosing=false;}:
+  elementDeclaration 
+   ( TEXT NEWLINE {content = $TEXT.text;} | 
+     NEWLINE (content {content = $content.rendering;})? |
+     FORWARD_SLASH NEWLINE {selfClosing = true;})
+  {$rendering = Util.elem($elementDeclaration.type, $elementDeclaration.attrMap, content, selfClosing);}
   ;
 
 line returns [String rendering] @init { $rendering = ""; } :
   element {$rendering = $element.rendering;}
-  | TEXT {$rendering = $TEXT.text;}
+  | TEXT {$rendering = $TEXT.text;} NEWLINE
   ;
 
 elementDeclaration returns [String type, Map<String,String> attrMap] @init {$attrMap = new LinkedHashMap<String,String>();}:
@@ -56,11 +74,10 @@ elementDeclaration returns [String type, Map<String,String> attrMap] @init {$att
   ;
 
 content returns [String rendering] @init { $rendering = ""; } :
-//line {$rendering = $line.text;}
-(INDENT 
- e1=element {$rendering += $e1.rendering;} 
- (NEWLINE e2=element {$rendering += $e2.rendering;})* 
-DEDENT)
+INDENT 
+ (e1=element {$rendering += $e1.rendering + "\n";} | TEXT NEWLINE {$rendering += $TEXT.text + "\n";})+
+DEDENT
+{$rendering = "\n" + Util.indent(Util.stripTrailingNewline($rendering)) + "\n";}
 ;
 //line: TEXT {System.out.println($TEXT.text);};
 
@@ -95,6 +112,7 @@ DOT ID {$klass = $ID.text;};
 POUND: { beginningOfLine }?=> '#' {textMode = false;};
 DOT: { beginningOfLine }?=> '.' {textMode = false;};
 PERCENT: { beginningOfLine }?=> '%' {textMode = false;};
+FORWARD_SLASH: { !textMode }?=> '/';
 COMMA: { !textMode }?=> ',';
 ID  : { !textMode }?=> ('a'..'z'|'A'..'Z')+;
 INT : { !textMode }?=>  '0'..'9'+;
@@ -104,28 +122,34 @@ BEGIN_HASH: { !textMode }?=>
   '{' {hashMode = true;};
 
 END_HASH: { hashMode }?=>
-  '}' {hashMode = false; textMode = true;};
+  '}' {hashMode = false; //textMode = true;
+  };
 
-WS  : { !textMode }?=>
+WS : { !textMode }?=>
   Spaces {skip(); if (!hashMode ) textMode=true;};
 
-CHANGE_INDENT
-@init { int tb = 0; }
-  :(NL) (' ' {tb++;})* {
-          if(tb > currentIndentation) {
-              emit(new CommonToken(INDENT));
-              System.out.println("INDENT");
-          }else if(tb < currentIndentation) {
-              for(int i = 0; i < currentIndentation - tb; i++) {
-                  emit(new CommonToken(DEDENT));
-              System.out.println("DEDENT");
-              }
-          }else {
-                emit(new CommonToken(NEWLINE));
-              System.out.println("NEWLINE");
-              //skip();
-          }
-          currentIndentation = tb;
+IGNORED_NEWLINE  : { hashMode }?=> NL {skip();};
+
+CHANGE_INDENT 
+@init { int tb = 0; } :{ !hashMode }?=> 
+	(NL) (' ' {tb++;})* {
+	          emit(new CommonToken(NEWLINE));
+	          System.out.println("NEWLINE");
+	          System.out.println(tb + "/" + currentIndentation);
+	          if (tb > currentIndentation) {
+	              emit(new CommonToken(INDENT));
+	              System.out.println("INDENT");
+	          } else if(tb < currentIndentation) {
+	              for(int i = 0; i < currentIndentation - tb; i+=2) {
+	    	          emit(new CommonToken(DEDENT));
+		    	      System.out.println("DEDENT");
+	              }
+	          } else {
+	              //skip();
+	          }
+	          currentIndentation = tb;
+	          textMode=true;
+	          beginningOfLine=true;
       };
 fragment
 NL: '\r'? '\n';
@@ -160,6 +184,6 @@ fragment
 HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;
 
 TEXT: { textMode }?=>
-      (~('.' | '#' | '%' | '\r' | '\n'))
+      (~('.' | '#' | '%' | '\r' | '\n' | ' '))
       (~('\r' | '\n'))*
       {beginningOfLine=false;};

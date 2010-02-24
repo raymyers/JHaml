@@ -8,7 +8,10 @@ public class Util {
 		return "<" + el + attribString + ">" + content + "</" + el + ">";
 	}
 	
-	public static String elem(String el, Map<String,String> attribMap, String content) {
+	public static String elem(String el, Map<String,String> attribMap, String content, boolean selfClosing) {
+		if (selfClosing) {
+			return "<" + el + attribs(attribMap) + " />";
+		}
 		return "<" + el + attribs(attribMap) + ">" + content + "</" + el + ">";
 	}
 	
@@ -39,6 +42,13 @@ public class Util {
 	}
 	public static String parseStringLiteral(String lit) {
 		return lit.substring(1, lit.length()-1);
+	}
+	
+	public static String indent(String text) {
+		return " " + text.replaceAll("\n", "\n "); 
+	}
+	public static String stripTrailingNewline(String text) {
+		return text.replaceFirst("\n$", ""); 
 	}
 	
 }
