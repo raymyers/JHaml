@@ -49,6 +49,26 @@ public class JamlAttributeHashTest {
 		assertEquals("66", readAttrs(input).get("a"));
 	}
 	
+	@Test
+	public void floatingPoint() {
+		String input = "{:a => 42.01, :b => 42.02f, :c => 42.03d}";
+		assertEquals("42.01", readAttrs(input).get("a"));
+		assertEquals("42.02", readAttrs(input).get("b"));
+		assertEquals("42.03", readAttrs(input).get("c"));
+	}
+	
+	@Test
+	public void numbersAsAttributeNames() {
+		String input = "{1 => 42}";
+		assertEquals("42", readAttrs(input).get("1"));
+	}
+	
+	@Test
+	public void stringsAsAttributeNames() {
+		String input = "{\"1\" => 42}";
+		assertEquals("42", readAttrs(input).get("1"));
+	}
+	
 	private Map<String, String> readAttrs(String input) {
 		try {
 			

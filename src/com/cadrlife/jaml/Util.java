@@ -64,20 +64,20 @@ public class Util {
 		return text.replaceFirst("\n$", ""); 
 	}
 
-	public static String parseFloatLiteral(String string) {
-		return "";
+	public static String parseFloatLiteral(String lit) {
+		return Double.toString(Double.parseDouble(lit));
 	}
 
-	public static String parseCharLiteral(String string) {
-		return "";
+	public static String parseCharLiteral(String lit) {
+		return parseStringLiteral(lit);
 	}
 
 	public static String parseLongLiteral(String lit) {
 		return parseIntegerLiteral(lit.substring(0, lit.length()-1));
 	}
 
-	public static String parseDoubleLiteral(String string) {
-		return "";
+	public static String parseDoubleLiteral(String lit) {
+		return Double.toString(Double.parseDouble(lit));
 	}
 	
 }
