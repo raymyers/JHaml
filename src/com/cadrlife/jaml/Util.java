@@ -2,6 +2,8 @@ package com.cadrlife.jaml;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 
 public class Util {
 	public static String elem(String el, String attribString, String content) {
@@ -40,8 +42,19 @@ public class Util {
 		}
 		return result;
 	}
+	
 	public static String parseStringLiteral(String lit) {
-		return lit.substring(1, lit.length()-1);
+		return StringEscapeUtils.unescapeJava(lit.substring(1, lit.length()-1));
+	}
+	
+	public static String parseIntegerLiteral(String lit) {
+		if (lit.startsWith("0x") || lit.startsWith("0X")) {
+			return Long.toString(Long.parseLong(lit.substring(2),16));
+		}
+		if (lit.startsWith("0")) {
+			return Long.toString(Long.parseLong(lit,8));
+		}
+		return Long.toString(Long.parseLong(lit));
 	}
 	
 	public static String indent(String text) {
@@ -49,6 +62,22 @@ public class Util {
 	}
 	public static String stripTrailingNewline(String text) {
 		return text.replaceFirst("\n$", ""); 
+	}
+
+	public static String parseFloatLiteral(String string) {
+		return "";
+	}
+
+	public static String parseCharLiteral(String string) {
+		return "";
+	}
+
+	public static String parseLongLiteral(String lit) {
+		return parseIntegerLiteral(lit.substring(0, lit.length()-1));
+	}
+
+	public static String parseDoubleLiteral(String string) {
+		return "";
 	}
 	
 }

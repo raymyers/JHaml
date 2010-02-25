@@ -62,6 +62,7 @@ element returns [String rendering] @init {String content = ""; boolean selfClosi
 line returns [String rendering] @init { $rendering = ""; } :
   element {$rendering = $element.rendering;}
   | TEXT {$rendering = $TEXT.text;} NEWLINE
+  | NEWLINE
   ;
 
 elementDeclaration returns [String type, Map<String,String> attrMap] @init {$attrMap = new LinkedHashMap<String,String>();}:
@@ -102,7 +103,13 @@ attrMapping returns [String key, String value]:
 };
 
 attrValue returns [String value]
-: StringLiteral {$value = Util.parseStringLiteral($StringLiteral.text);};
+: lit=StringLiteral {$value = Util.parseStringLiteral($lit.text);} |
+  lit=INTLITERAL {$value = Util.parseIntegerLiteral($lit.text);} |
+  lit=LONGLITERAL {$value = Util.parseLongLiteral($lit.text);} |
+  lit=CHARLITERAL {$value = Util.parseCharLiteral($lit.text);} |
+  lit=FLOATLITERAL {$value = Util.parseFloatLiteral($lit.text);} |
+  lit=DOUBLELITERAL {$value = Util.parseDoubleLiteral($lit.text);}
+  ;
 
 idSpecifier returns [String id]: POUND ID {$id = $ID.text;};
 
@@ -115,7 +122,6 @@ PERCENT: { beginningOfLine }?=> '%' {textMode = false;};
 FORWARD_SLASH: { !textMode }?=> '/';
 COMMA: { !textMode }?=> ',';
 ID  : { !textMode }?=> ('a'..'z'|'A'..'Z')+;
-INT : { !textMode }?=>  '0'..'9'+;
 // NEWLINE: ('\r'? '\n') {textMode = true; beginningOfLine=true;};
 
 BEGIN_HASH: { !textMode }?=>
@@ -158,9 +164,89 @@ fragment SpacesQ: (' ')*;
 fragment Spaces: (' ')+;
 
 StringLiteral: { !textMode }?=>
-    '"' ( EscapeSequence | ~('\\'|'"') )* '"'
+    '"' ( EscapeSequence | ~('\\' | '"' | '\r' | '\n' ) )* '"'
   ;
 
+LONGLITERAL
+    :   IntegerNumber LongSuffix
+    ;
+
+    
+INTLITERAL
+    :   IntegerNumber 
+    ;
+    
+fragment
+IntegerNumber
+    :   '0' 
+    |   '1'..'9' ('0'..'9')*    
+    |   '0' ('0'..'7')+         
+    |   HexPrefix HexDigit+        
+    ;
+
+fragment
+HexPrefix
+    :   '0x' | '0X'
+    ;
+        
+fragment
+HexDigit
+    :   ('0'..'9'|'a'..'f'|'A'..'F')
+    ;
+
+fragment
+LongSuffix
+    :   'l' | 'L'
+    ;
+
+
+fragment
+NonIntegerNumber
+    :   ('0' .. '9')+ '.' ('0' .. '9')* Exponent?  
+    |   '.' ( '0' .. '9' )+ Exponent?  
+    |   ('0' .. '9')+ Exponent  
+    |   ('0' .. '9')+ 
+    |   
+        HexPrefix (HexDigit )* 
+        (    () 
+        |    ('.' (HexDigit )* ) 
+        ) 
+        ( 'p' | 'P' ) 
+        ( '+' | '-' )? 
+        ( '0' .. '9' )+
+        ;
+        
+fragment 
+Exponent    
+    :   ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ 
+    ;
+    
+fragment 
+FloatSuffix
+    :   'f' | 'F' 
+    ;     
+
+fragment
+DoubleSuffix
+    :   'd' | 'D'
+    ;
+        
+FLOATLITERAL
+    :   NonIntegerNumber FloatSuffix
+    ;
+    
+DOUBLELITERAL
+    :   NonIntegerNumber DoubleSuffix?
+    ;
+
+CHARLITERAL
+    :   '\'' 
+        (   EscapeSequence 
+        |   ~( '\'' | '\\' | '\r' | '\n' )
+        ) 
+        '\''
+    ;
+    
 fragment
 EscapeSequence
   :   '\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
@@ -179,9 +265,6 @@ fragment
 UnicodeEscape
   :   '\\' 'u' HexDigit HexDigit HexDigit HexDigit
   ;
-
-fragment
-HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;
 
 TEXT: { textMode }?=>
       (~('.' | '#' | '%' | '\r' | '\n' | ' '))
