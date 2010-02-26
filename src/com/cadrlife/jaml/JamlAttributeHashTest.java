@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.cadrlife.jaml.JamlParser.attrHash_return;
 
 public class JamlAttributeHashTest {
+	private JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
 	
 	@Test
 	public void string() {
@@ -72,7 +73,7 @@ public class JamlAttributeHashTest {
 	private Map<String, String> readAttrs(String input) {
 		try {
 			
-			CommonTokenStream tokens = Jaml.tokenize("%p" + input);
+			CommonTokenStream tokens = jamlParserWrapper.tokenizeJaml("%p" + input);
 			tokens.getTokens().remove(0);
 			tokens.getTokens().remove(0);
 			JamlParser parser = new JamlParser(tokens);
