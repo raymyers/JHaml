@@ -30,10 +30,15 @@ lexer grammar">
                       fork="true">
                    <arg line="${tool.options} ${antlrdir}/${jaml.grammar.name}.g" />
                 </java>
+       			<java classname="org.antlr.Tool"
+       	                      classpathref="ANTLR.classpath"
+       	                      fork="true">
+       	                   <arg line="${tool.options} ${antlrdir}/${jaml.grammar.name}AttrHash.g" />
+       	                </java>
                 <!-- Move generated Java code to the correct package directory. -->
                 <move todir="${srcdir}/${jaml.parse.package}">
                    <fileset dir="${antlrdir}" includes="*.java" />
-                   <fileset dir="${antlrdir}" includes="*.tokens" />
+                   <fileset dir="" includes="*.tokens" />
                 </move>
              </target>
     <target name="antlr-java"

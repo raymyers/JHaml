@@ -5,18 +5,22 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.util.Map;
 
+import org.antlr.runtime.ANTLRInputStream;
+import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.junit.Test;
 
 import com.cadrlife.jaml.JamlParser.attrHash_return;
+import com.cadrlife.jaml.JamlParser.elementDeclaration_return;
+import com.cadrlife.util.StringInputStream;
 
 public class JamlAttributeHashTest {
-	private JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
 	
 	@Test
 	public void string() {
 		String input = "{:a => \"Hello World\"}";
+//		Util.parseAttrHash(":a => \"Hello World\"");
 		assertEquals("Hello World", readAttrs(input).get("a"));
 	}
 	
@@ -70,17 +74,32 @@ public class JamlAttributeHashTest {
 		assertEquals("42", readAttrs(input).get("1"));
 	}
 	
+	@Test
+	public void bracesWithinValues() {
+		// Broken in Haml 2.09 -- Ray
+		assertEquals("}{", readAttrs("{\"1\" => \"}{\"}").get("1"));
+		assertEquals("{", readAttrs("{\"1\" => '{'}").get("1"));
+	}
+	
+//	@Test
+//	public void 
+	
 	private Map<String, String> readAttrs(String input) {
 		try {
 			
-			CommonTokenStream tokens = jamlParserWrapper.tokenizeJaml("%p" + input);
-			tokens.getTokens().remove(0);
-			tokens.getTokens().remove(0);
+			JamlLexer lexer = new JamlLexer(new ANTLRInputStream(
+					new StringInputStream(("%p" + input))));
+			CommonTokenStream tokens = new CommonTokenStream(lexer);
+//			System.out.println(((CommonToken) tokens.getTokens().get(0)).getText());
+//			tokens.consume();
+//			tokens.consume();
+//			tokens.getTokens().remove(0);
+//			tokens.getTokens().remove(0);
 			JamlParser parser = new JamlParser(tokens);
+			elementDeclaration_return prog = parser.elementDeclaration();
 			if (parser.failed()) {
 				throw new RuntimeException();
 			}
-			attrHash_return prog = parser.attrHash();
 			return prog.attrMap;
 		} catch (RecognitionException e) {
 			throw new RuntimeException(e);

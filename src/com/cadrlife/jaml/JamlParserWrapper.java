@@ -1,12 +1,12 @@
 package com.cadrlife.jaml;
 
 import java.io.IOException;
-import java.io.StringBufferInputStream;
 
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 
+import com.cadrlife.jaml.JamlAttrHashParser.attrMappings_return;
 import com.cadrlife.jaml.JamlParser.prog_return;
 import com.cadrlife.util.StringInputStream;
 import com.habelitz.jsobjectizer.unmarshaller.antlrbridge.generated.JavaLexer;
@@ -30,6 +30,29 @@ public class JamlParserWrapper {
 		expression_return expression = parser.expression();
 		throwForParseErrors(parser);
 		return expression;
+	}
+	
+	public attrMappings_return parseJamlAttrHash(String input)
+		throws IOException, RecognitionException {
+		input += "\n";
+		JamlAttrHashLexer lexer = new JamlAttrHashLexer(new ANTLRInputStream(
+				new StringInputStream(input)));
+		CommonTokenStream tokens1 = new CommonTokenStream(lexer);
+		CommonTokenStream tokens = tokens1;
+			JamlAttrHashParser parser = new JamlAttrHashParser(tokens);
+			parser.enableErrorMessageCollection(true);
+		attrMappings_return attrMappings = parser.attrMappings();
+		throwForParseErrors(parser);
+		return attrMappings;
+	}
+
+	private void throwForParseErrors(JamlAttrHashParser parser) {
+		if (parser.failed() || !parser.getMessages().isEmpty()) {
+			for (String msg : parser.getMessages()) {
+				System.err.println(msg);
+			}
+			throw new RuntimeException();
+		}
 	}
 
 	public prog_return parseJaml(String input) throws IOException,

@@ -66,13 +66,13 @@ line returns [String rendering] @init { $rendering = ""; } :
   | NEWLINE
   ;
 
-elementDeclaration returns [String type, Map<String,String> attrMap] @init {$attrMap = new LinkedHashMap<String,String>();}:
-  ((a1=divAttrs {$attrMap.putAll($a1.attrMap); $type = "div";})
-   (attrHash {$attrMap.putAll($attrHash.attrMap);})?)
+elementDeclaration returns [String type, Map<String,String> attrMap] 
+  @init {$attrMap = new LinkedHashMap<String,String>();}:
+  (a1=divAttrs[$attrMap] {$type = "div";} attrHash[$attrMap]?)
 | 
  (
-  (a2=attrs {$attrMap.putAll($a2.attrMap); $type = $a2.type;}) 
-  (attrHash {$attrMap.putAll($attrHash.attrMap);})?) 
+  a2=attrs[$attrMap] {$type = $a2.type;} 
+  attrHash[$attrMap]?) 
   ;
 
 content returns [String rendering] @init { $rendering = ""; } :
@@ -83,46 +83,38 @@ DEDENT
 ;
 //line: TEXT {System.out.println($TEXT.text);};
 
-attrs returns [Map<String,String> attrMap, String type] @init {$attrMap = new LinkedHashMap<String,String>();}:
+attrs[Map<String,String> attrMap] returns [String type]:
 PERCENT ID {$type = $ID.text;}
 (idSpecifier {$attrMap.put("id", $idSpecifier.id);} |
  classSpecifier {$attrMap.put("class", $classSpecifier.klass);})*;
 
-divAttrs returns [Map<String,String> attrMap] @init {$attrMap = new LinkedHashMap<String,String>();}:
+divAttrs[Map<String,String> attrMap] :
 (idSpecifier {$attrMap.put("id", $idSpecifier.id);} |
  classSpecifier {$attrMap.put("class", $classSpecifier.klass);})+;
 
-attrHash returns [Map<String,String> attrMap] @init {$attrMap = new LinkedHashMap<String,String>();}:
-  BEGIN_HASH
-  ( am1=attrMapping        {$attrMap.put($am1.key, $am1.value);}
-    (COMMA am2=attrMapping {$attrMap.put($am2.key, $am2.value);})*)?
-  END_HASH;
+attrHash[Map<String,String> attrMap] :
+  BEGIN_HASH {System.out.println("BEGIN " + $text);}
+  hashAttrs 
+  END_HASH {Util.parseAttrHash($hashAttrs.contents, $attrMap);};
 
-attrMapping returns [String key, String value]:
- (':' ID {$key = $ID.text;} | attr=literal {$key = $attr.value;}) 
-  '=' '>' 
-  attrVal=literal {$value = $attrVal.value;};
+hashAttrs returns [String contents] @init {$contents="";} :
+(notEndHash {$contents += $notEndHash.text;})*;
 
-literal returns [String value]
-: lit=StringLiteral {$value = Util.parseStringLiteral($lit.text);} |
-  lit=INTLITERAL {$value = Util.parseIntegerLiteral($lit.text);} |
-  lit=LONGLITERAL {$value = Util.parseLongLiteral($lit.text);} |
-  lit=CHARLITERAL {$value = Util.parseCharLiteral($lit.text);} |
-  lit=FLOATLITERAL {$value = Util.parseFloatLiteral($lit.text);} |
-  lit=DOUBLELITERAL {$value = Util.parseDoubleLiteral($lit.text);}
-  ;
+notEndHash : (~END_HASH) {System.out.println("() " + $notEndHash.text);};
 
 idSpecifier returns [String id]: POUND ID {$id = $ID.text;};
 
 classSpecifier returns [String klass]:
 DOT ID {$klass = $ID.text;};
 
+// LEXER
+
 POUND: { beginningOfLine }?=> '#' {textMode = false;};
 DOT: { beginningOfLine }?=> '.' {textMode = false;};
 PERCENT: { beginningOfLine }?=> '%' {textMode = false;};
 FORWARD_SLASH: { !textMode }?=> '/';
 COMMA: { !textMode }?=> ',';
-ID  : { !textMode }?=> ('a'..'z'|'A'..'Z')+;
+ID  : { !textMode }?=> ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*;
 // NEWLINE: ('\r'? '\n') {textMode = true; beginningOfLine=true;};
 
 WS : { !textMode }?=>
@@ -264,6 +256,22 @@ TEXT: { textMode }?=>
       (~('.' | '#' | '%' | '\r' | '\n' | ' '))
       (~('\r' | '\n'))*
       {beginningOfLine=false;};
+      
+HASH_CONTENTS: { hashMode }?=>
+      (~('"' | '\'' | '{' | '}'));
 
-BEGIN_HASH  : { !textMode }?=> '{' {braceDepth++; hashMode=true;};
-END_HASH  : { hashMode }?=> '}' {if (--braceDepth == 0) hashMode=false;};
+//EQUALS  : { hashMode }?=> ;
+BEGIN_HASH  : { !textMode && braceDepth == 0 }?=> LBRACE {hashMode=true;};
+END_HASH  : { braceDepth == 1 }?=> RBRACE {hashMode=false;};
+
+JAVA_LBRACE : { hashMode }?=> LBRACE;
+JAVA_RBRACE : { braceDepth > 1 }?=>  RBRACE;
+
+fragment LBRACE : { !textMode }?=> '{' {braceDepth++;};
+fragment RBRACE  : { hashMode }?=> '}' {braceDepth--;};
+
+// These tokens get emitted by the CHANGE_INDENTATION rule.
+// They only have their own lexer rules to shut up ANTLR's warnings.
+NEWLINE : {false}?=> ' ';
+INDENT : {false}?=> ' ';
+DEDENT : {false}?=> ' ';

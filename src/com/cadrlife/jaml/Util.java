@@ -4,6 +4,8 @@ import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
+import com.cadrlife.jaml.JamlAttrHashParser.attrMappings_return;
+
 
 public class Util {
 	public static String elem(String el, String attribString, String content) {
@@ -43,11 +45,23 @@ public class Util {
 		return result;
 	}
 	
+	public static void parseAttrHash(String input, Map<String, String> attrMap) {
+		System.out.println(">>> "+ input);
+		JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
+		try {
+			attrMappings_return parseJamlAttrHash = jamlParserWrapper.parseJamlAttrHash(input);
+			attrMap.putAll(parseJamlAttrHash.attrMap);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public static String parseStringLiteral(String lit) {
 		return StringEscapeUtils.unescapeJava(lit.substring(1, lit.length()-1));
 	}
 	
 	public static String parseIntegerLiteral(String lit) {
+		lit = lit.replaceAll("(l|L)$", "");
 		if (lit.startsWith("0x") || lit.startsWith("0X")) {
 			return Long.toString(Long.parseLong(lit.substring(2),16));
 		}
