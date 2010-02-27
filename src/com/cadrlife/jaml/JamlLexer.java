@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-02-26 19:39:32
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-02-26 20:19:37
 
 package com.cadrlife.jaml;
 
@@ -293,7 +293,7 @@ public class JamlLexer extends Lexer {
                 throw new FailedPredicateException(input, "WS", " !textMode ");
             }
             mSpaces(); 
-            skip(); if (!hashMode ) textMode=true;
+            if (!hashMode ) { skip(); textMode=true; }
 
             }
 
@@ -319,7 +319,6 @@ public class JamlLexer extends Lexer {
                 throw new FailedPredicateException(input, "IGNORED_NEWLINE", " hashMode ");
             }
             mNL(); 
-            skip();
 
             }
 
@@ -2325,7 +2324,7 @@ public class JamlLexer extends Lexer {
     protected DFA24 dfa24 = new DFA24(this);
     protected DFA32 dfa32 = new DFA32(this);
     static final String DFA24_eotS =
-        "\1\uffff\1\5\1\uffff\1\5\4\uffff";
+        "\1\uffff\1\7\1\uffff\1\7\4\uffff";
     static final String DFA24_eofS =
         "\10\uffff";
     static final String DFA24_minS =
@@ -2333,15 +2332,15 @@ public class JamlLexer extends Lexer {
     static final String DFA24_maxS =
         "\1\71\1\170\1\uffff\1\145\4\uffff";
     static final String DFA24_acceptS =
-        "\2\uffff\1\2\1\uffff\1\5\1\4\1\1\1\3";
+        "\2\uffff\1\2\1\uffff\1\5\1\3\1\1\1\4";
     static final String DFA24_specialS =
         "\10\uffff}>";
     static final String[] DFA24_transitionS = {
             "\1\2\1\uffff\1\1\11\3",
-            "\1\6\1\uffff\12\3\13\uffff\1\7\22\uffff\1\4\14\uffff\1\7\22"+
+            "\1\6\1\uffff\12\3\13\uffff\1\5\22\uffff\1\4\14\uffff\1\5\22"+
             "\uffff\1\4",
             "",
-            "\1\6\1\uffff\12\3\13\uffff\1\7\37\uffff\1\7",
+            "\1\6\1\uffff\12\3\13\uffff\1\5\37\uffff\1\5",
             "",
             "",
             "",
@@ -2382,47 +2381,47 @@ public class JamlLexer extends Lexer {
         }
     }
     static final String DFA32_eotS =
-        "\1\uffff\1\21\1\23\1\24\1\26\1\27\1\31\1\32\1\35\1\36\1\25\2\46"+
-        "\1\25\1\60\1\61\1\62\1\uffff\1\65\5\uffff\1\73\3\uffff\1\100\3\uffff"+
-        "\2\25\1\106\2\25\1\112\1\uffff\1\46\1\25\1\115\1\120\1\121\1\122"+
-        "\1\46\2\25\22\uffff\4\25\1\uffff\1\142\2\25\1\uffff\1\25\1\146\1"+
-        "\uffff\1\147\1\25\3\uffff\4\25\1\156\5\uffff\1\65\3\25\2\uffff\1"+
-        "\25\1\161\1\25\2\uffff\1\25\1\162\1\uffff\3\25\1\uffff\2\25\2\uffff"+
-        "\2\25\1\uffff\4\25";
+        "\1\uffff\1\21\1\23\1\24\1\25\1\27\1\30\1\32\1\35\1\36\1\26\2\51"+
+        "\1\26\1\60\1\61\1\62\1\uffff\1\65\6\uffff\1\74\2\uffff\1\100\3\uffff"+
+        "\2\26\1\106\2\26\1\112\1\51\1\26\1\117\1\uffff\1\120\1\121\1\122"+
+        "\1\51\2\26\22\uffff\4\26\1\uffff\1\142\2\26\1\uffff\1\146\2\26\1"+
+        "\151\4\uffff\4\26\1\156\5\uffff\1\65\3\26\2\uffff\1\26\1\161\1\26"+
+        "\1\uffff\1\26\1\162\2\uffff\3\26\1\uffff\2\26\2\uffff\2\26\1\uffff"+
+        "\4\26";
     static final String DFA32_eofS =
         "\172\uffff";
     static final String DFA32_minS =
-        "\2\0\1\60\4\0\1\40\1\12\1\40\10\0\1\60\2\0\1\uffff\5\0\1\uffff\1"+
-        "\40\1\uffff\1\0\1\uffff\1\42\2\0\2\56\1\0\1\uffff\1\0\1\53\5\0\1"+
-        "\42\1\47\3\0\1\uffff\1\53\6\uffff\1\0\4\uffff\1\0\1\uffff\1\0\1"+
-        "\60\4\0\1\53\1\60\1\0\1\60\3\0\1\53\3\0\1\47\1\60\2\47\1\0\4\uffff"+
-        "\3\60\2\0\1\uffff\1\0\1\60\1\0\1\60\2\0\1\60\1\0\1\uffff\1\60\2"+
-        "\47\1\0\1\60\3\0\1\60\1\47\1\uffff\2\60\1\0\1\47";
+        "\2\0\1\60\4\0\1\40\1\12\1\40\10\0\1\60\3\0\1\uffff\4\0\1\uffff\1"+
+        "\40\1\uffff\1\0\1\uffff\1\42\2\0\2\56\2\0\1\53\1\0\1\uffff\4\0\1"+
+        "\42\1\47\3\0\1\uffff\1\53\7\uffff\1\0\3\uffff\1\0\1\uffff\1\0\1"+
+        "\60\4\0\1\53\1\60\2\0\1\53\1\60\5\0\1\47\1\60\2\47\1\0\4\uffff\3"+
+        "\60\2\0\1\uffff\1\0\1\60\1\0\1\60\1\0\1\60\2\0\1\uffff\1\60\2\47"+
+        "\1\0\1\60\3\0\1\60\1\47\1\uffff\2\60\1\0\1\47";
     static final String DFA32_maxS =
-        "\1\uffff\1\0\1\71\1\0\3\uffff\1\40\1\12\1\40\7\uffff\1\0\1\146\2"+
-        "\0\1\uffff\2\0\1\uffff\2\0\1\uffff\1\40\1\uffff\1\0\1\uffff\1\165"+
-        "\2\uffff\2\160\1\uffff\1\uffff\1\uffff\1\71\5\uffff\1\165\1\47\3"+
-        "\0\1\uffff\1\71\6\uffff\1\0\4\uffff\1\0\1\uffff\1\uffff\1\146\2"+
-        "\uffff\1\0\1\uffff\1\71\1\160\1\0\1\71\1\uffff\1\0\1\uffff\1\71"+
-        "\3\0\1\47\1\146\2\67\1\uffff\4\uffff\1\71\2\146\2\uffff\1\uffff"+
-        "\1\0\1\71\1\uffff\1\160\2\0\1\71\1\uffff\1\uffff\1\146\1\67\1\47"+
-        "\1\0\1\146\1\uffff\2\0\1\146\1\47\1\uffff\2\146\1\uffff\1\47";
+        "\1\uffff\1\0\1\71\1\0\3\uffff\1\40\1\12\1\40\7\uffff\1\0\1\146\3"+
+        "\0\1\uffff\2\0\1\uffff\1\0\1\uffff\1\40\1\uffff\1\0\1\uffff\1\165"+
+        "\2\uffff\2\160\2\uffff\1\71\1\uffff\1\uffff\4\uffff\1\165\1\47\3"+
+        "\0\1\uffff\1\71\7\uffff\1\0\3\uffff\1\0\1\uffff\1\uffff\1\146\2"+
+        "\uffff\1\0\1\uffff\1\71\1\160\1\0\1\uffff\2\71\1\uffff\4\0\1\47"+
+        "\1\146\2\67\1\uffff\4\uffff\1\71\2\146\2\uffff\1\uffff\1\0\1\71"+
+        "\1\uffff\1\160\1\0\1\71\1\uffff\1\0\1\uffff\1\146\1\67\1\47\1\0"+
+        "\1\146\1\uffff\2\0\1\146\1\47\1\uffff\2\146\1\uffff\1\47";
     static final String DFA32_acceptS =
-        "\25\uffff\1\20\5\uffff\1\7\1\uffff\1\21\1\uffff\1\11\6\uffff\1\14"+
-        "\14\uffff\1\1\1\uffff\1\16\1\15\1\2\1\3\1\4\1\5\1\uffff\1\6\1\26"+
-        "\1\27\1\30\1\uffff\1\10\26\uffff\1\22\1\24\1\23\1\25\5\uffff\1\12"+
-        "\10\uffff\1\13\12\uffff\1\17\4\uffff";
+        "\26\uffff\1\20\4\uffff\1\7\1\uffff\1\21\1\uffff\1\11\11\uffff\1"+
+        "\14\11\uffff\1\1\1\uffff\1\16\1\15\1\2\1\3\1\4\1\5\1\6\1\uffff\1"+
+        "\26\1\27\1\30\1\uffff\1\10\26\uffff\1\22\1\24\1\23\1\25\5\uffff"+
+        "\1\12\10\uffff\1\13\12\uffff\1\17\4\uffff";
     static final String DFA32_specialS =
-        "\1\34\1\115\1\76\1\53\1\55\1\41\1\30\1\50\1\4\1\5\1\12\1\37\1\27"+
-        "\1\23\1\116\1\127\1\113\1\67\1\uffff\1\66\1\65\1\uffff\1\6\1\10"+
-        "\1\126\1\11\1\62\1\uffff\1\44\1\uffff\1\15\1\uffff\1\21\1\61\1\52"+
-        "\1\40\1\32\1\20\1\uffff\1\117\1\105\1\134\1\26\1\46\1\71\1\7\1\45"+
-        "\1\123\1\114\1\0\1\2\10\uffff\1\64\4\uffff\1\70\1\uffff\1\14\1\131"+
-        "\1\54\1\36\1\106\1\22\1\25\1\121\1\77\1\43\1\17\1\100\1\33\1\107"+
-        "\1\101\1\104\1\111\1\16\1\125\1\47\1\63\1\124\6\uffff\1\133\1\24"+
-        "\1\56\1\uffff\1\103\1\132\1\110\1\31\1\75\1\74\1\42\1\35\1\uffff"+
-        "\1\13\1\57\1\112\1\102\1\130\1\60\1\73\1\72\1\3\1\51\1\uffff\1\135"+
-        "\1\1\1\122\1\120}>";
+        "\1\46\1\112\1\57\1\123\1\100\1\44\1\15\1\33\1\133\1\117\1\115\1"+
+        "\116\1\52\1\37\1\126\1\6\1\104\1\54\1\uffff\1\53\1\64\1\11\1\uffff"+
+        "\1\12\1\13\1\120\1\65\1\uffff\1\24\1\uffff\1\10\1\uffff\1\1\1\125"+
+        "\1\31\1\103\1\134\1\113\1\22\1\40\1\61\1\uffff\1\34\1\21\1\111\1"+
+        "\50\1\25\1\102\1\66\1\3\1\4\11\uffff\1\63\3\uffff\1\55\1\uffff\1"+
+        "\105\1\45\1\14\1\20\1\62\1\26\1\5\1\2\1\73\1\131\1\41\1\36\1\30"+
+        "\1\101\1\74\1\75\1\60\1\23\1\135\1\124\1\43\1\0\6\uffff\1\106\1"+
+        "\121\1\114\1\uffff\1\77\1\42\1\32\1\56\1\72\1\35\1\17\1\71\1\uffff"+
+        "\1\130\1\27\1\51\1\76\1\107\1\122\1\70\1\67\1\127\1\47\1\uffff\1"+
+        "\110\1\132\1\7\1\16}>";
     static final String[] DFA32_transitionS = {
             "\12\16\1\11\2\16\1\10\22\16\1\7\1\16\1\12\1\1\1\16\1\3\1\16"+
             "\1\15\4\16\1\5\1\16\1\2\1\4\1\13\11\14\7\16\32\6\6\16\32\6\1"+
@@ -2430,34 +2429,34 @@ public class JamlLexer extends Lexer {
             "\1\uffff",
             "\12\22",
             "\1\uffff",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
-            "\12\25\1\uffff\2\25\1\uffff\42\25\12\30\7\25\32\30\6\25\32"+
-            "\30\uff85\25",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
+            "\12\26\1\uffff\2\26\1\uffff\42\26\12\31\7\26\32\31\6\26\32"+
+            "\31\uff85\26",
             "\1\33",
             "\1\34",
             "\1\37",
             "\12\41\1\uffff\2\41\1\uffff\24\41\1\42\71\41\1\40\uffa3\41",
-            "\12\25\1\uffff\2\25\1\uffff\40\25\1\52\1\25\10\47\2\51\12\25"+
-            "\1\45\1\50\1\53\5\25\1\54\13\25\1\44\13\25\1\45\1\50\1\53\5"+
-            "\25\1\54\13\25\1\43\uff87\25",
-            "\12\25\1\uffff\2\25\1\uffff\40\25\1\52\1\25\12\55\12\25\1\45"+
-            "\1\50\1\53\5\25\1\54\27\25\1\45\1\50\1\53\5\25\1\54\uff93\25",
+            "\12\26\1\uffff\2\26\1\uffff\40\26\1\45\1\26\10\46\2\52\12\26"+
+            "\1\53\1\47\1\50\5\26\1\54\13\26\1\44\13\26\1\53\1\47\1\50\5"+
+            "\26\1\54\13\26\1\43\uff87\26",
+            "\12\26\1\uffff\2\26\1\uffff\40\26\1\45\1\26\12\55\12\26\1\53"+
+            "\1\47\1\50\5\26\1\54\27\26\1\53\1\47\1\50\5\26\1\54\uff93\26",
             "\12\57\1\uffff\2\57\1\uffff\31\57\1\uffff\64\57\1\56\uffa3"+
             "\57",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
             "\1\uffff",
             "\12\22\13\uffff\1\64\1\66\36\uffff\1\64\1\66",
+            "\1\uffff",
             "\1\uffff",
             "\1\uffff",
             "",
             "\1\uffff",
             "\1\uffff",
-            "\12\25\1\uffff\2\25\1\uffff\42\25\12\30\7\25\32\30\6\25\32"+
-            "\30\uff85\25",
-            "\1\uffff",
+            "\12\26\1\uffff\2\26\1\uffff\42\26\12\31\7\26\32\31\6\26\32"+
+            "\31\uff85\26",
             "\1\uffff",
             "",
             "\1\37",
@@ -2468,25 +2467,25 @@ public class JamlLexer extends Lexer {
             "\uffff\1\102\3\uffff\1\102\7\uffff\1\102\3\uffff\1\102\1\uffff"+
             "\1\102\1\103",
             "\12\41\1\uffff\2\41\1\uffff\24\41\1\42\71\41\1\40\uffa3\41",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
             "\1\111\1\uffff\12\107\7\uffff\6\107\11\uffff\1\110\20\uffff"+
             "\6\107\11\uffff\1\110",
             "\1\111\1\uffff\12\107\7\uffff\6\107\11\uffff\1\110\20\uffff"+
             "\6\107\11\uffff\1\110",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
+            "\12\26\1\uffff\2\26\1\uffff\42\26\12\113\12\26\1\53\1\114\1"+
+            "\50\35\26\1\53\1\114\1\50\uff99\26",
+            "\12\26\1\uffff\2\26\1\uffff\40\26\1\45\1\26\10\46\2\52\12\26"+
+            "\1\53\1\47\1\50\5\26\1\54\27\26\1\53\1\47\1\50\5\26\1\54\uff93"+
+            "\26",
+            "\1\115\1\uffff\1\115\2\uffff\12\116",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
             "",
-            "\12\25\1\uffff\2\25\1\uffff\40\25\1\52\1\25\10\47\2\51\12\25"+
-            "\1\45\1\50\1\53\5\25\1\54\27\25\1\45\1\50\1\53\5\25\1\54\uff93"+
-            "\25",
-            "\1\113\1\uffff\1\113\2\uffff\12\114",
-            "\12\25\1\uffff\2\25\1\uffff\40\25\1\52\1\25\12\51\12\25\1\45"+
-            "\1\50\1\53\35\25\1\45\1\50\1\53\uff99\25",
-            "\12\25\1\uffff\2\25\1\uffff\42\25\12\116\12\25\1\45\1\117\1"+
-            "\53\35\25\1\45\1\117\1\53\uff99\25",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
-            "\12\25\1\uffff\2\25\1\uffff\40\25\1\52\1\25\12\55\12\25\1\45"+
-            "\1\50\1\53\5\25\1\54\27\25\1\45\1\50\1\53\5\25\1\54\uff93\25",
+            "\12\26\1\uffff\2\26\1\uffff\40\26\1\45\1\26\12\52\12\26\1\53"+
+            "\1\47\1\50\35\26\1\53\1\47\1\50\uff99\26",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
+            "\12\26\1\uffff\2\26\1\uffff\40\26\1\45\1\26\12\55\12\26\1\53"+
+            "\1\47\1\50\5\26\1\54\27\26\1\53\1\47\1\50\5\26\1\54\uff93\26",
             "\1\123\4\uffff\1\123\10\uffff\4\125\4\126\44\uffff\1\123\5"+
             "\uffff\1\123\3\uffff\1\123\7\uffff\1\123\3\uffff\1\123\1\uffff"+
             "\1\123\1\124",
@@ -2502,8 +2501,8 @@ public class JamlLexer extends Lexer {
             "",
             "",
             "",
-            "\1\uffff",
             "",
+            "\1\uffff",
             "",
             "",
             "",
@@ -2516,20 +2515,20 @@ public class JamlLexer extends Lexer {
             "\12\41\1\uffff\2\41\1\uffff\24\41\1\42\15\41\10\140\44\41\1"+
             "\40\uffa3\41",
             "\1\uffff",
-            "\12\25\1\uffff\2\25\1\uffff\40\25\1\111\1\25\12\107\7\25\6"+
-            "\107\5\25\1\54\3\25\1\110\20\25\6\107\5\25\1\54\3\25\1\110\uff8f"+
-            "\25",
+            "\12\26\1\uffff\2\26\1\uffff\40\26\1\111\1\26\12\107\7\26\6"+
+            "\107\5\26\1\54\3\26\1\110\20\26\6\107\5\26\1\54\3\26\1\110\uff8f"+
+            "\26",
             "\1\143\1\uffff\1\143\2\uffff\12\144",
             "\12\145\7\uffff\6\145\11\uffff\1\110\20\uffff\6\145\11\uffff"+
             "\1\110",
             "\1\uffff",
-            "\12\114",
-            "\12\25\1\uffff\2\25\1\uffff\42\25\12\114\12\25\1\45\1\25\1"+
-            "\53\35\25\1\45\1\25\1\53\uff99\25",
+            "\12\26\1\uffff\2\26\1\uffff\42\26\12\113\12\26\1\53\1\114\1"+
+            "\50\35\26\1\53\1\114\1\50\uff99\26",
+            "\1\147\1\uffff\1\147\2\uffff\12\150",
+            "\12\116",
+            "\12\26\1\uffff\2\26\1\uffff\42\26\12\116\12\26\1\53\1\26\1"+
+            "\50\35\26\1\53\1\26\1\50\uff99\26",
             "\1\uffff",
-            "\12\25\1\uffff\2\25\1\uffff\42\25\12\116\12\25\1\45\1\117\1"+
-            "\53\35\25\1\45\1\117\1\53\uff99\25",
-            "\1\150\1\uffff\1\150\2\uffff\12\151",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -2537,7 +2536,7 @@ public class JamlLexer extends Lexer {
             "\12\153\7\uffff\6\153\32\uffff\6\153",
             "\1\127\10\uffff\10\154",
             "\1\127\10\uffff\10\155",
-            "\12\25\1\uffff\2\25\1\uffff\ufff2\25",
+            "\12\26\1\uffff\2\26\1\uffff\ufff2\26",
             "",
             "",
             "",
@@ -2551,15 +2550,15 @@ public class JamlLexer extends Lexer {
             "",
             "\1\uffff",
             "\12\144",
-            "\12\25\1\uffff\2\25\1\uffff\42\25\12\144\12\25\1\45\1\25\1"+
-            "\53\35\25\1\45\1\25\1\53\uff99\25",
+            "\12\26\1\uffff\2\26\1\uffff\42\26\12\144\12\26\1\53\1\26\1"+
+            "\50\35\26\1\53\1\26\1\50\uff99\26",
             "\12\145\7\uffff\6\145\11\uffff\1\110\20\uffff\6\145\11\uffff"+
             "\1\110",
             "\1\uffff",
+            "\12\150",
+            "\12\26\1\uffff\2\26\1\uffff\42\26\12\150\12\26\1\53\1\26\1"+
+            "\50\35\26\1\53\1\26\1\50\uff99\26",
             "\1\uffff",
-            "\12\151",
-            "\12\25\1\uffff\2\25\1\uffff\42\25\12\151\12\25\1\45\1\25\1"+
-            "\53\35\25\1\45\1\25\1\53\uff99\25",
             "",
             "\12\163\7\uffff\6\163\32\uffff\6\163",
             "\1\127\10\uffff\10\164",
@@ -2615,13 +2614,66 @@ public class JamlLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA32_87 = input.LA(1);
+
+                         
+                        int index32_87 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_87>='\u0000' && LA32_87<='\t')||(LA32_87>='\u000B' && LA32_87<='\f')||(LA32_87>='\u000E' && LA32_87<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 110;
+
+                         
+                        input.seek(index32_87);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA32_32 = input.LA(1);
+
+                         
+                        int index32_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_32=='\"'||LA32_32=='\''||LA32_32=='\\'||LA32_32=='b'||LA32_32=='f'||LA32_32=='n'||LA32_32=='r'||LA32_32=='t') && ((( !textMode )||( textMode )))) {s = 66;}
+
+                        else if ( (LA32_32=='u') && ((( !textMode )||( textMode )))) {s = 67;}
+
+                        else if ( ((LA32_32>='0' && LA32_32<='3')) && ((( !textMode )||( textMode )))) {s = 68;}
+
+                        else if ( ((LA32_32>='4' && LA32_32<='7')) && ((( !textMode )||( textMode )))) {s = 69;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_32);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA32_73 = input.LA(1);
+
+                         
+                        int index32_73 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_73>='0' && LA32_73<='9')||(LA32_73>='A' && LA32_73<='F')||(LA32_73>='a' && LA32_73<='f')) ) {s = 101;}
+
+                        else if ( (LA32_73=='P'||LA32_73=='p') ) {s = 72;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_73);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
                         int LA32_49 = input.LA(1);
 
                          
                         int index32_49 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( textMode )) ) {s = 21;}
+                        if ( (( textMode )) ) {s = 22;}
 
                         else if ( ((( !textMode && braceDepth == 0 )&&( !textMode ))) ) {s = 88;}
 
@@ -2631,29 +2683,14 @@ public class JamlLexer extends Lexer {
                         input.seek(index32_49);
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
-                        int LA32_119 = input.LA(1);
-
-                         
-                        int index32_119 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_119>='0' && LA32_119<='9')||(LA32_119>='A' && LA32_119<='F')||(LA32_119>='a' && LA32_119<='f')) ) {s = 121;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_119);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
+                    case 4 : 
                         int LA32_50 = input.LA(1);
 
                          
                         int index32_50 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( textMode )) ) {s = 21;}
+                        if ( (( textMode )) ) {s = 22;}
 
                         else if ( ((( braceDepth == 1 )&&( hashMode ))) ) {s = 90;}
 
@@ -2663,183 +2700,58 @@ public class JamlLexer extends Lexer {
                         input.seek(index32_50);
                         if ( s>=0 ) return s;
                         break;
-                    case 3 : 
-                        int LA32_115 = input.LA(1);
-
-                         
-                        int index32_115 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_115>='0' && LA32_115<='9')||(LA32_115>='A' && LA32_115<='F')||(LA32_115>='a' && LA32_115<='f')) ) {s = 119;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_115);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA32_8 = input.LA(1);
-
-                         
-                        int index32_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_8=='\n') && ((( !hashMode )||( hashMode )))) {s = 28;}
-
-                        else s = 29;
-
-                         
-                        input.seek(index32_8);
-                        if ( s>=0 ) return s;
-                        break;
                     case 5 : 
-                        int LA32_9 = input.LA(1);
+                        int LA32_72 = input.LA(1);
 
                          
-                        int index32_9 = input.index();
+                        int index32_72 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_9==' ') && (( !hashMode ))) {s = 31;}
+                        if ( (LA32_72=='+'||LA32_72=='-') ) {s = 99;}
 
-                        else s = 30;
+                        else if ( ((LA32_72>='0' && LA32_72<='9')) ) {s = 100;}
+
+                        else s = 22;
 
                          
-                        input.seek(index32_9);
+                        input.seek(index32_72);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA32_22 = input.LA(1);
+                        int LA32_15 = input.LA(1);
 
                          
-                        int index32_22 = input.index();
+                        int index32_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( !textMode )) ) {s = 57;}
+                        if ( ((LA32_15>='\u0000' && LA32_15<='\t')||(LA32_15>='\u000B' && LA32_15<='\f')||(LA32_15>='\u000E' && LA32_15<='\uFFFF')) && (( textMode ))) {s = 22;}
 
-                        else if ( (( textMode )) ) {s = 21;}
-
-                        else if ( (( hashMode )) ) {s = 29;}
+                        else s = 49;
 
                          
-                        input.seek(index32_22);
+                        input.seek(index32_15);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA32_45 = input.LA(1);
+                        int LA32_120 = input.LA(1);
 
                          
-                        int index32_45 = input.index();
+                        int index32_120 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_45=='E'||LA32_45=='e') ) {s = 40;}
+                        if ( (LA32_120=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
 
-                        else if ( ((LA32_45>='0' && LA32_45<='9')) ) {s = 45;}
+                        else if ( (LA32_120=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
 
-                        else if ( (LA32_45=='D'||LA32_45=='d') ) {s = 37;}
+                        else if ( ((LA32_120>='\u0000' && LA32_120<='\t')||(LA32_120>='\u000B' && LA32_120<='\f')||(LA32_120>='\u000E' && LA32_120<='!')||(LA32_120>='#' && LA32_120<='[')||(LA32_120>=']' && LA32_120<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
 
-                        else if ( (LA32_45=='.') ) {s = 42;}
-
-                        else if ( (LA32_45=='L'||LA32_45=='l') ) {s = 44;}
-
-                        else if ( (LA32_45=='F'||LA32_45=='f') ) {s = 43;}
-
-                        else if ( ((LA32_45>='\u0000' && LA32_45<='\t')||(LA32_45>='\u000B' && LA32_45<='\f')||(LA32_45>='\u000E' && LA32_45<='-')||LA32_45=='/'||(LA32_45>=':' && LA32_45<='C')||(LA32_45>='G' && LA32_45<='K')||(LA32_45>='M' && LA32_45<='c')||(LA32_45>='g' && LA32_45<='k')||(LA32_45>='m' && LA32_45<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 38;
+                        else s = 22;
 
                          
-                        input.seek(index32_45);
+                        input.seek(index32_120);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA32_23 = input.LA(1);
-
-                         
-                        int index32_23 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( !textMode )) ) {s = 58;}
-
-                        else if ( (( textMode )) ) {s = 21;}
-
-                        else if ( (( hashMode )) ) {s = 29;}
-
-                         
-                        input.seek(index32_23);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA32_25 = input.LA(1);
-
-                         
-                        int index32_25 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( !textMode )) ) {s = 60;}
-
-                        else if ( (( textMode )) ) {s = 21;}
-
-                        else if ( (( hashMode )) ) {s = 29;}
-
-                         
-                        input.seek(index32_25);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA32_10 = input.LA(1);
-
-                         
-                        int index32_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_10=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
-
-                        else if ( ((LA32_10>='\u0000' && LA32_10<='\t')||(LA32_10>='\u000B' && LA32_10<='\f')||(LA32_10>='\u000E' && LA32_10<='!')||(LA32_10>='#' && LA32_10<='[')||(LA32_10>=']' && LA32_10<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else if ( (LA32_10=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA32_107 = input.LA(1);
-
-                         
-                        int index32_107 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_107>='0' && LA32_107<='9')||(LA32_107>='A' && LA32_107<='F')||(LA32_107>='a' && LA32_107<='f')) ) {s = 115;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_107);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA32_66 = input.LA(1);
-
-                         
-                        int index32_66 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_66=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
-
-                        else if ( (LA32_66=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
-
-                        else if ( ((LA32_66>='\u0000' && LA32_66<='\t')||(LA32_66>='\u000B' && LA32_66<='\f')||(LA32_66>='\u000E' && LA32_66<='!')||(LA32_66>='#' && LA32_66<='[')||(LA32_66>=']' && LA32_66<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_66);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 13 : 
                         int LA32_30 = input.LA(1);
 
                          
@@ -2856,7 +2768,197 @@ public class JamlLexer extends Lexer {
                         input.seek(index32_30);
                         if ( s>=0 ) return s;
                         break;
+                    case 9 : 
+                        int LA32_21 = input.LA(1);
+
+                         
+                        int index32_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( !textMode )) ) {s = 57;}
+
+                        else if ( (( textMode )) ) {s = 22;}
+
+                        else if ( (( hashMode )) ) {s = 29;}
+
+                         
+                        input.seek(index32_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA32_23 = input.LA(1);
+
+                         
+                        int index32_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( !textMode )) ) {s = 58;}
+
+                        else if ( (( textMode )) ) {s = 22;}
+
+                        else if ( (( hashMode )) ) {s = 29;}
+
+                         
+                        input.seek(index32_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA32_24 = input.LA(1);
+
+                         
+                        int index32_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( !textMode )) ) {s = 59;}
+
+                        else if ( (( textMode )) ) {s = 22;}
+
+                        else if ( (( hashMode )) ) {s = 29;}
+
+                         
+                        input.seek(index32_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA32_68 = input.LA(1);
+
+                         
+                        int index32_68 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_68>='0' && LA32_68<='7')) && ((( !textMode )||( textMode )))) {s = 95;}
+
+                        else if ( (LA32_68=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+
+                        else if ( (LA32_68=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+
+                        else if ( ((LA32_68>='\u0000' && LA32_68<='\t')||(LA32_68>='\u000B' && LA32_68<='\f')||(LA32_68>='\u000E' && LA32_68<='!')||(LA32_68>='#' && LA32_68<='/')||(LA32_68>='8' && LA32_68<='[')||(LA32_68>=']' && LA32_68<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_68);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA32_6 = input.LA(1);
+
+                         
+                        int index32_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_6>='0' && LA32_6<='9')||(LA32_6>='A' && LA32_6<='Z')||(LA32_6>='a' && LA32_6<='z')) && ((( !textMode )||( textMode )))) {s = 25;}
+
+                        else if ( ((LA32_6>='\u0000' && LA32_6<='\t')||(LA32_6>='\u000B' && LA32_6<='\f')||(LA32_6>='\u000E' && LA32_6<='/')||(LA32_6>=':' && LA32_6<='@')||(LA32_6>='[' && LA32_6<='`')||(LA32_6>='{' && LA32_6<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 24;
+
+                         
+                        input.seek(index32_6);
+                        if ( s>=0 ) return s;
+                        break;
                     case 14 : 
+                        int LA32_121 = input.LA(1);
+
+                         
+                        int index32_121 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_121=='\'') ) {s = 87;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_121);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA32_104 = input.LA(1);
+
+                         
+                        int index32_104 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_104=='D'||LA32_104=='d') ) {s = 43;}
+
+                        else if ( ((LA32_104>='0' && LA32_104<='9')) ) {s = 104;}
+
+                        else if ( (LA32_104=='F'||LA32_104=='f') ) {s = 40;}
+
+                        else if ( ((LA32_104>='\u0000' && LA32_104<='\t')||(LA32_104>='\u000B' && LA32_104<='\f')||(LA32_104>='\u000E' && LA32_104<='/')||(LA32_104>=':' && LA32_104<='C')||LA32_104=='E'||(LA32_104>='G' && LA32_104<='c')||LA32_104=='e'||(LA32_104>='g' && LA32_104<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 114;
+
+                         
+                        input.seek(index32_104);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA32_69 = input.LA(1);
+
+                         
+                        int index32_69 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_69>='0' && LA32_69<='7')) && ((( !textMode )||( textMode )))) {s = 96;}
+
+                        else if ( (LA32_69=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+
+                        else if ( (LA32_69=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+
+                        else if ( ((LA32_69>='\u0000' && LA32_69<='\t')||(LA32_69>='\u000B' && LA32_69<='\f')||(LA32_69>='\u000E' && LA32_69<='!')||(LA32_69>='#' && LA32_69<='/')||(LA32_69>='8' && LA32_69<='[')||(LA32_69>=']' && LA32_69<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_69);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA32_43 = input.LA(1);
+
+                         
+                        int index32_43 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_43>='\u0000' && LA32_43<='\t')||(LA32_43>='\u000B' && LA32_43<='\f')||(LA32_43>='\u000E' && LA32_43<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 81;
+
+                         
+                        input.seek(index32_43);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA32_38 = input.LA(1);
+
+                         
+                        int index32_38 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_38=='L'||LA32_38=='l') ) {s = 44;}
+
+                        else if ( ((LA32_38>='0' && LA32_38<='7')) ) {s = 38;}
+
+                        else if ( (LA32_38=='F'||LA32_38=='f') ) {s = 40;}
+
+                        else if ( ((LA32_38>='8' && LA32_38<='9')) ) {s = 42;}
+
+                        else if ( (LA32_38=='E'||LA32_38=='e') ) {s = 39;}
+
+                        else if ( (LA32_38=='.') ) {s = 37;}
+
+                        else if ( (LA32_38=='D'||LA32_38=='d') ) {s = 43;}
+
+                        else if ( ((LA32_38>='\u0000' && LA32_38<='\t')||(LA32_38>='\u000B' && LA32_38<='\f')||(LA32_38>='\u000E' && LA32_38<='-')||LA32_38=='/'||(LA32_38>=':' && LA32_38<='C')||(LA32_38>='G' && LA32_38<='K')||(LA32_38>='M' && LA32_38<='c')||(LA32_38>='g' && LA32_38<='k')||(LA32_38>='m' && LA32_38<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 41;
+
+                         
+                        input.seek(index32_38);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
                         int LA32_83 = input.LA(1);
 
                          
@@ -2865,85 +2967,64 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( (LA32_83=='\'') ) {s = 87;}
 
-                        else s = 21;
+                        else s = 22;
 
                          
                         input.seek(index32_83);
                         if ( s>=0 ) return s;
                         break;
-                    case 15 : 
-                        int LA32_76 = input.LA(1);
+                    case 20 : 
+                        int LA32_28 = input.LA(1);
 
                          
-                        int index32_76 = input.index();
+                        int index32_28 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_76=='F'||LA32_76=='f') ) {s = 43;}
+                        if ( (LA32_28==' ') && (( !hashMode ))) {s = 31;}
 
-                        else if ( ((LA32_76>='0' && LA32_76<='9')) ) {s = 76;}
-
-                        else if ( (LA32_76=='D'||LA32_76=='d') ) {s = 37;}
-
-                        else if ( ((LA32_76>='\u0000' && LA32_76<='\t')||(LA32_76>='\u000B' && LA32_76<='\f')||(LA32_76>='\u000E' && LA32_76<='/')||(LA32_76>=':' && LA32_76<='C')||LA32_76=='E'||(LA32_76>='G' && LA32_76<='c')||LA32_76=='e'||(LA32_76>='g' && LA32_76<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 102;
+                        else s = 64;
 
                          
-                        input.seek(index32_76);
+                        input.seek(index32_28);
                         if ( s>=0 ) return s;
                         break;
-                    case 16 : 
-                        int LA32_37 = input.LA(1);
+                    case 21 : 
+                        int LA32_46 = input.LA(1);
 
                          
-                        int index32_37 = input.index();
+                        int index32_46 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_37>='\u0000' && LA32_37<='\t')||(LA32_37>='\u000B' && LA32_37<='\f')||(LA32_37>='\u000E' && LA32_37<='\uFFFF')) && (( textMode ))) {s = 21;}
+                        if ( (LA32_46=='\"'||LA32_46=='\''||LA32_46=='\\'||LA32_46=='b'||LA32_46=='f'||LA32_46=='n'||LA32_46=='r'||LA32_46=='t') ) {s = 83;}
 
-                        else s = 74;
+                        else if ( (LA32_46=='u') ) {s = 84;}
+
+                        else if ( ((LA32_46>='0' && LA32_46<='3')) ) {s = 85;}
+
+                        else if ( ((LA32_46>='4' && LA32_46<='7')) ) {s = 86;}
+
+                        else s = 22;
 
                          
-                        input.seek(index32_37);
+                        input.seek(index32_46);
                         if ( s>=0 ) return s;
                         break;
-                    case 17 : 
-                        int LA32_32 = input.LA(1);
-
-                         
-                        int index32_32 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_32=='\"'||LA32_32=='\''||LA32_32=='\\'||LA32_32=='b'||LA32_32=='f'||LA32_32=='n'||LA32_32=='r'||LA32_32=='t') && ((( !textMode )||( textMode )))) {s = 66;}
-
-                        else if ( (LA32_32=='u') && ((( !textMode )||( textMode )))) {s = 67;}
-
-                        else if ( ((LA32_32>='0' && LA32_32<='3')) && ((( !textMode )||( textMode )))) {s = 68;}
-
-                        else if ( ((LA32_32>='4' && LA32_32<='7')) && ((( !textMode )||( textMode )))) {s = 69;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_32);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 18 : 
+                    case 22 : 
                         int LA32_71 = input.LA(1);
 
                          
                         int index32_71 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_71>='0' && LA32_71<='9')||(LA32_71>='A' && LA32_71<='F')||(LA32_71>='a' && LA32_71<='f')) ) {s = 71;}
+                        if ( (LA32_71=='L'||LA32_71=='l') ) {s = 44;}
+
+                        else if ( ((LA32_71>='0' && LA32_71<='9')||(LA32_71>='A' && LA32_71<='F')||(LA32_71>='a' && LA32_71<='f')) ) {s = 71;}
 
                         else if ( (LA32_71=='P'||LA32_71=='p') ) {s = 72;}
 
                         else if ( (LA32_71=='.') ) {s = 73;}
 
-                        else if ( (LA32_71=='L'||LA32_71=='l') ) {s = 44;}
-
-                        else if ( ((LA32_71>='\u0000' && LA32_71<='\t')||(LA32_71>='\u000B' && LA32_71<='\f')||(LA32_71>='\u000E' && LA32_71<='-')||LA32_71=='/'||(LA32_71>=':' && LA32_71<='@')||(LA32_71>='G' && LA32_71<='K')||(LA32_71>='M' && LA32_71<='O')||(LA32_71>='Q' && LA32_71<='`')||(LA32_71>='g' && LA32_71<='k')||(LA32_71>='m' && LA32_71<='o')||(LA32_71>='q' && LA32_71<='\uFFFF')) && (( textMode ))) {s = 21;}
+                        else if ( ((LA32_71>='\u0000' && LA32_71<='\t')||(LA32_71>='\u000B' && LA32_71<='\f')||(LA32_71>='\u000E' && LA32_71<='-')||LA32_71=='/'||(LA32_71>=':' && LA32_71<='@')||(LA32_71>='G' && LA32_71<='K')||(LA32_71>='M' && LA32_71<='O')||(LA32_71>='Q' && LA32_71<='`')||(LA32_71>='g' && LA32_71<='k')||(LA32_71>='m' && LA32_71<='o')||(LA32_71>='q' && LA32_71<='\uFFFF')) && (( textMode ))) {s = 22;}
 
                         else s = 98;
 
@@ -2951,7 +3032,151 @@ public class JamlLexer extends Lexer {
                         input.seek(index32_71);
                         if ( s>=0 ) return s;
                         break;
-                    case 19 : 
+                    case 23 : 
+                        int LA32_108 = input.LA(1);
+
+                         
+                        int index32_108 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_108>='0' && LA32_108<='7')) ) {s = 116;}
+
+                        else if ( (LA32_108=='\'') ) {s = 87;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_108);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA32_78 = input.LA(1);
+
+                         
+                        int index32_78 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_78=='D'||LA32_78=='d') ) {s = 43;}
+
+                        else if ( ((LA32_78>='0' && LA32_78<='9')) ) {s = 78;}
+
+                        else if ( (LA32_78=='F'||LA32_78=='f') ) {s = 40;}
+
+                        else if ( ((LA32_78>='\u0000' && LA32_78<='\t')||(LA32_78>='\u000B' && LA32_78<='\f')||(LA32_78>='\u000E' && LA32_78<='/')||(LA32_78>=':' && LA32_78<='C')||LA32_78=='E'||(LA32_78>='G' && LA32_78<='c')||LA32_78=='e'||(LA32_78>='g' && LA32_78<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 105;
+
+                         
+                        input.seek(index32_78);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA32_34 = input.LA(1);
+
+                         
+                        int index32_34 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_34>='\u0000' && LA32_34<='\t')||(LA32_34>='\u000B' && LA32_34<='\f')||(LA32_34>='\u000E' && LA32_34<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 70;
+
+                         
+                        input.seek(index32_34);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA32_100 = input.LA(1);
+
+                         
+                        int index32_100 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_100=='F'||LA32_100=='f') ) {s = 40;}
+
+                        else if ( ((LA32_100>='0' && LA32_100<='9')) ) {s = 100;}
+
+                        else if ( (LA32_100=='D'||LA32_100=='d') ) {s = 43;}
+
+                        else if ( ((LA32_100>='\u0000' && LA32_100<='\t')||(LA32_100>='\u000B' && LA32_100<='\f')||(LA32_100>='\u000E' && LA32_100<='/')||(LA32_100>=':' && LA32_100<='C')||LA32_100=='E'||(LA32_100>='G' && LA32_100<='c')||LA32_100=='e'||(LA32_100>='g' && LA32_100<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 113;
+
+                         
+                        input.seek(index32_100);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA32_7 = input.LA(1);
+
+                         
+                        int index32_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_7==' ') && (( !textMode ))) {s = 27;}
+
+                        else s = 26;
+
+                         
+                        input.seek(index32_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA32_42 = input.LA(1);
+
+                         
+                        int index32_42 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_42=='F'||LA32_42=='f') ) {s = 40;}
+
+                        else if ( ((LA32_42>='0' && LA32_42<='9')) ) {s = 42;}
+
+                        else if ( (LA32_42=='E'||LA32_42=='e') ) {s = 39;}
+
+                        else if ( (LA32_42=='.') ) {s = 37;}
+
+                        else if ( (LA32_42=='D'||LA32_42=='d') ) {s = 43;}
+
+                        else if ( ((LA32_42>='\u0000' && LA32_42<='\t')||(LA32_42>='\u000B' && LA32_42<='\f')||(LA32_42>='\u000E' && LA32_42<='-')||LA32_42=='/'||(LA32_42>=':' && LA32_42<='C')||(LA32_42>='G' && LA32_42<='c')||(LA32_42>='g' && LA32_42<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 80;
+
+                         
+                        input.seek(index32_42);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA32_103 = input.LA(1);
+
+                         
+                        int index32_103 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_103>='0' && LA32_103<='9')) ) {s = 104;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_103);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA32_77 = input.LA(1);
+
+                         
+                        int index32_77 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_77>='0' && LA32_77<='9')) ) {s = 78;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_77);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
                         int LA32_13 = input.LA(1);
 
                          
@@ -2962,177 +3187,109 @@ public class JamlLexer extends Lexer {
 
                         else if ( ((LA32_13>='\u0000' && LA32_13<='\t')||(LA32_13>='\u000B' && LA32_13<='\f')||(LA32_13>='\u000E' && LA32_13<='&')||(LA32_13>='(' && LA32_13<='[')||(LA32_13>=']' && LA32_13<='\uFFFF')) ) {s = 47;}
 
-                        else s = 21;
+                        else s = 22;
 
                          
                         input.seek(index32_13);
                         if ( s>=0 ) return s;
                         break;
-                    case 20 : 
-                        int LA32_95 = input.LA(1);
+                    case 32 : 
+                        int LA32_39 = input.LA(1);
 
                          
-                        int index32_95 = input.index();
+                        int index32_39 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_95>='0' && LA32_95<='7')) && ((( !textMode )||( textMode )))) {s = 112;}
+                        if ( (LA32_39=='+'||LA32_39=='-') ) {s = 77;}
 
-                        else if ( (LA32_95=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+                        else if ( ((LA32_39>='0' && LA32_39<='9')) ) {s = 78;}
 
-                        else if ( (LA32_95=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
-
-                        else if ( ((LA32_95>='\u0000' && LA32_95<='\t')||(LA32_95>='\u000B' && LA32_95<='\f')||(LA32_95>='\u000E' && LA32_95<='!')||(LA32_95>='#' && LA32_95<='/')||(LA32_95>='8' && LA32_95<='[')||(LA32_95>=']' && LA32_95<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else s = 21;
+                        else s = 22;
 
                          
-                        input.seek(index32_95);
+                        input.seek(index32_39);
                         if ( s>=0 ) return s;
                         break;
-                    case 21 : 
-                        int LA32_72 = input.LA(1);
+                    case 33 : 
+                        int LA32_76 = input.LA(1);
 
                          
-                        int index32_72 = input.index();
+                        int index32_76 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_72=='+'||LA32_72=='-') ) {s = 99;}
+                        if ( (LA32_76=='+'||LA32_76=='-') ) {s = 103;}
 
-                        else if ( ((LA32_72>='0' && LA32_72<='9')) ) {s = 100;}
+                        else if ( ((LA32_76>='0' && LA32_76<='9')) ) {s = 104;}
 
-                        else s = 21;
+                        else s = 22;
 
                          
-                        input.seek(index32_72);
+                        input.seek(index32_76);
                         if ( s>=0 ) return s;
                         break;
-                    case 22 : 
-                        int LA32_42 = input.LA(1);
+                    case 34 : 
+                        int LA32_99 = input.LA(1);
 
                          
-                        int index32_42 = input.index();
+                        int index32_99 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_42>='0' && LA32_42<='9')) ) {s = 78;}
+                        if ( ((LA32_99>='0' && LA32_99<='9')) ) {s = 100;}
 
-                        else if ( (LA32_42=='E'||LA32_42=='e') ) {s = 79;}
-
-                        else if ( (LA32_42=='D'||LA32_42=='d') ) {s = 37;}
-
-                        else if ( (LA32_42=='F'||LA32_42=='f') ) {s = 43;}
-
-                        else if ( ((LA32_42>='\u0000' && LA32_42<='\t')||(LA32_42>='\u000B' && LA32_42<='\f')||(LA32_42>='\u000E' && LA32_42<='/')||(LA32_42>=':' && LA32_42<='C')||(LA32_42>='G' && LA32_42<='c')||(LA32_42>='g' && LA32_42<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 80;
+                        else s = 22;
 
                          
-                        input.seek(index32_42);
+                        input.seek(index32_99);
                         if ( s>=0 ) return s;
                         break;
-                    case 23 : 
-                        int LA32_12 = input.LA(1);
+                    case 35 : 
+                        int LA32_86 = input.LA(1);
 
                          
-                        int index32_12 = input.index();
+                        int index32_86 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_12=='E'||LA32_12=='e') ) {s = 40;}
+                        if ( ((LA32_86>='0' && LA32_86<='7')) ) {s = 109;}
 
-                        else if ( ((LA32_12>='0' && LA32_12<='9')) ) {s = 45;}
+                        else if ( (LA32_86=='\'') ) {s = 87;}
 
-                        else if ( (LA32_12=='D'||LA32_12=='d') ) {s = 37;}
-
-                        else if ( (LA32_12=='.') ) {s = 42;}
-
-                        else if ( (LA32_12=='L'||LA32_12=='l') ) {s = 44;}
-
-                        else if ( (LA32_12=='F'||LA32_12=='f') ) {s = 43;}
-
-                        else if ( ((LA32_12>='\u0000' && LA32_12<='\t')||(LA32_12>='\u000B' && LA32_12<='\f')||(LA32_12>='\u000E' && LA32_12<='-')||LA32_12=='/'||(LA32_12>=':' && LA32_12<='C')||(LA32_12>='G' && LA32_12<='K')||(LA32_12>='M' && LA32_12<='c')||(LA32_12>='g' && LA32_12<='k')||(LA32_12>='m' && LA32_12<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 38;
+                        else s = 22;
 
                          
-                        input.seek(index32_12);
+                        input.seek(index32_86);
                         if ( s>=0 ) return s;
                         break;
-                    case 24 : 
-                        int LA32_6 = input.LA(1);
+                    case 36 : 
+                        int LA32_5 = input.LA(1);
 
                          
-                        int index32_6 = input.index();
+                        int index32_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_6>='0' && LA32_6<='9')||(LA32_6>='A' && LA32_6<='Z')||(LA32_6>='a' && LA32_6<='z')) && ((( !textMode )||( textMode )))) {s = 24;}
+                        if ( ((LA32_5>='\u0000' && LA32_5<='\t')||(LA32_5>='\u000B' && LA32_5<='\f')||(LA32_5>='\u000E' && LA32_5<='\uFFFF')) && (( textMode ))) {s = 22;}
 
-                        else if ( ((LA32_6>='\u0000' && LA32_6<='\t')||(LA32_6>='\u000B' && LA32_6<='\f')||(LA32_6>='\u000E' && LA32_6<='/')||(LA32_6>=':' && LA32_6<='@')||(LA32_6>='[' && LA32_6<='`')||(LA32_6>='{' && LA32_6<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 25;
+                        else s = 23;
 
                          
-                        input.seek(index32_6);
+                        input.seek(index32_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 25 : 
-                        int LA32_101 = input.LA(1);
+                    case 37 : 
+                        int LA32_67 = input.LA(1);
 
                          
-                        int index32_101 = input.index();
+                        int index32_67 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_101=='P'||LA32_101=='p') ) {s = 72;}
+                        if ( ((LA32_67>='0' && LA32_67<='9')||(LA32_67>='A' && LA32_67<='F')||(LA32_67>='a' && LA32_67<='f')) && ((( !textMode )||( textMode )))) {s = 94;}
 
-                        else if ( ((LA32_101>='0' && LA32_101<='9')||(LA32_101>='A' && LA32_101<='F')||(LA32_101>='a' && LA32_101<='f')) ) {s = 101;}
-
-                        else s = 21;
+                        else s = 22;
 
                          
-                        input.seek(index32_101);
+                        input.seek(index32_67);
                         if ( s>=0 ) return s;
                         break;
-                    case 26 : 
-                        int LA32_36 = input.LA(1);
-
-                         
-                        int index32_36 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_36>='0' && LA32_36<='9')||(LA32_36>='A' && LA32_36<='F')||(LA32_36>='a' && LA32_36<='f')) ) {s = 71;}
-
-                        else if ( (LA32_36=='P'||LA32_36=='p') ) {s = 72;}
-
-                        else if ( (LA32_36=='.') ) {s = 73;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_36);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 27 : 
-                        int LA32_78 = input.LA(1);
-
-                         
-                        int index32_78 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_78=='E'||LA32_78=='e') ) {s = 79;}
-
-                        else if ( (LA32_78=='D'||LA32_78=='d') ) {s = 37;}
-
-                        else if ( ((LA32_78>='0' && LA32_78<='9')) ) {s = 78;}
-
-                        else if ( (LA32_78=='F'||LA32_78=='f') ) {s = 43;}
-
-                        else if ( ((LA32_78>='\u0000' && LA32_78<='\t')||(LA32_78>='\u000B' && LA32_78<='\f')||(LA32_78>='\u000E' && LA32_78<='/')||(LA32_78>=':' && LA32_78<='C')||(LA32_78>='G' && LA32_78<='c')||(LA32_78>='g' && LA32_78<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 103;
-
-                         
-                        input.seek(index32_78);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 28 : 
+                    case 38 : 
                         int LA32_0 = input.LA(1);
 
                          
@@ -3167,237 +3324,15 @@ public class JamlLexer extends Lexer {
 
                         else if ( ((LA32_0>='\u0000' && LA32_0<='\t')||(LA32_0>='\u000B' && LA32_0<='\f')||(LA32_0>='\u000E' && LA32_0<='\u001F')||LA32_0=='!'||LA32_0=='$'||LA32_0=='&'||(LA32_0>='(' && LA32_0<='+')||LA32_0=='-'||(LA32_0>=':' && LA32_0<='@')||(LA32_0>='[' && LA32_0<='`')||LA32_0=='|'||(LA32_0>='~' && LA32_0<='\uFFFF')) && ((( textMode )||( hashMode )))) {s = 14;}
 
-                        else if ( (LA32_0=='{') && (((( hashMode )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||( textMode )||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))))) {s = 15;}
+                        else if ( (LA32_0=='{') && (((( !textMode && braceDepth == 0 )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||( textMode )||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( !textMode && braceDepth == 0 )&&( !textMode ))||(( hashMode )&&( !textMode ))||(( hashMode )&&( !textMode ))))) {s = 15;}
 
-                        else if ( (LA32_0=='}') && (((( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||( textMode )||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))))) {s = 16;}
+                        else if ( (LA32_0=='}') && (((( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||( textMode )||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))))) {s = 16;}
 
                          
                         input.seek(index32_0);
                         if ( s>=0 ) return s;
                         break;
-                    case 29 : 
-                        int LA32_105 = input.LA(1);
-
-                         
-                        int index32_105 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_105=='F'||LA32_105=='f') ) {s = 43;}
-
-                        else if ( ((LA32_105>='0' && LA32_105<='9')) ) {s = 105;}
-
-                        else if ( (LA32_105=='D'||LA32_105=='d') ) {s = 37;}
-
-                        else if ( ((LA32_105>='\u0000' && LA32_105<='\t')||(LA32_105>='\u000B' && LA32_105<='\f')||(LA32_105>='\u000E' && LA32_105<='/')||(LA32_105>=':' && LA32_105<='C')||LA32_105=='E'||(LA32_105>='G' && LA32_105<='c')||LA32_105=='e'||(LA32_105>='g' && LA32_105<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 114;
-
-                         
-                        input.seek(index32_105);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 30 : 
-                        int LA32_69 = input.LA(1);
-
-                         
-                        int index32_69 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_69=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
-
-                        else if ( (LA32_69=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
-
-                        else if ( ((LA32_69>='0' && LA32_69<='7')) && ((( !textMode )||( textMode )))) {s = 96;}
-
-                        else if ( ((LA32_69>='\u0000' && LA32_69<='\t')||(LA32_69>='\u000B' && LA32_69<='\f')||(LA32_69>='\u000E' && LA32_69<='!')||(LA32_69>='#' && LA32_69<='/')||(LA32_69>='8' && LA32_69<='[')||(LA32_69>=']' && LA32_69<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_69);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 31 : 
-                        int LA32_11 = input.LA(1);
-
-                         
-                        int index32_11 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_11=='x') ) {s = 35;}
-
-                        else if ( (LA32_11=='X') ) {s = 36;}
-
-                        else if ( (LA32_11=='D'||LA32_11=='d') ) {s = 37;}
-
-                        else if ( ((LA32_11>='0' && LA32_11<='7')) ) {s = 39;}
-
-                        else if ( (LA32_11=='E'||LA32_11=='e') ) {s = 40;}
-
-                        else if ( ((LA32_11>='8' && LA32_11<='9')) ) {s = 41;}
-
-                        else if ( (LA32_11=='.') ) {s = 42;}
-
-                        else if ( (LA32_11=='F'||LA32_11=='f') ) {s = 43;}
-
-                        else if ( (LA32_11=='L'||LA32_11=='l') ) {s = 44;}
-
-                        else if ( ((LA32_11>='\u0000' && LA32_11<='\t')||(LA32_11>='\u000B' && LA32_11<='\f')||(LA32_11>='\u000E' && LA32_11<='-')||LA32_11=='/'||(LA32_11>=':' && LA32_11<='C')||(LA32_11>='G' && LA32_11<='K')||(LA32_11>='M' && LA32_11<='W')||(LA32_11>='Y' && LA32_11<='c')||(LA32_11>='g' && LA32_11<='k')||(LA32_11>='m' && LA32_11<='w')||(LA32_11>='y' && LA32_11<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 38;
-
-                         
-                        input.seek(index32_11);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 32 : 
-                        int LA32_35 = input.LA(1);
-
-                         
-                        int index32_35 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_35>='0' && LA32_35<='9')||(LA32_35>='A' && LA32_35<='F')||(LA32_35>='a' && LA32_35<='f')) ) {s = 71;}
-
-                        else if ( (LA32_35=='P'||LA32_35=='p') ) {s = 72;}
-
-                        else if ( (LA32_35=='.') ) {s = 73;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_35);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 33 : 
-                        int LA32_5 = input.LA(1);
-
-                         
-                        int index32_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_5>='\u0000' && LA32_5<='\t')||(LA32_5>='\u000B' && LA32_5<='\f')||(LA32_5>='\u000E' && LA32_5<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 23;
-
-                         
-                        input.seek(index32_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 34 : 
-                        int LA32_104 = input.LA(1);
-
-                         
-                        int index32_104 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_104>='0' && LA32_104<='9')) ) {s = 105;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_104);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 35 : 
-                        int LA32_75 = input.LA(1);
-
-                         
-                        int index32_75 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_75>='0' && LA32_75<='9')) ) {s = 76;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_75);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 36 : 
-                        int LA32_28 = input.LA(1);
-
-                         
-                        int index32_28 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_28==' ') && (( !hashMode ))) {s = 31;}
-
-                        else s = 64;
-
-                         
-                        input.seek(index32_28);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 37 : 
-                        int LA32_46 = input.LA(1);
-
-                         
-                        int index32_46 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_46=='\"'||LA32_46=='\''||LA32_46=='\\'||LA32_46=='b'||LA32_46=='f'||LA32_46=='n'||LA32_46=='r'||LA32_46=='t') ) {s = 83;}
-
-                        else if ( (LA32_46=='u') ) {s = 84;}
-
-                        else if ( ((LA32_46>='0' && LA32_46<='3')) ) {s = 85;}
-
-                        else if ( ((LA32_46>='4' && LA32_46<='7')) ) {s = 86;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_46);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 38 : 
-                        int LA32_43 = input.LA(1);
-
-                         
-                        int index32_43 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_43>='\u0000' && LA32_43<='\t')||(LA32_43>='\u000B' && LA32_43<='\f')||(LA32_43>='\u000E' && LA32_43<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 81;
-
-                         
-                        input.seek(index32_43);
-                        if ( s>=0 ) return s;
-                        break;
                     case 39 : 
-                        int LA32_85 = input.LA(1);
-
-                         
-                        int index32_85 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_85>='0' && LA32_85<='7')) ) {s = 108;}
-
-                        else if ( (LA32_85=='\'') ) {s = 87;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_85);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 40 : 
-                        int LA32_7 = input.LA(1);
-
-                         
-                        int index32_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_7==' ') && (( !textMode ))) {s = 27;}
-
-                        else s = 26;
-
-                         
-                        input.seek(index32_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 41 : 
                         int LA32_116 = input.LA(1);
 
                          
@@ -3406,151 +3341,234 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( (LA32_116=='\'') ) {s = 87;}
 
-                        else s = 21;
+                        else s = 22;
 
                          
                         input.seek(index32_116);
                         if ( s>=0 ) return s;
                         break;
-                    case 42 : 
-                        int LA32_34 = input.LA(1);
+                    case 40 : 
+                        int LA32_45 = input.LA(1);
 
                          
-                        int index32_34 = input.index();
+                        int index32_45 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_34>='\u0000' && LA32_34<='\t')||(LA32_34>='\u000B' && LA32_34<='\f')||(LA32_34>='\u000E' && LA32_34<='\uFFFF')) && (( textMode ))) {s = 21;}
+                        if ( ((LA32_45>='0' && LA32_45<='9')) ) {s = 45;}
 
-                        else s = 70;
+                        else if ( (LA32_45=='F'||LA32_45=='f') ) {s = 40;}
+
+                        else if ( (LA32_45=='.') ) {s = 37;}
+
+                        else if ( (LA32_45=='E'||LA32_45=='e') ) {s = 39;}
+
+                        else if ( (LA32_45=='L'||LA32_45=='l') ) {s = 44;}
+
+                        else if ( (LA32_45=='D'||LA32_45=='d') ) {s = 43;}
+
+                        else if ( ((LA32_45>='\u0000' && LA32_45<='\t')||(LA32_45>='\u000B' && LA32_45<='\f')||(LA32_45>='\u000E' && LA32_45<='-')||LA32_45=='/'||(LA32_45>=':' && LA32_45<='C')||(LA32_45>='G' && LA32_45<='K')||(LA32_45>='M' && LA32_45<='c')||(LA32_45>='g' && LA32_45<='k')||(LA32_45>='m' && LA32_45<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 41;
 
                          
-                        input.seek(index32_34);
+                        input.seek(index32_45);
                         if ( s>=0 ) return s;
                         break;
-                    case 43 : 
-                        int LA32_3 = input.LA(1);
+                    case 41 : 
+                        int LA32_109 = input.LA(1);
 
                          
-                        int index32_3 = input.index();
+                        int index32_109 = input.index();
                         input.rewind();
                         s = -1;
-                        s = 20;
-
-                         
-                        input.seek(index32_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 44 : 
-                        int LA32_68 = input.LA(1);
-
-                         
-                        int index32_68 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_68=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
-
-                        else if ( (LA32_68=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
-
-                        else if ( ((LA32_68>='0' && LA32_68<='7')) && ((( !textMode )||( textMode )))) {s = 95;}
-
-                        else if ( ((LA32_68>='\u0000' && LA32_68<='\t')||(LA32_68>='\u000B' && LA32_68<='\f')||(LA32_68>='\u000E' && LA32_68<='!')||(LA32_68>='#' && LA32_68<='/')||(LA32_68>='8' && LA32_68<='[')||(LA32_68>=']' && LA32_68<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_68);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 45 : 
-                        int LA32_4 = input.LA(1);
-
-                         
-                        int index32_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_4>='\u0000' && LA32_4<='\t')||(LA32_4>='\u000B' && LA32_4<='\f')||(LA32_4>='\u000E' && LA32_4<='\uFFFF')) && (( textMode ))) {s = 21;}
+                        if ( (LA32_109=='\'') ) {s = 87;}
 
                         else s = 22;
 
                          
-                        input.seek(index32_4);
+                        input.seek(index32_109);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 42 : 
+                        int LA32_12 = input.LA(1);
+
+                         
+                        int index32_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_12=='F'||LA32_12=='f') ) {s = 40;}
+
+                        else if ( ((LA32_12>='0' && LA32_12<='9')) ) {s = 45;}
+
+                        else if ( (LA32_12=='E'||LA32_12=='e') ) {s = 39;}
+
+                        else if ( (LA32_12=='.') ) {s = 37;}
+
+                        else if ( (LA32_12=='D'||LA32_12=='d') ) {s = 43;}
+
+                        else if ( (LA32_12=='L'||LA32_12=='l') ) {s = 44;}
+
+                        else if ( ((LA32_12>='\u0000' && LA32_12<='\t')||(LA32_12>='\u000B' && LA32_12<='\f')||(LA32_12>='\u000E' && LA32_12<='-')||LA32_12=='/'||(LA32_12>=':' && LA32_12<='C')||(LA32_12>='G' && LA32_12<='K')||(LA32_12>='M' && LA32_12<='c')||(LA32_12>='g' && LA32_12<='k')||(LA32_12>='m' && LA32_12<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 41;
+
+                         
+                        input.seek(index32_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 43 : 
+                        int LA32_19 = input.LA(1);
+
+                         
+                        int index32_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( beginningOfLine )) ) {s = 55;}
+
+                        else if ( (( hashMode )) ) {s = 29;}
+
+                         
+                        input.seek(index32_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 44 : 
+                        int LA32_17 = input.LA(1);
+
+                         
+                        int index32_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( beginningOfLine )) ) {s = 51;}
+
+                        else if ( (( hashMode )) ) {s = 29;}
+
+                         
+                        input.seek(index32_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 45 : 
+                        int LA32_64 = input.LA(1);
+
+                         
+                        int index32_64 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( hashMode )) ) {s = 65;}
+
+                        else if ( (( !hashMode )) ) {s = 31;}
+
+                         
+                        input.seek(index32_64);
                         if ( s>=0 ) return s;
                         break;
                     case 46 : 
-                        int LA32_96 = input.LA(1);
+                        int LA32_101 = input.LA(1);
 
                          
-                        int index32_96 = input.index();
+                        int index32_101 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_96=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+                        if ( (LA32_101=='P'||LA32_101=='p') ) {s = 72;}
 
-                        else if ( (LA32_96=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+                        else if ( ((LA32_101>='0' && LA32_101<='9')||(LA32_101>='A' && LA32_101<='F')||(LA32_101>='a' && LA32_101<='f')) ) {s = 101;}
 
-                        else if ( ((LA32_96>='\u0000' && LA32_96<='\t')||(LA32_96>='\u000B' && LA32_96<='\f')||(LA32_96>='\u000E' && LA32_96<='!')||(LA32_96>='#' && LA32_96<='[')||(LA32_96>=']' && LA32_96<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else s = 21;
+                        else s = 22;
 
                          
-                        input.seek(index32_96);
+                        input.seek(index32_101);
                         if ( s>=0 ) return s;
                         break;
                     case 47 : 
-                        int LA32_108 = input.LA(1);
+                        int LA32_2 = input.LA(1);
 
                          
-                        int index32_108 = input.index();
+                        int index32_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_108>='0' && LA32_108<='7')) ) {s = 116;}
+                        if ( ((LA32_2>='0' && LA32_2<='9')) ) {s = 18;}
 
-                        else if ( (LA32_108=='\'') ) {s = 87;}
-
-                        else s = 21;
+                        else s = 19;
 
                          
-                        input.seek(index32_108);
+                        input.seek(index32_2);
                         if ( s>=0 ) return s;
                         break;
                     case 48 : 
-                        int LA32_112 = input.LA(1);
+                        int LA32_82 = input.LA(1);
 
                          
-                        int index32_112 = input.index();
+                        int index32_82 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_112=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+                        if ( (!((( textMode )))) ) {s = 106;}
 
-                        else if ( (LA32_112=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
-
-                        else if ( ((LA32_112>='\u0000' && LA32_112<='\t')||(LA32_112>='\u000B' && LA32_112<='\f')||(LA32_112>='\u000E' && LA32_112<='!')||(LA32_112>='#' && LA32_112<='[')||(LA32_112>=']' && LA32_112<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else s = 21;
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
-                        input.seek(index32_112);
+                        input.seek(index32_82);
                         if ( s>=0 ) return s;
                         break;
                     case 49 : 
-                        int LA32_33 = input.LA(1);
+                        int LA32_40 = input.LA(1);
 
                          
-                        int index32_33 = input.index();
+                        int index32_40 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_33=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+                        if ( ((LA32_40>='\u0000' && LA32_40<='\t')||(LA32_40>='\u000B' && LA32_40<='\f')||(LA32_40>='\u000E' && LA32_40<='\uFFFF')) && (( textMode ))) {s = 22;}
 
-                        else if ( (LA32_33=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
-
-                        else if ( ((LA32_33>='\u0000' && LA32_33<='\t')||(LA32_33>='\u000B' && LA32_33<='\f')||(LA32_33>='\u000E' && LA32_33<='!')||(LA32_33>='#' && LA32_33<='[')||(LA32_33>=']' && LA32_33<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else s = 21;
+                        else s = 79;
 
                          
-                        input.seek(index32_33);
+                        input.seek(index32_40);
                         if ( s>=0 ) return s;
                         break;
                     case 50 : 
+                        int LA32_70 = input.LA(1);
+
+                         
+                        int index32_70 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( !textMode )) ) {s = 97;}
+
+                        else if ( (( textMode )) ) {s = 22;}
+
+                         
+                        input.seek(index32_70);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 51 : 
+                        int LA32_60 = input.LA(1);
+
+                         
+                        int index32_60 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( !textMode )) ) {s = 59;}
+
+                        else if ( (( textMode )) ) {s = 22;}
+
+                         
+                        input.seek(index32_60);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 52 : 
+                        int LA32_20 = input.LA(1);
+
+                         
+                        int index32_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( beginningOfLine )) ) {s = 56;}
+
+                        else if ( (( hashMode )) ) {s = 29;}
+
+                         
+                        input.seek(index32_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 53 : 
                         int LA32_26 = input.LA(1);
 
                          
@@ -3571,114 +3589,22 @@ public class JamlLexer extends Lexer {
                         input.seek(index32_26);
                         if ( s>=0 ) return s;
                         break;
-                    case 51 : 
-                        int LA32_86 = input.LA(1);
-
-                         
-                        int index32_86 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_86=='\'') ) {s = 87;}
-
-                        else if ( ((LA32_86>='0' && LA32_86<='7')) ) {s = 109;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_86);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 52 : 
-                        int LA32_59 = input.LA(1);
-
-                         
-                        int index32_59 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( !textMode )) ) {s = 60;}
-
-                        else if ( (( textMode )) ) {s = 21;}
-
-                         
-                        input.seek(index32_59);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 53 : 
-                        int LA32_20 = input.LA(1);
-
-                         
-                        int index32_20 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( beginningOfLine )) ) {s = 56;}
-
-                        else if ( (( hashMode )) ) {s = 29;}
-
-                         
-                        input.seek(index32_20);
-                        if ( s>=0 ) return s;
-                        break;
                     case 54 : 
-                        int LA32_19 = input.LA(1);
+                        int LA32_48 = input.LA(1);
 
                          
-                        int index32_19 = input.index();
+                        int index32_48 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( beginningOfLine )) ) {s = 55;}
+                        if ( (( textMode )) ) {s = 22;}
 
                         else if ( (( hashMode )) ) {s = 29;}
 
                          
-                        input.seek(index32_19);
+                        input.seek(index32_48);
                         if ( s>=0 ) return s;
                         break;
                     case 55 : 
-                        int LA32_17 = input.LA(1);
-
-                         
-                        int index32_17 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( beginningOfLine )) ) {s = 51;}
-
-                        else if ( (( hashMode )) ) {s = 29;}
-
-                         
-                        input.seek(index32_17);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 56 : 
-                        int LA32_64 = input.LA(1);
-
-                         
-                        int index32_64 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( hashMode )) ) {s = 65;}
-
-                        else if ( (( !hashMode )) ) {s = 31;}
-
-                         
-                        input.seek(index32_64);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 57 : 
-                        int LA32_44 = input.LA(1);
-
-                         
-                        int index32_44 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_44>='\u0000' && LA32_44<='\t')||(LA32_44>='\u000B' && LA32_44<='\f')||(LA32_44>='\u000E' && LA32_44<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 82;
-
-                         
-                        input.seek(index32_44);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 58 : 
                         int LA32_114 = input.LA(1);
 
                          
@@ -3687,13 +3613,13 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( (!((( textMode )))) ) {s = 53;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
                         input.seek(index32_114);
                         if ( s>=0 ) return s;
                         break;
-                    case 59 : 
+                    case 56 : 
                         int LA32_113 = input.LA(1);
 
                          
@@ -3702,28 +3628,28 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( (!((( textMode )))) ) {s = 53;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
                         input.seek(index32_113);
                         if ( s>=0 ) return s;
                         break;
-                    case 60 : 
-                        int LA32_103 = input.LA(1);
+                    case 57 : 
+                        int LA32_105 = input.LA(1);
 
                          
-                        int index32_103 = input.index();
+                        int index32_105 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (!((( textMode )))) ) {s = 53;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
-                        input.seek(index32_103);
+                        input.seek(index32_105);
                         if ( s>=0 ) return s;
                         break;
-                    case 61 : 
+                    case 58 : 
                         int LA32_102 = input.LA(1);
 
                          
@@ -3732,28 +3658,13 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( (!((( textMode )))) ) {s = 53;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
                         input.seek(index32_102);
                         if ( s>=0 ) return s;
                         break;
-                    case 62 : 
-                        int LA32_2 = input.LA(1);
-
-                         
-                        int index32_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_2>='0' && LA32_2<='9')) ) {s = 18;}
-
-                        else s = 19;
-
-                         
-                        input.seek(index32_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 63 : 
+                    case 59 : 
                         int LA32_74 = input.LA(1);
 
                          
@@ -3762,28 +3673,13 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( (!((( textMode )))) ) {s = 53;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
                         input.seek(index32_74);
                         if ( s>=0 ) return s;
                         break;
-                    case 64 : 
-                        int LA32_77 = input.LA(1);
-
-                         
-                        int index32_77 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!((( textMode )))) ) {s = 53;}
-
-                        else if ( (( textMode )) ) {s = 21;}
-
-                         
-                        input.seek(index32_77);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 65 : 
+                    case 60 : 
                         int LA32_80 = input.LA(1);
 
                          
@@ -3792,13 +3688,28 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( (!((( textMode )))) ) {s = 53;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
                         input.seek(index32_80);
                         if ( s>=0 ) return s;
                         break;
-                    case 66 : 
+                    case 61 : 
+                        int LA32_81 = input.LA(1);
+
+                         
+                        int index32_81 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (!((( textMode )))) ) {s = 53;}
+
+                        else if ( (( textMode )) ) {s = 22;}
+
+                         
+                        input.seek(index32_81);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 62 : 
                         int LA32_110 = input.LA(1);
 
                          
@@ -3807,150 +3718,99 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( (!((( textMode )))) ) {s = 117;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
                         input.seek(index32_110);
                         if ( s>=0 ) return s;
                         break;
-                    case 67 : 
+                    case 63 : 
                         int LA32_98 = input.LA(1);
 
                          
                         int index32_98 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (!((( textMode )))) ) {s = 38;}
+                        if ( (!((( textMode )))) ) {s = 41;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
                         input.seek(index32_98);
                         if ( s>=0 ) return s;
                         break;
-                    case 68 : 
-                        int LA32_81 = input.LA(1);
+                    case 64 : 
+                        int LA32_4 = input.LA(1);
 
                          
-                        int index32_81 = input.index();
+                        int index32_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (!((( textMode )))) ) {s = 54;}
-
-                        else if ( (( textMode )) ) {s = 21;}
-
-                         
-                        input.seek(index32_81);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 69 : 
-                        int LA32_40 = input.LA(1);
-
-                         
-                        int index32_40 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_40=='+'||LA32_40=='-') ) {s = 75;}
-
-                        else if ( ((LA32_40>='0' && LA32_40<='9')) ) {s = 76;}
+                        if ( ((LA32_4>='\u0000' && LA32_4<='\t')||(LA32_4>='\u000B' && LA32_4<='\f')||(LA32_4>='\u000E' && LA32_4<='\uFFFF')) && (( textMode ))) {s = 22;}
 
                         else s = 21;
 
                          
-                        input.seek(index32_40);
+                        input.seek(index32_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 70 : 
-                        int LA32_70 = input.LA(1);
-
-                         
-                        int index32_70 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( !textMode )) ) {s = 97;}
-
-                        else if ( (( textMode )) ) {s = 21;}
-
-                         
-                        input.seek(index32_70);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 71 : 
+                    case 65 : 
                         int LA32_79 = input.LA(1);
 
                          
                         int index32_79 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_79=='+'||LA32_79=='-') ) {s = 104;}
+                        if ( (!((( textMode )))) ) {s = 54;}
 
-                        else if ( ((LA32_79>='0' && LA32_79<='9')) ) {s = 105;}
-
-                        else s = 21;
+                        else if ( (( textMode )) ) {s = 22;}
 
                          
                         input.seek(index32_79);
                         if ( s>=0 ) return s;
                         break;
-                    case 72 : 
-                        int LA32_100 = input.LA(1);
+                    case 66 : 
+                        int LA32_47 = input.LA(1);
 
                          
-                        int index32_100 = input.index();
+                        int index32_47 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_100=='D'||LA32_100=='d') ) {s = 37;}
+                        if ( (LA32_47=='\'') ) {s = 87;}
 
-                        else if ( ((LA32_100>='0' && LA32_100<='9')) ) {s = 100;}
-
-                        else if ( (LA32_100=='F'||LA32_100=='f') ) {s = 43;}
-
-                        else if ( ((LA32_100>='\u0000' && LA32_100<='\t')||(LA32_100>='\u000B' && LA32_100<='\f')||(LA32_100>='\u000E' && LA32_100<='/')||(LA32_100>=':' && LA32_100<='C')||LA32_100=='E'||(LA32_100>='G' && LA32_100<='c')||LA32_100=='e'||(LA32_100>='g' && LA32_100<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 113;
+                        else s = 22;
 
                          
-                        input.seek(index32_100);
+                        input.seek(index32_47);
                         if ( s>=0 ) return s;
                         break;
-                    case 73 : 
-                        int LA32_82 = input.LA(1);
+                    case 67 : 
+                        int LA32_35 = input.LA(1);
 
                          
-                        int index32_82 = input.index();
+                        int index32_35 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (!((( textMode )))) ) {s = 106;}
+                        if ( ((LA32_35>='0' && LA32_35<='9')||(LA32_35>='A' && LA32_35<='F')||(LA32_35>='a' && LA32_35<='f')) ) {s = 71;}
 
-                        else if ( (( textMode )) ) {s = 21;}
+                        else if ( (LA32_35=='P'||LA32_35=='p') ) {s = 72;}
+
+                        else if ( (LA32_35=='.') ) {s = 73;}
+
+                        else s = 22;
 
                          
-                        input.seek(index32_82);
+                        input.seek(index32_35);
                         if ( s>=0 ) return s;
                         break;
-                    case 74 : 
-                        int LA32_109 = input.LA(1);
-
-                         
-                        int index32_109 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_109=='\'') ) {s = 87;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_109);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 75 : 
+                    case 68 : 
                         int LA32_16 = input.LA(1);
 
                          
                         int index32_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_16>='\u0000' && LA32_16<='\t')||(LA32_16>='\u000B' && LA32_16<='\f')||(LA32_16>='\u000E' && LA32_16<='\uFFFF')) && (( textMode ))) {s = 21;}
+                        if ( ((LA32_16>='\u0000' && LA32_16<='\t')||(LA32_16>='\u000B' && LA32_16<='\f')||(LA32_16>='\u000E' && LA32_16<='\uFFFF')) && (( textMode ))) {s = 22;}
 
                         else s = 50;
 
@@ -3958,22 +3818,86 @@ public class JamlLexer extends Lexer {
                         input.seek(index32_16);
                         if ( s>=0 ) return s;
                         break;
-                    case 76 : 
-                        int LA32_48 = input.LA(1);
+                    case 69 : 
+                        int LA32_66 = input.LA(1);
 
                          
-                        int index32_48 = input.index();
+                        int index32_66 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( textMode )) ) {s = 21;}
+                        if ( (LA32_66=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
 
-                        else if ( (( hashMode )) ) {s = 29;}
+                        else if ( (LA32_66=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+
+                        else if ( ((LA32_66>='\u0000' && LA32_66<='\t')||(LA32_66>='\u000B' && LA32_66<='\f')||(LA32_66>='\u000E' && LA32_66<='!')||(LA32_66>='#' && LA32_66<='[')||(LA32_66>=']' && LA32_66<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
+
+                        else s = 22;
 
                          
-                        input.seek(index32_48);
+                        input.seek(index32_66);
                         if ( s>=0 ) return s;
                         break;
-                    case 77 : 
+                    case 70 : 
+                        int LA32_94 = input.LA(1);
+
+                         
+                        int index32_94 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_94>='0' && LA32_94<='9')||(LA32_94>='A' && LA32_94<='F')||(LA32_94>='a' && LA32_94<='f')) && ((( !textMode )||( textMode )))) {s = 111;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_94);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 71 : 
+                        int LA32_111 = input.LA(1);
+
+                         
+                        int index32_111 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_111>='0' && LA32_111<='9')||(LA32_111>='A' && LA32_111<='F')||(LA32_111>='a' && LA32_111<='f')) && ((( !textMode )||( textMode )))) {s = 118;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_111);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 72 : 
+                        int LA32_118 = input.LA(1);
+
+                         
+                        int index32_118 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_118>='0' && LA32_118<='9')||(LA32_118>='A' && LA32_118<='F')||(LA32_118>='a' && LA32_118<='f')) && ((( !textMode )||( textMode )))) {s = 120;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_118);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 73 : 
+                        int LA32_44 = input.LA(1);
+
+                         
+                        int index32_44 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_44>='\u0000' && LA32_44<='\t')||(LA32_44>='\u000B' && LA32_44<='\f')||(LA32_44>='\u000E' && LA32_44<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 82;
+
+                         
+                        input.seek(index32_44);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 74 : 
                         int LA32_1 = input.LA(1);
 
                          
@@ -3986,14 +3910,229 @@ public class JamlLexer extends Lexer {
                         input.seek(index32_1);
                         if ( s>=0 ) return s;
                         break;
+                    case 75 : 
+                        int LA32_37 = input.LA(1);
+
+                         
+                        int index32_37 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_37>='0' && LA32_37<='9')) ) {s = 75;}
+
+                        else if ( (LA32_37=='E'||LA32_37=='e') ) {s = 76;}
+
+                        else if ( (LA32_37=='D'||LA32_37=='d') ) {s = 43;}
+
+                        else if ( (LA32_37=='F'||LA32_37=='f') ) {s = 40;}
+
+                        else if ( ((LA32_37>='\u0000' && LA32_37<='\t')||(LA32_37>='\u000B' && LA32_37<='\f')||(LA32_37>='\u000E' && LA32_37<='/')||(LA32_37>=':' && LA32_37<='C')||(LA32_37>='G' && LA32_37<='c')||(LA32_37>='g' && LA32_37<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 74;
+
+                         
+                        input.seek(index32_37);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 76 : 
+                        int LA32_96 = input.LA(1);
+
+                         
+                        int index32_96 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_96=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+
+                        else if ( (LA32_96=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+
+                        else if ( ((LA32_96>='\u0000' && LA32_96<='\t')||(LA32_96>='\u000B' && LA32_96<='\f')||(LA32_96>='\u000E' && LA32_96<='!')||(LA32_96>='#' && LA32_96<='[')||(LA32_96>=']' && LA32_96<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_96);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 77 : 
+                        int LA32_10 = input.LA(1);
+
+                         
+                        int index32_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_10=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+
+                        else if ( ((LA32_10>='\u0000' && LA32_10<='\t')||(LA32_10>='\u000B' && LA32_10<='\f')||(LA32_10>='\u000E' && LA32_10<='!')||(LA32_10>='#' && LA32_10<='[')||(LA32_10>=']' && LA32_10<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
+
+                        else if ( (LA32_10=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_10);
+                        if ( s>=0 ) return s;
+                        break;
                     case 78 : 
+                        int LA32_11 = input.LA(1);
+
+                         
+                        int index32_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_11=='x') ) {s = 35;}
+
+                        else if ( (LA32_11=='X') ) {s = 36;}
+
+                        else if ( (LA32_11=='.') ) {s = 37;}
+
+                        else if ( ((LA32_11>='0' && LA32_11<='7')) ) {s = 38;}
+
+                        else if ( (LA32_11=='E'||LA32_11=='e') ) {s = 39;}
+
+                        else if ( (LA32_11=='F'||LA32_11=='f') ) {s = 40;}
+
+                        else if ( ((LA32_11>='8' && LA32_11<='9')) ) {s = 42;}
+
+                        else if ( (LA32_11=='D'||LA32_11=='d') ) {s = 43;}
+
+                        else if ( (LA32_11=='L'||LA32_11=='l') ) {s = 44;}
+
+                        else if ( ((LA32_11>='\u0000' && LA32_11<='\t')||(LA32_11>='\u000B' && LA32_11<='\f')||(LA32_11>='\u000E' && LA32_11<='-')||LA32_11=='/'||(LA32_11>=':' && LA32_11<='C')||(LA32_11>='G' && LA32_11<='K')||(LA32_11>='M' && LA32_11<='W')||(LA32_11>='Y' && LA32_11<='c')||(LA32_11>='g' && LA32_11<='k')||(LA32_11>='m' && LA32_11<='w')||(LA32_11>='y' && LA32_11<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 41;
+
+                         
+                        input.seek(index32_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 79 : 
+                        int LA32_9 = input.LA(1);
+
+                         
+                        int index32_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_9==' ') && (( !hashMode ))) {s = 31;}
+
+                        else s = 30;
+
+                         
+                        input.seek(index32_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 80 : 
+                        int LA32_25 = input.LA(1);
+
+                         
+                        int index32_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_25>='0' && LA32_25<='9')||(LA32_25>='A' && LA32_25<='Z')||(LA32_25>='a' && LA32_25<='z')) && ((( !textMode )||( textMode )))) {s = 25;}
+
+                        else if ( ((LA32_25>='\u0000' && LA32_25<='\t')||(LA32_25>='\u000B' && LA32_25<='\f')||(LA32_25>='\u000E' && LA32_25<='/')||(LA32_25>=':' && LA32_25<='@')||(LA32_25>='[' && LA32_25<='`')||(LA32_25>='{' && LA32_25<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 60;
+
+                         
+                        input.seek(index32_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 81 : 
+                        int LA32_95 = input.LA(1);
+
+                         
+                        int index32_95 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_95=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+
+                        else if ( (LA32_95=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+
+                        else if ( ((LA32_95>='0' && LA32_95<='7')) && ((( !textMode )||( textMode )))) {s = 112;}
+
+                        else if ( ((LA32_95>='\u0000' && LA32_95<='\t')||(LA32_95>='\u000B' && LA32_95<='\f')||(LA32_95>='\u000E' && LA32_95<='!')||(LA32_95>='#' && LA32_95<='/')||(LA32_95>='8' && LA32_95<='[')||(LA32_95>=']' && LA32_95<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_95);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 82 : 
+                        int LA32_112 = input.LA(1);
+
+                         
+                        int index32_112 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_112=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+
+                        else if ( (LA32_112=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+
+                        else if ( ((LA32_112>='\u0000' && LA32_112<='\t')||(LA32_112>='\u000B' && LA32_112<='\f')||(LA32_112>='\u000E' && LA32_112<='!')||(LA32_112>='#' && LA32_112<='[')||(LA32_112>=']' && LA32_112<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_112);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 83 : 
+                        int LA32_3 = input.LA(1);
+
+                         
+                        int index32_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        s = 20;
+
+                         
+                        input.seek(index32_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 84 : 
+                        int LA32_85 = input.LA(1);
+
+                         
+                        int index32_85 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA32_85>='0' && LA32_85<='7')) ) {s = 108;}
+
+                        else if ( (LA32_85=='\'') ) {s = 87;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_85);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 85 : 
+                        int LA32_33 = input.LA(1);
+
+                         
+                        int index32_33 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA32_33=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+
+                        else if ( (LA32_33=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
+
+                        else if ( ((LA32_33>='\u0000' && LA32_33<='\t')||(LA32_33>='\u000B' && LA32_33<='\f')||(LA32_33>='\u000E' && LA32_33<='!')||(LA32_33>='#' && LA32_33<='[')||(LA32_33>=']' && LA32_33<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
+
+                        else s = 22;
+
+                         
+                        input.seek(index32_33);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 86 : 
                         int LA32_14 = input.LA(1);
 
                          
                         int index32_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_14>='\u0000' && LA32_14<='\t')||(LA32_14>='\u000B' && LA32_14<='\f')||(LA32_14>='\u000E' && LA32_14<='\uFFFF')) && (( textMode ))) {s = 21;}
+                        if ( ((LA32_14>='\u0000' && LA32_14<='\t')||(LA32_14>='\u000B' && LA32_14<='\f')||(LA32_14>='\u000E' && LA32_14<='\uFFFF')) && (( textMode ))) {s = 22;}
 
                         else s = 48;
 
@@ -4001,117 +4140,109 @@ public class JamlLexer extends Lexer {
                         input.seek(index32_14);
                         if ( s>=0 ) return s;
                         break;
-                    case 79 : 
-                        int LA32_39 = input.LA(1);
+                    case 87 : 
+                        int LA32_115 = input.LA(1);
 
                          
-                        int index32_39 = input.index();
+                        int index32_115 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_39=='E'||LA32_39=='e') ) {s = 40;}
+                        if ( ((LA32_115>='0' && LA32_115<='9')||(LA32_115>='A' && LA32_115<='F')||(LA32_115>='a' && LA32_115<='f')) ) {s = 119;}
 
-                        else if ( ((LA32_39>='0' && LA32_39<='7')) ) {s = 39;}
-
-                        else if ( (LA32_39=='D'||LA32_39=='d') ) {s = 37;}
-
-                        else if ( (LA32_39=='.') ) {s = 42;}
-
-                        else if ( (LA32_39=='F'||LA32_39=='f') ) {s = 43;}
-
-                        else if ( ((LA32_39>='8' && LA32_39<='9')) ) {s = 41;}
-
-                        else if ( (LA32_39=='L'||LA32_39=='l') ) {s = 44;}
-
-                        else if ( ((LA32_39>='\u0000' && LA32_39<='\t')||(LA32_39>='\u000B' && LA32_39<='\f')||(LA32_39>='\u000E' && LA32_39<='-')||LA32_39=='/'||(LA32_39>=':' && LA32_39<='C')||(LA32_39>='G' && LA32_39<='K')||(LA32_39>='M' && LA32_39<='c')||(LA32_39>='g' && LA32_39<='k')||(LA32_39>='m' && LA32_39<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 38;
+                        else s = 22;
 
                          
-                        input.seek(index32_39);
+                        input.seek(index32_115);
                         if ( s>=0 ) return s;
                         break;
-                    case 80 : 
-                        int LA32_121 = input.LA(1);
+                    case 88 : 
+                        int LA32_107 = input.LA(1);
 
                          
-                        int index32_121 = input.index();
+                        int index32_107 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_121=='\'') ) {s = 87;}
+                        if ( ((LA32_107>='0' && LA32_107<='9')||(LA32_107>='A' && LA32_107<='F')||(LA32_107>='a' && LA32_107<='f')) ) {s = 115;}
 
-                        else s = 21;
+                        else s = 22;
 
                          
-                        input.seek(index32_121);
+                        input.seek(index32_107);
                         if ( s>=0 ) return s;
                         break;
-                    case 81 : 
-                        int LA32_73 = input.LA(1);
+                    case 89 : 
+                        int LA32_75 = input.LA(1);
 
                          
-                        int index32_73 = input.index();
+                        int index32_75 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_73>='0' && LA32_73<='9')||(LA32_73>='A' && LA32_73<='F')||(LA32_73>='a' && LA32_73<='f')) ) {s = 101;}
+                        if ( (LA32_75=='E'||LA32_75=='e') ) {s = 76;}
 
-                        else if ( (LA32_73=='P'||LA32_73=='p') ) {s = 72;}
+                        else if ( (LA32_75=='D'||LA32_75=='d') ) {s = 43;}
 
-                        else s = 21;
+                        else if ( ((LA32_75>='0' && LA32_75<='9')) ) {s = 75;}
+
+                        else if ( (LA32_75=='F'||LA32_75=='f') ) {s = 40;}
+
+                        else if ( ((LA32_75>='\u0000' && LA32_75<='\t')||(LA32_75>='\u000B' && LA32_75<='\f')||(LA32_75>='\u000E' && LA32_75<='/')||(LA32_75>=':' && LA32_75<='C')||(LA32_75>='G' && LA32_75<='c')||(LA32_75>='g' && LA32_75<='\uFFFF')) && (( textMode ))) {s = 22;}
+
+                        else s = 102;
 
                          
-                        input.seek(index32_73);
+                        input.seek(index32_75);
                         if ( s>=0 ) return s;
                         break;
-                    case 82 : 
-                        int LA32_120 = input.LA(1);
+                    case 90 : 
+                        int LA32_119 = input.LA(1);
 
                          
-                        int index32_120 = input.index();
+                        int index32_119 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_120=='\"') && ((( !textMode )||( textMode )))) {s = 34;}
+                        if ( ((LA32_119>='0' && LA32_119<='9')||(LA32_119>='A' && LA32_119<='F')||(LA32_119>='a' && LA32_119<='f')) ) {s = 121;}
 
-                        else if ( (LA32_120=='\\') && ((( !textMode )||( textMode )))) {s = 32;}
-
-                        else if ( ((LA32_120>='\u0000' && LA32_120<='\t')||(LA32_120>='\u000B' && LA32_120<='\f')||(LA32_120>='\u000E' && LA32_120<='!')||(LA32_120>='#' && LA32_120<='[')||(LA32_120>=']' && LA32_120<='\uFFFF')) && ((( !textMode )||( textMode )))) {s = 33;}
-
-                        else s = 21;
+                        else s = 22;
 
                          
-                        input.seek(index32_120);
+                        input.seek(index32_119);
                         if ( s>=0 ) return s;
                         break;
-                    case 83 : 
-                        int LA32_47 = input.LA(1);
+                    case 91 : 
+                        int LA32_8 = input.LA(1);
 
                          
-                        int index32_47 = input.index();
+                        int index32_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA32_47=='\'') ) {s = 87;}
+                        if ( (LA32_8=='\n') && ((( !hashMode )||( hashMode )))) {s = 28;}
 
-                        else s = 21;
+                        else s = 29;
 
                          
-                        input.seek(index32_47);
+                        input.seek(index32_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 84 : 
-                        int LA32_87 = input.LA(1);
+                    case 92 : 
+                        int LA32_36 = input.LA(1);
 
                          
-                        int index32_87 = input.index();
+                        int index32_36 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA32_87>='\u0000' && LA32_87<='\t')||(LA32_87>='\u000B' && LA32_87<='\f')||(LA32_87>='\u000E' && LA32_87<='\uFFFF')) && (( textMode ))) {s = 21;}
+                        if ( ((LA32_36>='0' && LA32_36<='9')||(LA32_36>='A' && LA32_36<='F')||(LA32_36>='a' && LA32_36<='f')) ) {s = 71;}
 
-                        else s = 110;
+                        else if ( (LA32_36=='P'||LA32_36=='p') ) {s = 72;}
+
+                        else if ( (LA32_36=='.') ) {s = 73;}
+
+                        else s = 22;
 
                          
-                        input.seek(index32_87);
+                        input.seek(index32_36);
                         if ( s>=0 ) return s;
                         break;
-                    case 85 : 
+                    case 93 : 
                         int LA32_84 = input.LA(1);
 
                          
@@ -4120,142 +4251,10 @@ public class JamlLexer extends Lexer {
                         s = -1;
                         if ( ((LA32_84>='0' && LA32_84<='9')||(LA32_84>='A' && LA32_84<='F')||(LA32_84>='a' && LA32_84<='f')) ) {s = 107;}
 
-                        else s = 21;
+                        else s = 22;
 
                          
                         input.seek(index32_84);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 86 : 
-                        int LA32_24 = input.LA(1);
-
-                         
-                        int index32_24 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_24>='0' && LA32_24<='9')||(LA32_24>='A' && LA32_24<='Z')||(LA32_24>='a' && LA32_24<='z')) && ((( !textMode )||( textMode )))) {s = 24;}
-
-                        else if ( ((LA32_24>='\u0000' && LA32_24<='\t')||(LA32_24>='\u000B' && LA32_24<='\f')||(LA32_24>='\u000E' && LA32_24<='/')||(LA32_24>=':' && LA32_24<='@')||(LA32_24>='[' && LA32_24<='`')||(LA32_24>='{' && LA32_24<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 59;
-
-                         
-                        input.seek(index32_24);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 87 : 
-                        int LA32_15 = input.LA(1);
-
-                         
-                        int index32_15 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_15>='\u0000' && LA32_15<='\t')||(LA32_15>='\u000B' && LA32_15<='\f')||(LA32_15>='\u000E' && LA32_15<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 49;
-
-                         
-                        input.seek(index32_15);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 88 : 
-                        int LA32_111 = input.LA(1);
-
-                         
-                        int index32_111 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_111>='0' && LA32_111<='9')||(LA32_111>='A' && LA32_111<='F')||(LA32_111>='a' && LA32_111<='f')) && ((( !textMode )||( textMode )))) {s = 118;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_111);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 89 : 
-                        int LA32_67 = input.LA(1);
-
-                         
-                        int index32_67 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_67>='0' && LA32_67<='9')||(LA32_67>='A' && LA32_67<='F')||(LA32_67>='a' && LA32_67<='f')) && ((( !textMode )||( textMode )))) {s = 94;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_67);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 90 : 
-                        int LA32_99 = input.LA(1);
-
-                         
-                        int index32_99 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_99>='0' && LA32_99<='9')) ) {s = 100;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_99);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 91 : 
-                        int LA32_94 = input.LA(1);
-
-                         
-                        int index32_94 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_94>='0' && LA32_94<='9')||(LA32_94>='A' && LA32_94<='F')||(LA32_94>='a' && LA32_94<='f')) && ((( !textMode )||( textMode )))) {s = 111;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_94);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 92 : 
-                        int LA32_41 = input.LA(1);
-
-                         
-                        int index32_41 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA32_41=='E'||LA32_41=='e') ) {s = 40;}
-
-                        else if ( ((LA32_41>='0' && LA32_41<='9')) ) {s = 41;}
-
-                        else if ( (LA32_41=='D'||LA32_41=='d') ) {s = 37;}
-
-                        else if ( (LA32_41=='.') ) {s = 42;}
-
-                        else if ( (LA32_41=='F'||LA32_41=='f') ) {s = 43;}
-
-                        else if ( ((LA32_41>='\u0000' && LA32_41<='\t')||(LA32_41>='\u000B' && LA32_41<='\f')||(LA32_41>='\u000E' && LA32_41<='-')||LA32_41=='/'||(LA32_41>=':' && LA32_41<='C')||(LA32_41>='G' && LA32_41<='c')||(LA32_41>='g' && LA32_41<='\uFFFF')) && (( textMode ))) {s = 21;}
-
-                        else s = 77;
-
-                         
-                        input.seek(index32_41);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 93 : 
-                        int LA32_118 = input.LA(1);
-
-                         
-                        int index32_118 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA32_118>='0' && LA32_118<='9')||(LA32_118>='A' && LA32_118<='F')||(LA32_118>='a' && LA32_118<='f')) && ((( !textMode )||( textMode )))) {s = 120;}
-
-                        else s = 21;
-
-                         
-                        input.seek(index32_118);
                         if ( s>=0 ) return s;
                         break;
             }

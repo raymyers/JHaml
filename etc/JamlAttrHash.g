@@ -273,7 +273,7 @@ package com.cadrlife.jaml;
  *  needed forever the lexer part of the grammar should be changed by replacing 
  *  the 'if-else' stuff within the approprate lexer grammar actions.
  */
-public boolean preserveWhitespacesAndComments = false;
+public boolean preserveWhitespacesAndComments = true;
 }
 
 attrMappings returns [Map<String,String> attrMap] 
@@ -290,8 +290,11 @@ attrMapping returns [String attr, String value]:
 attribute returns [String value]: 
 ':' IDENT {$value = $IDENT.text;} | literal {$value=$literal.value;};
 
+
 attributeValue returns [String value]: 
-literal {$value=$literal.value;};
+(literal ',' | literal EOF) => literal {$value=$literal.value;} | 
+expression {$value = "<\%= " + $expression.text + " \%>";} 
+;
 
 literal returns [String value] : 
   lit=(HEX_LITERAL|OCTAL_LITERAL|DECIMAL_LITERAL) {$value = Util.parseIntegerLiteral($lit.text);} |

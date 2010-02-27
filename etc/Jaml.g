@@ -118,9 +118,9 @@ ID  : { !textMode }?=> ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*;
 // NEWLINE: ('\r'? '\n') {textMode = true; beginningOfLine=true;};
 
 WS : { !textMode }?=>
-  Spaces {skip(); if (!hashMode ) textMode=true;};
+  Spaces {if (!hashMode ) { skip(); textMode=true; }};
 
-IGNORED_NEWLINE  : { hashMode }?=> NL {skip();};
+IGNORED_NEWLINE  : { hashMode }?=> NL ;
 
 CHANGE_INDENT 
 @init { int tb = 0; } :{ !hashMode }?=> 

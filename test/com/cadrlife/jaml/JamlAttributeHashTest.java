@@ -70,7 +70,7 @@ public class JamlAttributeHashTest {
 	
 	@Test
 	public void stringsAsAttributeNames() {
-		String input = "{\"1\" => 42}";
+		String input = "{\"1\" => 42 }";
 		assertEquals("42", readAttrs(input).get("1"));
 	}
 	
@@ -81,8 +81,21 @@ public class JamlAttributeHashTest {
 		assertEquals("{", readAttrs("{\"1\" => '{'}").get("1"));
 	}
 	
-//	@Test
-//	public void 
+	@Test
+	public void javaExpressionsAsValues() {
+		String input = "{:a => 1+2 , :b => foo(bar(baz.boo))}";
+		assertEquals("<%= 1+2 %>", readAttrs(input).get("a"));
+		assertEquals("<%= foo(bar(baz.boo)) %>", readAttrs(input).get("b"));
+	}
+	@Test
+	public void javaExpressionWithAnonymousClassAsValue() {
+		// Non. Trivial.
+		String anon = "new Runnable() {\n@Override\npublic void run() {\n throw new RuntimeException();}\n}";
+		String input = "{:a => 1+2 , :b => " + anon + ", :c => 3}";
+		assertEquals("<%= 1+2 %>", readAttrs(input).get("a"));
+		assertEquals("<%= " + anon + " %>", readAttrs(input).get("b"));
+		assertEquals("3", readAttrs(input).get("c"));
+	}
 	
 	private Map<String, String> readAttrs(String input) {
 		try {
