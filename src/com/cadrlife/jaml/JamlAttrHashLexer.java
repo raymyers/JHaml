@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-26 20:19:44
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-26 23:46:30
 
 package com.cadrlife.jaml;
 
@@ -8,7 +8,7 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-public class JamlAttrHashLexer extends Lexer {
+@SuppressWarnings("unused") public class JamlAttrHashLexer extends Lexer {
     public static final int PACKAGE=84;
     public static final int EXPONENT=173;
     public static final int STAR=49;

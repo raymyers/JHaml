@@ -93,5 +93,23 @@ public class Util {
 	public static String parseDoubleLiteral(String lit) {
 		return Double.toString(Double.parseDouble(lit));
 	}
+
+	public static String jspExpression(String code) {
+		return "<%= " + code + " %>";
+	}
+	
+	public static String jspScriptlet(String code) {
+		return "<% " + code + " %>";
+	}
+
+	public static String parseFreeFormText(String text) {
+		if (text.startsWith("=")) {
+			return jspExpression(text.substring(1).trim());
+		}
+		if (text.startsWith("-")) {
+			return jspScriptlet(text.substring(1).trim());
+		}
+		return text;
+	}
 	
 }

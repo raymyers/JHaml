@@ -1,7 +1,6 @@
 package com.cadrlife.jaml;
 
 
-@SuppressWarnings("deprecation")
 public class Jaml {
 	private final JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
 

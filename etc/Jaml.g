@@ -54,7 +54,7 @@ prog returns [String rendering] @init {$rendering = "";}:
 
 element returns [String rendering] @init {String content = ""; boolean selfClosing=false;}:
   elementDeclaration 
-   ( TEXT NEWLINE {content = $TEXT.text;} | 
+   ( freeformText NEWLINE {content = $freeformText.rendering;} | 
      NEWLINE (content {content = $content.rendering;})? |
      FORWARD_SLASH NEWLINE {selfClosing = true;})
   {$rendering = Util.elem($elementDeclaration.type, $elementDeclaration.attrMap, content, selfClosing);}
@@ -62,9 +62,15 @@ element returns [String rendering] @init {String content = ""; boolean selfClosi
 
 line returns [String rendering] @init { $rendering = ""; } :
   element {$rendering = $element.rendering;}
-  | TEXT {$rendering = $TEXT.text;} NEWLINE
+  | freeformText {$rendering = $freeformText.rendering;} NEWLINE
   | NEWLINE
   ;
+  
+freeformText returns [String rendering]:
+      TEXT
+      {
+        $rendering = Util.parseFreeFormText($TEXT.text);
+      };
 
 elementDeclaration returns [String type, Map<String,String> attrMap] 
   @init {$attrMap = new LinkedHashMap<String,String>();}:
@@ -77,11 +83,10 @@ elementDeclaration returns [String type, Map<String,String> attrMap]
 
 content returns [String rendering] @init { $rendering = ""; } :
 INDENT 
- (e1=element {$rendering += $e1.rendering + "\n";} | TEXT NEWLINE {$rendering += $TEXT.text + "\n";})+
+ (e1=element {$rendering += $e1.rendering + "\n";} | freeformText NEWLINE {$rendering += $freeformText.rendering + "\n";})+
 DEDENT
 {$rendering = "\n" + Util.indent(Util.stripTrailingNewline($rendering)) + "\n";}
 ;
-//line: TEXT {System.out.println($TEXT.text);};
 
 attrs[Map<String,String> attrMap] returns [String type]:
 PERCENT ID {$type = $ID.text;}
@@ -112,9 +117,11 @@ DOT ID {$klass = $ID.text;};
 POUND: { beginningOfLine }?=> '#' {textMode = false;};
 DOT: { beginningOfLine }?=> '.' {textMode = false;};
 PERCENT: { beginningOfLine }?=> '%' {textMode = false;};
-FORWARD_SLASH: { !textMode }?=> '/';
+FORWARD_SLASH: { !hashMode }?=> '/';
 COMMA: { !textMode }?=> ',';
-ID  : { !textMode }?=> ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*;
+ID  : { !textMode }?=> 
+  ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*
+  {textMode = true;};
 // NEWLINE: ('\r'? '\n') {textMode = true; beginningOfLine=true;};
 
 WS : { !textMode }?=>
@@ -149,81 +156,9 @@ NL: '\r'? '\n';
 fragment SpacesQ: (' ')*;
 fragment Spaces: (' ')+;
 
-StringLiteral: { !textMode }?=>
+StringLiteral: { hashMode }?=>
     '"' ( EscapeSequence | ~('\\' | '"' | '\r' | '\n' ) )* '"'
   ;
-
-LONGLITERAL
-    :   IntegerNumber LongSuffix
-    ;
-
-    
-INTLITERAL
-    :   IntegerNumber 
-    ;
-    
-fragment
-IntegerNumber
-    :   '0' 
-    |   '1'..'9' ('0'..'9')*    
-    |   '0' ('0'..'7')+         
-    |   HexPrefix HexDigit+        
-    ;
-
-fragment
-HexPrefix
-    :   '0x' | '0X'
-    ;
-        
-fragment
-HexDigit
-    :   ('0'..'9'|'a'..'f'|'A'..'F')
-    ;
-
-fragment
-LongSuffix
-    :   'l' | 'L'
-    ;
-
-
-fragment
-NonIntegerNumber
-    :   ('0' .. '9')+ '.' ('0' .. '9')* Exponent?  
-    |   '.' ( '0' .. '9' )+ Exponent?  
-    |   ('0' .. '9')+ Exponent  
-    |   ('0' .. '9')+ 
-    |   
-        HexPrefix (HexDigit )* 
-        (    () 
-        |    ('.' (HexDigit )* ) 
-        ) 
-        ( 'p' | 'P' ) 
-        ( '+' | '-' )? 
-        ( '0' .. '9' )+
-        ;
-        
-fragment 
-Exponent    
-    :   ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ 
-    ;
-    
-fragment 
-FloatSuffix
-    :   'f' | 'F' 
-    ;     
-
-fragment
-DoubleSuffix
-    :   'd' | 'D'
-    ;
-        
-FLOATLITERAL
-    :   NonIntegerNumber FloatSuffix
-    ;
-    
-DOUBLELITERAL
-    :   NonIntegerNumber DoubleSuffix?
-    ;
 
 CHARLITERAL
     :   '\'' 
@@ -251,23 +186,28 @@ fragment
 UnicodeEscape
   :   '\\' 'u' HexDigit HexDigit HexDigit HexDigit
   ;
+  
+fragment
+HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;
 
-TEXT: { textMode }?=>
-      (~('.' | '#' | '%' | '\r' | '\n' | ' '))
+TEXT: { textMode && !hashMode}?=>
+      (~('.' | '#' | '%' | '\r' | '\n' | '{' | ' ' | '/'))
       (~('\r' | '\n'))*
-      {beginningOfLine=false;};
+      {
+        beginningOfLine = false;
+      };
       
 HASH_CONTENTS: { hashMode }?=>
       (~('"' | '\'' | '{' | '}'));
 
 //EQUALS  : { hashMode }?=> ;
-BEGIN_HASH  : { !textMode && braceDepth == 0 }?=> LBRACE {hashMode=true;};
+BEGIN_HASH  : { textMode && braceDepth == 0 }?=> LBRACE {hashMode=true;};
 END_HASH  : { braceDepth == 1 }?=> RBRACE {hashMode=false;};
 
 JAVA_LBRACE : { hashMode }?=> LBRACE;
 JAVA_RBRACE : { braceDepth > 1 }?=>  RBRACE;
 
-fragment LBRACE : { !textMode }?=> '{' {braceDepth++;};
+fragment LBRACE : '{' {braceDepth++;};
 fragment RBRACE  : { hashMode }?=> '}' {braceDepth--;};
 
 // These tokens get emitted by the CHANGE_INDENTATION rule.

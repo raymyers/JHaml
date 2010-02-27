@@ -293,7 +293,7 @@ attribute returns [String value]:
 
 attributeValue returns [String value]: 
 (literal ',' | literal EOF) => literal {$value=$literal.value;} | 
-expression {$value = "<\%= " + $expression.text + " \%>";} 
+expression {$value = Util.jspExpression($expression.text);} 
 ;
 
 literal returns [String value] : 

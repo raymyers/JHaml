@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.util.Map;
 
 import org.antlr.runtime.ANTLRInputStream;
-import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.junit.Test;
 
-import com.cadrlife.jaml.JamlParser.attrHash_return;
 import com.cadrlife.jaml.JamlParser.elementDeclaration_return;
 import com.cadrlife.util.StringInputStream;
 
@@ -103,11 +101,6 @@ public class JamlAttributeHashTest {
 			JamlLexer lexer = new JamlLexer(new ANTLRInputStream(
 					new StringInputStream(("%p" + input))));
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
-//			System.out.println(((CommonToken) tokens.getTokens().get(0)).getText());
-//			tokens.consume();
-//			tokens.consume();
-//			tokens.getTokens().remove(0);
-//			tokens.getTokens().remove(0);
 			JamlParser parser = new JamlParser(tokens);
 			elementDeclaration_return prog = parser.elementDeclaration();
 			if (parser.failed()) {

@@ -105,6 +105,18 @@ public class JamlTest {
        }
        
        @Test
+       public void jspScriptlet() {
+    	   assertEquals("<% foo(bar); %>", jaml.parse("- foo(bar);"));
+    	   assertEquals("<p><% foo(bar); %></p>", jaml.parse("%p- foo(bar);"));
+       }
+       
+       @Test
+       public void jspExpression() {
+    	   assertEquals("<%= foo(bar); %>", jaml.parse("= foo(bar);"));
+    	   assertEquals("<p><%= foo(bar); %></p>", jaml.parse("%p= foo(bar);"));
+       }
+       
+       @Test
        public void stringsShouldGetStrippedInsideTags() {
     	   String haml = ".stripped    This should have no spaces in front of it";
     	   String html = "<div class='stripped'>This should have no spaces in front of it</div>";
