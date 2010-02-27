@@ -7,7 +7,7 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 
 import com.cadrlife.jaml.JamlAttrHashParser.attrMappings_return;
-import com.cadrlife.jaml.JamlParser.prog_return;
+import com.cadrlife.jaml.JamlParser.jamlSource_return;
 import com.cadrlife.util.StringInputStream;
 import com.habelitz.jsobjectizer.unmarshaller.antlrbridge.generated.JavaLexer;
 import com.habelitz.jsobjectizer.unmarshaller.antlrbridge.generated.JavaParser;
@@ -55,10 +55,10 @@ public class JamlParserWrapper {
 		}
 	}
 
-	public prog_return parseJaml(String input) throws IOException,
+	public jamlSource_return parseJaml(String input) throws IOException,
 			RecognitionException {
 		JamlParser parser = primeJamlParser(input, false);
-		prog_return jamlSource = parser.prog();
+		jamlSource_return jamlSource = parser.jamlSource(new JamlConfig());
 		throwForParseErrors(parser);
 		return jamlSource;
 	}

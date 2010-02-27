@@ -7,23 +7,22 @@ import org.apache.commons.lang.StringEscapeUtils;
 import com.cadrlife.jaml.JamlAttrHashParser.attrMappings_return;
 
 
-public class Util {
-	public static String elem(String el, String attribString, String content) {
-		return "<" + el + attribString + ">" + content + "</" + el + ">";
+public class Helper {
+	private final JamlConfig config;
+
+	public Helper(JamlConfig config) {
+		this.config = config;
 	}
 	
-	public static String elem(String el, Map<String,String> attribMap, String content, boolean selfClosing) {
-		if (selfClosing) {
+	public String elem(String el, Map<String,String> attribMap, String content, boolean selfClosing) {
+		boolean autoClose = config.autoclose.contains(el) && content.isEmpty();
+		if (selfClosing || autoClose) {
 			return "<" + el + attribs(attribMap) + " />";
 		}
 		return "<" + el + attribs(attribMap) + ">" + content + "</" + el + ">";
 	}
 	
-	public static String elem(String el) {
-		return elem(el, "", "");
-	}
-	
-	public static String attribs(String...s) {
+	public String attribs(String...s) {
 		String result = "";
 		for (int i=0; i<s.length; i+=2) {
 			String attr = s[i];
@@ -33,7 +32,7 @@ public class Util {
 		return result;
 	}
 	
-	public static String attribs(Map<String, String> attribMap) {
+	public String attribs(Map<String, String> attribMap) {
 		String result = "";
 		if (null != attribMap) {
 			for (Entry<String, String> e : attribMap.entrySet()) {
@@ -45,7 +44,7 @@ public class Util {
 		return result;
 	}
 	
-	public static void parseAttrHash(String input, Map<String, String> attrMap) {
+	public void parseAttrHash(String input, Map<String, String> attrMap) {
 		System.out.println(">>> "+ input);
 		JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
 		try {
@@ -56,11 +55,11 @@ public class Util {
 		}
 	}
 	
-	public static String parseStringLiteral(String lit) {
+	public String parseStringLiteral(String lit) {
 		return StringEscapeUtils.unescapeJava(lit.substring(1, lit.length()-1));
 	}
 	
-	public static String parseIntegerLiteral(String lit) {
+	public String parseIntegerLiteral(String lit) {
 		lit = lit.replaceAll("(l|L)$", "");
 		if (lit.startsWith("0x") || lit.startsWith("0X")) {
 			return Long.toString(Long.parseLong(lit.substring(2),16));
@@ -71,38 +70,38 @@ public class Util {
 		return Long.toString(Long.parseLong(lit));
 	}
 	
-	public static String indent(String text) {
+	public String indent(String text) {
 		return " " + text.replaceAll("\n", "\n "); 
 	}
-	public static String stripTrailingNewline(String text) {
+	public String stripTrailingNewline(String text) {
 		return text.replaceFirst("\n$", ""); 
 	}
 
-	public static String parseFloatLiteral(String lit) {
+	public String parseFloatLiteral(String lit) {
 		return Double.toString(Double.parseDouble(lit));
 	}
 
-	public static String parseCharLiteral(String lit) {
+	public String parseCharLiteral(String lit) {
 		return parseStringLiteral(lit);
 	}
 
-	public static String parseLongLiteral(String lit) {
+	public String parseLongLiteral(String lit) {
 		return parseIntegerLiteral(lit.substring(0, lit.length()-1));
 	}
 
-	public static String parseDoubleLiteral(String lit) {
+	public String parseDoubleLiteral(String lit) {
 		return Double.toString(Double.parseDouble(lit));
 	}
 
-	public static String jspExpression(String code) {
+	public String jspExpression(String code) {
 		return "<%= " + code + " %>";
 	}
 	
-	public static String jspScriptlet(String code) {
+	public String jspScriptlet(String code) {
 		return "<% " + code + " %>";
 	}
 
-	public static String parseFreeFormText(String text) {
+	public String parseFreeFormText(String text) {
 		if (text.startsWith("=")) {
 			return jspExpression(text.substring(1).trim());
 		}

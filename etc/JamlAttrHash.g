@@ -192,6 +192,7 @@ import java.util.Map;
 }
 
 @members {
+    Helper jamlUtil = new Helper(new JamlConfig());
     
     private boolean mMessageCollectionEnabled = false;
     private boolean mHasErrors = false;
@@ -293,14 +294,14 @@ attribute returns [String value]:
 
 attributeValue returns [String value]: 
 (literal ',' | literal EOF) => literal {$value=$literal.value;} | 
-expression {$value = Util.jspExpression($expression.text);} 
+expression {$value = jamlUtil.jspExpression($expression.text);} 
 ;
 
 literal returns [String value] : 
-  lit=(HEX_LITERAL|OCTAL_LITERAL|DECIMAL_LITERAL) {$value = Util.parseIntegerLiteral($lit.text);} |
-  lit=FLOATING_POINT_LITERAL {$value = Util.parseFloatLiteral($lit.text);} |
-  lit=CHARACTER_LITERAL {$value = Util.parseCharLiteral($lit.text);} |
-  lit=STRING_LITERAL {$value = Util.parseStringLiteral($lit.text);} |
+  lit=(HEX_LITERAL|OCTAL_LITERAL|DECIMAL_LITERAL) {$value = jamlUtil.parseIntegerLiteral($lit.text);} |
+  lit=FLOATING_POINT_LITERAL {$value = jamlUtil.parseFloatLiteral($lit.text);} |
+  lit=CHARACTER_LITERAL {$value = jamlUtil.parseCharLiteral($lit.text);} |
+  lit=STRING_LITERAL {$value = jamlUtil.parseStringLiteral($lit.text);} |
   lit=(TRUE|FALSE|NULL) {$value = $lit.text;}
   ;
 // Starting point for parsing a Java file.

@@ -47,17 +47,24 @@ package com.cadrlife.jaml;
 
 @parser::members {
 String output = "";
+JamlConfig config = new JamlConfig();
+Helper util = new Helper(config);
 }
 
-prog returns [String rendering] @init {$rendering = "";}:
-  (line {$rendering += $line.rendering;} {$rendering += "\n";})*;
+jamlSource[JamlConfig config] returns [String rendering]
+@init {
+  $rendering = ""; 
+  this.config = $config;
+  Helper util = new Helper(config);
+}
+: (line {$rendering += $line.rendering;} {$rendering += "\n";})*;
 
 element returns [String rendering] @init {String content = ""; boolean selfClosing=false;}:
   elementDeclaration 
    ( freeformText NEWLINE {content = $freeformText.rendering;} | 
      NEWLINE (content {content = $content.rendering;})? |
      FORWARD_SLASH NEWLINE {selfClosing = true;})
-  {$rendering = Util.elem($elementDeclaration.type, $elementDeclaration.attrMap, content, selfClosing);}
+  {$rendering = util.elem($elementDeclaration.type, $elementDeclaration.attrMap, content, selfClosing);}
   ;
 
 line returns [String rendering] @init { $rendering = ""; } :
@@ -69,7 +76,7 @@ line returns [String rendering] @init { $rendering = ""; } :
 freeformText returns [String rendering]:
       TEXT
       {
-        $rendering = Util.parseFreeFormText($TEXT.text);
+        $rendering = util.parseFreeFormText($TEXT.text);
       };
 
 elementDeclaration returns [String type, Map<String,String> attrMap] 
@@ -85,7 +92,7 @@ content returns [String rendering] @init { $rendering = ""; } :
 INDENT 
  (e1=element {$rendering += $e1.rendering + "\n";} | freeformText NEWLINE {$rendering += $freeformText.rendering + "\n";})+
 DEDENT
-{$rendering = "\n" + Util.indent(Util.stripTrailingNewline($rendering)) + "\n";}
+{$rendering = "\n" + util.indent(util.stripTrailingNewline($rendering)) + "\n";}
 ;
 
 attrs[Map<String,String> attrMap] returns [String type]:
@@ -100,7 +107,7 @@ divAttrs[Map<String,String> attrMap] :
 attrHash[Map<String,String> attrMap] :
   BEGIN_HASH {System.out.println("BEGIN " + $text);}
   hashAttrs 
-  END_HASH {Util.parseAttrHash($hashAttrs.contents, $attrMap);};
+  END_HASH {util.parseAttrHash($hashAttrs.contents, $attrMap);};
 
 hashAttrs returns [String contents] @init {$contents="";} :
 (notEndHash {$contents += $notEndHash.text;})*;

@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-26 23:46:30
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-27 11:49:52
 
 package com.cadrlife.jaml;
 
@@ -2496,8 +2496,8 @@ import java.util.ArrayList;
         try {
             int _type = HEX_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1054:13: ( '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )? )
-            // ../etc/JamlAttrHash.g:1054:15: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JamlAttrHash.g:1055:13: ( '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )? )
+            // ../etc/JamlAttrHash.g:1055:15: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )?
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -2509,7 +2509,7 @@ import java.util.ArrayList;
                 recover(mse);
                 throw mse;}
 
-            // ../etc/JamlAttrHash.g:1054:29: ( HEX_DIGIT )+
+            // ../etc/JamlAttrHash.g:1055:29: ( HEX_DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -2523,7 +2523,7 @@ import java.util.ArrayList;
 
                 switch (alt1) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1054:29: HEX_DIGIT
+            	    // ../etc/JamlAttrHash.g:1055:29: HEX_DIGIT
             	    {
             	    mHEX_DIGIT(); 
 
@@ -2539,7 +2539,7 @@ import java.util.ArrayList;
                 cnt1++;
             } while (true);
 
-            // ../etc/JamlAttrHash.g:1054:40: ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JamlAttrHash.g:1055:40: ( INTEGER_TYPE_SUFFIX )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -2548,7 +2548,7 @@ import java.util.ArrayList;
             }
             switch (alt2) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1054:40: INTEGER_TYPE_SUFFIX
+                    // ../etc/JamlAttrHash.g:1055:40: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -2575,10 +2575,10 @@ import java.util.ArrayList;
         try {
             int _type = DECIMAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1056:17: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )? )
-            // ../etc/JamlAttrHash.g:1056:19: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JamlAttrHash.g:1057:17: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )? )
+            // ../etc/JamlAttrHash.g:1057:19: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )?
             {
-            // ../etc/JamlAttrHash.g:1056:19: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // ../etc/JamlAttrHash.g:1057:19: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2596,17 +2596,17 @@ import java.util.ArrayList;
             }
             switch (alt4) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1056:20: '0'
+                    // ../etc/JamlAttrHash.g:1057:20: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1056:26: '1' .. '9' ( '0' .. '9' )*
+                    // ../etc/JamlAttrHash.g:1057:26: '1' .. '9' ( '0' .. '9' )*
                     {
                     matchRange('1','9'); 
-                    // ../etc/JamlAttrHash.g:1056:35: ( '0' .. '9' )*
+                    // ../etc/JamlAttrHash.g:1057:35: ( '0' .. '9' )*
                     loop3:
                     do {
                         int alt3=2;
@@ -2619,7 +2619,7 @@ import java.util.ArrayList;
 
                         switch (alt3) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:1056:35: '0' .. '9'
+                    	    // ../etc/JamlAttrHash.g:1057:35: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2637,7 +2637,7 @@ import java.util.ArrayList;
 
             }
 
-            // ../etc/JamlAttrHash.g:1056:46: ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JamlAttrHash.g:1057:46: ( INTEGER_TYPE_SUFFIX )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2646,7 +2646,7 @@ import java.util.ArrayList;
             }
             switch (alt5) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1056:46: INTEGER_TYPE_SUFFIX
+                    // ../etc/JamlAttrHash.g:1057:46: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -2673,11 +2673,11 @@ import java.util.ArrayList;
         try {
             int _type = OCTAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1058:15: ( '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )? )
-            // ../etc/JamlAttrHash.g:1058:17: '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JamlAttrHash.g:1059:15: ( '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )? )
+            // ../etc/JamlAttrHash.g:1059:17: '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )?
             {
             match('0'); 
-            // ../etc/JamlAttrHash.g:1058:21: ( '0' .. '7' )+
+            // ../etc/JamlAttrHash.g:1059:21: ( '0' .. '7' )+
             int cnt6=0;
             loop6:
             do {
@@ -2691,7 +2691,7 @@ import java.util.ArrayList;
 
                 switch (alt6) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1058:22: '0' .. '7'
+            	    // ../etc/JamlAttrHash.g:1059:22: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -2707,7 +2707,7 @@ import java.util.ArrayList;
                 cnt6++;
             } while (true);
 
-            // ../etc/JamlAttrHash.g:1058:33: ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JamlAttrHash.g:1059:33: ( INTEGER_TYPE_SUFFIX )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2716,7 +2716,7 @@ import java.util.ArrayList;
             }
             switch (alt7) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1058:33: INTEGER_TYPE_SUFFIX
+                    // ../etc/JamlAttrHash.g:1059:33: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -2741,8 +2741,8 @@ import java.util.ArrayList;
     public final void mHEX_DIGIT() throws RecognitionException {
     traceIn("HEX_DIGIT", 104);
         try {
-            // ../etc/JamlAttrHash.g:1061:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // ../etc/JamlAttrHash.g:1061:13: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // ../etc/JamlAttrHash.g:1062:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // ../etc/JamlAttrHash.g:1062:13: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -2767,8 +2767,8 @@ import java.util.ArrayList;
     public final void mINTEGER_TYPE_SUFFIX() throws RecognitionException {
     traceIn("INTEGER_TYPE_SUFFIX", 105);
         try {
-            // ../etc/JamlAttrHash.g:1064:21: ( ( 'l' | 'L' ) )
-            // ../etc/JamlAttrHash.g:1064:23: ( 'l' | 'L' )
+            // ../etc/JamlAttrHash.g:1065:21: ( ( 'l' | 'L' ) )
+            // ../etc/JamlAttrHash.g:1065:23: ( 'l' | 'L' )
             {
             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                 input.consume();
@@ -2795,7 +2795,7 @@ import java.util.ArrayList;
         try {
             int _type = FLOATING_POINT_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1067:5: ( ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX ) | DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? )
+            // ../etc/JamlAttrHash.g:1068:5: ( ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX ) | DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2813,9 +2813,9 @@ import java.util.ArrayList;
             }
             switch (alt17) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1067:9: ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
+                    // ../etc/JamlAttrHash.g:1068:9: ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
                     {
-                    // ../etc/JamlAttrHash.g:1067:9: ( '0' .. '9' )+
+                    // ../etc/JamlAttrHash.g:1068:9: ( '0' .. '9' )+
                     int cnt8=0;
                     loop8:
                     do {
@@ -2829,7 +2829,7 @@ import java.util.ArrayList;
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:1067:10: '0' .. '9'
+                    	    // ../etc/JamlAttrHash.g:1068:10: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2845,7 +2845,7 @@ import java.util.ArrayList;
                         cnt8++;
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:1068:9: ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
+                    // ../etc/JamlAttrHash.g:1069:9: ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
                     int alt13=3;
                     switch ( input.LA(1) ) {
                     case '.':
@@ -2876,10 +2876,10 @@ import java.util.ArrayList;
 
                     switch (alt13) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1069:13: DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
+                            // ../etc/JamlAttrHash.g:1070:13: DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
                             {
                             mDOT(); 
-                            // ../etc/JamlAttrHash.g:1069:17: ( '0' .. '9' )*
+                            // ../etc/JamlAttrHash.g:1070:17: ( '0' .. '9' )*
                             loop9:
                             do {
                                 int alt9=2;
@@ -2892,7 +2892,7 @@ import java.util.ArrayList;
 
                                 switch (alt9) {
                             	case 1 :
-                            	    // ../etc/JamlAttrHash.g:1069:18: '0' .. '9'
+                            	    // ../etc/JamlAttrHash.g:1070:18: '0' .. '9'
                             	    {
                             	    matchRange('0','9'); 
 
@@ -2904,7 +2904,7 @@ import java.util.ArrayList;
                                 }
                             } while (true);
 
-                            // ../etc/JamlAttrHash.g:1069:29: ( EXPONENT )?
+                            // ../etc/JamlAttrHash.g:1070:29: ( EXPONENT )?
                             int alt10=2;
                             int LA10_0 = input.LA(1);
 
@@ -2913,7 +2913,7 @@ import java.util.ArrayList;
                             }
                             switch (alt10) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:1069:29: EXPONENT
+                                    // ../etc/JamlAttrHash.g:1070:29: EXPONENT
                                     {
                                     mEXPONENT(); 
 
@@ -2922,7 +2922,7 @@ import java.util.ArrayList;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:1069:39: ( FLOAT_TYPE_SUFFIX )?
+                            // ../etc/JamlAttrHash.g:1070:39: ( FLOAT_TYPE_SUFFIX )?
                             int alt11=2;
                             int LA11_0 = input.LA(1);
 
@@ -2931,7 +2931,7 @@ import java.util.ArrayList;
                             }
                             switch (alt11) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:1069:39: FLOAT_TYPE_SUFFIX
+                                    // ../etc/JamlAttrHash.g:1070:39: FLOAT_TYPE_SUFFIX
                                     {
                                     mFLOAT_TYPE_SUFFIX(); 
 
@@ -2944,10 +2944,10 @@ import java.util.ArrayList;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1070:13: EXPONENT ( FLOAT_TYPE_SUFFIX )?
+                            // ../etc/JamlAttrHash.g:1071:13: EXPONENT ( FLOAT_TYPE_SUFFIX )?
                             {
                             mEXPONENT(); 
-                            // ../etc/JamlAttrHash.g:1070:22: ( FLOAT_TYPE_SUFFIX )?
+                            // ../etc/JamlAttrHash.g:1071:22: ( FLOAT_TYPE_SUFFIX )?
                             int alt12=2;
                             int LA12_0 = input.LA(1);
 
@@ -2956,7 +2956,7 @@ import java.util.ArrayList;
                             }
                             switch (alt12) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:1070:22: FLOAT_TYPE_SUFFIX
+                                    // ../etc/JamlAttrHash.g:1071:22: FLOAT_TYPE_SUFFIX
                                     {
                                     mFLOAT_TYPE_SUFFIX(); 
 
@@ -2969,7 +2969,7 @@ import java.util.ArrayList;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:1071:13: FLOAT_TYPE_SUFFIX
+                            // ../etc/JamlAttrHash.g:1072:13: FLOAT_TYPE_SUFFIX
                             {
                             mFLOAT_TYPE_SUFFIX(); 
 
@@ -2982,10 +2982,10 @@ import java.util.ArrayList;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1073:9: DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
+                    // ../etc/JamlAttrHash.g:1074:9: DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
                     {
                     mDOT(); 
-                    // ../etc/JamlAttrHash.g:1073:13: ( '0' .. '9' )+
+                    // ../etc/JamlAttrHash.g:1074:13: ( '0' .. '9' )+
                     int cnt14=0;
                     loop14:
                     do {
@@ -2999,7 +2999,7 @@ import java.util.ArrayList;
 
                         switch (alt14) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:1073:14: '0' .. '9'
+                    	    // ../etc/JamlAttrHash.g:1074:14: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -3015,7 +3015,7 @@ import java.util.ArrayList;
                         cnt14++;
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:1073:25: ( EXPONENT )?
+                    // ../etc/JamlAttrHash.g:1074:25: ( EXPONENT )?
                     int alt15=2;
                     int LA15_0 = input.LA(1);
 
@@ -3024,7 +3024,7 @@ import java.util.ArrayList;
                     }
                     switch (alt15) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1073:25: EXPONENT
+                            // ../etc/JamlAttrHash.g:1074:25: EXPONENT
                             {
                             mEXPONENT(); 
 
@@ -3033,7 +3033,7 @@ import java.util.ArrayList;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:1073:35: ( FLOAT_TYPE_SUFFIX )?
+                    // ../etc/JamlAttrHash.g:1074:35: ( FLOAT_TYPE_SUFFIX )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -3042,7 +3042,7 @@ import java.util.ArrayList;
                     }
                     switch (alt16) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1073:35: FLOAT_TYPE_SUFFIX
+                            // ../etc/JamlAttrHash.g:1074:35: FLOAT_TYPE_SUFFIX
                             {
                             mFLOAT_TYPE_SUFFIX(); 
 
@@ -3069,8 +3069,8 @@ import java.util.ArrayList;
     public final void mEXPONENT() throws RecognitionException {
     traceIn("EXPONENT", 107);
         try {
-            // ../etc/JamlAttrHash.g:1077:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // ../etc/JamlAttrHash.g:1077:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // ../etc/JamlAttrHash.g:1078:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // ../etc/JamlAttrHash.g:1078:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -3081,7 +3081,7 @@ import java.util.ArrayList;
                 recover(mse);
                 throw mse;}
 
-            // ../etc/JamlAttrHash.g:1077:22: ( '+' | '-' )?
+            // ../etc/JamlAttrHash.g:1078:22: ( '+' | '-' )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -3107,7 +3107,7 @@ import java.util.ArrayList;
 
             }
 
-            // ../etc/JamlAttrHash.g:1077:33: ( '0' .. '9' )+
+            // ../etc/JamlAttrHash.g:1078:33: ( '0' .. '9' )+
             int cnt19=0;
             loop19:
             do {
@@ -3121,7 +3121,7 @@ import java.util.ArrayList;
 
                 switch (alt19) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1077:34: '0' .. '9'
+            	    // ../etc/JamlAttrHash.g:1078:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -3151,8 +3151,8 @@ import java.util.ArrayList;
     public final void mFLOAT_TYPE_SUFFIX() throws RecognitionException {
     traceIn("FLOAT_TYPE_SUFFIX", 108);
         try {
-            // ../etc/JamlAttrHash.g:1080:19: ( ( 'f' | 'F' | 'd' | 'D' ) )
-            // ../etc/JamlAttrHash.g:1080:21: ( 'f' | 'F' | 'd' | 'D' )
+            // ../etc/JamlAttrHash.g:1081:19: ( ( 'f' | 'F' | 'd' | 'D' ) )
+            // ../etc/JamlAttrHash.g:1081:21: ( 'f' | 'F' | 'd' | 'D' )
             {
             if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='d'||input.LA(1)=='f' ) {
                 input.consume();
@@ -3179,11 +3179,11 @@ import java.util.ArrayList;
         try {
             int _type = CHARACTER_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1083:5: ( '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\'' )
-            // ../etc/JamlAttrHash.g:1083:9: '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\''
+            // ../etc/JamlAttrHash.g:1084:5: ( '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\'' )
+            // ../etc/JamlAttrHash.g:1084:9: '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\''
             {
             match('\''); 
-            // ../etc/JamlAttrHash.g:1083:14: ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )
+            // ../etc/JamlAttrHash.g:1084:14: ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -3201,14 +3201,14 @@ import java.util.ArrayList;
             }
             switch (alt20) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1083:16: ESCAPE_SEQUENCE
+                    // ../etc/JamlAttrHash.g:1084:16: ESCAPE_SEQUENCE
                     {
                     mESCAPE_SEQUENCE(); 
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1083:34: ~ ( '\\'' | '\\\\' )
+                    // ../etc/JamlAttrHash.g:1084:34: ~ ( '\\'' | '\\\\' )
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
@@ -3244,11 +3244,11 @@ import java.util.ArrayList;
         try {
             int _type = STRING_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1087:5: ( '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"' )
-            // ../etc/JamlAttrHash.g:1087:8: '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"'
+            // ../etc/JamlAttrHash.g:1088:5: ( '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"' )
+            // ../etc/JamlAttrHash.g:1088:8: '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"'
             {
             match('\"'); 
-            // ../etc/JamlAttrHash.g:1087:12: ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )*
+            // ../etc/JamlAttrHash.g:1088:12: ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )*
             loop21:
             do {
                 int alt21=3;
@@ -3264,14 +3264,14 @@ import java.util.ArrayList;
 
                 switch (alt21) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1087:14: ESCAPE_SEQUENCE
+            	    // ../etc/JamlAttrHash.g:1088:14: ESCAPE_SEQUENCE
             	    {
             	    mESCAPE_SEQUENCE(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/JamlAttrHash.g:1087:32: ~ ( '\\\\' | '\"' )
+            	    // ../etc/JamlAttrHash.g:1088:32: ~ ( '\\\\' | '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3308,7 +3308,7 @@ import java.util.ArrayList;
     public final void mESCAPE_SEQUENCE() throws RecognitionException {
     traceIn("ESCAPE_SEQUENCE", 111);
         try {
-            // ../etc/JamlAttrHash.g:1092:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESCAPE | OCTAL_ESCAPE )
+            // ../etc/JamlAttrHash.g:1093:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESCAPE | OCTAL_ESCAPE )
             int alt22=3;
             int LA22_0 = input.LA(1);
 
@@ -3359,7 +3359,7 @@ import java.util.ArrayList;
             }
             switch (alt22) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1092:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                    // ../etc/JamlAttrHash.g:1093:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                     {
                     match('\\'); 
                     if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -3375,14 +3375,14 @@ import java.util.ArrayList;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1093:9: UNICODE_ESCAPE
+                    // ../etc/JamlAttrHash.g:1094:9: UNICODE_ESCAPE
                     {
                     mUNICODE_ESCAPE(); 
 
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:1094:9: OCTAL_ESCAPE
+                    // ../etc/JamlAttrHash.g:1095:9: OCTAL_ESCAPE
                     {
                     mOCTAL_ESCAPE(); 
 
@@ -3401,7 +3401,7 @@ import java.util.ArrayList;
     public final void mOCTAL_ESCAPE() throws RecognitionException {
     traceIn("OCTAL_ESCAPE", 112);
         try {
-            // ../etc/JamlAttrHash.g:1099:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+            // ../etc/JamlAttrHash.g:1100:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
             int alt23=3;
             int LA23_0 = input.LA(1);
 
@@ -3447,41 +3447,13 @@ import java.util.ArrayList;
             }
             switch (alt23) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1099:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                    // ../etc/JamlAttrHash.g:1100:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // ../etc/JamlAttrHash.g:1099:14: ( '0' .. '3' )
-                    // ../etc/JamlAttrHash.g:1099:15: '0' .. '3'
+                    // ../etc/JamlAttrHash.g:1100:14: ( '0' .. '3' )
+                    // ../etc/JamlAttrHash.g:1100:15: '0' .. '3'
                     {
                     matchRange('0','3'); 
-
-                    }
-
-                    // ../etc/JamlAttrHash.g:1099:25: ( '0' .. '7' )
-                    // ../etc/JamlAttrHash.g:1099:26: '0' .. '7'
-                    {
-                    matchRange('0','7'); 
-
-                    }
-
-                    // ../etc/JamlAttrHash.g:1099:36: ( '0' .. '7' )
-                    // ../etc/JamlAttrHash.g:1099:37: '0' .. '7'
-                    {
-                    matchRange('0','7'); 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../etc/JamlAttrHash.g:1100:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
-                    {
-                    match('\\'); 
-                    // ../etc/JamlAttrHash.g:1100:14: ( '0' .. '7' )
-                    // ../etc/JamlAttrHash.g:1100:15: '0' .. '7'
-                    {
-                    matchRange('0','7'); 
 
                     }
 
@@ -3492,15 +3464,43 @@ import java.util.ArrayList;
 
                     }
 
+                    // ../etc/JamlAttrHash.g:1100:36: ( '0' .. '7' )
+                    // ../etc/JamlAttrHash.g:1100:37: '0' .. '7'
+                    {
+                    matchRange('0','7'); 
+
+                    }
+
 
                     }
                     break;
-                case 3 :
-                    // ../etc/JamlAttrHash.g:1101:9: '\\\\' ( '0' .. '7' )
+                case 2 :
+                    // ../etc/JamlAttrHash.g:1101:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
                     // ../etc/JamlAttrHash.g:1101:14: ( '0' .. '7' )
                     // ../etc/JamlAttrHash.g:1101:15: '0' .. '7'
+                    {
+                    matchRange('0','7'); 
+
+                    }
+
+                    // ../etc/JamlAttrHash.g:1101:25: ( '0' .. '7' )
+                    // ../etc/JamlAttrHash.g:1101:26: '0' .. '7'
+                    {
+                    matchRange('0','7'); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // ../etc/JamlAttrHash.g:1102:9: '\\\\' ( '0' .. '7' )
+                    {
+                    match('\\'); 
+                    // ../etc/JamlAttrHash.g:1102:14: ( '0' .. '7' )
+                    // ../etc/JamlAttrHash.g:1102:15: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -3522,8 +3522,8 @@ import java.util.ArrayList;
     public final void mUNICODE_ESCAPE() throws RecognitionException {
     traceIn("UNICODE_ESCAPE", 113);
         try {
-            // ../etc/JamlAttrHash.g:1106:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-            // ../etc/JamlAttrHash.g:1106:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+            // ../etc/JamlAttrHash.g:1107:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+            // ../etc/JamlAttrHash.g:1107:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
             {
             match('\\'); 
             match('u'); 
@@ -3547,11 +3547,11 @@ import java.util.ArrayList;
         try {
             int _type = IDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1110:5: ( JAVA_ID_START ( JAVA_ID_PART )* )
-            // ../etc/JamlAttrHash.g:1110:9: JAVA_ID_START ( JAVA_ID_PART )*
+            // ../etc/JamlAttrHash.g:1111:5: ( JAVA_ID_START ( JAVA_ID_PART )* )
+            // ../etc/JamlAttrHash.g:1111:9: JAVA_ID_START ( JAVA_ID_PART )*
             {
             mJAVA_ID_START(); 
-            // ../etc/JamlAttrHash.g:1110:23: ( JAVA_ID_PART )*
+            // ../etc/JamlAttrHash.g:1111:23: ( JAVA_ID_PART )*
             loop24:
             do {
                 int alt24=2;
@@ -3564,7 +3564,7 @@ import java.util.ArrayList;
 
                 switch (alt24) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1110:24: JAVA_ID_PART
+            	    // ../etc/JamlAttrHash.g:1111:24: JAVA_ID_PART
             	    {
             	    mJAVA_ID_PART(); 
 
@@ -3592,7 +3592,7 @@ import java.util.ArrayList;
     public final void mJAVA_ID_START() throws RecognitionException {
     traceIn("JAVA_ID_START", 115);
         try {
-            // ../etc/JamlAttrHash.g:1115:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
+            // ../etc/JamlAttrHash.g:1116:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
             // ../etc/JamlAttrHash.g:
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF') ) {
@@ -3618,7 +3618,7 @@ import java.util.ArrayList;
     public final void mJAVA_ID_PART() throws RecognitionException {
     traceIn("JAVA_ID_PART", 116);
         try {
-            // ../etc/JamlAttrHash.g:1132:5: ( JAVA_ID_START | '\\u0030' .. '\\u0039' )
+            // ../etc/JamlAttrHash.g:1133:5: ( JAVA_ID_START | '\\u0030' .. '\\u0039' )
             // ../etc/JamlAttrHash.g:
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF') ) {
@@ -3646,8 +3646,8 @@ import java.util.ArrayList;
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1136:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // ../etc/JamlAttrHash.g:1136:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // ../etc/JamlAttrHash.g:1137:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // ../etc/JamlAttrHash.g:1137:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -3683,12 +3683,12 @@ import java.util.ArrayList;
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1147:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../etc/JamlAttrHash.g:1147:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../etc/JamlAttrHash.g:1148:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../etc/JamlAttrHash.g:1148:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../etc/JamlAttrHash.g:1147:14: ( options {greedy=false; } : . )*
+            // ../etc/JamlAttrHash.g:1148:14: ( options {greedy=false; } : . )*
             loop25:
             do {
                 int alt25=2;
@@ -3713,7 +3713,7 @@ import java.util.ArrayList;
 
                 switch (alt25) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1147:42: .
+            	    // ../etc/JamlAttrHash.g:1148:42: .
             	    {
             	    matchAny(); 
 
@@ -3752,12 +3752,12 @@ import java.util.ArrayList;
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1158:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // ../etc/JamlAttrHash.g:1158:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // ../etc/JamlAttrHash.g:1159:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // ../etc/JamlAttrHash.g:1159:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // ../etc/JamlAttrHash.g:1158:12: (~ ( '\\n' | '\\r' ) )*
+            // ../etc/JamlAttrHash.g:1159:12: (~ ( '\\n' | '\\r' ) )*
             loop26:
             do {
                 int alt26=2;
@@ -3770,7 +3770,7 @@ import java.util.ArrayList;
 
                 switch (alt26) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1158:12: ~ ( '\\n' | '\\r' )
+            	    // ../etc/JamlAttrHash.g:1159:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3790,7 +3790,7 @@ import java.util.ArrayList;
                 }
             } while (true);
 
-            // ../etc/JamlAttrHash.g:1158:26: ( '\\r' )?
+            // ../etc/JamlAttrHash.g:1159:26: ( '\\r' )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -3799,7 +3799,7 @@ import java.util.ArrayList;
             }
             switch (alt27) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1158:26: '\\r'
+                    // ../etc/JamlAttrHash.g:1159:26: '\\r'
                     {
                     match('\r'); 
 

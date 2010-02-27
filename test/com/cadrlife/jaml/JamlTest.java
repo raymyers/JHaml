@@ -132,6 +132,14 @@ public class JamlTest {
        }
        
        @Test
+       public void selfClosingTags() {
+    	   assertEquals("<p a='b' />", jaml.parse("%p{:a => \"b\"}/"));
+    	   for (String elem : new JamlConfig().autoclose) {
+    		   assertEquals("<" + elem + " />", jaml.parse("%" + elem + ""));
+    	   }
+       }
+       
+       @Test
        public void crNewLine() {
     	   String html = "<p>foo</p>\n<p>bar</p>\n<p>baz</p>\n<p>boom</p>";
     	   assertEquals(html, jaml.parse("%p foo\r%p bar\r\n%p baz\n\r%p boom"));

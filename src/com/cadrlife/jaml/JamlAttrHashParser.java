@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-26 23:46:22
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-27 11:49:49
 
 package com.cadrlife.jaml;
 import java.util.LinkedHashMap;
@@ -226,6 +226,7 @@ import org.antlr.runtime.tree.*;
     public String getGrammarFileName() { return "../etc/JamlAttrHash.g"; }
 
 
+        Helper jamlUtil = new Helper(new JamlConfig());
         
         private boolean mMessageCollectionEnabled = false;
         private boolean mHasErrors = false;
@@ -296,7 +297,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attrMappings"
-    // ../etc/JamlAttrHash.g:279:1: attrMappings returns [Map<String,String> attrMap] : (am= attrMapping ( ',' am= attrMapping )* ) ;
+    // ../etc/JamlAttrHash.g:280:1: attrMappings returns [Map<String,String> attrMap] : (am= attrMapping ( ',' am= attrMapping )* ) ;
     public final JamlAttrHashParser.attrMappings_return attrMappings() throws RecognitionException {
     traceIn("attrMappings", 1);
         JamlAttrHashParser.attrMappings_return retval = new JamlAttrHashParser.attrMappings_return();
@@ -313,13 +314,13 @@ import org.antlr.runtime.tree.*;
         retval.attrMap = new LinkedHashMap<String,String>();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return retval; }
-            // ../etc/JamlAttrHash.g:280:57: ( (am= attrMapping ( ',' am= attrMapping )* ) )
-            // ../etc/JamlAttrHash.g:282:3: (am= attrMapping ( ',' am= attrMapping )* )
+            // ../etc/JamlAttrHash.g:281:57: ( (am= attrMapping ( ',' am= attrMapping )* ) )
+            // ../etc/JamlAttrHash.g:283:3: (am= attrMapping ( ',' am= attrMapping )* )
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/JamlAttrHash.g:282:3: (am= attrMapping ( ',' am= attrMapping )* )
-            // ../etc/JamlAttrHash.g:282:5: am= attrMapping ( ',' am= attrMapping )*
+            // ../etc/JamlAttrHash.g:283:3: (am= attrMapping ( ',' am= attrMapping )* )
+            // ../etc/JamlAttrHash.g:283:5: am= attrMapping ( ',' am= attrMapping )*
             {
             pushFollow(FOLLOW_attrMapping_in_attrMappings4526);
             am=attrMapping();
@@ -330,7 +331,7 @@ import org.antlr.runtime.tree.*;
             if ( state.backtracking==0 ) {
               retval.attrMap.put((am!=null?am.attr:null),(am!=null?am.value:null));
             }
-            // ../etc/JamlAttrHash.g:283:5: ( ',' am= attrMapping )*
+            // ../etc/JamlAttrHash.g:284:5: ( ',' am= attrMapping )*
             loop1:
             do {
                 int alt1=2;
@@ -343,7 +344,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt1) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:283:6: ',' am= attrMapping
+            	    // ../etc/JamlAttrHash.g:284:6: ',' am= attrMapping
             	    {
             	    char_literal1=(Token)match(input,COMMA,FOLLOW_COMMA_in_attrMappings4537); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -404,7 +405,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attrMapping"
-    // ../etc/JamlAttrHash.g:285:1: attrMapping returns [String attr, String value] : attribute '=' '>' attributeValue ;
+    // ../etc/JamlAttrHash.g:286:1: attrMapping returns [String attr, String value] : attribute '=' '>' attributeValue ;
     public final JamlAttrHashParser.attrMapping_return attrMapping() throws RecognitionException {
     traceIn("attrMapping", 2);
         JamlAttrHashParser.attrMapping_return retval = new JamlAttrHashParser.attrMapping_return();
@@ -424,8 +425,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return retval; }
-            // ../etc/JamlAttrHash.g:285:48: ( attribute '=' '>' attributeValue )
-            // ../etc/JamlAttrHash.g:286:3: attribute '=' '>' attributeValue
+            // ../etc/JamlAttrHash.g:286:48: ( attribute '=' '>' attributeValue )
+            // ../etc/JamlAttrHash.g:287:3: attribute '=' '>' attributeValue
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -489,7 +490,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attribute"
-    // ../etc/JamlAttrHash.g:290:1: attribute returns [String value] : ( ':' IDENT | literal );
+    // ../etc/JamlAttrHash.g:291:1: attribute returns [String value] : ( ':' IDENT | literal );
     public final JamlAttrHashParser.attribute_return attribute() throws RecognitionException {
     traceIn("attribute", 3);
         JamlAttrHashParser.attribute_return retval = new JamlAttrHashParser.attribute_return();
@@ -507,7 +508,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return retval; }
-            // ../etc/JamlAttrHash.g:290:33: ( ':' IDENT | literal )
+            // ../etc/JamlAttrHash.g:291:33: ( ':' IDENT | literal )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -526,7 +527,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt2) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:291:1: ':' IDENT
+                    // ../etc/JamlAttrHash.g:292:1: ':' IDENT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -547,7 +548,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:291:37: literal
+                    // ../etc/JamlAttrHash.g:292:37: literal
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -594,7 +595,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attributeValue"
-    // ../etc/JamlAttrHash.g:294:1: attributeValue returns [String value] : ( ( literal ',' | literal EOF )=> literal | expression );
+    // ../etc/JamlAttrHash.g:295:1: attributeValue returns [String value] : ( ( literal ',' | literal EOF )=> literal | expression );
     public final JamlAttrHashParser.attributeValue_return attributeValue() throws RecognitionException {
     traceIn("attributeValue", 4);
         JamlAttrHashParser.attributeValue_return retval = new JamlAttrHashParser.attributeValue_return();
@@ -610,7 +611,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return retval; }
-            // ../etc/JamlAttrHash.g:294:38: ( ( literal ',' | literal EOF )=> literal | expression )
+            // ../etc/JamlAttrHash.g:295:38: ( ( literal ',' | literal EOF )=> literal | expression )
             int alt3=2;
             switch ( input.LA(1) ) {
             case HEX_LITERAL:
@@ -747,7 +748,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt3) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:295:1: ( literal ',' | literal EOF )=> literal
+                    // ../etc/JamlAttrHash.g:296:1: ( literal ',' | literal EOF )=> literal
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -764,7 +765,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:296:1: expression
+                    // ../etc/JamlAttrHash.g:297:1: expression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -775,7 +776,7 @@ import org.antlr.runtime.tree.*;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expression10.getTree());
                     if ( state.backtracking==0 ) {
-                      retval.value = Util.jspExpression((expression10!=null?input.toString(expression10.start,expression10.stop):null));
+                      retval.value = jamlUtil.jspExpression((expression10!=null?input.toString(expression10.start,expression10.stop):null));
                     }
 
                     }
@@ -811,7 +812,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "literal"
-    // ../etc/JamlAttrHash.g:299:1: literal returns [String value] : (lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= CHARACTER_LITERAL | lit= STRING_LITERAL | lit= ( TRUE | FALSE | NULL ) );
+    // ../etc/JamlAttrHash.g:300:1: literal returns [String value] : (lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= CHARACTER_LITERAL | lit= STRING_LITERAL | lit= ( TRUE | FALSE | NULL ) );
     public final JamlAttrHashParser.literal_return literal() throws RecognitionException {
     traceIn("literal", 5);
         JamlAttrHashParser.literal_return retval = new JamlAttrHashParser.literal_return();
@@ -825,7 +826,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return retval; }
-            // ../etc/JamlAttrHash.g:299:32: (lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= CHARACTER_LITERAL | lit= STRING_LITERAL | lit= ( TRUE | FALSE | NULL ) )
+            // ../etc/JamlAttrHash.g:300:32: (lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= CHARACTER_LITERAL | lit= STRING_LITERAL | lit= ( TRUE | FALSE | NULL ) )
             int alt4=5;
             switch ( input.LA(1) ) {
             case HEX_LITERAL:
@@ -867,7 +868,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt4) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:300:3: lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL )
+                    // ../etc/JamlAttrHash.g:301:3: lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -884,13 +885,13 @@ import org.antlr.runtime.tree.*;
                     }
 
                     if ( state.backtracking==0 ) {
-                      retval.value = Util.parseIntegerLiteral((lit!=null?lit.getText():null));
+                      retval.value = jamlUtil.parseIntegerLiteral((lit!=null?lit.getText():null));
                     }
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:301:3: lit= FLOATING_POINT_LITERAL
+                    // ../etc/JamlAttrHash.g:302:3: lit= FLOATING_POINT_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -900,13 +901,13 @@ import org.antlr.runtime.tree.*;
                     adaptor.addChild(root_0, lit_tree);
                     }
                     if ( state.backtracking==0 ) {
-                      retval.value = Util.parseFloatLiteral((lit!=null?lit.getText():null));
+                      retval.value = jamlUtil.parseFloatLiteral((lit!=null?lit.getText():null));
                     }
 
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:302:3: lit= CHARACTER_LITERAL
+                    // ../etc/JamlAttrHash.g:303:3: lit= CHARACTER_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -916,13 +917,13 @@ import org.antlr.runtime.tree.*;
                     adaptor.addChild(root_0, lit_tree);
                     }
                     if ( state.backtracking==0 ) {
-                      retval.value = Util.parseCharLiteral((lit!=null?lit.getText():null));
+                      retval.value = jamlUtil.parseCharLiteral((lit!=null?lit.getText():null));
                     }
 
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:303:3: lit= STRING_LITERAL
+                    // ../etc/JamlAttrHash.g:304:3: lit= STRING_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -932,13 +933,13 @@ import org.antlr.runtime.tree.*;
                     adaptor.addChild(root_0, lit_tree);
                     }
                     if ( state.backtracking==0 ) {
-                      retval.value = Util.parseStringLiteral((lit!=null?lit.getText():null));
+                      retval.value = jamlUtil.parseStringLiteral((lit!=null?lit.getText():null));
                     }
 
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:304:3: lit= ( TRUE | FALSE | NULL )
+                    // ../etc/JamlAttrHash.g:305:3: lit= ( TRUE | FALSE | NULL )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -990,7 +991,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "javaSource"
-    // ../etc/JamlAttrHash.g:307:1: javaSource : compilationUnit -> ^( JAVA_SOURCE compilationUnit ) ;
+    // ../etc/JamlAttrHash.g:308:1: javaSource : compilationUnit -> ^( JAVA_SOURCE compilationUnit ) ;
     public final JamlAttrHashParser.javaSource_return javaSource() throws RecognitionException {
     traceIn("javaSource", 6);
         JamlAttrHashParser.javaSource_return retval = new JamlAttrHashParser.javaSource_return();
@@ -1004,8 +1005,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_compilationUnit=new RewriteRuleSubtreeStream(adaptor,"rule compilationUnit");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
-            // ../etc/JamlAttrHash.g:308:5: ( compilationUnit -> ^( JAVA_SOURCE compilationUnit ) )
-            // ../etc/JamlAttrHash.g:308:9: compilationUnit
+            // ../etc/JamlAttrHash.g:309:5: ( compilationUnit -> ^( JAVA_SOURCE compilationUnit ) )
+            // ../etc/JamlAttrHash.g:309:9: compilationUnit
             {
             pushFollow(FOLLOW_compilationUnit_in_javaSource4725);
             compilationUnit11=compilationUnit();
@@ -1027,9 +1028,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 309:9: -> ^( JAVA_SOURCE compilationUnit )
+            // 310:9: -> ^( JAVA_SOURCE compilationUnit )
             {
-                // ../etc/JamlAttrHash.g:309:13: ^( JAVA_SOURCE compilationUnit )
+                // ../etc/JamlAttrHash.g:310:13: ^( JAVA_SOURCE compilationUnit )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(JAVA_SOURCE, "JAVA_SOURCE"), root_1);
@@ -1072,7 +1073,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "compilationUnit"
-    // ../etc/JamlAttrHash.g:312:1: compilationUnit : annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* ;
+    // ../etc/JamlAttrHash.g:313:1: compilationUnit : annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* ;
     public final JamlAttrHashParser.compilationUnit_return compilationUnit() throws RecognitionException {
     traceIn("compilationUnit", 7);
         JamlAttrHashParser.compilationUnit_return retval = new JamlAttrHashParser.compilationUnit_return();
@@ -1092,8 +1093,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
-            // ../etc/JamlAttrHash.g:313:5: ( annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* )
-            // ../etc/JamlAttrHash.g:313:9: annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )*
+            // ../etc/JamlAttrHash.g:314:5: ( annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* )
+            // ../etc/JamlAttrHash.g:314:9: annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1103,7 +1104,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, annotationList12.getTree());
-            // ../etc/JamlAttrHash.g:314:9: ( packageDeclaration )?
+            // ../etc/JamlAttrHash.g:315:9: ( packageDeclaration )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1126,7 +1127,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:315:9: ( importDeclaration )*
+            // ../etc/JamlAttrHash.g:316:9: ( importDeclaration )*
             loop6:
             do {
                 int alt6=2;
@@ -1156,7 +1157,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            // ../etc/JamlAttrHash.g:316:9: ( typeDecls )*
+            // ../etc/JamlAttrHash.g:317:9: ( typeDecls )*
             loop7:
             do {
                 int alt7=2;
@@ -1217,7 +1218,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeDecls"
-    // ../etc/JamlAttrHash.g:319:1: typeDecls : ( typeDeclaration | SEMI );
+    // ../etc/JamlAttrHash.g:320:1: typeDecls : ( typeDeclaration | SEMI );
     public final JamlAttrHashParser.typeDecls_return typeDecls() throws RecognitionException {
     traceIn("typeDecls", 8);
         JamlAttrHashParser.typeDecls_return retval = new JamlAttrHashParser.typeDecls_return();
@@ -1233,7 +1234,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
-            // ../etc/JamlAttrHash.g:320:5: ( typeDeclaration | SEMI )
+            // ../etc/JamlAttrHash.g:321:5: ( typeDeclaration | SEMI )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1252,7 +1253,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt8) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:320:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:321:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1266,7 +1267,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:321:9: SEMI
+                    // ../etc/JamlAttrHash.g:322:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1304,7 +1305,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "packageDeclaration"
-    // ../etc/JamlAttrHash.g:324:1: packageDeclaration : PACKAGE qualifiedIdentifier SEMI ;
+    // ../etc/JamlAttrHash.g:325:1: packageDeclaration : PACKAGE qualifiedIdentifier SEMI ;
     public final JamlAttrHashParser.packageDeclaration_return packageDeclaration() throws RecognitionException {
     traceIn("packageDeclaration", 9);
         JamlAttrHashParser.packageDeclaration_return retval = new JamlAttrHashParser.packageDeclaration_return();
@@ -1322,8 +1323,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
-            // ../etc/JamlAttrHash.g:325:5: ( PACKAGE qualifiedIdentifier SEMI )
-            // ../etc/JamlAttrHash.g:325:9: PACKAGE qualifiedIdentifier SEMI
+            // ../etc/JamlAttrHash.g:326:5: ( PACKAGE qualifiedIdentifier SEMI )
+            // ../etc/JamlAttrHash.g:326:9: PACKAGE qualifiedIdentifier SEMI
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1370,7 +1371,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "importDeclaration"
-    // ../etc/JamlAttrHash.g:328:1: importDeclaration : IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI ;
+    // ../etc/JamlAttrHash.g:329:1: importDeclaration : IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI ;
     public final JamlAttrHashParser.importDeclaration_return importDeclaration() throws RecognitionException {
     traceIn("importDeclaration", 10);
         JamlAttrHashParser.importDeclaration_return retval = new JamlAttrHashParser.importDeclaration_return();
@@ -1392,8 +1393,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
-            // ../etc/JamlAttrHash.g:329:5: ( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI )
-            // ../etc/JamlAttrHash.g:329:9: IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI
+            // ../etc/JamlAttrHash.g:330:5: ( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI )
+            // ../etc/JamlAttrHash.g:330:9: IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1402,7 +1403,7 @@ import org.antlr.runtime.tree.*;
             IMPORT21_tree = (CommonTree)adaptor.create(IMPORT21);
             root_0 = (CommonTree)adaptor.becomeRoot(IMPORT21_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:329:17: ( STATIC )?
+            // ../etc/JamlAttrHash.g:330:17: ( STATIC )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1430,7 +1431,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier23.getTree());
-            // ../etc/JamlAttrHash.g:329:45: ( DOTSTAR )?
+            // ../etc/JamlAttrHash.g:330:45: ( DOTSTAR )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1484,7 +1485,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeDeclaration"
-    // ../etc/JamlAttrHash.g:332:1: typeDeclaration : modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) ;
+    // ../etc/JamlAttrHash.g:333:1: typeDeclaration : modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) ;
     public final JamlAttrHashParser.typeDeclaration_return typeDeclaration() throws RecognitionException {
     traceIn("typeDeclaration", 11);
         JamlAttrHashParser.typeDeclaration_return retval = new JamlAttrHashParser.typeDeclaration_return();
@@ -1506,8 +1507,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
-            // ../etc/JamlAttrHash.g:333:5: ( modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) )
-            // ../etc/JamlAttrHash.g:333:9: modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] )
+            // ../etc/JamlAttrHash.g:334:5: ( modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) )
+            // ../etc/JamlAttrHash.g:334:9: modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] )
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1516,7 +1517,7 @@ import org.antlr.runtime.tree.*;
 
             state._fsp--;
             if (state.failed) return retval;
-            // ../etc/JamlAttrHash.g:334:9: ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] )
+            // ../etc/JamlAttrHash.g:335:9: ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] )
             int alt11=4;
             switch ( input.LA(1) ) {
             case CLASS:
@@ -1549,7 +1550,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt11) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:334:13: classTypeDeclaration[$modifierList.tree]
+                    // ../etc/JamlAttrHash.g:335:13: classTypeDeclaration[$modifierList.tree]
                     {
                     pushFollow(FOLLOW_classTypeDeclaration_in_typeDeclaration4927);
                     classTypeDeclaration27=classTypeDeclaration((modifierList26!=null?((CommonTree)modifierList26.tree):null));
@@ -1561,7 +1562,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:335:13: interfaceTypeDeclaration[$modifierList.tree]
+                    // ../etc/JamlAttrHash.g:336:13: interfaceTypeDeclaration[$modifierList.tree]
                     {
                     pushFollow(FOLLOW_interfaceTypeDeclaration_in_typeDeclaration4942);
                     interfaceTypeDeclaration28=interfaceTypeDeclaration((modifierList26!=null?((CommonTree)modifierList26.tree):null));
@@ -1573,7 +1574,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:336:13: enumTypeDeclaration[$modifierList.tree]
+                    // ../etc/JamlAttrHash.g:337:13: enumTypeDeclaration[$modifierList.tree]
                     {
                     pushFollow(FOLLOW_enumTypeDeclaration_in_typeDeclaration4957);
                     enumTypeDeclaration29=enumTypeDeclaration((modifierList26!=null?((CommonTree)modifierList26.tree):null));
@@ -1585,7 +1586,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:337:13: annotationTypeDeclaration[$modifierList.tree]
+                    // ../etc/JamlAttrHash.g:338:13: annotationTypeDeclaration[$modifierList.tree]
                     {
                     pushFollow(FOLLOW_annotationTypeDeclaration_in_typeDeclaration4972);
                     annotationTypeDeclaration30=annotationTypeDeclaration((modifierList26!=null?((CommonTree)modifierList26.tree):null));
@@ -1630,7 +1631,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classTypeDeclaration"
-    // ../etc/JamlAttrHash.g:341:1: classTypeDeclaration[CommonTree modifiers] : CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) ;
+    // ../etc/JamlAttrHash.g:342:1: classTypeDeclaration[CommonTree modifiers] : CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) ;
     public final JamlAttrHashParser.classTypeDeclaration_return classTypeDeclaration(CommonTree modifiers) throws RecognitionException {
     traceIn("classTypeDeclaration", 12);
         JamlAttrHashParser.classTypeDeclaration_return retval = new JamlAttrHashParser.classTypeDeclaration_return();
@@ -1659,8 +1660,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classBody=new RewriteRuleSubtreeStream(adaptor,"rule classBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return retval; }
-            // ../etc/JamlAttrHash.g:342:5: ( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) )
-            // ../etc/JamlAttrHash.g:342:9: CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody
+            // ../etc/JamlAttrHash.g:343:5: ( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) )
+            // ../etc/JamlAttrHash.g:343:9: CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody
             {
             CLASS31=(Token)match(input,CLASS,FOLLOW_CLASS_in_classTypeDeclaration5007); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_CLASS.add(CLASS31);
@@ -1668,7 +1669,7 @@ import org.antlr.runtime.tree.*;
             IDENT32=(Token)match(input,IDENT,FOLLOW_IDENT_in_classTypeDeclaration5009); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT32);
 
-            // ../etc/JamlAttrHash.g:342:21: ( genericTypeParameterList )?
+            // ../etc/JamlAttrHash.g:343:21: ( genericTypeParameterList )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1691,7 +1692,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:342:47: ( classExtendsClause )?
+            // ../etc/JamlAttrHash.g:343:47: ( classExtendsClause )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1714,7 +1715,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:342:67: ( implementsClause )?
+            // ../etc/JamlAttrHash.g:343:67: ( implementsClause )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1746,7 +1747,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: classExtendsClause, classBody, genericTypeParameterList, IDENT, implementsClause, CLASS
+            // elements: CLASS, genericTypeParameterList, classBody, implementsClause, classExtendsClause, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1757,28 +1758,28 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 343:9: -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody )
+            // 344:9: -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody )
             {
-                // ../etc/JamlAttrHash.g:343:13: ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody )
+                // ../etc/JamlAttrHash.g:344:13: ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_CLASS.nextNode(), root_1);
 
                 adaptor.addChild(root_1, modifiers);
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                // ../etc/JamlAttrHash.g:343:40: ( genericTypeParameterList )?
+                // ../etc/JamlAttrHash.g:344:40: ( genericTypeParameterList )?
                 if ( stream_genericTypeParameterList.hasNext() ) {
                     adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
                 }
                 stream_genericTypeParameterList.reset();
-                // ../etc/JamlAttrHash.g:343:66: ( classExtendsClause )?
+                // ../etc/JamlAttrHash.g:344:66: ( classExtendsClause )?
                 if ( stream_classExtendsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_classExtendsClause.nextTree());
 
                 }
                 stream_classExtendsClause.reset();
-                // ../etc/JamlAttrHash.g:343:86: ( implementsClause )?
+                // ../etc/JamlAttrHash.g:344:86: ( implementsClause )?
                 if ( stream_implementsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_implementsClause.nextTree());
 
@@ -1822,7 +1823,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classExtendsClause"
-    // ../etc/JamlAttrHash.g:346:1: classExtendsClause : EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) ;
+    // ../etc/JamlAttrHash.g:347:1: classExtendsClause : EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) ;
     public final JamlAttrHashParser.classExtendsClause_return classExtendsClause() throws RecognitionException {
     traceIn("classExtendsClause", 13);
         JamlAttrHashParser.classExtendsClause_return retval = new JamlAttrHashParser.classExtendsClause_return();
@@ -1839,8 +1840,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return retval; }
-            // ../etc/JamlAttrHash.g:347:5: ( EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) )
-            // ../etc/JamlAttrHash.g:347:9: EXTENDS type
+            // ../etc/JamlAttrHash.g:348:5: ( EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) )
+            // ../etc/JamlAttrHash.g:348:9: EXTENDS type
             {
             EXTENDS37=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_classExtendsClause5073); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS37);
@@ -1865,9 +1866,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 348:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
+            // 349:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
             {
-                // ../etc/JamlAttrHash.g:348:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
+                // ../etc/JamlAttrHash.g:349:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_CLAUSE, EXTENDS37, "EXTENDS_CLAUSE"), root_1);
@@ -1910,7 +1911,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceExtendsClause"
-    // ../etc/JamlAttrHash.g:351:1: interfaceExtendsClause : EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) ;
+    // ../etc/JamlAttrHash.g:352:1: interfaceExtendsClause : EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) ;
     public final JamlAttrHashParser.interfaceExtendsClause_return interfaceExtendsClause() throws RecognitionException {
     traceIn("interfaceExtendsClause", 14);
         JamlAttrHashParser.interfaceExtendsClause_return retval = new JamlAttrHashParser.interfaceExtendsClause_return();
@@ -1927,8 +1928,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_typeList=new RewriteRuleSubtreeStream(adaptor,"rule typeList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
-            // ../etc/JamlAttrHash.g:352:5: ( EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) )
-            // ../etc/JamlAttrHash.g:352:9: EXTENDS typeList
+            // ../etc/JamlAttrHash.g:353:5: ( EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) )
+            // ../etc/JamlAttrHash.g:353:9: EXTENDS typeList
             {
             EXTENDS39=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_interfaceExtendsClause5119); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS39);
@@ -1953,9 +1954,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 353:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList )
+            // 354:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList )
             {
-                // ../etc/JamlAttrHash.g:353:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList )
+                // ../etc/JamlAttrHash.g:354:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_CLAUSE, EXTENDS39, "EXTENDS_CLAUSE"), root_1);
@@ -1998,7 +1999,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "implementsClause"
-    // ../etc/JamlAttrHash.g:356:1: implementsClause : IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) ;
+    // ../etc/JamlAttrHash.g:357:1: implementsClause : IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) ;
     public final JamlAttrHashParser.implementsClause_return implementsClause() throws RecognitionException {
     traceIn("implementsClause", 15);
         JamlAttrHashParser.implementsClause_return retval = new JamlAttrHashParser.implementsClause_return();
@@ -2015,8 +2016,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_typeList=new RewriteRuleSubtreeStream(adaptor,"rule typeList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
-            // ../etc/JamlAttrHash.g:357:5: ( IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) )
-            // ../etc/JamlAttrHash.g:357:9: IMPLEMENTS typeList
+            // ../etc/JamlAttrHash.g:358:5: ( IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) )
+            // ../etc/JamlAttrHash.g:358:9: IMPLEMENTS typeList
             {
             IMPLEMENTS41=(Token)match(input,IMPLEMENTS,FOLLOW_IMPLEMENTS_in_implementsClause5165); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IMPLEMENTS.add(IMPLEMENTS41);
@@ -2041,9 +2042,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 358:9: -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList )
+            // 359:9: -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList )
             {
-                // ../etc/JamlAttrHash.g:358:13: ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList )
+                // ../etc/JamlAttrHash.g:359:13: ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(IMPLEMENTS_CLAUSE, IMPLEMENTS41, "IMPLEMENTS_CLAUSE"), root_1);
@@ -2086,7 +2087,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeParameterList"
-    // ../etc/JamlAttrHash.g:361:1: genericTypeParameterList : LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) ;
+    // ../etc/JamlAttrHash.g:362:1: genericTypeParameterList : LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) ;
     public final JamlAttrHashParser.genericTypeParameterList_return genericTypeParameterList() throws RecognitionException {
     traceIn("genericTypeParameterList", 16);
         JamlAttrHashParser.genericTypeParameterList_return retval = new JamlAttrHashParser.genericTypeParameterList_return();
@@ -2111,8 +2112,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeListClosing=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeListClosing");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
-            // ../etc/JamlAttrHash.g:362:5: ( LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) )
-            // ../etc/JamlAttrHash.g:362:9: LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing
+            // ../etc/JamlAttrHash.g:363:5: ( LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) )
+            // ../etc/JamlAttrHash.g:363:9: LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing
             {
             LESS_THAN43=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeParameterList5212); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN43);
@@ -2123,7 +2124,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_genericTypeParameter.add(genericTypeParameter44.getTree());
-            // ../etc/JamlAttrHash.g:362:40: ( COMMA genericTypeParameter )*
+            // ../etc/JamlAttrHash.g:363:40: ( COMMA genericTypeParameter )*
             loop15:
             do {
                 int alt15=2;
@@ -2136,7 +2137,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt15) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:362:41: COMMA genericTypeParameter
+            	    // ../etc/JamlAttrHash.g:363:41: COMMA genericTypeParameter
             	    {
             	    COMMA45=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeParameterList5217); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA45);
@@ -2176,9 +2177,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 363:9: -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ )
+            // 364:9: -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ )
             {
-                // ../etc/JamlAttrHash.g:363:13: ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ )
+                // ../etc/JamlAttrHash.g:364:13: ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GENERIC_TYPE_PARAM_LIST, LESS_THAN43, "GENERIC_TYPE_PARAM_LIST"), root_1);
@@ -2228,7 +2229,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeListClosing"
-    // ../etc/JamlAttrHash.g:366:1: genericTypeListClosing : ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | );
+    // ../etc/JamlAttrHash.g:367:1: genericTypeListClosing : ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | );
     public final JamlAttrHashParser.genericTypeListClosing_return genericTypeListClosing() throws RecognitionException {
     traceIn("genericTypeListClosing", 17);
         JamlAttrHashParser.genericTypeListClosing_return retval = new JamlAttrHashParser.genericTypeListClosing_return();
@@ -2246,7 +2247,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
-            // ../etc/JamlAttrHash.g:370:5: ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | )
+            // ../etc/JamlAttrHash.g:371:5: ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | )
             int alt16=4;
             switch ( input.LA(1) ) {
             case GREATER_THAN:
@@ -2366,7 +2367,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt16) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:370:9: GREATER_THAN
+                    // ../etc/JamlAttrHash.g:371:9: GREATER_THAN
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2379,7 +2380,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:371:9: SHIFT_RIGHT
+                    // ../etc/JamlAttrHash.g:372:9: SHIFT_RIGHT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2392,7 +2393,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:372:9: BIT_SHIFT_RIGHT
+                    // ../etc/JamlAttrHash.g:373:9: BIT_SHIFT_RIGHT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2405,7 +2406,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:374:5: 
+                    // ../etc/JamlAttrHash.g:375:5: 
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2441,7 +2442,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeParameter"
-    // ../etc/JamlAttrHash.g:376:1: genericTypeParameter : IDENT ( bound )? -> ^( IDENT ( bound )? ) ;
+    // ../etc/JamlAttrHash.g:377:1: genericTypeParameter : IDENT ( bound )? -> ^( IDENT ( bound )? ) ;
     public final JamlAttrHashParser.genericTypeParameter_return genericTypeParameter() throws RecognitionException {
     traceIn("genericTypeParameter", 18);
         JamlAttrHashParser.genericTypeParameter_return retval = new JamlAttrHashParser.genericTypeParameter_return();
@@ -2458,13 +2459,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_bound=new RewriteRuleSubtreeStream(adaptor,"rule bound");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
-            // ../etc/JamlAttrHash.g:377:5: ( IDENT ( bound )? -> ^( IDENT ( bound )? ) )
-            // ../etc/JamlAttrHash.g:377:9: IDENT ( bound )?
+            // ../etc/JamlAttrHash.g:378:5: ( IDENT ( bound )? -> ^( IDENT ( bound )? ) )
+            // ../etc/JamlAttrHash.g:378:9: IDENT ( bound )?
             {
             IDENT51=(Token)match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter5386); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT51);
 
-            // ../etc/JamlAttrHash.g:377:15: ( bound )?
+            // ../etc/JamlAttrHash.g:378:15: ( bound )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2516,14 +2517,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 378:9: -> ^( IDENT ( bound )? )
+            // 379:9: -> ^( IDENT ( bound )? )
             {
-                // ../etc/JamlAttrHash.g:378:13: ^( IDENT ( bound )? )
+                // ../etc/JamlAttrHash.g:379:13: ^( IDENT ( bound )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_IDENT.nextNode(), root_1);
 
-                // ../etc/JamlAttrHash.g:378:21: ( bound )?
+                // ../etc/JamlAttrHash.g:379:21: ( bound )?
                 if ( stream_bound.hasNext() ) {
                     adaptor.addChild(root_1, stream_bound.nextTree());
 
@@ -2566,7 +2567,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "bound"
-    // ../etc/JamlAttrHash.g:381:1: bound : EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) ;
+    // ../etc/JamlAttrHash.g:382:1: bound : EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) ;
     public final JamlAttrHashParser.bound_return bound() throws RecognitionException {
     traceIn("bound", 19);
         JamlAttrHashParser.bound_return retval = new JamlAttrHashParser.bound_return();
@@ -2588,8 +2589,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
-            // ../etc/JamlAttrHash.g:382:5: ( EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) )
-            // ../etc/JamlAttrHash.g:382:9: EXTENDS type ( AND type )*
+            // ../etc/JamlAttrHash.g:383:5: ( EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) )
+            // ../etc/JamlAttrHash.g:383:9: EXTENDS type ( AND type )*
             {
             EXTENDS53=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_bound5434); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS53);
@@ -2600,7 +2601,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type54.getTree());
-            // ../etc/JamlAttrHash.g:382:22: ( AND type )*
+            // ../etc/JamlAttrHash.g:383:22: ( AND type )*
             loop18:
             do {
                 int alt18=2;
@@ -2613,7 +2614,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt18) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:382:23: AND type
+            	    // ../etc/JamlAttrHash.g:383:23: AND type
             	    {
             	    AND55=(Token)match(input,AND,FOLLOW_AND_in_bound5439); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_AND.add(AND55);
@@ -2647,9 +2648,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 383:9: -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
+            // 384:9: -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
             {
-                // ../etc/JamlAttrHash.g:383:13: ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
+                // ../etc/JamlAttrHash.g:384:13: ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_BOUND_LIST, EXTENDS53, "EXTENDS_BOUND_LIST"), root_1);
@@ -2699,7 +2700,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumTypeDeclaration"
-    // ../etc/JamlAttrHash.g:386:1: enumTypeDeclaration[CommonTree modifiers] : ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) ;
+    // ../etc/JamlAttrHash.g:387:1: enumTypeDeclaration[CommonTree modifiers] : ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) ;
     public final JamlAttrHashParser.enumTypeDeclaration_return enumTypeDeclaration(CommonTree modifiers) throws RecognitionException {
     traceIn("enumTypeDeclaration", 20);
         JamlAttrHashParser.enumTypeDeclaration_return retval = new JamlAttrHashParser.enumTypeDeclaration_return();
@@ -2722,8 +2723,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_enumBody=new RewriteRuleSubtreeStream(adaptor,"rule enumBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
-            // ../etc/JamlAttrHash.g:387:5: ( ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) )
-            // ../etc/JamlAttrHash.g:387:9: ENUM IDENT ( implementsClause )? enumBody
+            // ../etc/JamlAttrHash.g:388:5: ( ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) )
+            // ../etc/JamlAttrHash.g:388:9: ENUM IDENT ( implementsClause )? enumBody
             {
             ENUM57=(Token)match(input,ENUM,FOLLOW_ENUM_in_enumTypeDeclaration5482); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ENUM.add(ENUM57);
@@ -2731,7 +2732,7 @@ import org.antlr.runtime.tree.*;
             IDENT58=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumTypeDeclaration5484); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT58);
 
-            // ../etc/JamlAttrHash.g:387:20: ( implementsClause )?
+            // ../etc/JamlAttrHash.g:388:20: ( implementsClause )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -2774,16 +2775,16 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 388:9: -> ^( ENUM IDENT ( implementsClause )? enumBody )
+            // 389:9: -> ^( ENUM IDENT ( implementsClause )? enumBody )
             {
-                // ../etc/JamlAttrHash.g:388:13: ^( ENUM IDENT ( implementsClause )? enumBody )
+                // ../etc/JamlAttrHash.g:389:13: ^( ENUM IDENT ( implementsClause )? enumBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_ENUM.nextNode(), root_1);
 
                 adaptor.addChild(root_1, modifiers);
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                // ../etc/JamlAttrHash.g:388:39: ( implementsClause )?
+                // ../etc/JamlAttrHash.g:389:39: ( implementsClause )?
                 if ( stream_implementsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_implementsClause.nextTree());
 
@@ -2827,7 +2828,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumBody"
-    // ../etc/JamlAttrHash.g:391:1: enumBody : LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) ;
+    // ../etc/JamlAttrHash.g:392:1: enumBody : LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) ;
     public final JamlAttrHashParser.enumBody_return enumBody() throws RecognitionException {
     traceIn("enumBody", 21);
         JamlAttrHashParser.enumBody_return retval = new JamlAttrHashParser.enumBody_return();
@@ -2847,8 +2848,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_enumScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule enumScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return retval; }
-            // ../etc/JamlAttrHash.g:392:5: ( LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) )
-            // ../etc/JamlAttrHash.g:392:9: LCURLY enumScopeDeclarations RCURLY
+            // ../etc/JamlAttrHash.g:393:5: ( LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) )
+            // ../etc/JamlAttrHash.g:393:9: LCURLY enumScopeDeclarations RCURLY
             {
             LCURLY61=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_enumBody5536); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY61);
@@ -2876,9 +2877,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 393:9: -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations )
+            // 394:9: -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations )
             {
-                // ../etc/JamlAttrHash.g:393:13: ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations )
+                // ../etc/JamlAttrHash.g:394:13: ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ENUM_TOP_LEVEL_SCOPE, LCURLY61, "ENUM_TOP_LEVEL_SCOPE"), root_1);
@@ -2921,7 +2922,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumScopeDeclarations"
-    // ../etc/JamlAttrHash.g:396:1: enumScopeDeclarations : enumConstants ( COMMA )? ( enumClassScopeDeclarations )? ;
+    // ../etc/JamlAttrHash.g:397:1: enumScopeDeclarations : enumConstants ( COMMA )? ( enumClassScopeDeclarations )? ;
     public final JamlAttrHashParser.enumScopeDeclarations_return enumScopeDeclarations() throws RecognitionException {
     traceIn("enumScopeDeclarations", 22);
         JamlAttrHashParser.enumScopeDeclarations_return retval = new JamlAttrHashParser.enumScopeDeclarations_return();
@@ -2939,8 +2940,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
-            // ../etc/JamlAttrHash.g:397:5: ( enumConstants ( COMMA )? ( enumClassScopeDeclarations )? )
-            // ../etc/JamlAttrHash.g:397:9: enumConstants ( COMMA )? ( enumClassScopeDeclarations )?
+            // ../etc/JamlAttrHash.g:398:5: ( enumConstants ( COMMA )? ( enumClassScopeDeclarations )? )
+            // ../etc/JamlAttrHash.g:398:9: enumConstants ( COMMA )? ( enumClassScopeDeclarations )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -2950,7 +2951,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, enumConstants64.getTree());
-            // ../etc/JamlAttrHash.g:397:23: ( COMMA )?
+            // ../etc/JamlAttrHash.g:398:23: ( COMMA )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -2959,7 +2960,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt20) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:397:24: COMMA
+                    // ../etc/JamlAttrHash.g:398:24: COMMA
                     {
                     COMMA65=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumScopeDeclarations5580); if (state.failed) return retval;
 
@@ -2968,7 +2969,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:397:33: ( enumClassScopeDeclarations )?
+            // ../etc/JamlAttrHash.g:398:33: ( enumClassScopeDeclarations )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -3022,7 +3023,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumClassScopeDeclarations"
-    // ../etc/JamlAttrHash.g:400:1: enumClassScopeDeclarations : SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
+    // ../etc/JamlAttrHash.g:401:1: enumClassScopeDeclarations : SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
     public final JamlAttrHashParser.enumClassScopeDeclarations_return enumClassScopeDeclarations() throws RecognitionException {
     traceIn("enumClassScopeDeclarations", 23);
         JamlAttrHashParser.enumClassScopeDeclarations_return retval = new JamlAttrHashParser.enumClassScopeDeclarations_return();
@@ -3039,13 +3040,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule classScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
-            // ../etc/JamlAttrHash.g:401:5: ( SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
-            // ../etc/JamlAttrHash.g:401:9: SEMI ( classScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:402:5: ( SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
+            // ../etc/JamlAttrHash.g:402:9: SEMI ( classScopeDeclarations )*
             {
             SEMI67=(Token)match(input,SEMI,FOLLOW_SEMI_in_enumClassScopeDeclarations5605); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_SEMI.add(SEMI67);
 
-            // ../etc/JamlAttrHash.g:401:14: ( classScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:402:14: ( classScopeDeclarations )*
             loop22:
             do {
                 int alt22=2;
@@ -3089,14 +3090,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 402:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+            // 403:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
             {
-                // ../etc/JamlAttrHash.g:402:13: ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+                // ../etc/JamlAttrHash.g:403:13: ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_TOP_LEVEL_SCOPE, SEMI67, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:402:69: ( classScopeDeclarations )*
+                // ../etc/JamlAttrHash.g:403:69: ( classScopeDeclarations )*
                 while ( stream_classScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_classScopeDeclarations.nextTree());
 
@@ -3139,7 +3140,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumConstants"
-    // ../etc/JamlAttrHash.g:405:1: enumConstants : enumConstant ( COMMA enumConstant )* ;
+    // ../etc/JamlAttrHash.g:406:1: enumConstants : enumConstant ( COMMA enumConstant )* ;
     public final JamlAttrHashParser.enumConstants_return enumConstants() throws RecognitionException {
     traceIn("enumConstants", 24);
         JamlAttrHashParser.enumConstants_return retval = new JamlAttrHashParser.enumConstants_return();
@@ -3157,8 +3158,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
-            // ../etc/JamlAttrHash.g:406:5: ( enumConstant ( COMMA enumConstant )* )
-            // ../etc/JamlAttrHash.g:406:9: enumConstant ( COMMA enumConstant )*
+            // ../etc/JamlAttrHash.g:407:5: ( enumConstant ( COMMA enumConstant )* )
+            // ../etc/JamlAttrHash.g:407:9: enumConstant ( COMMA enumConstant )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -3168,7 +3169,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, enumConstant69.getTree());
-            // ../etc/JamlAttrHash.g:406:22: ( COMMA enumConstant )*
+            // ../etc/JamlAttrHash.g:407:22: ( COMMA enumConstant )*
             loop23:
             do {
                 int alt23=2;
@@ -3187,7 +3188,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt23) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:406:23: COMMA enumConstant
+            	    // ../etc/JamlAttrHash.g:407:23: COMMA enumConstant
             	    {
             	    COMMA70=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumConstants5649); if (state.failed) return retval;
             	    pushFollow(FOLLOW_enumConstant_in_enumConstants5652);
@@ -3236,7 +3237,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumConstant"
-    // ../etc/JamlAttrHash.g:409:1: enumConstant : annotationList IDENT ( arguments )? ( classBody )? ;
+    // ../etc/JamlAttrHash.g:410:1: enumConstant : annotationList IDENT ( arguments )? ( classBody )? ;
     public final JamlAttrHashParser.enumConstant_return enumConstant() throws RecognitionException {
     traceIn("enumConstant", 25);
         JamlAttrHashParser.enumConstant_return retval = new JamlAttrHashParser.enumConstant_return();
@@ -3256,8 +3257,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return retval; }
-            // ../etc/JamlAttrHash.g:410:5: ( annotationList IDENT ( arguments )? ( classBody )? )
-            // ../etc/JamlAttrHash.g:410:9: annotationList IDENT ( arguments )? ( classBody )?
+            // ../etc/JamlAttrHash.g:411:5: ( annotationList IDENT ( arguments )? ( classBody )? )
+            // ../etc/JamlAttrHash.g:411:9: annotationList IDENT ( arguments )? ( classBody )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -3272,7 +3273,7 @@ import org.antlr.runtime.tree.*;
             IDENT73_tree = (CommonTree)adaptor.create(IDENT73);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT73_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:410:31: ( arguments )?
+            // ../etc/JamlAttrHash.g:411:31: ( arguments )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -3295,7 +3296,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:410:42: ( classBody )?
+            // ../etc/JamlAttrHash.g:411:42: ( classBody )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -3349,7 +3350,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceTypeDeclaration"
-    // ../etc/JamlAttrHash.g:413:1: interfaceTypeDeclaration[CommonTree modifiers] : INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) ;
+    // ../etc/JamlAttrHash.g:414:1: interfaceTypeDeclaration[CommonTree modifiers] : INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) ;
     public final JamlAttrHashParser.interfaceTypeDeclaration_return interfaceTypeDeclaration(CommonTree modifiers) throws RecognitionException {
     traceIn("interfaceTypeDeclaration", 26);
         JamlAttrHashParser.interfaceTypeDeclaration_return retval = new JamlAttrHashParser.interfaceTypeDeclaration_return();
@@ -3375,8 +3376,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_interfaceExtendsClause=new RewriteRuleSubtreeStream(adaptor,"rule interfaceExtendsClause");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
-            // ../etc/JamlAttrHash.g:414:5: ( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) )
-            // ../etc/JamlAttrHash.g:414:9: INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody
+            // ../etc/JamlAttrHash.g:415:5: ( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) )
+            // ../etc/JamlAttrHash.g:415:9: INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody
             {
             INTERFACE76=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_interfaceTypeDeclaration5710); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_INTERFACE.add(INTERFACE76);
@@ -3384,7 +3385,7 @@ import org.antlr.runtime.tree.*;
             IDENT77=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceTypeDeclaration5712); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT77);
 
-            // ../etc/JamlAttrHash.g:414:25: ( genericTypeParameterList )?
+            // ../etc/JamlAttrHash.g:415:25: ( genericTypeParameterList )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -3407,7 +3408,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:414:51: ( interfaceExtendsClause )?
+            // ../etc/JamlAttrHash.g:415:51: ( interfaceExtendsClause )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -3439,7 +3440,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: interfaceExtendsClause, interfaceBody, IDENT, genericTypeParameterList, INTERFACE
+            // elements: interfaceBody, INTERFACE, IDENT, interfaceExtendsClause, genericTypeParameterList
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3450,22 +3451,22 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 415:9: -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody )
+            // 416:9: -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody )
             {
-                // ../etc/JamlAttrHash.g:415:13: ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody )
+                // ../etc/JamlAttrHash.g:416:13: ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_INTERFACE.nextNode(), root_1);
 
                 adaptor.addChild(root_1, modifiers);
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                // ../etc/JamlAttrHash.g:415:44: ( genericTypeParameterList )?
+                // ../etc/JamlAttrHash.g:416:44: ( genericTypeParameterList )?
                 if ( stream_genericTypeParameterList.hasNext() ) {
                     adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
                 }
                 stream_genericTypeParameterList.reset();
-                // ../etc/JamlAttrHash.g:415:70: ( interfaceExtendsClause )?
+                // ../etc/JamlAttrHash.g:416:70: ( interfaceExtendsClause )?
                 if ( stream_interfaceExtendsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_interfaceExtendsClause.nextTree());
 
@@ -3509,7 +3510,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeList"
-    // ../etc/JamlAttrHash.g:418:1: typeList : type ( COMMA type )* ;
+    // ../etc/JamlAttrHash.g:419:1: typeList : type ( COMMA type )* ;
     public final JamlAttrHashParser.typeList_return typeList() throws RecognitionException {
     traceIn("typeList", 27);
         JamlAttrHashParser.typeList_return retval = new JamlAttrHashParser.typeList_return();
@@ -3527,8 +3528,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
-            // ../etc/JamlAttrHash.g:419:5: ( type ( COMMA type )* )
-            // ../etc/JamlAttrHash.g:419:9: type ( COMMA type )*
+            // ../etc/JamlAttrHash.g:420:5: ( type ( COMMA type )* )
+            // ../etc/JamlAttrHash.g:420:9: type ( COMMA type )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -3538,7 +3539,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, type81.getTree());
-            // ../etc/JamlAttrHash.g:419:14: ( COMMA type )*
+            // ../etc/JamlAttrHash.g:420:14: ( COMMA type )*
             loop28:
             do {
                 int alt28=2;
@@ -3551,7 +3552,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt28) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:419:15: COMMA type
+            	    // ../etc/JamlAttrHash.g:420:15: COMMA type
             	    {
             	    COMMA82=(Token)match(input,COMMA,FOLLOW_COMMA_in_typeList5773); if (state.failed) return retval;
             	    pushFollow(FOLLOW_type_in_typeList5776);
@@ -3600,7 +3601,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classBody"
-    // ../etc/JamlAttrHash.g:422:1: classBody : LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
+    // ../etc/JamlAttrHash.g:423:1: classBody : LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
     public final JamlAttrHashParser.classBody_return classBody() throws RecognitionException {
     traceIn("classBody", 28);
         JamlAttrHashParser.classBody_return retval = new JamlAttrHashParser.classBody_return();
@@ -3620,13 +3621,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule classScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
-            // ../etc/JamlAttrHash.g:423:5: ( LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
-            // ../etc/JamlAttrHash.g:423:9: LCURLY ( classScopeDeclarations )* RCURLY
+            // ../etc/JamlAttrHash.g:424:5: ( LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
+            // ../etc/JamlAttrHash.g:424:9: LCURLY ( classScopeDeclarations )* RCURLY
             {
             LCURLY84=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_classBody5801); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY84);
 
-            // ../etc/JamlAttrHash.g:423:16: ( classScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:424:16: ( classScopeDeclarations )*
             loop29:
             do {
                 int alt29=2;
@@ -3673,14 +3674,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 424:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+            // 425:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
             {
-                // ../etc/JamlAttrHash.g:424:13: ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+                // ../etc/JamlAttrHash.g:425:13: ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_TOP_LEVEL_SCOPE, LCURLY84, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:424:71: ( classScopeDeclarations )*
+                // ../etc/JamlAttrHash.g:425:71: ( classScopeDeclarations )*
                 while ( stream_classScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_classScopeDeclarations.nextTree());
 
@@ -3723,7 +3724,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceBody"
-    // ../etc/JamlAttrHash.g:427:1: interfaceBody : LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) ;
+    // ../etc/JamlAttrHash.g:428:1: interfaceBody : LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) ;
     public final JamlAttrHashParser.interfaceBody_return interfaceBody() throws RecognitionException {
     traceIn("interfaceBody", 29);
         JamlAttrHashParser.interfaceBody_return retval = new JamlAttrHashParser.interfaceBody_return();
@@ -3743,13 +3744,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_interfaceScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule interfaceScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
-            // ../etc/JamlAttrHash.g:428:5: ( LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) )
-            // ../etc/JamlAttrHash.g:428:9: LCURLY ( interfaceScopeDeclarations )* RCURLY
+            // ../etc/JamlAttrHash.g:429:5: ( LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) )
+            // ../etc/JamlAttrHash.g:429:9: LCURLY ( interfaceScopeDeclarations )* RCURLY
             {
             LCURLY87=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_interfaceBody5848); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY87);
 
-            // ../etc/JamlAttrHash.g:428:16: ( interfaceScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:429:16: ( interfaceScopeDeclarations )*
             loop30:
             do {
                 int alt30=2;
@@ -3796,14 +3797,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 429:9: -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* )
+            // 430:9: -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* )
             {
-                // ../etc/JamlAttrHash.g:429:13: ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* )
+                // ../etc/JamlAttrHash.g:430:13: ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(INTERFACE_TOP_LEVEL_SCOPE, LCURLY87, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:429:75: ( interfaceScopeDeclarations )*
+                // ../etc/JamlAttrHash.g:430:75: ( interfaceScopeDeclarations )*
                 while ( stream_interfaceScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_interfaceScopeDeclarations.nextTree());
 
@@ -3846,7 +3847,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classScopeDeclarations"
-    // ../etc/JamlAttrHash.g:432:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );
+    // ../etc/JamlAttrHash.g:433:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );
     public final JamlAttrHashParser.classScopeDeclarations_return classScopeDeclarations() throws RecognitionException {
     traceIn("classScopeDeclarations", 30);
         JamlAttrHashParser.classScopeDeclarations_return retval = new JamlAttrHashParser.classScopeDeclarations_return();
@@ -3923,12 +3924,12 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_formalParameterList=new RewriteRuleSubtreeStream(adaptor,"rule formalParameterList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
-            // ../etc/JamlAttrHash.g:433:5: ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI )
+            // ../etc/JamlAttrHash.g:434:5: ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI )
             int alt40=5;
             alt40 = dfa40.predict(input);
             switch (alt40) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:433:9: block
+                    // ../etc/JamlAttrHash.g:434:9: block
                     {
                     pushFollow(FOLLOW_block_in_classScopeDeclarations5891);
                     block90=block();
@@ -3950,9 +3951,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 433:25: -> ^( CLASS_INSTANCE_INITIALIZER block )
+                    // 434:25: -> ^( CLASS_INSTANCE_INITIALIZER block )
                     {
-                        // ../etc/JamlAttrHash.g:433:29: ^( CLASS_INSTANCE_INITIALIZER block )
+                        // ../etc/JamlAttrHash.g:434:29: ^( CLASS_INSTANCE_INITIALIZER block )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_INSTANCE_INITIALIZER, "CLASS_INSTANCE_INITIALIZER"), root_1);
@@ -3968,7 +3969,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:434:9: STATIC block
+                    // ../etc/JamlAttrHash.g:435:9: STATIC block
                     {
                     STATIC91=(Token)match(input,STATIC,FOLLOW_STATIC_in_classScopeDeclarations5920); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_STATIC.add(STATIC91);
@@ -3993,9 +3994,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 434:25: -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
+                    // 435:25: -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
                     {
-                        // ../etc/JamlAttrHash.g:434:29: ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
+                        // ../etc/JamlAttrHash.g:435:29: ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_STATIC_INITIALIZER, STATIC91, "CLASS_STATIC_INITIALIZER"), root_1);
@@ -4011,7 +4012,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:435:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:436:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     {
                     pushFollow(FOLLOW_modifierList_in_classScopeDeclarations5945);
                     modifierList93=modifierList();
@@ -4019,7 +4020,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_modifierList.add(modifierList93.getTree());
-                    // ../etc/JamlAttrHash.g:436:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:437:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     int alt39=2;
                     switch ( input.LA(1) ) {
                     case LESS_THAN:
@@ -4083,9 +4084,9 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt39) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:436:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
+                            // ../etc/JamlAttrHash.g:437:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
                             {
-                            // ../etc/JamlAttrHash.g:436:13: ( genericTypeParameterList )?
+                            // ../etc/JamlAttrHash.g:437:13: ( genericTypeParameterList )?
                             int alt31=2;
                             int LA31_0 = input.LA(1);
 
@@ -4108,7 +4109,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:437:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
+                            // ../etc/JamlAttrHash.g:438:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
                             int alt38=3;
                             switch ( input.LA(1) ) {
                             case BOOLEAN:
@@ -4157,7 +4158,7 @@ import org.antlr.runtime.tree.*;
 
                             switch (alt38) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:437:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
+                                    // ../etc/JamlAttrHash.g:438:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                                     {
                                     pushFollow(FOLLOW_type_in_classScopeDeclarations5978);
                                     type95=type();
@@ -4174,7 +4175,7 @@ import org.antlr.runtime.tree.*;
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList97.getTree());
-                                    // ../etc/JamlAttrHash.g:437:48: ( arrayDeclaratorList )?
+                                    // ../etc/JamlAttrHash.g:438:48: ( arrayDeclaratorList )?
                                     int alt32=2;
                                     int LA32_0 = input.LA(1);
 
@@ -4197,7 +4198,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    // ../etc/JamlAttrHash.g:437:69: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:438:69: ( throwsClause )?
                                     int alt33=2;
                                     int LA33_0 = input.LA(1);
 
@@ -4220,7 +4221,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    // ../etc/JamlAttrHash.g:437:83: ( block | SEMI )
+                                    // ../etc/JamlAttrHash.g:438:83: ( block | SEMI )
                                     int alt34=2;
                                     int LA34_0 = input.LA(1);
 
@@ -4239,7 +4240,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     switch (alt34) {
                                         case 1 :
-                                            // ../etc/JamlAttrHash.g:437:84: block
+                                            // ../etc/JamlAttrHash.g:438:84: block
                                             {
                                             pushFollow(FOLLOW_block_in_classScopeDeclarations5991);
                                             block100=block();
@@ -4251,7 +4252,7 @@ import org.antlr.runtime.tree.*;
                                             }
                                             break;
                                         case 2 :
-                                            // ../etc/JamlAttrHash.g:437:92: SEMI
+                                            // ../etc/JamlAttrHash.g:438:92: SEMI
                                             {
                                             SEMI101=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations5995); if (state.failed) return retval; 
                                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI101);
@@ -4265,7 +4266,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: arrayDeclaratorList, genericTypeParameterList, IDENT, formalParameterList, block, throwsClause, type, modifierList
+                                    // elements: block, type, modifierList, genericTypeParameterList, formalParameterList, IDENT, throwsClause, arrayDeclaratorList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4276,15 +4277,15 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 438:17: -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
+                                    // 439:17: -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
                                     {
-                                        // ../etc/JamlAttrHash.g:438:21: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
+                                        // ../etc/JamlAttrHash.g:439:21: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION_METHOD_DECL, "FUNCTION_METHOD_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:438:57: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:439:57: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
@@ -4293,19 +4294,19 @@ import org.antlr.runtime.tree.*;
                                         adaptor.addChild(root_1, stream_type.nextTree());
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:438:114: ( arrayDeclaratorList )?
+                                        // ../etc/JamlAttrHash.g:439:114: ( arrayDeclaratorList )?
                                         if ( stream_arrayDeclaratorList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
                                         }
                                         stream_arrayDeclaratorList.reset();
-                                        // ../etc/JamlAttrHash.g:438:135: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:439:135: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
                                         }
                                         stream_throwsClause.reset();
-                                        // ../etc/JamlAttrHash.g:438:149: ( block )?
+                                        // ../etc/JamlAttrHash.g:439:149: ( block )?
                                         if ( stream_block.hasNext() ) {
                                             adaptor.addChild(root_1, stream_block.nextTree());
 
@@ -4321,7 +4322,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:439:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
+                                    // ../etc/JamlAttrHash.g:440:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                                     {
                                     VOID102=(Token)match(input,VOID,FOLLOW_VOID_in_classScopeDeclarations6057); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_VOID.add(VOID102);
@@ -4335,7 +4336,7 @@ import org.antlr.runtime.tree.*;
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList104.getTree());
-                                    // ../etc/JamlAttrHash.g:439:48: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:440:48: ( throwsClause )?
                                     int alt35=2;
                                     int LA35_0 = input.LA(1);
 
@@ -4358,7 +4359,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    // ../etc/JamlAttrHash.g:439:62: ( block | SEMI )
+                                    // ../etc/JamlAttrHash.g:440:62: ( block | SEMI )
                                     int alt36=2;
                                     int LA36_0 = input.LA(1);
 
@@ -4377,7 +4378,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     switch (alt36) {
                                         case 1 :
-                                            // ../etc/JamlAttrHash.g:439:63: block
+                                            // ../etc/JamlAttrHash.g:440:63: block
                                             {
                                             pushFollow(FOLLOW_block_in_classScopeDeclarations6067);
                                             block106=block();
@@ -4389,7 +4390,7 @@ import org.antlr.runtime.tree.*;
                                             }
                                             break;
                                         case 2 :
-                                            // ../etc/JamlAttrHash.g:439:71: SEMI
+                                            // ../etc/JamlAttrHash.g:440:71: SEMI
                                             {
                                             SEMI107=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6071); if (state.failed) return retval; 
                                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI107);
@@ -4403,7 +4404,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: throwsClause, block, genericTypeParameterList, modifierList, formalParameterList, IDENT
+                                    // elements: genericTypeParameterList, formalParameterList, IDENT, block, throwsClause, modifierList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4414,15 +4415,15 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 440:17: -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
+                                    // 441:17: -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
                                     {
-                                        // ../etc/JamlAttrHash.g:440:21: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
+                                        // ../etc/JamlAttrHash.g:441:21: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VOID_METHOD_DECL, "VOID_METHOD_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:440:53: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:441:53: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
@@ -4430,13 +4431,13 @@ import org.antlr.runtime.tree.*;
                                         stream_genericTypeParameterList.reset();
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:440:105: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:441:105: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
                                         }
                                         stream_throwsClause.reset();
-                                        // ../etc/JamlAttrHash.g:440:119: ( block )?
+                                        // ../etc/JamlAttrHash.g:441:119: ( block )?
                                         if ( stream_block.hasNext() ) {
                                             adaptor.addChild(root_1, stream_block.nextTree());
 
@@ -4452,7 +4453,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 3 :
-                                    // ../etc/JamlAttrHash.g:441:17: ident= IDENT formalParameterList ( throwsClause )? block
+                                    // ../etc/JamlAttrHash.g:442:17: ident= IDENT formalParameterList ( throwsClause )? block
                                     {
                                     ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6130); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(ident);
@@ -4463,7 +4464,7 @@ import org.antlr.runtime.tree.*;
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList108.getTree());
-                                    // ../etc/JamlAttrHash.g:441:49: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:442:49: ( throwsClause )?
                                     int alt37=2;
                                     int LA37_0 = input.LA(1);
 
@@ -4495,7 +4496,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, formalParameterList, block, modifierList, throwsClause
+                                    // elements: formalParameterList, block, genericTypeParameterList, modifierList, throwsClause
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4506,22 +4507,22 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 442:17: -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
+                                    // 443:17: -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
                                     {
-                                        // ../etc/JamlAttrHash.g:442:21: ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
+                                        // ../etc/JamlAttrHash.g:443:21: ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CONSTRUCTOR_DECL, ident, "CONSTRUCTOR_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:442:81: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:443:81: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
                                         }
                                         stream_genericTypeParameterList.reset();
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:442:127: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:443:127: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
@@ -4544,7 +4545,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:444:13: type classFieldDeclaratorList SEMI
+                            // ../etc/JamlAttrHash.g:445:13: type classFieldDeclaratorList SEMI
                             {
                             pushFollow(FOLLOW_type_in_classScopeDeclarations6201);
                             type111=type();
@@ -4564,7 +4565,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: modifierList, classFieldDeclaratorList, type
+                            // elements: type, modifierList, classFieldDeclaratorList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -4575,9 +4576,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 445:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                            // 446:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                             {
-                                // ../etc/JamlAttrHash.g:445:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                                // ../etc/JamlAttrHash.g:446:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -4601,7 +4602,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:447:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:448:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -4615,7 +4616,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:448:9: SEMI
+                    // ../etc/JamlAttrHash.g:449:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -4653,7 +4654,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceScopeDeclarations"
-    // ../etc/JamlAttrHash.g:451:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );
+    // ../etc/JamlAttrHash.g:452:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );
     public final JamlAttrHashParser.interfaceScopeDeclarations_return interfaceScopeDeclarations() throws RecognitionException {
     traceIn("interfaceScopeDeclarations", 31);
         JamlAttrHashParser.interfaceScopeDeclarations_return retval = new JamlAttrHashParser.interfaceScopeDeclarations_return();
@@ -4710,12 +4711,12 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_formalParameterList=new RewriteRuleSubtreeStream(adaptor,"rule formalParameterList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
-            // ../etc/JamlAttrHash.g:452:5: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI )
+            // ../etc/JamlAttrHash.g:453:5: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI )
             int alt47=3;
             alt47 = dfa47.predict(input);
             switch (alt47) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:452:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:453:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
                     {
                     pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations6292);
                     modifierList116=modifierList();
@@ -4723,7 +4724,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_modifierList.add(modifierList116.getTree());
-                    // ../etc/JamlAttrHash.g:453:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:454:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
                     int alt46=2;
                     switch ( input.LA(1) ) {
                     case LESS_THAN:
@@ -4787,9 +4788,9 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt46) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:453:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) )
+                            // ../etc/JamlAttrHash.g:454:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) )
                             {
-                            // ../etc/JamlAttrHash.g:453:13: ( genericTypeParameterList )?
+                            // ../etc/JamlAttrHash.g:454:13: ( genericTypeParameterList )?
                             int alt41=2;
                             int LA41_0 = input.LA(1);
 
@@ -4812,7 +4813,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:454:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) )
+                            // ../etc/JamlAttrHash.g:455:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) )
                             int alt45=2;
                             int LA45_0 = input.LA(1);
 
@@ -4831,7 +4832,7 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt45) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:454:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
+                                    // ../etc/JamlAttrHash.g:455:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                                     {
                                     pushFollow(FOLLOW_type_in_interfaceScopeDeclarations6325);
                                     type118=type();
@@ -4848,7 +4849,7 @@ import org.antlr.runtime.tree.*;
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList120.getTree());
-                                    // ../etc/JamlAttrHash.g:454:48: ( arrayDeclaratorList )?
+                                    // ../etc/JamlAttrHash.g:455:48: ( arrayDeclaratorList )?
                                     int alt42=2;
                                     int LA42_0 = input.LA(1);
 
@@ -4871,7 +4872,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    // ../etc/JamlAttrHash.g:454:69: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:455:69: ( throwsClause )?
                                     int alt43=2;
                                     int LA43_0 = input.LA(1);
 
@@ -4900,7 +4901,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: arrayDeclaratorList, genericTypeParameterList, type, modifierList, IDENT, formalParameterList, throwsClause
+                                    // elements: type, throwsClause, formalParameterList, modifierList, genericTypeParameterList, arrayDeclaratorList, IDENT
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4911,15 +4912,15 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 455:17: -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
+                                    // 456:17: -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
                                     {
-                                        // ../etc/JamlAttrHash.g:455:21: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
+                                        // ../etc/JamlAttrHash.g:456:21: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION_METHOD_DECL, "FUNCTION_METHOD_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:455:57: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:456:57: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
@@ -4928,13 +4929,13 @@ import org.antlr.runtime.tree.*;
                                         adaptor.addChild(root_1, stream_type.nextTree());
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:455:114: ( arrayDeclaratorList )?
+                                        // ../etc/JamlAttrHash.g:456:114: ( arrayDeclaratorList )?
                                         if ( stream_arrayDeclaratorList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
                                         }
                                         stream_arrayDeclaratorList.reset();
-                                        // ../etc/JamlAttrHash.g:455:135: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:456:135: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
@@ -4950,7 +4951,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:456:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
+                                    // ../etc/JamlAttrHash.g:457:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                                     {
                                     VOID124=(Token)match(input,VOID,FOLLOW_VOID_in_interfaceScopeDeclarations6395); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_VOID.add(VOID124);
@@ -4964,7 +4965,7 @@ import org.antlr.runtime.tree.*;
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList126.getTree());
-                                    // ../etc/JamlAttrHash.g:456:48: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:457:48: ( throwsClause )?
                                     int alt44=2;
                                     int LA44_0 = input.LA(1);
 
@@ -4993,7 +4994,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: formalParameterList, throwsClause, genericTypeParameterList, modifierList, IDENT
+                                    // elements: modifierList, genericTypeParameterList, IDENT, formalParameterList, throwsClause
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -5004,15 +5005,15 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 457:17: -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
+                                    // 458:17: -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
                                     {
-                                        // ../etc/JamlAttrHash.g:457:21: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
+                                        // ../etc/JamlAttrHash.g:458:21: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VOID_METHOD_DECL, "VOID_METHOD_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:457:53: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:458:53: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
@@ -5020,7 +5021,7 @@ import org.antlr.runtime.tree.*;
                                         stream_genericTypeParameterList.reset();
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:457:105: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:458:105: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
@@ -5042,7 +5043,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:459:13: type interfaceFieldDeclaratorList SEMI
+                            // ../etc/JamlAttrHash.g:460:13: type interfaceFieldDeclaratorList SEMI
                             {
                             pushFollow(FOLLOW_type_in_interfaceScopeDeclarations6467);
                             type129=type();
@@ -5073,9 +5074,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 460:13: -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList )
+                            // 461:13: -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList )
                             {
-                                // ../etc/JamlAttrHash.g:460:17: ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList )
+                                // ../etc/JamlAttrHash.g:461:17: ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -5099,7 +5100,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:462:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:463:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -5113,7 +5114,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:463:9: SEMI
+                    // ../etc/JamlAttrHash.g:464:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -5151,7 +5152,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classFieldDeclaratorList"
-    // ../etc/JamlAttrHash.g:466:1: classFieldDeclaratorList : classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) ;
+    // ../etc/JamlAttrHash.g:467:1: classFieldDeclaratorList : classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) ;
     public final JamlAttrHashParser.classFieldDeclaratorList_return classFieldDeclaratorList() throws RecognitionException {
     traceIn("classFieldDeclaratorList", 32);
         JamlAttrHashParser.classFieldDeclaratorList_return retval = new JamlAttrHashParser.classFieldDeclaratorList_return();
@@ -5170,8 +5171,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classFieldDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule classFieldDeclarator");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return retval; }
-            // ../etc/JamlAttrHash.g:467:5: ( classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) )
-            // ../etc/JamlAttrHash.g:467:9: classFieldDeclarator ( COMMA classFieldDeclarator )*
+            // ../etc/JamlAttrHash.g:468:5: ( classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) )
+            // ../etc/JamlAttrHash.g:468:9: classFieldDeclarator ( COMMA classFieldDeclarator )*
             {
             pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList6546);
             classFieldDeclarator134=classFieldDeclarator();
@@ -5179,7 +5180,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_classFieldDeclarator.add(classFieldDeclarator134.getTree());
-            // ../etc/JamlAttrHash.g:467:30: ( COMMA classFieldDeclarator )*
+            // ../etc/JamlAttrHash.g:468:30: ( COMMA classFieldDeclarator )*
             loop48:
             do {
                 int alt48=2;
@@ -5192,7 +5193,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt48) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:467:31: COMMA classFieldDeclarator
+            	    // ../etc/JamlAttrHash.g:468:31: COMMA classFieldDeclarator
             	    {
             	    COMMA135=(Token)match(input,COMMA,FOLLOW_COMMA_in_classFieldDeclaratorList6549); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA135);
@@ -5226,9 +5227,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 468:9: -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
+            // 469:9: -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
             {
-                // ../etc/JamlAttrHash.g:468:13: ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
+                // ../etc/JamlAttrHash.g:469:13: ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR_LIST, "VAR_DECLARATOR_LIST"), root_1);
@@ -5278,7 +5279,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classFieldDeclarator"
-    // ../etc/JamlAttrHash.g:471:1: classFieldDeclarator : variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
+    // ../etc/JamlAttrHash.g:472:1: classFieldDeclarator : variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
     public final JamlAttrHashParser.classFieldDeclarator_return classFieldDeclarator() throws RecognitionException {
     traceIn("classFieldDeclarator", 33);
         JamlAttrHashParser.classFieldDeclarator_return retval = new JamlAttrHashParser.classFieldDeclarator_return();
@@ -5298,8 +5299,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_variableInitializer=new RewriteRuleSubtreeStream(adaptor,"rule variableInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return retval; }
-            // ../etc/JamlAttrHash.g:472:5: ( variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
-            // ../etc/JamlAttrHash.g:472:9: variableDeclaratorId ( ASSIGN variableInitializer )?
+            // ../etc/JamlAttrHash.g:473:5: ( variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
+            // ../etc/JamlAttrHash.g:473:9: variableDeclaratorId ( ASSIGN variableInitializer )?
             {
             pushFollow(FOLLOW_variableDeclaratorId_in_classFieldDeclarator6590);
             variableDeclaratorId137=variableDeclaratorId();
@@ -5307,7 +5308,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_variableDeclaratorId.add(variableDeclaratorId137.getTree());
-            // ../etc/JamlAttrHash.g:472:30: ( ASSIGN variableInitializer )?
+            // ../etc/JamlAttrHash.g:473:30: ( ASSIGN variableInitializer )?
             int alt49=2;
             int LA49_0 = input.LA(1);
 
@@ -5316,7 +5317,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt49) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:472:31: ASSIGN variableInitializer
+                    // ../etc/JamlAttrHash.g:473:31: ASSIGN variableInitializer
                     {
                     ASSIGN138=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_classFieldDeclarator6593); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ASSIGN.add(ASSIGN138);
@@ -5336,7 +5337,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: variableInitializer, variableDeclaratorId
+            // elements: variableDeclaratorId, variableInitializer
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -5347,15 +5348,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 473:9: -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
+            // 474:9: -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
             {
-                // ../etc/JamlAttrHash.g:473:13: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
+                // ../etc/JamlAttrHash.g:474:13: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR, "VAR_DECLARATOR"), root_1);
 
                 adaptor.addChild(root_1, stream_variableDeclaratorId.nextTree());
-                // ../etc/JamlAttrHash.g:473:51: ( variableInitializer )?
+                // ../etc/JamlAttrHash.g:474:51: ( variableInitializer )?
                 if ( stream_variableInitializer.hasNext() ) {
                     adaptor.addChild(root_1, stream_variableInitializer.nextTree());
 
@@ -5398,7 +5399,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceFieldDeclaratorList"
-    // ../etc/JamlAttrHash.g:476:1: interfaceFieldDeclaratorList : interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) ;
+    // ../etc/JamlAttrHash.g:477:1: interfaceFieldDeclaratorList : interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) ;
     public final JamlAttrHashParser.interfaceFieldDeclaratorList_return interfaceFieldDeclaratorList() throws RecognitionException {
     traceIn("interfaceFieldDeclaratorList", 34);
         JamlAttrHashParser.interfaceFieldDeclaratorList_return retval = new JamlAttrHashParser.interfaceFieldDeclaratorList_return();
@@ -5417,8 +5418,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_interfaceFieldDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule interfaceFieldDeclarator");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return retval; }
-            // ../etc/JamlAttrHash.g:477:5: ( interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) )
-            // ../etc/JamlAttrHash.g:477:9: interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )*
+            // ../etc/JamlAttrHash.g:478:5: ( interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) )
+            // ../etc/JamlAttrHash.g:478:9: interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )*
             {
             pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList6640);
             interfaceFieldDeclarator140=interfaceFieldDeclarator();
@@ -5426,7 +5427,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_interfaceFieldDeclarator.add(interfaceFieldDeclarator140.getTree());
-            // ../etc/JamlAttrHash.g:477:34: ( COMMA interfaceFieldDeclarator )*
+            // ../etc/JamlAttrHash.g:478:34: ( COMMA interfaceFieldDeclarator )*
             loop50:
             do {
                 int alt50=2;
@@ -5439,7 +5440,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt50) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:477:35: COMMA interfaceFieldDeclarator
+            	    // ../etc/JamlAttrHash.g:478:35: COMMA interfaceFieldDeclarator
             	    {
             	    COMMA141=(Token)match(input,COMMA,FOLLOW_COMMA_in_interfaceFieldDeclaratorList6643); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA141);
@@ -5473,9 +5474,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 478:9: -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ )
+            // 479:9: -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ )
             {
-                // ../etc/JamlAttrHash.g:478:13: ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ )
+                // ../etc/JamlAttrHash.g:479:13: ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR_LIST, "VAR_DECLARATOR_LIST"), root_1);
@@ -5525,7 +5526,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceFieldDeclarator"
-    // ../etc/JamlAttrHash.g:481:1: interfaceFieldDeclarator : variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) ;
+    // ../etc/JamlAttrHash.g:482:1: interfaceFieldDeclarator : variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) ;
     public final JamlAttrHashParser.interfaceFieldDeclarator_return interfaceFieldDeclarator() throws RecognitionException {
     traceIn("interfaceFieldDeclarator", 35);
         JamlAttrHashParser.interfaceFieldDeclarator_return retval = new JamlAttrHashParser.interfaceFieldDeclarator_return();
@@ -5545,8 +5546,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_variableInitializer=new RewriteRuleSubtreeStream(adaptor,"rule variableInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return retval; }
-            // ../etc/JamlAttrHash.g:482:5: ( variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) )
-            // ../etc/JamlAttrHash.g:482:9: variableDeclaratorId ASSIGN variableInitializer
+            // ../etc/JamlAttrHash.g:483:5: ( variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) )
+            // ../etc/JamlAttrHash.g:483:9: variableDeclaratorId ASSIGN variableInitializer
             {
             pushFollow(FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator6684);
             variableDeclaratorId143=variableDeclaratorId();
@@ -5577,9 +5578,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 483:9: -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer )
+            // 484:9: -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer )
             {
-                // ../etc/JamlAttrHash.g:483:13: ^( VAR_DECLARATOR variableDeclaratorId variableInitializer )
+                // ../etc/JamlAttrHash.g:484:13: ^( VAR_DECLARATOR variableDeclaratorId variableInitializer )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR, "VAR_DECLARATOR"), root_1);
@@ -5623,7 +5624,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "variableDeclaratorId"
-    // ../etc/JamlAttrHash.g:486:1: variableDeclaratorId : IDENT ( arrayDeclaratorList )? ;
+    // ../etc/JamlAttrHash.g:487:1: variableDeclaratorId : IDENT ( arrayDeclaratorList )? ;
     public final JamlAttrHashParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
     traceIn("variableDeclaratorId", 36);
         JamlAttrHashParser.variableDeclaratorId_return retval = new JamlAttrHashParser.variableDeclaratorId_return();
@@ -5639,8 +5640,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return retval; }
-            // ../etc/JamlAttrHash.g:487:5: ( IDENT ( arrayDeclaratorList )? )
-            // ../etc/JamlAttrHash.g:487:9: IDENT ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:488:5: ( IDENT ( arrayDeclaratorList )? )
+            // ../etc/JamlAttrHash.g:488:9: IDENT ( arrayDeclaratorList )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -5649,7 +5650,7 @@ import org.antlr.runtime.tree.*;
             IDENT146_tree = (CommonTree)adaptor.create(IDENT146);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT146_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:487:16: ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:488:16: ( arrayDeclaratorList )?
             int alt51=2;
             int LA51_0 = input.LA(1);
 
@@ -5703,7 +5704,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "variableInitializer"
-    // ../etc/JamlAttrHash.g:490:1: variableInitializer : ( arrayInitializer | expression );
+    // ../etc/JamlAttrHash.g:491:1: variableInitializer : ( arrayInitializer | expression );
     public final JamlAttrHashParser.variableInitializer_return variableInitializer() throws RecognitionException {
     traceIn("variableInitializer", 37);
         JamlAttrHashParser.variableInitializer_return retval = new JamlAttrHashParser.variableInitializer_return();
@@ -5719,7 +5720,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return retval; }
-            // ../etc/JamlAttrHash.g:491:5: ( arrayInitializer | expression )
+            // ../etc/JamlAttrHash.g:492:5: ( arrayInitializer | expression )
             int alt52=2;
             int LA52_0 = input.LA(1);
 
@@ -5738,7 +5739,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt52) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:491:9: arrayInitializer
+                    // ../etc/JamlAttrHash.g:492:9: arrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -5752,7 +5753,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:492:9: expression
+                    // ../etc/JamlAttrHash.g:493:9: expression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -5795,7 +5796,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "arrayDeclarator"
-    // ../etc/JamlAttrHash.g:495:1: arrayDeclarator : LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) ;
+    // ../etc/JamlAttrHash.g:496:1: arrayDeclarator : LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) ;
     public final JamlAttrHashParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
     traceIn("arrayDeclarator", 38);
         JamlAttrHashParser.arrayDeclarator_return retval = new JamlAttrHashParser.arrayDeclarator_return();
@@ -5813,8 +5814,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return retval; }
-            // ../etc/JamlAttrHash.g:496:5: ( LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) )
-            // ../etc/JamlAttrHash.g:496:9: LBRACK RBRACK
+            // ../etc/JamlAttrHash.g:497:5: ( LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) )
+            // ../etc/JamlAttrHash.g:497:9: LBRACK RBRACK
             {
             LBRACK150=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator6782); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LBRACK.add(LBRACK150);
@@ -5836,9 +5837,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 497:9: -> ^( ARRAY_DECLARATOR )
+            // 498:9: -> ^( ARRAY_DECLARATOR )
             {
-                // ../etc/JamlAttrHash.g:497:13: ^( ARRAY_DECLARATOR )
+                // ../etc/JamlAttrHash.g:498:13: ^( ARRAY_DECLARATOR )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_DECLARATOR, "ARRAY_DECLARATOR"), root_1);
@@ -5879,7 +5880,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "arrayDeclaratorList"
-    // ../etc/JamlAttrHash.g:500:1: arrayDeclaratorList : ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) ;
+    // ../etc/JamlAttrHash.g:501:1: arrayDeclaratorList : ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) ;
     public final JamlAttrHashParser.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException {
     traceIn("arrayDeclaratorList", 39);
         JamlAttrHashParser.arrayDeclaratorList_return retval = new JamlAttrHashParser.arrayDeclaratorList_return();
@@ -5893,10 +5894,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_arrayDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule arrayDeclarator");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return retval; }
-            // ../etc/JamlAttrHash.g:501:5: ( ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) )
-            // ../etc/JamlAttrHash.g:501:9: ( arrayDeclarator )+
+            // ../etc/JamlAttrHash.g:502:5: ( ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) )
+            // ../etc/JamlAttrHash.g:502:9: ( arrayDeclarator )+
             {
-            // ../etc/JamlAttrHash.g:501:9: ( arrayDeclarator )+
+            // ../etc/JamlAttrHash.g:502:9: ( arrayDeclarator )+
             int cnt53=0;
             loop53:
             do {
@@ -5952,9 +5953,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 502:9: -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
+            // 503:9: -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
             {
-                // ../etc/JamlAttrHash.g:502:13: ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
+                // ../etc/JamlAttrHash.g:503:13: ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_DECLARATOR_LIST, "ARRAY_DECLARATOR_LIST"), root_1);
@@ -6004,7 +6005,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "arrayInitializer"
-    // ../etc/JamlAttrHash.g:505:1: arrayInitializer : LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) ;
+    // ../etc/JamlAttrHash.g:506:1: arrayInitializer : LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) ;
     public final JamlAttrHashParser.arrayInitializer_return arrayInitializer() throws RecognitionException {
     traceIn("arrayInitializer", 40);
         JamlAttrHashParser.arrayInitializer_return retval = new JamlAttrHashParser.arrayInitializer_return();
@@ -6031,13 +6032,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_variableInitializer=new RewriteRuleSubtreeStream(adaptor,"rule variableInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return retval; }
-            // ../etc/JamlAttrHash.g:506:5: ( LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) )
-            // ../etc/JamlAttrHash.g:506:9: LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY
+            // ../etc/JamlAttrHash.g:507:5: ( LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) )
+            // ../etc/JamlAttrHash.g:507:9: LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY
             {
             LCURLY153=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_arrayInitializer6863); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY153);
 
-            // ../etc/JamlAttrHash.g:506:16: ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )?
+            // ../etc/JamlAttrHash.g:507:16: ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )?
             int alt56=2;
             int LA56_0 = input.LA(1);
 
@@ -6046,7 +6047,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt56) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:506:17: variableInitializer ( COMMA variableInitializer )* ( COMMA )?
+                    // ../etc/JamlAttrHash.g:507:17: variableInitializer ( COMMA variableInitializer )* ( COMMA )?
                     {
                     pushFollow(FOLLOW_variableInitializer_in_arrayInitializer6866);
                     variableInitializer154=variableInitializer();
@@ -6054,7 +6055,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_variableInitializer.add(variableInitializer154.getTree());
-                    // ../etc/JamlAttrHash.g:506:37: ( COMMA variableInitializer )*
+                    // ../etc/JamlAttrHash.g:507:37: ( COMMA variableInitializer )*
                     loop54:
                     do {
                         int alt54=2;
@@ -6073,7 +6074,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt54) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:506:38: COMMA variableInitializer
+                    	    // ../etc/JamlAttrHash.g:507:38: COMMA variableInitializer
                     	    {
                     	    COMMA155=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer6869); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA155);
@@ -6093,7 +6094,7 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:506:66: ( COMMA )?
+                    // ../etc/JamlAttrHash.g:507:66: ( COMMA )?
                     int alt55=2;
                     int LA55_0 = input.LA(1);
 
@@ -6136,14 +6137,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 507:9: -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
+            // 508:9: -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
             {
-                // ../etc/JamlAttrHash.g:507:13: ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
+                // ../etc/JamlAttrHash.g:508:13: ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_INITIALIZER, LCURLY153, "ARRAY_INITIALIZER"), root_1);
 
-                // ../etc/JamlAttrHash.g:507:63: ( variableInitializer )*
+                // ../etc/JamlAttrHash.g:508:63: ( variableInitializer )*
                 while ( stream_variableInitializer.hasNext() ) {
                     adaptor.addChild(root_1, stream_variableInitializer.nextTree());
 
@@ -6186,7 +6187,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "throwsClause"
-    // ../etc/JamlAttrHash.g:510:1: throwsClause : THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) ;
+    // ../etc/JamlAttrHash.g:511:1: throwsClause : THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) ;
     public final JamlAttrHashParser.throwsClause_return throwsClause() throws RecognitionException {
     traceIn("throwsClause", 41);
         JamlAttrHashParser.throwsClause_return retval = new JamlAttrHashParser.throwsClause_return();
@@ -6203,8 +6204,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_qualifiedIdentList=new RewriteRuleSubtreeStream(adaptor,"rule qualifiedIdentList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return retval; }
-            // ../etc/JamlAttrHash.g:511:5: ( THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) )
-            // ../etc/JamlAttrHash.g:511:9: THROWS qualifiedIdentList
+            // ../etc/JamlAttrHash.g:512:5: ( THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) )
+            // ../etc/JamlAttrHash.g:512:9: THROWS qualifiedIdentList
             {
             THROWS159=(Token)match(input,THROWS,FOLLOW_THROWS_in_throwsClause6918); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_THROWS.add(THROWS159);
@@ -6229,9 +6230,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 512:9: -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList )
+            // 513:9: -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList )
             {
-                // ../etc/JamlAttrHash.g:512:13: ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList )
+                // ../etc/JamlAttrHash.g:513:13: ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(THROWS_CLAUSE, THROWS159, "THROWS_CLAUSE"), root_1);
@@ -6274,7 +6275,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "modifierList"
-    // ../etc/JamlAttrHash.g:515:1: modifierList : ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) ;
+    // ../etc/JamlAttrHash.g:516:1: modifierList : ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) ;
     public final JamlAttrHashParser.modifierList_return modifierList() throws RecognitionException {
     traceIn("modifierList", 42);
         JamlAttrHashParser.modifierList_return retval = new JamlAttrHashParser.modifierList_return();
@@ -6288,10 +6289,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_modifier=new RewriteRuleSubtreeStream(adaptor,"rule modifier");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return retval; }
-            // ../etc/JamlAttrHash.g:516:5: ( ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) )
-            // ../etc/JamlAttrHash.g:516:9: ( modifier )*
+            // ../etc/JamlAttrHash.g:517:5: ( ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) )
+            // ../etc/JamlAttrHash.g:517:9: ( modifier )*
             {
-            // ../etc/JamlAttrHash.g:516:9: ( modifier )*
+            // ../etc/JamlAttrHash.g:517:9: ( modifier )*
             loop57:
             do {
                 int alt57=2;
@@ -6344,14 +6345,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 517:9: -> ^( MODIFIER_LIST ( modifier )* )
+            // 518:9: -> ^( MODIFIER_LIST ( modifier )* )
             {
-                // ../etc/JamlAttrHash.g:517:13: ^( MODIFIER_LIST ( modifier )* )
+                // ../etc/JamlAttrHash.g:518:13: ^( MODIFIER_LIST ( modifier )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(MODIFIER_LIST, "MODIFIER_LIST"), root_1);
 
-                // ../etc/JamlAttrHash.g:517:29: ( modifier )*
+                // ../etc/JamlAttrHash.g:518:29: ( modifier )*
                 while ( stream_modifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_modifier.nextTree());
 
@@ -6394,7 +6395,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "modifier"
-    // ../etc/JamlAttrHash.g:520:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
+    // ../etc/JamlAttrHash.g:521:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
     public final JamlAttrHashParser.modifier_return modifier() throws RecognitionException {
     traceIn("modifier", 43);
         JamlAttrHashParser.modifier_return retval = new JamlAttrHashParser.modifier_return();
@@ -6428,7 +6429,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return retval; }
-            // ../etc/JamlAttrHash.g:521:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
+            // ../etc/JamlAttrHash.g:522:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
             int alt58=11;
             switch ( input.LA(1) ) {
             case PUBLIC:
@@ -6497,7 +6498,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt58) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:521:9: PUBLIC
+                    // ../etc/JamlAttrHash.g:522:9: PUBLIC
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6510,7 +6511,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:522:9: PROTECTED
+                    // ../etc/JamlAttrHash.g:523:9: PROTECTED
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6523,7 +6524,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:523:9: PRIVATE
+                    // ../etc/JamlAttrHash.g:524:9: PRIVATE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6536,7 +6537,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:524:9: STATIC
+                    // ../etc/JamlAttrHash.g:525:9: STATIC
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6549,7 +6550,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:525:9: ABSTRACT
+                    // ../etc/JamlAttrHash.g:526:9: ABSTRACT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6562,7 +6563,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 6 :
-                    // ../etc/JamlAttrHash.g:526:9: NATIVE
+                    // ../etc/JamlAttrHash.g:527:9: NATIVE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6575,7 +6576,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 7 :
-                    // ../etc/JamlAttrHash.g:527:9: SYNCHRONIZED
+                    // ../etc/JamlAttrHash.g:528:9: SYNCHRONIZED
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6588,7 +6589,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 8 :
-                    // ../etc/JamlAttrHash.g:528:9: TRANSIENT
+                    // ../etc/JamlAttrHash.g:529:9: TRANSIENT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6601,7 +6602,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 9 :
-                    // ../etc/JamlAttrHash.g:529:9: VOLATILE
+                    // ../etc/JamlAttrHash.g:530:9: VOLATILE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6614,7 +6615,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 10 :
-                    // ../etc/JamlAttrHash.g:530:9: STRICTFP
+                    // ../etc/JamlAttrHash.g:531:9: STRICTFP
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6627,7 +6628,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 11 :
-                    // ../etc/JamlAttrHash.g:531:9: localModifier
+                    // ../etc/JamlAttrHash.g:532:9: localModifier
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6670,7 +6671,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "localModifierList"
-    // ../etc/JamlAttrHash.g:534:1: localModifierList : ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
+    // ../etc/JamlAttrHash.g:535:1: localModifierList : ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
     public final JamlAttrHashParser.localModifierList_return localModifierList() throws RecognitionException {
     traceIn("localModifierList", 44);
         JamlAttrHashParser.localModifierList_return retval = new JamlAttrHashParser.localModifierList_return();
@@ -6684,10 +6685,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_localModifier=new RewriteRuleSubtreeStream(adaptor,"rule localModifier");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return retval; }
-            // ../etc/JamlAttrHash.g:535:5: ( ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
-            // ../etc/JamlAttrHash.g:535:9: ( localModifier )*
+            // ../etc/JamlAttrHash.g:536:5: ( ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
+            // ../etc/JamlAttrHash.g:536:9: ( localModifier )*
             {
-            // ../etc/JamlAttrHash.g:535:9: ( localModifier )*
+            // ../etc/JamlAttrHash.g:536:9: ( localModifier )*
             loop59:
             do {
                 int alt59=2;
@@ -6731,14 +6732,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 536:9: -> ^( LOCAL_MODIFIER_LIST ( localModifier )* )
+            // 537:9: -> ^( LOCAL_MODIFIER_LIST ( localModifier )* )
             {
-                // ../etc/JamlAttrHash.g:536:12: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
+                // ../etc/JamlAttrHash.g:537:12: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LOCAL_MODIFIER_LIST, "LOCAL_MODIFIER_LIST"), root_1);
 
-                // ../etc/JamlAttrHash.g:536:34: ( localModifier )*
+                // ../etc/JamlAttrHash.g:537:34: ( localModifier )*
                 while ( stream_localModifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_localModifier.nextTree());
 
@@ -6781,7 +6782,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "localModifier"
-    // ../etc/JamlAttrHash.g:539:1: localModifier : ( FINAL | annotation );
+    // ../etc/JamlAttrHash.g:540:1: localModifier : ( FINAL | annotation );
     public final JamlAttrHashParser.localModifier_return localModifier() throws RecognitionException {
     traceIn("localModifier", 45);
         JamlAttrHashParser.localModifier_return retval = new JamlAttrHashParser.localModifier_return();
@@ -6797,7 +6798,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return retval; }
-            // ../etc/JamlAttrHash.g:540:5: ( FINAL | annotation )
+            // ../etc/JamlAttrHash.g:541:5: ( FINAL | annotation )
             int alt60=2;
             int LA60_0 = input.LA(1);
 
@@ -6816,7 +6817,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt60) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:540:9: FINAL
+                    // ../etc/JamlAttrHash.g:541:9: FINAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6829,7 +6830,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:541:9: annotation
+                    // ../etc/JamlAttrHash.g:542:9: annotation
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6872,7 +6873,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "type"
-    // ../etc/JamlAttrHash.g:544:1: type : ( simpleType | objectType );
+    // ../etc/JamlAttrHash.g:545:1: type : ( simpleType | objectType );
     public final JamlAttrHashParser.type_return type() throws RecognitionException {
     traceIn("type", 46);
         JamlAttrHashParser.type_return retval = new JamlAttrHashParser.type_return();
@@ -6888,7 +6889,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return retval; }
-            // ../etc/JamlAttrHash.g:545:5: ( simpleType | objectType )
+            // ../etc/JamlAttrHash.g:546:5: ( simpleType | objectType )
             int alt61=2;
             int LA61_0 = input.LA(1);
 
@@ -6907,7 +6908,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt61) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:545:9: simpleType
+                    // ../etc/JamlAttrHash.g:546:9: simpleType
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6921,7 +6922,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:546:9: objectType
+                    // ../etc/JamlAttrHash.g:547:9: objectType
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -6964,7 +6965,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "simpleType"
-    // ../etc/JamlAttrHash.g:549:1: simpleType : primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) ;
+    // ../etc/JamlAttrHash.g:550:1: simpleType : primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) ;
     public final JamlAttrHashParser.simpleType_return simpleType() throws RecognitionException {
     traceIn("simpleType", 47);
         JamlAttrHashParser.simpleType_return retval = new JamlAttrHashParser.simpleType_return();
@@ -6981,8 +6982,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_primitiveType=new RewriteRuleSubtreeStream(adaptor,"rule primitiveType");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 47) ) { return retval; }
-            // ../etc/JamlAttrHash.g:550:5: ( primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) )
-            // ../etc/JamlAttrHash.g:550:9: primitiveType ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:551:5: ( primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) )
+            // ../etc/JamlAttrHash.g:551:9: primitiveType ( arrayDeclaratorList )?
             {
             pushFollow(FOLLOW_primitiveType_in_simpleType7217);
             primitiveType178=primitiveType();
@@ -6990,7 +6991,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_primitiveType.add(primitiveType178.getTree());
-            // ../etc/JamlAttrHash.g:550:23: ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:551:23: ( arrayDeclaratorList )?
             int alt62=2;
             int LA62_0 = input.LA(1);
 
@@ -7024,7 +7025,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: primitiveType, arrayDeclaratorList
+            // elements: arrayDeclaratorList, primitiveType
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -7035,15 +7036,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 551:9: -> ^( TYPE primitiveType ( arrayDeclaratorList )? )
+            // 552:9: -> ^( TYPE primitiveType ( arrayDeclaratorList )? )
             {
-                // ../etc/JamlAttrHash.g:551:13: ^( TYPE primitiveType ( arrayDeclaratorList )? )
+                // ../etc/JamlAttrHash.g:552:13: ^( TYPE primitiveType ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_primitiveType.nextTree());
-                // ../etc/JamlAttrHash.g:551:34: ( arrayDeclaratorList )?
+                // ../etc/JamlAttrHash.g:552:34: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -7086,7 +7087,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "objectType"
-    // ../etc/JamlAttrHash.g:554:1: objectType : qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) ;
+    // ../etc/JamlAttrHash.g:555:1: objectType : qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) ;
     public final JamlAttrHashParser.objectType_return objectType() throws RecognitionException {
     traceIn("objectType", 48);
         JamlAttrHashParser.objectType_return retval = new JamlAttrHashParser.objectType_return();
@@ -7103,8 +7104,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_qualifiedTypeIdent=new RewriteRuleSubtreeStream(adaptor,"rule qualifiedTypeIdent");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 48) ) { return retval; }
-            // ../etc/JamlAttrHash.g:555:5: ( qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) )
-            // ../etc/JamlAttrHash.g:555:9: qualifiedTypeIdent ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:556:5: ( qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) )
+            // ../etc/JamlAttrHash.g:556:9: qualifiedTypeIdent ( arrayDeclaratorList )?
             {
             pushFollow(FOLLOW_qualifiedTypeIdent_in_objectType7266);
             qualifiedTypeIdent180=qualifiedTypeIdent();
@@ -7112,7 +7113,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_qualifiedTypeIdent.add(qualifiedTypeIdent180.getTree());
-            // ../etc/JamlAttrHash.g:555:28: ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:556:28: ( arrayDeclaratorList )?
             int alt63=2;
             int LA63_0 = input.LA(1);
 
@@ -7153,15 +7154,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 556:9: -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
+            // 557:9: -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
             {
-                // ../etc/JamlAttrHash.g:556:13: ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
+                // ../etc/JamlAttrHash.g:557:13: ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_qualifiedTypeIdent.nextTree());
-                // ../etc/JamlAttrHash.g:556:39: ( arrayDeclaratorList )?
+                // ../etc/JamlAttrHash.g:557:39: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -7204,7 +7205,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "objectTypeSimplified"
-    // ../etc/JamlAttrHash.g:559:1: objectTypeSimplified : qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) ;
+    // ../etc/JamlAttrHash.g:560:1: objectTypeSimplified : qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) ;
     public final JamlAttrHashParser.objectTypeSimplified_return objectTypeSimplified() throws RecognitionException {
     traceIn("objectTypeSimplified", 49);
         JamlAttrHashParser.objectTypeSimplified_return retval = new JamlAttrHashParser.objectTypeSimplified_return();
@@ -7221,8 +7222,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_qualifiedTypeIdentSimplified=new RewriteRuleSubtreeStream(adaptor,"rule qualifiedTypeIdentSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 49) ) { return retval; }
-            // ../etc/JamlAttrHash.g:560:5: ( qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) )
-            // ../etc/JamlAttrHash.g:560:9: qualifiedTypeIdentSimplified ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:561:5: ( qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) )
+            // ../etc/JamlAttrHash.g:561:9: qualifiedTypeIdentSimplified ( arrayDeclaratorList )?
             {
             pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7308);
             qualifiedTypeIdentSimplified182=qualifiedTypeIdentSimplified();
@@ -7230,7 +7231,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_qualifiedTypeIdentSimplified.add(qualifiedTypeIdentSimplified182.getTree());
-            // ../etc/JamlAttrHash.g:560:38: ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:561:38: ( arrayDeclaratorList )?
             int alt64=2;
             int LA64_0 = input.LA(1);
 
@@ -7256,7 +7257,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: qualifiedTypeIdentSimplified, arrayDeclaratorList
+            // elements: arrayDeclaratorList, qualifiedTypeIdentSimplified
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -7267,15 +7268,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 561:9: -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
+            // 562:9: -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
             {
-                // ../etc/JamlAttrHash.g:561:13: ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
+                // ../etc/JamlAttrHash.g:562:13: ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_qualifiedTypeIdentSimplified.nextTree());
-                // ../etc/JamlAttrHash.g:561:49: ( arrayDeclaratorList )?
+                // ../etc/JamlAttrHash.g:562:49: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -7318,7 +7319,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedTypeIdent"
-    // ../etc/JamlAttrHash.g:564:1: qualifiedTypeIdent : typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
+    // ../etc/JamlAttrHash.g:565:1: qualifiedTypeIdent : typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
     public final JamlAttrHashParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
     traceIn("qualifiedTypeIdent", 50);
         JamlAttrHashParser.qualifiedTypeIdent_return retval = new JamlAttrHashParser.qualifiedTypeIdent_return();
@@ -7337,8 +7338,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_typeIdent=new RewriteRuleSubtreeStream(adaptor,"rule typeIdent");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
-            // ../etc/JamlAttrHash.g:565:5: ( typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
-            // ../etc/JamlAttrHash.g:565:9: typeIdent ( DOT typeIdent )*
+            // ../etc/JamlAttrHash.g:566:5: ( typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
+            // ../etc/JamlAttrHash.g:566:9: typeIdent ( DOT typeIdent )*
             {
             pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7350);
             typeIdent184=typeIdent();
@@ -7346,7 +7347,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_typeIdent.add(typeIdent184.getTree());
-            // ../etc/JamlAttrHash.g:565:19: ( DOT typeIdent )*
+            // ../etc/JamlAttrHash.g:566:19: ( DOT typeIdent )*
             loop65:
             do {
                 int alt65=2;
@@ -7365,7 +7366,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt65) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:565:20: DOT typeIdent
+            	    // ../etc/JamlAttrHash.g:566:20: DOT typeIdent
             	    {
             	    DOT185=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdent7353); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT185);
@@ -7399,9 +7400,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 566:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
+            // 567:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
             {
-                // ../etc/JamlAttrHash.g:566:13: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
+                // ../etc/JamlAttrHash.g:567:13: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(QUALIFIED_TYPE_IDENT, "QUALIFIED_TYPE_IDENT"), root_1);
@@ -7451,7 +7452,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedTypeIdentSimplified"
-    // ../etc/JamlAttrHash.g:569:1: qualifiedTypeIdentSimplified : typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) ;
+    // ../etc/JamlAttrHash.g:570:1: qualifiedTypeIdentSimplified : typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) ;
     public final JamlAttrHashParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified() throws RecognitionException {
     traceIn("qualifiedTypeIdentSimplified", 51);
         JamlAttrHashParser.qualifiedTypeIdentSimplified_return retval = new JamlAttrHashParser.qualifiedTypeIdentSimplified_return();
@@ -7470,8 +7471,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_typeIdentSimplified=new RewriteRuleSubtreeStream(adaptor,"rule typeIdentSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 51) ) { return retval; }
-            // ../etc/JamlAttrHash.g:570:5: ( typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) )
-            // ../etc/JamlAttrHash.g:570:9: typeIdentSimplified ( DOT typeIdentSimplified )*
+            // ../etc/JamlAttrHash.g:571:5: ( typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) )
+            // ../etc/JamlAttrHash.g:571:9: typeIdentSimplified ( DOT typeIdentSimplified )*
             {
             pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified7395);
             typeIdentSimplified187=typeIdentSimplified();
@@ -7479,7 +7480,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_typeIdentSimplified.add(typeIdentSimplified187.getTree());
-            // ../etc/JamlAttrHash.g:570:29: ( DOT typeIdentSimplified )*
+            // ../etc/JamlAttrHash.g:571:29: ( DOT typeIdentSimplified )*
             loop66:
             do {
                 int alt66=2;
@@ -7492,7 +7493,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt66) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:570:30: DOT typeIdentSimplified
+            	    // ../etc/JamlAttrHash.g:571:30: DOT typeIdentSimplified
             	    {
             	    DOT188=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdentSimplified7398); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT188);
@@ -7526,9 +7527,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 571:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
+            // 572:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
             {
-                // ../etc/JamlAttrHash.g:571:13: ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
+                // ../etc/JamlAttrHash.g:572:13: ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(QUALIFIED_TYPE_IDENT, "QUALIFIED_TYPE_IDENT"), root_1);
@@ -7578,7 +7579,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeIdent"
-    // ../etc/JamlAttrHash.g:574:1: typeIdent : IDENT ( genericTypeArgumentList )? ;
+    // ../etc/JamlAttrHash.g:575:1: typeIdent : IDENT ( genericTypeArgumentList )? ;
     public final JamlAttrHashParser.typeIdent_return typeIdent() throws RecognitionException {
     traceIn("typeIdent", 52);
         JamlAttrHashParser.typeIdent_return retval = new JamlAttrHashParser.typeIdent_return();
@@ -7594,8 +7595,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
-            // ../etc/JamlAttrHash.g:575:5: ( IDENT ( genericTypeArgumentList )? )
-            // ../etc/JamlAttrHash.g:575:9: IDENT ( genericTypeArgumentList )?
+            // ../etc/JamlAttrHash.g:576:5: ( IDENT ( genericTypeArgumentList )? )
+            // ../etc/JamlAttrHash.g:576:9: IDENT ( genericTypeArgumentList )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -7604,7 +7605,7 @@ import org.antlr.runtime.tree.*;
             IDENT190_tree = (CommonTree)adaptor.create(IDENT190);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT190_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:575:16: ( genericTypeArgumentList )?
+            // ../etc/JamlAttrHash.g:576:16: ( genericTypeArgumentList )?
             int alt67=2;
             int LA67_0 = input.LA(1);
 
@@ -7658,7 +7659,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeIdentSimplified"
-    // ../etc/JamlAttrHash.g:578:1: typeIdentSimplified : IDENT ( genericTypeArgumentListSimplified )? ;
+    // ../etc/JamlAttrHash.g:579:1: typeIdentSimplified : IDENT ( genericTypeArgumentListSimplified )? ;
     public final JamlAttrHashParser.typeIdentSimplified_return typeIdentSimplified() throws RecognitionException {
     traceIn("typeIdentSimplified", 53);
         JamlAttrHashParser.typeIdentSimplified_return retval = new JamlAttrHashParser.typeIdentSimplified_return();
@@ -7674,8 +7675,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
-            // ../etc/JamlAttrHash.g:579:5: ( IDENT ( genericTypeArgumentListSimplified )? )
-            // ../etc/JamlAttrHash.g:579:9: IDENT ( genericTypeArgumentListSimplified )?
+            // ../etc/JamlAttrHash.g:580:5: ( IDENT ( genericTypeArgumentListSimplified )? )
+            // ../etc/JamlAttrHash.g:580:9: IDENT ( genericTypeArgumentListSimplified )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -7684,7 +7685,7 @@ import org.antlr.runtime.tree.*;
             IDENT192_tree = (CommonTree)adaptor.create(IDENT192);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT192_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:579:16: ( genericTypeArgumentListSimplified )?
+            // ../etc/JamlAttrHash.g:580:16: ( genericTypeArgumentListSimplified )?
             int alt68=2;
             int LA68_0 = input.LA(1);
 
@@ -7738,7 +7739,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "primitiveType"
-    // ../etc/JamlAttrHash.g:582:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
+    // ../etc/JamlAttrHash.g:583:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
     public final JamlAttrHashParser.primitiveType_return primitiveType() throws RecognitionException {
     traceIn("primitiveType", 54);
         JamlAttrHashParser.primitiveType_return retval = new JamlAttrHashParser.primitiveType_return();
@@ -7752,7 +7753,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
-            // ../etc/JamlAttrHash.g:583:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
+            // ../etc/JamlAttrHash.g:584:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
             // ../etc/JamlAttrHash.g:
             {
             root_0 = (CommonTree)adaptor.nil();
@@ -7800,7 +7801,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeArgumentList"
-    // ../etc/JamlAttrHash.g:593:1: genericTypeArgumentList : LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) ;
+    // ../etc/JamlAttrHash.g:594:1: genericTypeArgumentList : LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) ;
     public final JamlAttrHashParser.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException {
     traceIn("genericTypeArgumentList", 55);
         JamlAttrHashParser.genericTypeArgumentList_return retval = new JamlAttrHashParser.genericTypeArgumentList_return();
@@ -7825,8 +7826,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeListClosing=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeListClosing");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
-            // ../etc/JamlAttrHash.g:594:5: ( LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) )
-            // ../etc/JamlAttrHash.g:594:9: LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing
+            // ../etc/JamlAttrHash.g:595:5: ( LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) )
+            // ../etc/JamlAttrHash.g:595:9: LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing
             {
             LESS_THAN195=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentList7575); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN195);
@@ -7837,7 +7838,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_genericTypeArgument.add(genericTypeArgument196.getTree());
-            // ../etc/JamlAttrHash.g:594:39: ( COMMA genericTypeArgument )*
+            // ../etc/JamlAttrHash.g:595:39: ( COMMA genericTypeArgument )*
             loop69:
             do {
                 int alt69=2;
@@ -7856,7 +7857,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt69) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:594:40: COMMA genericTypeArgument
+            	    // ../etc/JamlAttrHash.g:595:40: COMMA genericTypeArgument
             	    {
             	    COMMA197=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentList7580); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA197);
@@ -7896,9 +7897,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 595:9: -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ )
+            // 596:9: -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ )
             {
-                // ../etc/JamlAttrHash.g:595:13: ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ )
+                // ../etc/JamlAttrHash.g:596:13: ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GENERIC_TYPE_ARG_LIST, LESS_THAN195, "GENERIC_TYPE_ARG_LIST"), root_1);
@@ -7948,7 +7949,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeArgument"
-    // ../etc/JamlAttrHash.g:598:1: genericTypeArgument : ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) );
+    // ../etc/JamlAttrHash.g:599:1: genericTypeArgument : ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) );
     public final JamlAttrHashParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException {
     traceIn("genericTypeArgument", 56);
         JamlAttrHashParser.genericTypeArgument_return retval = new JamlAttrHashParser.genericTypeArgument_return();
@@ -7967,7 +7968,7 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericWildcardBoundType=new RewriteRuleSubtreeStream(adaptor,"rule genericWildcardBoundType");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
-            // ../etc/JamlAttrHash.g:599:5: ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) )
+            // ../etc/JamlAttrHash.g:600:5: ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) )
             int alt71=2;
             int LA71_0 = input.LA(1);
 
@@ -7986,7 +7987,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt71) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:599:9: type
+                    // ../etc/JamlAttrHash.g:600:9: type
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -8000,12 +8001,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:600:9: QUESTION ( genericWildcardBoundType )?
+                    // ../etc/JamlAttrHash.g:601:9: QUESTION ( genericWildcardBoundType )?
                     {
                     QUESTION201=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument7634); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_QUESTION.add(QUESTION201);
 
-                    // ../etc/JamlAttrHash.g:600:18: ( genericWildcardBoundType )?
+                    // ../etc/JamlAttrHash.g:601:18: ( genericWildcardBoundType )?
                     int alt70=2;
                     int LA70_0 = input.LA(1);
 
@@ -8064,14 +8065,14 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 601:9: -> ^( QUESTION ( genericWildcardBoundType )? )
+                    // 602:9: -> ^( QUESTION ( genericWildcardBoundType )? )
                     {
-                        // ../etc/JamlAttrHash.g:601:13: ^( QUESTION ( genericWildcardBoundType )? )
+                        // ../etc/JamlAttrHash.g:602:13: ^( QUESTION ( genericWildcardBoundType )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_QUESTION.nextNode(), root_1);
 
-                        // ../etc/JamlAttrHash.g:601:24: ( genericWildcardBoundType )?
+                        // ../etc/JamlAttrHash.g:602:24: ( genericWildcardBoundType )?
                         if ( stream_genericWildcardBoundType.hasNext() ) {
                             adaptor.addChild(root_1, stream_genericWildcardBoundType.nextTree());
 
@@ -8116,7 +8117,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericWildcardBoundType"
-    // ../etc/JamlAttrHash.g:604:1: genericWildcardBoundType : ( EXTENDS | SUPER ) type ;
+    // ../etc/JamlAttrHash.g:605:1: genericWildcardBoundType : ( EXTENDS | SUPER ) type ;
     public final JamlAttrHashParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException {
     traceIn("genericWildcardBoundType", 57);
         JamlAttrHashParser.genericWildcardBoundType_return retval = new JamlAttrHashParser.genericWildcardBoundType_return();
@@ -8132,8 +8133,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
-            // ../etc/JamlAttrHash.g:605:5: ( ( EXTENDS | SUPER ) type )
-            // ../etc/JamlAttrHash.g:605:9: ( EXTENDS | SUPER ) type
+            // ../etc/JamlAttrHash.g:606:5: ( ( EXTENDS | SUPER ) type )
+            // ../etc/JamlAttrHash.g:606:9: ( EXTENDS | SUPER ) type
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -8187,7 +8188,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeArgumentListSimplified"
-    // ../etc/JamlAttrHash.g:608:1: genericTypeArgumentListSimplified : LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) ;
+    // ../etc/JamlAttrHash.g:609:1: genericTypeArgumentListSimplified : LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) ;
     public final JamlAttrHashParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified() throws RecognitionException {
     traceIn("genericTypeArgumentListSimplified", 58);
         JamlAttrHashParser.genericTypeArgumentListSimplified_return retval = new JamlAttrHashParser.genericTypeArgumentListSimplified_return();
@@ -8212,8 +8213,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeListClosing=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeListClosing");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
-            // ../etc/JamlAttrHash.g:609:5: ( LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) )
-            // ../etc/JamlAttrHash.g:609:9: LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing
+            // ../etc/JamlAttrHash.g:610:5: ( LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) )
+            // ../etc/JamlAttrHash.g:610:9: LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing
             {
             LESS_THAN205=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified7706); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN205);
@@ -8224,7 +8225,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_genericTypeArgumentSimplified.add(genericTypeArgumentSimplified206.getTree());
-            // ../etc/JamlAttrHash.g:609:49: ( COMMA genericTypeArgumentSimplified )*
+            // ../etc/JamlAttrHash.g:610:49: ( COMMA genericTypeArgumentSimplified )*
             loop72:
             do {
                 int alt72=2;
@@ -8237,7 +8238,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt72) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:609:50: COMMA genericTypeArgumentSimplified
+            	    // ../etc/JamlAttrHash.g:610:50: COMMA genericTypeArgumentSimplified
             	    {
             	    COMMA207=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentListSimplified7711); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA207);
@@ -8277,9 +8278,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 610:9: -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ )
+            // 611:9: -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ )
             {
-                // ../etc/JamlAttrHash.g:610:13: ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ )
+                // ../etc/JamlAttrHash.g:611:13: ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GENERIC_TYPE_ARG_LIST, LESS_THAN205, "GENERIC_TYPE_ARG_LIST"), root_1);
@@ -8329,7 +8330,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeArgumentSimplified"
-    // ../etc/JamlAttrHash.g:613:1: genericTypeArgumentSimplified : ( type | QUESTION );
+    // ../etc/JamlAttrHash.g:614:1: genericTypeArgumentSimplified : ( type | QUESTION );
     public final JamlAttrHashParser.genericTypeArgumentSimplified_return genericTypeArgumentSimplified() throws RecognitionException {
     traceIn("genericTypeArgumentSimplified", 59);
         JamlAttrHashParser.genericTypeArgumentSimplified_return retval = new JamlAttrHashParser.genericTypeArgumentSimplified_return();
@@ -8345,7 +8346,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
-            // ../etc/JamlAttrHash.g:614:5: ( type | QUESTION )
+            // ../etc/JamlAttrHash.g:615:5: ( type | QUESTION )
             int alt73=2;
             int LA73_0 = input.LA(1);
 
@@ -8364,7 +8365,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt73) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:614:9: type
+                    // ../etc/JamlAttrHash.g:615:9: type
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -8378,7 +8379,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:615:9: QUESTION
+                    // ../etc/JamlAttrHash.g:616:9: QUESTION
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -8420,7 +8421,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedIdentList"
-    // ../etc/JamlAttrHash.g:618:1: qualifiedIdentList : qualifiedIdentifier ( COMMA qualifiedIdentifier )* ;
+    // ../etc/JamlAttrHash.g:619:1: qualifiedIdentList : qualifiedIdentifier ( COMMA qualifiedIdentifier )* ;
     public final JamlAttrHashParser.qualifiedIdentList_return qualifiedIdentList() throws RecognitionException {
     traceIn("qualifiedIdentList", 60);
         JamlAttrHashParser.qualifiedIdentList_return retval = new JamlAttrHashParser.qualifiedIdentList_return();
@@ -8438,8 +8439,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return retval; }
-            // ../etc/JamlAttrHash.g:619:5: ( qualifiedIdentifier ( COMMA qualifiedIdentifier )* )
-            // ../etc/JamlAttrHash.g:619:9: qualifiedIdentifier ( COMMA qualifiedIdentifier )*
+            // ../etc/JamlAttrHash.g:620:5: ( qualifiedIdentifier ( COMMA qualifiedIdentifier )* )
+            // ../etc/JamlAttrHash.g:620:9: qualifiedIdentifier ( COMMA qualifiedIdentifier )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -8449,7 +8450,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier212.getTree());
-            // ../etc/JamlAttrHash.g:619:29: ( COMMA qualifiedIdentifier )*
+            // ../etc/JamlAttrHash.g:620:29: ( COMMA qualifiedIdentifier )*
             loop74:
             do {
                 int alt74=2;
@@ -8462,7 +8463,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt74) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:619:30: COMMA qualifiedIdentifier
+            	    // ../etc/JamlAttrHash.g:620:30: COMMA qualifiedIdentifier
             	    {
             	    COMMA213=(Token)match(input,COMMA,FOLLOW_COMMA_in_qualifiedIdentList7795); if (state.failed) return retval;
             	    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList7798);
@@ -8511,7 +8512,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "formalParameterList"
-    // ../etc/JamlAttrHash.g:622:1: formalParameterList : LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN ;
+    // ../etc/JamlAttrHash.g:623:1: formalParameterList : LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN ;
     public final JamlAttrHashParser.formalParameterList_return formalParameterList() throws RecognitionException {
     traceIn("formalParameterList", 61);
         JamlAttrHashParser.formalParameterList_return retval = new JamlAttrHashParser.formalParameterList_return();
@@ -8543,13 +8544,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_formalParameterStandardDecl=new RewriteRuleSubtreeStream(adaptor,"rule formalParameterStandardDecl");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 61) ) { return retval; }
-            // ../etc/JamlAttrHash.g:623:5: ( LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN )
-            // ../etc/JamlAttrHash.g:623:9: LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN
+            // ../etc/JamlAttrHash.g:624:5: ( LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN )
+            // ../etc/JamlAttrHash.g:624:9: LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN
             {
             LPAREN215=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList7823); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN215);
 
-            // ../etc/JamlAttrHash.g:624:9: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) )
+            // ../etc/JamlAttrHash.g:625:9: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) )
             int alt77=3;
             switch ( input.LA(1) ) {
             case FINAL:
@@ -8650,7 +8651,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt77) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:625:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
+                    // ../etc/JamlAttrHash.g:626:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
                     {
                     pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList7851);
                     formalParameterStandardDecl216=formalParameterStandardDecl();
@@ -8658,7 +8659,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_formalParameterStandardDecl.add(formalParameterStandardDecl216.getTree());
-                    // ../etc/JamlAttrHash.g:625:41: ( COMMA formalParameterStandardDecl )*
+                    // ../etc/JamlAttrHash.g:626:41: ( COMMA formalParameterStandardDecl )*
                     loop75:
                     do {
                         int alt75=2;
@@ -8677,7 +8678,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt75) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:625:42: COMMA formalParameterStandardDecl
+                    	    // ../etc/JamlAttrHash.g:626:42: COMMA formalParameterStandardDecl
                     	    {
                     	    COMMA217=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList7854); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA217);
@@ -8697,7 +8698,7 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:625:78: ( COMMA formalParameterVarArgDecl )?
+                    // ../etc/JamlAttrHash.g:626:78: ( COMMA formalParameterVarArgDecl )?
                     int alt76=2;
                     int LA76_0 = input.LA(1);
 
@@ -8706,7 +8707,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt76) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:625:79: COMMA formalParameterVarArgDecl
+                            // ../etc/JamlAttrHash.g:626:79: COMMA formalParameterVarArgDecl
                             {
                             COMMA219=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList7861); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COMMA.add(COMMA219);
@@ -8737,9 +8738,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 626:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? )
+                    // 627:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? )
                     {
-                        // ../etc/JamlAttrHash.g:626:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? )
+                        // ../etc/JamlAttrHash.g:627:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_LIST, LPAREN215, "FORMAL_PARAM_LIST"), root_1);
@@ -8752,7 +8753,7 @@ import org.antlr.runtime.tree.*;
 
                         }
                         stream_formalParameterStandardDecl.reset();
-                        // ../etc/JamlAttrHash.g:626:96: ( formalParameterVarArgDecl )?
+                        // ../etc/JamlAttrHash.g:627:96: ( formalParameterVarArgDecl )?
                         if ( stream_formalParameterVarArgDecl.hasNext() ) {
                             adaptor.addChild(root_1, stream_formalParameterVarArgDecl.nextTree());
 
@@ -8768,7 +8769,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:628:13: formalParameterVarArgDecl
+                    // ../etc/JamlAttrHash.g:629:13: formalParameterVarArgDecl
                     {
                     pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList7920);
                     formalParameterVarArgDecl221=formalParameterVarArgDecl();
@@ -8790,9 +8791,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 629:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl )
+                    // 630:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl )
                     {
-                        // ../etc/JamlAttrHash.g:629:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl )
+                        // ../etc/JamlAttrHash.g:630:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_LIST, LPAREN215, "FORMAL_PARAM_LIST"), root_1);
@@ -8808,7 +8809,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:631:13: 
+                    // ../etc/JamlAttrHash.g:632:13: 
                     {
 
                     // AST REWRITE
@@ -8823,9 +8824,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 631:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
+                    // 632:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
                     {
-                        // ../etc/JamlAttrHash.g:631:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
+                        // ../etc/JamlAttrHash.g:632:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_LIST, LPAREN215, "FORMAL_PARAM_LIST"), root_1);
@@ -8875,7 +8876,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "formalParameterStandardDecl"
-    // ../etc/JamlAttrHash.g:636:1: formalParameterStandardDecl : localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
+    // ../etc/JamlAttrHash.g:637:1: formalParameterStandardDecl : localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
     public final JamlAttrHashParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException {
     traceIn("formalParameterStandardDecl", 62);
         JamlAttrHashParser.formalParameterStandardDecl_return retval = new JamlAttrHashParser.formalParameterStandardDecl_return();
@@ -8895,8 +8896,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return retval; }
-            // ../etc/JamlAttrHash.g:637:5: ( localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
-            // ../etc/JamlAttrHash.g:637:9: localModifierList type variableDeclaratorId
+            // ../etc/JamlAttrHash.g:638:5: ( localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
+            // ../etc/JamlAttrHash.g:638:9: localModifierList type variableDeclaratorId
             {
             pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl8020);
             localModifierList223=localModifierList();
@@ -8919,7 +8920,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: type, localModifierList, variableDeclaratorId
+            // elements: type, variableDeclaratorId, localModifierList
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -8930,9 +8931,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 638:9: -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
+            // 639:9: -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
             {
-                // ../etc/JamlAttrHash.g:638:13: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
+                // ../etc/JamlAttrHash.g:639:13: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_STD_DECL, "FORMAL_PARAM_STD_DECL"), root_1);
@@ -8977,7 +8978,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "formalParameterVarArgDecl"
-    // ../etc/JamlAttrHash.g:641:1: formalParameterVarArgDecl : localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
+    // ../etc/JamlAttrHash.g:642:1: formalParameterVarArgDecl : localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
     public final JamlAttrHashParser.formalParameterVarArgDecl_return formalParameterVarArgDecl() throws RecognitionException {
     traceIn("formalParameterVarArgDecl", 63);
         JamlAttrHashParser.formalParameterVarArgDecl_return retval = new JamlAttrHashParser.formalParameterVarArgDecl_return();
@@ -9000,8 +9001,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
-            // ../etc/JamlAttrHash.g:642:5: ( localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
-            // ../etc/JamlAttrHash.g:642:9: localModifierList type ELLIPSIS variableDeclaratorId
+            // ../etc/JamlAttrHash.g:643:5: ( localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
+            // ../etc/JamlAttrHash.g:643:9: localModifierList type ELLIPSIS variableDeclaratorId
             {
             pushFollow(FOLLOW_localModifierList_in_formalParameterVarArgDecl8068);
             localModifierList226=localModifierList();
@@ -9027,7 +9028,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: type, localModifierList, variableDeclaratorId
+            // elements: localModifierList, type, variableDeclaratorId
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -9038,9 +9039,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 643:9: -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
+            // 644:9: -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
             {
-                // ../etc/JamlAttrHash.g:643:13: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
+                // ../etc/JamlAttrHash.g:644:13: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_VARARG_DECL, "FORMAL_PARAM_VARARG_DECL"), root_1);
@@ -9085,7 +9086,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedIdentifier"
-    // ../etc/JamlAttrHash.g:646:1: qualifiedIdentifier : ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* ;
+    // ../etc/JamlAttrHash.g:647:1: qualifiedIdentifier : ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* ;
     public final JamlAttrHashParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
     traceIn("qualifiedIdentifier", 64);
         JamlAttrHashParser.qualifiedIdentifier_return retval = new JamlAttrHashParser.qualifiedIdentifier_return();
@@ -9105,11 +9106,11 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
-            // ../etc/JamlAttrHash.g:647:5: ( ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* )
-            // ../etc/JamlAttrHash.g:647:9: ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
+            // ../etc/JamlAttrHash.g:648:5: ( ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* )
+            // ../etc/JamlAttrHash.g:648:9: ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
             {
-            // ../etc/JamlAttrHash.g:647:9: ( IDENT -> IDENT )
-            // ../etc/JamlAttrHash.g:647:13: IDENT
+            // ../etc/JamlAttrHash.g:648:9: ( IDENT -> IDENT )
+            // ../etc/JamlAttrHash.g:648:13: IDENT
             {
             IDENT230=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8122); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT230);
@@ -9128,7 +9129,7 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 647:33: -> IDENT
+            // 648:33: -> IDENT
             {
                 adaptor.addChild(root_0, stream_IDENT.nextNode());
 
@@ -9137,7 +9138,7 @@ import org.antlr.runtime.tree.*;
             retval.tree = root_0;}
             }
 
-            // ../etc/JamlAttrHash.g:649:9: ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
+            // ../etc/JamlAttrHash.g:650:9: ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
             loop78:
             do {
                 int alt78=2;
@@ -9162,7 +9163,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt78) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:649:13: DOT ident= IDENT
+            	    // ../etc/JamlAttrHash.g:650:13: DOT ident= IDENT
             	    {
             	    DOT231=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier8165); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT231);
@@ -9173,7 +9174,7 @@ import org.antlr.runtime.tree.*;
 
 
             	    // AST REWRITE
-            	    // elements: ident, DOT, qualifiedIdentifier
+            	    // elements: DOT, ident, qualifiedIdentifier
             	    // token labels: ident
             	    // rule labels: retval
             	    // token list labels: 
@@ -9185,9 +9186,9 @@ import org.antlr.runtime.tree.*;
             	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	    root_0 = (CommonTree)adaptor.nil();
-            	    // 649:33: -> ^( DOT $qualifiedIdentifier $ident)
+            	    // 650:33: -> ^( DOT $qualifiedIdentifier $ident)
             	    {
-            	        // ../etc/JamlAttrHash.g:649:37: ^( DOT $qualifiedIdentifier $ident)
+            	        // ../etc/JamlAttrHash.g:650:37: ^( DOT $qualifiedIdentifier $ident)
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.nil();
             	        root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -9240,7 +9241,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationList"
-    // ../etc/JamlAttrHash.g:655:1: annotationList : ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) ;
+    // ../etc/JamlAttrHash.g:656:1: annotationList : ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) ;
     public final JamlAttrHashParser.annotationList_return annotationList() throws RecognitionException {
     traceIn("annotationList", 65);
         JamlAttrHashParser.annotationList_return retval = new JamlAttrHashParser.annotationList_return();
@@ -9254,10 +9255,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotation=new RewriteRuleSubtreeStream(adaptor,"rule annotation");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
-            // ../etc/JamlAttrHash.g:656:5: ( ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) )
-            // ../etc/JamlAttrHash.g:656:9: ( annotation )*
+            // ../etc/JamlAttrHash.g:657:5: ( ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) )
+            // ../etc/JamlAttrHash.g:657:9: ( annotation )*
             {
-            // ../etc/JamlAttrHash.g:656:9: ( annotation )*
+            // ../etc/JamlAttrHash.g:657:9: ( annotation )*
             loop79:
             do {
                 int alt79=2;
@@ -9313,14 +9314,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 657:9: -> ^( ANNOTATION_LIST ( annotation )* )
+            // 658:9: -> ^( ANNOTATION_LIST ( annotation )* )
             {
-                // ../etc/JamlAttrHash.g:657:13: ^( ANNOTATION_LIST ( annotation )* )
+                // ../etc/JamlAttrHash.g:658:13: ^( ANNOTATION_LIST ( annotation )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_LIST, "ANNOTATION_LIST"), root_1);
 
-                // ../etc/JamlAttrHash.g:657:31: ( annotation )*
+                // ../etc/JamlAttrHash.g:658:31: ( annotation )*
                 while ( stream_annotation.hasNext() ) {
                     adaptor.addChild(root_1, stream_annotation.nextTree());
 
@@ -9363,7 +9364,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotation"
-    // ../etc/JamlAttrHash.g:660:1: annotation : AT qualifiedIdentifier ( annotationInit )? ;
+    // ../etc/JamlAttrHash.g:661:1: annotation : AT qualifiedIdentifier ( annotationInit )? ;
     public final JamlAttrHashParser.annotation_return annotation() throws RecognitionException {
     traceIn("annotation", 66);
         JamlAttrHashParser.annotation_return retval = new JamlAttrHashParser.annotation_return();
@@ -9381,8 +9382,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
-            // ../etc/JamlAttrHash.g:661:5: ( AT qualifiedIdentifier ( annotationInit )? )
-            // ../etc/JamlAttrHash.g:661:9: AT qualifiedIdentifier ( annotationInit )?
+            // ../etc/JamlAttrHash.g:662:5: ( AT qualifiedIdentifier ( annotationInit )? )
+            // ../etc/JamlAttrHash.g:662:9: AT qualifiedIdentifier ( annotationInit )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -9397,7 +9398,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier234.getTree());
-            // ../etc/JamlAttrHash.g:661:33: ( annotationInit )?
+            // ../etc/JamlAttrHash.g:662:33: ( annotationInit )?
             int alt80=2;
             int LA80_0 = input.LA(1);
 
@@ -9451,7 +9452,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationInit"
-    // ../etc/JamlAttrHash.g:664:1: annotationInit : LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) ;
+    // ../etc/JamlAttrHash.g:665:1: annotationInit : LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) ;
     public final JamlAttrHashParser.annotationInit_return annotationInit() throws RecognitionException {
     traceIn("annotationInit", 67);
         JamlAttrHashParser.annotationInit_return retval = new JamlAttrHashParser.annotationInit_return();
@@ -9471,8 +9472,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationInitializers=new RewriteRuleSubtreeStream(adaptor,"rule annotationInitializers");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
-            // ../etc/JamlAttrHash.g:665:5: ( LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) )
-            // ../etc/JamlAttrHash.g:665:9: LPAREN annotationInitializers RPAREN
+            // ../etc/JamlAttrHash.g:666:5: ( LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) )
+            // ../etc/JamlAttrHash.g:666:9: LPAREN annotationInitializers RPAREN
             {
             LPAREN236=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationInit8289); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN236);
@@ -9500,9 +9501,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 666:9: -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers )
+            // 667:9: -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers )
             {
-                // ../etc/JamlAttrHash.g:666:13: ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers )
+                // ../etc/JamlAttrHash.g:667:13: ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_INIT_BLOCK, LPAREN236, "ANNOTATION_INIT_BLOCK"), root_1);
@@ -9545,7 +9546,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationInitializers"
-    // ../etc/JamlAttrHash.g:669:1: annotationInitializers : ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
+    // ../etc/JamlAttrHash.g:670:1: annotationInitializers : ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
     public final JamlAttrHashParser.annotationInitializers_return annotationInitializers() throws RecognitionException {
     traceIn("annotationInitializers", 68);
         JamlAttrHashParser.annotationInitializers_return retval = new JamlAttrHashParser.annotationInitializers_return();
@@ -9567,7 +9568,7 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationInitializer=new RewriteRuleSubtreeStream(adaptor,"rule annotationInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
-            // ../etc/JamlAttrHash.g:670:5: ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
+            // ../etc/JamlAttrHash.g:671:5: ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
             int alt82=2;
             int LA82_0 = input.LA(1);
 
@@ -9600,7 +9601,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt82) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:670:9: annotationInitializer ( COMMA annotationInitializer )*
+                    // ../etc/JamlAttrHash.g:671:9: annotationInitializer ( COMMA annotationInitializer )*
                     {
                     pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8330);
                     annotationInitializer239=annotationInitializer();
@@ -9608,7 +9609,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_annotationInitializer.add(annotationInitializer239.getTree());
-                    // ../etc/JamlAttrHash.g:670:31: ( COMMA annotationInitializer )*
+                    // ../etc/JamlAttrHash.g:671:31: ( COMMA annotationInitializer )*
                     loop81:
                     do {
                         int alt81=2;
@@ -9621,7 +9622,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt81) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:670:32: COMMA annotationInitializer
+                    	    // ../etc/JamlAttrHash.g:671:32: COMMA annotationInitializer
                     	    {
                     	    COMMA240=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationInitializers8333); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA240);
@@ -9655,9 +9656,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 671:9: -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
+                    // 672:9: -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
                     {
-                        // ../etc/JamlAttrHash.g:671:13: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
+                        // ../etc/JamlAttrHash.g:672:13: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_INIT_KEY_LIST, "ANNOTATION_INIT_KEY_LIST"), root_1);
@@ -9680,7 +9681,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:672:9: annotationElementValue
+                    // ../etc/JamlAttrHash.g:673:9: annotationElementValue
                     {
                     pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers8365);
                     annotationElementValue242=annotationElementValue();
@@ -9702,9 +9703,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 673:9: -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
+                    // 674:9: -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
                     {
-                        // ../etc/JamlAttrHash.g:673:13: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
+                        // ../etc/JamlAttrHash.g:674:13: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_INIT_DEFAULT_KEY, "ANNOTATION_INIT_DEFAULT_KEY"), root_1);
@@ -9749,7 +9750,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationInitializer"
-    // ../etc/JamlAttrHash.g:676:1: annotationInitializer : IDENT ASSIGN annotationElementValue ;
+    // ../etc/JamlAttrHash.g:677:1: annotationInitializer : IDENT ASSIGN annotationElementValue ;
     public final JamlAttrHashParser.annotationInitializer_return annotationInitializer() throws RecognitionException {
     traceIn("annotationInitializer", 69);
         JamlAttrHashParser.annotationInitializer_return retval = new JamlAttrHashParser.annotationInitializer_return();
@@ -9767,8 +9768,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
-            // ../etc/JamlAttrHash.g:677:5: ( IDENT ASSIGN annotationElementValue )
-            // ../etc/JamlAttrHash.g:677:9: IDENT ASSIGN annotationElementValue
+            // ../etc/JamlAttrHash.g:678:5: ( IDENT ASSIGN annotationElementValue )
+            // ../etc/JamlAttrHash.g:678:9: IDENT ASSIGN annotationElementValue
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -9815,7 +9816,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationElementValue"
-    // ../etc/JamlAttrHash.g:680:1: annotationElementValue : ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer );
+    // ../etc/JamlAttrHash.g:681:1: annotationElementValue : ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer );
     public final JamlAttrHashParser.annotationElementValue_return annotationElementValue() throws RecognitionException {
     traceIn("annotationElementValue", 70);
         JamlAttrHashParser.annotationElementValue_return retval = new JamlAttrHashParser.annotationElementValue_return();
@@ -9833,7 +9834,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
-            // ../etc/JamlAttrHash.g:681:5: ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer )
+            // ../etc/JamlAttrHash.g:682:5: ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer )
             int alt83=3;
             switch ( input.LA(1) ) {
             case DEC:
@@ -9890,7 +9891,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt83) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:681:9: annotationElementValueExpression
+                    // ../etc/JamlAttrHash.g:682:9: annotationElementValueExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -9904,7 +9905,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:682:9: annotation
+                    // ../etc/JamlAttrHash.g:683:9: annotation
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -9918,7 +9919,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:683:9: annotationElementValueArrayInitializer
+                    // ../etc/JamlAttrHash.g:684:9: annotationElementValueArrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -9961,7 +9962,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationElementValueExpression"
-    // ../etc/JamlAttrHash.g:686:1: annotationElementValueExpression : conditionalExpression -> ^( EXPR conditionalExpression ) ;
+    // ../etc/JamlAttrHash.g:687:1: annotationElementValueExpression : conditionalExpression -> ^( EXPR conditionalExpression ) ;
     public final JamlAttrHashParser.annotationElementValueExpression_return annotationElementValueExpression() throws RecognitionException {
     traceIn("annotationElementValueExpression", 71);
         JamlAttrHashParser.annotationElementValueExpression_return retval = new JamlAttrHashParser.annotationElementValueExpression_return();
@@ -9975,8 +9976,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_conditionalExpression=new RewriteRuleSubtreeStream(adaptor,"rule conditionalExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 71) ) { return retval; }
-            // ../etc/JamlAttrHash.g:687:5: ( conditionalExpression -> ^( EXPR conditionalExpression ) )
-            // ../etc/JamlAttrHash.g:687:9: conditionalExpression
+            // ../etc/JamlAttrHash.g:688:5: ( conditionalExpression -> ^( EXPR conditionalExpression ) )
+            // ../etc/JamlAttrHash.g:688:9: conditionalExpression
             {
             pushFollow(FOLLOW_conditionalExpression_in_annotationElementValueExpression8478);
             conditionalExpression249=conditionalExpression();
@@ -9998,9 +9999,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 688:9: -> ^( EXPR conditionalExpression )
+            // 689:9: -> ^( EXPR conditionalExpression )
             {
-                // ../etc/JamlAttrHash.g:688:13: ^( EXPR conditionalExpression )
+                // ../etc/JamlAttrHash.g:689:13: ^( EXPR conditionalExpression )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXPR, "EXPR"), root_1);
@@ -10043,7 +10044,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationElementValueArrayInitializer"
-    // ../etc/JamlAttrHash.g:691:1: annotationElementValueArrayInitializer : LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) ;
+    // ../etc/JamlAttrHash.g:692:1: annotationElementValueArrayInitializer : LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) ;
     public final JamlAttrHashParser.annotationElementValueArrayInitializer_return annotationElementValueArrayInitializer() throws RecognitionException {
     traceIn("annotationElementValueArrayInitializer", 72);
         JamlAttrHashParser.annotationElementValueArrayInitializer_return retval = new JamlAttrHashParser.annotationElementValueArrayInitializer_return();
@@ -10070,13 +10071,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationElementValue=new RewriteRuleSubtreeStream(adaptor,"rule annotationElementValue");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return retval; }
-            // ../etc/JamlAttrHash.g:692:5: ( LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) )
-            // ../etc/JamlAttrHash.g:692:9: LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY
+            // ../etc/JamlAttrHash.g:693:5: ( LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) )
+            // ../etc/JamlAttrHash.g:693:9: LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY
             {
             LCURLY250=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationElementValueArrayInitializer8518); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY250);
 
-            // ../etc/JamlAttrHash.g:692:16: ( annotationElementValue ( COMMA annotationElementValue )* )?
+            // ../etc/JamlAttrHash.g:693:16: ( annotationElementValue ( COMMA annotationElementValue )* )?
             int alt85=2;
             int LA85_0 = input.LA(1);
 
@@ -10085,7 +10086,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt85) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:692:17: annotationElementValue ( COMMA annotationElementValue )*
+                    // ../etc/JamlAttrHash.g:693:17: annotationElementValue ( COMMA annotationElementValue )*
                     {
                     pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer8521);
                     annotationElementValue251=annotationElementValue();
@@ -10093,7 +10094,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_annotationElementValue.add(annotationElementValue251.getTree());
-                    // ../etc/JamlAttrHash.g:692:40: ( COMMA annotationElementValue )*
+                    // ../etc/JamlAttrHash.g:693:40: ( COMMA annotationElementValue )*
                     loop84:
                     do {
                         int alt84=2;
@@ -10112,7 +10113,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt84) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:692:41: COMMA annotationElementValue
+                    	    // ../etc/JamlAttrHash.g:693:41: COMMA annotationElementValue
                     	    {
                     	    COMMA252=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer8524); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA252);
@@ -10138,7 +10139,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:692:74: ( COMMA )?
+            // ../etc/JamlAttrHash.g:693:74: ( COMMA )?
             int alt86=2;
             int LA86_0 = input.LA(1);
 
@@ -10147,7 +10148,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt86) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:692:75: COMMA
+                    // ../etc/JamlAttrHash.g:693:75: COMMA
                     {
                     COMMA254=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer8533); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_COMMA.add(COMMA254);
@@ -10175,14 +10176,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 693:9: -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* )
+            // 694:9: -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* )
             {
-                // ../etc/JamlAttrHash.g:693:13: ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* )
+                // ../etc/JamlAttrHash.g:694:13: ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_INIT_ARRAY_ELEMENT, LCURLY250, "ANNOTATION_ELEM_VALUE_ARRAY_INIT"), root_1);
 
-                // ../etc/JamlAttrHash.g:693:90: ( annotationElementValue )*
+                // ../etc/JamlAttrHash.g:694:90: ( annotationElementValue )*
                 while ( stream_annotationElementValue.hasNext() ) {
                     adaptor.addChild(root_1, stream_annotationElementValue.nextTree());
 
@@ -10225,7 +10226,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationTypeDeclaration"
-    // ../etc/JamlAttrHash.g:696:1: annotationTypeDeclaration[CommonTree modifiers] : AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) ;
+    // ../etc/JamlAttrHash.g:697:1: annotationTypeDeclaration[CommonTree modifiers] : AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) ;
     public final JamlAttrHashParser.annotationTypeDeclaration_return annotationTypeDeclaration(CommonTree modifiers) throws RecognitionException {
     traceIn("annotationTypeDeclaration", 73);
         JamlAttrHashParser.annotationTypeDeclaration_return retval = new JamlAttrHashParser.annotationTypeDeclaration_return();
@@ -10248,8 +10249,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationBody=new RewriteRuleSubtreeStream(adaptor,"rule annotationBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 73) ) { return retval; }
-            // ../etc/JamlAttrHash.g:697:5: ( AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) )
-            // ../etc/JamlAttrHash.g:697:9: AT INTERFACE IDENT annotationBody
+            // ../etc/JamlAttrHash.g:698:5: ( AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) )
+            // ../etc/JamlAttrHash.g:698:9: AT INTERFACE IDENT annotationBody
             {
             AT256=(Token)match(input,AT,FOLLOW_AT_in_annotationTypeDeclaration8580); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_AT.add(AT256);
@@ -10269,7 +10270,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: AT, IDENT, annotationBody
+            // elements: IDENT, annotationBody, AT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -10280,9 +10281,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 698:9: -> ^( AT IDENT annotationBody )
+            // 699:9: -> ^( AT IDENT annotationBody )
             {
-                // ../etc/JamlAttrHash.g:698:12: ^( AT IDENT annotationBody )
+                // ../etc/JamlAttrHash.g:699:12: ^( AT IDENT annotationBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_AT.nextNode(), root_1);
@@ -10327,7 +10328,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationBody"
-    // ../etc/JamlAttrHash.g:701:1: annotationBody : LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) ;
+    // ../etc/JamlAttrHash.g:702:1: annotationBody : LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) ;
     public final JamlAttrHashParser.annotationBody_return annotationBody() throws RecognitionException {
     traceIn("annotationBody", 74);
         JamlAttrHashParser.annotationBody_return retval = new JamlAttrHashParser.annotationBody_return();
@@ -10347,13 +10348,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule annotationScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 74) ) { return retval; }
-            // ../etc/JamlAttrHash.g:702:5: ( LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) )
-            // ../etc/JamlAttrHash.g:702:9: LCURLY ( annotationScopeDeclarations )* RCURLY
+            // ../etc/JamlAttrHash.g:703:5: ( LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) )
+            // ../etc/JamlAttrHash.g:703:9: LCURLY ( annotationScopeDeclarations )* RCURLY
             {
             LCURLY260=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationBody8629); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY260);
 
-            // ../etc/JamlAttrHash.g:702:16: ( annotationScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:703:16: ( annotationScopeDeclarations )*
             loop87:
             do {
                 int alt87=2;
@@ -10400,14 +10401,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 703:9: -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* )
+            // 704:9: -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* )
             {
-                // ../etc/JamlAttrHash.g:703:13: ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* )
+                // ../etc/JamlAttrHash.g:704:13: ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_TOP_LEVEL_SCOPE, LCURLY260, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:703:76: ( annotationScopeDeclarations )*
+                // ../etc/JamlAttrHash.g:704:76: ( annotationScopeDeclarations )*
                 while ( stream_annotationScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_annotationScopeDeclarations.nextTree());
 
@@ -10450,7 +10451,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationScopeDeclarations"
-    // ../etc/JamlAttrHash.g:706:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );
+    // ../etc/JamlAttrHash.g:707:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );
     public final JamlAttrHashParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException {
     traceIn("annotationScopeDeclarations", 75);
         JamlAttrHashParser.annotationScopeDeclarations_return retval = new JamlAttrHashParser.annotationScopeDeclarations_return();
@@ -10489,12 +10490,12 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classFieldDeclaratorList=new RewriteRuleSubtreeStream(adaptor,"rule classFieldDeclaratorList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 75) ) { return retval; }
-            // ../etc/JamlAttrHash.g:707:5: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration )
+            // ../etc/JamlAttrHash.g:708:5: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration )
             int alt90=2;
             alt90 = dfa90.predict(input);
             switch (alt90) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:707:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:708:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     {
                     pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations8676);
                     modifierList263=modifierList();
@@ -10508,7 +10509,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_type.add(type264.getTree());
-                    // ../etc/JamlAttrHash.g:708:9: ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:709:9: ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     int alt89=2;
                     int LA89_0 = input.LA(1);
 
@@ -10538,7 +10539,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt89) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:708:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
+                            // ../etc/JamlAttrHash.g:709:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
                             {
                             IDENT265=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations8692); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT265);
@@ -10549,7 +10550,7 @@ import org.antlr.runtime.tree.*;
                             RPAREN267=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationScopeDeclarations8696); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN267);
 
-                            // ../etc/JamlAttrHash.g:708:33: ( annotationDefaultValue )?
+                            // ../etc/JamlAttrHash.g:709:33: ( annotationDefaultValue )?
                             int alt88=2;
                             int LA88_0 = input.LA(1);
 
@@ -10578,7 +10579,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: modifierList, type, IDENT, annotationDefaultValue
+                            // elements: annotationDefaultValue, IDENT, type, modifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10589,9 +10590,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 709:13: -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
+                            // 710:13: -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
                             {
-                                // ../etc/JamlAttrHash.g:709:17: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
+                                // ../etc/JamlAttrHash.g:710:17: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_METHOD_DECL, "ANNOTATION_METHOD_DECL"), root_1);
@@ -10599,7 +10600,7 @@ import org.antlr.runtime.tree.*;
                                 adaptor.addChild(root_1, stream_modifierList.nextTree());
                                 adaptor.addChild(root_1, stream_type.nextTree());
                                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                                // ../etc/JamlAttrHash.g:709:66: ( annotationDefaultValue )?
+                                // ../etc/JamlAttrHash.g:710:66: ( annotationDefaultValue )?
                                 if ( stream_annotationDefaultValue.hasNext() ) {
                                     adaptor.addChild(root_1, stream_annotationDefaultValue.nextTree());
 
@@ -10615,7 +10616,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:710:13: classFieldDeclaratorList SEMI
+                            // ../etc/JamlAttrHash.g:711:13: classFieldDeclaratorList SEMI
                             {
                             pushFollow(FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations8743);
                             classFieldDeclaratorList270=classFieldDeclaratorList();
@@ -10629,7 +10630,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: modifierList, classFieldDeclaratorList, type
+                            // elements: classFieldDeclaratorList, type, modifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10640,9 +10641,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 711:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                            // 712:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                             {
-                                // ../etc/JamlAttrHash.g:711:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                                // ../etc/JamlAttrHash.g:712:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -10666,7 +10667,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:713:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:714:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -10709,7 +10710,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationDefaultValue"
-    // ../etc/JamlAttrHash.g:716:1: annotationDefaultValue : DEFAULT annotationElementValue ;
+    // ../etc/JamlAttrHash.g:717:1: annotationDefaultValue : DEFAULT annotationElementValue ;
     public final JamlAttrHashParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException {
     traceIn("annotationDefaultValue", 76);
         JamlAttrHashParser.annotationDefaultValue_return retval = new JamlAttrHashParser.annotationDefaultValue_return();
@@ -10725,8 +10726,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 76) ) { return retval; }
-            // ../etc/JamlAttrHash.g:717:5: ( DEFAULT annotationElementValue )
-            // ../etc/JamlAttrHash.g:717:9: DEFAULT annotationElementValue
+            // ../etc/JamlAttrHash.g:718:5: ( DEFAULT annotationElementValue )
+            // ../etc/JamlAttrHash.g:718:9: DEFAULT annotationElementValue
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -10772,7 +10773,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "block"
-    // ../etc/JamlAttrHash.g:722:1: block : LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) ;
+    // ../etc/JamlAttrHash.g:723:1: block : LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) ;
     public final JamlAttrHashParser.block_return block() throws RecognitionException {
     traceIn("block", 77);
         JamlAttrHashParser.block_return retval = new JamlAttrHashParser.block_return();
@@ -10792,13 +10793,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_blockStatement=new RewriteRuleSubtreeStream(adaptor,"rule blockStatement");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 77) ) { return retval; }
-            // ../etc/JamlAttrHash.g:723:5: ( LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) )
-            // ../etc/JamlAttrHash.g:723:9: LCURLY ( blockStatement )* RCURLY
+            // ../etc/JamlAttrHash.g:724:5: ( LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) )
+            // ../etc/JamlAttrHash.g:724:9: LCURLY ( blockStatement )* RCURLY
             {
             LCURLY275=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_block8837); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY275);
 
-            // ../etc/JamlAttrHash.g:723:16: ( blockStatement )*
+            // ../etc/JamlAttrHash.g:724:16: ( blockStatement )*
             loop91:
             do {
                 int alt91=2;
@@ -10845,14 +10846,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 724:9: -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
+            // 725:9: -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
             {
-                // ../etc/JamlAttrHash.g:724:13: ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
+                // ../etc/JamlAttrHash.g:725:13: ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BLOCK_SCOPE, LCURLY275, "BLOCK_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:724:51: ( blockStatement )*
+                // ../etc/JamlAttrHash.g:725:51: ( blockStatement )*
                 while ( stream_blockStatement.hasNext() ) {
                     adaptor.addChild(root_1, stream_blockStatement.nextTree());
 
@@ -10895,7 +10896,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "blockStatement"
-    // ../etc/JamlAttrHash.g:727:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );
+    // ../etc/JamlAttrHash.g:728:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );
     public final JamlAttrHashParser.blockStatement_return blockStatement() throws RecognitionException {
     traceIn("blockStatement", 78);
         JamlAttrHashParser.blockStatement_return retval = new JamlAttrHashParser.blockStatement_return();
@@ -10915,12 +10916,12 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 78) ) { return retval; }
-            // ../etc/JamlAttrHash.g:728:5: ( localVariableDeclaration SEMI | typeDeclaration | statement )
+            // ../etc/JamlAttrHash.g:729:5: ( localVariableDeclaration SEMI | typeDeclaration | statement )
             int alt92=3;
             alt92 = dfa92.predict(input);
             switch (alt92) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:728:9: localVariableDeclaration SEMI
+                    // ../etc/JamlAttrHash.g:729:9: localVariableDeclaration SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -10935,7 +10936,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:729:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:730:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -10949,7 +10950,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:730:9: statement
+                    // ../etc/JamlAttrHash.g:731:9: statement
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -10992,7 +10993,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "localVariableDeclaration"
-    // ../etc/JamlAttrHash.g:733:1: localVariableDeclaration : localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) ;
+    // ../etc/JamlAttrHash.g:734:1: localVariableDeclaration : localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) ;
     public final JamlAttrHashParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
     traceIn("localVariableDeclaration", 79);
         JamlAttrHashParser.localVariableDeclaration_return retval = new JamlAttrHashParser.localVariableDeclaration_return();
@@ -11012,8 +11013,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classFieldDeclaratorList=new RewriteRuleSubtreeStream(adaptor,"rule classFieldDeclaratorList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 79) ) { return retval; }
-            // ../etc/JamlAttrHash.g:734:5: ( localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) )
-            // ../etc/JamlAttrHash.g:734:9: localModifierList type classFieldDeclaratorList
+            // ../etc/JamlAttrHash.g:735:5: ( localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) )
+            // ../etc/JamlAttrHash.g:735:9: localModifierList type classFieldDeclaratorList
             {
             pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration8926);
             localModifierList282=localModifierList();
@@ -11036,7 +11037,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: localModifierList, classFieldDeclaratorList, type
+            // elements: localModifierList, type, classFieldDeclaratorList
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -11047,9 +11048,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 735:9: -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
+            // 736:9: -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
             {
-                // ../etc/JamlAttrHash.g:735:13: ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
+                // ../etc/JamlAttrHash.g:736:13: ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -11094,7 +11095,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "statement"
-    // ../etc/JamlAttrHash.g:739:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );
+    // ../etc/JamlAttrHash.g:740:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );
     public final JamlAttrHashParser.statement_return statement() throws RecognitionException {
     traceIn("statement", 80);
         JamlAttrHashParser.statement_return retval = new JamlAttrHashParser.statement_return();
@@ -11271,12 +11272,12 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_parenthesizedExpression=new RewriteRuleSubtreeStream(adaptor,"rule parenthesizedExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 80) ) { return retval; }
-            // ../etc/JamlAttrHash.g:740:5: ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI )
+            // ../etc/JamlAttrHash.g:741:5: ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI )
             int alt101=16;
             alt101 = dfa101.predict(input);
             switch (alt101) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:740:9: block
+                    // ../etc/JamlAttrHash.g:741:9: block
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -11290,7 +11291,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:741:9: ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
+                    // ../etc/JamlAttrHash.g:742:9: ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
                     {
                     ASSERT286=(Token)match(input,ASSERT,FOLLOW_ASSERT_in_statement8993); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ASSERT.add(ASSERT286);
@@ -11301,7 +11302,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_expression.add(expr1.getTree());
-                    // ../etc/JamlAttrHash.g:742:9: ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
+                    // ../etc/JamlAttrHash.g:743:9: ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
                     int alt93=2;
                     int LA93_0 = input.LA(1);
 
@@ -11320,7 +11321,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt93) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:742:13: COLON expr2= expression SEMI
+                            // ../etc/JamlAttrHash.g:743:13: COLON expr2= expression SEMI
                             {
                             COLON287=(Token)match(input,COLON,FOLLOW_COLON_in_statement9012); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COLON.add(COLON287);
@@ -11337,7 +11338,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: ASSERT, expr2, expr1
+                            // elements: expr1, ASSERT, expr2
                             // token labels: 
                             // rule labels: retval, expr1, expr2
                             // token list labels: 
@@ -11350,9 +11351,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_expr2=new RewriteRuleSubtreeStream(adaptor,"rule expr2",expr2!=null?expr2.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 742:77: -> ^( ASSERT $expr1 $expr2)
+                            // 743:77: -> ^( ASSERT $expr1 $expr2)
                             {
-                                // ../etc/JamlAttrHash.g:742:81: ^( ASSERT $expr1 $expr2)
+                                // ../etc/JamlAttrHash.g:743:81: ^( ASSERT $expr1 $expr2)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_ASSERT.nextNode(), root_1);
@@ -11369,7 +11370,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:743:13: SEMI
+                            // ../etc/JamlAttrHash.g:744:13: SEMI
                             {
                             SEMI289=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9081); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI289);
@@ -11377,7 +11378,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: ASSERT, expr1
+                            // elements: expr1, ASSERT
                             // token labels: 
                             // rule labels: retval, expr1
                             // token list labels: 
@@ -11389,9 +11390,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_expr1=new RewriteRuleSubtreeStream(adaptor,"rule expr1",expr1!=null?expr1.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 743:77: -> ^( ASSERT $expr1)
+                            // 744:77: -> ^( ASSERT $expr1)
                             {
-                                // ../etc/JamlAttrHash.g:743:81: ^( ASSERT $expr1)
+                                // ../etc/JamlAttrHash.g:744:81: ^( ASSERT $expr1)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_ASSERT.nextNode(), root_1);
@@ -11413,7 +11414,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:745:9: IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
+                    // ../etc/JamlAttrHash.g:746:9: IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
                     {
                     IF290=(Token)match(input,IF,FOLLOW_IF_in_statement9170); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IF.add(IF290);
@@ -11430,7 +11431,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_statement.add(ifStat.getTree());
-                    // ../etc/JamlAttrHash.g:746:9: ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
+                    // ../etc/JamlAttrHash.g:747:9: ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
                     int alt94=2;
                     int LA94_0 = input.LA(1);
 
@@ -11463,7 +11464,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt94) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:746:13: ELSE elseStat= statement
+                            // ../etc/JamlAttrHash.g:747:13: ELSE elseStat= statement
                             {
                             ELSE292=(Token)match(input,ELSE,FOLLOW_ELSE_in_statement9191); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_ELSE.add(ELSE292);
@@ -11477,7 +11478,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: parenthesizedExpression, ifStat, elseStat, IF
+                            // elements: parenthesizedExpression, elseStat, IF, ifStat
                             // token labels: 
                             // rule labels: retval, ifStat, elseStat
                             // token list labels: 
@@ -11490,9 +11491,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_elseStat=new RewriteRuleSubtreeStream(adaptor,"rule elseStat",elseStat!=null?elseStat.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 746:77: -> ^( IF parenthesizedExpression $ifStat $elseStat)
+                            // 747:77: -> ^( IF parenthesizedExpression $ifStat $elseStat)
                             {
-                                // ../etc/JamlAttrHash.g:746:81: ^( IF parenthesizedExpression $ifStat $elseStat)
+                                // ../etc/JamlAttrHash.g:747:81: ^( IF parenthesizedExpression $ifStat $elseStat)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_IF.nextNode(), root_1);
@@ -11510,7 +11511,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:747:77: 
+                            // ../etc/JamlAttrHash.g:748:77: 
                             {
 
                             // AST REWRITE
@@ -11526,9 +11527,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_ifStat=new RewriteRuleSubtreeStream(adaptor,"rule ifStat",ifStat!=null?ifStat.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 747:77: -> ^( IF parenthesizedExpression $ifStat)
+                            // 748:77: -> ^( IF parenthesizedExpression $ifStat)
                             {
-                                // ../etc/JamlAttrHash.g:747:81: ^( IF parenthesizedExpression $ifStat)
+                                // ../etc/JamlAttrHash.g:748:81: ^( IF parenthesizedExpression $ifStat)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_IF.nextNode(), root_1);
@@ -11551,7 +11552,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:749:9: FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
+                    // ../etc/JamlAttrHash.g:750:9: FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
                     {
                     FOR293=(Token)match(input,FOR,FOLLOW_FOR_in_statement9361); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_FOR.add(FOR293);
@@ -11559,12 +11560,12 @@ import org.antlr.runtime.tree.*;
                     LPAREN294=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_statement9363); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN294);
 
-                    // ../etc/JamlAttrHash.g:750:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
+                    // ../etc/JamlAttrHash.g:751:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
                     int alt95=2;
                     alt95 = dfa95.predict(input);
                     switch (alt95) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:750:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
+                            // ../etc/JamlAttrHash.g:751:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
                             {
                             pushFollow(FOLLOW_forInit_in_statement9378);
                             forInit295=forInit();
@@ -11602,7 +11603,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: forCondition, FOR, statement, forUpdater, forInit
+                            // elements: statement, forCondition, forInit, forUpdater, FOR
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11613,9 +11614,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 750:77: -> ^( FOR forInit forCondition forUpdater statement )
+                            // 751:77: -> ^( FOR forInit forCondition forUpdater statement )
                             {
-                                // ../etc/JamlAttrHash.g:750:81: ^( FOR forInit forCondition forUpdater statement )
+                                // ../etc/JamlAttrHash.g:751:81: ^( FOR forInit forCondition forUpdater statement )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_FOR.nextNode(), root_1);
@@ -11634,7 +11635,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:751:13: localModifierList type IDENT COLON expression RPAREN statement
+                            // ../etc/JamlAttrHash.g:752:13: localModifierList type IDENT COLON expression RPAREN statement
                             {
                             pushFollow(FOLLOW_localModifierList_in_statement9425);
                             localModifierList302=localModifierList();
@@ -11672,7 +11673,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: type, IDENT, expression, localModifierList, statement
+                            // elements: expression, localModifierList, type, IDENT, statement
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11683,9 +11684,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 752:77: -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
+                            // 753:77: -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
                             {
-                                // ../etc/JamlAttrHash.g:752:81: ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
+                                // ../etc/JamlAttrHash.g:753:81: ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_EACH, FOR293, "FOR_EACH"), root_1);
@@ -11711,7 +11712,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:754:9: WHILE parenthesizedExpression statement
+                    // ../etc/JamlAttrHash.g:755:9: WHILE parenthesizedExpression statement
                     {
                     WHILE309=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement9552); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_WHILE.add(WHILE309);
@@ -11731,7 +11732,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: statement, WHILE, parenthesizedExpression
+                    // elements: parenthesizedExpression, WHILE, statement
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11742,9 +11743,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 754:77: -> ^( WHILE parenthesizedExpression statement )
+                    // 755:77: -> ^( WHILE parenthesizedExpression statement )
                     {
-                        // ../etc/JamlAttrHash.g:754:81: ^( WHILE parenthesizedExpression statement )
+                        // ../etc/JamlAttrHash.g:755:81: ^( WHILE parenthesizedExpression statement )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_WHILE.nextNode(), root_1);
@@ -11761,7 +11762,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 6 :
-                    // ../etc/JamlAttrHash.g:755:9: DO statement WHILE parenthesizedExpression SEMI
+                    // ../etc/JamlAttrHash.g:756:9: DO statement WHILE parenthesizedExpression SEMI
                     {
                     DO312=(Token)match(input,DO,FOLLOW_DO_in_statement9605); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DO.add(DO312);
@@ -11798,9 +11799,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 755:77: -> ^( DO statement parenthesizedExpression )
+                    // 756:77: -> ^( DO statement parenthesizedExpression )
                     {
-                        // ../etc/JamlAttrHash.g:755:81: ^( DO statement parenthesizedExpression )
+                        // ../etc/JamlAttrHash.g:756:81: ^( DO statement parenthesizedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DO.nextNode(), root_1);
@@ -11817,7 +11818,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 7 :
-                    // ../etc/JamlAttrHash.g:756:9: TRY block ( catches ( finallyClause )? | finallyClause )
+                    // ../etc/JamlAttrHash.g:757:9: TRY block ( catches ( finallyClause )? | finallyClause )
                     {
                     TRY317=(Token)match(input,TRY,FOLLOW_TRY_in_statement9654); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_TRY.add(TRY317);
@@ -11828,7 +11829,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_block.add(block318.getTree());
-                    // ../etc/JamlAttrHash.g:756:19: ( catches ( finallyClause )? | finallyClause )
+                    // ../etc/JamlAttrHash.g:757:19: ( catches ( finallyClause )? | finallyClause )
                     int alt97=2;
                     int LA97_0 = input.LA(1);
 
@@ -11847,7 +11848,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt97) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:756:20: catches ( finallyClause )?
+                            // ../etc/JamlAttrHash.g:757:20: catches ( finallyClause )?
                             {
                             pushFollow(FOLLOW_catches_in_statement9659);
                             catches319=catches();
@@ -11855,7 +11856,7 @@ import org.antlr.runtime.tree.*;
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_catches.add(catches319.getTree());
-                            // ../etc/JamlAttrHash.g:756:28: ( finallyClause )?
+                            // ../etc/JamlAttrHash.g:757:28: ( finallyClause )?
                             int alt96=2;
                             int LA96_0 = input.LA(1);
 
@@ -11882,7 +11883,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:756:45: finallyClause
+                            // ../etc/JamlAttrHash.g:757:45: finallyClause
                             {
                             pushFollow(FOLLOW_finallyClause_in_statement9666);
                             finallyClause321=finallyClause();
@@ -11899,7 +11900,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: TRY, catches, finallyClause, block
+                    // elements: finallyClause, catches, block, TRY
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11910,21 +11911,21 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 756:77: -> ^( TRY block ( catches )? ( finallyClause )? )
+                    // 757:77: -> ^( TRY block ( catches )? ( finallyClause )? )
                     {
-                        // ../etc/JamlAttrHash.g:756:81: ^( TRY block ( catches )? ( finallyClause )? )
+                        // ../etc/JamlAttrHash.g:757:81: ^( TRY block ( catches )? ( finallyClause )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_TRY.nextNode(), root_1);
 
                         adaptor.addChild(root_1, stream_block.nextTree());
-                        // ../etc/JamlAttrHash.g:756:93: ( catches )?
+                        // ../etc/JamlAttrHash.g:757:93: ( catches )?
                         if ( stream_catches.hasNext() ) {
                             adaptor.addChild(root_1, stream_catches.nextTree());
 
                         }
                         stream_catches.reset();
-                        // ../etc/JamlAttrHash.g:756:102: ( finallyClause )?
+                        // ../etc/JamlAttrHash.g:757:102: ( finallyClause )?
                         if ( stream_finallyClause.hasNext() ) {
                             adaptor.addChild(root_1, stream_finallyClause.nextTree());
 
@@ -11940,7 +11941,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 8 :
-                    // ../etc/JamlAttrHash.g:757:9: SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY
+                    // ../etc/JamlAttrHash.g:758:9: SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY
                     {
                     SWITCH322=(Token)match(input,SWITCH,FOLLOW_SWITCH_in_statement9709); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SWITCH.add(SWITCH322);
@@ -11966,7 +11967,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: SWITCH, parenthesizedExpression, switchBlockLabels
+                    // elements: switchBlockLabels, SWITCH, parenthesizedExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11977,9 +11978,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 757:77: -> ^( SWITCH parenthesizedExpression switchBlockLabels )
+                    // 758:77: -> ^( SWITCH parenthesizedExpression switchBlockLabels )
                     {
-                        // ../etc/JamlAttrHash.g:757:81: ^( SWITCH parenthesizedExpression switchBlockLabels )
+                        // ../etc/JamlAttrHash.g:758:81: ^( SWITCH parenthesizedExpression switchBlockLabels )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_SWITCH.nextNode(), root_1);
@@ -11996,7 +11997,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 9 :
-                    // ../etc/JamlAttrHash.g:758:9: SYNCHRONIZED parenthesizedExpression block
+                    // ../etc/JamlAttrHash.g:759:9: SYNCHRONIZED parenthesizedExpression block
                     {
                     SYNCHRONIZED327=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement9743); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SYNCHRONIZED.add(SYNCHRONIZED327);
@@ -12027,9 +12028,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 758:77: -> ^( SYNCHRONIZED parenthesizedExpression block )
+                    // 759:77: -> ^( SYNCHRONIZED parenthesizedExpression block )
                     {
-                        // ../etc/JamlAttrHash.g:758:81: ^( SYNCHRONIZED parenthesizedExpression block )
+                        // ../etc/JamlAttrHash.g:759:81: ^( SYNCHRONIZED parenthesizedExpression block )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_SYNCHRONIZED.nextNode(), root_1);
@@ -12046,12 +12047,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 10 :
-                    // ../etc/JamlAttrHash.g:759:9: RETURN ( expression )? SEMI
+                    // ../etc/JamlAttrHash.g:760:9: RETURN ( expression )? SEMI
                     {
                     RETURN330=(Token)match(input,RETURN,FOLLOW_RETURN_in_statement9793); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RETURN.add(RETURN330);
 
-                    // ../etc/JamlAttrHash.g:759:16: ( expression )?
+                    // ../etc/JamlAttrHash.g:760:16: ( expression )?
                     int alt98=2;
                     int LA98_0 = input.LA(1);
 
@@ -12080,7 +12081,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: RETURN, expression
+                    // elements: expression, RETURN
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12091,14 +12092,14 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 759:77: -> ^( RETURN ( expression )? )
+                    // 760:77: -> ^( RETURN ( expression )? )
                     {
-                        // ../etc/JamlAttrHash.g:759:81: ^( RETURN ( expression )? )
+                        // ../etc/JamlAttrHash.g:760:81: ^( RETURN ( expression )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_RETURN.nextNode(), root_1);
 
-                        // ../etc/JamlAttrHash.g:759:90: ( expression )?
+                        // ../etc/JamlAttrHash.g:760:90: ( expression )?
                         if ( stream_expression.hasNext() ) {
                             adaptor.addChild(root_1, stream_expression.nextTree());
 
@@ -12114,7 +12115,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 11 :
-                    // ../etc/JamlAttrHash.g:760:9: THROW expression SEMI
+                    // ../etc/JamlAttrHash.g:761:9: THROW expression SEMI
                     {
                     THROW333=(Token)match(input,THROW,FOLLOW_THROW_in_statement9862); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_THROW.add(THROW333);
@@ -12131,7 +12132,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: THROW, expression
+                    // elements: expression, THROW
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12142,9 +12143,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 760:77: -> ^( THROW expression )
+                    // 761:77: -> ^( THROW expression )
                     {
-                        // ../etc/JamlAttrHash.g:760:81: ^( THROW expression )
+                        // ../etc/JamlAttrHash.g:761:81: ^( THROW expression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_THROW.nextNode(), root_1);
@@ -12160,12 +12161,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 12 :
-                    // ../etc/JamlAttrHash.g:761:9: BREAK ( IDENT )? SEMI
+                    // ../etc/JamlAttrHash.g:762:9: BREAK ( IDENT )? SEMI
                     {
                     BREAK336=(Token)match(input,BREAK,FOLLOW_BREAK_in_statement9931); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_BREAK.add(BREAK336);
 
-                    // ../etc/JamlAttrHash.g:761:15: ( IDENT )?
+                    // ../etc/JamlAttrHash.g:762:15: ( IDENT )?
                     int alt99=2;
                     int LA99_0 = input.LA(1);
 
@@ -12202,14 +12203,14 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 761:77: -> ^( BREAK ( IDENT )? )
+                    // 762:77: -> ^( BREAK ( IDENT )? )
                     {
-                        // ../etc/JamlAttrHash.g:761:81: ^( BREAK ( IDENT )? )
+                        // ../etc/JamlAttrHash.g:762:81: ^( BREAK ( IDENT )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_BREAK.nextNode(), root_1);
 
-                        // ../etc/JamlAttrHash.g:761:89: ( IDENT )?
+                        // ../etc/JamlAttrHash.g:762:89: ( IDENT )?
                         if ( stream_IDENT.hasNext() ) {
                             adaptor.addChild(root_1, stream_IDENT.nextNode());
 
@@ -12225,12 +12226,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 13 :
-                    // ../etc/JamlAttrHash.g:762:9: CONTINUE ( IDENT )? SEMI
+                    // ../etc/JamlAttrHash.g:763:9: CONTINUE ( IDENT )? SEMI
                     {
                     CONTINUE339=(Token)match(input,CONTINUE,FOLLOW_CONTINUE_in_statement10006); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CONTINUE.add(CONTINUE339);
 
-                    // ../etc/JamlAttrHash.g:762:18: ( IDENT )?
+                    // ../etc/JamlAttrHash.g:763:18: ( IDENT )?
                     int alt100=2;
                     int LA100_0 = input.LA(1);
 
@@ -12256,7 +12257,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: CONTINUE, IDENT
+                    // elements: IDENT, CONTINUE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12267,14 +12268,14 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 762:77: -> ^( CONTINUE ( IDENT )? )
+                    // 763:77: -> ^( CONTINUE ( IDENT )? )
                     {
-                        // ../etc/JamlAttrHash.g:762:81: ^( CONTINUE ( IDENT )? )
+                        // ../etc/JamlAttrHash.g:763:81: ^( CONTINUE ( IDENT )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_CONTINUE.nextNode(), root_1);
 
-                        // ../etc/JamlAttrHash.g:762:92: ( IDENT )?
+                        // ../etc/JamlAttrHash.g:763:92: ( IDENT )?
                         if ( stream_IDENT.hasNext() ) {
                             adaptor.addChild(root_1, stream_IDENT.nextNode());
 
@@ -12290,7 +12291,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 14 :
-                    // ../etc/JamlAttrHash.g:763:9: IDENT COLON statement
+                    // ../etc/JamlAttrHash.g:764:9: IDENT COLON statement
                     {
                     IDENT342=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10078); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT342);
@@ -12318,9 +12319,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 763:77: -> ^( LABELED_STATEMENT IDENT statement )
+                    // 764:77: -> ^( LABELED_STATEMENT IDENT statement )
                     {
-                        // ../etc/JamlAttrHash.g:763:81: ^( LABELED_STATEMENT IDENT statement )
+                        // ../etc/JamlAttrHash.g:764:81: ^( LABELED_STATEMENT IDENT statement )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LABELED_STATEMENT, "LABELED_STATEMENT"), root_1);
@@ -12337,7 +12338,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 15 :
-                    // ../etc/JamlAttrHash.g:764:9: expression SEMI
+                    // ../etc/JamlAttrHash.g:765:9: expression SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -12352,7 +12353,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 16 :
-                    // ../etc/JamlAttrHash.g:765:9: SEMI
+                    // ../etc/JamlAttrHash.g:766:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -12394,7 +12395,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "catches"
-    // ../etc/JamlAttrHash.g:768:1: catches : ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
+    // ../etc/JamlAttrHash.g:769:1: catches : ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
     public final JamlAttrHashParser.catches_return catches() throws RecognitionException {
     traceIn("catches", 81);
         JamlAttrHashParser.catches_return retval = new JamlAttrHashParser.catches_return();
@@ -12408,10 +12409,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_catchClause=new RewriteRuleSubtreeStream(adaptor,"rule catchClause");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 81) ) { return retval; }
-            // ../etc/JamlAttrHash.g:769:5: ( ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
-            // ../etc/JamlAttrHash.g:769:9: ( catchClause )+
+            // ../etc/JamlAttrHash.g:770:5: ( ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
+            // ../etc/JamlAttrHash.g:770:9: ( catchClause )+
             {
-            // ../etc/JamlAttrHash.g:769:9: ( catchClause )+
+            // ../etc/JamlAttrHash.g:770:9: ( catchClause )+
             int cnt102=0;
             loop102:
             do {
@@ -12461,9 +12462,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 770:9: -> ^( CATCH_CLAUSE_LIST ( catchClause )+ )
+            // 771:9: -> ^( CATCH_CLAUSE_LIST ( catchClause )+ )
             {
-                // ../etc/JamlAttrHash.g:770:13: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
+                // ../etc/JamlAttrHash.g:771:13: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CATCH_CLAUSE_LIST, "CATCH_CLAUSE_LIST"), root_1);
@@ -12513,7 +12514,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "catchClause"
-    // ../etc/JamlAttrHash.g:773:1: catchClause : CATCH LPAREN formalParameterStandardDecl RPAREN block ;
+    // ../etc/JamlAttrHash.g:774:1: catchClause : CATCH LPAREN formalParameterStandardDecl RPAREN block ;
     public final JamlAttrHashParser.catchClause_return catchClause() throws RecognitionException {
     traceIn("catchClause", 82);
         JamlAttrHashParser.catchClause_return retval = new JamlAttrHashParser.catchClause_return();
@@ -12535,8 +12536,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 82) ) { return retval; }
-            // ../etc/JamlAttrHash.g:774:5: ( CATCH LPAREN formalParameterStandardDecl RPAREN block )
-            // ../etc/JamlAttrHash.g:774:9: CATCH LPAREN formalParameterStandardDecl RPAREN block
+            // ../etc/JamlAttrHash.g:775:5: ( CATCH LPAREN formalParameterStandardDecl RPAREN block )
+            // ../etc/JamlAttrHash.g:775:9: CATCH LPAREN formalParameterStandardDecl RPAREN block
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -12590,7 +12591,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "finallyClause"
-    // ../etc/JamlAttrHash.g:777:1: finallyClause : FINALLY block -> block ;
+    // ../etc/JamlAttrHash.g:778:1: finallyClause : FINALLY block -> block ;
     public final JamlAttrHashParser.finallyClause_return finallyClause() throws RecognitionException {
     traceIn("finallyClause", 83);
         JamlAttrHashParser.finallyClause_return retval = new JamlAttrHashParser.finallyClause_return();
@@ -12607,8 +12608,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 83) ) { return retval; }
-            // ../etc/JamlAttrHash.g:778:5: ( FINALLY block -> block )
-            // ../etc/JamlAttrHash.g:778:9: FINALLY block
+            // ../etc/JamlAttrHash.g:779:5: ( FINALLY block -> block )
+            // ../etc/JamlAttrHash.g:779:9: FINALLY block
             {
             FINALLY354=(Token)match(input,FINALLY,FOLLOW_FINALLY_in_finallyClause10273); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_FINALLY.add(FINALLY354);
@@ -12633,7 +12634,7 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 779:9: -> block
+            // 780:9: -> block
             {
                 adaptor.addChild(root_0, stream_block.nextTree());
 
@@ -12670,7 +12671,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "switchBlockLabels"
-    // ../etc/JamlAttrHash.g:782:1: switchBlockLabels : switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) ;
+    // ../etc/JamlAttrHash.g:783:1: switchBlockLabels : switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) ;
     public final JamlAttrHashParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
     traceIn("switchBlockLabels", 84);
         JamlAttrHashParser.switchBlockLabels_return retval = new JamlAttrHashParser.switchBlockLabels_return();
@@ -12689,8 +12690,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_switchCaseLabels=new RewriteRuleSubtreeStream(adaptor,"rule switchCaseLabels");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 84) ) { return retval; }
-            // ../etc/JamlAttrHash.g:783:5: ( switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) )
-            // ../etc/JamlAttrHash.g:783:9: switchCaseLabels ( switchDefaultLabel )? switchCaseLabels
+            // ../etc/JamlAttrHash.g:784:5: ( switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) )
+            // ../etc/JamlAttrHash.g:784:9: switchCaseLabels ( switchDefaultLabel )? switchCaseLabels
             {
             pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10307);
             switchCaseLabels356=switchCaseLabels();
@@ -12698,7 +12699,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_switchCaseLabels.add(switchCaseLabels356.getTree());
-            // ../etc/JamlAttrHash.g:783:26: ( switchDefaultLabel )?
+            // ../etc/JamlAttrHash.g:784:26: ( switchDefaultLabel )?
             int alt103=2;
             int LA103_0 = input.LA(1);
 
@@ -12741,15 +12742,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 784:9: -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
+            // 785:9: -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
             {
-                // ../etc/JamlAttrHash.g:784:13: ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
+                // ../etc/JamlAttrHash.g:785:13: ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SWITCH_BLOCK_LABEL_LIST, "SWITCH_BLOCK_LABEL_LIST"), root_1);
 
                 adaptor.addChild(root_1, stream_switchCaseLabels.nextTree());
-                // ../etc/JamlAttrHash.g:784:56: ( switchDefaultLabel )?
+                // ../etc/JamlAttrHash.g:785:56: ( switchDefaultLabel )?
                 if ( stream_switchDefaultLabel.hasNext() ) {
                     adaptor.addChild(root_1, stream_switchDefaultLabel.nextTree());
 
@@ -12793,7 +12794,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "switchCaseLabels"
-    // ../etc/JamlAttrHash.g:787:1: switchCaseLabels : ( switchCaseLabel )* ;
+    // ../etc/JamlAttrHash.g:788:1: switchCaseLabels : ( switchCaseLabel )* ;
     public final JamlAttrHashParser.switchCaseLabels_return switchCaseLabels() throws RecognitionException {
     traceIn("switchCaseLabels", 85);
         JamlAttrHashParser.switchCaseLabels_return retval = new JamlAttrHashParser.switchCaseLabels_return();
@@ -12807,12 +12808,12 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 85) ) { return retval; }
-            // ../etc/JamlAttrHash.g:788:5: ( ( switchCaseLabel )* )
-            // ../etc/JamlAttrHash.g:788:9: ( switchCaseLabel )*
+            // ../etc/JamlAttrHash.g:789:5: ( ( switchCaseLabel )* )
+            // ../etc/JamlAttrHash.g:789:9: ( switchCaseLabel )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/JamlAttrHash.g:788:9: ( switchCaseLabel )*
+            // ../etc/JamlAttrHash.g:789:9: ( switchCaseLabel )*
             loop104:
             do {
                 int alt104=2;
@@ -12879,7 +12880,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "switchCaseLabel"
-    // ../etc/JamlAttrHash.g:791:1: switchCaseLabel : CASE expression COLON ( blockStatement )* ;
+    // ../etc/JamlAttrHash.g:792:1: switchCaseLabel : CASE expression COLON ( blockStatement )* ;
     public final JamlAttrHashParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
     traceIn("switchCaseLabel", 86);
         JamlAttrHashParser.switchCaseLabel_return retval = new JamlAttrHashParser.switchCaseLabel_return();
@@ -12899,8 +12900,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 86) ) { return retval; }
-            // ../etc/JamlAttrHash.g:792:5: ( CASE expression COLON ( blockStatement )* )
-            // ../etc/JamlAttrHash.g:792:9: CASE expression COLON ( blockStatement )*
+            // ../etc/JamlAttrHash.g:793:5: ( CASE expression COLON ( blockStatement )* )
+            // ../etc/JamlAttrHash.g:793:9: CASE expression COLON ( blockStatement )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -12916,7 +12917,7 @@ import org.antlr.runtime.tree.*;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expression361.getTree());
             COLON362=(Token)match(input,COLON,FOLLOW_COLON_in_switchCaseLabel10390); if (state.failed) return retval;
-            // ../etc/JamlAttrHash.g:792:33: ( blockStatement )*
+            // ../etc/JamlAttrHash.g:793:33: ( blockStatement )*
             loop105:
             do {
                 int alt105=2;
@@ -12977,7 +12978,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "switchDefaultLabel"
-    // ../etc/JamlAttrHash.g:795:1: switchDefaultLabel : DEFAULT COLON ( blockStatement )* ;
+    // ../etc/JamlAttrHash.g:796:1: switchDefaultLabel : DEFAULT COLON ( blockStatement )* ;
     public final JamlAttrHashParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
     traceIn("switchDefaultLabel", 87);
         JamlAttrHashParser.switchDefaultLabel_return retval = new JamlAttrHashParser.switchDefaultLabel_return();
@@ -12995,8 +12996,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 87) ) { return retval; }
-            // ../etc/JamlAttrHash.g:796:5: ( DEFAULT COLON ( blockStatement )* )
-            // ../etc/JamlAttrHash.g:796:9: DEFAULT COLON ( blockStatement )*
+            // ../etc/JamlAttrHash.g:797:5: ( DEFAULT COLON ( blockStatement )* )
+            // ../etc/JamlAttrHash.g:797:9: DEFAULT COLON ( blockStatement )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -13006,7 +13007,7 @@ import org.antlr.runtime.tree.*;
             root_0 = (CommonTree)adaptor.becomeRoot(DEFAULT364_tree, root_0);
             }
             COLON365=(Token)match(input,COLON,FOLLOW_COLON_in_switchDefaultLabel10420); if (state.failed) return retval;
-            // ../etc/JamlAttrHash.g:796:25: ( blockStatement )*
+            // ../etc/JamlAttrHash.g:797:25: ( blockStatement )*
             loop106:
             do {
                 int alt106=2;
@@ -13067,7 +13068,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "forInit"
-    // ../etc/JamlAttrHash.g:799:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );
+    // ../etc/JamlAttrHash.g:800:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );
     public final JamlAttrHashParser.forInit_return forInit() throws RecognitionException {
     traceIn("forInit", 88);
         JamlAttrHashParser.forInit_return retval = new JamlAttrHashParser.forInit_return();
@@ -13084,12 +13085,12 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_localVariableDeclaration=new RewriteRuleSubtreeStream(adaptor,"rule localVariableDeclaration");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 88) ) { return retval; }
-            // ../etc/JamlAttrHash.g:800:5: ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) )
+            // ../etc/JamlAttrHash.g:801:5: ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) )
             int alt107=3;
             alt107 = dfa107.predict(input);
             switch (alt107) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:800:9: localVariableDeclaration
+                    // ../etc/JamlAttrHash.g:801:9: localVariableDeclaration
                     {
                     pushFollow(FOLLOW_localVariableDeclaration_in_forInit10447);
                     localVariableDeclaration367=localVariableDeclaration();
@@ -13111,9 +13112,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 800:37: -> ^( FOR_INIT localVariableDeclaration )
+                    // 801:37: -> ^( FOR_INIT localVariableDeclaration )
                     {
-                        // ../etc/JamlAttrHash.g:800:41: ^( FOR_INIT localVariableDeclaration )
+                        // ../etc/JamlAttrHash.g:801:41: ^( FOR_INIT localVariableDeclaration )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -13129,7 +13130,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:801:9: expressionList
+                    // ../etc/JamlAttrHash.g:802:9: expressionList
                     {
                     pushFollow(FOLLOW_expressionList_in_forInit10469);
                     expressionList368=expressionList();
@@ -13151,9 +13152,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 801:37: -> ^( FOR_INIT expressionList )
+                    // 802:37: -> ^( FOR_INIT expressionList )
                     {
-                        // ../etc/JamlAttrHash.g:801:41: ^( FOR_INIT expressionList )
+                        // ../etc/JamlAttrHash.g:802:41: ^( FOR_INIT expressionList )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -13169,7 +13170,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:802:37: 
+                    // ../etc/JamlAttrHash.g:803:37: 
                     {
 
                     // AST REWRITE
@@ -13184,9 +13185,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 802:37: -> ^( FOR_INIT )
+                    // 803:37: -> ^( FOR_INIT )
                     {
-                        // ../etc/JamlAttrHash.g:802:41: ^( FOR_INIT )
+                        // ../etc/JamlAttrHash.g:803:41: ^( FOR_INIT )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -13229,7 +13230,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "forCondition"
-    // ../etc/JamlAttrHash.g:805:1: forCondition : ( expression )? -> ^( FOR_CONDITION ( expression )? ) ;
+    // ../etc/JamlAttrHash.g:806:1: forCondition : ( expression )? -> ^( FOR_CONDITION ( expression )? ) ;
     public final JamlAttrHashParser.forCondition_return forCondition() throws RecognitionException {
     traceIn("forCondition", 89);
         JamlAttrHashParser.forCondition_return retval = new JamlAttrHashParser.forCondition_return();
@@ -13243,10 +13244,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 89) ) { return retval; }
-            // ../etc/JamlAttrHash.g:806:5: ( ( expression )? -> ^( FOR_CONDITION ( expression )? ) )
-            // ../etc/JamlAttrHash.g:806:9: ( expression )?
+            // ../etc/JamlAttrHash.g:807:5: ( ( expression )? -> ^( FOR_CONDITION ( expression )? ) )
+            // ../etc/JamlAttrHash.g:807:9: ( expression )?
             {
-            // ../etc/JamlAttrHash.g:806:9: ( expression )?
+            // ../etc/JamlAttrHash.g:807:9: ( expression )?
             int alt108=2;
             int LA108_0 = input.LA(1);
 
@@ -13283,14 +13284,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 807:9: -> ^( FOR_CONDITION ( expression )? )
+            // 808:9: -> ^( FOR_CONDITION ( expression )? )
             {
-                // ../etc/JamlAttrHash.g:807:13: ^( FOR_CONDITION ( expression )? )
+                // ../etc/JamlAttrHash.g:808:13: ^( FOR_CONDITION ( expression )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_CONDITION, "FOR_CONDITION"), root_1);
 
-                // ../etc/JamlAttrHash.g:807:29: ( expression )?
+                // ../etc/JamlAttrHash.g:808:29: ( expression )?
                 if ( stream_expression.hasNext() ) {
                     adaptor.addChild(root_1, stream_expression.nextTree());
 
@@ -13333,7 +13334,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "forUpdater"
-    // ../etc/JamlAttrHash.g:810:1: forUpdater : ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) ;
+    // ../etc/JamlAttrHash.g:811:1: forUpdater : ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) ;
     public final JamlAttrHashParser.forUpdater_return forUpdater() throws RecognitionException {
     traceIn("forUpdater", 90);
         JamlAttrHashParser.forUpdater_return retval = new JamlAttrHashParser.forUpdater_return();
@@ -13347,10 +13348,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_expressionList=new RewriteRuleSubtreeStream(adaptor,"rule expressionList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 90) ) { return retval; }
-            // ../etc/JamlAttrHash.g:811:5: ( ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) )
-            // ../etc/JamlAttrHash.g:811:9: ( expressionList )?
+            // ../etc/JamlAttrHash.g:812:5: ( ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) )
+            // ../etc/JamlAttrHash.g:812:9: ( expressionList )?
             {
-            // ../etc/JamlAttrHash.g:811:9: ( expressionList )?
+            // ../etc/JamlAttrHash.g:812:9: ( expressionList )?
             int alt109=2;
             int LA109_0 = input.LA(1);
 
@@ -13387,14 +13388,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 812:9: -> ^( FOR_UPDATE ( expressionList )? )
+            // 813:9: -> ^( FOR_UPDATE ( expressionList )? )
             {
-                // ../etc/JamlAttrHash.g:812:13: ^( FOR_UPDATE ( expressionList )? )
+                // ../etc/JamlAttrHash.g:813:13: ^( FOR_UPDATE ( expressionList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_UPDATE, "FOR_UPDATE"), root_1);
 
-                // ../etc/JamlAttrHash.g:812:26: ( expressionList )?
+                // ../etc/JamlAttrHash.g:813:26: ( expressionList )?
                 if ( stream_expressionList.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressionList.nextTree());
 
@@ -13437,7 +13438,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "parenthesizedExpression"
-    // ../etc/JamlAttrHash.g:817:1: parenthesizedExpression : LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) ;
+    // ../etc/JamlAttrHash.g:818:1: parenthesizedExpression : LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) ;
     public final JamlAttrHashParser.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
     traceIn("parenthesizedExpression", 91);
         JamlAttrHashParser.parenthesizedExpression_return retval = new JamlAttrHashParser.parenthesizedExpression_return();
@@ -13457,8 +13458,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 91) ) { return retval; }
-            // ../etc/JamlAttrHash.g:818:5: ( LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) )
-            // ../etc/JamlAttrHash.g:818:9: LPAREN expression RPAREN
+            // ../etc/JamlAttrHash.g:819:5: ( LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) )
+            // ../etc/JamlAttrHash.g:819:9: LPAREN expression RPAREN
             {
             LPAREN371=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedExpression10639); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN371);
@@ -13486,9 +13487,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 819:9: -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
+            // 820:9: -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
             {
-                // ../etc/JamlAttrHash.g:819:13: ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
+                // ../etc/JamlAttrHash.g:820:13: ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PARENTESIZED_EXPR, LPAREN371, "PARENTESIZED_EXPR"), root_1);
@@ -13531,7 +13532,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "expressionList"
-    // ../etc/JamlAttrHash.g:822:1: expressionList : expression ( COMMA expression )* ;
+    // ../etc/JamlAttrHash.g:823:1: expressionList : expression ( COMMA expression )* ;
     public final JamlAttrHashParser.expressionList_return expressionList() throws RecognitionException {
     traceIn("expressionList", 92);
         JamlAttrHashParser.expressionList_return retval = new JamlAttrHashParser.expressionList_return();
@@ -13549,8 +13550,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 92) ) { return retval; }
-            // ../etc/JamlAttrHash.g:823:5: ( expression ( COMMA expression )* )
-            // ../etc/JamlAttrHash.g:823:9: expression ( COMMA expression )*
+            // ../etc/JamlAttrHash.g:824:5: ( expression ( COMMA expression )* )
+            // ../etc/JamlAttrHash.g:824:9: expression ( COMMA expression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -13560,7 +13561,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expression374.getTree());
-            // ../etc/JamlAttrHash.g:823:20: ( COMMA expression )*
+            // ../etc/JamlAttrHash.g:824:20: ( COMMA expression )*
             loop110:
             do {
                 int alt110=2;
@@ -13573,7 +13574,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt110) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:823:21: COMMA expression
+            	    // ../etc/JamlAttrHash.g:824:21: COMMA expression
             	    {
             	    COMMA375=(Token)match(input,COMMA,FOLLOW_COMMA_in_expressionList10687); if (state.failed) return retval;
             	    pushFollow(FOLLOW_expression_in_expressionList10690);
@@ -13622,7 +13623,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "expression"
-    // ../etc/JamlAttrHash.g:826:1: expression : assignmentExpression -> ^( EXPR assignmentExpression ) ;
+    // ../etc/JamlAttrHash.g:827:1: expression : assignmentExpression -> ^( EXPR assignmentExpression ) ;
     public final JamlAttrHashParser.expression_return expression() throws RecognitionException {
     traceIn("expression", 93);
         JamlAttrHashParser.expression_return retval = new JamlAttrHashParser.expression_return();
@@ -13636,8 +13637,8 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_assignmentExpression=new RewriteRuleSubtreeStream(adaptor,"rule assignmentExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 93) ) { return retval; }
-            // ../etc/JamlAttrHash.g:827:5: ( assignmentExpression -> ^( EXPR assignmentExpression ) )
-            // ../etc/JamlAttrHash.g:827:9: assignmentExpression
+            // ../etc/JamlAttrHash.g:828:5: ( assignmentExpression -> ^( EXPR assignmentExpression ) )
+            // ../etc/JamlAttrHash.g:828:9: assignmentExpression
             {
             pushFollow(FOLLOW_assignmentExpression_in_expression10711);
             assignmentExpression377=assignmentExpression();
@@ -13659,9 +13660,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 828:9: -> ^( EXPR assignmentExpression )
+            // 829:9: -> ^( EXPR assignmentExpression )
             {
-                // ../etc/JamlAttrHash.g:828:13: ^( EXPR assignmentExpression )
+                // ../etc/JamlAttrHash.g:829:13: ^( EXPR assignmentExpression )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXPR, "EXPR"), root_1);
@@ -13704,7 +13705,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "assignmentExpression"
-    // ../etc/JamlAttrHash.g:831:1: assignmentExpression : conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? ;
+    // ../etc/JamlAttrHash.g:832:1: assignmentExpression : conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? ;
     public final JamlAttrHashParser.assignmentExpression_return assignmentExpression() throws RecognitionException {
     traceIn("assignmentExpression", 94);
         JamlAttrHashParser.assignmentExpression_return retval = new JamlAttrHashParser.assignmentExpression_return();
@@ -13744,8 +13745,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 94) ) { return retval; }
-            // ../etc/JamlAttrHash.g:832:5: ( conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? )
-            // ../etc/JamlAttrHash.g:832:9: conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )?
+            // ../etc/JamlAttrHash.g:833:5: ( conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? )
+            // ../etc/JamlAttrHash.g:833:9: conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -13755,7 +13756,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, conditionalExpression378.getTree());
-            // ../etc/JamlAttrHash.g:833:9: ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )?
+            // ../etc/JamlAttrHash.g:834:9: ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )?
             int alt112=2;
             int LA112_0 = input.LA(1);
 
@@ -13764,9 +13765,9 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt112) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:833:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression
+                    // ../etc/JamlAttrHash.g:834:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression
                     {
-                    // ../etc/JamlAttrHash.g:833:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN )
+                    // ../etc/JamlAttrHash.g:834:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN )
                     int alt111=12;
                     switch ( input.LA(1) ) {
                     case ASSIGN:
@@ -13839,7 +13840,7 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt111) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:833:17: ASSIGN
+                            // ../etc/JamlAttrHash.g:834:17: ASSIGN
                             {
                             ASSIGN379=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignmentExpression10766); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13850,7 +13851,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:834:17: PLUS_ASSIGN
+                            // ../etc/JamlAttrHash.g:835:17: PLUS_ASSIGN
                             {
                             PLUS_ASSIGN380=(Token)match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_assignmentExpression10785); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13861,7 +13862,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:835:17: MINUS_ASSIGN
+                            // ../etc/JamlAttrHash.g:836:17: MINUS_ASSIGN
                             {
                             MINUS_ASSIGN381=(Token)match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_assignmentExpression10804); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13872,7 +13873,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 4 :
-                            // ../etc/JamlAttrHash.g:836:17: STAR_ASSIGN
+                            // ../etc/JamlAttrHash.g:837:17: STAR_ASSIGN
                             {
                             STAR_ASSIGN382=(Token)match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_assignmentExpression10823); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13883,7 +13884,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 5 :
-                            // ../etc/JamlAttrHash.g:837:17: DIV_ASSIGN
+                            // ../etc/JamlAttrHash.g:838:17: DIV_ASSIGN
                             {
                             DIV_ASSIGN383=(Token)match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_assignmentExpression10842); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13894,7 +13895,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 6 :
-                            // ../etc/JamlAttrHash.g:838:17: AND_ASSIGN
+                            // ../etc/JamlAttrHash.g:839:17: AND_ASSIGN
                             {
                             AND_ASSIGN384=(Token)match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_assignmentExpression10861); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13905,7 +13906,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 7 :
-                            // ../etc/JamlAttrHash.g:839:17: OR_ASSIGN
+                            // ../etc/JamlAttrHash.g:840:17: OR_ASSIGN
                             {
                             OR_ASSIGN385=(Token)match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_assignmentExpression10880); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13916,7 +13917,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 8 :
-                            // ../etc/JamlAttrHash.g:840:17: XOR_ASSIGN
+                            // ../etc/JamlAttrHash.g:841:17: XOR_ASSIGN
                             {
                             XOR_ASSIGN386=(Token)match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_assignmentExpression10899); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13927,7 +13928,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 9 :
-                            // ../etc/JamlAttrHash.g:841:17: MOD_ASSIGN
+                            // ../etc/JamlAttrHash.g:842:17: MOD_ASSIGN
                             {
                             MOD_ASSIGN387=(Token)match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_assignmentExpression10918); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13938,7 +13939,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 10 :
-                            // ../etc/JamlAttrHash.g:842:17: SHIFT_LEFT_ASSIGN
+                            // ../etc/JamlAttrHash.g:843:17: SHIFT_LEFT_ASSIGN
                             {
                             SHIFT_LEFT_ASSIGN388=(Token)match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression10937); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13949,7 +13950,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 11 :
-                            // ../etc/JamlAttrHash.g:843:17: SHIFT_RIGHT_ASSIGN
+                            // ../etc/JamlAttrHash.g:844:17: SHIFT_RIGHT_ASSIGN
                             {
                             SHIFT_RIGHT_ASSIGN389=(Token)match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression10956); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -13960,7 +13961,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 12 :
-                            // ../etc/JamlAttrHash.g:844:17: BIT_SHIFT_RIGHT_ASSIGN
+                            // ../etc/JamlAttrHash.g:845:17: BIT_SHIFT_RIGHT_ASSIGN
                             {
                             BIT_SHIFT_RIGHT_ASSIGN390=(Token)match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression10975); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -14016,7 +14017,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "conditionalExpression"
-    // ../etc/JamlAttrHash.g:849:1: conditionalExpression : logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? ;
+    // ../etc/JamlAttrHash.g:850:1: conditionalExpression : logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? ;
     public final JamlAttrHashParser.conditionalExpression_return conditionalExpression() throws RecognitionException {
     traceIn("conditionalExpression", 95);
         JamlAttrHashParser.conditionalExpression_return retval = new JamlAttrHashParser.conditionalExpression_return();
@@ -14038,8 +14039,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 95) ) { return retval; }
-            // ../etc/JamlAttrHash.g:850:5: ( logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? )
-            // ../etc/JamlAttrHash.g:850:9: logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )?
+            // ../etc/JamlAttrHash.g:851:5: ( logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? )
+            // ../etc/JamlAttrHash.g:851:9: logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14049,7 +14050,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalOrExpression392.getTree());
-            // ../etc/JamlAttrHash.g:850:29: ( QUESTION assignmentExpression COLON conditionalExpression )?
+            // ../etc/JamlAttrHash.g:851:29: ( QUESTION assignmentExpression COLON conditionalExpression )?
             int alt113=2;
             int LA113_0 = input.LA(1);
 
@@ -14058,7 +14059,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt113) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:850:30: QUESTION assignmentExpression COLON conditionalExpression
+                    // ../etc/JamlAttrHash.g:851:30: QUESTION assignmentExpression COLON conditionalExpression
                     {
                     QUESTION393=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_conditionalExpression11025); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -14115,7 +14116,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "logicalOrExpression"
-    // ../etc/JamlAttrHash.g:853:1: logicalOrExpression : logicalAndExpression ( LOGICAL_OR logicalAndExpression )* ;
+    // ../etc/JamlAttrHash.g:854:1: logicalOrExpression : logicalAndExpression ( LOGICAL_OR logicalAndExpression )* ;
     public final JamlAttrHashParser.logicalOrExpression_return logicalOrExpression() throws RecognitionException {
     traceIn("logicalOrExpression", 96);
         JamlAttrHashParser.logicalOrExpression_return retval = new JamlAttrHashParser.logicalOrExpression_return();
@@ -14133,8 +14134,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 96) ) { return retval; }
-            // ../etc/JamlAttrHash.g:854:5: ( logicalAndExpression ( LOGICAL_OR logicalAndExpression )* )
-            // ../etc/JamlAttrHash.g:854:9: logicalAndExpression ( LOGICAL_OR logicalAndExpression )*
+            // ../etc/JamlAttrHash.g:855:5: ( logicalAndExpression ( LOGICAL_OR logicalAndExpression )* )
+            // ../etc/JamlAttrHash.g:855:9: logicalAndExpression ( LOGICAL_OR logicalAndExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14144,7 +14145,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalAndExpression397.getTree());
-            // ../etc/JamlAttrHash.g:854:30: ( LOGICAL_OR logicalAndExpression )*
+            // ../etc/JamlAttrHash.g:855:30: ( LOGICAL_OR logicalAndExpression )*
             loop114:
             do {
                 int alt114=2;
@@ -14157,7 +14158,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt114) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:854:31: LOGICAL_OR logicalAndExpression
+            	    // ../etc/JamlAttrHash.g:855:31: LOGICAL_OR logicalAndExpression
             	    {
             	    LOGICAL_OR398=(Token)match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_logicalOrExpression11057); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -14210,7 +14211,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "logicalAndExpression"
-    // ../etc/JamlAttrHash.g:857:1: logicalAndExpression : inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* ;
+    // ../etc/JamlAttrHash.g:858:1: logicalAndExpression : inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* ;
     public final JamlAttrHashParser.logicalAndExpression_return logicalAndExpression() throws RecognitionException {
     traceIn("logicalAndExpression", 97);
         JamlAttrHashParser.logicalAndExpression_return retval = new JamlAttrHashParser.logicalAndExpression_return();
@@ -14228,8 +14229,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 97) ) { return retval; }
-            // ../etc/JamlAttrHash.g:858:5: ( inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* )
-            // ../etc/JamlAttrHash.g:858:9: inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )*
+            // ../etc/JamlAttrHash.g:859:5: ( inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* )
+            // ../etc/JamlAttrHash.g:859:9: inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14239,7 +14240,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, inclusiveOrExpression400.getTree());
-            // ../etc/JamlAttrHash.g:858:31: ( LOGICAL_AND inclusiveOrExpression )*
+            // ../etc/JamlAttrHash.g:859:31: ( LOGICAL_AND inclusiveOrExpression )*
             loop115:
             do {
                 int alt115=2;
@@ -14252,7 +14253,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt115) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:858:32: LOGICAL_AND inclusiveOrExpression
+            	    // ../etc/JamlAttrHash.g:859:32: LOGICAL_AND inclusiveOrExpression
             	    {
             	    LOGICAL_AND401=(Token)match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_logicalAndExpression11084); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -14305,7 +14306,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "inclusiveOrExpression"
-    // ../etc/JamlAttrHash.g:861:1: inclusiveOrExpression : exclusiveOrExpression ( OR exclusiveOrExpression )* ;
+    // ../etc/JamlAttrHash.g:862:1: inclusiveOrExpression : exclusiveOrExpression ( OR exclusiveOrExpression )* ;
     public final JamlAttrHashParser.inclusiveOrExpression_return inclusiveOrExpression() throws RecognitionException {
     traceIn("inclusiveOrExpression", 98);
         JamlAttrHashParser.inclusiveOrExpression_return retval = new JamlAttrHashParser.inclusiveOrExpression_return();
@@ -14323,8 +14324,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 98) ) { return retval; }
-            // ../etc/JamlAttrHash.g:862:5: ( exclusiveOrExpression ( OR exclusiveOrExpression )* )
-            // ../etc/JamlAttrHash.g:862:9: exclusiveOrExpression ( OR exclusiveOrExpression )*
+            // ../etc/JamlAttrHash.g:863:5: ( exclusiveOrExpression ( OR exclusiveOrExpression )* )
+            // ../etc/JamlAttrHash.g:863:9: exclusiveOrExpression ( OR exclusiveOrExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14334,7 +14335,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, exclusiveOrExpression403.getTree());
-            // ../etc/JamlAttrHash.g:862:31: ( OR exclusiveOrExpression )*
+            // ../etc/JamlAttrHash.g:863:31: ( OR exclusiveOrExpression )*
             loop116:
             do {
                 int alt116=2;
@@ -14347,7 +14348,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt116) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:862:32: OR exclusiveOrExpression
+            	    // ../etc/JamlAttrHash.g:863:32: OR exclusiveOrExpression
             	    {
             	    OR404=(Token)match(input,OR,FOLLOW_OR_in_inclusiveOrExpression11111); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -14400,7 +14401,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "exclusiveOrExpression"
-    // ../etc/JamlAttrHash.g:865:1: exclusiveOrExpression : andExpression ( XOR andExpression )* ;
+    // ../etc/JamlAttrHash.g:866:1: exclusiveOrExpression : andExpression ( XOR andExpression )* ;
     public final JamlAttrHashParser.exclusiveOrExpression_return exclusiveOrExpression() throws RecognitionException {
     traceIn("exclusiveOrExpression", 99);
         JamlAttrHashParser.exclusiveOrExpression_return retval = new JamlAttrHashParser.exclusiveOrExpression_return();
@@ -14418,8 +14419,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 99) ) { return retval; }
-            // ../etc/JamlAttrHash.g:866:5: ( andExpression ( XOR andExpression )* )
-            // ../etc/JamlAttrHash.g:866:9: andExpression ( XOR andExpression )*
+            // ../etc/JamlAttrHash.g:867:5: ( andExpression ( XOR andExpression )* )
+            // ../etc/JamlAttrHash.g:867:9: andExpression ( XOR andExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14429,7 +14430,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, andExpression406.getTree());
-            // ../etc/JamlAttrHash.g:866:23: ( XOR andExpression )*
+            // ../etc/JamlAttrHash.g:867:23: ( XOR andExpression )*
             loop117:
             do {
                 int alt117=2;
@@ -14442,7 +14443,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt117) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:866:24: XOR andExpression
+            	    // ../etc/JamlAttrHash.g:867:24: XOR andExpression
             	    {
             	    XOR407=(Token)match(input,XOR,FOLLOW_XOR_in_exclusiveOrExpression11138); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -14495,7 +14496,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "andExpression"
-    // ../etc/JamlAttrHash.g:869:1: andExpression : equalityExpression ( AND equalityExpression )* ;
+    // ../etc/JamlAttrHash.g:870:1: andExpression : equalityExpression ( AND equalityExpression )* ;
     public final JamlAttrHashParser.andExpression_return andExpression() throws RecognitionException {
     traceIn("andExpression", 100);
         JamlAttrHashParser.andExpression_return retval = new JamlAttrHashParser.andExpression_return();
@@ -14513,8 +14514,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 100) ) { return retval; }
-            // ../etc/JamlAttrHash.g:870:5: ( equalityExpression ( AND equalityExpression )* )
-            // ../etc/JamlAttrHash.g:870:9: equalityExpression ( AND equalityExpression )*
+            // ../etc/JamlAttrHash.g:871:5: ( equalityExpression ( AND equalityExpression )* )
+            // ../etc/JamlAttrHash.g:871:9: equalityExpression ( AND equalityExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14524,7 +14525,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, equalityExpression409.getTree());
-            // ../etc/JamlAttrHash.g:870:28: ( AND equalityExpression )*
+            // ../etc/JamlAttrHash.g:871:28: ( AND equalityExpression )*
             loop118:
             do {
                 int alt118=2;
@@ -14537,7 +14538,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt118) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:870:29: AND equalityExpression
+            	    // ../etc/JamlAttrHash.g:871:29: AND equalityExpression
             	    {
             	    AND410=(Token)match(input,AND,FOLLOW_AND_in_andExpression11165); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -14590,7 +14591,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "equalityExpression"
-    // ../etc/JamlAttrHash.g:873:1: equalityExpression : instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* ;
+    // ../etc/JamlAttrHash.g:874:1: equalityExpression : instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* ;
     public final JamlAttrHashParser.equalityExpression_return equalityExpression() throws RecognitionException {
     traceIn("equalityExpression", 101);
         JamlAttrHashParser.equalityExpression_return retval = new JamlAttrHashParser.equalityExpression_return();
@@ -14610,8 +14611,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 101) ) { return retval; }
-            // ../etc/JamlAttrHash.g:874:5: ( instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* )
-            // ../etc/JamlAttrHash.g:874:9: instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
+            // ../etc/JamlAttrHash.g:875:5: ( instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* )
+            // ../etc/JamlAttrHash.g:875:9: instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14621,7 +14622,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, instanceOfExpression412.getTree());
-            // ../etc/JamlAttrHash.g:875:9: ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
+            // ../etc/JamlAttrHash.g:876:9: ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
             loop120:
             do {
                 int alt120=2;
@@ -14634,9 +14635,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt120) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:875:13: ( EQUAL | NOT_EQUAL ) instanceOfExpression
+            	    // ../etc/JamlAttrHash.g:876:13: ( EQUAL | NOT_EQUAL ) instanceOfExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:875:13: ( EQUAL | NOT_EQUAL )
+            	    // ../etc/JamlAttrHash.g:876:13: ( EQUAL | NOT_EQUAL )
             	    int alt119=2;
             	    int LA119_0 = input.LA(1);
 
@@ -14655,7 +14656,7 @@ import org.antlr.runtime.tree.*;
             	    }
             	    switch (alt119) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:875:17: EQUAL
+            	            // ../etc/JamlAttrHash.g:876:17: EQUAL
             	            {
             	            EQUAL413=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_equalityExpression11208); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -14666,7 +14667,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:876:17: NOT_EQUAL
+            	            // ../etc/JamlAttrHash.g:877:17: NOT_EQUAL
             	            {
             	            NOT_EQUAL414=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_equalityExpression11227); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -14725,7 +14726,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "instanceOfExpression"
-    // ../etc/JamlAttrHash.g:882:1: instanceOfExpression : relationalExpression ( INSTANCEOF type )? ;
+    // ../etc/JamlAttrHash.g:883:1: instanceOfExpression : relationalExpression ( INSTANCEOF type )? ;
     public final JamlAttrHashParser.instanceOfExpression_return instanceOfExpression() throws RecognitionException {
     traceIn("instanceOfExpression", 102);
         JamlAttrHashParser.instanceOfExpression_return retval = new JamlAttrHashParser.instanceOfExpression_return();
@@ -14743,8 +14744,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 102) ) { return retval; }
-            // ../etc/JamlAttrHash.g:883:5: ( relationalExpression ( INSTANCEOF type )? )
-            // ../etc/JamlAttrHash.g:883:9: relationalExpression ( INSTANCEOF type )?
+            // ../etc/JamlAttrHash.g:884:5: ( relationalExpression ( INSTANCEOF type )? )
+            // ../etc/JamlAttrHash.g:884:9: relationalExpression ( INSTANCEOF type )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14754,7 +14755,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, relationalExpression416.getTree());
-            // ../etc/JamlAttrHash.g:883:30: ( INSTANCEOF type )?
+            // ../etc/JamlAttrHash.g:884:30: ( INSTANCEOF type )?
             int alt121=2;
             int LA121_0 = input.LA(1);
 
@@ -14763,7 +14764,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt121) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:883:31: INSTANCEOF type
+                    // ../etc/JamlAttrHash.g:884:31: INSTANCEOF type
                     {
                     INSTANCEOF417=(Token)match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_instanceOfExpression11290); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -14813,7 +14814,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "relationalExpression"
-    // ../etc/JamlAttrHash.g:886:1: relationalExpression : shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* ;
+    // ../etc/JamlAttrHash.g:887:1: relationalExpression : shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* ;
     public final JamlAttrHashParser.relationalExpression_return relationalExpression() throws RecognitionException {
     traceIn("relationalExpression", 103);
         JamlAttrHashParser.relationalExpression_return retval = new JamlAttrHashParser.relationalExpression_return();
@@ -14837,8 +14838,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 103) ) { return retval; }
-            // ../etc/JamlAttrHash.g:887:5: ( shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* )
-            // ../etc/JamlAttrHash.g:887:9: shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
+            // ../etc/JamlAttrHash.g:888:5: ( shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* )
+            // ../etc/JamlAttrHash.g:888:9: shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -14848,7 +14849,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, shiftExpression419.getTree());
-            // ../etc/JamlAttrHash.g:888:9: ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
+            // ../etc/JamlAttrHash.g:889:9: ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
             loop123:
             do {
                 int alt123=2;
@@ -14861,9 +14862,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt123) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:888:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression
+            	    // ../etc/JamlAttrHash.g:889:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:888:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN )
+            	    // ../etc/JamlAttrHash.g:889:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN )
             	    int alt122=4;
             	    switch ( input.LA(1) ) {
             	    case LESS_OR_EQUAL:
@@ -14896,7 +14897,7 @@ import org.antlr.runtime.tree.*;
 
             	    switch (alt122) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:888:17: LESS_OR_EQUAL
+            	            // ../etc/JamlAttrHash.g:889:17: LESS_OR_EQUAL
             	            {
             	            LESS_OR_EQUAL420=(Token)match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_relationalExpression11333); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -14907,7 +14908,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:889:17: GREATER_OR_EQUAL
+            	            // ../etc/JamlAttrHash.g:890:17: GREATER_OR_EQUAL
             	            {
             	            GREATER_OR_EQUAL421=(Token)match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11352); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -14918,7 +14919,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 3 :
-            	            // ../etc/JamlAttrHash.g:890:17: LESS_THAN
+            	            // ../etc/JamlAttrHash.g:891:17: LESS_THAN
             	            {
             	            LESS_THAN422=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_relationalExpression11371); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -14929,7 +14930,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 4 :
-            	            // ../etc/JamlAttrHash.g:891:17: GREATER_THAN
+            	            // ../etc/JamlAttrHash.g:892:17: GREATER_THAN
             	            {
             	            GREATER_THAN423=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_relationalExpression11390); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -14988,7 +14989,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "shiftExpression"
-    // ../etc/JamlAttrHash.g:897:1: shiftExpression : additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* ;
+    // ../etc/JamlAttrHash.g:898:1: shiftExpression : additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* ;
     public final JamlAttrHashParser.shiftExpression_return shiftExpression() throws RecognitionException {
     traceIn("shiftExpression", 104);
         JamlAttrHashParser.shiftExpression_return retval = new JamlAttrHashParser.shiftExpression_return();
@@ -15010,8 +15011,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 104) ) { return retval; }
-            // ../etc/JamlAttrHash.g:898:5: ( additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* )
-            // ../etc/JamlAttrHash.g:898:9: additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
+            // ../etc/JamlAttrHash.g:899:5: ( additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* )
+            // ../etc/JamlAttrHash.g:899:9: additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -15021,7 +15022,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, additiveExpression425.getTree());
-            // ../etc/JamlAttrHash.g:899:9: ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
+            // ../etc/JamlAttrHash.g:900:9: ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
             loop125:
             do {
                 int alt125=2;
@@ -15034,9 +15035,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt125) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:899:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression
+            	    // ../etc/JamlAttrHash.g:900:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:899:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT )
+            	    // ../etc/JamlAttrHash.g:900:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT )
             	    int alt124=3;
             	    switch ( input.LA(1) ) {
             	    case BIT_SHIFT_RIGHT:
@@ -15064,7 +15065,7 @@ import org.antlr.runtime.tree.*;
 
             	    switch (alt124) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:899:17: BIT_SHIFT_RIGHT
+            	            // ../etc/JamlAttrHash.g:900:17: BIT_SHIFT_RIGHT
             	            {
             	            BIT_SHIFT_RIGHT426=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression11471); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -15075,7 +15076,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:900:17: SHIFT_RIGHT
+            	            // ../etc/JamlAttrHash.g:901:17: SHIFT_RIGHT
             	            {
             	            SHIFT_RIGHT427=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_shiftExpression11490); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -15086,7 +15087,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 3 :
-            	            // ../etc/JamlAttrHash.g:901:17: SHIFT_LEFT
+            	            // ../etc/JamlAttrHash.g:902:17: SHIFT_LEFT
             	            {
             	            SHIFT_LEFT428=(Token)match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_shiftExpression11509); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -15145,7 +15146,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "additiveExpression"
-    // ../etc/JamlAttrHash.g:907:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* ;
+    // ../etc/JamlAttrHash.g:908:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* ;
     public final JamlAttrHashParser.additiveExpression_return additiveExpression() throws RecognitionException {
     traceIn("additiveExpression", 105);
         JamlAttrHashParser.additiveExpression_return retval = new JamlAttrHashParser.additiveExpression_return();
@@ -15165,8 +15166,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 105) ) { return retval; }
-            // ../etc/JamlAttrHash.g:908:5: ( multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* )
-            // ../etc/JamlAttrHash.g:908:9: multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )*
+            // ../etc/JamlAttrHash.g:909:5: ( multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* )
+            // ../etc/JamlAttrHash.g:909:9: multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -15176,7 +15177,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, multiplicativeExpression430.getTree());
-            // ../etc/JamlAttrHash.g:909:9: ( ( PLUS | MINUS ) multiplicativeExpression )*
+            // ../etc/JamlAttrHash.g:910:9: ( ( PLUS | MINUS ) multiplicativeExpression )*
             loop127:
             do {
                 int alt127=2;
@@ -15189,9 +15190,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt127) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:909:13: ( PLUS | MINUS ) multiplicativeExpression
+            	    // ../etc/JamlAttrHash.g:910:13: ( PLUS | MINUS ) multiplicativeExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:909:13: ( PLUS | MINUS )
+            	    // ../etc/JamlAttrHash.g:910:13: ( PLUS | MINUS )
             	    int alt126=2;
             	    int LA126_0 = input.LA(1);
 
@@ -15210,7 +15211,7 @@ import org.antlr.runtime.tree.*;
             	    }
             	    switch (alt126) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:909:17: PLUS
+            	            // ../etc/JamlAttrHash.g:910:17: PLUS
             	            {
             	            PLUS431=(Token)match(input,PLUS,FOLLOW_PLUS_in_additiveExpression11586); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -15221,7 +15222,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:910:17: MINUS
+            	            // ../etc/JamlAttrHash.g:911:17: MINUS
             	            {
             	            MINUS432=(Token)match(input,MINUS,FOLLOW_MINUS_in_additiveExpression11605); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -15280,7 +15281,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "multiplicativeExpression"
-    // ../etc/JamlAttrHash.g:916:1: multiplicativeExpression : unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* ;
+    // ../etc/JamlAttrHash.g:917:1: multiplicativeExpression : unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* ;
     public final JamlAttrHashParser.multiplicativeExpression_return multiplicativeExpression() throws RecognitionException {
     traceIn("multiplicativeExpression", 106);
         JamlAttrHashParser.multiplicativeExpression_return retval = new JamlAttrHashParser.multiplicativeExpression_return();
@@ -15302,8 +15303,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 106) ) { return retval; }
-            // ../etc/JamlAttrHash.g:917:5: ( unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* )
-            // ../etc/JamlAttrHash.g:917:9: unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )*
+            // ../etc/JamlAttrHash.g:918:5: ( unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* )
+            // ../etc/JamlAttrHash.g:918:9: unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -15313,7 +15314,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryExpression434.getTree());
-            // ../etc/JamlAttrHash.g:918:9: ( ( STAR | DIV | MOD ) unaryExpression )*
+            // ../etc/JamlAttrHash.g:919:9: ( ( STAR | DIV | MOD ) unaryExpression )*
             loop129:
             do {
                 int alt129=2;
@@ -15326,9 +15327,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt129) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:918:13: ( STAR | DIV | MOD ) unaryExpression
+            	    // ../etc/JamlAttrHash.g:919:13: ( STAR | DIV | MOD ) unaryExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:918:13: ( STAR | DIV | MOD )
+            	    // ../etc/JamlAttrHash.g:919:13: ( STAR | DIV | MOD )
             	    int alt128=3;
             	    switch ( input.LA(1) ) {
             	    case STAR:
@@ -15356,7 +15357,7 @@ import org.antlr.runtime.tree.*;
 
             	    switch (alt128) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:918:17: STAR
+            	            // ../etc/JamlAttrHash.g:919:17: STAR
             	            {
             	            STAR435=(Token)match(input,STAR,FOLLOW_STAR_in_multiplicativeExpression11683); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -15367,7 +15368,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:919:17: DIV
+            	            // ../etc/JamlAttrHash.g:920:17: DIV
             	            {
             	            DIV436=(Token)match(input,DIV,FOLLOW_DIV_in_multiplicativeExpression11702); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -15378,7 +15379,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 3 :
-            	            // ../etc/JamlAttrHash.g:920:17: MOD
+            	            // ../etc/JamlAttrHash.g:921:17: MOD
             	            {
             	            MOD437=(Token)match(input,MOD,FOLLOW_MOD_in_multiplicativeExpression11721); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
@@ -15437,7 +15438,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "unaryExpression"
-    // ../etc/JamlAttrHash.g:926:1: unaryExpression : ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus );
+    // ../etc/JamlAttrHash.g:927:1: unaryExpression : ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus );
     public final JamlAttrHashParser.unaryExpression_return unaryExpression() throws RecognitionException {
     traceIn("unaryExpression", 107);
         JamlAttrHashParser.unaryExpression_return retval = new JamlAttrHashParser.unaryExpression_return();
@@ -15472,7 +15473,7 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_unaryExpression=new RewriteRuleSubtreeStream(adaptor,"rule unaryExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 107) ) { return retval; }
-            // ../etc/JamlAttrHash.g:927:5: ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus )
+            // ../etc/JamlAttrHash.g:928:5: ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus )
             int alt130=5;
             switch ( input.LA(1) ) {
             case PLUS:
@@ -15535,7 +15536,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt130) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:927:9: PLUS unaryExpression
+                    // ../etc/JamlAttrHash.g:928:9: PLUS unaryExpression
                     {
                     PLUS439=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression11784); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_PLUS.add(PLUS439);
@@ -15560,9 +15561,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 927:37: -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
+                    // 928:37: -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:927:41: ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
+                        // ../etc/JamlAttrHash.g:928:41: ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(UNARY_PLUS, PLUS439, "UNARY_PLUS"), root_1);
@@ -15578,7 +15579,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:928:9: MINUS unaryExpression
+                    // ../etc/JamlAttrHash.g:929:9: MINUS unaryExpression
                     {
                     MINUS441=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression11813); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_MINUS.add(MINUS441);
@@ -15603,9 +15604,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 928:37: -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
+                    // 929:37: -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:928:41: ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
+                        // ../etc/JamlAttrHash.g:929:41: ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(UNARY_MINUS, MINUS441, "UNARY_MINUS"), root_1);
@@ -15621,7 +15622,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:929:9: INC postfixedExpression
+                    // ../etc/JamlAttrHash.g:930:9: INC postfixedExpression
                     {
                     INC443=(Token)match(input,INC,FOLLOW_INC_in_unaryExpression11841); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INC.add(INC443);
@@ -15646,9 +15647,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 929:37: -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
+                    // 930:37: -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
                     {
-                        // ../etc/JamlAttrHash.g:929:41: ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
+                        // ../etc/JamlAttrHash.g:930:41: ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PRE_INC, INC443, "PRE_INC"), root_1);
@@ -15664,7 +15665,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:930:9: DEC postfixedExpression
+                    // ../etc/JamlAttrHash.g:931:9: DEC postfixedExpression
                     {
                     DEC445=(Token)match(input,DEC,FOLLOW_DEC_in_unaryExpression11867); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DEC.add(DEC445);
@@ -15689,9 +15690,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 930:37: -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
+                    // 931:37: -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
                     {
-                        // ../etc/JamlAttrHash.g:930:41: ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
+                        // ../etc/JamlAttrHash.g:931:41: ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PRE_DEC, DEC445, "PRE_DEC"), root_1);
@@ -15707,7 +15708,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:931:9: unaryExpressionNotPlusMinus
+                    // ../etc/JamlAttrHash.g:932:9: unaryExpressionNotPlusMinus
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -15750,7 +15751,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "unaryExpressionNotPlusMinus"
-    // ../etc/JamlAttrHash.g:934:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );
+    // ../etc/JamlAttrHash.g:935:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );
     public final JamlAttrHashParser.unaryExpressionNotPlusMinus_return unaryExpressionNotPlusMinus() throws RecognitionException {
     traceIn("unaryExpressionNotPlusMinus", 108);
         JamlAttrHashParser.unaryExpressionNotPlusMinus_return retval = new JamlAttrHashParser.unaryExpressionNotPlusMinus_return();
@@ -15785,12 +15786,12 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 108) ) { return retval; }
-            // ../etc/JamlAttrHash.g:935:5: ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression )
+            // ../etc/JamlAttrHash.g:936:5: ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression )
             int alt131=4;
             alt131 = dfa131.predict(input);
             switch (alt131) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:935:9: NOT unaryExpression
+                    // ../etc/JamlAttrHash.g:936:9: NOT unaryExpression
                     {
                     NOT448=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpressionNotPlusMinus11912); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_NOT.add(NOT448);
@@ -15804,7 +15805,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: unaryExpression, NOT
+                    // elements: NOT, unaryExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -15815,9 +15816,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 935:57: -> ^( NOT unaryExpression )
+                    // 936:57: -> ^( NOT unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:935:61: ^( NOT unaryExpression )
+                        // ../etc/JamlAttrHash.g:936:61: ^( NOT unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_NOT.nextNode(), root_1);
@@ -15833,7 +15834,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:936:9: LOGICAL_NOT unaryExpression
+                    // ../etc/JamlAttrHash.g:937:9: LOGICAL_NOT unaryExpression
                     {
                     LOGICAL_NOT450=(Token)match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus11961); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LOGICAL_NOT.add(LOGICAL_NOT450);
@@ -15858,9 +15859,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 936:57: -> ^( LOGICAL_NOT unaryExpression )
+                    // 937:57: -> ^( LOGICAL_NOT unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:936:61: ^( LOGICAL_NOT unaryExpression )
+                        // ../etc/JamlAttrHash.g:937:61: ^( LOGICAL_NOT unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_LOGICAL_NOT.nextNode(), root_1);
@@ -15876,7 +15877,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:937:9: LPAREN type RPAREN unaryExpression
+                    // ../etc/JamlAttrHash.g:938:9: LPAREN type RPAREN unaryExpression
                     {
                     LPAREN452=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12002); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN452);
@@ -15910,9 +15911,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 937:57: -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
+                    // 938:57: -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:937:61: ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
+                        // ../etc/JamlAttrHash.g:938:61: ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CAST_EXPR, LPAREN452, "CAST_EXPR"), root_1);
@@ -15929,7 +15930,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:938:9: postfixedExpression
+                    // ../etc/JamlAttrHash.g:939:9: postfixedExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -15972,7 +15973,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "postfixedExpression"
-    // ../etc/JamlAttrHash.g:941:1: postfixedExpression : ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? ;
+    // ../etc/JamlAttrHash.g:942:1: postfixedExpression : ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? ;
     public final JamlAttrHashParser.postfixedExpression_return postfixedExpression() throws RecognitionException {
     traceIn("postfixedExpression", 109);
         JamlAttrHashParser.postfixedExpression_return retval = new JamlAttrHashParser.postfixedExpression_return();
@@ -16032,11 +16033,11 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_innerNewExpression=new RewriteRuleSubtreeStream(adaptor,"rule innerNewExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 109) ) { return retval; }
-            // ../etc/JamlAttrHash.g:943:5: ( ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? )
-            // ../etc/JamlAttrHash.g:943:9: ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
+            // ../etc/JamlAttrHash.g:944:5: ( ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? )
+            // ../etc/JamlAttrHash.g:944:9: ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
             {
-            // ../etc/JamlAttrHash.g:943:9: ( primaryExpression -> primaryExpression )
-            // ../etc/JamlAttrHash.g:943:13: primaryExpression
+            // ../etc/JamlAttrHash.g:944:9: ( primaryExpression -> primaryExpression )
+            // ../etc/JamlAttrHash.g:944:13: primaryExpression
             {
             pushFollow(FOLLOW_primaryExpression_in_postfixedExpression12079);
             primaryExpression457=primaryExpression();
@@ -16058,7 +16059,7 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 943:53: -> primaryExpression
+            // 944:53: -> primaryExpression
             {
                 adaptor.addChild(root_0, stream_primaryExpression.nextTree());
 
@@ -16067,7 +16068,7 @@ import org.antlr.runtime.tree.*;
             retval.tree = root_0;}
             }
 
-            // ../etc/JamlAttrHash.g:946:9: (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )*
+            // ../etc/JamlAttrHash.g:947:9: (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )*
             loop136:
             do {
                 int alt136=3;
@@ -16083,12 +16084,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt136) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:946:13: outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
+            	    // ../etc/JamlAttrHash.g:947:13: outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
             	    {
             	    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression12141); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(outerDot);
 
-            	    // ../etc/JamlAttrHash.g:947:13: ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
+            	    // ../etc/JamlAttrHash.g:948:13: ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
             	    int alt135=5;
             	    switch ( input.LA(1) ) {
             	    case LESS_THAN:
@@ -16136,12 +16137,12 @@ import org.antlr.runtime.tree.*;
 
             	    switch (alt135) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:947:17: ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )?
+            	            // ../etc/JamlAttrHash.g:948:17: ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )?
             	            {
-            	            // ../etc/JamlAttrHash.g:947:17: ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) )
-            	            // ../etc/JamlAttrHash.g:947:21: ( genericTypeArgumentListSimplified )? IDENT
+            	            // ../etc/JamlAttrHash.g:948:17: ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) )
+            	            // ../etc/JamlAttrHash.g:948:21: ( genericTypeArgumentListSimplified )? IDENT
             	            {
-            	            // ../etc/JamlAttrHash.g:947:21: ( genericTypeArgumentListSimplified )?
+            	            // ../etc/JamlAttrHash.g:948:21: ( genericTypeArgumentListSimplified )?
             	            int alt132=2;
             	            int LA132_0 = input.LA(1);
 
@@ -16181,9 +16182,9 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 949:53: -> ^( DOT $postfixedExpression IDENT )
+            	            // 950:53: -> ^( DOT $postfixedExpression IDENT )
             	            {
-            	                // ../etc/JamlAttrHash.g:949:57: ^( DOT $postfixedExpression IDENT )
+            	                // ../etc/JamlAttrHash.g:950:57: ^( DOT $postfixedExpression IDENT )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -16199,7 +16200,7 @@ import org.antlr.runtime.tree.*;
             	            retval.tree = root_0;}
             	            }
 
-            	            // ../etc/JamlAttrHash.g:951:17: ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )?
+            	            // ../etc/JamlAttrHash.g:952:17: ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )?
             	            int alt133=2;
             	            int LA133_0 = input.LA(1);
 
@@ -16208,7 +16209,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            switch (alt133) {
             	                case 1 :
-            	                    // ../etc/JamlAttrHash.g:951:21: arguments
+            	                    // ../etc/JamlAttrHash.g:952:21: arguments
             	                    {
             	                    pushFollow(FOLLOW_arguments_in_postfixedExpression12352);
             	                    arguments460=arguments();
@@ -16219,7 +16220,7 @@ import org.antlr.runtime.tree.*;
 
 
             	                    // AST REWRITE
-            	                    // elements: postfixedExpression, genericTypeArgumentListSimplified, arguments
+            	                    // elements: arguments, genericTypeArgumentListSimplified, postfixedExpression
             	                    // token labels: 
             	                    // rule labels: retval
             	                    // token list labels: 
@@ -16230,15 +16231,15 @@ import org.antlr.runtime.tree.*;
             	                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	                    root_0 = (CommonTree)adaptor.nil();
-            	                    // 951:53: -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments )
+            	                    // 952:53: -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments )
             	                    {
-            	                        // ../etc/JamlAttrHash.g:951:57: ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments )
+            	                        // ../etc/JamlAttrHash.g:952:57: ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments )
             	                        {
             	                        CommonTree root_1 = (CommonTree)adaptor.nil();
             	                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
             	                        adaptor.addChild(root_1, stream_retval.nextTree());
-            	                        // ../etc/JamlAttrHash.g:951:92: ( genericTypeArgumentListSimplified )?
+            	                        // ../etc/JamlAttrHash.g:952:92: ( genericTypeArgumentListSimplified )?
             	                        if ( stream_genericTypeArgumentListSimplified.hasNext() ) {
             	                            adaptor.addChild(root_1, stream_genericTypeArgumentListSimplified.nextTree());
 
@@ -16261,7 +16262,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:953:17: THIS
+            	            // ../etc/JamlAttrHash.g:954:17: THIS
             	            {
             	            THIS461=(Token)match(input,THIS,FOLLOW_THIS_in_postfixedExpression12426); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_THIS.add(THIS461);
@@ -16269,7 +16270,7 @@ import org.antlr.runtime.tree.*;
 
 
             	            // AST REWRITE
-            	            // elements: THIS, postfixedExpression, DOT
+            	            // elements: postfixedExpression, THIS, DOT
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16280,9 +16281,9 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 953:53: -> ^( DOT $postfixedExpression THIS )
+            	            // 954:53: -> ^( DOT $postfixedExpression THIS )
             	            {
-            	                // ../etc/JamlAttrHash.g:953:57: ^( DOT $postfixedExpression THIS )
+            	                // ../etc/JamlAttrHash.g:954:57: ^( DOT $postfixedExpression THIS )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -16299,7 +16300,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 3 :
-            	            // ../etc/JamlAttrHash.g:954:17: Super= SUPER arguments
+            	            // ../etc/JamlAttrHash.g:955:17: Super= SUPER arguments
             	            {
             	            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression12489); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_SUPER.add(Super);
@@ -16324,9 +16325,9 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 954:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
+            	            // 955:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
             	            {
-            	                // ../etc/JamlAttrHash.g:954:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
+            	                // ../etc/JamlAttrHash.g:955:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -16343,10 +16344,10 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 4 :
-            	            // ../etc/JamlAttrHash.g:955:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
+            	            // ../etc/JamlAttrHash.g:956:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
             	            {
-            	            // ../etc/JamlAttrHash.g:955:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) )
-            	            // ../etc/JamlAttrHash.g:955:21: SUPER innerDot= DOT IDENT
+            	            // ../etc/JamlAttrHash.g:956:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) )
+            	            // ../etc/JamlAttrHash.g:956:21: SUPER innerDot= DOT IDENT
             	            {
             	            SUPER463=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression12544); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_SUPER.add(SUPER463);
@@ -16360,7 +16361,7 @@ import org.antlr.runtime.tree.*;
 
 
             	            // AST REWRITE
-            	            // elements: SUPER, innerDot, IDENT, postfixedExpression, outerDot
+            	            // elements: SUPER, IDENT, innerDot, postfixedExpression, outerDot
             	            // token labels: outerDot, innerDot
             	            // rule labels: retval
             	            // token list labels: 
@@ -16373,14 +16374,14 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 955:53: -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
+            	            // 956:53: -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
             	            {
-            	                // ../etc/JamlAttrHash.g:955:57: ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
+            	                // ../etc/JamlAttrHash.g:956:57: ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_innerDot.nextNode(), root_1);
 
-            	                // ../etc/JamlAttrHash.g:955:69: ^( $outerDot $postfixedExpression SUPER )
+            	                // ../etc/JamlAttrHash.g:956:69: ^( $outerDot $postfixedExpression SUPER )
             	                {
             	                CommonTree root_2 = (CommonTree)adaptor.nil();
             	                root_2 = (CommonTree)adaptor.becomeRoot(stream_outerDot.nextNode(), root_2);
@@ -16400,7 +16401,7 @@ import org.antlr.runtime.tree.*;
             	            retval.tree = root_0;}
             	            }
 
-            	            // ../etc/JamlAttrHash.g:957:17: ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
+            	            // ../etc/JamlAttrHash.g:958:17: ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
             	            int alt134=2;
             	            int LA134_0 = input.LA(1);
 
@@ -16409,7 +16410,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            switch (alt134) {
             	                case 1 :
-            	                    // ../etc/JamlAttrHash.g:957:21: arguments
+            	                    // ../etc/JamlAttrHash.g:958:21: arguments
             	                    {
             	                    pushFollow(FOLLOW_arguments_in_postfixedExpression12617);
             	                    arguments465=arguments();
@@ -16420,7 +16421,7 @@ import org.antlr.runtime.tree.*;
 
 
             	                    // AST REWRITE
-            	                    // elements: arguments, postfixedExpression
+            	                    // elements: postfixedExpression, arguments
             	                    // token labels: 
             	                    // rule labels: retval
             	                    // token list labels: 
@@ -16431,9 +16432,9 @@ import org.antlr.runtime.tree.*;
             	                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	                    root_0 = (CommonTree)adaptor.nil();
-            	                    // 957:53: -> ^( METHOD_CALL $postfixedExpression arguments )
+            	                    // 958:53: -> ^( METHOD_CALL $postfixedExpression arguments )
             	                    {
-            	                        // ../etc/JamlAttrHash.g:957:57: ^( METHOD_CALL $postfixedExpression arguments )
+            	                        // ../etc/JamlAttrHash.g:958:57: ^( METHOD_CALL $postfixedExpression arguments )
             	                        {
             	                        CommonTree root_1 = (CommonTree)adaptor.nil();
             	                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -16456,7 +16457,7 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 5 :
-            	            // ../etc/JamlAttrHash.g:959:17: innerNewExpression
+            	            // ../etc/JamlAttrHash.g:960:17: innerNewExpression
             	            {
             	            pushFollow(FOLLOW_innerNewExpression_in_postfixedExpression12688);
             	            innerNewExpression466=innerNewExpression();
@@ -16467,7 +16468,7 @@ import org.antlr.runtime.tree.*;
 
 
             	            // AST REWRITE
-            	            // elements: postfixedExpression, DOT, innerNewExpression
+            	            // elements: DOT, innerNewExpression, postfixedExpression
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16478,9 +16479,9 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 959:53: -> ^( DOT $postfixedExpression innerNewExpression )
+            	            // 960:53: -> ^( DOT $postfixedExpression innerNewExpression )
             	            {
-            	                // ../etc/JamlAttrHash.g:959:57: ^( DOT $postfixedExpression innerNewExpression )
+            	                // ../etc/JamlAttrHash.g:960:57: ^( DOT $postfixedExpression innerNewExpression )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -16503,7 +16504,7 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/JamlAttrHash.g:961:13: LBRACK expression RBRACK
+            	    // ../etc/JamlAttrHash.g:962:13: LBRACK expression RBRACK
             	    {
             	    LBRACK467=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_postfixedExpression12745); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_LBRACK.add(LBRACK467);
@@ -16520,7 +16521,7 @@ import org.antlr.runtime.tree.*;
 
 
             	    // AST REWRITE
-            	    // elements: expression, postfixedExpression
+            	    // elements: postfixedExpression, expression
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -16531,9 +16532,9 @@ import org.antlr.runtime.tree.*;
             	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	    root_0 = (CommonTree)adaptor.nil();
-            	    // 961:53: -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
+            	    // 962:53: -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
             	    {
-            	        // ../etc/JamlAttrHash.g:961:57: ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
+            	        // ../etc/JamlAttrHash.g:962:57: ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.nil();
             	        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_ELEMENT_ACCESS, "ARRAY_ELEMENT_ACCESS"), root_1);
@@ -16555,7 +16556,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            // ../etc/JamlAttrHash.g:964:9: ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
+            // ../etc/JamlAttrHash.g:965:9: ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
             int alt137=3;
             int LA137_0 = input.LA(1);
 
@@ -16567,7 +16568,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt137) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:964:13: INC
+                    // ../etc/JamlAttrHash.g:965:13: INC
                     {
                     INC470=(Token)match(input,INC,FOLLOW_INC_in_postfixedExpression12810); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INC.add(INC470);
@@ -16586,9 +16587,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 964:17: -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
+                    // 965:17: -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
                     {
-                        // ../etc/JamlAttrHash.g:964:20: ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
+                        // ../etc/JamlAttrHash.g:965:20: ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POST_INC, INC470, "POST_INC"), root_1);
@@ -16604,7 +16605,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:965:13: DEC
+                    // ../etc/JamlAttrHash.g:966:13: DEC
                     {
                     DEC471=(Token)match(input,DEC,FOLLOW_DEC_in_postfixedExpression12834); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DEC.add(DEC471);
@@ -16623,9 +16624,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 965:17: -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
+                    // 966:17: -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
                     {
-                        // ../etc/JamlAttrHash.g:965:20: ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
+                        // ../etc/JamlAttrHash.g:966:20: ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POST_DEC, DEC471, "POST_DEC"), root_1);
@@ -16674,7 +16675,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "primaryExpression"
-    // ../etc/JamlAttrHash.g:969:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );
+    // ../etc/JamlAttrHash.g:970:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );
     public final JamlAttrHashParser.primaryExpression_return primaryExpression() throws RecognitionException {
     traceIn("primaryExpression", 110);
         JamlAttrHashParser.primaryExpression_return retval = new JamlAttrHashParser.primaryExpression_return();
@@ -16753,12 +16754,12 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeArgumentListSimplified=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeArgumentListSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 110) ) { return retval; }
-            // ../etc/JamlAttrHash.g:970:5: ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) )
+            // ../etc/JamlAttrHash.g:971:5: ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) )
             int alt143=10;
             alt143 = dfa143.predict(input);
             switch (alt143) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:970:9: parenthesizedExpression
+                    // ../etc/JamlAttrHash.g:971:9: parenthesizedExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -16772,7 +16773,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:971:9: literal
+                    // ../etc/JamlAttrHash.g:972:9: literal
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -16786,7 +16787,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:972:9: newExpression
+                    // ../etc/JamlAttrHash.g:973:9: newExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -16800,7 +16801,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:973:9: qualifiedIdentExpression
+                    // ../etc/JamlAttrHash.g:974:9: qualifiedIdentExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -16814,7 +16815,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:974:9: genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
+                    // ../etc/JamlAttrHash.g:975:9: genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
                     {
                     pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression12922);
                     genericTypeArgumentListSimplified476=genericTypeArgumentListSimplified();
@@ -16822,7 +16823,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_genericTypeArgumentListSimplified.add(genericTypeArgumentListSimplified476.getTree());
-                    // ../etc/JamlAttrHash.g:975:9: ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
+                    // ../etc/JamlAttrHash.g:976:9: ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
                     int alt139=3;
                     switch ( input.LA(1) ) {
                     case SUPER:
@@ -16850,12 +16851,12 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt139) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:975:13: SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
+                            // ../etc/JamlAttrHash.g:976:13: SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
                             {
                             SUPER477=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression12937); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SUPER.add(SUPER477);
 
-                            // ../etc/JamlAttrHash.g:976:13: ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
+                            // ../etc/JamlAttrHash.g:977:13: ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
                             int alt138=2;
                             int LA138_0 = input.LA(1);
 
@@ -16874,7 +16875,7 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt138) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:976:17: arguments
+                                    // ../etc/JamlAttrHash.g:977:17: arguments
                                     {
                                     pushFollow(FOLLOW_arguments_in_primaryExpression12955);
                                     arguments478=arguments();
@@ -16896,9 +16897,9 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 976:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
+                                    // 977:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:976:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:977:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, SUPER477, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -16915,7 +16916,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:977:17: DOT IDENT arguments
+                                    // ../etc/JamlAttrHash.g:978:17: DOT IDENT arguments
                                     {
                                     DOT479=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression13015); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_DOT.add(DOT479);
@@ -16932,7 +16933,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: IDENT, genericTypeArgumentListSimplified, arguments, DOT, SUPER
+                                    // elements: SUPER, genericTypeArgumentListSimplified, DOT, arguments, IDENT
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -16943,14 +16944,14 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 977:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments )
+                                    // 978:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:977:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:978:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // ../etc/JamlAttrHash.g:977:75: ^( DOT SUPER IDENT )
+                                        // ../etc/JamlAttrHash.g:978:75: ^( DOT SUPER IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -16978,7 +16979,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:979:13: IDENT arguments
+                            // ../etc/JamlAttrHash.g:980:13: IDENT arguments
                             {
                             IDENT482=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13086); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT482);
@@ -16992,7 +16993,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: genericTypeArgumentListSimplified, arguments, IDENT
+                            // elements: IDENT, genericTypeArgumentListSimplified, arguments
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17003,9 +17004,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 979:57: -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments )
+                            // 980:57: -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments )
                             {
-                                // ../etc/JamlAttrHash.g:979:61: ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments )
+                                // ../etc/JamlAttrHash.g:980:61: ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -17023,7 +17024,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:980:13: THIS arguments
+                            // ../etc/JamlAttrHash.g:981:13: THIS arguments
                             {
                             THIS484=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13143); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_THIS.add(THIS484);
@@ -17037,7 +17038,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: genericTypeArgumentListSimplified, arguments
+                            // elements: arguments, genericTypeArgumentListSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17048,9 +17049,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 980:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
+                            // 981:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
                             {
-                                // ../etc/JamlAttrHash.g:980:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
+                                // ../etc/JamlAttrHash.g:981:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(THIS_CONSTRUCTOR_CALL, THIS484, "THIS_CONSTRUCTOR_CALL"), root_1);
@@ -17073,10 +17074,10 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 6 :
-                    // ../etc/JamlAttrHash.g:982:9: ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
+                    // ../etc/JamlAttrHash.g:983:9: ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
                     {
-                    // ../etc/JamlAttrHash.g:982:9: ( THIS -> THIS )
-                    // ../etc/JamlAttrHash.g:982:13: THIS
+                    // ../etc/JamlAttrHash.g:983:9: ( THIS -> THIS )
+                    // ../etc/JamlAttrHash.g:983:13: THIS
                     {
                     THIS486=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13210); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_THIS.add(THIS486);
@@ -17095,7 +17096,7 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 982:57: -> THIS
+                    // 983:57: -> THIS
                     {
                         adaptor.addChild(root_0, stream_THIS.nextNode());
 
@@ -17104,7 +17105,7 @@ import org.antlr.runtime.tree.*;
                     retval.tree = root_0;}
                     }
 
-                    // ../etc/JamlAttrHash.g:984:9: ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
+                    // ../etc/JamlAttrHash.g:985:9: ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
                     int alt140=2;
                     int LA140_0 = input.LA(1);
 
@@ -17113,7 +17114,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt140) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:984:13: arguments
+                            // ../etc/JamlAttrHash.g:985:13: arguments
                             {
                             pushFollow(FOLLOW_arguments_in_primaryExpression13278);
                             arguments487=arguments();
@@ -17135,9 +17136,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 984:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
+                            // 985:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
                             {
-                                // ../etc/JamlAttrHash.g:984:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
+                                // ../etc/JamlAttrHash.g:985:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(THIS_CONSTRUCTOR_CALL, THIS486, "THIS_CONSTRUCTOR_CALL"), root_1);
@@ -17159,7 +17160,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 7 :
-                    // ../etc/JamlAttrHash.g:986:9: SUPER arguments
+                    // ../etc/JamlAttrHash.g:987:9: SUPER arguments
                     {
                     SUPER488=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13343); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER488);
@@ -17184,9 +17185,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 986:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
+                    // 987:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
                     {
-                        // ../etc/JamlAttrHash.g:986:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
+                        // ../etc/JamlAttrHash.g:987:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, SUPER488, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -17202,10 +17203,10 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 8 :
-                    // ../etc/JamlAttrHash.g:987:9: ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
+                    // ../etc/JamlAttrHash.g:988:9: ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
                     {
-                    // ../etc/JamlAttrHash.g:987:9: ( SUPER DOT IDENT )
-                    // ../etc/JamlAttrHash.g:987:13: SUPER DOT IDENT
+                    // ../etc/JamlAttrHash.g:988:9: ( SUPER DOT IDENT )
+                    // ../etc/JamlAttrHash.g:988:13: SUPER DOT IDENT
                     {
                     SUPER490=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13401); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER490);
@@ -17219,7 +17220,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:989:9: ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
+                    // ../etc/JamlAttrHash.g:990:9: ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
                     int alt141=2;
                     int LA141_0 = input.LA(1);
 
@@ -17238,7 +17239,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt141) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:989:13: arguments
+                            // ../etc/JamlAttrHash.g:990:13: arguments
                             {
                             pushFollow(FOLLOW_arguments_in_primaryExpression13429);
                             arguments493=arguments();
@@ -17249,7 +17250,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: DOT, arguments, IDENT, SUPER
+                            // elements: arguments, IDENT, SUPER, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17260,14 +17261,14 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 989:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
+                            // 990:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
                             {
-                                // ../etc/JamlAttrHash.g:989:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
+                                // ../etc/JamlAttrHash.g:990:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                // ../etc/JamlAttrHash.g:989:75: ^( DOT SUPER IDENT )
+                                // ../etc/JamlAttrHash.g:990:75: ^( DOT SUPER IDENT )
                                 {
                                 CommonTree root_2 = (CommonTree)adaptor.nil();
                                 root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -17288,11 +17289,11 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:990:57: 
+                            // ../etc/JamlAttrHash.g:991:57: 
                             {
 
                             // AST REWRITE
-                            // elements: DOT, IDENT, SUPER
+                            // elements: SUPER, DOT, IDENT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17303,9 +17304,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 990:57: -> ^( DOT SUPER IDENT )
+                            // 991:57: -> ^( DOT SUPER IDENT )
                             {
-                                // ../etc/JamlAttrHash.g:990:61: ^( DOT SUPER IDENT )
+                                // ../etc/JamlAttrHash.g:991:61: ^( DOT SUPER IDENT )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17328,10 +17329,10 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 9 :
-                    // ../etc/JamlAttrHash.g:992:9: ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS
+                    // ../etc/JamlAttrHash.g:993:9: ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS
                     {
-                    // ../etc/JamlAttrHash.g:992:9: ( primitiveType -> primitiveType )
-                    // ../etc/JamlAttrHash.g:992:13: primitiveType
+                    // ../etc/JamlAttrHash.g:993:9: ( primitiveType -> primitiveType )
+                    // ../etc/JamlAttrHash.g:993:13: primitiveType
                     {
                     pushFollow(FOLLOW_primitiveType_in_primaryExpression13571);
                     primitiveType494=primitiveType();
@@ -17353,7 +17354,7 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 992:57: -> primitiveType
+                    // 993:57: -> primitiveType
                     {
                         adaptor.addChild(root_0, stream_primitiveType.nextTree());
 
@@ -17362,7 +17363,7 @@ import org.antlr.runtime.tree.*;
                     retval.tree = root_0;}
                     }
 
-                    // ../etc/JamlAttrHash.g:994:9: ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )*
+                    // ../etc/JamlAttrHash.g:995:9: ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )*
                     loop142:
                     do {
                         int alt142=2;
@@ -17375,7 +17376,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt142) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:994:13: arrayDeclarator
+                    	    // ../etc/JamlAttrHash.g:995:13: arrayDeclarator
                     	    {
                     	    pushFollow(FOLLOW_arrayDeclarator_in_primaryExpression13630);
                     	    arrayDeclarator495=arrayDeclarator();
@@ -17397,9 +17398,9 @@ import org.antlr.runtime.tree.*;
                     	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     	    root_0 = (CommonTree)adaptor.nil();
-                    	    // 994:57: -> ^( arrayDeclarator $primaryExpression)
+                    	    // 995:57: -> ^( arrayDeclarator $primaryExpression)
                     	    {
-                    	        // ../etc/JamlAttrHash.g:994:61: ^( arrayDeclarator $primaryExpression)
+                    	        // ../etc/JamlAttrHash.g:995:61: ^( arrayDeclarator $primaryExpression)
                     	        {
                     	        CommonTree root_1 = (CommonTree)adaptor.nil();
                     	        root_1 = (CommonTree)adaptor.becomeRoot(stream_arrayDeclarator.nextNode(), root_1);
@@ -17440,9 +17441,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 996:57: -> ^( DOT $primaryExpression CLASS )
+                    // 997:57: -> ^( DOT $primaryExpression CLASS )
                     {
-                        // ../etc/JamlAttrHash.g:996:61: ^( DOT $primaryExpression CLASS )
+                        // ../etc/JamlAttrHash.g:997:61: ^( DOT $primaryExpression CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17459,7 +17460,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 10 :
-                    // ../etc/JamlAttrHash.g:997:9: VOID DOT CLASS
+                    // ../etc/JamlAttrHash.g:998:9: VOID DOT CLASS
                     {
                     VOID498=(Token)match(input,VOID,FOLLOW_VOID_in_primaryExpression13755); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_VOID.add(VOID498);
@@ -17473,7 +17474,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: CLASS, DOT, VOID
+                    // elements: DOT, CLASS, VOID
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17484,9 +17485,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 997:57: -> ^( DOT VOID CLASS )
+                    // 998:57: -> ^( DOT VOID CLASS )
                     {
-                        // ../etc/JamlAttrHash.g:997:61: ^( DOT VOID CLASS )
+                        // ../etc/JamlAttrHash.g:998:61: ^( DOT VOID CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17532,7 +17533,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedIdentExpression"
-    // ../etc/JamlAttrHash.g:1000:1: qualifiedIdentExpression : ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? ;
+    // ../etc/JamlAttrHash.g:1001:1: qualifiedIdentExpression : ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? ;
     public final JamlAttrHashParser.qualifiedIdentExpression_return qualifiedIdentExpression() throws RecognitionException {
     traceIn("qualifiedIdentExpression", 111);
         JamlAttrHashParser.qualifiedIdentExpression_return retval = new JamlAttrHashParser.qualifiedIdentExpression_return();
@@ -17591,11 +17592,11 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_innerNewExpression=new RewriteRuleSubtreeStream(adaptor,"rule innerNewExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 111) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1002:5: ( ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? )
-            // ../etc/JamlAttrHash.g:1002:9: ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
+            // ../etc/JamlAttrHash.g:1003:5: ( ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? )
+            // ../etc/JamlAttrHash.g:1003:9: ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
             {
-            // ../etc/JamlAttrHash.g:1002:9: ( qualifiedIdentifier -> qualifiedIdentifier )
-            // ../etc/JamlAttrHash.g:1002:13: qualifiedIdentifier
+            // ../etc/JamlAttrHash.g:1003:9: ( qualifiedIdentifier -> qualifiedIdentifier )
+            // ../etc/JamlAttrHash.g:1003:13: qualifiedIdentifier
             {
             pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression13839);
             qualifiedIdentifier501=qualifiedIdentifier();
@@ -17617,7 +17618,7 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 1002:61: -> qualifiedIdentifier
+            // 1003:61: -> qualifiedIdentifier
             {
                 adaptor.addChild(root_0, stream_qualifiedIdentifier.nextTree());
 
@@ -17626,14 +17627,14 @@ import org.antlr.runtime.tree.*;
             retval.tree = root_0;}
             }
 
-            // ../etc/JamlAttrHash.g:1005:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
+            // ../etc/JamlAttrHash.g:1006:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
             int alt147=4;
             alt147 = dfa147.predict(input);
             switch (alt147) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1005:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
+                    // ../etc/JamlAttrHash.g:1006:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
                     {
-                    // ../etc/JamlAttrHash.g:1005:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+
+                    // ../etc/JamlAttrHash.g:1006:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+
                     int cnt144=0;
                     loop144:
                     do {
@@ -17647,7 +17648,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt144) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:1005:17: arrayDeclarator
+                    	    // ../etc/JamlAttrHash.g:1006:17: arrayDeclarator
                     	    {
                     	    pushFollow(FOLLOW_arrayDeclarator_in_qualifiedIdentExpression13909);
                     	    arrayDeclarator502=arrayDeclarator();
@@ -17658,7 +17659,7 @@ import org.antlr.runtime.tree.*;
 
 
                     	    // AST REWRITE
-                    	    // elements: qualifiedIdentExpression, arrayDeclarator
+                    	    // elements: arrayDeclarator, qualifiedIdentExpression
                     	    // token labels: 
                     	    // rule labels: retval
                     	    // token list labels: 
@@ -17669,9 +17670,9 @@ import org.antlr.runtime.tree.*;
                     	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     	    root_0 = (CommonTree)adaptor.nil();
-                    	    // 1005:57: -> ^( arrayDeclarator $qualifiedIdentExpression)
+                    	    // 1006:57: -> ^( arrayDeclarator $qualifiedIdentExpression)
                     	    {
-                    	        // ../etc/JamlAttrHash.g:1005:61: ^( arrayDeclarator $qualifiedIdentExpression)
+                    	        // ../etc/JamlAttrHash.g:1006:61: ^( arrayDeclarator $qualifiedIdentExpression)
                     	        {
                     	        CommonTree root_1 = (CommonTree)adaptor.nil();
                     	        root_1 = (CommonTree)adaptor.becomeRoot(stream_arrayDeclarator.nextNode(), root_1);
@@ -17697,8 +17698,8 @@ import org.antlr.runtime.tree.*;
                         cnt144++;
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:1007:13: ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
-                    // ../etc/JamlAttrHash.g:1007:17: DOT CLASS
+                    // ../etc/JamlAttrHash.g:1008:13: ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
+                    // ../etc/JamlAttrHash.g:1008:17: DOT CLASS
                     {
                     DOT503=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression13977); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT503);
@@ -17709,7 +17710,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: qualifiedIdentExpression, DOT, CLASS
+                    // elements: CLASS, qualifiedIdentExpression, DOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17720,9 +17721,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1007:57: -> ^( DOT $qualifiedIdentExpression CLASS )
+                    // 1008:57: -> ^( DOT $qualifiedIdentExpression CLASS )
                     {
-                        // ../etc/JamlAttrHash.g:1007:61: ^( DOT $qualifiedIdentExpression CLASS )
+                        // ../etc/JamlAttrHash.g:1008:61: ^( DOT $qualifiedIdentExpression CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17742,7 +17743,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1009:13: arguments
+                    // ../etc/JamlAttrHash.g:1010:13: arguments
                     {
                     pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14049);
                     arguments505=arguments();
@@ -17753,7 +17754,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: qualifiedIdentifier, arguments
+                    // elements: arguments, qualifiedIdentifier
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17764,9 +17765,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1009:57: -> ^( METHOD_CALL qualifiedIdentifier arguments )
+                    // 1010:57: -> ^( METHOD_CALL qualifiedIdentifier arguments )
                     {
-                        // ../etc/JamlAttrHash.g:1009:61: ^( METHOD_CALL qualifiedIdentifier arguments )
+                        // ../etc/JamlAttrHash.g:1010:61: ^( METHOD_CALL qualifiedIdentifier arguments )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -17783,12 +17784,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:1010:13: outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
+                    // ../etc/JamlAttrHash.g:1011:13: outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
                     {
                     outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14110); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(outerDot);
 
-                    // ../etc/JamlAttrHash.g:1011:13: ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
+                    // ../etc/JamlAttrHash.g:1012:13: ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
                     int alt146=5;
                     switch ( input.LA(1) ) {
                     case CLASS:
@@ -17826,7 +17827,7 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt146) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1011:17: CLASS
+                            // ../etc/JamlAttrHash.g:1012:17: CLASS
                             {
                             CLASS506=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14128); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_CLASS.add(CLASS506);
@@ -17834,7 +17835,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: DOT, CLASS, qualifiedIdentifier
+                            // elements: CLASS, qualifiedIdentifier, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17845,9 +17846,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1011:57: -> ^( DOT qualifiedIdentifier CLASS )
+                            // 1012:57: -> ^( DOT qualifiedIdentifier CLASS )
                             {
-                                // ../etc/JamlAttrHash.g:1011:61: ^( DOT qualifiedIdentifier CLASS )
+                                // ../etc/JamlAttrHash.g:1012:61: ^( DOT qualifiedIdentifier CLASS )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17864,7 +17865,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1012:17: genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
+                            // ../etc/JamlAttrHash.g:1013:17: genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
                             {
                             pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14191);
                             genericTypeArgumentListSimplified507=genericTypeArgumentListSimplified();
@@ -17872,7 +17873,7 @@ import org.antlr.runtime.tree.*;
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_genericTypeArgumentListSimplified.add(genericTypeArgumentListSimplified507.getTree());
-                            // ../etc/JamlAttrHash.g:1013:17: (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
+                            // ../etc/JamlAttrHash.g:1014:17: (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
                             int alt145=3;
                             int LA145_0 = input.LA(1);
 
@@ -17905,7 +17906,7 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt145) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:1013:21: Super= SUPER arguments
+                                    // ../etc/JamlAttrHash.g:1014:21: Super= SUPER arguments
                                     {
                                     Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14216); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SUPER.add(Super);
@@ -17930,9 +17931,9 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 1013:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments )
+                                    // 1014:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:1013:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:1014:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -17950,7 +17951,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:1014:21: SUPER innerDot= DOT IDENT arguments
+                                    // ../etc/JamlAttrHash.g:1015:21: SUPER innerDot= DOT IDENT arguments
                                     {
                                     SUPER509=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14268); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER509);
@@ -17970,7 +17971,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeArgumentListSimplified, SUPER, arguments, IDENT, qualifiedIdentifier, outerDot, innerDot
+                                    // elements: genericTypeArgumentListSimplified, innerDot, outerDot, qualifiedIdentifier, arguments, IDENT, SUPER
                                     // token labels: outerDot, innerDot
                                     // rule labels: retval
                                     // token list labels: 
@@ -17983,19 +17984,19 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 1014:57: -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments )
+                                    // 1015:57: -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:1014:61: ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:1015:61: ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // ../etc/JamlAttrHash.g:1014:75: ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT )
+                                        // ../etc/JamlAttrHash.g:1015:75: ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_innerDot.nextNode(), root_2);
 
-                                        // ../etc/JamlAttrHash.g:1014:87: ^( $outerDot qualifiedIdentifier SUPER )
+                                        // ../etc/JamlAttrHash.g:1015:87: ^( $outerDot qualifiedIdentifier SUPER )
                                         {
                                         CommonTree root_3 = (CommonTree)adaptor.nil();
                                         root_3 = (CommonTree)adaptor.becomeRoot(stream_outerDot.nextNode(), root_3);
@@ -18021,7 +18022,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 3 :
-                                    // ../etc/JamlAttrHash.g:1015:21: IDENT arguments
+                                    // ../etc/JamlAttrHash.g:1016:21: IDENT arguments
                                     {
                                     IDENT512=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14326); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT512);
@@ -18035,7 +18036,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: qualifiedIdentifier, arguments, genericTypeArgumentListSimplified, IDENT, DOT
+                                    // elements: IDENT, qualifiedIdentifier, arguments, genericTypeArgumentListSimplified, DOT
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -18046,14 +18047,14 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 1015:57: -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments )
+                                    // 1016:57: -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:1015:61: ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:1016:61: ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // ../etc/JamlAttrHash.g:1015:75: ^( DOT qualifiedIdentifier IDENT )
+                                        // ../etc/JamlAttrHash.g:1016:75: ^( DOT qualifiedIdentifier IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -18081,7 +18082,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:1017:17: THIS
+                            // ../etc/JamlAttrHash.g:1018:17: THIS
                             {
                             THIS514=(Token)match(input,THIS,FOLLOW_THIS_in_qualifiedIdentExpression14403); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_THIS.add(THIS514);
@@ -18100,9 +18101,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1017:57: -> ^( DOT qualifiedIdentifier THIS )
+                            // 1018:57: -> ^( DOT qualifiedIdentifier THIS )
                             {
-                                // ../etc/JamlAttrHash.g:1017:61: ^( DOT qualifiedIdentifier THIS )
+                                // ../etc/JamlAttrHash.g:1018:61: ^( DOT qualifiedIdentifier THIS )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -18119,7 +18120,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 4 :
-                            // ../etc/JamlAttrHash.g:1018:17: Super= SUPER arguments
+                            // ../etc/JamlAttrHash.g:1019:17: Super= SUPER arguments
                             {
                             Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14469); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SUPER.add(Super);
@@ -18144,9 +18145,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1018:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
+                            // 1019:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
                             {
-                                // ../etc/JamlAttrHash.g:1018:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
+                                // ../etc/JamlAttrHash.g:1019:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -18163,7 +18164,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 5 :
-                            // ../etc/JamlAttrHash.g:1019:17: innerNewExpression
+                            // ../etc/JamlAttrHash.g:1020:17: innerNewExpression
                             {
                             pushFollow(FOLLOW_innerNewExpression_in_qualifiedIdentExpression14519);
                             innerNewExpression516=innerNewExpression();
@@ -18185,9 +18186,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1019:57: -> ^( DOT qualifiedIdentifier innerNewExpression )
+                            // 1020:57: -> ^( DOT qualifiedIdentifier innerNewExpression )
                             {
-                                // ../etc/JamlAttrHash.g:1019:61: ^( DOT qualifiedIdentifier innerNewExpression )
+                                // ../etc/JamlAttrHash.g:1020:61: ^( DOT qualifiedIdentifier innerNewExpression )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -18243,7 +18244,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "newExpression"
-    // ../etc/JamlAttrHash.g:1024:1: newExpression : NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) ;
+    // ../etc/JamlAttrHash.g:1025:1: newExpression : NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) ;
     public final JamlAttrHashParser.newExpression_return newExpression() throws RecognitionException {
     traceIn("newExpression", 112);
         JamlAttrHashParser.newExpression_return retval = new JamlAttrHashParser.newExpression_return();
@@ -18277,13 +18278,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeArgumentListSimplified=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeArgumentListSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 112) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1025:5: ( NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) )
-            // ../etc/JamlAttrHash.g:1025:9: NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
+            // ../etc/JamlAttrHash.g:1026:5: ( NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) )
+            // ../etc/JamlAttrHash.g:1026:9: NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
             {
             NEW517=(Token)match(input,NEW,FOLLOW_NEW_in_newExpression14595); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_NEW.add(NEW517);
 
-            // ../etc/JamlAttrHash.g:1026:9: ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
+            // ../etc/JamlAttrHash.g:1027:9: ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
             int alt151=2;
             int LA151_0 = input.LA(1);
 
@@ -18302,7 +18303,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt151) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1026:13: primitiveType newArrayConstruction
+                    // ../etc/JamlAttrHash.g:1027:13: primitiveType newArrayConstruction
                     {
                     pushFollow(FOLLOW_primitiveType_in_newExpression14611);
                     primitiveType518=primitiveType();
@@ -18330,9 +18331,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1027:13: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
+                    // 1028:13: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
                     {
-                        // ../etc/JamlAttrHash.g:1027:17: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
+                        // ../etc/JamlAttrHash.g:1028:17: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(STATIC_ARRAY_CREATOR, NEW517, "STATIC_ARRAY_CREATOR"), root_1);
@@ -18349,9 +18350,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1028:13: ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) )
+                    // ../etc/JamlAttrHash.g:1029:13: ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) )
                     {
-                    // ../etc/JamlAttrHash.g:1028:13: ( genericTypeArgumentListSimplified )?
+                    // ../etc/JamlAttrHash.g:1029:13: ( genericTypeArgumentListSimplified )?
                     int alt148=2;
                     int LA148_0 = input.LA(1);
 
@@ -18380,7 +18381,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_qualifiedTypeIdentSimplified.add(qualifiedTypeIdentSimplified521.getTree());
-                    // ../etc/JamlAttrHash.g:1029:13: ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) )
+                    // ../etc/JamlAttrHash.g:1030:13: ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) )
                     int alt150=2;
                     int LA150_0 = input.LA(1);
 
@@ -18399,7 +18400,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt150) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1029:17: newArrayConstruction
+                            // ../etc/JamlAttrHash.g:1030:17: newArrayConstruction
                             {
                             pushFollow(FOLLOW_newArrayConstruction_in_newExpression14678);
                             newArrayConstruction522=newArrayConstruction();
@@ -18421,14 +18422,14 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1030:17: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction )
+                            // 1031:17: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction )
                             {
-                                // ../etc/JamlAttrHash.g:1030:21: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction )
+                                // ../etc/JamlAttrHash.g:1031:21: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(STATIC_ARRAY_CREATOR, NEW517, "STATIC_ARRAY_CREATOR"), root_1);
 
-                                // ../etc/JamlAttrHash.g:1030:74: ( genericTypeArgumentListSimplified )?
+                                // ../etc/JamlAttrHash.g:1031:74: ( genericTypeArgumentListSimplified )?
                                 if ( stream_genericTypeArgumentListSimplified.hasNext() ) {
                                     adaptor.addChild(root_1, stream_genericTypeArgumentListSimplified.nextTree());
 
@@ -18446,7 +18447,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1031:17: arguments ( classBody )?
+                            // ../etc/JamlAttrHash.g:1032:17: arguments ( classBody )?
                             {
                             pushFollow(FOLLOW_arguments_in_newExpression14743);
                             arguments523=arguments();
@@ -18454,7 +18455,7 @@ import org.antlr.runtime.tree.*;
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_arguments.add(arguments523.getTree());
-                            // ../etc/JamlAttrHash.g:1031:27: ( classBody )?
+                            // ../etc/JamlAttrHash.g:1032:27: ( classBody )?
                             int alt149=2;
                             int LA149_0 = input.LA(1);
 
@@ -18480,7 +18481,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: classBody, genericTypeArgumentListSimplified, qualifiedTypeIdentSimplified, arguments
+                            // elements: arguments, qualifiedTypeIdentSimplified, classBody, genericTypeArgumentListSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18491,14 +18492,14 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1032:17: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? )
+                            // 1033:17: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? )
                             {
-                                // ../etc/JamlAttrHash.g:1032:21: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? )
+                                // ../etc/JamlAttrHash.g:1033:21: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_CONSTRUCTOR_CALL, NEW517, "STATIC_ARRAY_CREATOR"), root_1);
 
-                                // ../etc/JamlAttrHash.g:1032:76: ( genericTypeArgumentListSimplified )?
+                                // ../etc/JamlAttrHash.g:1033:76: ( genericTypeArgumentListSimplified )?
                                 if ( stream_genericTypeArgumentListSimplified.hasNext() ) {
                                     adaptor.addChild(root_1, stream_genericTypeArgumentListSimplified.nextTree());
 
@@ -18506,7 +18507,7 @@ import org.antlr.runtime.tree.*;
                                 stream_genericTypeArgumentListSimplified.reset();
                                 adaptor.addChild(root_1, stream_qualifiedTypeIdentSimplified.nextTree());
                                 adaptor.addChild(root_1, stream_arguments.nextTree());
-                                // ../etc/JamlAttrHash.g:1032:150: ( classBody )?
+                                // ../etc/JamlAttrHash.g:1033:150: ( classBody )?
                                 if ( stream_classBody.hasNext() ) {
                                     adaptor.addChild(root_1, stream_classBody.nextTree());
 
@@ -18561,7 +18562,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "innerNewExpression"
-    // ../etc/JamlAttrHash.g:1037:1: innerNewExpression : NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) ;
+    // ../etc/JamlAttrHash.g:1038:1: innerNewExpression : NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) ;
     public final JamlAttrHashParser.innerNewExpression_return innerNewExpression() throws RecognitionException {
     traceIn("innerNewExpression", 113);
         JamlAttrHashParser.innerNewExpression_return retval = new JamlAttrHashParser.innerNewExpression_return();
@@ -18587,13 +18588,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeArgumentListSimplified=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeArgumentListSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 113) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1038:5: ( NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) )
-            // ../etc/JamlAttrHash.g:1038:9: NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )?
+            // ../etc/JamlAttrHash.g:1039:5: ( NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) )
+            // ../etc/JamlAttrHash.g:1039:9: NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )?
             {
             NEW525=(Token)match(input,NEW,FOLLOW_NEW_in_innerNewExpression14844); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_NEW.add(NEW525);
 
-            // ../etc/JamlAttrHash.g:1038:13: ( genericTypeArgumentListSimplified )?
+            // ../etc/JamlAttrHash.g:1039:13: ( genericTypeArgumentListSimplified )?
             int alt152=2;
             int LA152_0 = input.LA(1);
 
@@ -18625,7 +18626,7 @@ import org.antlr.runtime.tree.*;
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_arguments.add(arguments528.getTree());
-            // ../etc/JamlAttrHash.g:1038:64: ( classBody )?
+            // ../etc/JamlAttrHash.g:1039:64: ( classBody )?
             int alt153=2;
             int LA153_0 = input.LA(1);
 
@@ -18651,7 +18652,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: genericTypeArgumentListSimplified, arguments, classBody, IDENT
+            // elements: arguments, IDENT, genericTypeArgumentListSimplified, classBody
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -18662,14 +18663,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 1039:9: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? )
+            // 1040:9: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? )
             {
-                // ../etc/JamlAttrHash.g:1039:13: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? )
+                // ../etc/JamlAttrHash.g:1040:13: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_CONSTRUCTOR_CALL, NEW525, "STATIC_ARRAY_CREATOR"), root_1);
 
-                // ../etc/JamlAttrHash.g:1039:68: ( genericTypeArgumentListSimplified )?
+                // ../etc/JamlAttrHash.g:1040:68: ( genericTypeArgumentListSimplified )?
                 if ( stream_genericTypeArgumentListSimplified.hasNext() ) {
                     adaptor.addChild(root_1, stream_genericTypeArgumentListSimplified.nextTree());
 
@@ -18677,7 +18678,7 @@ import org.antlr.runtime.tree.*;
                 stream_genericTypeArgumentListSimplified.reset();
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
                 adaptor.addChild(root_1, stream_arguments.nextTree());
-                // ../etc/JamlAttrHash.g:1039:119: ( classBody )?
+                // ../etc/JamlAttrHash.g:1040:119: ( classBody )?
                 if ( stream_classBody.hasNext() ) {
                     adaptor.addChild(root_1, stream_classBody.nextTree());
 
@@ -18720,7 +18721,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "newArrayConstruction"
-    // ../etc/JamlAttrHash.g:1042:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? );
+    // ../etc/JamlAttrHash.g:1043:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? );
     public final JamlAttrHashParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
     traceIn("newArrayConstruction", 114);
         JamlAttrHashParser.newArrayConstruction_return retval = new JamlAttrHashParser.newArrayConstruction_return();
@@ -18750,7 +18751,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 114) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1043:5: ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? )
+            // ../etc/JamlAttrHash.g:1044:5: ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? )
             int alt156=2;
             int LA156_0 = input.LA(1);
 
@@ -18780,7 +18781,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt156) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1043:9: arrayDeclaratorList arrayInitializer
+                    // ../etc/JamlAttrHash.g:1044:9: arrayDeclaratorList arrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -18800,7 +18801,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1044:9: LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )?
+                    // ../etc/JamlAttrHash.g:1045:9: LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -18812,14 +18813,14 @@ import org.antlr.runtime.tree.*;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expression533.getTree());
                     RBRACK534=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction14916); if (state.failed) return retval;
-                    // ../etc/JamlAttrHash.g:1044:36: ( LBRACK expression RBRACK )*
+                    // ../etc/JamlAttrHash.g:1045:36: ( LBRACK expression RBRACK )*
                     loop154:
                     do {
                         int alt154=2;
                         alt154 = dfa154.predict(input);
                         switch (alt154) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:1044:37: LBRACK expression RBRACK
+                    	    // ../etc/JamlAttrHash.g:1045:37: LBRACK expression RBRACK
                     	    {
                     	    LBRACK535=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction14920); if (state.failed) return retval;
                     	    pushFollow(FOLLOW_expression_in_newArrayConstruction14923);
@@ -18838,7 +18839,7 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:1044:66: ( arrayDeclaratorList )?
+                    // ../etc/JamlAttrHash.g:1045:66: ( arrayDeclaratorList )?
                     int alt155=2;
                     int LA155_0 = input.LA(1);
 
@@ -18898,7 +18899,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "arguments"
-    // ../etc/JamlAttrHash.g:1047:1: arguments : LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) ;
+    // ../etc/JamlAttrHash.g:1048:1: arguments : LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) ;
     public final JamlAttrHashParser.arguments_return arguments() throws RecognitionException {
     traceIn("arguments", 115);
         JamlAttrHashParser.arguments_return retval = new JamlAttrHashParser.arguments_return();
@@ -18918,13 +18919,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_expressionList=new RewriteRuleSubtreeStream(adaptor,"rule expressionList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 115) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1048:5: ( LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) )
-            // ../etc/JamlAttrHash.g:1048:9: LPAREN ( expressionList )? RPAREN
+            // ../etc/JamlAttrHash.g:1049:5: ( LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) )
+            // ../etc/JamlAttrHash.g:1049:9: LPAREN ( expressionList )? RPAREN
             {
             LPAREN539=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_arguments14950); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN539);
 
-            // ../etc/JamlAttrHash.g:1048:16: ( expressionList )?
+            // ../etc/JamlAttrHash.g:1049:16: ( expressionList )?
             int alt157=2;
             int LA157_0 = input.LA(1);
 
@@ -18964,14 +18965,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 1049:9: -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
+            // 1050:9: -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
             {
-                // ../etc/JamlAttrHash.g:1049:13: ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
+                // ../etc/JamlAttrHash.g:1050:13: ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARGUMENT_LIST, LPAREN539, "ARGUMENT_LIST"), root_1);
 
-                // ../etc/JamlAttrHash.g:1049:55: ( expressionList )?
+                // ../etc/JamlAttrHash.g:1050:55: ( expressionList )?
                 if ( stream_expressionList.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressionList.nextTree());
 
@@ -19012,7 +19013,7 @@ import org.antlr.runtime.tree.*;
     public final void synpred4_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred4_JamlAttrHash_fragment", 119);
         try {
-            // ../etc/JamlAttrHash.g:295:1: ( literal ',' | literal EOF )
+            // ../etc/JamlAttrHash.g:296:1: ( literal ',' | literal EOF )
             int alt158=2;
             switch ( input.LA(1) ) {
             case HEX_LITERAL:
@@ -19124,7 +19125,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt158) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:295:2: literal ','
+                    // ../etc/JamlAttrHash.g:296:2: literal ','
                     {
                     pushFollow(FOLLOW_literal_in_synpred4_JamlAttrHash4613);
                     literal();
@@ -19136,7 +19137,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:295:16: literal EOF
+                    // ../etc/JamlAttrHash.g:296:16: literal EOF
                     {
                     pushFollow(FOLLOW_literal_in_synpred4_JamlAttrHash4619);
                     literal();
@@ -19159,8 +19160,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred26_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred26_JamlAttrHash_fragment", 141);
         try {
-            // ../etc/JamlAttrHash.g:370:9: ( GREATER_THAN )
-            // ../etc/JamlAttrHash.g:370:9: GREATER_THAN
+            // ../etc/JamlAttrHash.g:371:9: ( GREATER_THAN )
+            // ../etc/JamlAttrHash.g:371:9: GREATER_THAN
             {
             match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_synpred26_JamlAttrHash5338); if (state.failed) return ;
 
@@ -19176,8 +19177,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred27_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred27_JamlAttrHash_fragment", 142);
         try {
-            // ../etc/JamlAttrHash.g:371:9: ( SHIFT_RIGHT )
-            // ../etc/JamlAttrHash.g:371:9: SHIFT_RIGHT
+            // ../etc/JamlAttrHash.g:372:9: ( SHIFT_RIGHT )
+            // ../etc/JamlAttrHash.g:372:9: SHIFT_RIGHT
             {
             match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_synpred27_JamlAttrHash5348); if (state.failed) return ;
 
@@ -19193,8 +19194,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred28_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred28_JamlAttrHash_fragment", 143);
         try {
-            // ../etc/JamlAttrHash.g:372:9: ( BIT_SHIFT_RIGHT )
-            // ../etc/JamlAttrHash.g:372:9: BIT_SHIFT_RIGHT
+            // ../etc/JamlAttrHash.g:373:9: ( BIT_SHIFT_RIGHT )
+            // ../etc/JamlAttrHash.g:373:9: BIT_SHIFT_RIGHT
             {
             match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_synpred28_JamlAttrHash5358); if (state.failed) return ;
 
@@ -19210,8 +19211,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred29_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred29_JamlAttrHash_fragment", 144);
         try {
-            // ../etc/JamlAttrHash.g:377:15: ( bound )
-            // ../etc/JamlAttrHash.g:377:15: bound
+            // ../etc/JamlAttrHash.g:378:15: ( bound )
+            // ../etc/JamlAttrHash.g:378:15: bound
             {
             pushFollow(FOLLOW_bound_in_synpred29_JamlAttrHash5388);
             bound();
@@ -19231,8 +19232,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred44_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred44_JamlAttrHash_fragment", 159);
         try {
-            // ../etc/JamlAttrHash.g:434:9: ( STATIC block )
-            // ../etc/JamlAttrHash.g:434:9: STATIC block
+            // ../etc/JamlAttrHash.g:435:9: ( STATIC block )
+            // ../etc/JamlAttrHash.g:435:9: STATIC block
             {
             match(input,STATIC,FOLLOW_STATIC_in_synpred44_JamlAttrHash5920); if (state.failed) return ;
             pushFollow(FOLLOW_block_in_synpred44_JamlAttrHash5922);
@@ -19255,10 +19256,10 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred54_JamlAttrHash_fragment", 169);
         try {
-            // ../etc/JamlAttrHash.g:436:13: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) )
-            // ../etc/JamlAttrHash.g:436:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
+            // ../etc/JamlAttrHash.g:437:13: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) )
+            // ../etc/JamlAttrHash.g:437:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
             {
-            // ../etc/JamlAttrHash.g:436:13: ( genericTypeParameterList )?
+            // ../etc/JamlAttrHash.g:437:13: ( genericTypeParameterList )?
             int alt164=2;
             int LA164_0 = input.LA(1);
 
@@ -19280,7 +19281,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:437:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
+            // ../etc/JamlAttrHash.g:438:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
             int alt171=3;
             switch ( input.LA(1) ) {
             case BOOLEAN:
@@ -19329,7 +19330,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt171) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:437:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
+                    // ../etc/JamlAttrHash.g:438:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                     {
                     pushFollow(FOLLOW_type_in_synpred54_JamlAttrHash5978);
                     type();
@@ -19342,7 +19343,7 @@ import org.antlr.runtime.tree.*;
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:437:48: ( arrayDeclaratorList )?
+                    // ../etc/JamlAttrHash.g:438:48: ( arrayDeclaratorList )?
                     int alt165=2;
                     int LA165_0 = input.LA(1);
 
@@ -19364,7 +19365,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:437:69: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:438:69: ( throwsClause )?
                     int alt166=2;
                     int LA166_0 = input.LA(1);
 
@@ -19386,7 +19387,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:437:83: ( block | SEMI )
+                    // ../etc/JamlAttrHash.g:438:83: ( block | SEMI )
                     int alt167=2;
                     int LA167_0 = input.LA(1);
 
@@ -19405,7 +19406,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt167) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:437:84: block
+                            // ../etc/JamlAttrHash.g:438:84: block
                             {
                             pushFollow(FOLLOW_block_in_synpred54_JamlAttrHash5991);
                             block();
@@ -19416,7 +19417,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:437:92: SEMI
+                            // ../etc/JamlAttrHash.g:438:92: SEMI
                             {
                             match(input,SEMI,FOLLOW_SEMI_in_synpred54_JamlAttrHash5995); if (state.failed) return ;
 
@@ -19429,7 +19430,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:439:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
+                    // ../etc/JamlAttrHash.g:440:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                     {
                     match(input,VOID,FOLLOW_VOID_in_synpred54_JamlAttrHash6057); if (state.failed) return ;
                     match(input,IDENT,FOLLOW_IDENT_in_synpred54_JamlAttrHash6059); if (state.failed) return ;
@@ -19438,7 +19439,7 @@ import org.antlr.runtime.tree.*;
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:439:48: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:440:48: ( throwsClause )?
                     int alt168=2;
                     int LA168_0 = input.LA(1);
 
@@ -19460,7 +19461,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:439:62: ( block | SEMI )
+                    // ../etc/JamlAttrHash.g:440:62: ( block | SEMI )
                     int alt169=2;
                     int LA169_0 = input.LA(1);
 
@@ -19479,7 +19480,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt169) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:439:63: block
+                            // ../etc/JamlAttrHash.g:440:63: block
                             {
                             pushFollow(FOLLOW_block_in_synpred54_JamlAttrHash6067);
                             block();
@@ -19490,7 +19491,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:439:71: SEMI
+                            // ../etc/JamlAttrHash.g:440:71: SEMI
                             {
                             match(input,SEMI,FOLLOW_SEMI_in_synpred54_JamlAttrHash6071); if (state.failed) return ;
 
@@ -19503,7 +19504,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:441:17: ident= IDENT formalParameterList ( throwsClause )? block
+                    // ../etc/JamlAttrHash.g:442:17: ident= IDENT formalParameterList ( throwsClause )? block
                     {
                     ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred54_JamlAttrHash6130); if (state.failed) return ;
                     pushFollow(FOLLOW_formalParameterList_in_synpred54_JamlAttrHash6132);
@@ -19511,7 +19512,7 @@ import org.antlr.runtime.tree.*;
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:441:49: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:442:49: ( throwsClause )?
                     int alt170=2;
                     int LA170_0 = input.LA(1);
 
@@ -19559,15 +19560,15 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred55_JamlAttrHash_fragment", 170);
         try {
-            // ../etc/JamlAttrHash.g:435:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI ) )
-            // ../etc/JamlAttrHash.g:435:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:436:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI ) )
+            // ../etc/JamlAttrHash.g:436:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
             {
             pushFollow(FOLLOW_modifierList_in_synpred55_JamlAttrHash5945);
             modifierList();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:436:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:437:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
             int alt180=2;
             switch ( input.LA(1) ) {
             case LESS_THAN:
@@ -19631,9 +19632,9 @@ import org.antlr.runtime.tree.*;
 
             switch (alt180) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:436:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
+                    // ../etc/JamlAttrHash.g:437:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
                     {
-                    // ../etc/JamlAttrHash.g:436:13: ( genericTypeParameterList )?
+                    // ../etc/JamlAttrHash.g:437:13: ( genericTypeParameterList )?
                     int alt172=2;
                     int LA172_0 = input.LA(1);
 
@@ -19655,7 +19656,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:437:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
+                    // ../etc/JamlAttrHash.g:438:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
                     int alt179=3;
                     switch ( input.LA(1) ) {
                     case BOOLEAN:
@@ -19704,7 +19705,7 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt179) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:437:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
+                            // ../etc/JamlAttrHash.g:438:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                             {
                             pushFollow(FOLLOW_type_in_synpred55_JamlAttrHash5978);
                             type();
@@ -19717,7 +19718,7 @@ import org.antlr.runtime.tree.*;
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:437:48: ( arrayDeclaratorList )?
+                            // ../etc/JamlAttrHash.g:438:48: ( arrayDeclaratorList )?
                             int alt173=2;
                             int LA173_0 = input.LA(1);
 
@@ -19739,7 +19740,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:437:69: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:438:69: ( throwsClause )?
                             int alt174=2;
                             int LA174_0 = input.LA(1);
 
@@ -19761,7 +19762,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:437:83: ( block | SEMI )
+                            // ../etc/JamlAttrHash.g:438:83: ( block | SEMI )
                             int alt175=2;
                             int LA175_0 = input.LA(1);
 
@@ -19780,7 +19781,7 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt175) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:437:84: block
+                                    // ../etc/JamlAttrHash.g:438:84: block
                                     {
                                     pushFollow(FOLLOW_block_in_synpred55_JamlAttrHash5991);
                                     block();
@@ -19791,7 +19792,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:437:92: SEMI
+                                    // ../etc/JamlAttrHash.g:438:92: SEMI
                                     {
                                     match(input,SEMI,FOLLOW_SEMI_in_synpred55_JamlAttrHash5995); if (state.failed) return ;
 
@@ -19804,7 +19805,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:439:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
+                            // ../etc/JamlAttrHash.g:440:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                             {
                             match(input,VOID,FOLLOW_VOID_in_synpred55_JamlAttrHash6057); if (state.failed) return ;
                             match(input,IDENT,FOLLOW_IDENT_in_synpred55_JamlAttrHash6059); if (state.failed) return ;
@@ -19813,7 +19814,7 @@ import org.antlr.runtime.tree.*;
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:439:48: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:440:48: ( throwsClause )?
                             int alt176=2;
                             int LA176_0 = input.LA(1);
 
@@ -19835,7 +19836,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:439:62: ( block | SEMI )
+                            // ../etc/JamlAttrHash.g:440:62: ( block | SEMI )
                             int alt177=2;
                             int LA177_0 = input.LA(1);
 
@@ -19854,7 +19855,7 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt177) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:439:63: block
+                                    // ../etc/JamlAttrHash.g:440:63: block
                                     {
                                     pushFollow(FOLLOW_block_in_synpred55_JamlAttrHash6067);
                                     block();
@@ -19865,7 +19866,7 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:439:71: SEMI
+                                    // ../etc/JamlAttrHash.g:440:71: SEMI
                                     {
                                     match(input,SEMI,FOLLOW_SEMI_in_synpred55_JamlAttrHash6071); if (state.failed) return ;
 
@@ -19878,7 +19879,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:441:17: ident= IDENT formalParameterList ( throwsClause )? block
+                            // ../etc/JamlAttrHash.g:442:17: ident= IDENT formalParameterList ( throwsClause )? block
                             {
                             ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred55_JamlAttrHash6130); if (state.failed) return ;
                             pushFollow(FOLLOW_formalParameterList_in_synpred55_JamlAttrHash6132);
@@ -19886,7 +19887,7 @@ import org.antlr.runtime.tree.*;
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:441:49: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:442:49: ( throwsClause )?
                             int alt178=2;
                             int LA178_0 = input.LA(1);
 
@@ -19923,7 +19924,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:444:13: type classFieldDeclaratorList SEMI
+                    // ../etc/JamlAttrHash.g:445:13: type classFieldDeclaratorList SEMI
                     {
                     pushFollow(FOLLOW_type_in_synpred55_JamlAttrHash6201);
                     type();
@@ -19955,8 +19956,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred56_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred56_JamlAttrHash_fragment", 171);
         try {
-            // ../etc/JamlAttrHash.g:447:9: ( typeDeclaration )
-            // ../etc/JamlAttrHash.g:447:9: typeDeclaration
+            // ../etc/JamlAttrHash.g:448:9: ( typeDeclaration )
+            // ../etc/JamlAttrHash.g:448:9: typeDeclaration
             {
             pushFollow(FOLLOW_typeDeclaration_in_synpred56_JamlAttrHash6250);
             typeDeclaration();
@@ -19976,10 +19977,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred62_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred62_JamlAttrHash_fragment", 177);
         try {
-            // ../etc/JamlAttrHash.g:453:13: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) )
-            // ../etc/JamlAttrHash.g:453:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
+            // ../etc/JamlAttrHash.g:454:13: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) )
+            // ../etc/JamlAttrHash.g:454:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
             {
-            // ../etc/JamlAttrHash.g:453:13: ( genericTypeParameterList )?
+            // ../etc/JamlAttrHash.g:454:13: ( genericTypeParameterList )?
             int alt183=2;
             int LA183_0 = input.LA(1);
 
@@ -20001,7 +20002,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:454:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
+            // ../etc/JamlAttrHash.g:455:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
             int alt187=2;
             int LA187_0 = input.LA(1);
 
@@ -20020,7 +20021,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt187) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:454:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
+                    // ../etc/JamlAttrHash.g:455:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                     {
                     pushFollow(FOLLOW_type_in_synpred62_JamlAttrHash6325);
                     type();
@@ -20033,7 +20034,7 @@ import org.antlr.runtime.tree.*;
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:454:48: ( arrayDeclaratorList )?
+                    // ../etc/JamlAttrHash.g:455:48: ( arrayDeclaratorList )?
                     int alt184=2;
                     int LA184_0 = input.LA(1);
 
@@ -20055,7 +20056,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:454:69: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:455:69: ( throwsClause )?
                     int alt185=2;
                     int LA185_0 = input.LA(1);
 
@@ -20082,7 +20083,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:456:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
+                    // ../etc/JamlAttrHash.g:457:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                     {
                     match(input,VOID,FOLLOW_VOID_in_synpred62_JamlAttrHash6395); if (state.failed) return ;
                     match(input,IDENT,FOLLOW_IDENT_in_synpred62_JamlAttrHash6397); if (state.failed) return ;
@@ -20091,7 +20092,7 @@ import org.antlr.runtime.tree.*;
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:456:48: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:457:48: ( throwsClause )?
                     int alt186=2;
                     int LA186_0 = input.LA(1);
 
@@ -20133,15 +20134,15 @@ import org.antlr.runtime.tree.*;
     public final void synpred63_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred63_JamlAttrHash_fragment", 178);
         try {
-            // ../etc/JamlAttrHash.g:452:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI ) )
-            // ../etc/JamlAttrHash.g:452:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:453:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI ) )
+            // ../etc/JamlAttrHash.g:453:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
             {
             pushFollow(FOLLOW_modifierList_in_synpred63_JamlAttrHash6292);
             modifierList();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:453:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:454:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
             int alt193=2;
             switch ( input.LA(1) ) {
             case LESS_THAN:
@@ -20205,9 +20206,9 @@ import org.antlr.runtime.tree.*;
 
             switch (alt193) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:453:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
+                    // ../etc/JamlAttrHash.g:454:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
                     {
-                    // ../etc/JamlAttrHash.g:453:13: ( genericTypeParameterList )?
+                    // ../etc/JamlAttrHash.g:454:13: ( genericTypeParameterList )?
                     int alt188=2;
                     int LA188_0 = input.LA(1);
 
@@ -20229,7 +20230,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:454:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
+                    // ../etc/JamlAttrHash.g:455:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
                     int alt192=2;
                     int LA192_0 = input.LA(1);
 
@@ -20248,7 +20249,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt192) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:454:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
+                            // ../etc/JamlAttrHash.g:455:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                             {
                             pushFollow(FOLLOW_type_in_synpred63_JamlAttrHash6325);
                             type();
@@ -20261,7 +20262,7 @@ import org.antlr.runtime.tree.*;
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:454:48: ( arrayDeclaratorList )?
+                            // ../etc/JamlAttrHash.g:455:48: ( arrayDeclaratorList )?
                             int alt189=2;
                             int LA189_0 = input.LA(1);
 
@@ -20283,7 +20284,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:454:69: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:455:69: ( throwsClause )?
                             int alt190=2;
                             int LA190_0 = input.LA(1);
 
@@ -20310,7 +20311,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:456:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
+                            // ../etc/JamlAttrHash.g:457:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                             {
                             match(input,VOID,FOLLOW_VOID_in_synpred63_JamlAttrHash6395); if (state.failed) return ;
                             match(input,IDENT,FOLLOW_IDENT_in_synpred63_JamlAttrHash6397); if (state.failed) return ;
@@ -20319,7 +20320,7 @@ import org.antlr.runtime.tree.*;
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:456:48: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:457:48: ( throwsClause )?
                             int alt191=2;
                             int LA191_0 = input.LA(1);
 
@@ -20352,7 +20353,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:459:13: type interfaceFieldDeclaratorList SEMI
+                    // ../etc/JamlAttrHash.g:460:13: type interfaceFieldDeclaratorList SEMI
                     {
                     pushFollow(FOLLOW_type_in_synpred63_JamlAttrHash6467);
                     type();
@@ -20384,8 +20385,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred64_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred64_JamlAttrHash_fragment", 179);
         try {
-            // ../etc/JamlAttrHash.g:462:9: ( typeDeclaration )
-            // ../etc/JamlAttrHash.g:462:9: typeDeclaration
+            // ../etc/JamlAttrHash.g:463:9: ( typeDeclaration )
+            // ../etc/JamlAttrHash.g:463:9: typeDeclaration
             {
             pushFollow(FOLLOW_typeDeclaration_in_synpred64_JamlAttrHash6516);
             typeDeclaration();
@@ -20405,8 +20406,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred70_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred70_JamlAttrHash_fragment", 185);
         try {
-            // ../etc/JamlAttrHash.g:501:9: ( arrayDeclarator )
-            // ../etc/JamlAttrHash.g:501:9: arrayDeclarator
+            // ../etc/JamlAttrHash.g:502:9: ( arrayDeclarator )
+            // ../etc/JamlAttrHash.g:502:9: arrayDeclarator
             {
             pushFollow(FOLLOW_arrayDeclarator_in_synpred70_JamlAttrHash6818);
             arrayDeclarator();
@@ -20426,8 +20427,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred88_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred88_JamlAttrHash_fragment", 203);
         try {
-            // ../etc/JamlAttrHash.g:550:23: ( arrayDeclaratorList )
-            // ../etc/JamlAttrHash.g:550:23: arrayDeclaratorList
+            // ../etc/JamlAttrHash.g:551:23: ( arrayDeclaratorList )
+            // ../etc/JamlAttrHash.g:551:23: arrayDeclaratorList
             {
             pushFollow(FOLLOW_arrayDeclaratorList_in_synpred88_JamlAttrHash7219);
             arrayDeclaratorList();
@@ -20447,8 +20448,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred89_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred89_JamlAttrHash_fragment", 204);
         try {
-            // ../etc/JamlAttrHash.g:555:28: ( arrayDeclaratorList )
-            // ../etc/JamlAttrHash.g:555:28: arrayDeclaratorList
+            // ../etc/JamlAttrHash.g:556:28: ( arrayDeclaratorList )
+            // ../etc/JamlAttrHash.g:556:28: arrayDeclaratorList
             {
             pushFollow(FOLLOW_arrayDeclaratorList_in_synpred89_JamlAttrHash7268);
             arrayDeclaratorList();
@@ -20468,8 +20469,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred91_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred91_JamlAttrHash_fragment", 206);
         try {
-            // ../etc/JamlAttrHash.g:565:20: ( DOT typeIdent )
-            // ../etc/JamlAttrHash.g:565:20: DOT typeIdent
+            // ../etc/JamlAttrHash.g:566:20: ( DOT typeIdent )
+            // ../etc/JamlAttrHash.g:566:20: DOT typeIdent
             {
             match(input,DOT,FOLLOW_DOT_in_synpred91_JamlAttrHash7353); if (state.failed) return ;
             pushFollow(FOLLOW_typeIdent_in_synpred91_JamlAttrHash7355);
@@ -20490,8 +20491,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred102_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred102_JamlAttrHash_fragment", 217);
         try {
-            // ../etc/JamlAttrHash.g:594:40: ( COMMA genericTypeArgument )
-            // ../etc/JamlAttrHash.g:594:40: COMMA genericTypeArgument
+            // ../etc/JamlAttrHash.g:595:40: ( COMMA genericTypeArgument )
+            // ../etc/JamlAttrHash.g:595:40: COMMA genericTypeArgument
             {
             match(input,COMMA,FOLLOW_COMMA_in_synpred102_JamlAttrHash7580); if (state.failed) return ;
             pushFollow(FOLLOW_genericTypeArgument_in_synpred102_JamlAttrHash7582);
@@ -20512,8 +20513,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred104_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred104_JamlAttrHash_fragment", 219);
         try {
-            // ../etc/JamlAttrHash.g:600:18: ( genericWildcardBoundType )
-            // ../etc/JamlAttrHash.g:600:18: genericWildcardBoundType
+            // ../etc/JamlAttrHash.g:601:18: ( genericWildcardBoundType )
+            // ../etc/JamlAttrHash.g:601:18: genericWildcardBoundType
             {
             pushFollow(FOLLOW_genericWildcardBoundType_in_synpred104_JamlAttrHash7636);
             genericWildcardBoundType();
@@ -20533,8 +20534,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred109_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred109_JamlAttrHash_fragment", 224);
         try {
-            // ../etc/JamlAttrHash.g:625:42: ( COMMA formalParameterStandardDecl )
-            // ../etc/JamlAttrHash.g:625:42: COMMA formalParameterStandardDecl
+            // ../etc/JamlAttrHash.g:626:42: ( COMMA formalParameterStandardDecl )
+            // ../etc/JamlAttrHash.g:626:42: COMMA formalParameterStandardDecl
             {
             match(input,COMMA,FOLLOW_COMMA_in_synpred109_JamlAttrHash7854); if (state.failed) return ;
             pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred109_JamlAttrHash7856);
@@ -20555,15 +20556,15 @@ import org.antlr.runtime.tree.*;
     public final void synpred111_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred111_JamlAttrHash_fragment", 226);
         try {
-            // ../etc/JamlAttrHash.g:625:13: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? )
-            // ../etc/JamlAttrHash.g:625:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
+            // ../etc/JamlAttrHash.g:626:13: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? )
+            // ../etc/JamlAttrHash.g:626:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
             {
             pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred111_JamlAttrHash7851);
             formalParameterStandardDecl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:625:41: ( COMMA formalParameterStandardDecl )*
+            // ../etc/JamlAttrHash.g:626:41: ( COMMA formalParameterStandardDecl )*
             loop196:
             do {
                 int alt196=2;
@@ -20582,7 +20583,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt196) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:625:42: COMMA formalParameterStandardDecl
+            	    // ../etc/JamlAttrHash.g:626:42: COMMA formalParameterStandardDecl
             	    {
             	    match(input,COMMA,FOLLOW_COMMA_in_synpred111_JamlAttrHash7854); if (state.failed) return ;
             	    pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred111_JamlAttrHash7856);
@@ -20599,7 +20600,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            // ../etc/JamlAttrHash.g:625:78: ( COMMA formalParameterVarArgDecl )?
+            // ../etc/JamlAttrHash.g:626:78: ( COMMA formalParameterVarArgDecl )?
             int alt197=2;
             int LA197_0 = input.LA(1);
 
@@ -20608,7 +20609,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt197) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:625:79: COMMA formalParameterVarArgDecl
+                    // ../etc/JamlAttrHash.g:626:79: COMMA formalParameterVarArgDecl
                     {
                     match(input,COMMA,FOLLOW_COMMA_in_synpred111_JamlAttrHash7861); if (state.failed) return ;
                     pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred111_JamlAttrHash7863);
@@ -20635,8 +20636,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred112_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred112_JamlAttrHash_fragment", 227);
         try {
-            // ../etc/JamlAttrHash.g:628:13: ( formalParameterVarArgDecl )
-            // ../etc/JamlAttrHash.g:628:13: formalParameterVarArgDecl
+            // ../etc/JamlAttrHash.g:629:13: ( formalParameterVarArgDecl )
+            // ../etc/JamlAttrHash.g:629:13: formalParameterVarArgDecl
             {
             pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred112_JamlAttrHash7920);
             formalParameterVarArgDecl();
@@ -20658,8 +20659,8 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred113_JamlAttrHash_fragment", 228);
         try {
-            // ../etc/JamlAttrHash.g:649:13: ( DOT ident= IDENT )
-            // ../etc/JamlAttrHash.g:649:13: DOT ident= IDENT
+            // ../etc/JamlAttrHash.g:650:13: ( DOT ident= IDENT )
+            // ../etc/JamlAttrHash.g:650:13: DOT ident= IDENT
             {
             match(input,DOT,FOLLOW_DOT_in_synpred113_JamlAttrHash8165); if (state.failed) return ;
             ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash8169); if (state.failed) return ;
@@ -20676,8 +20677,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred114_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred114_JamlAttrHash_fragment", 229);
         try {
-            // ../etc/JamlAttrHash.g:656:9: ( annotation )
-            // ../etc/JamlAttrHash.g:656:9: annotation
+            // ../etc/JamlAttrHash.g:657:9: ( annotation )
+            // ../etc/JamlAttrHash.g:657:9: annotation
             {
             pushFollow(FOLLOW_annotation_in_synpred114_JamlAttrHash8222);
             annotation();
@@ -20697,8 +20698,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred126_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred126_JamlAttrHash_fragment", 241);
         try {
-            // ../etc/JamlAttrHash.g:707:9: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI ) )
-            // ../etc/JamlAttrHash.g:707:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:708:9: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI ) )
+            // ../etc/JamlAttrHash.g:708:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
             {
             pushFollow(FOLLOW_modifierList_in_synpred126_JamlAttrHash8676);
             modifierList();
@@ -20710,7 +20711,7 @@ import org.antlr.runtime.tree.*;
 
             state._fsp--;
             if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:708:9: ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:709:9: ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
             int alt202=2;
             int LA202_0 = input.LA(1);
 
@@ -20740,12 +20741,12 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt202) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:708:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
+                    // ../etc/JamlAttrHash.g:709:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
                     {
                     match(input,IDENT,FOLLOW_IDENT_in_synpred126_JamlAttrHash8692); if (state.failed) return ;
                     match(input,LPAREN,FOLLOW_LPAREN_in_synpred126_JamlAttrHash8694); if (state.failed) return ;
                     match(input,RPAREN,FOLLOW_RPAREN_in_synpred126_JamlAttrHash8696); if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:708:33: ( annotationDefaultValue )?
+                    // ../etc/JamlAttrHash.g:709:33: ( annotationDefaultValue )?
                     int alt201=2;
                     int LA201_0 = input.LA(1);
 
@@ -20772,7 +20773,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:710:13: classFieldDeclaratorList SEMI
+                    // ../etc/JamlAttrHash.g:711:13: classFieldDeclaratorList SEMI
                     {
                     pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred126_JamlAttrHash8743);
                     classFieldDeclaratorList();
@@ -20799,8 +20800,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred128_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred128_JamlAttrHash_fragment", 243);
         try {
-            // ../etc/JamlAttrHash.g:728:9: ( localVariableDeclaration SEMI )
-            // ../etc/JamlAttrHash.g:728:9: localVariableDeclaration SEMI
+            // ../etc/JamlAttrHash.g:729:9: ( localVariableDeclaration SEMI )
+            // ../etc/JamlAttrHash.g:729:9: localVariableDeclaration SEMI
             {
             pushFollow(FOLLOW_localVariableDeclaration_in_synpred128_JamlAttrHash8880);
             localVariableDeclaration();
@@ -20821,8 +20822,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred129_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred129_JamlAttrHash_fragment", 244);
         try {
-            // ../etc/JamlAttrHash.g:729:9: ( typeDeclaration )
-            // ../etc/JamlAttrHash.g:729:9: typeDeclaration
+            // ../etc/JamlAttrHash.g:730:9: ( typeDeclaration )
+            // ../etc/JamlAttrHash.g:730:9: typeDeclaration
             {
             pushFollow(FOLLOW_typeDeclaration_in_synpred129_JamlAttrHash8893);
             typeDeclaration();
@@ -20845,8 +20846,8 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred133_JamlAttrHash_fragment", 248);
         try {
-            // ../etc/JamlAttrHash.g:746:13: ( ELSE elseStat= statement )
-            // ../etc/JamlAttrHash.g:746:13: ELSE elseStat= statement
+            // ../etc/JamlAttrHash.g:747:13: ( ELSE elseStat= statement )
+            // ../etc/JamlAttrHash.g:747:13: ELSE elseStat= statement
             {
             match(input,ELSE,FOLLOW_ELSE_in_synpred133_JamlAttrHash9191); if (state.failed) return ;
             pushFollow(FOLLOW_statement_in_synpred133_JamlAttrHash9195);
@@ -20867,8 +20868,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred135_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred135_JamlAttrHash_fragment", 250);
         try {
-            // ../etc/JamlAttrHash.g:750:13: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement )
-            // ../etc/JamlAttrHash.g:750:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
+            // ../etc/JamlAttrHash.g:751:13: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement )
+            // ../etc/JamlAttrHash.g:751:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
             {
             pushFollow(FOLLOW_forInit_in_synpred135_JamlAttrHash9378);
             forInit();
@@ -20906,8 +20907,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred155_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred155_JamlAttrHash_fragment", 270);
         try {
-            // ../etc/JamlAttrHash.g:788:9: ( switchCaseLabel )
-            // ../etc/JamlAttrHash.g:788:9: switchCaseLabel
+            // ../etc/JamlAttrHash.g:789:9: ( switchCaseLabel )
+            // ../etc/JamlAttrHash.g:789:9: switchCaseLabel
             {
             pushFollow(FOLLOW_switchCaseLabel_in_synpred155_JamlAttrHash10357);
             switchCaseLabel();
@@ -20927,8 +20928,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred158_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred158_JamlAttrHash_fragment", 273);
         try {
-            // ../etc/JamlAttrHash.g:800:9: ( localVariableDeclaration )
-            // ../etc/JamlAttrHash.g:800:9: localVariableDeclaration
+            // ../etc/JamlAttrHash.g:801:9: ( localVariableDeclaration )
+            // ../etc/JamlAttrHash.g:801:9: localVariableDeclaration
             {
             pushFollow(FOLLOW_localVariableDeclaration_in_synpred158_JamlAttrHash10447);
             localVariableDeclaration();
@@ -20948,8 +20949,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred159_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred159_JamlAttrHash_fragment", 274);
         try {
-            // ../etc/JamlAttrHash.g:801:9: ( expressionList )
-            // ../etc/JamlAttrHash.g:801:9: expressionList
+            // ../etc/JamlAttrHash.g:802:9: ( expressionList )
+            // ../etc/JamlAttrHash.g:802:9: expressionList
             {
             pushFollow(FOLLOW_expressionList_in_synpred159_JamlAttrHash10469);
             expressionList();
@@ -20969,8 +20970,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred202_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred202_JamlAttrHash_fragment", 317);
         try {
-            // ../etc/JamlAttrHash.g:937:9: ( LPAREN type RPAREN unaryExpression )
-            // ../etc/JamlAttrHash.g:937:9: LPAREN type RPAREN unaryExpression
+            // ../etc/JamlAttrHash.g:938:9: ( LPAREN type RPAREN unaryExpression )
+            // ../etc/JamlAttrHash.g:938:9: LPAREN type RPAREN unaryExpression
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_synpred202_JamlAttrHash12002); if (state.failed) return ;
             pushFollow(FOLLOW_type_in_synpred202_JamlAttrHash12004);
@@ -20997,10 +20998,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred230_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred230_JamlAttrHash_fragment", 345);
         try {
-            // ../etc/JamlAttrHash.g:1005:13: ( ( arrayDeclarator )+ ( DOT CLASS ) )
-            // ../etc/JamlAttrHash.g:1005:13: ( arrayDeclarator )+ ( DOT CLASS )
+            // ../etc/JamlAttrHash.g:1006:13: ( ( arrayDeclarator )+ ( DOT CLASS ) )
+            // ../etc/JamlAttrHash.g:1006:13: ( arrayDeclarator )+ ( DOT CLASS )
             {
-            // ../etc/JamlAttrHash.g:1005:13: ( arrayDeclarator )+
+            // ../etc/JamlAttrHash.g:1006:13: ( arrayDeclarator )+
             int cnt225=0;
             loop225:
             do {
@@ -21014,7 +21015,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt225) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1005:17: arrayDeclarator
+            	    // ../etc/JamlAttrHash.g:1006:17: arrayDeclarator
             	    {
             	    pushFollow(FOLLOW_arrayDeclarator_in_synpred230_JamlAttrHash13909);
             	    arrayDeclarator();
@@ -21035,8 +21036,8 @@ import org.antlr.runtime.tree.*;
                 cnt225++;
             } while (true);
 
-            // ../etc/JamlAttrHash.g:1007:13: ( DOT CLASS )
-            // ../etc/JamlAttrHash.g:1007:17: DOT CLASS
+            // ../etc/JamlAttrHash.g:1008:13: ( DOT CLASS )
+            // ../etc/JamlAttrHash.g:1008:17: DOT CLASS
             {
             match(input,DOT,FOLLOW_DOT_in_synpred230_JamlAttrHash13977); if (state.failed) return ;
             match(input,CLASS,FOLLOW_CLASS_in_synpred230_JamlAttrHash13979); if (state.failed) return ;
@@ -21060,11 +21061,11 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred238_JamlAttrHash_fragment", 353);
         try {
-            // ../etc/JamlAttrHash.g:1010:13: (outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression ) )
-            // ../etc/JamlAttrHash.g:1010:13: outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
+            // ../etc/JamlAttrHash.g:1011:13: (outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression ) )
+            // ../etc/JamlAttrHash.g:1011:13: outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
             {
             outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred238_JamlAttrHash14110); if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:1011:13: ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
+            // ../etc/JamlAttrHash.g:1012:13: ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
             int alt228=5;
             switch ( input.LA(1) ) {
             case CLASS:
@@ -21102,21 +21103,21 @@ import org.antlr.runtime.tree.*;
 
             switch (alt228) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1011:17: CLASS
+                    // ../etc/JamlAttrHash.g:1012:17: CLASS
                     {
                     match(input,CLASS,FOLLOW_CLASS_in_synpred238_JamlAttrHash14128); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1012:17: genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
+                    // ../etc/JamlAttrHash.g:1013:17: genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
                     {
                     pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_synpred238_JamlAttrHash14191);
                     genericTypeArgumentListSimplified();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:1013:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
+                    // ../etc/JamlAttrHash.g:1014:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
                     int alt227=3;
                     int LA227_0 = input.LA(1);
 
@@ -21149,7 +21150,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt227) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1013:21: Super= SUPER arguments
+                            // ../etc/JamlAttrHash.g:1014:21: Super= SUPER arguments
                             {
                             Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred238_JamlAttrHash14216); if (state.failed) return ;
                             pushFollow(FOLLOW_arguments_in_synpred238_JamlAttrHash14218);
@@ -21161,7 +21162,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1014:21: SUPER innerDot= DOT IDENT arguments
+                            // ../etc/JamlAttrHash.g:1015:21: SUPER innerDot= DOT IDENT arguments
                             {
                             match(input,SUPER,FOLLOW_SUPER_in_synpred238_JamlAttrHash14268); if (state.failed) return ;
                             innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred238_JamlAttrHash14272); if (state.failed) return ;
@@ -21175,7 +21176,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:1015:21: IDENT arguments
+                            // ../etc/JamlAttrHash.g:1016:21: IDENT arguments
                             {
                             match(input,IDENT,FOLLOW_IDENT_in_synpred238_JamlAttrHash14326); if (state.failed) return ;
                             pushFollow(FOLLOW_arguments_in_synpred238_JamlAttrHash14328);
@@ -21193,14 +21194,14 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:1017:17: THIS
+                    // ../etc/JamlAttrHash.g:1018:17: THIS
                     {
                     match(input,THIS,FOLLOW_THIS_in_synpred238_JamlAttrHash14403); if (state.failed) return ;
 
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:1018:17: Super= SUPER arguments
+                    // ../etc/JamlAttrHash.g:1019:17: Super= SUPER arguments
                     {
                     Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred238_JamlAttrHash14469); if (state.failed) return ;
                     pushFollow(FOLLOW_arguments_in_synpred238_JamlAttrHash14471);
@@ -21212,7 +21213,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:1019:17: innerNewExpression
+                    // ../etc/JamlAttrHash.g:1020:17: innerNewExpression
                     {
                     pushFollow(FOLLOW_innerNewExpression_in_synpred238_JamlAttrHash14519);
                     innerNewExpression();
@@ -21238,8 +21239,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred246_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred246_JamlAttrHash_fragment", 361);
         try {
-            // ../etc/JamlAttrHash.g:1044:37: ( LBRACK expression RBRACK )
-            // ../etc/JamlAttrHash.g:1044:37: LBRACK expression RBRACK
+            // ../etc/JamlAttrHash.g:1045:37: ( LBRACK expression RBRACK )
+            // ../etc/JamlAttrHash.g:1045:37: LBRACK expression RBRACK
             {
             match(input,LBRACK,FOLLOW_LBRACK_in_synpred246_JamlAttrHash14920); if (state.failed) return ;
             pushFollow(FOLLOW_expression_in_synpred246_JamlAttrHash14923);
@@ -21835,7 +21836,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA40_transition;
         }
         public String getDescription() {
-            return "432:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
+            return "433:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22102,7 +22103,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA47_transition;
         }
         public String getDescription() {
-            return "451:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
+            return "452:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22362,7 +22363,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA90_transition;
         }
         public String getDescription() {
-            return "706:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );";
+            return "707:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22655,7 +22656,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA92_transition;
         }
         public String getDescription() {
-            return "727:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );";
+            return "728:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22814,7 +22815,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA101_transition;
         }
         public String getDescription() {
-            return "739:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );";
+            return "740:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );";
         }
     }
     static final String DFA95_eotS =
@@ -22890,7 +22891,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA95_transition;
         }
         public String getDescription() {
-            return "750:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )";
+            return "751:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23036,7 +23037,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA107_transition;
         }
         public String getDescription() {
-            return "799:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );";
+            return "800:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23145,7 +23146,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA131_transition;
         }
         public String getDescription() {
-            return "934:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );";
+            return "935:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23234,7 +23235,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA143_transition;
         }
         public String getDescription() {
-            return "969:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );";
+            return "970:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );";
         }
     }
     static final String DFA147_eotS =
@@ -23331,7 +23332,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA147_transition;
         }
         public String getDescription() {
-            return "1005:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?";
+            return "1006:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23467,7 +23468,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA154_transition;
         }
         public String getDescription() {
-            return "()* loopback of 1044:36: ( LBRACK expression RBRACK )*";
+            return "()* loopback of 1045:36: ( LBRACK expression RBRACK )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
