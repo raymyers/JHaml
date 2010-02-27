@@ -30,7 +30,7 @@ public class JamlTest {
        
        @Test
        public void idAndClassElement() {
-               assertEquals("<div id='id' class='atlantis'></div>", jaml.parse("#id.atlantis").trim());
+               assertEquals("<div class='atlantis' id='id'></div>", jaml.parse("#id.atlantis").trim());
        }
 
        @Test
@@ -143,5 +143,19 @@ public class JamlTest {
        public void crNewLine() {
     	   String html = "<p>foo</p>\n<p>bar</p>\n<p>baz</p>\n<p>boom</p>";
     	   assertEquals(html, jaml.parse("%p foo\r%p bar\r\n%p baz\n\r%p boom"));
+       }
+       
+       @Test
+       public void elementsWithMultipleClasses() {
+    	   String html = "<p class='a b c'></p>";
+    	   assertEquals(html, jaml.parse("%p.b.c{:class=>'a'}"));
+       }
+       
+       @Test
+       public void elementsWithMultipleIds() {
+    	   // Haml handles multiple ids differently from classes.
+    	   // This matches behavior of Haml 2.2.20.
+    	   String html = "<p id='c_a'></p>";
+    	   assertEquals(html, jaml.parse("%p#b#c{:id=>'a'}"));
        }
 }

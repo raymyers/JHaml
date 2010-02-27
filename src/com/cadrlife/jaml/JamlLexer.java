@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-02-27 11:49:44
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-02-27 12:51:42
 
 package com.cadrlife.jaml;
 
@@ -81,8 +81,8 @@ import java.util.ArrayList;
         try {
             int _type = POUND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:124:6: ({...}? => '#' )
-            // ../etc/Jaml.g:124:8: {...}? => '#'
+            // ../etc/Jaml.g:130:6: ({...}? => '#' )
+            // ../etc/Jaml.g:130:8: {...}? => '#'
             {
             if ( !(( beginningOfLine )) ) {
                 throw new FailedPredicateException(input, "POUND", " beginningOfLine ");
@@ -107,8 +107,8 @@ import java.util.ArrayList;
         try {
             int _type = DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:125:4: ({...}? => '.' )
-            // ../etc/Jaml.g:125:6: {...}? => '.'
+            // ../etc/Jaml.g:131:4: ({...}? => '.' )
+            // ../etc/Jaml.g:131:6: {...}? => '.'
             {
             if ( !(( beginningOfLine )) ) {
                 throw new FailedPredicateException(input, "DOT", " beginningOfLine ");
@@ -133,8 +133,8 @@ import java.util.ArrayList;
         try {
             int _type = PERCENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:126:8: ({...}? => '%' )
-            // ../etc/Jaml.g:126:10: {...}? => '%'
+            // ../etc/Jaml.g:132:8: ({...}? => '%' )
+            // ../etc/Jaml.g:132:10: {...}? => '%'
             {
             if ( !(( beginningOfLine )) ) {
                 throw new FailedPredicateException(input, "PERCENT", " beginningOfLine ");
@@ -159,8 +159,8 @@ import java.util.ArrayList;
         try {
             int _type = FORWARD_SLASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:127:14: ({...}? => '/' )
-            // ../etc/Jaml.g:127:16: {...}? => '/'
+            // ../etc/Jaml.g:133:14: ({...}? => '/' )
+            // ../etc/Jaml.g:133:16: {...}? => '/'
             {
             if ( !(( !hashMode )) ) {
                 throw new FailedPredicateException(input, "FORWARD_SLASH", " !hashMode ");
@@ -184,8 +184,8 @@ import java.util.ArrayList;
         try {
             int _type = COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:128:6: ({...}? => ',' )
-            // ../etc/Jaml.g:128:8: {...}? => ','
+            // ../etc/Jaml.g:134:6: ({...}? => ',' )
+            // ../etc/Jaml.g:134:8: {...}? => ','
             {
             if ( !(( !textMode )) ) {
                 throw new FailedPredicateException(input, "COMMA", " !textMode ");
@@ -209,8 +209,8 @@ import java.util.ArrayList;
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:129:5: ({...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
-            // ../etc/Jaml.g:129:7: {...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../etc/Jaml.g:135:5: ({...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
+            // ../etc/Jaml.g:135:7: {...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             {
             if ( !(( !textMode )) ) {
                 throw new FailedPredicateException(input, "ID", " !textMode ");
@@ -224,7 +224,7 @@ import java.util.ArrayList;
                 recover(mse);
                 throw mse;}
 
-            // ../etc/Jaml.g:130:23: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../etc/Jaml.g:136:23: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -276,8 +276,8 @@ import java.util.ArrayList;
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:134:4: ({...}? => Spaces )
-            // ../etc/Jaml.g:134:6: {...}? => Spaces
+            // ../etc/Jaml.g:140:4: ({...}? => Spaces )
+            // ../etc/Jaml.g:140:6: {...}? => Spaces
             {
             if ( !(( !textMode )) ) {
                 throw new FailedPredicateException(input, "WS", " !textMode ");
@@ -302,8 +302,8 @@ import java.util.ArrayList;
         try {
             int _type = IGNORED_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:137:18: ({...}? => NL )
-            // ../etc/Jaml.g:137:20: {...}? => NL
+            // ../etc/Jaml.g:143:18: ({...}? => NL )
+            // ../etc/Jaml.g:143:20: {...}? => NL
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "IGNORED_NEWLINE", " hashMode ");
@@ -328,20 +328,20 @@ import java.util.ArrayList;
             int _type = CHANGE_INDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
              int tb = 0; 
-            // ../etc/Jaml.g:140:23: ({...}? => ( NL ) ( ' ' )* )
-            // ../etc/Jaml.g:140:24: {...}? => ( NL ) ( ' ' )*
+            // ../etc/Jaml.g:146:23: ({...}? => ( NL ) ( ' ' )* )
+            // ../etc/Jaml.g:146:24: {...}? => ( NL ) ( ' ' )*
             {
             if ( !(( !hashMode )) ) {
                 throw new FailedPredicateException(input, "CHANGE_INDENT", " !hashMode ");
             }
-            // ../etc/Jaml.g:141:2: ( NL )
-            // ../etc/Jaml.g:141:3: NL
+            // ../etc/Jaml.g:147:2: ( NL )
+            // ../etc/Jaml.g:147:3: NL
             {
             mNL(); 
 
             }
 
-            // ../etc/Jaml.g:141:7: ( ' ' )*
+            // ../etc/Jaml.g:147:7: ( ' ' )*
             loop2:
             do {
                 int alt2=2;
@@ -354,7 +354,7 @@ import java.util.ArrayList;
 
                 switch (alt2) {
             	case 1 :
-            	    // ../etc/Jaml.g:141:8: ' '
+            	    // ../etc/Jaml.g:147:8: ' '
             	    {
             	    match(' '); 
             	    tb++;
@@ -402,10 +402,10 @@ import java.util.ArrayList;
     public final void mNL() throws RecognitionException {
     traceIn("NL", 10);
         try {
-            // ../etc/Jaml.g:161:3: ( ( '\\r' )? '\\n' )
-            // ../etc/Jaml.g:161:5: ( '\\r' )? '\\n'
+            // ../etc/Jaml.g:167:3: ( ( '\\r' )? '\\n' )
+            // ../etc/Jaml.g:167:5: ( '\\r' )? '\\n'
             {
-            // ../etc/Jaml.g:161:5: ( '\\r' )?
+            // ../etc/Jaml.g:167:5: ( '\\r' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -414,7 +414,7 @@ import java.util.ArrayList;
             }
             switch (alt3) {
                 case 1 :
-                    // ../etc/Jaml.g:161:5: '\\r'
+                    // ../etc/Jaml.g:167:5: '\\r'
                     {
                     match('\r'); 
 
@@ -438,10 +438,10 @@ import java.util.ArrayList;
     public final void mSpacesQ() throws RecognitionException {
     traceIn("SpacesQ", 11);
         try {
-            // ../etc/Jaml.g:163:17: ( ( ' ' )* )
-            // ../etc/Jaml.g:163:19: ( ' ' )*
+            // ../etc/Jaml.g:169:17: ( ( ' ' )* )
+            // ../etc/Jaml.g:169:19: ( ' ' )*
             {
-            // ../etc/Jaml.g:163:19: ( ' ' )*
+            // ../etc/Jaml.g:169:19: ( ' ' )*
             loop4:
             do {
                 int alt4=2;
@@ -454,7 +454,7 @@ import java.util.ArrayList;
 
                 switch (alt4) {
             	case 1 :
-            	    // ../etc/Jaml.g:163:20: ' '
+            	    // ../etc/Jaml.g:169:20: ' '
             	    {
             	    match(' '); 
 
@@ -480,10 +480,10 @@ import java.util.ArrayList;
     public final void mSpaces() throws RecognitionException {
     traceIn("Spaces", 12);
         try {
-            // ../etc/Jaml.g:164:16: ( ( ' ' )+ )
-            // ../etc/Jaml.g:164:18: ( ' ' )+
+            // ../etc/Jaml.g:170:16: ( ( ' ' )+ )
+            // ../etc/Jaml.g:170:18: ( ' ' )+
             {
-            // ../etc/Jaml.g:164:18: ( ' ' )+
+            // ../etc/Jaml.g:170:18: ( ' ' )+
             int cnt5=0;
             loop5:
             do {
@@ -497,7 +497,7 @@ import java.util.ArrayList;
 
                 switch (alt5) {
             	case 1 :
-            	    // ../etc/Jaml.g:164:19: ' '
+            	    // ../etc/Jaml.g:170:19: ' '
             	    {
             	    match(' '); 
 
@@ -529,14 +529,14 @@ import java.util.ArrayList;
         try {
             int _type = StringLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:166:14: ({...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"' )
-            // ../etc/Jaml.g:166:16: {...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"'
+            // ../etc/Jaml.g:172:14: ({...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"' )
+            // ../etc/Jaml.g:172:16: {...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"'
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "StringLiteral", " hashMode ");
             }
             match('\"'); 
-            // ../etc/Jaml.g:167:9: ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )*
+            // ../etc/Jaml.g:173:9: ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )*
             loop6:
             do {
                 int alt6=3;
@@ -552,14 +552,14 @@ import java.util.ArrayList;
 
                 switch (alt6) {
             	case 1 :
-            	    // ../etc/Jaml.g:167:11: EscapeSequence
+            	    // ../etc/Jaml.g:173:11: EscapeSequence
             	    {
             	    mEscapeSequence(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/Jaml.g:167:28: ~ ( '\\\\' | '\"' | '\\r' | '\\n' )
+            	    // ../etc/Jaml.g:173:28: ~ ( '\\\\' | '\"' | '\\r' | '\\n' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -598,11 +598,11 @@ import java.util.ArrayList;
         try {
             int _type = CHARLITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:171:5: ( '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) ) '\\'' )
-            // ../etc/Jaml.g:171:9: '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) ) '\\''
+            // ../etc/Jaml.g:177:5: ( '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) ) '\\'' )
+            // ../etc/Jaml.g:177:9: '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) ) '\\''
             {
             match('\''); 
-            // ../etc/Jaml.g:172:9: ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) )
+            // ../etc/Jaml.g:178:9: ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -620,14 +620,14 @@ import java.util.ArrayList;
             }
             switch (alt7) {
                 case 1 :
-                    // ../etc/Jaml.g:172:13: EscapeSequence
+                    // ../etc/Jaml.g:178:13: EscapeSequence
                     {
                     mEscapeSequence(); 
 
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:173:13: ~ ( '\\'' | '\\\\' | '\\r' | '\\n' )
+                    // ../etc/Jaml.g:179:13: ~ ( '\\'' | '\\\\' | '\\r' | '\\n' )
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
@@ -661,7 +661,7 @@ import java.util.ArrayList;
     public final void mEscapeSequence() throws RecognitionException {
     traceIn("EscapeSequence", 15);
         try {
-            // ../etc/Jaml.g:180:3: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UnicodeEscape | OctalEscape )
+            // ../etc/Jaml.g:186:3: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UnicodeEscape | OctalEscape )
             int alt8=3;
             int LA8_0 = input.LA(1);
 
@@ -712,7 +712,7 @@ import java.util.ArrayList;
             }
             switch (alt8) {
                 case 1 :
-                    // ../etc/Jaml.g:180:7: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                    // ../etc/Jaml.g:186:7: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                     {
                     match('\\'); 
                     if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -728,14 +728,14 @@ import java.util.ArrayList;
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:181:7: UnicodeEscape
+                    // ../etc/Jaml.g:187:7: UnicodeEscape
                     {
                     mUnicodeEscape(); 
 
                     }
                     break;
                 case 3 :
-                    // ../etc/Jaml.g:182:7: OctalEscape
+                    // ../etc/Jaml.g:188:7: OctalEscape
                     {
                     mOctalEscape(); 
 
@@ -754,7 +754,7 @@ import java.util.ArrayList;
     public final void mOctalEscape() throws RecognitionException {
     traceIn("OctalEscape", 16);
         try {
-            // ../etc/Jaml.g:187:3: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+            // ../etc/Jaml.g:193:3: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
             int alt9=3;
             int LA9_0 = input.LA(1);
 
@@ -800,25 +800,25 @@ import java.util.ArrayList;
             }
             switch (alt9) {
                 case 1 :
-                    // ../etc/Jaml.g:187:7: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                    // ../etc/Jaml.g:193:7: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // ../etc/Jaml.g:187:12: ( '0' .. '3' )
-                    // ../etc/Jaml.g:187:13: '0' .. '3'
+                    // ../etc/Jaml.g:193:12: ( '0' .. '3' )
+                    // ../etc/Jaml.g:193:13: '0' .. '3'
                     {
                     matchRange('0','3'); 
 
                     }
 
-                    // ../etc/Jaml.g:187:23: ( '0' .. '7' )
-                    // ../etc/Jaml.g:187:24: '0' .. '7'
+                    // ../etc/Jaml.g:193:23: ( '0' .. '7' )
+                    // ../etc/Jaml.g:193:24: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // ../etc/Jaml.g:187:34: ( '0' .. '7' )
-                    // ../etc/Jaml.g:187:35: '0' .. '7'
+                    // ../etc/Jaml.g:193:34: ( '0' .. '7' )
+                    // ../etc/Jaml.g:193:35: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -828,18 +828,18 @@ import java.util.ArrayList;
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:188:7: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+                    // ../etc/Jaml.g:194:7: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // ../etc/Jaml.g:188:12: ( '0' .. '7' )
-                    // ../etc/Jaml.g:188:13: '0' .. '7'
+                    // ../etc/Jaml.g:194:12: ( '0' .. '7' )
+                    // ../etc/Jaml.g:194:13: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // ../etc/Jaml.g:188:23: ( '0' .. '7' )
-                    // ../etc/Jaml.g:188:24: '0' .. '7'
+                    // ../etc/Jaml.g:194:23: ( '0' .. '7' )
+                    // ../etc/Jaml.g:194:24: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -849,11 +849,11 @@ import java.util.ArrayList;
                     }
                     break;
                 case 3 :
-                    // ../etc/Jaml.g:189:7: '\\\\' ( '0' .. '7' )
+                    // ../etc/Jaml.g:195:7: '\\\\' ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // ../etc/Jaml.g:189:12: ( '0' .. '7' )
-                    // ../etc/Jaml.g:189:13: '0' .. '7'
+                    // ../etc/Jaml.g:195:12: ( '0' .. '7' )
+                    // ../etc/Jaml.g:195:13: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -875,8 +875,8 @@ import java.util.ArrayList;
     public final void mUnicodeEscape() throws RecognitionException {
     traceIn("UnicodeEscape", 17);
         try {
-            // ../etc/Jaml.g:194:3: ( '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit )
-            // ../etc/Jaml.g:194:7: '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit
+            // ../etc/Jaml.g:200:3: ( '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit )
+            // ../etc/Jaml.g:200:7: '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit
             {
             match('\\'); 
             match('u'); 
@@ -898,8 +898,8 @@ import java.util.ArrayList;
     public final void mHexDigit() throws RecognitionException {
     traceIn("HexDigit", 18);
         try {
-            // ../etc/Jaml.g:198:10: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // ../etc/Jaml.g:198:12: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // ../etc/Jaml.g:204:10: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // ../etc/Jaml.g:204:12: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -926,14 +926,14 @@ import java.util.ArrayList;
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:200:5: ({...}? => (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' | '/' ) ) (~ ( '\\r' | '\\n' ) )* )
-            // ../etc/Jaml.g:200:7: {...}? => (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' | '/' ) ) (~ ( '\\r' | '\\n' ) )*
+            // ../etc/Jaml.g:206:5: ({...}? => (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' | '/' ) ) (~ ( '\\r' | '\\n' ) )* )
+            // ../etc/Jaml.g:206:7: {...}? => (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' | '/' ) ) (~ ( '\\r' | '\\n' ) )*
             {
             if ( !(( textMode && !hashMode)) ) {
                 throw new FailedPredicateException(input, "TEXT", " textMode && !hashMode");
             }
-            // ../etc/Jaml.g:201:7: (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' | '/' ) )
-            // ../etc/Jaml.g:201:8: ~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' | '/' )
+            // ../etc/Jaml.g:207:7: (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' | '/' ) )
+            // ../etc/Jaml.g:207:8: ~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' | '/' )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='\"')||input.LA(1)=='$'||(input.LA(1)>='&' && input.LA(1)<='-')||(input.LA(1)>='0' && input.LA(1)<='z')||(input.LA(1)>='|' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -947,7 +947,7 @@ import java.util.ArrayList;
 
             }
 
-            // ../etc/Jaml.g:202:7: (~ ( '\\r' | '\\n' ) )*
+            // ../etc/Jaml.g:208:7: (~ ( '\\r' | '\\n' ) )*
             loop10:
             do {
                 int alt10=2;
@@ -960,7 +960,7 @@ import java.util.ArrayList;
 
                 switch (alt10) {
             	case 1 :
-            	    // ../etc/Jaml.g:202:8: ~ ( '\\r' | '\\n' )
+            	    // ../etc/Jaml.g:208:8: ~ ( '\\r' | '\\n' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1001,14 +1001,14 @@ import java.util.ArrayList;
         try {
             int _type = HASH_CONTENTS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:207:14: ({...}? => (~ ( '\"' | '\\'' | '{' | '}' ) ) )
-            // ../etc/Jaml.g:207:16: {...}? => (~ ( '\"' | '\\'' | '{' | '}' ) )
+            // ../etc/Jaml.g:213:14: ({...}? => (~ ( '\"' | '\\'' | '{' | '}' ) ) )
+            // ../etc/Jaml.g:213:16: {...}? => (~ ( '\"' | '\\'' | '{' | '}' ) )
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "HASH_CONTENTS", " hashMode ");
             }
-            // ../etc/Jaml.g:208:7: (~ ( '\"' | '\\'' | '{' | '}' ) )
-            // ../etc/Jaml.g:208:8: ~ ( '\"' | '\\'' | '{' | '}' )
+            // ../etc/Jaml.g:214:7: (~ ( '\"' | '\\'' | '{' | '}' ) )
+            // ../etc/Jaml.g:214:8: ~ ( '\"' | '\\'' | '{' | '}' )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='z')||input.LA(1)=='|'||(input.LA(1)>='~' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -1040,8 +1040,8 @@ import java.util.ArrayList;
         try {
             int _type = BEGIN_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:211:13: ({...}? => LBRACE )
-            // ../etc/Jaml.g:211:15: {...}? => LBRACE
+            // ../etc/Jaml.g:217:13: ({...}? => LBRACE )
+            // ../etc/Jaml.g:217:15: {...}? => LBRACE
             {
             if ( !(( textMode && braceDepth == 0 )) ) {
                 throw new FailedPredicateException(input, "BEGIN_HASH", " textMode && braceDepth == 0 ");
@@ -1066,8 +1066,8 @@ import java.util.ArrayList;
         try {
             int _type = END_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:212:11: ({...}? => RBRACE )
-            // ../etc/Jaml.g:212:13: {...}? => RBRACE
+            // ../etc/Jaml.g:218:11: ({...}? => RBRACE )
+            // ../etc/Jaml.g:218:13: {...}? => RBRACE
             {
             if ( !(( braceDepth == 1 )) ) {
                 throw new FailedPredicateException(input, "END_HASH", " braceDepth == 1 ");
@@ -1092,8 +1092,8 @@ import java.util.ArrayList;
         try {
             int _type = JAVA_LBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:214:13: ({...}? => LBRACE )
-            // ../etc/Jaml.g:214:15: {...}? => LBRACE
+            // ../etc/Jaml.g:220:13: ({...}? => LBRACE )
+            // ../etc/Jaml.g:220:15: {...}? => LBRACE
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "JAVA_LBRACE", " hashMode ");
@@ -1117,8 +1117,8 @@ import java.util.ArrayList;
         try {
             int _type = JAVA_RBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:215:13: ({...}? => RBRACE )
-            // ../etc/Jaml.g:215:15: {...}? => RBRACE
+            // ../etc/Jaml.g:221:13: ({...}? => RBRACE )
+            // ../etc/Jaml.g:221:15: {...}? => RBRACE
             {
             if ( !(( braceDepth > 1 )) ) {
                 throw new FailedPredicateException(input, "JAVA_RBRACE", " braceDepth > 1 ");
@@ -1140,8 +1140,8 @@ import java.util.ArrayList;
     public final void mLBRACE() throws RecognitionException {
     traceIn("LBRACE", 25);
         try {
-            // ../etc/Jaml.g:217:17: ( '{' )
-            // ../etc/Jaml.g:217:19: '{'
+            // ../etc/Jaml.g:223:17: ( '{' )
+            // ../etc/Jaml.g:223:19: '{'
             {
             match('{'); 
             braceDepth++;
@@ -1159,8 +1159,8 @@ import java.util.ArrayList;
     public final void mRBRACE() throws RecognitionException {
     traceIn("RBRACE", 26);
         try {
-            // ../etc/Jaml.g:218:18: ({...}? => '}' )
-            // ../etc/Jaml.g:218:20: {...}? => '}'
+            // ../etc/Jaml.g:224:18: ({...}? => '}' )
+            // ../etc/Jaml.g:224:20: {...}? => '}'
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "RBRACE", " hashMode ");
@@ -1183,8 +1183,8 @@ import java.util.ArrayList;
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:222:9: ({...}? => ' ' )
-            // ../etc/Jaml.g:222:11: {...}? => ' '
+            // ../etc/Jaml.g:228:9: ({...}? => ' ' )
+            // ../etc/Jaml.g:228:11: {...}? => ' '
             {
             if ( !((false)) ) {
                 throw new FailedPredicateException(input, "NEWLINE", "false");
@@ -1208,8 +1208,8 @@ import java.util.ArrayList;
         try {
             int _type = INDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:223:8: ({...}? => ' ' )
-            // ../etc/Jaml.g:223:10: {...}? => ' '
+            // ../etc/Jaml.g:229:8: ({...}? => ' ' )
+            // ../etc/Jaml.g:229:10: {...}? => ' '
             {
             if ( !((false)) ) {
                 throw new FailedPredicateException(input, "INDENT", "false");
@@ -1233,8 +1233,8 @@ import java.util.ArrayList;
         try {
             int _type = DEDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:224:8: ({...}? => ' ' )
-            // ../etc/Jaml.g:224:10: {...}? => ' '
+            // ../etc/Jaml.g:230:8: ({...}? => ' ' )
+            // ../etc/Jaml.g:230:10: {...}? => ' '
             {
             if ( !((false)) ) {
                 throw new FailedPredicateException(input, "DEDENT", "false");
@@ -2475,7 +2475,7 @@ import java.util.ArrayList;
 
                         else if ( ((LA11_0>='\u0000' && LA11_0<='\t')||(LA11_0>='\u000B' && LA11_0<='\f')||(LA11_0>='\u000E' && LA11_0<='\u001F')||LA11_0=='!'||LA11_0=='$'||LA11_0=='&'||(LA11_0>='(' && LA11_0<='+')||LA11_0=='-'||(LA11_0>='0' && LA11_0<='@')||(LA11_0>='[' && LA11_0<='`')||LA11_0=='|'||(LA11_0>='~' && LA11_0<='\uFFFF')) && ((( textMode && !hashMode)||( hashMode )))) {s = 12;}
 
-                        else if ( (LA11_0=='}') && (((( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||( textMode && !hashMode)||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))))) {s = 13;}
+                        else if ( (LA11_0=='}') && (((( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||( textMode && !hashMode)||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))))) {s = 13;}
 
                         else if ( (LA11_0=='{') && ((( textMode && braceDepth == 0 )||( hashMode )))) {s = 14;}
 

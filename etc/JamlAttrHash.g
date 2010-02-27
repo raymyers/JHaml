@@ -289,7 +289,8 @@ attrMapping returns [String attr, String value]:
   attributeValue {$value=$attributeValue.value;};
 
 attribute returns [String value]: 
-':' IDENT {$value = $IDENT.text;} | literal {$value=$literal.value;};
+':' (keyword {$value = $keyword.text;} | IDENT {$value = $IDENT.text;}) |
+literal {$value=$literal.value;};
 
 
 attributeValue returns [String value]: 
@@ -304,6 +305,60 @@ literal returns [String value] :
   lit=STRING_LITERAL {$value = jamlUtil.parseStringLiteral($lit.text);} |
   lit=(TRUE|FALSE|NULL) {$value = $lit.text;}
   ;
+  
+keyword : 
+	ABSTRACT |     
+    ASSERT   |
+    BOOLEAN  |
+    BREAK    |
+    BYTE     |
+    CASE     |
+    CATCH    |
+    CHAR     |
+    CLASS    |
+    CONTINUE |
+    DEFAULT  |
+    DO       |
+    DOUBLE   |
+    ELSE     |
+    ENUM     |
+    EXTENDS  |
+    FALSE    |
+    FINAL    |
+    FINALLY  |
+    FLOAT    |
+    FOR      |
+    IF       |
+    IMPLEMENTS |  
+    INSTANCEOF | 
+    INTERFACE  |
+    IMPORT   | 
+    INT      | 
+    LONG     |
+    NATIVE   |
+    NEW      |              
+    NULL     |              
+    PACKAGE  |              
+    PRIVATE  |   
+    PROTECTED|   
+    PUBLIC   |   
+    RETURN   |   
+    SHORT    |   
+    STATIC   |   
+    STRICTFP |   
+    SUPER    |   
+    SWITCH   |   
+    SYNCHRONIZED | 
+    THIS     |
+    THROW    |   
+    THROWS   |
+    TRANSIENT|
+    TRUE     |
+    TRY      |
+    VOID     |
+    VOLATILE |
+    WHILE    ;
+
 // Starting point for parsing a Java file.
 javaSource
     :   compilationUnit

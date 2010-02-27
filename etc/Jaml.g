@@ -80,12 +80,18 @@ freeformText returns [String rendering]:
       };
 
 elementDeclaration returns [String type, Map<String,String> attrMap] 
-  @init {$attrMap = new LinkedHashMap<String,String>();}:
-  (a1=divAttrs[$attrMap] {$type = "div";} attrHash[$attrMap]?)
+  @init {
+  	$attrMap = new LinkedHashMap<String,String>();
+  	List<String> ids = new ArrayList<String>();
+  	List<String> classes = new ArrayList<String>();
+  }
+  @after {
+  	util.mergeAttributes($attrMap, ids, classes);
+  }:
+  (a1=divAttrs[ids,classes] {$type = "div";} attrHash[$attrMap]?)
 | 
- (
-  a2=attrs[$attrMap] {$type = $a2.type;} 
-  attrHash[$attrMap]?) 
+ (a2=attrs[ids,classes] {$type = $a2.type;} 
+  attrHash[$attrMap]?)
   ;
 
 content returns [String rendering] @init { $rendering = ""; } :
@@ -95,14 +101,14 @@ DEDENT
 {$rendering = "\n" + util.indent(util.stripTrailingNewline($rendering)) + "\n";}
 ;
 
-attrs[Map<String,String> attrMap] returns [String type]:
+attrs[List<String> ids, List<String> classes] returns [String type]:
 PERCENT ID {$type = $ID.text;}
-(idSpecifier {$attrMap.put("id", $idSpecifier.id);} |
- classSpecifier {$attrMap.put("class", $classSpecifier.klass);})*;
+(idSpecifier {$ids.add($idSpecifier.id);} |
+ classSpecifier {$classes.add($classSpecifier.klass);})*;
 
-divAttrs[Map<String,String> attrMap] :
-(idSpecifier {$attrMap.put("id", $idSpecifier.id);} |
- classSpecifier {$attrMap.put("class", $classSpecifier.klass);})+;
+divAttrs[List<String> ids, List<String> classes] :
+(idSpecifier {$ids.add($idSpecifier.id);} |
+ classSpecifier {$classes.add($classSpecifier.klass);})+;
 
 attrHash[Map<String,String> attrMap] :
   BEGIN_HASH {System.out.println("BEGIN " + $text);}

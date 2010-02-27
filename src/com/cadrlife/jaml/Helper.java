@@ -1,8 +1,11 @@
 package com.cadrlife.jaml;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.cadrlife.jaml.JamlAttrHashParser.attrMappings_return;
 
@@ -109,6 +112,32 @@ public class Helper {
 			return jspScriptlet(text.substring(1).trim());
 		}
 		return text;
+	}
+
+	public void mergeAttributes(Map<String, String> attrMap, List<String> ids, List<String> classes) {
+		// Classes go first, Ids go last.
+		Map<String, String> attrsFromHash = new LinkedHashMap<String, String>();
+		attrsFromHash.putAll(attrMap);
+		attrMap.clear();
+		if (attrsFromHash.containsKey("id")) {
+			ids.add(attrsFromHash.get("id"));
+			attrsFromHash.remove("id");
+		}
+		if (attrsFromHash.containsKey("class")) {
+			classes.add(0, attrsFromHash.get("class"));
+			attrsFromHash.remove("class");
+		}
+		if (!classes.isEmpty()) {
+			attrMap.put("class", StringUtils.join(classes, " "));
+		}
+		attrMap.putAll(attrsFromHash);
+		if (!ids.isEmpty()) {
+			if (ids.size() > 2) {
+				ids = ids.subList(ids.size()-2, ids.size());
+			}
+			
+			attrMap.put("id", StringUtils.join(ids, "_"));
+		}
 	}
 	
 }
