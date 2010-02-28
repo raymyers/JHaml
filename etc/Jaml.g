@@ -57,11 +57,16 @@ jamlSource[JamlConfig config] returns [String rendering]
   this.config = $config;
   Helper util = new Helper(config);
 }
-: (line {$rendering += $line.rendering;} {$rendering += "\n";})*;
+: (line {$rendering += $line.rendering + "\n";})*;
 
-element returns [String rendering] @init {String content = ""; boolean selfClosing=false;}:
+element returns [String rendering] 
+  @init {
+  	String content = ""; 
+  	boolean selfClosing=false;
+  }
+  :
   elementDeclaration 
-   ( freeformText NEWLINE {content = $freeformText.rendering;} | 
+   ( freeformText {content = $freeformText.rendering;} | 
      NEWLINE (content {content = $content.rendering;})? |
      FORWARD_SLASH NEWLINE {selfClosing = true;})
   {$rendering = util.elem($elementDeclaration.type, $elementDeclaration.attrMap, content, selfClosing);}
@@ -69,16 +74,15 @@ element returns [String rendering] @init {String content = ""; boolean selfClosi
 
 line returns [String rendering] @init { $rendering = ""; } :
   element {$rendering = $element.rendering;}
-  | freeformText {$rendering = $freeformText.rendering;} NEWLINE
+  | freeformText {$rendering = $freeformText.rendering;}
   | NEWLINE
   ;
   
 freeformText returns [String rendering]:
-      TEXT
-      {
-        $rendering = util.parseFreeFormText($TEXT.text);
-      };
-
+  TEXT NEWLINE {String txt = $TEXT.text;}
+  (content {txt += $content.rendering;})? 
+  {$rendering = util.parseFreeFormText(txt);};
+      
 elementDeclaration returns [String type, Map<String,String> attrMap] 
   @init {
   	$attrMap = new LinkedHashMap<String,String>();
@@ -96,7 +100,8 @@ elementDeclaration returns [String type, Map<String,String> attrMap]
 
 content returns [String rendering] @init { $rendering = ""; } :
 INDENT 
- (e1=element {$rendering += $e1.rendering + "\n";} | freeformText NEWLINE {$rendering += $freeformText.rendering + "\n";})+
+ (e1=element {$rendering += $e1.rendering + "\n";} | 
+  freeformText {$rendering += $freeformText.rendering + "\n";})+
 DEDENT
 {$rendering = "\n" + util.indent(util.stripTrailingNewline($rendering)) + "\n";}
 ;
@@ -127,10 +132,10 @@ DOT ID {$klass = $ID.text;};
 
 // LEXER
 
-POUND: { beginningOfLine }?=> '#' {textMode = false;};
-DOT: { beginningOfLine }?=> '.' {textMode = false;};
-PERCENT: { beginningOfLine }?=> '%' {textMode = false;};
-FORWARD_SLASH: { !hashMode }?=> '/';
+POUND:   '#' {textMode = false; beginningOfLine=false;};
+DOT:     '.' {textMode = false; beginningOfLine=false;};
+PERCENT: '%' {textMode = false; beginningOfLine=false;};
+FORWARD_SLASH: { !beginningOfLine && !hashMode }?=> '/';
 COMMA: { !textMode }?=> ',';
 ID  : { !textMode }?=> 
   ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*
@@ -138,7 +143,7 @@ ID  : { !textMode }?=>
 // NEWLINE: ('\r'? '\n') {textMode = true; beginningOfLine=true;};
 
 WS : { !textMode }?=>
-  Spaces {if (!hashMode ) { skip(); textMode=true; }};
+  Spaces {if ( !hashMode ) { skip(); textMode=true; }};
 
 IGNORED_NEWLINE  : { hashMode }?=> NL ;
 
@@ -203,8 +208,8 @@ UnicodeEscape
 fragment
 HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;
 
-TEXT: { textMode && !hashMode}?=>
-      (~('.' | '#' | '%' | '\r' | '\n' | '{' | ' ' | '/'))
+TEXT: { textMode && !hashMode }?=>
+      (~('.' | '#' | '%' | '\r' | '\n' | '{' | ' '))
       (~('\r' | '\n'))*
       {
         beginningOfLine = false;

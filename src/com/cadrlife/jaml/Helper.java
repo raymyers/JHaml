@@ -74,7 +74,7 @@ public class Helper {
 	}
 	
 	public String indent(String text) {
-		return " " + text.replaceAll("\n", "\n "); 
+		return "  " + text.replaceAll("\n", "\n  "); 
 	}
 	public String stripTrailingNewline(String text) {
 		return text.replaceFirst("\n$", ""); 
@@ -111,7 +111,20 @@ public class Helper {
 		if (text.startsWith("-")) {
 			return jspScriptlet(text.substring(1).trim());
 		}
+		if (text.startsWith("/")) {
+			return htmlComment(text.substring(1));
+		}
 		return text;
+	}
+
+	private String htmlComment(String string) {
+		if (StringUtils.isBlank(string)) {
+			return "<!--\n-->";
+		}
+		if (string.contains("\n") || string.contains("\r")) {
+			return "<!--\n" + string + "\n-->";
+		}
+		return "<!-- " + string.trim() + " -->";
 	}
 
 	public void mergeAttributes(Map<String, String> attrMap, List<String> ids, List<String> classes) {
