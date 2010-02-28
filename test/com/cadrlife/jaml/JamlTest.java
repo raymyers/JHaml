@@ -156,4 +156,16 @@ public class JamlTest {
 		String html = "<p id='c_a'></p>";
 		assertEquals(html, jaml.parse("%p#b#c{:id=>'a'}"));
 	}
+	
+	@Test
+	public void doctypeHeader() {
+		String header = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+		assertEquals(header + "\n<p />", jaml.parse("!!!\n%p/"));
+	}
+	@Test
+	public void blankLines() {
+		assertEquals("<p>\n  <a />\n  <b />\n</p>", jaml.parse("%p\n  %a/\n\n  %b/"));
+		assertEquals("<p>\n  <a />\n  <b />\n</p>", jaml.parse("%p\n  %a/\n\n\n\n  %b/"));
+		assertEquals("<p>\n  <p>\n    <a />\n    <b />\n  </p>\n</p>", jaml.parse("%p\n  %p\n    %a/\n\n    %b/"));
+	}
 }

@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-27 19:54:40
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-28 14:19:25
 
 package com.cadrlife.jaml;
 import java.util.LinkedHashMap;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 import org.antlr.runtime.tree.*;
 
-@SuppressWarnings("all") public class JamlAttrHashParser extends Parser {
+public class JamlAttrHashParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "AND_ASSIGN", "ASSIGN", "AT", "BIT_SHIFT_RIGHT", "BIT_SHIFT_RIGHT_ASSIGN", "COLON", "COMMA", "DEC", "DIV", "DIV_ASSIGN", "DOT", "DOTSTAR", "ELLIPSIS", "EQUAL", "GREATER_OR_EQUAL", "GREATER_THAN", "INC", "LBRACK", "LCURLY", "LESS_OR_EQUAL", "LESS_THAN", "LOGICAL_AND", "LOGICAL_NOT", "LOGICAL_OR", "LPAREN", "MINUS", "MINUS_ASSIGN", "MOD", "MOD_ASSIGN", "NOT", "NOT_EQUAL", "OR", "OR_ASSIGN", "PLUS", "PLUS_ASSIGN", "QUESTION", "RBRACK", "RCURLY", "RPAREN", "SEMI", "SHIFT_LEFT", "SHIFT_LEFT_ASSIGN", "SHIFT_RIGHT", "SHIFT_RIGHT_ASSIGN", "STAR", "STAR_ASSIGN", "XOR", "XOR_ASSIGN", "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", "BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FALSE", "FINAL", "FINALLY", "FLOAT", "FOR", "IF", "IMPLEMENTS", "INSTANCEOF", "INTERFACE", "IMPORT", "INT", "LONG", "NATIVE", "NEW", "NULL", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", "SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRUE", "TRY", "VOID", "VOLATILE", "WHILE", "ANNOTATION_INIT_ARRAY_ELEMENT", "ANNOTATION_INIT_BLOCK", "ANNOTATION_INIT_DEFAULT_KEY", "ANNOTATION_INIT_KEY_LIST", "ANNOTATION_LIST", "ANNOTATION_METHOD_DECL", "ANNOTATION_SCOPE", "ANNOTATION_TOP_LEVEL_SCOPE", "ARGUMENT_LIST", "ARRAY_DECLARATOR", "ARRAY_DECLARATOR_LIST", "ARRAY_ELEMENT_ACCESS", "ARRAY_INITIALIZER", "BLOCK_SCOPE", "CAST_EXPR", "CATCH_CLAUSE_LIST", "CLASS_CONSTRUCTOR_CALL", "CLASS_INSTANCE_INITIALIZER", "CLASS_STATIC_INITIALIZER", "CLASS_TOP_LEVEL_SCOPE", "CONSTRUCTOR_DECL", "ENUM_TOP_LEVEL_SCOPE", "EXPR", "EXTENDS_BOUND_LIST", "EXTENDS_CLAUSE", "FOR_CONDITION", "FOR_EACH", "FOR_INIT", "FOR_UPDATE", "FORMAL_PARAM_LIST", "FORMAL_PARAM_STD_DECL", "FORMAL_PARAM_VARARG_DECL", "FUNCTION_METHOD_DECL", "GENERIC_TYPE_ARG_LIST", "GENERIC_TYPE_PARAM_LIST", "INTERFACE_TOP_LEVEL_SCOPE", "IMPLEMENTS_CLAUSE", "LABELED_STATEMENT", "LOCAL_MODIFIER_LIST", "JAVA_SOURCE", "METHOD_CALL", "MODIFIER_LIST", "PARENTESIZED_EXPR", "POST_DEC", "POST_INC", "PRE_DEC", "PRE_INC", "QUALIFIED_TYPE_IDENT", "STATIC_ARRAY_CREATOR", "SUPER_CONSTRUCTOR_CALL", "SWITCH_BLOCK_LABEL_LIST", "THIS_CONSTRUCTOR_CALL", "THROWS_CLAUSE", "TYPE", "UNARY_MINUS", "UNARY_PLUS", "VAR_DECLARATION", "VAR_DECLARATOR", "VAR_DECLARATOR_LIST", "VOID_METHOD_DECL", "IDENT", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "CHARACTER_LITERAL", "STRING_LITERAL", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "ESCAPE_SEQUENCE", "UNICODE_ESCAPE", "OCTAL_ESCAPE", "JAVA_ID_START", "JAVA_ID_PART", "WS", "COMMENT", "LINE_COMMENT"
     };
@@ -1853,7 +1853,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: implementsClause, classBody, genericTypeParameterList, IDENT, classExtendsClause, CLASS
+            // elements: classExtendsClause, genericTypeParameterList, implementsClause, classBody, IDENT, CLASS
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2870,7 +2870,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: implementsClause, IDENT, ENUM, enumBody
+            // elements: ENUM, IDENT, enumBody, implementsClause
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3546,7 +3546,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: genericTypeParameterList, interfaceExtendsClause, IDENT, interfaceBody, INTERFACE
+            // elements: interfaceExtendsClause, INTERFACE, interfaceBody, genericTypeParameterList, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -4372,7 +4372,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: block, genericTypeParameterList, arrayDeclaratorList, formalParameterList, throwsClause, modifierList, type, IDENT
+                                    // elements: modifierList, type, IDENT, block, formalParameterList, arrayDeclaratorList, genericTypeParameterList, throwsClause
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4510,7 +4510,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, block, modifierList, IDENT, formalParameterList, throwsClause
+                                    // elements: throwsClause, block, modifierList, IDENT, genericTypeParameterList, formalParameterList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4602,7 +4602,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, throwsClause, block, modifierList, formalParameterList
+                                    // elements: throwsClause, genericTypeParameterList, modifierList, block, formalParameterList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4671,7 +4671,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: classFieldDeclaratorList, modifierList, type
+                            // elements: modifierList, classFieldDeclaratorList, type
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -5007,7 +5007,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, type, modifierList, throwsClause, IDENT, arrayDeclaratorList, formalParameterList
+                                    // elements: genericTypeParameterList, throwsClause, formalParameterList, IDENT, modifierList, arrayDeclaratorList, type
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -5100,7 +5100,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, throwsClause, modifierList, formalParameterList, IDENT
+                                    // elements: modifierList, throwsClause, genericTypeParameterList, formalParameterList, IDENT
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -5169,7 +5169,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: interfaceFieldDeclaratorList, type, modifierList
+                            // elements: type, modifierList, interfaceFieldDeclaratorList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -5673,7 +5673,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: variableDeclaratorId, variableInitializer
+            // elements: variableInitializer, variableDeclaratorId
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -7249,7 +7249,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: qualifiedTypeIdent, arrayDeclaratorList
+            // elements: arrayDeclaratorList, qualifiedTypeIdent
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -7363,7 +7363,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: arrayDeclaratorList, qualifiedTypeIdentSimplified
+            // elements: qualifiedTypeIdentSimplified, arrayDeclaratorList
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -9026,7 +9026,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: variableDeclaratorId, localModifierList, type
+            // elements: localModifierList, variableDeclaratorId, type
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -9134,7 +9134,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: type, localModifierList, variableDeclaratorId
+            // elements: variableDeclaratorId, localModifierList, type
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -9280,7 +9280,7 @@ import org.antlr.runtime.tree.*;
 
 
             	    // AST REWRITE
-            	    // elements: ident, DOT, qualifiedIdentifier
+            	    // elements: ident, qualifiedIdentifier, DOT
             	    // token labels: ident
             	    // rule labels: retval
             	    // token list labels: 
@@ -10376,7 +10376,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: annotationBody, IDENT, AT
+            // elements: annotationBody, AT, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -10685,7 +10685,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: annotationDefaultValue, type, modifierList, IDENT
+                            // elements: annotationDefaultValue, IDENT, modifierList, type
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10736,7 +10736,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: classFieldDeclaratorList, modifierList, type
+                            // elements: classFieldDeclaratorList, type, modifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11143,7 +11143,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: type, localModifierList, classFieldDeclaratorList
+            // elements: localModifierList, classFieldDeclaratorList, type
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -11444,7 +11444,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: expr1, ASSERT, expr2
+                            // elements: expr2, expr1, ASSERT
                             // token labels: 
                             // rule labels: retval, expr1, expr2
                             // token list labels: 
@@ -11484,7 +11484,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: ASSERT, expr1
+                            // elements: expr1, ASSERT
                             // token labels: 
                             // rule labels: retval, expr1
                             // token list labels: 
@@ -11584,7 +11584,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: parenthesizedExpression, elseStat, ifStat, IF
+                            // elements: elseStat, ifStat, IF, parenthesizedExpression
                             // token labels: 
                             // rule labels: retval, ifStat, elseStat
                             // token list labels: 
@@ -11621,7 +11621,7 @@ import org.antlr.runtime.tree.*;
                             {
 
                             // AST REWRITE
-                            // elements: ifStat, parenthesizedExpression, IF
+                            // elements: parenthesizedExpression, ifStat, IF
                             // token labels: 
                             // rule labels: retval, ifStat
                             // token list labels: 
@@ -11709,7 +11709,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: forCondition, forInit, statement, FOR, forUpdater
+                            // elements: statement, forCondition, forUpdater, forInit, FOR
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11779,7 +11779,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: expression, IDENT, type, statement, localModifierList
+                            // elements: statement, expression, type, IDENT, localModifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11838,7 +11838,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: statement, parenthesizedExpression, WHILE
+                    // elements: parenthesizedExpression, statement, WHILE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12006,7 +12006,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: finallyClause, catches, TRY, block
+                    // elements: TRY, finallyClause, catches, block
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12073,7 +12073,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: switchBlockLabels, SWITCH, parenthesizedExpression
+                    // elements: SWITCH, switchBlockLabels, parenthesizedExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12123,7 +12123,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: parenthesizedExpression, block, SYNCHRONIZED
+                    // elements: SYNCHRONIZED, block, parenthesizedExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -15911,7 +15911,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: NOT, unaryExpression
+                    // elements: unaryExpression, NOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -16006,7 +16006,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: unaryExpression, type
+                    // elements: type, unaryExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -16277,7 +16277,7 @@ import org.antlr.runtime.tree.*;
 
 
             	            // AST REWRITE
-            	            // elements: DOT, postfixedExpression, IDENT
+            	            // elements: IDENT, DOT, postfixedExpression
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16326,7 +16326,7 @@ import org.antlr.runtime.tree.*;
 
 
             	                    // AST REWRITE
-            	                    // elements: postfixedExpression, arguments, genericTypeArgumentListSimplified
+            	                    // elements: genericTypeArgumentListSimplified, arguments, postfixedExpression
             	                    // token labels: 
             	                    // rule labels: retval
             	                    // token list labels: 
@@ -16376,7 +16376,7 @@ import org.antlr.runtime.tree.*;
 
 
             	            // AST REWRITE
-            	            // elements: postfixedExpression, THIS, DOT
+            	            // elements: postfixedExpression, DOT, THIS
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16420,7 +16420,7 @@ import org.antlr.runtime.tree.*;
 
 
             	            // AST REWRITE
-            	            // elements: postfixedExpression, arguments
+            	            // elements: arguments, postfixedExpression
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16467,7 +16467,7 @@ import org.antlr.runtime.tree.*;
 
 
             	            // AST REWRITE
-            	            // elements: SUPER, IDENT, innerDot, outerDot, postfixedExpression
+            	            // elements: IDENT, innerDot, postfixedExpression, outerDot, SUPER
             	            // token labels: outerDot, innerDot
             	            // rule labels: retval
             	            // token list labels: 
@@ -16574,7 +16574,7 @@ import org.antlr.runtime.tree.*;
 
 
             	            // AST REWRITE
-            	            // elements: DOT, innerNewExpression, postfixedExpression
+            	            // elements: innerNewExpression, postfixedExpression, DOT
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16992,7 +16992,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeArgumentListSimplified, arguments
+                                    // elements: arguments, genericTypeArgumentListSimplified
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -17039,7 +17039,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeArgumentListSimplified, DOT, IDENT, arguments, SUPER
+                                    // elements: SUPER, IDENT, genericTypeArgumentListSimplified, DOT, arguments
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -17099,7 +17099,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: arguments, genericTypeArgumentListSimplified, IDENT
+                            // elements: arguments, IDENT, genericTypeArgumentListSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17144,7 +17144,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: genericTypeArgumentListSimplified, arguments
+                            // elements: arguments, genericTypeArgumentListSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17356,7 +17356,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: arguments, SUPER, IDENT, DOT
+                            // elements: SUPER, DOT, arguments, IDENT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17399,7 +17399,7 @@ import org.antlr.runtime.tree.*;
                             {
 
                             // AST REWRITE
-                            // elements: DOT, SUPER, IDENT
+                            // elements: DOT, IDENT, SUPER
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17536,7 +17536,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: DOT, CLASS, primaryExpression
+                    // elements: primaryExpression, CLASS, DOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17765,7 +17765,7 @@ import org.antlr.runtime.tree.*;
 
 
                     	    // AST REWRITE
-                    	    // elements: qualifiedIdentExpression, arrayDeclarator
+                    	    // elements: arrayDeclarator, qualifiedIdentExpression
                     	    // token labels: 
                     	    // rule labels: retval
                     	    // token list labels: 
@@ -17816,7 +17816,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: CLASS, qualifiedIdentExpression, DOT
+                    // elements: qualifiedIdentExpression, CLASS, DOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17860,7 +17860,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: arguments, qualifiedIdentifier
+                    // elements: qualifiedIdentifier, arguments
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17941,7 +17941,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: CLASS, DOT, qualifiedIdentifier
+                            // elements: CLASS, qualifiedIdentifier, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18077,7 +18077,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: IDENT, arguments, qualifiedIdentifier, outerDot, innerDot, SUPER, genericTypeArgumentListSimplified
+                                    // elements: innerDot, genericTypeArgumentListSimplified, SUPER, qualifiedIdentifier, arguments, IDENT, outerDot
                                     // token labels: outerDot, innerDot
                                     // rule labels: retval
                                     // token list labels: 
@@ -18142,7 +18142,7 @@ import org.antlr.runtime.tree.*;
 
 
                                     // AST REWRITE
-                                    // elements: arguments, IDENT, DOT, qualifiedIdentifier, genericTypeArgumentListSimplified
+                                    // elements: IDENT, genericTypeArgumentListSimplified, DOT, arguments, qualifiedIdentifier
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -18196,7 +18196,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: qualifiedIdentifier, THIS, DOT
+                            // elements: qualifiedIdentifier, DOT, THIS
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18281,7 +18281,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: DOT, qualifiedIdentifier, innerNewExpression
+                            // elements: innerNewExpression, qualifiedIdentifier, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18426,7 +18426,7 @@ import org.antlr.runtime.tree.*;
 
 
                     // AST REWRITE
-                    // elements: primitiveType, newArrayConstruction
+                    // elements: newArrayConstruction, primitiveType
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -18517,7 +18517,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: newArrayConstruction, qualifiedTypeIdentSimplified, genericTypeArgumentListSimplified
+                            // elements: genericTypeArgumentListSimplified, newArrayConstruction, qualifiedTypeIdentSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18587,7 +18587,7 @@ import org.antlr.runtime.tree.*;
 
 
                             // AST REWRITE
-                            // elements: qualifiedTypeIdentSimplified, genericTypeArgumentListSimplified, arguments, classBody
+                            // elements: arguments, qualifiedTypeIdentSimplified, genericTypeArgumentListSimplified, classBody
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18758,7 +18758,7 @@ import org.antlr.runtime.tree.*;
 
 
             // AST REWRITE
-            // elements: classBody, arguments, genericTypeArgumentListSimplified, IDENT
+            // elements: genericTypeArgumentListSimplified, arguments, IDENT, classBody
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -21883,11 +21883,11 @@ import org.antlr.runtime.tree.*;
         "\2\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\11"+
         "\uffff}>";
     static final String[] DFA41_transitionS = {
-            "\1\15\17\uffff\1\1\1\uffff\1\16\22\uffff\1\25\10\uffff\1\6\1"+
-            "\uffff\1\16\1\uffff\1\16\2\uffff\1\16\1\22\3\uffff\1\16\1\uffff"+
-            "\1\22\2\uffff\1\14\1\uffff\1\16\4\uffff\1\22\1\uffff\2\16\1"+
-            "\7\3\uffff\1\5\1\4\1\3\1\uffff\1\16\1\2\1\13\2\uffff\1\10\3"+
-            "\uffff\1\11\2\uffff\1\16\1\12\75\uffff\1\16",
+            "\1\15\17\uffff\1\1\1\uffff\1\16\22\uffff\1\25\10\uffff\1\6"+
+            "\1\uffff\1\16\1\uffff\1\16\2\uffff\1\16\1\22\3\uffff\1\16\1"+
+            "\uffff\1\22\2\uffff\1\14\1\uffff\1\16\4\uffff\1\22\1\uffff\2"+
+            "\16\1\7\3\uffff\1\5\1\4\1\3\1\uffff\1\16\1\2\1\13\2\uffff\1"+
+            "\10\3\uffff\1\11\2\uffff\1\16\1\12\75\uffff\1\16",
             "",
             "\1\uffff",
             "\1\uffff",
@@ -22414,7 +22414,8 @@ import org.antlr.runtime.tree.*;
     static final String DFA91_acceptS =
         "\15\uffff\1\1\1\uffff\1\2\2\uffff";
     static final String DFA91_specialS =
-        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\5\uffff}>";
+        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\5"+
+        "\uffff}>";
     static final String[] DFA91_transitionS = {
             "\1\14\55\uffff\1\5\1\uffff\1\15\1\uffff\1\15\2\uffff\1\15\1"+
             "\17\3\uffff\1\15\1\uffff\1\17\2\uffff\1\13\1\uffff\1\15\4\uffff"+
@@ -22884,8 +22885,8 @@ import org.antlr.runtime.tree.*;
             "",
             "",
             "",
-            "\3\17\1\uffff\2\17\1\21\1\uffff\4\17\2\uffff\5\17\1\uffff\3"+
-            "\17\1\uffff\6\17\1\uffff\6\17\3\uffff\11\17\27\uffff\1\17",
+            "\3\17\1\uffff\2\17\1\21\1\uffff\4\17\2\uffff\5\17\1\uffff"+
+            "\3\17\1\uffff\6\17\1\uffff\6\17\3\uffff\11\17\27\uffff\1\17",
             "",
             "",
             ""
@@ -23294,10 +23295,10 @@ import org.antlr.runtime.tree.*;
     static final String DFA144_specialS =
         "\14\uffff}>";
     static final String[] DFA144_transitionS = {
-            "\1\5\3\uffff\1\1\31\uffff\1\10\1\uffff\1\10\2\uffff\1\10\4\uffff"+
-            "\1\10\3\uffff\1\2\2\uffff\1\10\6\uffff\2\10\1\uffff\1\3\1\2"+
-            "\5\uffff\1\10\2\uffff\1\7\2\uffff\1\6\3\uffff\1\2\1\uffff\1"+
-            "\11\76\uffff\1\4\6\2",
+            "\1\5\3\uffff\1\1\31\uffff\1\10\1\uffff\1\10\2\uffff\1\10\4"+
+            "\uffff\1\10\3\uffff\1\2\2\uffff\1\10\6\uffff\2\10\1\uffff\1"+
+            "\3\1\2\5\uffff\1\10\2\uffff\1\7\2\uffff\1\6\3\uffff\1\2\1\uffff"+
+            "\1\11\76\uffff\1\4\6\2",
             "",
             "",
             "",
@@ -23357,8 +23358,8 @@ import org.antlr.runtime.tree.*;
     static final String DFA148_specialS =
         "\1\uffff\1\0\1\uffff\1\1\54\uffff}>";
     static final String[] DFA148_transitionS = {
-            "\3\4\1\uffff\7\4\1\3\2\uffff\4\4\1\1\1\uffff\3\4\1\uffff\1\4"+
-            "\1\2\4\4\1\uffff\22\4\27\uffff\1\4",
+            "\3\4\1\uffff\7\4\1\3\2\uffff\4\4\1\1\1\uffff\3\4\1\uffff\1"+
+            "\4\1\2\4\4\1\uffff\22\4\27\uffff\1\4",
             "\1\uffff",
             "",
             "\1\uffff",

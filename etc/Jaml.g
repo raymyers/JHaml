@@ -78,8 +78,8 @@ line returns [String rendering] @init { $rendering = ""; } :
   | NEWLINE
   ;
   
-freeformText returns [String rendering]:
-  TEXT NEWLINE {String txt = $TEXT.text;}
+freeformText returns [String rendering] @init {String txt = "";}:
+  TEXT NEWLINE {txt = $TEXT.text;}
   (content {txt += $content.rendering;})? 
   {$rendering = util.parseFreeFormText(txt);};
       
@@ -100,11 +100,14 @@ elementDeclaration returns [String type, Map<String,String> attrMap]
 
 content returns [String rendering] @init { $rendering = ""; } :
 INDENT 
- (e1=element {$rendering += $e1.rendering + "\n";} | 
-  freeformText {$rendering += $freeformText.rendering + "\n";})+
+ ( e1=element {$rendering += $e1.rendering + "\n";} | 
+  freeformText {$rendering += $freeformText.rendering + "\n";} | 
+  (blankLines)=> blankLines )+
 DEDENT
 {$rendering = "\n" + util.indent(util.stripTrailingNewline($rendering)) + "\n";}
 ;
+
+blankLines : DEDENT (NEWLINE+ | blankLines) INDENT;
 
 attrs[List<String> ids, List<String> classes] returns [String type]:
 PERCENT ID {$type = $ID.text;}
@@ -154,8 +157,10 @@ CHANGE_INDENT
 	          System.out.println("NEWLINE");
 	          System.out.println(tb + "/" + currentIndentation);
 	          if (tb > currentIndentation) {
-	              emit(new CommonToken(INDENT));
-	              System.out.println("INDENT");
+	              for(int i = 0; i < tb - currentIndentation; i+=2) {
+		              emit(new CommonToken(INDENT));
+		              System.out.println("INDENT");
+	              }
 	          } else if(tb < currentIndentation) {
 	              for(int i = 0; i < currentIndentation - tb; i+=2) {
 	    	          emit(new CommonToken(DEDENT));

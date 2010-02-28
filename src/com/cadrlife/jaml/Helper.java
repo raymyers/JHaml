@@ -115,6 +115,9 @@ public class Helper {
 	}
 
 	public String parseFreeFormText(String text) {
+		if (text.startsWith("!!!") && text.trim().length() == 3) {
+			return header();
+		}
 		if (text.startsWith("=")) {
 			return jspExpression(text.substring(1).trim());
 		}
@@ -130,7 +133,11 @@ public class Helper {
 		if (text.startsWith(":")) {
 			return filter(text.substring(1));
 		}
-		return text;
+		return text.replaceAll(" *$", "");
+	}
+
+	private String header() {
+		return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
 	}
 
 	private String filter(String string) {

@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-27 19:54:43
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-28 14:19:26
 
 package com.cadrlife.jaml;
 
@@ -8,7 +8,7 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-@SuppressWarnings("unused") public class JamlAttrHashLexer extends Lexer {
+public class JamlAttrHashLexer extends Lexer {
     public static final int PACKAGE=84;
     public static final int EXPONENT=173;
     public static final int STAR=49;
@@ -4662,9 +4662,9 @@ import java.util.ArrayList;
         "\1\44\1\151\1\164\1\44\2\uffff\1\163\1\146\2\44\1\uffff\1\172\1"+
         "\44\1\uffff\2\44\2\uffff\1\145\3\uffff\1\144\1\44\1\uffff";
     static final String DFA28_maxS =
-        "\1\ufaff\2\75\1\uffff\1\76\2\uffff\2\75\1\71\1\75\2\uffff\2\75\1"+
-        "\174\1\uffff\1\75\6\uffff\2\75\1\163\1\171\2\157\1\170\1\157\1\156"+
-        "\1\157\2\165\1\145\1\171\1\162\1\157\1\150\1\170\1\146\11\uffff"+
+        "\1\ufaff\2\75\1\uffff\1\76\2\uffff\2\75\1\71\1\75\2\uffff\2\75"+
+        "\1\174\1\uffff\1\75\6\uffff\2\75\1\163\1\171\2\157\1\170\1\157\1"+
+        "\156\1\157\2\165\1\145\1\171\1\162\1\157\1\150\1\170\1\146\11\uffff"+
         "\1\76\21\uffff\1\75\14\uffff\2\163\1\157\1\145\2\164\2\141\1\156"+
         "\1\146\1\ufaff\1\163\1\165\1\164\1\154\1\156\1\157\1\162\1\ufaff"+
         "\1\160\1\164\1\156\1\164\1\167\1\154\1\143\1\157\1\142\1\164\1\157"+
@@ -4692,22 +4692,22 @@ import java.util.ArrayList;
         "\1\163\1\146\2\ufaff\1\uffff\1\172\1\ufaff\1\uffff\2\ufaff\2\uffff"+
         "\1\145\3\uffff\1\144\1\ufaff\1\uffff";
     static final String DFA28_acceptS =
-        "\3\uffff\1\4\1\uffff\1\7\1\10\4\uffff\1\23\1\24\3\uffff\1\32\1\uffff"+
-        "\1\37\1\45\1\46\1\47\1\50\1\51\23\uffff\1\151\1\152\1\153\1\154"+
-        "\1\2\1\27\1\1\1\17\1\3\1\uffff\1\20\1\21\1\11\1\34\1\33\1\13\1\155"+
-        "\1\156\1\12\1\15\1\16\1\14\1\150\1\22\1\44\1\43\1\25\1\uffff\1\26"+
-        "\1\40\1\30\1\31\1\42\1\41\1\36\1\35\1\57\1\56\1\61\1\60\46\uffff"+
-        "\1\145\1\uffff\1\146\2\uffff\1\55\1\54\1\53\1\52\14\uffff\1\75\7"+
-        "\uffff\1\107\32\uffff\1\147\1\6\1\5\22\uffff\1\106\4\uffff\1\114"+
-        "\2\uffff\1\117\20\uffff\1\141\7\uffff\1\66\1\67\1\uffff\1\71\4\uffff"+
-        "\1\77\1\100\10\uffff\1\115\1\uffff\1\120\13\uffff\1\134\2\uffff"+
-        "\1\140\1\142\5\uffff\1\65\1\70\1\72\4\uffff\1\102\1\uffff\1\103"+
-        "\1\105\12\uffff\1\126\2\uffff\1\131\3\uffff\1\135\2\uffff\1\144"+
-        "\1\uffff\1\63\3\uffff\1\76\3\uffff\1\113\2\uffff\1\116\3\uffff\1"+
-        "\124\1\125\1\127\1\uffff\1\132\1\uffff\1\136\3\uffff\1\64\1\uffff"+
-        "\1\74\1\101\1\104\3\uffff\1\121\1\122\5\uffff\1\62\1\73\4\uffff"+
-        "\1\130\2\uffff\1\143\2\uffff\1\112\1\123\1\uffff\1\137\1\110\1\111"+
-        "\2\uffff\1\133";
+        "\3\uffff\1\4\1\uffff\1\7\1\10\4\uffff\1\23\1\24\3\uffff\1\32\1"+
+        "\uffff\1\37\1\45\1\46\1\47\1\50\1\51\23\uffff\1\151\1\152\1\153"+
+        "\1\154\1\2\1\27\1\1\1\17\1\3\1\uffff\1\20\1\21\1\11\1\34\1\33\1"+
+        "\13\1\155\1\156\1\12\1\15\1\16\1\14\1\150\1\22\1\44\1\43\1\25\1"+
+        "\uffff\1\26\1\40\1\30\1\31\1\42\1\41\1\36\1\35\1\57\1\56\1\61\1"+
+        "\60\46\uffff\1\145\1\uffff\1\146\2\uffff\1\55\1\54\1\53\1\52\14"+
+        "\uffff\1\75\7\uffff\1\107\32\uffff\1\147\1\6\1\5\22\uffff\1\106"+
+        "\4\uffff\1\114\2\uffff\1\117\20\uffff\1\141\7\uffff\1\66\1\67\1"+
+        "\uffff\1\71\4\uffff\1\77\1\100\10\uffff\1\115\1\uffff\1\120\13\uffff"+
+        "\1\134\2\uffff\1\140\1\142\5\uffff\1\65\1\70\1\72\4\uffff\1\102"+
+        "\1\uffff\1\103\1\105\12\uffff\1\126\2\uffff\1\131\3\uffff\1\135"+
+        "\2\uffff\1\144\1\uffff\1\63\3\uffff\1\76\3\uffff\1\113\2\uffff\1"+
+        "\116\3\uffff\1\124\1\125\1\127\1\uffff\1\132\1\uffff\1\136\3\uffff"+
+        "\1\64\1\uffff\1\74\1\101\1\104\3\uffff\1\121\1\122\5\uffff\1\62"+
+        "\1\73\4\uffff\1\130\2\uffff\1\143\2\uffff\1\112\1\123\1\uffff\1"+
+        "\137\1\110\1\111\2\uffff\1\133";
     static final String DFA28_specialS =
         "\u016f\uffff}>";
     static final String[] DFA28_transitionS = {
@@ -4759,8 +4759,8 @@ import java.util.ArrayList;
             "\1\165\11\uffff\1\166",
             "\1\167",
             "\1\170",
-            "\1\101\1\uffff\10\172\2\101\12\uffff\3\101\21\uffff\1\171\13"+
-            "\uffff\3\101\21\uffff\1\171",
+            "\1\101\1\uffff\10\172\2\101\12\uffff\3\101\21\uffff\1\171"+
+            "\13\uffff\3\101\21\uffff\1\171",
             "\1\101\1\uffff\12\174\12\uffff\3\101\35\uffff\3\101",
             "",
             "",
@@ -4881,9 +4881,9 @@ import java.util.ArrayList;
             "",
             "\1\u00c7\2\uffff\1\u00c8",
             "\1\u00c9",
-            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\4\55"+
-            "\1\u00ca\25\55\105\uffff\27\55\1\uffff\37\55\1\uffff\u1f08\55"+
-            "\u1040\uffff\u0150\55\u0170\uffff\u0080\55\u0080\uffff\u092e"+
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\4"+
+            "\55\1\u00ca\25\55\105\uffff\27\55\1\uffff\37\55\1\uffff\u1f08"+
+            "\55\u1040\uffff\u0150\55\u0170\uffff\u0080\55\u0080\uffff\u092e"+
             "\55\u10d2\uffff\u5200\55\u5900\uffff\u0200\55",
             "\1\u00cc",
             "\1\u00cd",

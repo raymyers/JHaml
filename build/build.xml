@@ -34,13 +34,17 @@
        	                      fork="true">
        	                   <arg line="${tool.options} ${antlrdir}/${jaml.grammar.name}AttrHash.g" />
        	                </java>
+                <move todir="${antlrdir}">
+                   <fileset dir="" includes="*.java" />
+                   <fileset dir="" includes="*.tokens" />
+                </move>
                 <!-- Add suppress warnings to parsers. -->
        			<replaceregexp file="${antlrdir}/${jaml.grammar.name}Lexer.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" /> 
        			<replaceregexp file="${antlrdir}/${jaml.grammar.name}Parser.java" match="^public class" replace="@SuppressWarnings(&quot;unused&quot;) public class" flags="m" /> 
                 <!-- Move generated Java code to the correct package directory. -->
                 <move todir="${srcdir}/${jaml.parse.package}">
                    <fileset dir="${antlrdir}" includes="*.java" />
-                   <fileset dir="" includes="*.tokens" />
+                   <fileset dir="${antlrdir}" includes="*.tokens" />
                 </move>
              </target>
        <target name="antlr-jaml-attrhash"
@@ -52,6 +56,11 @@
        	                      fork="true">
        	                   <arg line="${tool.options} ${antlrdir}/${jaml.grammar.name}AttrHash.g" />
        	                </java>
+       			<move todir="${antlrdir}">
+       	        	<fileset dir="" includes="*.java" />
+       	        	<fileset dir="" includes="*.tokens" />
+       	        </move>
+       	
                 <!-- Add suppress warnings to parsers. -->
        			<replaceregexp file="${antlrdir}/${jaml.grammar.name}AttrHashLexer.java" match="^public class" replace="@SuppressWarnings(&quot;unused&quot;) public class" flags="m" /> 
        			<replaceregexp file="${antlrdir}/${jaml.grammar.name}AttrHashParser.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" />
@@ -59,7 +68,7 @@
                 <!-- Move generated Java code to the correct package directory. -->
                 <move todir="${srcdir}/${jaml.parse.package}">
                    <fileset dir="${antlrdir}" includes="*.java" />
-                   <fileset dir="" includes="*.tokens" />
+                   <fileset dir="${antlrdir}" includes="*.tokens" />
                 </move>
              </target>
     <target name="antlr-java"
