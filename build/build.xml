@@ -54,7 +54,8 @@
        	                </java>
                 <!-- Add suppress warnings to parsers. -->
        			<replaceregexp file="${antlrdir}/${jaml.grammar.name}AttrHashLexer.java" match="^public class" replace="@SuppressWarnings(&quot;unused&quot;) public class" flags="m" /> 
-       			<replaceregexp file="${antlrdir}/${jaml.grammar.name}AttrHashParser.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" /> 
+       			<replaceregexp file="${antlrdir}/${jaml.grammar.name}AttrHashParser.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" />
+
                 <!-- Move generated Java code to the correct package directory. -->
                 <move todir="${srcdir}/${jaml.parse.package}">
                    <fileset dir="${antlrdir}" includes="*.java" />

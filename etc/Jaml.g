@@ -178,11 +178,12 @@ StringLiteral: { hashMode }?=>
     '"' ( EscapeSequence | ~('\\' | '"' | '\r' | '\n' ) )* '"'
   ;
 
-CHARLITERAL
+// Extended to include strings for attribute mappings like :a => 'Hello'.
+CHARLITERAL 
     :   '\'' 
         (   EscapeSequence 
         |   ~( '\'' | '\\' | '\r' | '\n' )
-        ) 
+        )*
         '\''
     ;
     

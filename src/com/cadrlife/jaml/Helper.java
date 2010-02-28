@@ -111,10 +111,21 @@ public class Helper {
 		if (text.startsWith("-")) {
 			return jspScriptlet(text.substring(1).trim());
 		}
+		if (text.startsWith("/[if") && text.contains("]")) {
+			return ieConditionalComment(text.substring(1));
+		}
 		if (text.startsWith("/")) {
 			return htmlComment(text.substring(1));
 		}
 		return text;
+	}
+
+	private String ieConditionalComment(String string) {
+		int startOfCondition = string.indexOf("[");
+		int endOfCondition = string.indexOf("]");
+		String condition = string.substring(startOfCondition, endOfCondition+1);
+		String contents = string.substring(endOfCondition+1);
+		return "<!--" + condition + ">" + contents + "<![endif]-->";
 	}
 
 	private String htmlComment(String string) {

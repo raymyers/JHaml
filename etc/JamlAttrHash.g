@@ -1,6 +1,6 @@
 /* Adapted from Java.g */
 
-grammar JamlAttrHash; 
+grammar JamlAttrHash;
 
 options {
     backtrack = true; 
@@ -1135,8 +1135,9 @@ EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
 fragment
 FLOAT_TYPE_SUFFIX : ('f'|'F'|'d'|'D') ;
 
-CHARACTER_LITERAL
-    :   '\'' ( ESCAPE_SEQUENCE | ~('\''|'\\') ) '\''
+// Extended to include strings for attribute mappings like :a => 'Hello'.
+CHARACTER_LITERAL 
+    :   '\'' ( ESCAPE_SEQUENCE | ~('\''|'\\') )* '\''
     ;
 
 STRING_LITERAL

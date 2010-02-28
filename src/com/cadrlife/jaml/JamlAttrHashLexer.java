@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-27 18:32:13
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-27 19:54:43
 
 package com.cadrlife.jaml;
 
@@ -8,7 +8,7 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-public class JamlAttrHashLexer extends Lexer {
+@SuppressWarnings("unused") public class JamlAttrHashLexer extends Lexer {
     public static final int PACKAGE=84;
     public static final int EXPONENT=173;
     public static final int STAR=49;
@@ -3179,51 +3179,52 @@ public class JamlAttrHashLexer extends Lexer {
         try {
             int _type = CHARACTER_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1139:5: ( '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\'' )
-            // ../etc/JamlAttrHash.g:1139:9: '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\''
+            // ../etc/JamlAttrHash.g:1140:5: ( '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )* '\\'' )
+            // ../etc/JamlAttrHash.g:1140:9: '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )* '\\''
             {
             match('\''); 
-            // ../etc/JamlAttrHash.g:1139:14: ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../etc/JamlAttrHash.g:1140:14: ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )*
+            loop20:
+            do {
+                int alt20=3;
+                int LA20_0 = input.LA(1);
 
-            if ( (LA20_0=='\\') ) {
-                alt20=1;
-            }
-            else if ( ((LA20_0>='\u0000' && LA20_0<='&')||(LA20_0>='(' && LA20_0<='[')||(LA20_0>=']' && LA20_0<='\uFFFF')) ) {
-                alt20=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
-
-                throw nvae;
-            }
-            switch (alt20) {
-                case 1 :
-                    // ../etc/JamlAttrHash.g:1139:16: ESCAPE_SEQUENCE
-                    {
-                    mESCAPE_SEQUENCE(); 
-
-                    }
-                    break;
-                case 2 :
-                    // ../etc/JamlAttrHash.g:1139:34: ~ ( '\\'' | '\\\\' )
-                    {
-                    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
-                        input.consume();
-
-                    }
-                    else {
-                        MismatchedSetException mse = new MismatchedSetException(null,input);
-                        recover(mse);
-                        throw mse;}
+                if ( (LA20_0=='\\') ) {
+                    alt20=1;
+                }
+                else if ( ((LA20_0>='\u0000' && LA20_0<='&')||(LA20_0>='(' && LA20_0<='[')||(LA20_0>=']' && LA20_0<='\uFFFF')) ) {
+                    alt20=2;
+                }
 
 
-                    }
-                    break;
+                switch (alt20) {
+            	case 1 :
+            	    // ../etc/JamlAttrHash.g:1140:16: ESCAPE_SEQUENCE
+            	    {
+            	    mESCAPE_SEQUENCE(); 
 
-            }
+            	    }
+            	    break;
+            	case 2 :
+            	    // ../etc/JamlAttrHash.g:1140:34: ~ ( '\\'' | '\\\\' )
+            	    {
+            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop20;
+                }
+            } while (true);
 
             match('\''); 
 
@@ -3244,11 +3245,11 @@ public class JamlAttrHashLexer extends Lexer {
         try {
             int _type = STRING_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1143:5: ( '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"' )
-            // ../etc/JamlAttrHash.g:1143:8: '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"'
+            // ../etc/JamlAttrHash.g:1144:5: ( '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"' )
+            // ../etc/JamlAttrHash.g:1144:8: '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"'
             {
             match('\"'); 
-            // ../etc/JamlAttrHash.g:1143:12: ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )*
+            // ../etc/JamlAttrHash.g:1144:12: ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )*
             loop21:
             do {
                 int alt21=3;
@@ -3264,14 +3265,14 @@ public class JamlAttrHashLexer extends Lexer {
 
                 switch (alt21) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1143:14: ESCAPE_SEQUENCE
+            	    // ../etc/JamlAttrHash.g:1144:14: ESCAPE_SEQUENCE
             	    {
             	    mESCAPE_SEQUENCE(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/JamlAttrHash.g:1143:32: ~ ( '\\\\' | '\"' )
+            	    // ../etc/JamlAttrHash.g:1144:32: ~ ( '\\\\' | '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3308,7 +3309,7 @@ public class JamlAttrHashLexer extends Lexer {
     public final void mESCAPE_SEQUENCE() throws RecognitionException {
     traceIn("ESCAPE_SEQUENCE", 111);
         try {
-            // ../etc/JamlAttrHash.g:1148:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESCAPE | OCTAL_ESCAPE )
+            // ../etc/JamlAttrHash.g:1149:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESCAPE | OCTAL_ESCAPE )
             int alt22=3;
             int LA22_0 = input.LA(1);
 
@@ -3359,7 +3360,7 @@ public class JamlAttrHashLexer extends Lexer {
             }
             switch (alt22) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1148:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                    // ../etc/JamlAttrHash.g:1149:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                     {
                     match('\\'); 
                     if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -3375,14 +3376,14 @@ public class JamlAttrHashLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1149:9: UNICODE_ESCAPE
+                    // ../etc/JamlAttrHash.g:1150:9: UNICODE_ESCAPE
                     {
                     mUNICODE_ESCAPE(); 
 
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:1150:9: OCTAL_ESCAPE
+                    // ../etc/JamlAttrHash.g:1151:9: OCTAL_ESCAPE
                     {
                     mOCTAL_ESCAPE(); 
 
@@ -3401,7 +3402,7 @@ public class JamlAttrHashLexer extends Lexer {
     public final void mOCTAL_ESCAPE() throws RecognitionException {
     traceIn("OCTAL_ESCAPE", 112);
         try {
-            // ../etc/JamlAttrHash.g:1155:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+            // ../etc/JamlAttrHash.g:1156:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
             int alt23=3;
             int LA23_0 = input.LA(1);
 
@@ -3447,41 +3448,13 @@ public class JamlAttrHashLexer extends Lexer {
             }
             switch (alt23) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1155:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                    // ../etc/JamlAttrHash.g:1156:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // ../etc/JamlAttrHash.g:1155:14: ( '0' .. '3' )
-                    // ../etc/JamlAttrHash.g:1155:15: '0' .. '3'
+                    // ../etc/JamlAttrHash.g:1156:14: ( '0' .. '3' )
+                    // ../etc/JamlAttrHash.g:1156:15: '0' .. '3'
                     {
                     matchRange('0','3'); 
-
-                    }
-
-                    // ../etc/JamlAttrHash.g:1155:25: ( '0' .. '7' )
-                    // ../etc/JamlAttrHash.g:1155:26: '0' .. '7'
-                    {
-                    matchRange('0','7'); 
-
-                    }
-
-                    // ../etc/JamlAttrHash.g:1155:36: ( '0' .. '7' )
-                    // ../etc/JamlAttrHash.g:1155:37: '0' .. '7'
-                    {
-                    matchRange('0','7'); 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../etc/JamlAttrHash.g:1156:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
-                    {
-                    match('\\'); 
-                    // ../etc/JamlAttrHash.g:1156:14: ( '0' .. '7' )
-                    // ../etc/JamlAttrHash.g:1156:15: '0' .. '7'
-                    {
-                    matchRange('0','7'); 
 
                     }
 
@@ -3492,15 +3465,43 @@ public class JamlAttrHashLexer extends Lexer {
 
                     }
 
+                    // ../etc/JamlAttrHash.g:1156:36: ( '0' .. '7' )
+                    // ../etc/JamlAttrHash.g:1156:37: '0' .. '7'
+                    {
+                    matchRange('0','7'); 
+
+                    }
+
 
                     }
                     break;
-                case 3 :
-                    // ../etc/JamlAttrHash.g:1157:9: '\\\\' ( '0' .. '7' )
+                case 2 :
+                    // ../etc/JamlAttrHash.g:1157:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
                     // ../etc/JamlAttrHash.g:1157:14: ( '0' .. '7' )
                     // ../etc/JamlAttrHash.g:1157:15: '0' .. '7'
+                    {
+                    matchRange('0','7'); 
+
+                    }
+
+                    // ../etc/JamlAttrHash.g:1157:25: ( '0' .. '7' )
+                    // ../etc/JamlAttrHash.g:1157:26: '0' .. '7'
+                    {
+                    matchRange('0','7'); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // ../etc/JamlAttrHash.g:1158:9: '\\\\' ( '0' .. '7' )
+                    {
+                    match('\\'); 
+                    // ../etc/JamlAttrHash.g:1158:14: ( '0' .. '7' )
+                    // ../etc/JamlAttrHash.g:1158:15: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -3522,8 +3523,8 @@ public class JamlAttrHashLexer extends Lexer {
     public final void mUNICODE_ESCAPE() throws RecognitionException {
     traceIn("UNICODE_ESCAPE", 113);
         try {
-            // ../etc/JamlAttrHash.g:1162:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-            // ../etc/JamlAttrHash.g:1162:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+            // ../etc/JamlAttrHash.g:1163:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+            // ../etc/JamlAttrHash.g:1163:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
             {
             match('\\'); 
             match('u'); 
@@ -3547,11 +3548,11 @@ public class JamlAttrHashLexer extends Lexer {
         try {
             int _type = IDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1166:5: ( JAVA_ID_START ( JAVA_ID_PART )* )
-            // ../etc/JamlAttrHash.g:1166:9: JAVA_ID_START ( JAVA_ID_PART )*
+            // ../etc/JamlAttrHash.g:1167:5: ( JAVA_ID_START ( JAVA_ID_PART )* )
+            // ../etc/JamlAttrHash.g:1167:9: JAVA_ID_START ( JAVA_ID_PART )*
             {
             mJAVA_ID_START(); 
-            // ../etc/JamlAttrHash.g:1166:23: ( JAVA_ID_PART )*
+            // ../etc/JamlAttrHash.g:1167:23: ( JAVA_ID_PART )*
             loop24:
             do {
                 int alt24=2;
@@ -3564,7 +3565,7 @@ public class JamlAttrHashLexer extends Lexer {
 
                 switch (alt24) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1166:24: JAVA_ID_PART
+            	    // ../etc/JamlAttrHash.g:1167:24: JAVA_ID_PART
             	    {
             	    mJAVA_ID_PART(); 
 
@@ -3592,7 +3593,7 @@ public class JamlAttrHashLexer extends Lexer {
     public final void mJAVA_ID_START() throws RecognitionException {
     traceIn("JAVA_ID_START", 115);
         try {
-            // ../etc/JamlAttrHash.g:1171:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
+            // ../etc/JamlAttrHash.g:1172:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
             // ../etc/JamlAttrHash.g:
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF') ) {
@@ -3618,7 +3619,7 @@ public class JamlAttrHashLexer extends Lexer {
     public final void mJAVA_ID_PART() throws RecognitionException {
     traceIn("JAVA_ID_PART", 116);
         try {
-            // ../etc/JamlAttrHash.g:1188:5: ( JAVA_ID_START | '\\u0030' .. '\\u0039' )
+            // ../etc/JamlAttrHash.g:1189:5: ( JAVA_ID_START | '\\u0030' .. '\\u0039' )
             // ../etc/JamlAttrHash.g:
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF') ) {
@@ -3646,8 +3647,8 @@ public class JamlAttrHashLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1192:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // ../etc/JamlAttrHash.g:1192:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // ../etc/JamlAttrHash.g:1193:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // ../etc/JamlAttrHash.g:1193:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -3683,12 +3684,12 @@ public class JamlAttrHashLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1203:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../etc/JamlAttrHash.g:1203:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../etc/JamlAttrHash.g:1204:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../etc/JamlAttrHash.g:1204:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../etc/JamlAttrHash.g:1203:14: ( options {greedy=false; } : . )*
+            // ../etc/JamlAttrHash.g:1204:14: ( options {greedy=false; } : . )*
             loop25:
             do {
                 int alt25=2;
@@ -3713,7 +3714,7 @@ public class JamlAttrHashLexer extends Lexer {
 
                 switch (alt25) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1203:42: .
+            	    // ../etc/JamlAttrHash.g:1204:42: .
             	    {
             	    matchAny(); 
 
@@ -3752,12 +3753,12 @@ public class JamlAttrHashLexer extends Lexer {
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/JamlAttrHash.g:1214:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // ../etc/JamlAttrHash.g:1214:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // ../etc/JamlAttrHash.g:1215:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // ../etc/JamlAttrHash.g:1215:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // ../etc/JamlAttrHash.g:1214:12: (~ ( '\\n' | '\\r' ) )*
+            // ../etc/JamlAttrHash.g:1215:12: (~ ( '\\n' | '\\r' ) )*
             loop26:
             do {
                 int alt26=2;
@@ -3770,7 +3771,7 @@ public class JamlAttrHashLexer extends Lexer {
 
                 switch (alt26) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1214:12: ~ ( '\\n' | '\\r' )
+            	    // ../etc/JamlAttrHash.g:1215:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3790,7 +3791,7 @@ public class JamlAttrHashLexer extends Lexer {
                 }
             } while (true);
 
-            // ../etc/JamlAttrHash.g:1214:26: ( '\\r' )?
+            // ../etc/JamlAttrHash.g:1215:26: ( '\\r' )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -3799,7 +3800,7 @@ public class JamlAttrHashLexer extends Lexer {
             }
             switch (alt27) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1214:26: '\\r'
+                    // ../etc/JamlAttrHash.g:1215:26: '\\r'
                     {
                     match('\r'); 
 

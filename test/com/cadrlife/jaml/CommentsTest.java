@@ -31,4 +31,19 @@ public class CommentsTest {
 			"-->";
 		assertEquals(html, jaml.parse(haml));
 	}
+	
+	@Test
+	public void ieConditionalComments() {
+		String haml = 
+			"/[if IE]\n" +
+			"  %a{ :href => \"http://www.mozilla.com/en-US/firefox/\" }\n" + 
+			"    %h1 Get Firefox";
+		String html = 
+			"<!--[if IE]>\n" +
+			"  <a href='http://www.mozilla.com/en-US/firefox/'>\n" +
+			"    <h1>Get Firefox</h1>\n" + 
+			"  </a>\n" +
+			"<![endif]-->";
+		assertEquals(html, jaml.parse(haml));
+	}
 }

@@ -18,8 +18,19 @@ public class JamlAttributeHashTest {
 	@Test
 	public void string() {
 		String input = "{:a => \"Hello World\"}";
-//		Util.parseAttrHash(":a => \"Hello World\"");
 		assertEquals("Hello World", readAttrs(input).get("a"));
+	}
+	
+	@Test
+	public void unJavaLikeSingleQuotedString() {
+		String input = "{:a => 'Hello'}";
+		assertEquals("Hello", readAttrs(input).get("a"));
+	}
+	
+	@Test
+	public void character() {
+		String input = "{:a => 'H'}";
+		assertEquals("H", readAttrs(input).get("a"));
 	}
 	
 	@Test

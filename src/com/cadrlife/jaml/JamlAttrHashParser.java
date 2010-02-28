@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-27 18:32:10
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-27 19:54:40
 
 package com.cadrlife.jaml;
 import java.util.LinkedHashMap;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 import org.antlr.runtime.tree.*;
 
-public class JamlAttrHashParser extends Parser {
+@SuppressWarnings("all") public class JamlAttrHashParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "AND_ASSIGN", "ASSIGN", "AT", "BIT_SHIFT_RIGHT", "BIT_SHIFT_RIGHT_ASSIGN", "COLON", "COMMA", "DEC", "DIV", "DIV_ASSIGN", "DOT", "DOTSTAR", "ELLIPSIS", "EQUAL", "GREATER_OR_EQUAL", "GREATER_THAN", "INC", "LBRACK", "LCURLY", "LESS_OR_EQUAL", "LESS_THAN", "LOGICAL_AND", "LOGICAL_NOT", "LOGICAL_OR", "LPAREN", "MINUS", "MINUS_ASSIGN", "MOD", "MOD_ASSIGN", "NOT", "NOT_EQUAL", "OR", "OR_ASSIGN", "PLUS", "PLUS_ASSIGN", "QUESTION", "RBRACK", "RCURLY", "RPAREN", "SEMI", "SHIFT_LEFT", "SHIFT_LEFT_ASSIGN", "SHIFT_RIGHT", "SHIFT_RIGHT_ASSIGN", "STAR", "STAR_ASSIGN", "XOR", "XOR_ASSIGN", "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", "BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FALSE", "FINAL", "FINALLY", "FLOAT", "FOR", "IF", "IMPLEMENTS", "INSTANCEOF", "INTERFACE", "IMPORT", "INT", "LONG", "NATIVE", "NEW", "NULL", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", "SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRUE", "TRY", "VOID", "VOLATILE", "WHILE", "ANNOTATION_INIT_ARRAY_ELEMENT", "ANNOTATION_INIT_BLOCK", "ANNOTATION_INIT_DEFAULT_KEY", "ANNOTATION_INIT_KEY_LIST", "ANNOTATION_LIST", "ANNOTATION_METHOD_DECL", "ANNOTATION_SCOPE", "ANNOTATION_TOP_LEVEL_SCOPE", "ARGUMENT_LIST", "ARRAY_DECLARATOR", "ARRAY_DECLARATOR_LIST", "ARRAY_ELEMENT_ACCESS", "ARRAY_INITIALIZER", "BLOCK_SCOPE", "CAST_EXPR", "CATCH_CLAUSE_LIST", "CLASS_CONSTRUCTOR_CALL", "CLASS_INSTANCE_INITIALIZER", "CLASS_STATIC_INITIALIZER", "CLASS_TOP_LEVEL_SCOPE", "CONSTRUCTOR_DECL", "ENUM_TOP_LEVEL_SCOPE", "EXPR", "EXTENDS_BOUND_LIST", "EXTENDS_CLAUSE", "FOR_CONDITION", "FOR_EACH", "FOR_INIT", "FOR_UPDATE", "FORMAL_PARAM_LIST", "FORMAL_PARAM_STD_DECL", "FORMAL_PARAM_VARARG_DECL", "FUNCTION_METHOD_DECL", "GENERIC_TYPE_ARG_LIST", "GENERIC_TYPE_PARAM_LIST", "INTERFACE_TOP_LEVEL_SCOPE", "IMPLEMENTS_CLAUSE", "LABELED_STATEMENT", "LOCAL_MODIFIER_LIST", "JAVA_SOURCE", "METHOD_CALL", "MODIFIER_LIST", "PARENTESIZED_EXPR", "POST_DEC", "POST_INC", "PRE_DEC", "PRE_INC", "QUALIFIED_TYPE_IDENT", "STATIC_ARRAY_CREATOR", "SUPER_CONSTRUCTOR_CALL", "SWITCH_BLOCK_LABEL_LIST", "THIS_CONSTRUCTOR_CALL", "THROWS_CLAUSE", "TYPE", "UNARY_MINUS", "UNARY_PLUS", "VAR_DECLARATION", "VAR_DECLARATOR", "VAR_DECLARATOR_LIST", "VOID_METHOD_DECL", "IDENT", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "CHARACTER_LITERAL", "STRING_LITERAL", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "ESCAPE_SEQUENCE", "UNICODE_ESCAPE", "OCTAL_ESCAPE", "JAVA_ID_START", "JAVA_ID_PART", "WS", "COMMENT", "LINE_COMMENT"
     };
@@ -322,7 +322,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:283:3: (am= attrMapping ( ',' am= attrMapping )* )
             // ../etc/JamlAttrHash.g:283:5: am= attrMapping ( ',' am= attrMapping )*
             {
-            pushFollow(FOLLOW_attrMapping_in_attrMappings4526);
+            pushFollow(FOLLOW_attrMapping_in_attrMappings4525);
             am=attrMapping();
 
             state._fsp--;
@@ -346,12 +346,12 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:284:6: ',' am= attrMapping
             	    {
-            	    char_literal1=(Token)match(input,COMMA,FOLLOW_COMMA_in_attrMappings4537); if (state.failed) return retval;
+            	    char_literal1=(Token)match(input,COMMA,FOLLOW_COMMA_in_attrMappings4536); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal1_tree = (CommonTree)adaptor.create(char_literal1);
             	    adaptor.addChild(root_0, char_literal1_tree);
             	    }
-            	    pushFollow(FOLLOW_attrMapping_in_attrMappings4541);
+            	    pushFollow(FOLLOW_attrMapping_in_attrMappings4540);
             	    am=attrMapping();
 
             	    state._fsp--;
@@ -430,7 +430,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_attribute_in_attrMapping4561);
+            pushFollow(FOLLOW_attribute_in_attrMapping4560);
             attribute2=attribute();
 
             state._fsp--;
@@ -439,17 +439,17 @@ public class JamlAttrHashParser extends Parser {
             if ( state.backtracking==0 ) {
               retval.attr =(attribute2!=null?attribute2.value:null);
             }
-            char_literal3=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_attrMapping4568); if (state.failed) return retval;
+            char_literal3=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_attrMapping4567); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             char_literal3_tree = (CommonTree)adaptor.create(char_literal3);
             adaptor.addChild(root_0, char_literal3_tree);
             }
-            char_literal4=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_attrMapping4570); if (state.failed) return retval;
+            char_literal4=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_attrMapping4569); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             char_literal4_tree = (CommonTree)adaptor.create(char_literal4);
             adaptor.addChild(root_0, char_literal4_tree);
             }
-            pushFollow(FOLLOW_attributeValue_in_attrMapping4575);
+            pushFollow(FOLLOW_attributeValue_in_attrMapping4574);
             attributeValue5=attributeValue();
 
             state._fsp--;
@@ -533,7 +533,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    char_literal6=(Token)match(input,COLON,FOLLOW_COLON_in_attribute4589); if (state.failed) return retval;
+                    char_literal6=(Token)match(input,COLON,FOLLOW_COLON_in_attribute4588); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     char_literal6_tree = (CommonTree)adaptor.create(char_literal6);
                     adaptor.addChild(root_0, char_literal6_tree);
@@ -559,7 +559,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:292:6: keyword
                             {
-                            pushFollow(FOLLOW_keyword_in_attribute4592);
+                            pushFollow(FOLLOW_keyword_in_attribute4591);
                             keyword7=keyword();
 
                             state._fsp--;
@@ -574,7 +574,7 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:292:42: IDENT
                             {
-                            IDENT8=(Token)match(input,IDENT,FOLLOW_IDENT_in_attribute4598); if (state.failed) return retval;
+                            IDENT8=(Token)match(input,IDENT,FOLLOW_IDENT_in_attribute4597); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             IDENT8_tree = (CommonTree)adaptor.create(IDENT8);
                             adaptor.addChild(root_0, IDENT8_tree);
@@ -596,7 +596,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_literal_in_attribute4605);
+                    pushFollow(FOLLOW_literal_in_attribute4604);
                     literal9=literal();
 
                     state._fsp--;
@@ -796,7 +796,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_literal_in_attributeValue4634);
+                    pushFollow(FOLLOW_literal_in_attributeValue4633);
                     literal10=literal();
 
                     state._fsp--;
@@ -813,7 +813,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expression_in_attributeValue4641);
+                    pushFollow(FOLLOW_expression_in_attributeValue4640);
                     expression11=expression();
 
                     state._fsp--;
@@ -939,7 +939,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal4678); if (state.failed) return retval;
+                    lit=(Token)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal4677); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -955,7 +955,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_literal4688); if (state.failed) return retval;
+                    lit=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_literal4687); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -971,7 +971,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal4698); if (state.failed) return retval;
+                    lit=(Token)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal4697); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -1114,7 +1114,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:364:5: ( compilationUnit -> ^( JAVA_SOURCE compilationUnit ) )
             // ../etc/JamlAttrHash.g:364:9: compilationUnit
             {
-            pushFollow(FOLLOW_compilationUnit_in_javaSource5355);
+            pushFollow(FOLLOW_compilationUnit_in_javaSource5354);
             compilationUnit13=compilationUnit();
 
             state._fsp--;
@@ -1204,7 +1204,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_annotationList_in_compilationUnit5391);
+            pushFollow(FOLLOW_annotationList_in_compilationUnit5390);
             annotationList14=annotationList();
 
             state._fsp--;
@@ -1221,7 +1221,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: packageDeclaration
                     {
-                    pushFollow(FOLLOW_packageDeclaration_in_compilationUnit5402);
+                    pushFollow(FOLLOW_packageDeclaration_in_compilationUnit5401);
                     packageDeclaration15=packageDeclaration();
 
                     state._fsp--;
@@ -1248,7 +1248,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: importDeclaration
             	    {
-            	    pushFollow(FOLLOW_importDeclaration_in_compilationUnit5414);
+            	    pushFollow(FOLLOW_importDeclaration_in_compilationUnit5413);
             	    importDeclaration16=importDeclaration();
 
             	    state._fsp--;
@@ -1278,7 +1278,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: typeDecls
             	    {
-            	    pushFollow(FOLLOW_typeDecls_in_compilationUnit5426);
+            	    pushFollow(FOLLOW_typeDecls_in_compilationUnit5425);
             	    typeDecls17=typeDecls();
 
             	    state._fsp--;
@@ -1363,7 +1363,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_typeDecls5446);
+                    pushFollow(FOLLOW_typeDeclaration_in_typeDecls5445);
                     typeDeclaration18=typeDeclaration();
 
                     state._fsp--;
@@ -1377,7 +1377,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI19=(Token)match(input,SEMI,FOLLOW_SEMI_in_typeDecls5456); if (state.failed) return retval;
+                    SEMI19=(Token)match(input,SEMI,FOLLOW_SEMI_in_typeDecls5455); if (state.failed) return retval;
 
                     }
                     break;
@@ -1434,18 +1434,18 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            PACKAGE20=(Token)match(input,PACKAGE,FOLLOW_PACKAGE_in_packageDeclaration5476); if (state.failed) return retval;
+            PACKAGE20=(Token)match(input,PACKAGE,FOLLOW_PACKAGE_in_packageDeclaration5475); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             PACKAGE20_tree = (CommonTree)adaptor.create(PACKAGE20);
             root_0 = (CommonTree)adaptor.becomeRoot(PACKAGE20_tree, root_0);
             }
-            pushFollow(FOLLOW_qualifiedIdentifier_in_packageDeclaration5479);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_packageDeclaration5478);
             qualifiedIdentifier21=qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier21.getTree());
-            SEMI22=(Token)match(input,SEMI,FOLLOW_SEMI_in_packageDeclaration5481); if (state.failed) return retval;
+            SEMI22=(Token)match(input,SEMI,FOLLOW_SEMI_in_packageDeclaration5480); if (state.failed) return retval;
 
             }
 
@@ -1504,7 +1504,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IMPORT23=(Token)match(input,IMPORT,FOLLOW_IMPORT_in_importDeclaration5507); if (state.failed) return retval;
+            IMPORT23=(Token)match(input,IMPORT,FOLLOW_IMPORT_in_importDeclaration5506); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IMPORT23_tree = (CommonTree)adaptor.create(IMPORT23);
             root_0 = (CommonTree)adaptor.becomeRoot(IMPORT23_tree, root_0);
@@ -1520,7 +1520,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: STATIC
                     {
-                    STATIC24=(Token)match(input,STATIC,FOLLOW_STATIC_in_importDeclaration5510); if (state.failed) return retval;
+                    STATIC24=(Token)match(input,STATIC,FOLLOW_STATIC_in_importDeclaration5509); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STATIC24_tree = (CommonTree)adaptor.create(STATIC24);
                     adaptor.addChild(root_0, STATIC24_tree);
@@ -1531,7 +1531,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration5513);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration5512);
             qualifiedIdentifier25=qualifiedIdentifier();
 
             state._fsp--;
@@ -1548,7 +1548,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: DOTSTAR
                     {
-                    DOTSTAR26=(Token)match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration5515); if (state.failed) return retval;
+                    DOTSTAR26=(Token)match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration5514); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     DOTSTAR26_tree = (CommonTree)adaptor.create(DOTSTAR26);
                     adaptor.addChild(root_0, DOTSTAR26_tree);
@@ -1559,7 +1559,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            SEMI27=(Token)match(input,SEMI,FOLLOW_SEMI_in_importDeclaration5518); if (state.failed) return retval;
+            SEMI27=(Token)match(input,SEMI,FOLLOW_SEMI_in_importDeclaration5517); if (state.failed) return retval;
 
             }
 
@@ -1618,7 +1618,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_modifierList_in_typeDeclaration5542);
+            pushFollow(FOLLOW_modifierList_in_typeDeclaration5541);
             modifierList28=modifierList();
 
             state._fsp--;
@@ -1658,7 +1658,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:390:13: classTypeDeclaration[$modifierList.tree]
                     {
-                    pushFollow(FOLLOW_classTypeDeclaration_in_typeDeclaration5557);
+                    pushFollow(FOLLOW_classTypeDeclaration_in_typeDeclaration5556);
                     classTypeDeclaration29=classTypeDeclaration((modifierList28!=null?((CommonTree)modifierList28.tree):null));
 
                     state._fsp--;
@@ -1670,7 +1670,7 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:391:13: interfaceTypeDeclaration[$modifierList.tree]
                     {
-                    pushFollow(FOLLOW_interfaceTypeDeclaration_in_typeDeclaration5572);
+                    pushFollow(FOLLOW_interfaceTypeDeclaration_in_typeDeclaration5571);
                     interfaceTypeDeclaration30=interfaceTypeDeclaration((modifierList28!=null?((CommonTree)modifierList28.tree):null));
 
                     state._fsp--;
@@ -1682,7 +1682,7 @@ public class JamlAttrHashParser extends Parser {
                 case 3 :
                     // ../etc/JamlAttrHash.g:392:13: enumTypeDeclaration[$modifierList.tree]
                     {
-                    pushFollow(FOLLOW_enumTypeDeclaration_in_typeDeclaration5587);
+                    pushFollow(FOLLOW_enumTypeDeclaration_in_typeDeclaration5586);
                     enumTypeDeclaration31=enumTypeDeclaration((modifierList28!=null?((CommonTree)modifierList28.tree):null));
 
                     state._fsp--;
@@ -1694,7 +1694,7 @@ public class JamlAttrHashParser extends Parser {
                 case 4 :
                     // ../etc/JamlAttrHash.g:393:13: annotationTypeDeclaration[$modifierList.tree]
                     {
-                    pushFollow(FOLLOW_annotationTypeDeclaration_in_typeDeclaration5602);
+                    pushFollow(FOLLOW_annotationTypeDeclaration_in_typeDeclaration5601);
                     annotationTypeDeclaration32=annotationTypeDeclaration((modifierList28!=null?((CommonTree)modifierList28.tree):null));
 
                     state._fsp--;
@@ -1769,10 +1769,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:398:5: ( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) )
             // ../etc/JamlAttrHash.g:398:9: CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody
             {
-            CLASS33=(Token)match(input,CLASS,FOLLOW_CLASS_in_classTypeDeclaration5637); if (state.failed) return retval; 
+            CLASS33=(Token)match(input,CLASS,FOLLOW_CLASS_in_classTypeDeclaration5636); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_CLASS.add(CLASS33);
 
-            IDENT34=(Token)match(input,IDENT,FOLLOW_IDENT_in_classTypeDeclaration5639); if (state.failed) return retval; 
+            IDENT34=(Token)match(input,IDENT,FOLLOW_IDENT_in_classTypeDeclaration5638); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT34);
 
             // ../etc/JamlAttrHash.g:398:21: ( genericTypeParameterList )?
@@ -1786,7 +1786,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                     {
-                    pushFollow(FOLLOW_genericTypeParameterList_in_classTypeDeclaration5641);
+                    pushFollow(FOLLOW_genericTypeParameterList_in_classTypeDeclaration5640);
                     genericTypeParameterList35=genericTypeParameterList();
 
                     state._fsp--;
@@ -1809,7 +1809,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: classExtendsClause
                     {
-                    pushFollow(FOLLOW_classExtendsClause_in_classTypeDeclaration5644);
+                    pushFollow(FOLLOW_classExtendsClause_in_classTypeDeclaration5643);
                     classExtendsClause36=classExtendsClause();
 
                     state._fsp--;
@@ -1832,7 +1832,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: implementsClause
                     {
-                    pushFollow(FOLLOW_implementsClause_in_classTypeDeclaration5647);
+                    pushFollow(FOLLOW_implementsClause_in_classTypeDeclaration5646);
                     implementsClause37=implementsClause();
 
                     state._fsp--;
@@ -1844,7 +1844,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_classBody_in_classTypeDeclaration5650);
+            pushFollow(FOLLOW_classBody_in_classTypeDeclaration5649);
             classBody38=classBody();
 
             state._fsp--;
@@ -1853,7 +1853,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: implementsClause, CLASS, IDENT, genericTypeParameterList, classExtendsClause, classBody
+            // elements: implementsClause, classBody, genericTypeParameterList, IDENT, classExtendsClause, CLASS
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1949,10 +1949,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:403:5: ( EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) )
             // ../etc/JamlAttrHash.g:403:9: EXTENDS type
             {
-            EXTENDS39=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_classExtendsClause5703); if (state.failed) return retval; 
+            EXTENDS39=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_classExtendsClause5702); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS39);
 
-            pushFollow(FOLLOW_type_in_classExtendsClause5705);
+            pushFollow(FOLLOW_type_in_classExtendsClause5704);
             type40=type();
 
             state._fsp--;
@@ -2037,10 +2037,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:408:5: ( EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) )
             // ../etc/JamlAttrHash.g:408:9: EXTENDS typeList
             {
-            EXTENDS41=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_interfaceExtendsClause5749); if (state.failed) return retval; 
+            EXTENDS41=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_interfaceExtendsClause5748); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS41);
 
-            pushFollow(FOLLOW_typeList_in_interfaceExtendsClause5751);
+            pushFollow(FOLLOW_typeList_in_interfaceExtendsClause5750);
             typeList42=typeList();
 
             state._fsp--;
@@ -2125,10 +2125,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:413:5: ( IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) )
             // ../etc/JamlAttrHash.g:413:9: IMPLEMENTS typeList
             {
-            IMPLEMENTS43=(Token)match(input,IMPLEMENTS,FOLLOW_IMPLEMENTS_in_implementsClause5795); if (state.failed) return retval; 
+            IMPLEMENTS43=(Token)match(input,IMPLEMENTS,FOLLOW_IMPLEMENTS_in_implementsClause5794); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IMPLEMENTS.add(IMPLEMENTS43);
 
-            pushFollow(FOLLOW_typeList_in_implementsClause5797);
+            pushFollow(FOLLOW_typeList_in_implementsClause5796);
             typeList44=typeList();
 
             state._fsp--;
@@ -2221,10 +2221,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:418:5: ( LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) )
             // ../etc/JamlAttrHash.g:418:9: LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing
             {
-            LESS_THAN45=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeParameterList5842); if (state.failed) return retval; 
+            LESS_THAN45=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeParameterList5841); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN45);
 
-            pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList5844);
+            pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList5843);
             genericTypeParameter46=genericTypeParameter();
 
             state._fsp--;
@@ -2245,10 +2245,10 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:418:41: COMMA genericTypeParameter
             	    {
-            	    COMMA47=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeParameterList5847); if (state.failed) return retval; 
+            	    COMMA47=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeParameterList5846); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA47);
 
-            	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList5849);
+            	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList5848);
             	    genericTypeParameter48=genericTypeParameter();
 
             	    state._fsp--;
@@ -2263,7 +2263,7 @@ public class JamlAttrHashParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeParameterList5853);
+            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeParameterList5852);
             genericTypeListClosing49=genericTypeListClosing();
 
             state._fsp--;
@@ -2477,7 +2477,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    GREATER_THAN50=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_genericTypeListClosing5968); if (state.failed) return retval;
+                    GREATER_THAN50=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_genericTypeListClosing5967); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     GREATER_THAN50_tree = (CommonTree)adaptor.create(GREATER_THAN50);
                     adaptor.addChild(root_0, GREATER_THAN50_tree);
@@ -2490,7 +2490,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SHIFT_RIGHT51=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_genericTypeListClosing5978); if (state.failed) return retval;
+                    SHIFT_RIGHT51=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_genericTypeListClosing5977); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     SHIFT_RIGHT51_tree = (CommonTree)adaptor.create(SHIFT_RIGHT51);
                     adaptor.addChild(root_0, SHIFT_RIGHT51_tree);
@@ -2503,7 +2503,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    BIT_SHIFT_RIGHT52=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_genericTypeListClosing5988); if (state.failed) return retval;
+                    BIT_SHIFT_RIGHT52=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_genericTypeListClosing5987); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     BIT_SHIFT_RIGHT52_tree = (CommonTree)adaptor.create(BIT_SHIFT_RIGHT52);
                     adaptor.addChild(root_0, BIT_SHIFT_RIGHT52_tree);
@@ -2568,7 +2568,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:433:5: ( IDENT ( bound )? -> ^( IDENT ( bound )? ) )
             // ../etc/JamlAttrHash.g:433:9: IDENT ( bound )?
             {
-            IDENT53=(Token)match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter6016); if (state.failed) return retval; 
+            IDENT53=(Token)match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter6015); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT53);
 
             // ../etc/JamlAttrHash.g:433:15: ( bound )?
@@ -2597,7 +2597,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: bound
                     {
-                    pushFollow(FOLLOW_bound_in_genericTypeParameter6018);
+                    pushFollow(FOLLOW_bound_in_genericTypeParameter6017);
                     bound54=bound();
 
                     state._fsp--;
@@ -2612,7 +2612,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: IDENT, bound
+            // elements: bound, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2698,10 +2698,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:438:5: ( EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) )
             // ../etc/JamlAttrHash.g:438:9: EXTENDS type ( AND type )*
             {
-            EXTENDS55=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_bound6064); if (state.failed) return retval; 
+            EXTENDS55=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_bound6063); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS55);
 
-            pushFollow(FOLLOW_type_in_bound6066);
+            pushFollow(FOLLOW_type_in_bound6065);
             type56=type();
 
             state._fsp--;
@@ -2722,10 +2722,10 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:438:23: AND type
             	    {
-            	    AND57=(Token)match(input,AND,FOLLOW_AND_in_bound6069); if (state.failed) return retval; 
+            	    AND57=(Token)match(input,AND,FOLLOW_AND_in_bound6068); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_AND.add(AND57);
 
-            	    pushFollow(FOLLOW_type_in_bound6071);
+            	    pushFollow(FOLLOW_type_in_bound6070);
             	    type58=type();
 
             	    state._fsp--;
@@ -2832,10 +2832,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:443:5: ( ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) )
             // ../etc/JamlAttrHash.g:443:9: ENUM IDENT ( implementsClause )? enumBody
             {
-            ENUM59=(Token)match(input,ENUM,FOLLOW_ENUM_in_enumTypeDeclaration6112); if (state.failed) return retval; 
+            ENUM59=(Token)match(input,ENUM,FOLLOW_ENUM_in_enumTypeDeclaration6111); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ENUM.add(ENUM59);
 
-            IDENT60=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumTypeDeclaration6114); if (state.failed) return retval; 
+            IDENT60=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumTypeDeclaration6113); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT60);
 
             // ../etc/JamlAttrHash.g:443:20: ( implementsClause )?
@@ -2849,7 +2849,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: implementsClause
                     {
-                    pushFollow(FOLLOW_implementsClause_in_enumTypeDeclaration6116);
+                    pushFollow(FOLLOW_implementsClause_in_enumTypeDeclaration6115);
                     implementsClause61=implementsClause();
 
                     state._fsp--;
@@ -2861,7 +2861,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_enumBody_in_enumTypeDeclaration6119);
+            pushFollow(FOLLOW_enumBody_in_enumTypeDeclaration6118);
             enumBody62=enumBody();
 
             state._fsp--;
@@ -2870,7 +2870,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: implementsClause, ENUM, IDENT, enumBody
+            // elements: implementsClause, IDENT, ENUM, enumBody
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2957,16 +2957,16 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:448:5: ( LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) )
             // ../etc/JamlAttrHash.g:448:9: LCURLY enumScopeDeclarations RCURLY
             {
-            LCURLY63=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_enumBody6166); if (state.failed) return retval; 
+            LCURLY63=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_enumBody6165); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY63);
 
-            pushFollow(FOLLOW_enumScopeDeclarations_in_enumBody6168);
+            pushFollow(FOLLOW_enumScopeDeclarations_in_enumBody6167);
             enumScopeDeclarations64=enumScopeDeclarations();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_enumScopeDeclarations.add(enumScopeDeclarations64.getTree());
-            RCURLY65=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_enumBody6170); if (state.failed) return retval; 
+            RCURLY65=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_enumBody6169); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY65);
 
 
@@ -3051,7 +3051,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_enumConstants_in_enumScopeDeclarations6207);
+            pushFollow(FOLLOW_enumConstants_in_enumScopeDeclarations6206);
             enumConstants66=enumConstants();
 
             state._fsp--;
@@ -3068,7 +3068,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:453:24: COMMA
                     {
-                    COMMA67=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumScopeDeclarations6210); if (state.failed) return retval;
+                    COMMA67=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumScopeDeclarations6209); if (state.failed) return retval;
 
                     }
                     break;
@@ -3086,7 +3086,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: enumClassScopeDeclarations
                     {
-                    pushFollow(FOLLOW_enumClassScopeDeclarations_in_enumScopeDeclarations6215);
+                    pushFollow(FOLLOW_enumClassScopeDeclarations_in_enumScopeDeclarations6214);
                     enumClassScopeDeclarations68=enumClassScopeDeclarations();
 
                     state._fsp--;
@@ -3149,7 +3149,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:457:5: ( SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
             // ../etc/JamlAttrHash.g:457:9: SEMI ( classScopeDeclarations )*
             {
-            SEMI69=(Token)match(input,SEMI,FOLLOW_SEMI_in_enumClassScopeDeclarations6235); if (state.failed) return retval; 
+            SEMI69=(Token)match(input,SEMI,FOLLOW_SEMI_in_enumClassScopeDeclarations6234); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_SEMI.add(SEMI69);
 
             // ../etc/JamlAttrHash.g:457:14: ( classScopeDeclarations )*
@@ -3167,7 +3167,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: classScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_classScopeDeclarations_in_enumClassScopeDeclarations6237);
+            	    pushFollow(FOLLOW_classScopeDeclarations_in_enumClassScopeDeclarations6236);
             	    classScopeDeclarations70=classScopeDeclarations();
 
             	    state._fsp--;
@@ -3269,7 +3269,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_enumConstant_in_enumConstants6276);
+            pushFollow(FOLLOW_enumConstant_in_enumConstants6275);
             enumConstant71=enumConstant();
 
             state._fsp--;
@@ -3296,8 +3296,8 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:462:23: COMMA enumConstant
             	    {
-            	    COMMA72=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumConstants6279); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_enumConstant_in_enumConstants6282);
+            	    COMMA72=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumConstants6278); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_enumConstant_in_enumConstants6281);
             	    enumConstant73=enumConstant();
 
             	    state._fsp--;
@@ -3368,13 +3368,13 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_annotationList_in_enumConstant6307);
+            pushFollow(FOLLOW_annotationList_in_enumConstant6306);
             annotationList74=annotationList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, annotationList74.getTree());
-            IDENT75=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumConstant6309); if (state.failed) return retval;
+            IDENT75=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumConstant6308); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT75_tree = (CommonTree)adaptor.create(IDENT75);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT75_tree, root_0);
@@ -3390,7 +3390,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_enumConstant6312);
+                    pushFollow(FOLLOW_arguments_in_enumConstant6311);
                     arguments76=arguments();
 
                     state._fsp--;
@@ -3413,7 +3413,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: classBody
                     {
-                    pushFollow(FOLLOW_classBody_in_enumConstant6315);
+                    pushFollow(FOLLOW_classBody_in_enumConstant6314);
                     classBody77=classBody();
 
                     state._fsp--;
@@ -3485,10 +3485,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:470:5: ( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) )
             // ../etc/JamlAttrHash.g:470:9: INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody
             {
-            INTERFACE78=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_interfaceTypeDeclaration6340); if (state.failed) return retval; 
+            INTERFACE78=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_interfaceTypeDeclaration6339); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_INTERFACE.add(INTERFACE78);
 
-            IDENT79=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceTypeDeclaration6342); if (state.failed) return retval; 
+            IDENT79=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceTypeDeclaration6341); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT79);
 
             // ../etc/JamlAttrHash.g:470:25: ( genericTypeParameterList )?
@@ -3502,7 +3502,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                     {
-                    pushFollow(FOLLOW_genericTypeParameterList_in_interfaceTypeDeclaration6344);
+                    pushFollow(FOLLOW_genericTypeParameterList_in_interfaceTypeDeclaration6343);
                     genericTypeParameterList80=genericTypeParameterList();
 
                     state._fsp--;
@@ -3525,7 +3525,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: interfaceExtendsClause
                     {
-                    pushFollow(FOLLOW_interfaceExtendsClause_in_interfaceTypeDeclaration6347);
+                    pushFollow(FOLLOW_interfaceExtendsClause_in_interfaceTypeDeclaration6346);
                     interfaceExtendsClause81=interfaceExtendsClause();
 
                     state._fsp--;
@@ -3537,7 +3537,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_interfaceBody_in_interfaceTypeDeclaration6350);
+            pushFollow(FOLLOW_interfaceBody_in_interfaceTypeDeclaration6349);
             interfaceBody82=interfaceBody();
 
             state._fsp--;
@@ -3546,7 +3546,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: interfaceExtendsClause, INTERFACE, genericTypeParameterList, interfaceBody, IDENT
+            // elements: genericTypeParameterList, interfaceExtendsClause, IDENT, interfaceBody, INTERFACE
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3639,7 +3639,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_type_in_typeList6400);
+            pushFollow(FOLLOW_type_in_typeList6399);
             type83=type();
 
             state._fsp--;
@@ -3660,8 +3660,8 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:475:15: COMMA type
             	    {
-            	    COMMA84=(Token)match(input,COMMA,FOLLOW_COMMA_in_typeList6403); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_type_in_typeList6406);
+            	    COMMA84=(Token)match(input,COMMA,FOLLOW_COMMA_in_typeList6402); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_type_in_typeList6405);
             	    type85=type();
 
             	    state._fsp--;
@@ -3730,7 +3730,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:479:5: ( LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
             // ../etc/JamlAttrHash.g:479:9: LCURLY ( classScopeDeclarations )* RCURLY
             {
-            LCURLY86=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_classBody6431); if (state.failed) return retval; 
+            LCURLY86=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_classBody6430); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY86);
 
             // ../etc/JamlAttrHash.g:479:16: ( classScopeDeclarations )*
@@ -3748,7 +3748,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: classScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_classScopeDeclarations_in_classBody6433);
+            	    pushFollow(FOLLOW_classScopeDeclarations_in_classBody6432);
             	    classScopeDeclarations87=classScopeDeclarations();
 
             	    state._fsp--;
@@ -3763,7 +3763,7 @@ public class JamlAttrHashParser extends Parser {
                 }
             } while (true);
 
-            RCURLY88=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_classBody6436); if (state.failed) return retval; 
+            RCURLY88=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_classBody6435); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY88);
 
 
@@ -3853,7 +3853,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:484:5: ( LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) )
             // ../etc/JamlAttrHash.g:484:9: LCURLY ( interfaceScopeDeclarations )* RCURLY
             {
-            LCURLY89=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_interfaceBody6478); if (state.failed) return retval; 
+            LCURLY89=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_interfaceBody6477); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY89);
 
             // ../etc/JamlAttrHash.g:484:16: ( interfaceScopeDeclarations )*
@@ -3871,7 +3871,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: interfaceScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceBody6480);
+            	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceBody6479);
             	    interfaceScopeDeclarations90=interfaceScopeDeclarations();
 
             	    state._fsp--;
@@ -3886,7 +3886,7 @@ public class JamlAttrHashParser extends Parser {
                 }
             } while (true);
 
-            RCURLY91=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_interfaceBody6483); if (state.failed) return retval; 
+            RCURLY91=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_interfaceBody6482); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY91);
 
 
@@ -4037,7 +4037,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:489:9: block
                     {
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations6521);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations6520);
                     block92=block();
 
                     state._fsp--;
@@ -4077,10 +4077,10 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:490:9: STATIC block
                     {
-                    STATIC93=(Token)match(input,STATIC,FOLLOW_STATIC_in_classScopeDeclarations6550); if (state.failed) return retval; 
+                    STATIC93=(Token)match(input,STATIC,FOLLOW_STATIC_in_classScopeDeclarations6549); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_STATIC.add(STATIC93);
 
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations6552);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations6551);
                     block94=block();
 
                     state._fsp--;
@@ -4120,7 +4120,7 @@ public class JamlAttrHashParser extends Parser {
                 case 3 :
                     // ../etc/JamlAttrHash.g:491:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     {
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations6575);
+                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations6574);
                     modifierList95=modifierList();
 
                     state._fsp--;
@@ -4203,7 +4203,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                                     {
-                                    pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations6589);
+                                    pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations6588);
                                     genericTypeParameterList96=genericTypeParameterList();
 
                                     state._fsp--;
@@ -4266,16 +4266,16 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:493:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                                     {
-                                    pushFollow(FOLLOW_type_in_classScopeDeclarations6608);
+                                    pushFollow(FOLLOW_type_in_classScopeDeclarations6607);
                                     type97=type();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_type.add(type97.getTree());
-                                    IDENT98=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6610); if (state.failed) return retval; 
+                                    IDENT98=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6609); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT98);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6612);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6611);
                                     formalParameterList99=formalParameterList();
 
                                     state._fsp--;
@@ -4292,7 +4292,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                                             {
-                                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations6614);
+                                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations6613);
                                             arrayDeclaratorList100=arrayDeclaratorList();
 
                                             state._fsp--;
@@ -4315,7 +4315,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6617);
+                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6616);
                                             throwsClause101=throwsClause();
 
                                             state._fsp--;
@@ -4348,7 +4348,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:493:84: block
                                             {
-                                            pushFollow(FOLLOW_block_in_classScopeDeclarations6621);
+                                            pushFollow(FOLLOW_block_in_classScopeDeclarations6620);
                                             block102=block();
 
                                             state._fsp--;
@@ -4360,7 +4360,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 2 :
                                             // ../etc/JamlAttrHash.g:493:92: SEMI
                                             {
-                                            SEMI103=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6625); if (state.failed) return retval; 
+                                            SEMI103=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6624); if (state.failed) return retval; 
                                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI103);
 
 
@@ -4372,7 +4372,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, throwsClause, block, type, IDENT, formalParameterList, modifierList, arrayDeclaratorList
+                                    // elements: block, genericTypeParameterList, arrayDeclaratorList, formalParameterList, throwsClause, modifierList, type, IDENT
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4430,13 +4430,13 @@ public class JamlAttrHashParser extends Parser {
                                 case 2 :
                                     // ../etc/JamlAttrHash.g:495:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                                     {
-                                    VOID104=(Token)match(input,VOID,FOLLOW_VOID_in_classScopeDeclarations6687); if (state.failed) return retval; 
+                                    VOID104=(Token)match(input,VOID,FOLLOW_VOID_in_classScopeDeclarations6686); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_VOID.add(VOID104);
 
-                                    IDENT105=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6689); if (state.failed) return retval; 
+                                    IDENT105=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6688); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT105);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6691);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6690);
                                     formalParameterList106=formalParameterList();
 
                                     state._fsp--;
@@ -4453,7 +4453,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6693);
+                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6692);
                                             throwsClause107=throwsClause();
 
                                             state._fsp--;
@@ -4486,7 +4486,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:495:63: block
                                             {
-                                            pushFollow(FOLLOW_block_in_classScopeDeclarations6697);
+                                            pushFollow(FOLLOW_block_in_classScopeDeclarations6696);
                                             block108=block();
 
                                             state._fsp--;
@@ -4498,7 +4498,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 2 :
                                             // ../etc/JamlAttrHash.g:495:71: SEMI
                                             {
-                                            SEMI109=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6701); if (state.failed) return retval; 
+                                            SEMI109=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6700); if (state.failed) return retval; 
                                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI109);
 
 
@@ -4510,7 +4510,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: block, formalParameterList, modifierList, IDENT, throwsClause, genericTypeParameterList
+                                    // elements: genericTypeParameterList, block, modifierList, IDENT, formalParameterList, throwsClause
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4561,10 +4561,10 @@ public class JamlAttrHashParser extends Parser {
                                 case 3 :
                                     // ../etc/JamlAttrHash.g:497:17: ident= IDENT formalParameterList ( throwsClause )? block
                                     {
-                                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6760); if (state.failed) return retval; 
+                                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6759); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(ident);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6762);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6761);
                                     formalParameterList110=formalParameterList();
 
                                     state._fsp--;
@@ -4581,7 +4581,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6764);
+                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6763);
                                             throwsClause111=throwsClause();
 
                                             state._fsp--;
@@ -4593,7 +4593,7 @@ public class JamlAttrHashParser extends Parser {
 
                                     }
 
-                                    pushFollow(FOLLOW_block_in_classScopeDeclarations6767);
+                                    pushFollow(FOLLOW_block_in_classScopeDeclarations6766);
                                     block112=block();
 
                                     state._fsp--;
@@ -4602,7 +4602,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, block, modifierList, formalParameterList, throwsClause
+                                    // elements: genericTypeParameterList, throwsClause, block, modifierList, formalParameterList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4653,19 +4653,19 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:500:13: type classFieldDeclaratorList SEMI
                             {
-                            pushFollow(FOLLOW_type_in_classScopeDeclarations6831);
+                            pushFollow(FOLLOW_type_in_classScopeDeclarations6830);
                             type113=type();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_type.add(type113.getTree());
-                            pushFollow(FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations6833);
+                            pushFollow(FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations6832);
                             classFieldDeclaratorList114=classFieldDeclaratorList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_classFieldDeclaratorList.add(classFieldDeclaratorList114.getTree());
-                            SEMI115=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6835); if (state.failed) return retval; 
+                            SEMI115=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6834); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI115);
 
 
@@ -4712,7 +4712,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations6880);
+                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations6879);
                     typeDeclaration116=typeDeclaration();
 
                     state._fsp--;
@@ -4726,7 +4726,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI117=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6890); if (state.failed) return retval;
+                    SEMI117=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6889); if (state.failed) return retval;
 
                     }
                     break;
@@ -4824,7 +4824,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:508:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
                     {
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations6922);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations6921);
                     modifierList118=modifierList();
 
                     state._fsp--;
@@ -4907,7 +4907,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                                     {
-                                    pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations6936);
+                                    pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations6935);
                                     genericTypeParameterList119=genericTypeParameterList();
 
                                     state._fsp--;
@@ -4940,16 +4940,16 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:510:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                                     {
-                                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations6955);
+                                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations6954);
                                     type120=type();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_type.add(type120.getTree());
-                                    IDENT121=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations6957); if (state.failed) return retval; 
+                                    IDENT121=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations6956); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT121);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations6959);
+                                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations6958);
                                     formalParameterList122=formalParameterList();
 
                                     state._fsp--;
@@ -4966,7 +4966,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                                             {
-                                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations6961);
+                                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations6960);
                                             arrayDeclaratorList123=arrayDeclaratorList();
 
                                             state._fsp--;
@@ -4989,7 +4989,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations6964);
+                                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations6963);
                                             throwsClause124=throwsClause();
 
                                             state._fsp--;
@@ -5001,13 +5001,13 @@ public class JamlAttrHashParser extends Parser {
 
                                     }
 
-                                    SEMI125=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations6967); if (state.failed) return retval; 
+                                    SEMI125=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations6966); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI125);
 
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, type, throwsClause, IDENT, modifierList, arrayDeclaratorList, formalParameterList
+                                    // elements: genericTypeParameterList, type, modifierList, throwsClause, IDENT, arrayDeclaratorList, formalParameterList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -5059,13 +5059,13 @@ public class JamlAttrHashParser extends Parser {
                                 case 2 :
                                     // ../etc/JamlAttrHash.g:512:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                                     {
-                                    VOID126=(Token)match(input,VOID,FOLLOW_VOID_in_interfaceScopeDeclarations7025); if (state.failed) return retval; 
+                                    VOID126=(Token)match(input,VOID,FOLLOW_VOID_in_interfaceScopeDeclarations7024); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_VOID.add(VOID126);
 
-                                    IDENT127=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations7027); if (state.failed) return retval; 
+                                    IDENT127=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations7026); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT127);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations7029);
+                                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations7028);
                                     formalParameterList128=formalParameterList();
 
                                     state._fsp--;
@@ -5082,7 +5082,7 @@ public class JamlAttrHashParser extends Parser {
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations7031);
+                                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations7030);
                                             throwsClause129=throwsClause();
 
                                             state._fsp--;
@@ -5094,13 +5094,13 @@ public class JamlAttrHashParser extends Parser {
 
                                     }
 
-                                    SEMI130=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7034); if (state.failed) return retval; 
+                                    SEMI130=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7033); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI130);
 
 
 
                                     // AST REWRITE
-                                    // elements: throwsClause, modifierList, formalParameterList, genericTypeParameterList, IDENT
+                                    // elements: genericTypeParameterList, throwsClause, modifierList, formalParameterList, IDENT
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -5151,25 +5151,25 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:515:13: type interfaceFieldDeclaratorList SEMI
                             {
-                            pushFollow(FOLLOW_type_in_interfaceScopeDeclarations7097);
+                            pushFollow(FOLLOW_type_in_interfaceScopeDeclarations7096);
                             type131=type();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_type.add(type131.getTree());
-                            pushFollow(FOLLOW_interfaceFieldDeclaratorList_in_interfaceScopeDeclarations7099);
+                            pushFollow(FOLLOW_interfaceFieldDeclaratorList_in_interfaceScopeDeclarations7098);
                             interfaceFieldDeclaratorList132=interfaceFieldDeclaratorList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_interfaceFieldDeclaratorList.add(interfaceFieldDeclaratorList132.getTree());
-                            SEMI133=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7101); if (state.failed) return retval; 
+                            SEMI133=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7100); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI133);
 
 
 
                             // AST REWRITE
-                            // elements: type, interfaceFieldDeclaratorList, modifierList
+                            // elements: interfaceFieldDeclaratorList, type, modifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -5210,7 +5210,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations7146);
+                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations7145);
                     typeDeclaration134=typeDeclaration();
 
                     state._fsp--;
@@ -5224,7 +5224,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI135=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7156); if (state.failed) return retval;
+                    SEMI135=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7155); if (state.failed) return retval;
 
                     }
                     break;
@@ -5280,7 +5280,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:523:5: ( classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) )
             // ../etc/JamlAttrHash.g:523:9: classFieldDeclarator ( COMMA classFieldDeclarator )*
             {
-            pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7176);
+            pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7175);
             classFieldDeclarator136=classFieldDeclarator();
 
             state._fsp--;
@@ -5301,10 +5301,10 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:523:31: COMMA classFieldDeclarator
             	    {
-            	    COMMA137=(Token)match(input,COMMA,FOLLOW_COMMA_in_classFieldDeclaratorList7179); if (state.failed) return retval; 
+            	    COMMA137=(Token)match(input,COMMA,FOLLOW_COMMA_in_classFieldDeclaratorList7178); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA137);
 
-            	    pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7181);
+            	    pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7180);
             	    classFieldDeclarator138=classFieldDeclarator();
 
             	    state._fsp--;
@@ -5408,7 +5408,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:528:5: ( variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
             // ../etc/JamlAttrHash.g:528:9: variableDeclaratorId ( ASSIGN variableInitializer )?
             {
-            pushFollow(FOLLOW_variableDeclaratorId_in_classFieldDeclarator7220);
+            pushFollow(FOLLOW_variableDeclaratorId_in_classFieldDeclarator7219);
             variableDeclaratorId139=variableDeclaratorId();
 
             state._fsp--;
@@ -5425,10 +5425,10 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:528:31: ASSIGN variableInitializer
                     {
-                    ASSIGN140=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_classFieldDeclarator7223); if (state.failed) return retval; 
+                    ASSIGN140=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_classFieldDeclarator7222); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ASSIGN.add(ASSIGN140);
 
-                    pushFollow(FOLLOW_variableInitializer_in_classFieldDeclarator7225);
+                    pushFollow(FOLLOW_variableInitializer_in_classFieldDeclarator7224);
                     variableInitializer141=variableInitializer();
 
                     state._fsp--;
@@ -5527,7 +5527,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:533:5: ( interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) )
             // ../etc/JamlAttrHash.g:533:9: interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )*
             {
-            pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7270);
+            pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7269);
             interfaceFieldDeclarator142=interfaceFieldDeclarator();
 
             state._fsp--;
@@ -5548,10 +5548,10 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:533:35: COMMA interfaceFieldDeclarator
             	    {
-            	    COMMA143=(Token)match(input,COMMA,FOLLOW_COMMA_in_interfaceFieldDeclaratorList7273); if (state.failed) return retval; 
+            	    COMMA143=(Token)match(input,COMMA,FOLLOW_COMMA_in_interfaceFieldDeclaratorList7272); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA143);
 
-            	    pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7275);
+            	    pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7274);
             	    interfaceFieldDeclarator144=interfaceFieldDeclarator();
 
             	    state._fsp--;
@@ -5655,16 +5655,16 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:538:5: ( variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) )
             // ../etc/JamlAttrHash.g:538:9: variableDeclaratorId ASSIGN variableInitializer
             {
-            pushFollow(FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator7314);
+            pushFollow(FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator7313);
             variableDeclaratorId145=variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_variableDeclaratorId.add(variableDeclaratorId145.getTree());
-            ASSIGN146=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_interfaceFieldDeclarator7316); if (state.failed) return retval; 
+            ASSIGN146=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_interfaceFieldDeclarator7315); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ASSIGN.add(ASSIGN146);
 
-            pushFollow(FOLLOW_variableInitializer_in_interfaceFieldDeclarator7318);
+            pushFollow(FOLLOW_variableInitializer_in_interfaceFieldDeclarator7317);
             variableInitializer147=variableInitializer();
 
             state._fsp--;
@@ -5751,7 +5751,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT148=(Token)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId7360); if (state.failed) return retval;
+            IDENT148=(Token)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId7359); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT148_tree = (CommonTree)adaptor.create(IDENT148);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT148_tree, root_0);
@@ -5767,7 +5767,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId7363);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId7362);
                     arrayDeclaratorList149=arrayDeclaratorList();
 
                     state._fsp--;
@@ -5849,7 +5849,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer7383);
+                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer7382);
                     arrayInitializer150=arrayInitializer();
 
                     state._fsp--;
@@ -5863,7 +5863,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expression_in_variableInitializer7393);
+                    pushFollow(FOLLOW_expression_in_variableInitializer7392);
                     expression151=expression();
 
                     state._fsp--;
@@ -5923,10 +5923,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:552:5: ( LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) )
             // ../etc/JamlAttrHash.g:552:9: LBRACK RBRACK
             {
-            LBRACK152=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator7412); if (state.failed) return retval; 
+            LBRACK152=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator7411); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LBRACK.add(LBRACK152);
 
-            RBRACK153=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator7414); if (state.failed) return retval; 
+            RBRACK153=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator7413); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RBRACK.add(RBRACK153);
 
 
@@ -6025,7 +6025,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: arrayDeclarator
             	    {
-            	    pushFollow(FOLLOW_arrayDeclarator_in_arrayDeclaratorList7448);
+            	    pushFollow(FOLLOW_arrayDeclarator_in_arrayDeclaratorList7447);
             	    arrayDeclarator154=arrayDeclarator();
 
             	    state._fsp--;
@@ -6141,7 +6141,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:562:5: ( LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) )
             // ../etc/JamlAttrHash.g:562:9: LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY
             {
-            LCURLY155=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_arrayInitializer7493); if (state.failed) return retval; 
+            LCURLY155=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_arrayInitializer7492); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY155);
 
             // ../etc/JamlAttrHash.g:562:16: ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )?
@@ -6155,7 +6155,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:562:17: variableInitializer ( COMMA variableInitializer )* ( COMMA )?
                     {
-                    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer7496);
+                    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer7495);
                     variableInitializer156=variableInitializer();
 
                     state._fsp--;
@@ -6182,10 +6182,10 @@ public class JamlAttrHashParser extends Parser {
                     	case 1 :
                     	    // ../etc/JamlAttrHash.g:562:38: COMMA variableInitializer
                     	    {
-                    	    COMMA157=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer7499); if (state.failed) return retval; 
+                    	    COMMA157=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer7498); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA157);
 
-                    	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer7501);
+                    	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer7500);
                     	    variableInitializer158=variableInitializer();
 
                     	    state._fsp--;
@@ -6211,7 +6211,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: COMMA
                             {
-                            COMMA159=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer7505); if (state.failed) return retval; 
+                            COMMA159=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer7504); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COMMA.add(COMMA159);
 
 
@@ -6226,7 +6226,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            RCURLY160=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_arrayInitializer7510); if (state.failed) return retval; 
+            RCURLY160=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_arrayInitializer7509); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY160);
 
 
@@ -6313,10 +6313,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:567:5: ( THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) )
             // ../etc/JamlAttrHash.g:567:9: THROWS qualifiedIdentList
             {
-            THROWS161=(Token)match(input,THROWS,FOLLOW_THROWS_in_throwsClause7548); if (state.failed) return retval; 
+            THROWS161=(Token)match(input,THROWS,FOLLOW_THROWS_in_throwsClause7547); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_THROWS.add(THROWS161);
 
-            pushFollow(FOLLOW_qualifiedIdentList_in_throwsClause7550);
+            pushFollow(FOLLOW_qualifiedIdentList_in_throwsClause7549);
             qualifiedIdentList162=qualifiedIdentList();
 
             state._fsp--;
@@ -6422,7 +6422,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: modifier
             	    {
-            	    pushFollow(FOLLOW_modifier_in_modifierList7587);
+            	    pushFollow(FOLLOW_modifier_in_modifierList7586);
             	    modifier163=modifier();
 
             	    state._fsp--;
@@ -6608,7 +6608,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PUBLIC164=(Token)match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier7628); if (state.failed) return retval;
+                    PUBLIC164=(Token)match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier7627); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PUBLIC164_tree = (CommonTree)adaptor.create(PUBLIC164);
                     adaptor.addChild(root_0, PUBLIC164_tree);
@@ -6621,7 +6621,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PROTECTED165=(Token)match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier7638); if (state.failed) return retval;
+                    PROTECTED165=(Token)match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier7637); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PROTECTED165_tree = (CommonTree)adaptor.create(PROTECTED165);
                     adaptor.addChild(root_0, PROTECTED165_tree);
@@ -6634,7 +6634,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PRIVATE166=(Token)match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier7648); if (state.failed) return retval;
+                    PRIVATE166=(Token)match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier7647); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PRIVATE166_tree = (CommonTree)adaptor.create(PRIVATE166);
                     adaptor.addChild(root_0, PRIVATE166_tree);
@@ -6647,7 +6647,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    STATIC167=(Token)match(input,STATIC,FOLLOW_STATIC_in_modifier7658); if (state.failed) return retval;
+                    STATIC167=(Token)match(input,STATIC,FOLLOW_STATIC_in_modifier7657); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STATIC167_tree = (CommonTree)adaptor.create(STATIC167);
                     adaptor.addChild(root_0, STATIC167_tree);
@@ -6660,7 +6660,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    ABSTRACT168=(Token)match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier7668); if (state.failed) return retval;
+                    ABSTRACT168=(Token)match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier7667); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     ABSTRACT168_tree = (CommonTree)adaptor.create(ABSTRACT168);
                     adaptor.addChild(root_0, ABSTRACT168_tree);
@@ -6673,7 +6673,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    NATIVE169=(Token)match(input,NATIVE,FOLLOW_NATIVE_in_modifier7678); if (state.failed) return retval;
+                    NATIVE169=(Token)match(input,NATIVE,FOLLOW_NATIVE_in_modifier7677); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     NATIVE169_tree = (CommonTree)adaptor.create(NATIVE169);
                     adaptor.addChild(root_0, NATIVE169_tree);
@@ -6686,7 +6686,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SYNCHRONIZED170=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier7688); if (state.failed) return retval;
+                    SYNCHRONIZED170=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier7687); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     SYNCHRONIZED170_tree = (CommonTree)adaptor.create(SYNCHRONIZED170);
                     adaptor.addChild(root_0, SYNCHRONIZED170_tree);
@@ -6699,7 +6699,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    TRANSIENT171=(Token)match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier7698); if (state.failed) return retval;
+                    TRANSIENT171=(Token)match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier7697); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     TRANSIENT171_tree = (CommonTree)adaptor.create(TRANSIENT171);
                     adaptor.addChild(root_0, TRANSIENT171_tree);
@@ -6712,7 +6712,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    VOLATILE172=(Token)match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier7708); if (state.failed) return retval;
+                    VOLATILE172=(Token)match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier7707); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     VOLATILE172_tree = (CommonTree)adaptor.create(VOLATILE172);
                     adaptor.addChild(root_0, VOLATILE172_tree);
@@ -6725,7 +6725,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    STRICTFP173=(Token)match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier7718); if (state.failed) return retval;
+                    STRICTFP173=(Token)match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier7717); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STRICTFP173_tree = (CommonTree)adaptor.create(STRICTFP173);
                     adaptor.addChild(root_0, STRICTFP173_tree);
@@ -6738,7 +6738,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_localModifier_in_modifier7728);
+                    pushFollow(FOLLOW_localModifier_in_modifier7727);
                     localModifier174=localModifier();
 
                     state._fsp--;
@@ -6809,7 +6809,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: localModifier
             	    {
-            	    pushFollow(FOLLOW_localModifier_in_localModifierList7747);
+            	    pushFollow(FOLLOW_localModifier_in_localModifierList7746);
             	    localModifier175=localModifier();
 
             	    state._fsp--;
@@ -6927,7 +6927,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    FINAL176=(Token)match(input,FINAL,FOLLOW_FINAL_in_localModifier7788); if (state.failed) return retval;
+                    FINAL176=(Token)match(input,FINAL,FOLLOW_FINAL_in_localModifier7787); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     FINAL176_tree = (CommonTree)adaptor.create(FINAL176);
                     adaptor.addChild(root_0, FINAL176_tree);
@@ -6940,7 +6940,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_annotation_in_localModifier7798);
+                    pushFollow(FOLLOW_annotation_in_localModifier7797);
                     annotation177=annotation();
 
                     state._fsp--;
@@ -7018,7 +7018,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_simpleType_in_type7817);
+                    pushFollow(FOLLOW_simpleType_in_type7816);
                     simpleType178=simpleType();
 
                     state._fsp--;
@@ -7032,7 +7032,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_objectType_in_type7827);
+                    pushFollow(FOLLOW_objectType_in_type7826);
                     objectType179=objectType();
 
                     state._fsp--;
@@ -7091,7 +7091,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:606:5: ( primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) )
             // ../etc/JamlAttrHash.g:606:9: primitiveType ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_primitiveType_in_simpleType7847);
+            pushFollow(FOLLOW_primitiveType_in_simpleType7846);
             primitiveType180=primitiveType();
 
             state._fsp--;
@@ -7116,7 +7116,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_simpleType7849);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_simpleType7848);
                     arrayDeclaratorList181=arrayDeclaratorList();
 
                     state._fsp--;
@@ -7213,7 +7213,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:611:5: ( qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) )
             // ../etc/JamlAttrHash.g:611:9: qualifiedTypeIdent ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_qualifiedTypeIdent_in_objectType7896);
+            pushFollow(FOLLOW_qualifiedTypeIdent_in_objectType7895);
             qualifiedTypeIdent182=qualifiedTypeIdent();
 
             state._fsp--;
@@ -7234,7 +7234,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectType7898);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectType7897);
                     arrayDeclaratorList183=arrayDeclaratorList();
 
                     state._fsp--;
@@ -7249,7 +7249,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: arrayDeclaratorList, qualifiedTypeIdent
+            // elements: qualifiedTypeIdent, arrayDeclaratorList
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -7331,7 +7331,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:616:5: ( qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) )
             // ../etc/JamlAttrHash.g:616:9: qualifiedTypeIdentSimplified ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7938);
+            pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7937);
             qualifiedTypeIdentSimplified184=qualifiedTypeIdentSimplified();
 
             state._fsp--;
@@ -7348,7 +7348,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectTypeSimplified7940);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectTypeSimplified7939);
                     arrayDeclaratorList185=arrayDeclaratorList();
 
                     state._fsp--;
@@ -7447,7 +7447,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:621:5: ( typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
             // ../etc/JamlAttrHash.g:621:9: typeIdent ( DOT typeIdent )*
             {
-            pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7980);
+            pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7979);
             typeIdent186=typeIdent();
 
             state._fsp--;
@@ -7474,10 +7474,10 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:621:20: DOT typeIdent
             	    {
-            	    DOT187=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdent7983); if (state.failed) return retval; 
+            	    DOT187=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdent7982); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT187);
 
-            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7985);
+            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7984);
             	    typeIdent188=typeIdent();
 
             	    state._fsp--;
@@ -7580,7 +7580,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:626:5: ( typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) )
             // ../etc/JamlAttrHash.g:626:9: typeIdentSimplified ( DOT typeIdentSimplified )*
             {
-            pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8025);
+            pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8024);
             typeIdentSimplified189=typeIdentSimplified();
 
             state._fsp--;
@@ -7601,10 +7601,10 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:626:30: DOT typeIdentSimplified
             	    {
-            	    DOT190=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdentSimplified8028); if (state.failed) return retval; 
+            	    DOT190=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdentSimplified8027); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT190);
 
-            	    pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8030);
+            	    pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8029);
             	    typeIdentSimplified191=typeIdentSimplified();
 
             	    state._fsp--;
@@ -7706,7 +7706,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT192=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdent8070); if (state.failed) return retval;
+            IDENT192=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdent8069); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT192_tree = (CommonTree)adaptor.create(IDENT192);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT192_tree, root_0);
@@ -7722,7 +7722,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentList
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent8073);
+                    pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent8072);
                     genericTypeArgumentList193=genericTypeArgumentList();
 
                     state._fsp--;
@@ -7786,7 +7786,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT194=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdentSimplified8093); if (state.failed) return retval;
+            IDENT194=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdentSimplified8092); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT194_tree = (CommonTree)adaptor.create(IDENT194);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT194_tree, root_0);
@@ -7802,7 +7802,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentListSimplified
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_typeIdentSimplified8096);
+                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_typeIdentSimplified8095);
                     genericTypeArgumentListSimplified195=genericTypeArgumentListSimplified();
 
                     state._fsp--;
@@ -7935,10 +7935,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:650:5: ( LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) )
             // ../etc/JamlAttrHash.g:650:9: LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing
             {
-            LESS_THAN197=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentList8205); if (state.failed) return retval; 
+            LESS_THAN197=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentList8204); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN197);
 
-            pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList8207);
+            pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList8206);
             genericTypeArgument198=genericTypeArgument();
 
             state._fsp--;
@@ -7965,10 +7965,10 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:650:40: COMMA genericTypeArgument
             	    {
-            	    COMMA199=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentList8210); if (state.failed) return retval; 
+            	    COMMA199=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentList8209); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA199);
 
-            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList8212);
+            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList8211);
             	    genericTypeArgument200=genericTypeArgument();
 
             	    state._fsp--;
@@ -7983,7 +7983,7 @@ public class JamlAttrHashParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeArgumentList8216);
+            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeArgumentList8215);
             genericTypeListClosing201=genericTypeListClosing();
 
             state._fsp--;
@@ -8097,7 +8097,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_type_in_genericTypeArgument8254);
+                    pushFollow(FOLLOW_type_in_genericTypeArgument8253);
                     type202=type();
 
                     state._fsp--;
@@ -8109,7 +8109,7 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:656:9: QUESTION ( genericWildcardBoundType )?
                     {
-                    QUESTION203=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument8264); if (state.failed) return retval; 
+                    QUESTION203=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument8263); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_QUESTION.add(QUESTION203);
 
                     // ../etc/JamlAttrHash.g:656:18: ( genericWildcardBoundType )?
@@ -8145,7 +8145,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: genericWildcardBoundType
                             {
-                            pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument8266);
+                            pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument8265);
                             genericWildcardBoundType204=genericWildcardBoundType();
 
                             state._fsp--;
@@ -8257,7 +8257,7 @@ public class JamlAttrHashParser extends Parser {
                 throw mse;
             }
 
-            pushFollow(FOLLOW_type_in_genericWildcardBoundType8317);
+            pushFollow(FOLLOW_type_in_genericWildcardBoundType8316);
             type206=type();
 
             state._fsp--;
@@ -8322,10 +8322,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:665:5: ( LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) )
             // ../etc/JamlAttrHash.g:665:9: LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing
             {
-            LESS_THAN207=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified8336); if (state.failed) return retval; 
+            LESS_THAN207=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified8335); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN207);
 
-            pushFollow(FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8338);
+            pushFollow(FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8337);
             genericTypeArgumentSimplified208=genericTypeArgumentSimplified();
 
             state._fsp--;
@@ -8346,10 +8346,10 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:665:50: COMMA genericTypeArgumentSimplified
             	    {
-            	    COMMA209=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentListSimplified8341); if (state.failed) return retval; 
+            	    COMMA209=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentListSimplified8340); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA209);
 
-            	    pushFollow(FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8343);
+            	    pushFollow(FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8342);
             	    genericTypeArgumentSimplified210=genericTypeArgumentSimplified();
 
             	    state._fsp--;
@@ -8364,7 +8364,7 @@ public class JamlAttrHashParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeArgumentListSimplified8347);
+            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeArgumentListSimplified8346);
             genericTypeListClosing211=genericTypeListClosing();
 
             state._fsp--;
@@ -8475,7 +8475,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_type_in_genericTypeArgumentSimplified8389);
+                    pushFollow(FOLLOW_type_in_genericTypeArgumentSimplified8388);
                     type212=type();
 
                     state._fsp--;
@@ -8489,7 +8489,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    QUESTION213=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgumentSimplified8399); if (state.failed) return retval;
+                    QUESTION213=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgumentSimplified8398); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     QUESTION213_tree = (CommonTree)adaptor.create(QUESTION213);
                     adaptor.addChild(root_0, QUESTION213_tree);
@@ -8550,7 +8550,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8422);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8421);
             qualifiedIdentifier214=qualifiedIdentifier();
 
             state._fsp--;
@@ -8571,8 +8571,8 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:675:30: COMMA qualifiedIdentifier
             	    {
-            	    COMMA215=(Token)match(input,COMMA,FOLLOW_COMMA_in_qualifiedIdentList8425); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8428);
+            	    COMMA215=(Token)match(input,COMMA,FOLLOW_COMMA_in_qualifiedIdentList8424); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8427);
             	    qualifiedIdentifier216=qualifiedIdentifier();
 
             	    state._fsp--;
@@ -8653,7 +8653,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:679:5: ( LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN )
             // ../etc/JamlAttrHash.g:679:9: LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN
             {
-            LPAREN217=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList8453); if (state.failed) return retval; 
+            LPAREN217=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList8452); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN217);
 
             // ../etc/JamlAttrHash.g:680:9: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) )
@@ -8759,7 +8759,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:681:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
                     {
-                    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList8481);
+                    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList8480);
                     formalParameterStandardDecl218=formalParameterStandardDecl();
 
                     state._fsp--;
@@ -8786,10 +8786,10 @@ public class JamlAttrHashParser extends Parser {
                     	case 1 :
                     	    // ../etc/JamlAttrHash.g:681:42: COMMA formalParameterStandardDecl
                     	    {
-                    	    COMMA219=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList8484); if (state.failed) return retval; 
+                    	    COMMA219=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList8483); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA219);
 
-                    	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList8486);
+                    	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList8485);
                     	    formalParameterStandardDecl220=formalParameterStandardDecl();
 
                     	    state._fsp--;
@@ -8815,10 +8815,10 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:681:79: COMMA formalParameterVarArgDecl
                             {
-                            COMMA221=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList8491); if (state.failed) return retval; 
+                            COMMA221=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList8490); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COMMA.add(COMMA221);
 
-                            pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList8493);
+                            pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList8492);
                             formalParameterVarArgDecl222=formalParameterVarArgDecl();
 
                             state._fsp--;
@@ -8833,7 +8833,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: formalParameterStandardDecl, formalParameterVarArgDecl
+                    // elements: formalParameterVarArgDecl, formalParameterStandardDecl
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -8877,7 +8877,7 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:684:13: formalParameterVarArgDecl
                     {
-                    pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList8550);
+                    pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList8549);
                     formalParameterVarArgDecl223=formalParameterVarArgDecl();
 
                     state._fsp--;
@@ -8948,7 +8948,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            RPAREN224=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_formalParameterList8627); if (state.failed) return retval; 
+            RPAREN224=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_formalParameterList8626); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN224);
 
 
@@ -9005,19 +9005,19 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:693:5: ( localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
             // ../etc/JamlAttrHash.g:693:9: localModifierList type variableDeclaratorId
             {
-            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl8650);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl8649);
             localModifierList225=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList225.getTree());
-            pushFollow(FOLLOW_type_in_formalParameterStandardDecl8652);
+            pushFollow(FOLLOW_type_in_formalParameterStandardDecl8651);
             type226=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type226.getTree());
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl8654);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl8653);
             variableDeclaratorId227=variableDeclaratorId();
 
             state._fsp--;
@@ -9110,22 +9110,22 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:698:5: ( localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
             // ../etc/JamlAttrHash.g:698:9: localModifierList type ELLIPSIS variableDeclaratorId
             {
-            pushFollow(FOLLOW_localModifierList_in_formalParameterVarArgDecl8698);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterVarArgDecl8697);
             localModifierList228=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList228.getTree());
-            pushFollow(FOLLOW_type_in_formalParameterVarArgDecl8700);
+            pushFollow(FOLLOW_type_in_formalParameterVarArgDecl8699);
             type229=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type229.getTree());
-            ELLIPSIS230=(Token)match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_formalParameterVarArgDecl8702); if (state.failed) return retval; 
+            ELLIPSIS230=(Token)match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_formalParameterVarArgDecl8701); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ELLIPSIS.add(ELLIPSIS230);
 
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarArgDecl8704);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarArgDecl8703);
             variableDeclaratorId231=variableDeclaratorId();
 
             state._fsp--;
@@ -9134,7 +9134,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: localModifierList, type, variableDeclaratorId
+            // elements: type, localModifierList, variableDeclaratorId
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -9218,7 +9218,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:703:9: ( IDENT -> IDENT )
             // ../etc/JamlAttrHash.g:703:13: IDENT
             {
-            IDENT232=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8752); if (state.failed) return retval; 
+            IDENT232=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8751); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT232);
 
 
@@ -9271,16 +9271,16 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:705:13: DOT ident= IDENT
             	    {
-            	    DOT233=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier8795); if (state.failed) return retval; 
+            	    DOT233=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier8794); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT233);
 
-            	    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8799); if (state.failed) return retval; 
+            	    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8798); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_IDENT.add(ident);
 
 
 
             	    // AST REWRITE
-            	    // elements: DOT, ident, qualifiedIdentifier
+            	    // elements: ident, DOT, qualifiedIdentifier
             	    // token labels: ident
             	    // rule labels: retval
             	    // token list labels: 
@@ -9391,7 +9391,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: annotation
             	    {
-            	    pushFollow(FOLLOW_annotation_in_annotationList8852);
+            	    pushFollow(FOLLOW_annotation_in_annotationList8851);
             	    annotation234=annotation();
 
             	    state._fsp--;
@@ -9493,12 +9493,12 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            AT235=(Token)match(input,AT,FOLLOW_AT_in_annotation8890); if (state.failed) return retval;
+            AT235=(Token)match(input,AT,FOLLOW_AT_in_annotation8889); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             AT235_tree = (CommonTree)adaptor.create(AT235);
             root_0 = (CommonTree)adaptor.becomeRoot(AT235_tree, root_0);
             }
-            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation8893);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation8892);
             qualifiedIdentifier236=qualifiedIdentifier();
 
             state._fsp--;
@@ -9515,7 +9515,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: annotationInit
                     {
-                    pushFollow(FOLLOW_annotationInit_in_annotation8895);
+                    pushFollow(FOLLOW_annotationInit_in_annotation8894);
                     annotationInit237=annotationInit();
 
                     state._fsp--;
@@ -9581,16 +9581,16 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:721:5: ( LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) )
             // ../etc/JamlAttrHash.g:721:9: LPAREN annotationInitializers RPAREN
             {
-            LPAREN238=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationInit8919); if (state.failed) return retval; 
+            LPAREN238=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationInit8918); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN238);
 
-            pushFollow(FOLLOW_annotationInitializers_in_annotationInit8921);
+            pushFollow(FOLLOW_annotationInitializers_in_annotationInit8920);
             annotationInitializers239=annotationInitializers();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_annotationInitializers.add(annotationInitializers239.getTree());
-            RPAREN240=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationInit8923); if (state.failed) return retval; 
+            RPAREN240=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationInit8922); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN240);
 
 
@@ -9709,7 +9709,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:726:9: annotationInitializer ( COMMA annotationInitializer )*
                     {
-                    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8960);
+                    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8959);
                     annotationInitializer241=annotationInitializer();
 
                     state._fsp--;
@@ -9730,10 +9730,10 @@ public class JamlAttrHashParser extends Parser {
                     	case 1 :
                     	    // ../etc/JamlAttrHash.g:726:32: COMMA annotationInitializer
                     	    {
-                    	    COMMA242=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationInitializers8963); if (state.failed) return retval; 
+                    	    COMMA242=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationInitializers8962); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA242);
 
-                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8965);
+                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8964);
                     	    annotationInitializer243=annotationInitializer();
 
                     	    state._fsp--;
@@ -9789,7 +9789,7 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:728:9: annotationElementValue
                     {
-                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers8995);
+                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers8994);
                     annotationElementValue244=annotationElementValue();
 
                     state._fsp--;
@@ -9879,13 +9879,13 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT245=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer9036); if (state.failed) return retval;
+            IDENT245=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer9035); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT245_tree = (CommonTree)adaptor.create(IDENT245);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT245_tree, root_0);
             }
-            ASSIGN246=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_annotationInitializer9039); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer9042);
+            ASSIGN246=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_annotationInitializer9038); if (state.failed) return retval;
+            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer9041);
             annotationElementValue247=annotationElementValue();
 
             state._fsp--;
@@ -10001,7 +10001,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_annotationElementValueExpression_in_annotationElementValue9065);
+                    pushFollow(FOLLOW_annotationElementValueExpression_in_annotationElementValue9064);
                     annotationElementValueExpression248=annotationElementValueExpression();
 
                     state._fsp--;
@@ -10015,7 +10015,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_annotation_in_annotationElementValue9075);
+                    pushFollow(FOLLOW_annotation_in_annotationElementValue9074);
                     annotation249=annotation();
 
                     state._fsp--;
@@ -10029,7 +10029,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_annotationElementValueArrayInitializer_in_annotationElementValue9085);
+                    pushFollow(FOLLOW_annotationElementValueArrayInitializer_in_annotationElementValue9084);
                     annotationElementValueArrayInitializer250=annotationElementValueArrayInitializer();
 
                     state._fsp--;
@@ -10085,7 +10085,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:743:5: ( conditionalExpression -> ^( EXPR conditionalExpression ) )
             // ../etc/JamlAttrHash.g:743:9: conditionalExpression
             {
-            pushFollow(FOLLOW_conditionalExpression_in_annotationElementValueExpression9108);
+            pushFollow(FOLLOW_conditionalExpression_in_annotationElementValueExpression9107);
             conditionalExpression251=conditionalExpression();
 
             state._fsp--;
@@ -10180,7 +10180,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:748:5: ( LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) )
             // ../etc/JamlAttrHash.g:748:9: LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY
             {
-            LCURLY252=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationElementValueArrayInitializer9148); if (state.failed) return retval; 
+            LCURLY252=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationElementValueArrayInitializer9147); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY252);
 
             // ../etc/JamlAttrHash.g:748:16: ( annotationElementValue ( COMMA annotationElementValue )* )?
@@ -10194,7 +10194,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:748:17: annotationElementValue ( COMMA annotationElementValue )*
                     {
-                    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9151);
+                    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9150);
                     annotationElementValue253=annotationElementValue();
 
                     state._fsp--;
@@ -10221,10 +10221,10 @@ public class JamlAttrHashParser extends Parser {
                     	case 1 :
                     	    // ../etc/JamlAttrHash.g:748:41: COMMA annotationElementValue
                     	    {
-                    	    COMMA254=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer9154); if (state.failed) return retval; 
+                    	    COMMA254=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer9153); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA254);
 
-                    	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9156);
+                    	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9155);
                     	    annotationElementValue255=annotationElementValue();
 
                     	    state._fsp--;
@@ -10256,7 +10256,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:748:75: COMMA
                     {
-                    COMMA256=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer9163); if (state.failed) return retval; 
+                    COMMA256=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer9162); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_COMMA.add(COMMA256);
 
 
@@ -10265,7 +10265,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            RCURLY257=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_annotationElementValueArrayInitializer9167); if (state.failed) return retval; 
+            RCURLY257=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_annotationElementValueArrayInitializer9166); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY257);
 
 
@@ -10358,16 +10358,16 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:753:5: ( AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) )
             // ../etc/JamlAttrHash.g:753:9: AT INTERFACE IDENT annotationBody
             {
-            AT258=(Token)match(input,AT,FOLLOW_AT_in_annotationTypeDeclaration9210); if (state.failed) return retval; 
+            AT258=(Token)match(input,AT,FOLLOW_AT_in_annotationTypeDeclaration9209); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_AT.add(AT258);
 
-            INTERFACE259=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_annotationTypeDeclaration9212); if (state.failed) return retval; 
+            INTERFACE259=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_annotationTypeDeclaration9211); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_INTERFACE.add(INTERFACE259);
 
-            IDENT260=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationTypeDeclaration9214); if (state.failed) return retval; 
+            IDENT260=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationTypeDeclaration9213); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT260);
 
-            pushFollow(FOLLOW_annotationBody_in_annotationTypeDeclaration9216);
+            pushFollow(FOLLOW_annotationBody_in_annotationTypeDeclaration9215);
             annotationBody261=annotationBody();
 
             state._fsp--;
@@ -10376,7 +10376,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: annotationBody, AT, IDENT
+            // elements: annotationBody, IDENT, AT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -10457,7 +10457,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:758:5: ( LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) )
             // ../etc/JamlAttrHash.g:758:9: LCURLY ( annotationScopeDeclarations )* RCURLY
             {
-            LCURLY262=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationBody9259); if (state.failed) return retval; 
+            LCURLY262=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationBody9258); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY262);
 
             // ../etc/JamlAttrHash.g:758:16: ( annotationScopeDeclarations )*
@@ -10475,7 +10475,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: annotationScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationBody9261);
+            	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationBody9260);
             	    annotationScopeDeclarations263=annotationScopeDeclarations();
 
             	    state._fsp--;
@@ -10490,7 +10490,7 @@ public class JamlAttrHashParser extends Parser {
                 }
             } while (true);
 
-            RCURLY264=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_annotationBody9264); if (state.failed) return retval; 
+            RCURLY264=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_annotationBody9263); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY264);
 
 
@@ -10603,13 +10603,13 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:763:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     {
-                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations9306);
+                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations9305);
                     modifierList265=modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_modifierList.add(modifierList265.getTree());
-                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations9308);
+                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations9307);
                     type266=type();
 
                     state._fsp--;
@@ -10647,13 +10647,13 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:764:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
                             {
-                            IDENT267=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations9322); if (state.failed) return retval; 
+                            IDENT267=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations9321); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT267);
 
-                            LPAREN268=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationScopeDeclarations9324); if (state.failed) return retval; 
+                            LPAREN268=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationScopeDeclarations9323); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN268);
 
-                            RPAREN269=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationScopeDeclarations9326); if (state.failed) return retval; 
+                            RPAREN269=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationScopeDeclarations9325); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN269);
 
                             // ../etc/JamlAttrHash.g:764:33: ( annotationDefaultValue )?
@@ -10667,7 +10667,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: annotationDefaultValue
                                     {
-                                    pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations9328);
+                                    pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations9327);
                                     annotationDefaultValue270=annotationDefaultValue();
 
                                     state._fsp--;
@@ -10679,13 +10679,13 @@ public class JamlAttrHashParser extends Parser {
 
                             }
 
-                            SEMI271=(Token)match(input,SEMI,FOLLOW_SEMI_in_annotationScopeDeclarations9331); if (state.failed) return retval; 
+                            SEMI271=(Token)match(input,SEMI,FOLLOW_SEMI_in_annotationScopeDeclarations9330); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI271);
 
 
 
                             // AST REWRITE
-                            // elements: IDENT, modifierList, annotationDefaultValue, type
+                            // elements: annotationDefaultValue, type, modifierList, IDENT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10724,19 +10724,19 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:766:13: classFieldDeclaratorList SEMI
                             {
-                            pushFollow(FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations9373);
+                            pushFollow(FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations9372);
                             classFieldDeclaratorList272=classFieldDeclaratorList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_classFieldDeclaratorList.add(classFieldDeclaratorList272.getTree());
-                            SEMI273=(Token)match(input,SEMI,FOLLOW_SEMI_in_annotationScopeDeclarations9375); if (state.failed) return retval; 
+                            SEMI273=(Token)match(input,SEMI,FOLLOW_SEMI_in_annotationScopeDeclarations9374); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI273);
 
 
 
                             // AST REWRITE
-                            // elements: type, classFieldDeclaratorList, modifierList
+                            // elements: classFieldDeclaratorList, modifierList, type
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10777,7 +10777,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations9420);
+                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations9419);
                     typeDeclaration274=typeDeclaration();
 
                     state._fsp--;
@@ -10837,12 +10837,12 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            DEFAULT275=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue9443); if (state.failed) return retval;
+            DEFAULT275=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue9442); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             DEFAULT275_tree = (CommonTree)adaptor.create(DEFAULT275);
             root_0 = (CommonTree)adaptor.becomeRoot(DEFAULT275_tree, root_0);
             }
-            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue9446);
+            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue9445);
             annotationElementValue276=annotationElementValue();
 
             state._fsp--;
@@ -10902,7 +10902,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:779:5: ( LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) )
             // ../etc/JamlAttrHash.g:779:9: LCURLY ( blockStatement )* RCURLY
             {
-            LCURLY277=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_block9467); if (state.failed) return retval; 
+            LCURLY277=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_block9466); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY277);
 
             // ../etc/JamlAttrHash.g:779:16: ( blockStatement )*
@@ -10920,7 +10920,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_block9469);
+            	    pushFollow(FOLLOW_blockStatement_in_block9468);
             	    blockStatement278=blockStatement();
 
             	    state._fsp--;
@@ -10935,7 +10935,7 @@ public class JamlAttrHashParser extends Parser {
                 }
             } while (true);
 
-            RCURLY279=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_block9472); if (state.failed) return retval; 
+            RCURLY279=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_block9471); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY279);
 
 
@@ -11031,13 +11031,13 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement9510);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement9509);
                     localVariableDeclaration280=localVariableDeclaration();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, localVariableDeclaration280.getTree());
-                    SEMI281=(Token)match(input,SEMI,FOLLOW_SEMI_in_blockStatement9512); if (state.failed) return retval;
+                    SEMI281=(Token)match(input,SEMI,FOLLOW_SEMI_in_blockStatement9511); if (state.failed) return retval;
 
                     }
                     break;
@@ -11046,7 +11046,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement9523);
+                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement9522);
                     typeDeclaration282=typeDeclaration();
 
                     state._fsp--;
@@ -11060,7 +11060,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_statement_in_blockStatement9533);
+                    pushFollow(FOLLOW_statement_in_blockStatement9532);
                     statement283=statement();
 
                     state._fsp--;
@@ -11122,19 +11122,19 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:790:5: ( localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) )
             // ../etc/JamlAttrHash.g:790:9: localModifierList type classFieldDeclaratorList
             {
-            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration9556);
+            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration9555);
             localModifierList284=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList284.getTree());
-            pushFollow(FOLLOW_type_in_localVariableDeclaration9558);
+            pushFollow(FOLLOW_type_in_localVariableDeclaration9557);
             type285=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type285.getTree());
-            pushFollow(FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration9560);
+            pushFollow(FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration9559);
             classFieldDeclaratorList286=classFieldDeclaratorList();
 
             state._fsp--;
@@ -11387,7 +11387,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_block_in_statement9613);
+                    pushFollow(FOLLOW_block_in_statement9612);
                     block287=block();
 
                     state._fsp--;
@@ -11399,10 +11399,10 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:797:9: ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
                     {
-                    ASSERT288=(Token)match(input,ASSERT,FOLLOW_ASSERT_in_statement9623); if (state.failed) return retval; 
+                    ASSERT288=(Token)match(input,ASSERT,FOLLOW_ASSERT_in_statement9622); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ASSERT.add(ASSERT288);
 
-                    pushFollow(FOLLOW_expression_in_statement9627);
+                    pushFollow(FOLLOW_expression_in_statement9626);
                     expr1=expression();
 
                     state._fsp--;
@@ -11429,22 +11429,22 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:798:13: COLON expr2= expression SEMI
                             {
-                            COLON289=(Token)match(input,COLON,FOLLOW_COLON_in_statement9642); if (state.failed) return retval; 
+                            COLON289=(Token)match(input,COLON,FOLLOW_COLON_in_statement9641); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COLON.add(COLON289);
 
-                            pushFollow(FOLLOW_expression_in_statement9646);
+                            pushFollow(FOLLOW_expression_in_statement9645);
                             expr2=expression();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_expression.add(expr2.getTree());
-                            SEMI290=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9648); if (state.failed) return retval; 
+                            SEMI290=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9647); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI290);
 
 
 
                             // AST REWRITE
-                            // elements: ASSERT, expr1, expr2
+                            // elements: expr1, ASSERT, expr2
                             // token labels: 
                             // rule labels: retval, expr1, expr2
                             // token list labels: 
@@ -11478,7 +11478,7 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:799:13: SEMI
                             {
-                            SEMI291=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9711); if (state.failed) return retval; 
+                            SEMI291=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9710); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI291);
 
 
@@ -11522,16 +11522,16 @@ public class JamlAttrHashParser extends Parser {
                 case 3 :
                     // ../etc/JamlAttrHash.g:801:9: IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
                     {
-                    IF292=(Token)match(input,IF,FOLLOW_IF_in_statement9800); if (state.failed) return retval; 
+                    IF292=(Token)match(input,IF,FOLLOW_IF_in_statement9799); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IF.add(IF292);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement9802);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement9801);
                     parenthesizedExpression293=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression293.getTree());
-                    pushFollow(FOLLOW_statement_in_statement9806);
+                    pushFollow(FOLLOW_statement_in_statement9805);
                     ifStat=statement();
 
                     state._fsp--;
@@ -11572,10 +11572,10 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:802:13: ELSE elseStat= statement
                             {
-                            ELSE294=(Token)match(input,ELSE,FOLLOW_ELSE_in_statement9821); if (state.failed) return retval; 
+                            ELSE294=(Token)match(input,ELSE,FOLLOW_ELSE_in_statement9820); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_ELSE.add(ELSE294);
 
-                            pushFollow(FOLLOW_statement_in_statement9825);
+                            pushFollow(FOLLOW_statement_in_statement9824);
                             elseStat=statement();
 
                             state._fsp--;
@@ -11584,7 +11584,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: IF, ifStat, elseStat, parenthesizedExpression
+                            // elements: parenthesizedExpression, elseStat, ifStat, IF
                             // token labels: 
                             // rule labels: retval, ifStat, elseStat
                             // token list labels: 
@@ -11621,7 +11621,7 @@ public class JamlAttrHashParser extends Parser {
                             {
 
                             // AST REWRITE
-                            // elements: parenthesizedExpression, ifStat, IF
+                            // elements: ifStat, parenthesizedExpression, IF
                             // token labels: 
                             // rule labels: retval, ifStat
                             // token list labels: 
@@ -11660,10 +11660,10 @@ public class JamlAttrHashParser extends Parser {
                 case 4 :
                     // ../etc/JamlAttrHash.g:805:9: FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
                     {
-                    FOR295=(Token)match(input,FOR,FOLLOW_FOR_in_statement9991); if (state.failed) return retval; 
+                    FOR295=(Token)match(input,FOR,FOLLOW_FOR_in_statement9990); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_FOR.add(FOR295);
 
-                    LPAREN296=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_statement9993); if (state.failed) return retval; 
+                    LPAREN296=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_statement9992); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN296);
 
                     // ../etc/JamlAttrHash.g:806:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
@@ -11673,34 +11673,34 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:806:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
                             {
-                            pushFollow(FOLLOW_forInit_in_statement10008);
+                            pushFollow(FOLLOW_forInit_in_statement10007);
                             forInit297=forInit();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forInit.add(forInit297.getTree());
-                            SEMI298=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10010); if (state.failed) return retval; 
+                            SEMI298=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10009); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI298);
 
-                            pushFollow(FOLLOW_forCondition_in_statement10012);
+                            pushFollow(FOLLOW_forCondition_in_statement10011);
                             forCondition299=forCondition();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forCondition.add(forCondition299.getTree());
-                            SEMI300=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10014); if (state.failed) return retval; 
+                            SEMI300=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10013); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI300);
 
-                            pushFollow(FOLLOW_forUpdater_in_statement10016);
+                            pushFollow(FOLLOW_forUpdater_in_statement10015);
                             forUpdater301=forUpdater();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forUpdater.add(forUpdater301.getTree());
-                            RPAREN302=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement10018); if (state.failed) return retval; 
+                            RPAREN302=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement10017); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN302);
 
-                            pushFollow(FOLLOW_statement_in_statement10020);
+                            pushFollow(FOLLOW_statement_in_statement10019);
                             statement303=statement();
 
                             state._fsp--;
@@ -11709,7 +11709,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: forUpdater, forCondition, statement, FOR, forInit
+                            // elements: forCondition, forInit, statement, FOR, forUpdater
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11743,34 +11743,34 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:807:13: localModifierList type IDENT COLON expression RPAREN statement
                             {
-                            pushFollow(FOLLOW_localModifierList_in_statement10055);
+                            pushFollow(FOLLOW_localModifierList_in_statement10054);
                             localModifierList304=localModifierList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList304.getTree());
-                            pushFollow(FOLLOW_type_in_statement10057);
+                            pushFollow(FOLLOW_type_in_statement10056);
                             type305=type();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_type.add(type305.getTree());
-                            IDENT306=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10059); if (state.failed) return retval; 
+                            IDENT306=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10058); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT306);
 
-                            COLON307=(Token)match(input,COLON,FOLLOW_COLON_in_statement10061); if (state.failed) return retval; 
+                            COLON307=(Token)match(input,COLON,FOLLOW_COLON_in_statement10060); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COLON.add(COLON307);
 
-                            pushFollow(FOLLOW_expression_in_statement10063);
+                            pushFollow(FOLLOW_expression_in_statement10062);
                             expression308=expression();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_expression.add(expression308.getTree());
-                            RPAREN309=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement10065); if (state.failed) return retval; 
+                            RPAREN309=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement10064); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN309);
 
-                            pushFollow(FOLLOW_statement_in_statement10067);
+                            pushFollow(FOLLOW_statement_in_statement10066);
                             statement310=statement();
 
                             state._fsp--;
@@ -11779,7 +11779,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: localModifierList, statement, expression, type, IDENT
+                            // elements: expression, IDENT, type, statement, localModifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11820,16 +11820,16 @@ public class JamlAttrHashParser extends Parser {
                 case 5 :
                     // ../etc/JamlAttrHash.g:810:9: WHILE parenthesizedExpression statement
                     {
-                    WHILE311=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement10182); if (state.failed) return retval; 
+                    WHILE311=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement10181); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_WHILE.add(WHILE311);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10184);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10183);
                     parenthesizedExpression312=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression312.getTree());
-                    pushFollow(FOLLOW_statement_in_statement10186);
+                    pushFollow(FOLLOW_statement_in_statement10185);
                     statement313=statement();
 
                     state._fsp--;
@@ -11838,7 +11838,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: statement, WHILE, parenthesizedExpression
+                    // elements: statement, parenthesizedExpression, WHILE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11870,31 +11870,31 @@ public class JamlAttrHashParser extends Parser {
                 case 6 :
                     // ../etc/JamlAttrHash.g:811:9: DO statement WHILE parenthesizedExpression SEMI
                     {
-                    DO314=(Token)match(input,DO,FOLLOW_DO_in_statement10235); if (state.failed) return retval; 
+                    DO314=(Token)match(input,DO,FOLLOW_DO_in_statement10234); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DO.add(DO314);
 
-                    pushFollow(FOLLOW_statement_in_statement10237);
+                    pushFollow(FOLLOW_statement_in_statement10236);
                     statement315=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_statement.add(statement315.getTree());
-                    WHILE316=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement10239); if (state.failed) return retval; 
+                    WHILE316=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement10238); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_WHILE.add(WHILE316);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10241);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10240);
                     parenthesizedExpression317=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression317.getTree());
-                    SEMI318=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10243); if (state.failed) return retval; 
+                    SEMI318=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10242); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI318);
 
 
 
                     // AST REWRITE
-                    // elements: DO, parenthesizedExpression, statement
+                    // elements: parenthesizedExpression, DO, statement
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11926,10 +11926,10 @@ public class JamlAttrHashParser extends Parser {
                 case 7 :
                     // ../etc/JamlAttrHash.g:812:9: TRY block ( catches ( finallyClause )? | finallyClause )
                     {
-                    TRY319=(Token)match(input,TRY,FOLLOW_TRY_in_statement10284); if (state.failed) return retval; 
+                    TRY319=(Token)match(input,TRY,FOLLOW_TRY_in_statement10283); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_TRY.add(TRY319);
 
-                    pushFollow(FOLLOW_block_in_statement10286);
+                    pushFollow(FOLLOW_block_in_statement10285);
                     block320=block();
 
                     state._fsp--;
@@ -11956,7 +11956,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:812:20: catches ( finallyClause )?
                             {
-                            pushFollow(FOLLOW_catches_in_statement10289);
+                            pushFollow(FOLLOW_catches_in_statement10288);
                             catches321=catches();
 
                             state._fsp--;
@@ -11973,7 +11973,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: finallyClause
                                     {
-                                    pushFollow(FOLLOW_finallyClause_in_statement10291);
+                                    pushFollow(FOLLOW_finallyClause_in_statement10290);
                                     finallyClause322=finallyClause();
 
                                     state._fsp--;
@@ -11991,7 +11991,7 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:812:45: finallyClause
                             {
-                            pushFollow(FOLLOW_finallyClause_in_statement10296);
+                            pushFollow(FOLLOW_finallyClause_in_statement10295);
                             finallyClause323=finallyClause();
 
                             state._fsp--;
@@ -12006,7 +12006,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: TRY, finallyClause, catches, block
+                    // elements: finallyClause, catches, TRY, block
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12049,31 +12049,31 @@ public class JamlAttrHashParser extends Parser {
                 case 8 :
                     // ../etc/JamlAttrHash.g:813:9: SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY
                     {
-                    SWITCH324=(Token)match(input,SWITCH,FOLLOW_SWITCH_in_statement10339); if (state.failed) return retval; 
+                    SWITCH324=(Token)match(input,SWITCH,FOLLOW_SWITCH_in_statement10338); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SWITCH.add(SWITCH324);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10341);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10340);
                     parenthesizedExpression325=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression325.getTree());
-                    LCURLY326=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_statement10343); if (state.failed) return retval; 
+                    LCURLY326=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_statement10342); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY326);
 
-                    pushFollow(FOLLOW_switchBlockLabels_in_statement10345);
+                    pushFollow(FOLLOW_switchBlockLabels_in_statement10344);
                     switchBlockLabels327=switchBlockLabels();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_switchBlockLabels.add(switchBlockLabels327.getTree());
-                    RCURLY328=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_statement10347); if (state.failed) return retval; 
+                    RCURLY328=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_statement10346); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY328);
 
 
 
                     // AST REWRITE
-                    // elements: parenthesizedExpression, switchBlockLabels, SWITCH
+                    // elements: switchBlockLabels, SWITCH, parenthesizedExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12105,16 +12105,16 @@ public class JamlAttrHashParser extends Parser {
                 case 9 :
                     // ../etc/JamlAttrHash.g:814:9: SYNCHRONIZED parenthesizedExpression block
                     {
-                    SYNCHRONIZED329=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement10373); if (state.failed) return retval; 
+                    SYNCHRONIZED329=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement10372); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SYNCHRONIZED.add(SYNCHRONIZED329);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10375);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10374);
                     parenthesizedExpression330=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression330.getTree());
-                    pushFollow(FOLLOW_block_in_statement10377);
+                    pushFollow(FOLLOW_block_in_statement10376);
                     block331=block();
 
                     state._fsp--;
@@ -12123,7 +12123,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: block, SYNCHRONIZED, parenthesizedExpression
+                    // elements: parenthesizedExpression, block, SYNCHRONIZED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12155,7 +12155,7 @@ public class JamlAttrHashParser extends Parser {
                 case 10 :
                     // ../etc/JamlAttrHash.g:815:9: RETURN ( expression )? SEMI
                     {
-                    RETURN332=(Token)match(input,RETURN,FOLLOW_RETURN_in_statement10423); if (state.failed) return retval; 
+                    RETURN332=(Token)match(input,RETURN,FOLLOW_RETURN_in_statement10422); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RETURN.add(RETURN332);
 
                     // ../etc/JamlAttrHash.g:815:16: ( expression )?
@@ -12169,7 +12169,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: expression
                             {
-                            pushFollow(FOLLOW_expression_in_statement10425);
+                            pushFollow(FOLLOW_expression_in_statement10424);
                             expression333=expression();
 
                             state._fsp--;
@@ -12181,13 +12181,13 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    SEMI334=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10428); if (state.failed) return retval; 
+                    SEMI334=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10427); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI334);
 
 
 
                     // AST REWRITE
-                    // elements: expression, RETURN
+                    // elements: RETURN, expression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12223,16 +12223,16 @@ public class JamlAttrHashParser extends Parser {
                 case 11 :
                     // ../etc/JamlAttrHash.g:816:9: THROW expression SEMI
                     {
-                    THROW335=(Token)match(input,THROW,FOLLOW_THROW_in_statement10492); if (state.failed) return retval; 
+                    THROW335=(Token)match(input,THROW,FOLLOW_THROW_in_statement10491); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_THROW.add(THROW335);
 
-                    pushFollow(FOLLOW_expression_in_statement10494);
+                    pushFollow(FOLLOW_expression_in_statement10493);
                     expression336=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_expression.add(expression336.getTree());
-                    SEMI337=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10496); if (state.failed) return retval; 
+                    SEMI337=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10495); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI337);
 
 
@@ -12269,7 +12269,7 @@ public class JamlAttrHashParser extends Parser {
                 case 12 :
                     // ../etc/JamlAttrHash.g:817:9: BREAK ( IDENT )? SEMI
                     {
-                    BREAK338=(Token)match(input,BREAK,FOLLOW_BREAK_in_statement10561); if (state.failed) return retval; 
+                    BREAK338=(Token)match(input,BREAK,FOLLOW_BREAK_in_statement10560); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_BREAK.add(BREAK338);
 
                     // ../etc/JamlAttrHash.g:817:15: ( IDENT )?
@@ -12283,7 +12283,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: IDENT
                             {
-                            IDENT339=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10563); if (state.failed) return retval; 
+                            IDENT339=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10562); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT339);
 
 
@@ -12292,7 +12292,7 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    SEMI340=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10566); if (state.failed) return retval; 
+                    SEMI340=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10565); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI340);
 
 
@@ -12334,7 +12334,7 @@ public class JamlAttrHashParser extends Parser {
                 case 13 :
                     // ../etc/JamlAttrHash.g:818:9: CONTINUE ( IDENT )? SEMI
                     {
-                    CONTINUE341=(Token)match(input,CONTINUE,FOLLOW_CONTINUE_in_statement10636); if (state.failed) return retval; 
+                    CONTINUE341=(Token)match(input,CONTINUE,FOLLOW_CONTINUE_in_statement10635); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CONTINUE.add(CONTINUE341);
 
                     // ../etc/JamlAttrHash.g:818:18: ( IDENT )?
@@ -12348,7 +12348,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: IDENT
                             {
-                            IDENT342=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10638); if (state.failed) return retval; 
+                            IDENT342=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10637); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT342);
 
 
@@ -12357,7 +12357,7 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    SEMI343=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10641); if (state.failed) return retval; 
+                    SEMI343=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10640); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI343);
 
 
@@ -12399,13 +12399,13 @@ public class JamlAttrHashParser extends Parser {
                 case 14 :
                     // ../etc/JamlAttrHash.g:819:9: IDENT COLON statement
                     {
-                    IDENT344=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10708); if (state.failed) return retval; 
+                    IDENT344=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10707); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT344);
 
-                    COLON345=(Token)match(input,COLON,FOLLOW_COLON_in_statement10710); if (state.failed) return retval; 
+                    COLON345=(Token)match(input,COLON,FOLLOW_COLON_in_statement10709); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_COLON.add(COLON345);
 
-                    pushFollow(FOLLOW_statement_in_statement10712);
+                    pushFollow(FOLLOW_statement_in_statement10711);
                     statement346=statement();
 
                     state._fsp--;
@@ -12414,7 +12414,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: statement, IDENT
+                    // elements: IDENT, statement
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12448,13 +12448,13 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expression_in_statement10779);
+                    pushFollow(FOLLOW_expression_in_statement10778);
                     expression347=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expression347.getTree());
-                    SEMI348=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10781); if (state.failed) return retval;
+                    SEMI348=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10780); if (state.failed) return retval;
 
                     }
                     break;
@@ -12463,7 +12463,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI349=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10792); if (state.failed) return retval;
+                    SEMI349=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10791); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     SEMI349_tree = (CommonTree)adaptor.create(SEMI349);
                     adaptor.addChild(root_0, SEMI349_tree);
@@ -12534,7 +12534,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: catchClause
             	    {
-            	    pushFollow(FOLLOW_catchClause_in_catches10831);
+            	    pushFollow(FOLLOW_catchClause_in_catches10830);
             	    catchClause350=catchClause();
 
             	    state._fsp--;
@@ -12647,20 +12647,20 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            CATCH351=(Token)match(input,CATCH,FOLLOW_CATCH_in_catchClause10873); if (state.failed) return retval;
+            CATCH351=(Token)match(input,CATCH,FOLLOW_CATCH_in_catchClause10872); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             CATCH351_tree = (CommonTree)adaptor.create(CATCH351);
             root_0 = (CommonTree)adaptor.becomeRoot(CATCH351_tree, root_0);
             }
-            LPAREN352=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_catchClause10876); if (state.failed) return retval;
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause10879);
+            LPAREN352=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_catchClause10875); if (state.failed) return retval;
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause10878);
             formalParameterStandardDecl353=formalParameterStandardDecl();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, formalParameterStandardDecl353.getTree());
-            RPAREN354=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_catchClause10881); if (state.failed) return retval;
-            pushFollow(FOLLOW_block_in_catchClause10884);
+            RPAREN354=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_catchClause10880); if (state.failed) return retval;
+            pushFollow(FOLLOW_block_in_catchClause10883);
             block355=block();
 
             state._fsp--;
@@ -12717,10 +12717,10 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:834:5: ( FINALLY block -> block )
             // ../etc/JamlAttrHash.g:834:9: FINALLY block
             {
-            FINALLY356=(Token)match(input,FINALLY,FOLLOW_FINALLY_in_finallyClause10903); if (state.failed) return retval; 
+            FINALLY356=(Token)match(input,FINALLY,FOLLOW_FINALLY_in_finallyClause10902); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_FINALLY.add(FINALLY356);
 
-            pushFollow(FOLLOW_block_in_finallyClause10905);
+            pushFollow(FOLLOW_block_in_finallyClause10904);
             block357=block();
 
             state._fsp--;
@@ -12799,7 +12799,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:839:5: ( switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) )
             // ../etc/JamlAttrHash.g:839:9: switchCaseLabels ( switchDefaultLabel )? switchCaseLabels
             {
-            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10937);
+            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10936);
             switchCaseLabels358=switchCaseLabels();
 
             state._fsp--;
@@ -12816,7 +12816,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: switchDefaultLabel
                     {
-                    pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels10939);
+                    pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels10938);
                     switchDefaultLabel359=switchDefaultLabel();
 
                     state._fsp--;
@@ -12828,7 +12828,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10942);
+            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10941);
             switchCaseLabels360=switchCaseLabels();
 
             state._fsp--;
@@ -12940,7 +12940,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: switchCaseLabel
             	    {
-            	    pushFollow(FOLLOW_switchCaseLabel_in_switchCaseLabels10987);
+            	    pushFollow(FOLLOW_switchCaseLabel_in_switchCaseLabels10986);
             	    switchCaseLabel361=switchCaseLabel();
 
             	    state._fsp--;
@@ -13011,18 +13011,18 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            CASE362=(Token)match(input,CASE,FOLLOW_CASE_in_switchCaseLabel11015); if (state.failed) return retval;
+            CASE362=(Token)match(input,CASE,FOLLOW_CASE_in_switchCaseLabel11014); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             CASE362_tree = (CommonTree)adaptor.create(CASE362);
             root_0 = (CommonTree)adaptor.becomeRoot(CASE362_tree, root_0);
             }
-            pushFollow(FOLLOW_expression_in_switchCaseLabel11018);
+            pushFollow(FOLLOW_expression_in_switchCaseLabel11017);
             expression363=expression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expression363.getTree());
-            COLON364=(Token)match(input,COLON,FOLLOW_COLON_in_switchCaseLabel11020); if (state.failed) return retval;
+            COLON364=(Token)match(input,COLON,FOLLOW_COLON_in_switchCaseLabel11019); if (state.failed) return retval;
             // ../etc/JamlAttrHash.g:848:33: ( blockStatement )*
             loop106:
             do {
@@ -13038,7 +13038,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel11023);
+            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel11022);
             	    blockStatement365=blockStatement();
 
             	    state._fsp--;
@@ -13107,12 +13107,12 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            DEFAULT366=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel11047); if (state.failed) return retval;
+            DEFAULT366=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel11046); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             DEFAULT366_tree = (CommonTree)adaptor.create(DEFAULT366);
             root_0 = (CommonTree)adaptor.becomeRoot(DEFAULT366_tree, root_0);
             }
-            COLON367=(Token)match(input,COLON,FOLLOW_COLON_in_switchDefaultLabel11050); if (state.failed) return retval;
+            COLON367=(Token)match(input,COLON,FOLLOW_COLON_in_switchDefaultLabel11049); if (state.failed) return retval;
             // ../etc/JamlAttrHash.g:852:25: ( blockStatement )*
             loop107:
             do {
@@ -13128,7 +13128,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel11053);
+            	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel11052);
             	    blockStatement368=blockStatement();
 
             	    state._fsp--;
@@ -13198,7 +13198,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:856:9: localVariableDeclaration
                     {
-                    pushFollow(FOLLOW_localVariableDeclaration_in_forInit11077);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_forInit11076);
                     localVariableDeclaration369=localVariableDeclaration();
 
                     state._fsp--;
@@ -13238,7 +13238,7 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:857:9: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_forInit11099);
+                    pushFollow(FOLLOW_expressionList_in_forInit11098);
                     expressionList370=expressionList();
 
                     state._fsp--;
@@ -13364,7 +13364,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: expression
                     {
-                    pushFollow(FOLLOW_expression_in_forCondition11187);
+                    pushFollow(FOLLOW_expression_in_forCondition11186);
                     expression371=expression();
 
                     state._fsp--;
@@ -13468,7 +13468,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_forUpdater11229);
+                    pushFollow(FOLLOW_expressionList_in_forUpdater11228);
                     expressionList372=expressionList();
 
                     state._fsp--;
@@ -13567,16 +13567,16 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:874:5: ( LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) )
             // ../etc/JamlAttrHash.g:874:9: LPAREN expression RPAREN
             {
-            LPAREN373=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedExpression11269); if (state.failed) return retval; 
+            LPAREN373=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedExpression11268); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN373);
 
-            pushFollow(FOLLOW_expression_in_parenthesizedExpression11271);
+            pushFollow(FOLLOW_expression_in_parenthesizedExpression11270);
             expression374=expression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_expression.add(expression374.getTree());
-            RPAREN375=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedExpression11273); if (state.failed) return retval; 
+            RPAREN375=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedExpression11272); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN375);
 
 
@@ -13661,7 +13661,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_expression_in_expressionList11314);
+            pushFollow(FOLLOW_expression_in_expressionList11313);
             expression376=expression();
 
             state._fsp--;
@@ -13682,8 +13682,8 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:879:21: COMMA expression
             	    {
-            	    COMMA377=(Token)match(input,COMMA,FOLLOW_COMMA_in_expressionList11317); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_expression_in_expressionList11320);
+            	    COMMA377=(Token)match(input,COMMA,FOLLOW_COMMA_in_expressionList11316); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_expression_in_expressionList11319);
             	    expression378=expression();
 
             	    state._fsp--;
@@ -13746,7 +13746,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:883:5: ( assignmentExpression -> ^( EXPR assignmentExpression ) )
             // ../etc/JamlAttrHash.g:883:9: assignmentExpression
             {
-            pushFollow(FOLLOW_assignmentExpression_in_expression11341);
+            pushFollow(FOLLOW_assignmentExpression_in_expression11340);
             assignmentExpression379=assignmentExpression();
 
             state._fsp--;
@@ -13856,7 +13856,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_conditionalExpression_in_assignmentExpression11377);
+            pushFollow(FOLLOW_conditionalExpression_in_assignmentExpression11376);
             conditionalExpression380=conditionalExpression();
 
             state._fsp--;
@@ -13948,7 +13948,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:889:17: ASSIGN
                             {
-                            ASSIGN381=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignmentExpression11396); if (state.failed) return retval;
+                            ASSIGN381=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignmentExpression11395); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             ASSIGN381_tree = (CommonTree)adaptor.create(ASSIGN381);
                             root_0 = (CommonTree)adaptor.becomeRoot(ASSIGN381_tree, root_0);
@@ -13959,7 +13959,7 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:890:17: PLUS_ASSIGN
                             {
-                            PLUS_ASSIGN382=(Token)match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_assignmentExpression11415); if (state.failed) return retval;
+                            PLUS_ASSIGN382=(Token)match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_assignmentExpression11414); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             PLUS_ASSIGN382_tree = (CommonTree)adaptor.create(PLUS_ASSIGN382);
                             root_0 = (CommonTree)adaptor.becomeRoot(PLUS_ASSIGN382_tree, root_0);
@@ -13970,7 +13970,7 @@ public class JamlAttrHashParser extends Parser {
                         case 3 :
                             // ../etc/JamlAttrHash.g:891:17: MINUS_ASSIGN
                             {
-                            MINUS_ASSIGN383=(Token)match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_assignmentExpression11434); if (state.failed) return retval;
+                            MINUS_ASSIGN383=(Token)match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_assignmentExpression11433); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             MINUS_ASSIGN383_tree = (CommonTree)adaptor.create(MINUS_ASSIGN383);
                             root_0 = (CommonTree)adaptor.becomeRoot(MINUS_ASSIGN383_tree, root_0);
@@ -13981,7 +13981,7 @@ public class JamlAttrHashParser extends Parser {
                         case 4 :
                             // ../etc/JamlAttrHash.g:892:17: STAR_ASSIGN
                             {
-                            STAR_ASSIGN384=(Token)match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_assignmentExpression11453); if (state.failed) return retval;
+                            STAR_ASSIGN384=(Token)match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_assignmentExpression11452); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             STAR_ASSIGN384_tree = (CommonTree)adaptor.create(STAR_ASSIGN384);
                             root_0 = (CommonTree)adaptor.becomeRoot(STAR_ASSIGN384_tree, root_0);
@@ -13992,7 +13992,7 @@ public class JamlAttrHashParser extends Parser {
                         case 5 :
                             // ../etc/JamlAttrHash.g:893:17: DIV_ASSIGN
                             {
-                            DIV_ASSIGN385=(Token)match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_assignmentExpression11472); if (state.failed) return retval;
+                            DIV_ASSIGN385=(Token)match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_assignmentExpression11471); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             DIV_ASSIGN385_tree = (CommonTree)adaptor.create(DIV_ASSIGN385);
                             root_0 = (CommonTree)adaptor.becomeRoot(DIV_ASSIGN385_tree, root_0);
@@ -14003,7 +14003,7 @@ public class JamlAttrHashParser extends Parser {
                         case 6 :
                             // ../etc/JamlAttrHash.g:894:17: AND_ASSIGN
                             {
-                            AND_ASSIGN386=(Token)match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_assignmentExpression11491); if (state.failed) return retval;
+                            AND_ASSIGN386=(Token)match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_assignmentExpression11490); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             AND_ASSIGN386_tree = (CommonTree)adaptor.create(AND_ASSIGN386);
                             root_0 = (CommonTree)adaptor.becomeRoot(AND_ASSIGN386_tree, root_0);
@@ -14014,7 +14014,7 @@ public class JamlAttrHashParser extends Parser {
                         case 7 :
                             // ../etc/JamlAttrHash.g:895:17: OR_ASSIGN
                             {
-                            OR_ASSIGN387=(Token)match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_assignmentExpression11510); if (state.failed) return retval;
+                            OR_ASSIGN387=(Token)match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_assignmentExpression11509); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             OR_ASSIGN387_tree = (CommonTree)adaptor.create(OR_ASSIGN387);
                             root_0 = (CommonTree)adaptor.becomeRoot(OR_ASSIGN387_tree, root_0);
@@ -14025,7 +14025,7 @@ public class JamlAttrHashParser extends Parser {
                         case 8 :
                             // ../etc/JamlAttrHash.g:896:17: XOR_ASSIGN
                             {
-                            XOR_ASSIGN388=(Token)match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_assignmentExpression11529); if (state.failed) return retval;
+                            XOR_ASSIGN388=(Token)match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_assignmentExpression11528); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             XOR_ASSIGN388_tree = (CommonTree)adaptor.create(XOR_ASSIGN388);
                             root_0 = (CommonTree)adaptor.becomeRoot(XOR_ASSIGN388_tree, root_0);
@@ -14036,7 +14036,7 @@ public class JamlAttrHashParser extends Parser {
                         case 9 :
                             // ../etc/JamlAttrHash.g:897:17: MOD_ASSIGN
                             {
-                            MOD_ASSIGN389=(Token)match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_assignmentExpression11548); if (state.failed) return retval;
+                            MOD_ASSIGN389=(Token)match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_assignmentExpression11547); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             MOD_ASSIGN389_tree = (CommonTree)adaptor.create(MOD_ASSIGN389);
                             root_0 = (CommonTree)adaptor.becomeRoot(MOD_ASSIGN389_tree, root_0);
@@ -14047,7 +14047,7 @@ public class JamlAttrHashParser extends Parser {
                         case 10 :
                             // ../etc/JamlAttrHash.g:898:17: SHIFT_LEFT_ASSIGN
                             {
-                            SHIFT_LEFT_ASSIGN390=(Token)match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression11567); if (state.failed) return retval;
+                            SHIFT_LEFT_ASSIGN390=(Token)match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression11566); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             SHIFT_LEFT_ASSIGN390_tree = (CommonTree)adaptor.create(SHIFT_LEFT_ASSIGN390);
                             root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_LEFT_ASSIGN390_tree, root_0);
@@ -14058,7 +14058,7 @@ public class JamlAttrHashParser extends Parser {
                         case 11 :
                             // ../etc/JamlAttrHash.g:899:17: SHIFT_RIGHT_ASSIGN
                             {
-                            SHIFT_RIGHT_ASSIGN391=(Token)match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11586); if (state.failed) return retval;
+                            SHIFT_RIGHT_ASSIGN391=(Token)match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11585); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             SHIFT_RIGHT_ASSIGN391_tree = (CommonTree)adaptor.create(SHIFT_RIGHT_ASSIGN391);
                             root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_RIGHT_ASSIGN391_tree, root_0);
@@ -14069,7 +14069,7 @@ public class JamlAttrHashParser extends Parser {
                         case 12 :
                             // ../etc/JamlAttrHash.g:900:17: BIT_SHIFT_RIGHT_ASSIGN
                             {
-                            BIT_SHIFT_RIGHT_ASSIGN392=(Token)match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11605); if (state.failed) return retval;
+                            BIT_SHIFT_RIGHT_ASSIGN392=(Token)match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11604); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             BIT_SHIFT_RIGHT_ASSIGN392_tree = (CommonTree)adaptor.create(BIT_SHIFT_RIGHT_ASSIGN392);
                             root_0 = (CommonTree)adaptor.becomeRoot(BIT_SHIFT_RIGHT_ASSIGN392_tree, root_0);
@@ -14080,7 +14080,7 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_assignmentExpression_in_assignmentExpression11627);
+                    pushFollow(FOLLOW_assignmentExpression_in_assignmentExpression11626);
                     assignmentExpression393=assignmentExpression();
 
                     state._fsp--;
@@ -14150,7 +14150,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_logicalOrExpression_in_conditionalExpression11652);
+            pushFollow(FOLLOW_logicalOrExpression_in_conditionalExpression11651);
             logicalOrExpression394=logicalOrExpression();
 
             state._fsp--;
@@ -14167,19 +14167,19 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:906:30: QUESTION assignmentExpression COLON conditionalExpression
                     {
-                    QUESTION395=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_conditionalExpression11655); if (state.failed) return retval;
+                    QUESTION395=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_conditionalExpression11654); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     QUESTION395_tree = (CommonTree)adaptor.create(QUESTION395);
                     root_0 = (CommonTree)adaptor.becomeRoot(QUESTION395_tree, root_0);
                     }
-                    pushFollow(FOLLOW_assignmentExpression_in_conditionalExpression11658);
+                    pushFollow(FOLLOW_assignmentExpression_in_conditionalExpression11657);
                     assignmentExpression396=assignmentExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, assignmentExpression396.getTree());
-                    COLON397=(Token)match(input,COLON,FOLLOW_COLON_in_conditionalExpression11660); if (state.failed) return retval;
-                    pushFollow(FOLLOW_conditionalExpression_in_conditionalExpression11663);
+                    COLON397=(Token)match(input,COLON,FOLLOW_COLON_in_conditionalExpression11659); if (state.failed) return retval;
+                    pushFollow(FOLLOW_conditionalExpression_in_conditionalExpression11662);
                     conditionalExpression398=conditionalExpression();
 
                     state._fsp--;
@@ -14245,7 +14245,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression11684);
+            pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression11683);
             logicalAndExpression399=logicalAndExpression();
 
             state._fsp--;
@@ -14266,12 +14266,12 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:910:31: LOGICAL_OR logicalAndExpression
             	    {
-            	    LOGICAL_OR400=(Token)match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_logicalOrExpression11687); if (state.failed) return retval;
+            	    LOGICAL_OR400=(Token)match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_logicalOrExpression11686); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    LOGICAL_OR400_tree = (CommonTree)adaptor.create(LOGICAL_OR400);
             	    root_0 = (CommonTree)adaptor.becomeRoot(LOGICAL_OR400_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression11690);
+            	    pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression11689);
             	    logicalAndExpression401=logicalAndExpression();
 
             	    state._fsp--;
@@ -14340,7 +14340,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression11711);
+            pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression11710);
             inclusiveOrExpression402=inclusiveOrExpression();
 
             state._fsp--;
@@ -14361,12 +14361,12 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:914:32: LOGICAL_AND inclusiveOrExpression
             	    {
-            	    LOGICAL_AND403=(Token)match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_logicalAndExpression11714); if (state.failed) return retval;
+            	    LOGICAL_AND403=(Token)match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_logicalAndExpression11713); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    LOGICAL_AND403_tree = (CommonTree)adaptor.create(LOGICAL_AND403);
             	    root_0 = (CommonTree)adaptor.becomeRoot(LOGICAL_AND403_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression11717);
+            	    pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression11716);
             	    inclusiveOrExpression404=inclusiveOrExpression();
 
             	    state._fsp--;
@@ -14435,7 +14435,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11738);
+            pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11737);
             exclusiveOrExpression405=exclusiveOrExpression();
 
             state._fsp--;
@@ -14456,12 +14456,12 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:918:32: OR exclusiveOrExpression
             	    {
-            	    OR406=(Token)match(input,OR,FOLLOW_OR_in_inclusiveOrExpression11741); if (state.failed) return retval;
+            	    OR406=(Token)match(input,OR,FOLLOW_OR_in_inclusiveOrExpression11740); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    OR406_tree = (CommonTree)adaptor.create(OR406);
             	    root_0 = (CommonTree)adaptor.becomeRoot(OR406_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11744);
+            	    pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11743);
             	    exclusiveOrExpression407=exclusiveOrExpression();
 
             	    state._fsp--;
@@ -14530,7 +14530,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression11765);
+            pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression11764);
             andExpression408=andExpression();
 
             state._fsp--;
@@ -14551,12 +14551,12 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:922:24: XOR andExpression
             	    {
-            	    XOR409=(Token)match(input,XOR,FOLLOW_XOR_in_exclusiveOrExpression11768); if (state.failed) return retval;
+            	    XOR409=(Token)match(input,XOR,FOLLOW_XOR_in_exclusiveOrExpression11767); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    XOR409_tree = (CommonTree)adaptor.create(XOR409);
             	    root_0 = (CommonTree)adaptor.becomeRoot(XOR409_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression11771);
+            	    pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression11770);
             	    andExpression410=andExpression();
 
             	    state._fsp--;
@@ -14625,7 +14625,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_equalityExpression_in_andExpression11792);
+            pushFollow(FOLLOW_equalityExpression_in_andExpression11791);
             equalityExpression411=equalityExpression();
 
             state._fsp--;
@@ -14646,12 +14646,12 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:926:29: AND equalityExpression
             	    {
-            	    AND412=(Token)match(input,AND,FOLLOW_AND_in_andExpression11795); if (state.failed) return retval;
+            	    AND412=(Token)match(input,AND,FOLLOW_AND_in_andExpression11794); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    AND412_tree = (CommonTree)adaptor.create(AND412);
             	    root_0 = (CommonTree)adaptor.becomeRoot(AND412_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_equalityExpression_in_andExpression11798);
+            	    pushFollow(FOLLOW_equalityExpression_in_andExpression11797);
             	    equalityExpression413=equalityExpression();
 
             	    state._fsp--;
@@ -14722,7 +14722,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression11819);
+            pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression11818);
             instanceOfExpression414=instanceOfExpression();
 
             state._fsp--;
@@ -14764,7 +14764,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 1 :
             	            // ../etc/JamlAttrHash.g:931:17: EQUAL
             	            {
-            	            EQUAL415=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_equalityExpression11838); if (state.failed) return retval;
+            	            EQUAL415=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_equalityExpression11837); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            EQUAL415_tree = (CommonTree)adaptor.create(EQUAL415);
             	            root_0 = (CommonTree)adaptor.becomeRoot(EQUAL415_tree, root_0);
@@ -14775,7 +14775,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 2 :
             	            // ../etc/JamlAttrHash.g:932:17: NOT_EQUAL
             	            {
-            	            NOT_EQUAL416=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_equalityExpression11857); if (state.failed) return retval;
+            	            NOT_EQUAL416=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_equalityExpression11856); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            NOT_EQUAL416_tree = (CommonTree)adaptor.create(NOT_EQUAL416);
             	            root_0 = (CommonTree)adaptor.becomeRoot(NOT_EQUAL416_tree, root_0);
@@ -14786,7 +14786,7 @@ public class JamlAttrHashParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression11887);
+            	    pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression11886);
             	    instanceOfExpression417=instanceOfExpression();
 
             	    state._fsp--;
@@ -14855,7 +14855,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_relationalExpression_in_instanceOfExpression11917);
+            pushFollow(FOLLOW_relationalExpression_in_instanceOfExpression11916);
             relationalExpression418=relationalExpression();
 
             state._fsp--;
@@ -14872,12 +14872,12 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:939:31: INSTANCEOF type
                     {
-                    INSTANCEOF419=(Token)match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_instanceOfExpression11920); if (state.failed) return retval;
+                    INSTANCEOF419=(Token)match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_instanceOfExpression11919); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     INSTANCEOF419_tree = (CommonTree)adaptor.create(INSTANCEOF419);
                     root_0 = (CommonTree)adaptor.becomeRoot(INSTANCEOF419_tree, root_0);
                     }
-                    pushFollow(FOLLOW_type_in_instanceOfExpression11923);
+                    pushFollow(FOLLOW_type_in_instanceOfExpression11922);
                     type420=type();
 
                     state._fsp--;
@@ -14949,7 +14949,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_shiftExpression_in_relationalExpression11944);
+            pushFollow(FOLLOW_shiftExpression_in_relationalExpression11943);
             shiftExpression421=shiftExpression();
 
             state._fsp--;
@@ -15005,7 +15005,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 1 :
             	            // ../etc/JamlAttrHash.g:944:17: LESS_OR_EQUAL
             	            {
-            	            LESS_OR_EQUAL422=(Token)match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_relationalExpression11963); if (state.failed) return retval;
+            	            LESS_OR_EQUAL422=(Token)match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_relationalExpression11962); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            LESS_OR_EQUAL422_tree = (CommonTree)adaptor.create(LESS_OR_EQUAL422);
             	            root_0 = (CommonTree)adaptor.becomeRoot(LESS_OR_EQUAL422_tree, root_0);
@@ -15016,7 +15016,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 2 :
             	            // ../etc/JamlAttrHash.g:945:17: GREATER_OR_EQUAL
             	            {
-            	            GREATER_OR_EQUAL423=(Token)match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11982); if (state.failed) return retval;
+            	            GREATER_OR_EQUAL423=(Token)match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11981); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            GREATER_OR_EQUAL423_tree = (CommonTree)adaptor.create(GREATER_OR_EQUAL423);
             	            root_0 = (CommonTree)adaptor.becomeRoot(GREATER_OR_EQUAL423_tree, root_0);
@@ -15027,7 +15027,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 3 :
             	            // ../etc/JamlAttrHash.g:946:17: LESS_THAN
             	            {
-            	            LESS_THAN424=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_relationalExpression12001); if (state.failed) return retval;
+            	            LESS_THAN424=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_relationalExpression12000); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            LESS_THAN424_tree = (CommonTree)adaptor.create(LESS_THAN424);
             	            root_0 = (CommonTree)adaptor.becomeRoot(LESS_THAN424_tree, root_0);
@@ -15038,7 +15038,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 4 :
             	            // ../etc/JamlAttrHash.g:947:17: GREATER_THAN
             	            {
-            	            GREATER_THAN425=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_relationalExpression12020); if (state.failed) return retval;
+            	            GREATER_THAN425=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_relationalExpression12019); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            GREATER_THAN425_tree = (CommonTree)adaptor.create(GREATER_THAN425);
             	            root_0 = (CommonTree)adaptor.becomeRoot(GREATER_THAN425_tree, root_0);
@@ -15049,7 +15049,7 @@ public class JamlAttrHashParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_shiftExpression_in_relationalExpression12049);
+            	    pushFollow(FOLLOW_shiftExpression_in_relationalExpression12048);
             	    shiftExpression426=shiftExpression();
 
             	    state._fsp--;
@@ -15122,7 +15122,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_additiveExpression_in_shiftExpression12083);
+            pushFollow(FOLLOW_additiveExpression_in_shiftExpression12082);
             additiveExpression427=additiveExpression();
 
             state._fsp--;
@@ -15173,7 +15173,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 1 :
             	            // ../etc/JamlAttrHash.g:955:17: BIT_SHIFT_RIGHT
             	            {
-            	            BIT_SHIFT_RIGHT428=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression12101); if (state.failed) return retval;
+            	            BIT_SHIFT_RIGHT428=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression12100); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            BIT_SHIFT_RIGHT428_tree = (CommonTree)adaptor.create(BIT_SHIFT_RIGHT428);
             	            root_0 = (CommonTree)adaptor.becomeRoot(BIT_SHIFT_RIGHT428_tree, root_0);
@@ -15184,7 +15184,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 2 :
             	            // ../etc/JamlAttrHash.g:956:17: SHIFT_RIGHT
             	            {
-            	            SHIFT_RIGHT429=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_shiftExpression12120); if (state.failed) return retval;
+            	            SHIFT_RIGHT429=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_shiftExpression12119); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            SHIFT_RIGHT429_tree = (CommonTree)adaptor.create(SHIFT_RIGHT429);
             	            root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_RIGHT429_tree, root_0);
@@ -15195,7 +15195,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 3 :
             	            // ../etc/JamlAttrHash.g:957:17: SHIFT_LEFT
             	            {
-            	            SHIFT_LEFT430=(Token)match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_shiftExpression12139); if (state.failed) return retval;
+            	            SHIFT_LEFT430=(Token)match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_shiftExpression12138); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            SHIFT_LEFT430_tree = (CommonTree)adaptor.create(SHIFT_LEFT430);
             	            root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_LEFT430_tree, root_0);
@@ -15206,7 +15206,7 @@ public class JamlAttrHashParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_additiveExpression_in_shiftExpression12168);
+            	    pushFollow(FOLLOW_additiveExpression_in_shiftExpression12167);
             	    additiveExpression431=additiveExpression();
 
             	    state._fsp--;
@@ -15277,7 +15277,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression12198);
+            pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression12197);
             multiplicativeExpression432=multiplicativeExpression();
 
             state._fsp--;
@@ -15319,7 +15319,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 1 :
             	            // ../etc/JamlAttrHash.g:965:17: PLUS
             	            {
-            	            PLUS433=(Token)match(input,PLUS,FOLLOW_PLUS_in_additiveExpression12216); if (state.failed) return retval;
+            	            PLUS433=(Token)match(input,PLUS,FOLLOW_PLUS_in_additiveExpression12215); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            PLUS433_tree = (CommonTree)adaptor.create(PLUS433);
             	            root_0 = (CommonTree)adaptor.becomeRoot(PLUS433_tree, root_0);
@@ -15330,7 +15330,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 2 :
             	            // ../etc/JamlAttrHash.g:966:17: MINUS
             	            {
-            	            MINUS434=(Token)match(input,MINUS,FOLLOW_MINUS_in_additiveExpression12235); if (state.failed) return retval;
+            	            MINUS434=(Token)match(input,MINUS,FOLLOW_MINUS_in_additiveExpression12234); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            MINUS434_tree = (CommonTree)adaptor.create(MINUS434);
             	            root_0 = (CommonTree)adaptor.becomeRoot(MINUS434_tree, root_0);
@@ -15341,7 +15341,7 @@ public class JamlAttrHashParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression12264);
+            	    pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression12263);
             	    multiplicativeExpression435=multiplicativeExpression();
 
             	    state._fsp--;
@@ -15414,7 +15414,7 @@ public class JamlAttrHashParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression12294);
+            pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression12293);
             unaryExpression436=unaryExpression();
 
             state._fsp--;
@@ -15465,7 +15465,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 1 :
             	            // ../etc/JamlAttrHash.g:974:17: STAR
             	            {
-            	            STAR437=(Token)match(input,STAR,FOLLOW_STAR_in_multiplicativeExpression12313); if (state.failed) return retval;
+            	            STAR437=(Token)match(input,STAR,FOLLOW_STAR_in_multiplicativeExpression12312); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            STAR437_tree = (CommonTree)adaptor.create(STAR437);
             	            root_0 = (CommonTree)adaptor.becomeRoot(STAR437_tree, root_0);
@@ -15476,7 +15476,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 2 :
             	            // ../etc/JamlAttrHash.g:975:17: DIV
             	            {
-            	            DIV438=(Token)match(input,DIV,FOLLOW_DIV_in_multiplicativeExpression12332); if (state.failed) return retval;
+            	            DIV438=(Token)match(input,DIV,FOLLOW_DIV_in_multiplicativeExpression12331); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            DIV438_tree = (CommonTree)adaptor.create(DIV438);
             	            root_0 = (CommonTree)adaptor.becomeRoot(DIV438_tree, root_0);
@@ -15487,7 +15487,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 3 :
             	            // ../etc/JamlAttrHash.g:976:17: MOD
             	            {
-            	            MOD439=(Token)match(input,MOD,FOLLOW_MOD_in_multiplicativeExpression12351); if (state.failed) return retval;
+            	            MOD439=(Token)match(input,MOD,FOLLOW_MOD_in_multiplicativeExpression12350); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            MOD439_tree = (CommonTree)adaptor.create(MOD439);
             	            root_0 = (CommonTree)adaptor.becomeRoot(MOD439_tree, root_0);
@@ -15498,7 +15498,7 @@ public class JamlAttrHashParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression12380);
+            	    pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression12379);
             	    unaryExpression440=unaryExpression();
 
             	    state._fsp--;
@@ -15644,10 +15644,10 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:983:9: PLUS unaryExpression
                     {
-                    PLUS441=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression12414); if (state.failed) return retval; 
+                    PLUS441=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression12413); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_PLUS.add(PLUS441);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression12416);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression12415);
                     unaryExpression442=unaryExpression();
 
                     state._fsp--;
@@ -15687,10 +15687,10 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:984:9: MINUS unaryExpression
                     {
-                    MINUS443=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression12443); if (state.failed) return retval; 
+                    MINUS443=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression12442); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_MINUS.add(MINUS443);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression12445);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression12444);
                     unaryExpression444=unaryExpression();
 
                     state._fsp--;
@@ -15730,10 +15730,10 @@ public class JamlAttrHashParser extends Parser {
                 case 3 :
                     // ../etc/JamlAttrHash.g:985:9: INC postfixedExpression
                     {
-                    INC445=(Token)match(input,INC,FOLLOW_INC_in_unaryExpression12471); if (state.failed) return retval; 
+                    INC445=(Token)match(input,INC,FOLLOW_INC_in_unaryExpression12470); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INC.add(INC445);
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression12473);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression12472);
                     postfixedExpression446=postfixedExpression();
 
                     state._fsp--;
@@ -15773,10 +15773,10 @@ public class JamlAttrHashParser extends Parser {
                 case 4 :
                     // ../etc/JamlAttrHash.g:986:9: DEC postfixedExpression
                     {
-                    DEC447=(Token)match(input,DEC,FOLLOW_DEC_in_unaryExpression12497); if (state.failed) return retval; 
+                    DEC447=(Token)match(input,DEC,FOLLOW_DEC_in_unaryExpression12496); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DEC.add(DEC447);
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression12499);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression12498);
                     postfixedExpression448=postfixedExpression();
 
                     state._fsp--;
@@ -15818,7 +15818,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression12523);
+                    pushFollow(FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression12522);
                     unaryExpressionNotPlusMinus449=unaryExpressionNotPlusMinus();
 
                     state._fsp--;
@@ -15899,10 +15899,10 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:991:9: NOT unaryExpression
                     {
-                    NOT450=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpressionNotPlusMinus12542); if (state.failed) return retval; 
+                    NOT450=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpressionNotPlusMinus12541); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_NOT.add(NOT450);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12544);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12543);
                     unaryExpression451=unaryExpression();
 
                     state._fsp--;
@@ -15942,10 +15942,10 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:992:9: LOGICAL_NOT unaryExpression
                     {
-                    LOGICAL_NOT452=(Token)match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus12591); if (state.failed) return retval; 
+                    LOGICAL_NOT452=(Token)match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus12590); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LOGICAL_NOT.add(LOGICAL_NOT452);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12593);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12592);
                     unaryExpression453=unaryExpression();
 
                     state._fsp--;
@@ -15985,19 +15985,19 @@ public class JamlAttrHashParser extends Parser {
                 case 3 :
                     // ../etc/JamlAttrHash.g:993:9: LPAREN type RPAREN unaryExpression
                     {
-                    LPAREN454=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12632); if (state.failed) return retval; 
+                    LPAREN454=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12631); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN454);
 
-                    pushFollow(FOLLOW_type_in_unaryExpressionNotPlusMinus12634);
+                    pushFollow(FOLLOW_type_in_unaryExpressionNotPlusMinus12633);
                     type455=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_type.add(type455.getTree());
-                    RPAREN456=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus12636); if (state.failed) return retval; 
+                    RPAREN456=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus12635); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN456);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12638);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12637);
                     unaryExpression457=unaryExpression();
 
                     state._fsp--;
@@ -16006,7 +16006,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: type, unaryExpression
+                    // elements: unaryExpression, type
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -16040,7 +16040,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus12673);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus12672);
                     postfixedExpression458=postfixedExpression();
 
                     state._fsp--;
@@ -16145,7 +16145,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:999:9: ( primaryExpression -> primaryExpression )
             // ../etc/JamlAttrHash.g:999:13: primaryExpression
             {
-            pushFollow(FOLLOW_primaryExpression_in_postfixedExpression12709);
+            pushFollow(FOLLOW_primaryExpression_in_postfixedExpression12708);
             primaryExpression459=primaryExpression();
 
             state._fsp--;
@@ -16192,7 +16192,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:1002:13: outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
             	    {
-            	    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression12771); if (state.failed) return retval; 
+            	    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression12770); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(outerDot);
 
             	    // ../etc/JamlAttrHash.g:1003:13: ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
@@ -16259,7 +16259,7 @@ public class JamlAttrHashParser extends Parser {
             	                case 1 :
             	                    // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentListSimplified
             	                    {
-            	                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_postfixedExpression12821);
+            	                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_postfixedExpression12820);
             	                    genericTypeArgumentListSimplified460=genericTypeArgumentListSimplified();
 
             	                    state._fsp--;
@@ -16271,7 +16271,7 @@ public class JamlAttrHashParser extends Parser {
 
             	            }
 
-            	            IDENT461=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression12903); if (state.failed) return retval; 
+            	            IDENT461=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression12902); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_IDENT.add(IDENT461);
 
 
@@ -16317,7 +16317,7 @@ public class JamlAttrHashParser extends Parser {
             	                case 1 :
             	                    // ../etc/JamlAttrHash.g:1007:21: arguments
             	                    {
-            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression12982);
+            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression12981);
             	                    arguments462=arguments();
 
             	                    state._fsp--;
@@ -16326,7 +16326,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             	                    // AST REWRITE
-            	                    // elements: postfixedExpression, genericTypeArgumentListSimplified, arguments
+            	                    // elements: postfixedExpression, arguments, genericTypeArgumentListSimplified
             	                    // token labels: 
             	                    // rule labels: retval
             	                    // token list labels: 
@@ -16370,13 +16370,13 @@ public class JamlAttrHashParser extends Parser {
             	        case 2 :
             	            // ../etc/JamlAttrHash.g:1009:17: THIS
             	            {
-            	            THIS463=(Token)match(input,THIS,FOLLOW_THIS_in_postfixedExpression13056); if (state.failed) return retval; 
+            	            THIS463=(Token)match(input,THIS,FOLLOW_THIS_in_postfixedExpression13055); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_THIS.add(THIS463);
 
 
 
             	            // AST REWRITE
-            	            // elements: DOT, THIS, postfixedExpression
+            	            // elements: postfixedExpression, THIS, DOT
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16408,10 +16408,10 @@ public class JamlAttrHashParser extends Parser {
             	        case 3 :
             	            // ../etc/JamlAttrHash.g:1010:17: Super= SUPER arguments
             	            {
-            	            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression13119); if (state.failed) return retval; 
+            	            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression13118); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-            	            pushFollow(FOLLOW_arguments_in_postfixedExpression13121);
+            	            pushFollow(FOLLOW_arguments_in_postfixedExpression13120);
             	            arguments464=arguments();
 
             	            state._fsp--;
@@ -16455,19 +16455,19 @@ public class JamlAttrHashParser extends Parser {
             	            // ../etc/JamlAttrHash.g:1011:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) )
             	            // ../etc/JamlAttrHash.g:1011:21: SUPER innerDot= DOT IDENT
             	            {
-            	            SUPER465=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression13174); if (state.failed) return retval; 
+            	            SUPER465=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression13173); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_SUPER.add(SUPER465);
 
-            	            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression13178); if (state.failed) return retval; 
+            	            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression13177); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_DOT.add(innerDot);
 
-            	            IDENT466=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression13180); if (state.failed) return retval; 
+            	            IDENT466=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression13179); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_IDENT.add(IDENT466);
 
 
 
             	            // AST REWRITE
-            	            // elements: SUPER, postfixedExpression, IDENT, outerDot, innerDot
+            	            // elements: SUPER, IDENT, innerDot, outerDot, postfixedExpression
             	            // token labels: outerDot, innerDot
             	            // rule labels: retval
             	            // token list labels: 
@@ -16518,7 +16518,7 @@ public class JamlAttrHashParser extends Parser {
             	                case 1 :
             	                    // ../etc/JamlAttrHash.g:1013:21: arguments
             	                    {
-            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression13247);
+            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression13246);
             	                    arguments467=arguments();
 
             	                    state._fsp--;
@@ -16565,7 +16565,7 @@ public class JamlAttrHashParser extends Parser {
             	        case 5 :
             	            // ../etc/JamlAttrHash.g:1015:17: innerNewExpression
             	            {
-            	            pushFollow(FOLLOW_innerNewExpression_in_postfixedExpression13318);
+            	            pushFollow(FOLLOW_innerNewExpression_in_postfixedExpression13317);
             	            innerNewExpression468=innerNewExpression();
 
             	            state._fsp--;
@@ -16612,22 +16612,22 @@ public class JamlAttrHashParser extends Parser {
             	case 2 :
             	    // ../etc/JamlAttrHash.g:1017:13: LBRACK expression RBRACK
             	    {
-            	    LBRACK469=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_postfixedExpression13375); if (state.failed) return retval; 
+            	    LBRACK469=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_postfixedExpression13374); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_LBRACK.add(LBRACK469);
 
-            	    pushFollow(FOLLOW_expression_in_postfixedExpression13377);
+            	    pushFollow(FOLLOW_expression_in_postfixedExpression13376);
             	    expression470=expression();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_expression.add(expression470.getTree());
-            	    RBRACK471=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_postfixedExpression13379); if (state.failed) return retval; 
+            	    RBRACK471=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_postfixedExpression13378); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_RBRACK.add(RBRACK471);
 
 
 
             	    // AST REWRITE
-            	    // elements: expression, postfixedExpression
+            	    // elements: postfixedExpression, expression
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -16676,7 +16676,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:1020:13: INC
                     {
-                    INC472=(Token)match(input,INC,FOLLOW_INC_in_postfixedExpression13440); if (state.failed) return retval; 
+                    INC472=(Token)match(input,INC,FOLLOW_INC_in_postfixedExpression13439); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INC.add(INC472);
 
 
@@ -16713,7 +16713,7 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:1021:13: DEC
                     {
-                    DEC473=(Token)match(input,DEC,FOLLOW_DEC_in_postfixedExpression13464); if (state.failed) return retval; 
+                    DEC473=(Token)match(input,DEC,FOLLOW_DEC_in_postfixedExpression13463); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DEC.add(DEC473);
 
 
@@ -16869,7 +16869,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression13512);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression13511);
                     parenthesizedExpression474=parenthesizedExpression();
 
                     state._fsp--;
@@ -16883,7 +16883,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_literal_in_primaryExpression13522);
+                    pushFollow(FOLLOW_literal_in_primaryExpression13521);
                     literal475=literal();
 
                     state._fsp--;
@@ -16897,7 +16897,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_newExpression_in_primaryExpression13532);
+                    pushFollow(FOLLOW_newExpression_in_primaryExpression13531);
                     newExpression476=newExpression();
 
                     state._fsp--;
@@ -16911,7 +16911,7 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_qualifiedIdentExpression_in_primaryExpression13542);
+                    pushFollow(FOLLOW_qualifiedIdentExpression_in_primaryExpression13541);
                     qualifiedIdentExpression477=qualifiedIdentExpression();
 
                     state._fsp--;
@@ -16923,7 +16923,7 @@ public class JamlAttrHashParser extends Parser {
                 case 5 :
                     // ../etc/JamlAttrHash.g:1030:9: genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression13552);
+                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression13551);
                     genericTypeArgumentListSimplified478=genericTypeArgumentListSimplified();
 
                     state._fsp--;
@@ -16959,7 +16959,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:1031:13: SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
                             {
-                            SUPER479=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13567); if (state.failed) return retval; 
+                            SUPER479=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13566); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SUPER.add(SUPER479);
 
                             // ../etc/JamlAttrHash.g:1032:13: ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
@@ -16983,7 +16983,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:1032:17: arguments
                                     {
-                                    pushFollow(FOLLOW_arguments_in_primaryExpression13585);
+                                    pushFollow(FOLLOW_arguments_in_primaryExpression13584);
                                     arguments480=arguments();
 
                                     state._fsp--;
@@ -16992,7 +16992,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: arguments, genericTypeArgumentListSimplified
+                                    // elements: genericTypeArgumentListSimplified, arguments
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -17024,13 +17024,13 @@ public class JamlAttrHashParser extends Parser {
                                 case 2 :
                                     // ../etc/JamlAttrHash.g:1033:17: DOT IDENT arguments
                                     {
-                                    DOT481=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression13645); if (state.failed) return retval; 
+                                    DOT481=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression13644); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_DOT.add(DOT481);
 
-                                    IDENT482=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13647); if (state.failed) return retval; 
+                                    IDENT482=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13646); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT482);
 
-                                    pushFollow(FOLLOW_arguments_in_primaryExpression13649);
+                                    pushFollow(FOLLOW_arguments_in_primaryExpression13648);
                                     arguments483=arguments();
 
                                     state._fsp--;
@@ -17039,7 +17039,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: DOT, genericTypeArgumentListSimplified, arguments, IDENT, SUPER
+                                    // elements: genericTypeArgumentListSimplified, DOT, IDENT, arguments, SUPER
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -17087,10 +17087,10 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:1035:13: IDENT arguments
                             {
-                            IDENT484=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13716); if (state.failed) return retval; 
+                            IDENT484=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13715); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT484);
 
-                            pushFollow(FOLLOW_arguments_in_primaryExpression13718);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression13717);
                             arguments485=arguments();
 
                             state._fsp--;
@@ -17099,7 +17099,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: genericTypeArgumentListSimplified, arguments, IDENT
+                            // elements: arguments, genericTypeArgumentListSimplified, IDENT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17132,10 +17132,10 @@ public class JamlAttrHashParser extends Parser {
                         case 3 :
                             // ../etc/JamlAttrHash.g:1036:13: THIS arguments
                             {
-                            THIS486=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13773); if (state.failed) return retval; 
+                            THIS486=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13772); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_THIS.add(THIS486);
 
-                            pushFollow(FOLLOW_arguments_in_primaryExpression13775);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression13774);
                             arguments487=arguments();
 
                             state._fsp--;
@@ -17144,7 +17144,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: arguments, genericTypeArgumentListSimplified
+                            // elements: genericTypeArgumentListSimplified, arguments
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17185,7 +17185,7 @@ public class JamlAttrHashParser extends Parser {
                     // ../etc/JamlAttrHash.g:1038:9: ( THIS -> THIS )
                     // ../etc/JamlAttrHash.g:1038:13: THIS
                     {
-                    THIS488=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13840); if (state.failed) return retval; 
+                    THIS488=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13839); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_THIS.add(THIS488);
 
 
@@ -17222,7 +17222,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:1040:13: arguments
                             {
-                            pushFollow(FOLLOW_arguments_in_primaryExpression13908);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression13907);
                             arguments489=arguments();
 
                             state._fsp--;
@@ -17268,10 +17268,10 @@ public class JamlAttrHashParser extends Parser {
                 case 7 :
                     // ../etc/JamlAttrHash.g:1042:9: SUPER arguments
                     {
-                    SUPER490=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13973); if (state.failed) return retval; 
+                    SUPER490=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13972); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER490);
 
-                    pushFollow(FOLLOW_arguments_in_primaryExpression13975);
+                    pushFollow(FOLLOW_arguments_in_primaryExpression13974);
                     arguments491=arguments();
 
                     state._fsp--;
@@ -17314,13 +17314,13 @@ public class JamlAttrHashParser extends Parser {
                     // ../etc/JamlAttrHash.g:1043:9: ( SUPER DOT IDENT )
                     // ../etc/JamlAttrHash.g:1043:13: SUPER DOT IDENT
                     {
-                    SUPER492=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression14031); if (state.failed) return retval; 
+                    SUPER492=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression14030); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER492);
 
-                    DOT493=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14033); if (state.failed) return retval; 
+                    DOT493=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14032); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT493);
 
-                    IDENT494=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression14035); if (state.failed) return retval; 
+                    IDENT494=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression14034); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT494);
 
 
@@ -17347,7 +17347,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:1045:13: arguments
                             {
-                            pushFollow(FOLLOW_arguments_in_primaryExpression14059);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression14058);
                             arguments495=arguments();
 
                             state._fsp--;
@@ -17356,7 +17356,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: IDENT, arguments, SUPER, DOT
+                            // elements: arguments, SUPER, IDENT, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17399,7 +17399,7 @@ public class JamlAttrHashParser extends Parser {
                             {
 
                             // AST REWRITE
-                            // elements: SUPER, DOT, IDENT
+                            // elements: DOT, SUPER, IDENT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17440,7 +17440,7 @@ public class JamlAttrHashParser extends Parser {
                     // ../etc/JamlAttrHash.g:1048:9: ( primitiveType -> primitiveType )
                     // ../etc/JamlAttrHash.g:1048:13: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_primaryExpression14201);
+                    pushFollow(FOLLOW_primitiveType_in_primaryExpression14200);
                     primitiveType496=primitiveType();
 
                     state._fsp--;
@@ -17484,7 +17484,7 @@ public class JamlAttrHashParser extends Parser {
                     	case 1 :
                     	    // ../etc/JamlAttrHash.g:1050:13: arrayDeclarator
                     	    {
-                    	    pushFollow(FOLLOW_arrayDeclarator_in_primaryExpression14260);
+                    	    pushFollow(FOLLOW_arrayDeclarator_in_primaryExpression14259);
                     	    arrayDeclarator497=arrayDeclarator();
 
                     	    state._fsp--;
@@ -17493,7 +17493,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     	    // AST REWRITE
-                    	    // elements: arrayDeclarator, primaryExpression
+                    	    // elements: primaryExpression, arrayDeclarator
                     	    // token labels: 
                     	    // rule labels: retval
                     	    // token list labels: 
@@ -17527,16 +17527,16 @@ public class JamlAttrHashParser extends Parser {
                         }
                     } while (true);
 
-                    DOT498=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14323); if (state.failed) return retval; 
+                    DOT498=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14322); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT498);
 
-                    CLASS499=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression14325); if (state.failed) return retval; 
+                    CLASS499=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression14324); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS499);
 
 
 
                     // AST REWRITE
-                    // elements: CLASS, primaryExpression, DOT
+                    // elements: DOT, CLASS, primaryExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17568,19 +17568,19 @@ public class JamlAttrHashParser extends Parser {
                 case 10 :
                     // ../etc/JamlAttrHash.g:1053:9: VOID DOT CLASS
                     {
-                    VOID500=(Token)match(input,VOID,FOLLOW_VOID_in_primaryExpression14385); if (state.failed) return retval; 
+                    VOID500=(Token)match(input,VOID,FOLLOW_VOID_in_primaryExpression14384); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_VOID.add(VOID500);
 
-                    DOT501=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14387); if (state.failed) return retval; 
+                    DOT501=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14386); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT501);
 
-                    CLASS502=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression14389); if (state.failed) return retval; 
+                    CLASS502=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression14388); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS502);
 
 
 
                     // AST REWRITE
-                    // elements: VOID, CLASS, DOT
+                    // elements: CLASS, VOID, DOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17704,7 +17704,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:1058:9: ( qualifiedIdentifier -> qualifiedIdentifier )
             // ../etc/JamlAttrHash.g:1058:13: qualifiedIdentifier
             {
-            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression14469);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression14468);
             qualifiedIdentifier503=qualifiedIdentifier();
 
             state._fsp--;
@@ -17756,7 +17756,7 @@ public class JamlAttrHashParser extends Parser {
                     	case 1 :
                     	    // ../etc/JamlAttrHash.g:1061:17: arrayDeclarator
                     	    {
-                    	    pushFollow(FOLLOW_arrayDeclarator_in_qualifiedIdentExpression14539);
+                    	    pushFollow(FOLLOW_arrayDeclarator_in_qualifiedIdentExpression14538);
                     	    arrayDeclarator504=arrayDeclarator();
 
                     	    state._fsp--;
@@ -17765,7 +17765,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     	    // AST REWRITE
-                    	    // elements: arrayDeclarator, qualifiedIdentExpression
+                    	    // elements: qualifiedIdentExpression, arrayDeclarator
                     	    // token labels: 
                     	    // rule labels: retval
                     	    // token list labels: 
@@ -17807,16 +17807,16 @@ public class JamlAttrHashParser extends Parser {
                     // ../etc/JamlAttrHash.g:1063:13: ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
                     // ../etc/JamlAttrHash.g:1063:17: DOT CLASS
                     {
-                    DOT505=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14607); if (state.failed) return retval; 
+                    DOT505=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14606); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT505);
 
-                    CLASS506=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14609); if (state.failed) return retval; 
+                    CLASS506=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14608); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS506);
 
 
 
                     // AST REWRITE
-                    // elements: qualifiedIdentExpression, DOT, CLASS
+                    // elements: CLASS, qualifiedIdentExpression, DOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17851,7 +17851,7 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:1065:13: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14679);
+                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14678);
                     arguments507=arguments();
 
                     state._fsp--;
@@ -17860,7 +17860,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: qualifiedIdentifier, arguments
+                    // elements: arguments, qualifiedIdentifier
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17892,7 +17892,7 @@ public class JamlAttrHashParser extends Parser {
                 case 3 :
                     // ../etc/JamlAttrHash.g:1066:13: outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
                     {
-                    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14740); if (state.failed) return retval; 
+                    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14739); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(outerDot);
 
                     // ../etc/JamlAttrHash.g:1067:13: ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
@@ -17935,7 +17935,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:1067:17: CLASS
                             {
-                            CLASS508=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14758); if (state.failed) return retval; 
+                            CLASS508=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14757); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_CLASS.add(CLASS508);
 
 
@@ -17973,7 +17973,7 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:1068:17: genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14821);
+                            pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14820);
                             genericTypeArgumentListSimplified509=genericTypeArgumentListSimplified();
 
                             state._fsp--;
@@ -18014,10 +18014,10 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:1069:21: Super= SUPER arguments
                                     {
-                                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14846); if (state.failed) return retval; 
+                                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14845); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14848);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14847);
                                     arguments510=arguments();
 
                                     state._fsp--;
@@ -18026,7 +18026,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: arguments, genericTypeArgumentListSimplified, qualifiedIdentifier
+                                    // elements: arguments, qualifiedIdentifier, genericTypeArgumentListSimplified
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -18059,16 +18059,16 @@ public class JamlAttrHashParser extends Parser {
                                 case 2 :
                                     // ../etc/JamlAttrHash.g:1070:21: SUPER innerDot= DOT IDENT arguments
                                     {
-                                    SUPER511=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14898); if (state.failed) return retval; 
+                                    SUPER511=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14897); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER511);
 
-                                    innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14902); if (state.failed) return retval; 
+                                    innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14901); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_DOT.add(innerDot);
 
-                                    IDENT512=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14904); if (state.failed) return retval; 
+                                    IDENT512=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14903); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT512);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14906);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14905);
                                     arguments513=arguments();
 
                                     state._fsp--;
@@ -18077,7 +18077,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeArgumentListSimplified, outerDot, innerDot, SUPER, IDENT, qualifiedIdentifier, arguments
+                                    // elements: IDENT, arguments, qualifiedIdentifier, outerDot, innerDot, SUPER, genericTypeArgumentListSimplified
                                     // token labels: outerDot, innerDot
                                     // rule labels: retval
                                     // token list labels: 
@@ -18130,10 +18130,10 @@ public class JamlAttrHashParser extends Parser {
                                 case 3 :
                                     // ../etc/JamlAttrHash.g:1071:21: IDENT arguments
                                     {
-                                    IDENT514=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14956); if (state.failed) return retval; 
+                                    IDENT514=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14955); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT514);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14958);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14957);
                                     arguments515=arguments();
 
                                     state._fsp--;
@@ -18142,7 +18142,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: qualifiedIdentifier, IDENT, arguments, DOT, genericTypeArgumentListSimplified
+                                    // elements: arguments, IDENT, DOT, qualifiedIdentifier, genericTypeArgumentListSimplified
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -18190,13 +18190,13 @@ public class JamlAttrHashParser extends Parser {
                         case 3 :
                             // ../etc/JamlAttrHash.g:1073:17: THIS
                             {
-                            THIS516=(Token)match(input,THIS,FOLLOW_THIS_in_qualifiedIdentExpression15033); if (state.failed) return retval; 
+                            THIS516=(Token)match(input,THIS,FOLLOW_THIS_in_qualifiedIdentExpression15032); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_THIS.add(THIS516);
 
 
 
                             // AST REWRITE
-                            // elements: THIS, DOT, qualifiedIdentifier
+                            // elements: qualifiedIdentifier, THIS, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18228,10 +18228,10 @@ public class JamlAttrHashParser extends Parser {
                         case 4 :
                             // ../etc/JamlAttrHash.g:1074:17: Super= SUPER arguments
                             {
-                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression15099); if (state.failed) return retval; 
+                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression15098); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-                            pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression15101);
+                            pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression15100);
                             arguments517=arguments();
 
                             state._fsp--;
@@ -18240,7 +18240,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: arguments, qualifiedIdentifier
+                            // elements: qualifiedIdentifier, arguments
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18272,7 +18272,7 @@ public class JamlAttrHashParser extends Parser {
                         case 5 :
                             // ../etc/JamlAttrHash.g:1075:17: innerNewExpression
                             {
-                            pushFollow(FOLLOW_innerNewExpression_in_qualifiedIdentExpression15149);
+                            pushFollow(FOLLOW_innerNewExpression_in_qualifiedIdentExpression15148);
                             innerNewExpression518=innerNewExpression();
 
                             state._fsp--;
@@ -18387,7 +18387,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:1081:5: ( NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) )
             // ../etc/JamlAttrHash.g:1081:9: NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
             {
-            NEW519=(Token)match(input,NEW,FOLLOW_NEW_in_newExpression15225); if (state.failed) return retval; 
+            NEW519=(Token)match(input,NEW,FOLLOW_NEW_in_newExpression15224); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_NEW.add(NEW519);
 
             // ../etc/JamlAttrHash.g:1082:9: ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
@@ -18411,13 +18411,13 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:1082:13: primitiveType newArrayConstruction
                     {
-                    pushFollow(FOLLOW_primitiveType_in_newExpression15241);
+                    pushFollow(FOLLOW_primitiveType_in_newExpression15240);
                     primitiveType520=primitiveType();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_primitiveType.add(primitiveType520.getTree());
-                    pushFollow(FOLLOW_newArrayConstruction_in_newExpression15243);
+                    pushFollow(FOLLOW_newArrayConstruction_in_newExpression15242);
                     newArrayConstruction521=newArrayConstruction();
 
                     state._fsp--;
@@ -18426,7 +18426,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: newArrayConstruction, primitiveType
+                    // elements: primitiveType, newArrayConstruction
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -18469,7 +18469,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentListSimplified
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_newExpression15287);
+                            pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_newExpression15286);
                             genericTypeArgumentListSimplified522=genericTypeArgumentListSimplified();
 
                             state._fsp--;
@@ -18481,7 +18481,7 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_newExpression15290);
+                    pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_newExpression15289);
                     qualifiedTypeIdentSimplified523=qualifiedTypeIdentSimplified();
 
                     state._fsp--;
@@ -18508,7 +18508,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:1085:17: newArrayConstruction
                             {
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression15308);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression15307);
                             newArrayConstruction524=newArrayConstruction();
 
                             state._fsp--;
@@ -18517,7 +18517,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: genericTypeArgumentListSimplified, qualifiedTypeIdentSimplified, newArrayConstruction
+                            // elements: newArrayConstruction, qualifiedTypeIdentSimplified, genericTypeArgumentListSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18555,7 +18555,7 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:1087:17: arguments ( classBody )?
                             {
-                            pushFollow(FOLLOW_arguments_in_newExpression15373);
+                            pushFollow(FOLLOW_arguments_in_newExpression15372);
                             arguments525=arguments();
 
                             state._fsp--;
@@ -18572,7 +18572,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: classBody
                                     {
-                                    pushFollow(FOLLOW_classBody_in_newExpression15375);
+                                    pushFollow(FOLLOW_classBody_in_newExpression15374);
                                     classBody526=classBody();
 
                                     state._fsp--;
@@ -18587,7 +18587,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: qualifiedTypeIdentSimplified, arguments, classBody, genericTypeArgumentListSimplified
+                            // elements: qualifiedTypeIdentSimplified, genericTypeArgumentListSimplified, arguments, classBody
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18697,7 +18697,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:1094:5: ( NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) )
             // ../etc/JamlAttrHash.g:1094:9: NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )?
             {
-            NEW527=(Token)match(input,NEW,FOLLOW_NEW_in_innerNewExpression15474); if (state.failed) return retval; 
+            NEW527=(Token)match(input,NEW,FOLLOW_NEW_in_innerNewExpression15473); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_NEW.add(NEW527);
 
             // ../etc/JamlAttrHash.g:1094:13: ( genericTypeArgumentListSimplified )?
@@ -18711,7 +18711,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentListSimplified
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_innerNewExpression15476);
+                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_innerNewExpression15475);
                     genericTypeArgumentListSimplified528=genericTypeArgumentListSimplified();
 
                     state._fsp--;
@@ -18723,10 +18723,10 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            IDENT529=(Token)match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression15479); if (state.failed) return retval; 
+            IDENT529=(Token)match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression15478); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT529);
 
-            pushFollow(FOLLOW_arguments_in_innerNewExpression15481);
+            pushFollow(FOLLOW_arguments_in_innerNewExpression15480);
             arguments530=arguments();
 
             state._fsp--;
@@ -18743,7 +18743,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: classBody
                     {
-                    pushFollow(FOLLOW_classBody_in_innerNewExpression15483);
+                    pushFollow(FOLLOW_classBody_in_innerNewExpression15482);
                     classBody531=classBody();
 
                     state._fsp--;
@@ -18758,7 +18758,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: arguments, classBody, genericTypeArgumentListSimplified, IDENT
+            // elements: classBody, arguments, genericTypeArgumentListSimplified, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -18891,13 +18891,13 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction15529);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction15528);
                     arrayDeclaratorList532=arrayDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, arrayDeclaratorList532.getTree());
-                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction15531);
+                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction15530);
                     arrayInitializer533=arrayInitializer();
 
                     state._fsp--;
@@ -18911,14 +18911,14 @@ public class JamlAttrHashParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    LBRACK534=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction15541); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_newArrayConstruction15544);
+                    LBRACK534=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction15540); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expression_in_newArrayConstruction15543);
                     expression535=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expression535.getTree());
-                    RBRACK536=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction15546); if (state.failed) return retval;
+                    RBRACK536=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction15545); if (state.failed) return retval;
                     // ../etc/JamlAttrHash.g:1100:36: ( LBRACK expression RBRACK )*
                     loop155:
                     do {
@@ -18928,14 +18928,14 @@ public class JamlAttrHashParser extends Parser {
                     	case 1 :
                     	    // ../etc/JamlAttrHash.g:1100:37: LBRACK expression RBRACK
                     	    {
-                    	    LBRACK537=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction15550); if (state.failed) return retval;
-                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction15553);
+                    	    LBRACK537=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction15549); if (state.failed) return retval;
+                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction15552);
                     	    expression538=expression();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) adaptor.addChild(root_0, expression538.getTree());
-                    	    RBRACK539=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction15555); if (state.failed) return retval;
+                    	    RBRACK539=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction15554); if (state.failed) return retval;
 
                     	    }
                     	    break;
@@ -18960,7 +18960,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction15560);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction15559);
                             arrayDeclaratorList540=arrayDeclaratorList();
 
                             state._fsp--;
@@ -19028,7 +19028,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:1104:5: ( LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) )
             // ../etc/JamlAttrHash.g:1104:9: LPAREN ( expressionList )? RPAREN
             {
-            LPAREN541=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_arguments15580); if (state.failed) return retval; 
+            LPAREN541=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_arguments15579); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN541);
 
             // ../etc/JamlAttrHash.g:1104:16: ( expressionList )?
@@ -19042,7 +19042,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_arguments15582);
+                    pushFollow(FOLLOW_expressionList_in_arguments15581);
                     expressionList542=expressionList();
 
                     state._fsp--;
@@ -19054,7 +19054,7 @@ public class JamlAttrHashParser extends Parser {
 
             }
 
-            RPAREN543=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_arguments15585); if (state.failed) return retval; 
+            RPAREN543=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_arguments15584); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN543);
 
 
@@ -19233,24 +19233,24 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:297:2: literal ','
                     {
-                    pushFollow(FOLLOW_literal_in_synpred5_JamlAttrHash4621);
+                    pushFollow(FOLLOW_literal_in_synpred5_JamlAttrHash4620);
                     literal();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,COMMA,FOLLOW_COMMA_in_synpred5_JamlAttrHash4623); if (state.failed) return ;
+                    match(input,COMMA,FOLLOW_COMMA_in_synpred5_JamlAttrHash4622); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
                     // ../etc/JamlAttrHash.g:297:16: literal EOF
                     {
-                    pushFollow(FOLLOW_literal_in_synpred5_JamlAttrHash4627);
+                    pushFollow(FOLLOW_literal_in_synpred5_JamlAttrHash4626);
                     literal();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,EOF,FOLLOW_EOF_in_synpred5_JamlAttrHash4629); if (state.failed) return ;
+                    match(input,EOF,FOLLOW_EOF_in_synpred5_JamlAttrHash4628); if (state.failed) return ;
 
                     }
                     break;
@@ -19269,7 +19269,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:426:9: ( GREATER_THAN )
             // ../etc/JamlAttrHash.g:426:9: GREATER_THAN
             {
-            match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_synpred77_JamlAttrHash5968); if (state.failed) return ;
+            match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_synpred77_JamlAttrHash5967); if (state.failed) return ;
 
             }
 
@@ -19286,7 +19286,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:427:9: ( SHIFT_RIGHT )
             // ../etc/JamlAttrHash.g:427:9: SHIFT_RIGHT
             {
-            match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_synpred78_JamlAttrHash5978); if (state.failed) return ;
+            match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_synpred78_JamlAttrHash5977); if (state.failed) return ;
 
             }
 
@@ -19303,7 +19303,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:428:9: ( BIT_SHIFT_RIGHT )
             // ../etc/JamlAttrHash.g:428:9: BIT_SHIFT_RIGHT
             {
-            match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_synpred79_JamlAttrHash5988); if (state.failed) return ;
+            match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_synpred79_JamlAttrHash5987); if (state.failed) return ;
 
             }
 
@@ -19320,7 +19320,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:433:15: ( bound )
             // ../etc/JamlAttrHash.g:433:15: bound
             {
-            pushFollow(FOLLOW_bound_in_synpred80_JamlAttrHash6018);
+            pushFollow(FOLLOW_bound_in_synpred80_JamlAttrHash6017);
             bound();
 
             state._fsp--;
@@ -19341,8 +19341,8 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:490:9: ( STATIC block )
             // ../etc/JamlAttrHash.g:490:9: STATIC block
             {
-            match(input,STATIC,FOLLOW_STATIC_in_synpred95_JamlAttrHash6550); if (state.failed) return ;
-            pushFollow(FOLLOW_block_in_synpred95_JamlAttrHash6552);
+            match(input,STATIC,FOLLOW_STATIC_in_synpred95_JamlAttrHash6549); if (state.failed) return ;
+            pushFollow(FOLLOW_block_in_synpred95_JamlAttrHash6551);
             block();
 
             state._fsp--;
@@ -19376,7 +19376,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                     {
-                    pushFollow(FOLLOW_genericTypeParameterList_in_synpred105_JamlAttrHash6589);
+                    pushFollow(FOLLOW_genericTypeParameterList_in_synpred105_JamlAttrHash6588);
                     genericTypeParameterList();
 
                     state._fsp--;
@@ -19438,13 +19438,13 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:493:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                     {
-                    pushFollow(FOLLOW_type_in_synpred105_JamlAttrHash6608);
+                    pushFollow(FOLLOW_type_in_synpred105_JamlAttrHash6607);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6610); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6612);
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6609); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6611);
                     formalParameterList();
 
                     state._fsp--;
@@ -19460,7 +19460,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred105_JamlAttrHash6614);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred105_JamlAttrHash6613);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -19482,7 +19482,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6617);
+                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6616);
                             throwsClause();
 
                             state._fsp--;
@@ -19514,7 +19514,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:493:84: block
                             {
-                            pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6621);
+                            pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6620);
                             block();
 
                             state._fsp--;
@@ -19525,7 +19525,7 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:493:92: SEMI
                             {
-                            match(input,SEMI,FOLLOW_SEMI_in_synpred105_JamlAttrHash6625); if (state.failed) return ;
+                            match(input,SEMI,FOLLOW_SEMI_in_synpred105_JamlAttrHash6624); if (state.failed) return ;
 
                             }
                             break;
@@ -19538,9 +19538,9 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:495:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                     {
-                    match(input,VOID,FOLLOW_VOID_in_synpred105_JamlAttrHash6687); if (state.failed) return ;
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6689); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6691);
+                    match(input,VOID,FOLLOW_VOID_in_synpred105_JamlAttrHash6686); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6688); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6690);
                     formalParameterList();
 
                     state._fsp--;
@@ -19556,7 +19556,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6693);
+                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6692);
                             throwsClause();
 
                             state._fsp--;
@@ -19588,7 +19588,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:495:63: block
                             {
-                            pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6697);
+                            pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6696);
                             block();
 
                             state._fsp--;
@@ -19599,7 +19599,7 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:495:71: SEMI
                             {
-                            match(input,SEMI,FOLLOW_SEMI_in_synpred105_JamlAttrHash6701); if (state.failed) return ;
+                            match(input,SEMI,FOLLOW_SEMI_in_synpred105_JamlAttrHash6700); if (state.failed) return ;
 
                             }
                             break;
@@ -19612,8 +19612,8 @@ public class JamlAttrHashParser extends Parser {
                 case 3 :
                     // ../etc/JamlAttrHash.g:497:17: ident= IDENT formalParameterList ( throwsClause )? block
                     {
-                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6760); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6762);
+                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6759); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6761);
                     formalParameterList();
 
                     state._fsp--;
@@ -19629,7 +19629,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6764);
+                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6763);
                             throwsClause();
 
                             state._fsp--;
@@ -19640,7 +19640,7 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6767);
+                    pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6766);
                     block();
 
                     state._fsp--;
@@ -19669,7 +19669,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:491:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI ) )
             // ../etc/JamlAttrHash.g:491:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
             {
-            pushFollow(FOLLOW_modifierList_in_synpred106_JamlAttrHash6575);
+            pushFollow(FOLLOW_modifierList_in_synpred106_JamlAttrHash6574);
             modifierList();
 
             state._fsp--;
@@ -19751,7 +19751,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_synpred106_JamlAttrHash6589);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_synpred106_JamlAttrHash6588);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -19813,13 +19813,13 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:493:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                             {
-                            pushFollow(FOLLOW_type_in_synpred106_JamlAttrHash6608);
+                            pushFollow(FOLLOW_type_in_synpred106_JamlAttrHash6607);
                             type();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6610); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6612);
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6609); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6611);
                             formalParameterList();
 
                             state._fsp--;
@@ -19835,7 +19835,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                                     {
-                                    pushFollow(FOLLOW_arrayDeclaratorList_in_synpred106_JamlAttrHash6614);
+                                    pushFollow(FOLLOW_arrayDeclaratorList_in_synpred106_JamlAttrHash6613);
                                     arrayDeclaratorList();
 
                                     state._fsp--;
@@ -19857,7 +19857,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6617);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6616);
                                     throwsClause();
 
                                     state._fsp--;
@@ -19889,7 +19889,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:493:84: block
                                     {
-                                    pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6621);
+                                    pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6620);
                                     block();
 
                                     state._fsp--;
@@ -19900,7 +19900,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 2 :
                                     // ../etc/JamlAttrHash.g:493:92: SEMI
                                     {
-                                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6625); if (state.failed) return ;
+                                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6624); if (state.failed) return ;
 
                                     }
                                     break;
@@ -19913,9 +19913,9 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:495:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                             {
-                            match(input,VOID,FOLLOW_VOID_in_synpred106_JamlAttrHash6687); if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6689); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6691);
+                            match(input,VOID,FOLLOW_VOID_in_synpred106_JamlAttrHash6686); if (state.failed) return ;
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6688); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6690);
                             formalParameterList();
 
                             state._fsp--;
@@ -19931,7 +19931,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6693);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6692);
                                     throwsClause();
 
                                     state._fsp--;
@@ -19963,7 +19963,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:495:63: block
                                     {
-                                    pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6697);
+                                    pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6696);
                                     block();
 
                                     state._fsp--;
@@ -19974,7 +19974,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 2 :
                                     // ../etc/JamlAttrHash.g:495:71: SEMI
                                     {
-                                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6701); if (state.failed) return ;
+                                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6700); if (state.failed) return ;
 
                                     }
                                     break;
@@ -19987,8 +19987,8 @@ public class JamlAttrHashParser extends Parser {
                         case 3 :
                             // ../etc/JamlAttrHash.g:497:17: ident= IDENT formalParameterList ( throwsClause )? block
                             {
-                            ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6760); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6762);
+                            ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6759); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6761);
                             formalParameterList();
 
                             state._fsp--;
@@ -20004,7 +20004,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6764);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6763);
                                     throwsClause();
 
                                     state._fsp--;
@@ -20015,7 +20015,7 @@ public class JamlAttrHashParser extends Parser {
 
                             }
 
-                            pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6767);
+                            pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6766);
                             block();
 
                             state._fsp--;
@@ -20032,17 +20032,17 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:500:13: type classFieldDeclaratorList SEMI
                     {
-                    pushFollow(FOLLOW_type_in_synpred106_JamlAttrHash6831);
+                    pushFollow(FOLLOW_type_in_synpred106_JamlAttrHash6830);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred106_JamlAttrHash6833);
+                    pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred106_JamlAttrHash6832);
                     classFieldDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6835); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6834); if (state.failed) return ;
 
                     }
                     break;
@@ -20065,7 +20065,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:503:9: ( typeDeclaration )
             // ../etc/JamlAttrHash.g:503:9: typeDeclaration
             {
-            pushFollow(FOLLOW_typeDeclaration_in_synpred107_JamlAttrHash6880);
+            pushFollow(FOLLOW_typeDeclaration_in_synpred107_JamlAttrHash6879);
             typeDeclaration();
 
             state._fsp--;
@@ -20097,7 +20097,7 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                     {
-                    pushFollow(FOLLOW_genericTypeParameterList_in_synpred113_JamlAttrHash6936);
+                    pushFollow(FOLLOW_genericTypeParameterList_in_synpred113_JamlAttrHash6935);
                     genericTypeParameterList();
 
                     state._fsp--;
@@ -20129,13 +20129,13 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:510:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                     {
-                    pushFollow(FOLLOW_type_in_synpred113_JamlAttrHash6955);
+                    pushFollow(FOLLOW_type_in_synpred113_JamlAttrHash6954);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash6957); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred113_JamlAttrHash6959);
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash6956); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred113_JamlAttrHash6958);
                     formalParameterList();
 
                     state._fsp--;
@@ -20151,7 +20151,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred113_JamlAttrHash6961);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred113_JamlAttrHash6960);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -20173,7 +20173,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred113_JamlAttrHash6964);
+                            pushFollow(FOLLOW_throwsClause_in_synpred113_JamlAttrHash6963);
                             throwsClause();
 
                             state._fsp--;
@@ -20184,16 +20184,16 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred113_JamlAttrHash6967); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred113_JamlAttrHash6966); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
                     // ../etc/JamlAttrHash.g:512:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                     {
-                    match(input,VOID,FOLLOW_VOID_in_synpred113_JamlAttrHash7025); if (state.failed) return ;
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash7027); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred113_JamlAttrHash7029);
+                    match(input,VOID,FOLLOW_VOID_in_synpred113_JamlAttrHash7024); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash7026); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred113_JamlAttrHash7028);
                     formalParameterList();
 
                     state._fsp--;
@@ -20209,7 +20209,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred113_JamlAttrHash7031);
+                            pushFollow(FOLLOW_throwsClause_in_synpred113_JamlAttrHash7030);
                             throwsClause();
 
                             state._fsp--;
@@ -20220,7 +20220,7 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred113_JamlAttrHash7034); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred113_JamlAttrHash7033); if (state.failed) return ;
 
                     }
                     break;
@@ -20243,7 +20243,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:508:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI ) )
             // ../etc/JamlAttrHash.g:508:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
             {
-            pushFollow(FOLLOW_modifierList_in_synpred114_JamlAttrHash6922);
+            pushFollow(FOLLOW_modifierList_in_synpred114_JamlAttrHash6921);
             modifierList();
 
             state._fsp--;
@@ -20325,7 +20325,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_synpred114_JamlAttrHash6936);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_synpred114_JamlAttrHash6935);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -20357,13 +20357,13 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:510:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                             {
-                            pushFollow(FOLLOW_type_in_synpred114_JamlAttrHash6955);
+                            pushFollow(FOLLOW_type_in_synpred114_JamlAttrHash6954);
                             type();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred114_JamlAttrHash6957); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred114_JamlAttrHash6959);
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred114_JamlAttrHash6956); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred114_JamlAttrHash6958);
                             formalParameterList();
 
                             state._fsp--;
@@ -20379,7 +20379,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                                     {
-                                    pushFollow(FOLLOW_arrayDeclaratorList_in_synpred114_JamlAttrHash6961);
+                                    pushFollow(FOLLOW_arrayDeclaratorList_in_synpred114_JamlAttrHash6960);
                                     arrayDeclaratorList();
 
                                     state._fsp--;
@@ -20401,7 +20401,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred114_JamlAttrHash6964);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred114_JamlAttrHash6963);
                                     throwsClause();
 
                                     state._fsp--;
@@ -20412,16 +20412,16 @@ public class JamlAttrHashParser extends Parser {
 
                             }
 
-                            match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash6967); if (state.failed) return ;
+                            match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash6966); if (state.failed) return ;
 
                             }
                             break;
                         case 2 :
                             // ../etc/JamlAttrHash.g:512:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                             {
-                            match(input,VOID,FOLLOW_VOID_in_synpred114_JamlAttrHash7025); if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred114_JamlAttrHash7027); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred114_JamlAttrHash7029);
+                            match(input,VOID,FOLLOW_VOID_in_synpred114_JamlAttrHash7024); if (state.failed) return ;
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred114_JamlAttrHash7026); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred114_JamlAttrHash7028);
                             formalParameterList();
 
                             state._fsp--;
@@ -20437,7 +20437,7 @@ public class JamlAttrHashParser extends Parser {
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred114_JamlAttrHash7031);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred114_JamlAttrHash7030);
                                     throwsClause();
 
                                     state._fsp--;
@@ -20448,7 +20448,7 @@ public class JamlAttrHashParser extends Parser {
 
                             }
 
-                            match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash7034); if (state.failed) return ;
+                            match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash7033); if (state.failed) return ;
 
                             }
                             break;
@@ -20461,17 +20461,17 @@ public class JamlAttrHashParser extends Parser {
                 case 2 :
                     // ../etc/JamlAttrHash.g:515:13: type interfaceFieldDeclaratorList SEMI
                     {
-                    pushFollow(FOLLOW_type_in_synpred114_JamlAttrHash7097);
+                    pushFollow(FOLLOW_type_in_synpred114_JamlAttrHash7096);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    pushFollow(FOLLOW_interfaceFieldDeclaratorList_in_synpred114_JamlAttrHash7099);
+                    pushFollow(FOLLOW_interfaceFieldDeclaratorList_in_synpred114_JamlAttrHash7098);
                     interfaceFieldDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash7101); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash7100); if (state.failed) return ;
 
                     }
                     break;
@@ -20494,7 +20494,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:518:9: ( typeDeclaration )
             // ../etc/JamlAttrHash.g:518:9: typeDeclaration
             {
-            pushFollow(FOLLOW_typeDeclaration_in_synpred115_JamlAttrHash7146);
+            pushFollow(FOLLOW_typeDeclaration_in_synpred115_JamlAttrHash7145);
             typeDeclaration();
 
             state._fsp--;
@@ -20515,7 +20515,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:557:9: ( arrayDeclarator )
             // ../etc/JamlAttrHash.g:557:9: arrayDeclarator
             {
-            pushFollow(FOLLOW_arrayDeclarator_in_synpred121_JamlAttrHash7448);
+            pushFollow(FOLLOW_arrayDeclarator_in_synpred121_JamlAttrHash7447);
             arrayDeclarator();
 
             state._fsp--;
@@ -20536,7 +20536,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:606:23: ( arrayDeclaratorList )
             // ../etc/JamlAttrHash.g:606:23: arrayDeclaratorList
             {
-            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred139_JamlAttrHash7849);
+            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred139_JamlAttrHash7848);
             arrayDeclaratorList();
 
             state._fsp--;
@@ -20557,7 +20557,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:611:28: ( arrayDeclaratorList )
             // ../etc/JamlAttrHash.g:611:28: arrayDeclaratorList
             {
-            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred140_JamlAttrHash7898);
+            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred140_JamlAttrHash7897);
             arrayDeclaratorList();
 
             state._fsp--;
@@ -20578,8 +20578,8 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:621:20: ( DOT typeIdent )
             // ../etc/JamlAttrHash.g:621:20: DOT typeIdent
             {
-            match(input,DOT,FOLLOW_DOT_in_synpred142_JamlAttrHash7983); if (state.failed) return ;
-            pushFollow(FOLLOW_typeIdent_in_synpred142_JamlAttrHash7985);
+            match(input,DOT,FOLLOW_DOT_in_synpred142_JamlAttrHash7982); if (state.failed) return ;
+            pushFollow(FOLLOW_typeIdent_in_synpred142_JamlAttrHash7984);
             typeIdent();
 
             state._fsp--;
@@ -20600,8 +20600,8 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:650:40: ( COMMA genericTypeArgument )
             // ../etc/JamlAttrHash.g:650:40: COMMA genericTypeArgument
             {
-            match(input,COMMA,FOLLOW_COMMA_in_synpred153_JamlAttrHash8210); if (state.failed) return ;
-            pushFollow(FOLLOW_genericTypeArgument_in_synpred153_JamlAttrHash8212);
+            match(input,COMMA,FOLLOW_COMMA_in_synpred153_JamlAttrHash8209); if (state.failed) return ;
+            pushFollow(FOLLOW_genericTypeArgument_in_synpred153_JamlAttrHash8211);
             genericTypeArgument();
 
             state._fsp--;
@@ -20622,7 +20622,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:656:18: ( genericWildcardBoundType )
             // ../etc/JamlAttrHash.g:656:18: genericWildcardBoundType
             {
-            pushFollow(FOLLOW_genericWildcardBoundType_in_synpred155_JamlAttrHash8266);
+            pushFollow(FOLLOW_genericWildcardBoundType_in_synpred155_JamlAttrHash8265);
             genericWildcardBoundType();
 
             state._fsp--;
@@ -20643,8 +20643,8 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:681:42: ( COMMA formalParameterStandardDecl )
             // ../etc/JamlAttrHash.g:681:42: COMMA formalParameterStandardDecl
             {
-            match(input,COMMA,FOLLOW_COMMA_in_synpred160_JamlAttrHash8484); if (state.failed) return ;
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred160_JamlAttrHash8486);
+            match(input,COMMA,FOLLOW_COMMA_in_synpred160_JamlAttrHash8483); if (state.failed) return ;
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred160_JamlAttrHash8485);
             formalParameterStandardDecl();
 
             state._fsp--;
@@ -20665,7 +20665,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:681:13: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? )
             // ../etc/JamlAttrHash.g:681:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
             {
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8481);
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8480);
             formalParameterStandardDecl();
 
             state._fsp--;
@@ -20691,8 +20691,8 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:681:42: COMMA formalParameterStandardDecl
             	    {
-            	    match(input,COMMA,FOLLOW_COMMA_in_synpred162_JamlAttrHash8484); if (state.failed) return ;
-            	    pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8486);
+            	    match(input,COMMA,FOLLOW_COMMA_in_synpred162_JamlAttrHash8483); if (state.failed) return ;
+            	    pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8485);
             	    formalParameterStandardDecl();
 
             	    state._fsp--;
@@ -20717,8 +20717,8 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:681:79: COMMA formalParameterVarArgDecl
                     {
-                    match(input,COMMA,FOLLOW_COMMA_in_synpred162_JamlAttrHash8491); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred162_JamlAttrHash8493);
+                    match(input,COMMA,FOLLOW_COMMA_in_synpred162_JamlAttrHash8490); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred162_JamlAttrHash8492);
                     formalParameterVarArgDecl();
 
                     state._fsp--;
@@ -20745,7 +20745,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:684:13: ( formalParameterVarArgDecl )
             // ../etc/JamlAttrHash.g:684:13: formalParameterVarArgDecl
             {
-            pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred163_JamlAttrHash8550);
+            pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred163_JamlAttrHash8549);
             formalParameterVarArgDecl();
 
             state._fsp--;
@@ -20768,8 +20768,8 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:705:13: ( DOT ident= IDENT )
             // ../etc/JamlAttrHash.g:705:13: DOT ident= IDENT
             {
-            match(input,DOT,FOLLOW_DOT_in_synpred164_JamlAttrHash8795); if (state.failed) return ;
-            ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred164_JamlAttrHash8799); if (state.failed) return ;
+            match(input,DOT,FOLLOW_DOT_in_synpred164_JamlAttrHash8794); if (state.failed) return ;
+            ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred164_JamlAttrHash8798); if (state.failed) return ;
 
             }
 
@@ -20786,7 +20786,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:712:9: ( annotation )
             // ../etc/JamlAttrHash.g:712:9: annotation
             {
-            pushFollow(FOLLOW_annotation_in_synpred165_JamlAttrHash8852);
+            pushFollow(FOLLOW_annotation_in_synpred165_JamlAttrHash8851);
             annotation();
 
             state._fsp--;
@@ -20807,12 +20807,12 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:763:9: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI ) )
             // ../etc/JamlAttrHash.g:763:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
             {
-            pushFollow(FOLLOW_modifierList_in_synpred177_JamlAttrHash9306);
+            pushFollow(FOLLOW_modifierList_in_synpred177_JamlAttrHash9305);
             modifierList();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_type_in_synpred177_JamlAttrHash9308);
+            pushFollow(FOLLOW_type_in_synpred177_JamlAttrHash9307);
             type();
 
             state._fsp--;
@@ -20849,9 +20849,9 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:764:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred177_JamlAttrHash9322); if (state.failed) return ;
-                    match(input,LPAREN,FOLLOW_LPAREN_in_synpred177_JamlAttrHash9324); if (state.failed) return ;
-                    match(input,RPAREN,FOLLOW_RPAREN_in_synpred177_JamlAttrHash9326); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred177_JamlAttrHash9321); if (state.failed) return ;
+                    match(input,LPAREN,FOLLOW_LPAREN_in_synpred177_JamlAttrHash9323); if (state.failed) return ;
+                    match(input,RPAREN,FOLLOW_RPAREN_in_synpred177_JamlAttrHash9325); if (state.failed) return ;
                     // ../etc/JamlAttrHash.g:764:33: ( annotationDefaultValue )?
                     int alt203=2;
                     int LA203_0 = input.LA(1);
@@ -20863,7 +20863,7 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: annotationDefaultValue
                             {
-                            pushFollow(FOLLOW_annotationDefaultValue_in_synpred177_JamlAttrHash9328);
+                            pushFollow(FOLLOW_annotationDefaultValue_in_synpred177_JamlAttrHash9327);
                             annotationDefaultValue();
 
                             state._fsp--;
@@ -20874,19 +20874,19 @@ public class JamlAttrHashParser extends Parser {
 
                     }
 
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred177_JamlAttrHash9331); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred177_JamlAttrHash9330); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
                     // ../etc/JamlAttrHash.g:766:13: classFieldDeclaratorList SEMI
                     {
-                    pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred177_JamlAttrHash9373);
+                    pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred177_JamlAttrHash9372);
                     classFieldDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred177_JamlAttrHash9375); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred177_JamlAttrHash9374); if (state.failed) return ;
 
                     }
                     break;
@@ -20909,12 +20909,12 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:784:9: ( localVariableDeclaration SEMI )
             // ../etc/JamlAttrHash.g:784:9: localVariableDeclaration SEMI
             {
-            pushFollow(FOLLOW_localVariableDeclaration_in_synpred179_JamlAttrHash9510);
+            pushFollow(FOLLOW_localVariableDeclaration_in_synpred179_JamlAttrHash9509);
             localVariableDeclaration();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,SEMI,FOLLOW_SEMI_in_synpred179_JamlAttrHash9512); if (state.failed) return ;
+            match(input,SEMI,FOLLOW_SEMI_in_synpred179_JamlAttrHash9511); if (state.failed) return ;
 
             }
 
@@ -20931,7 +20931,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:785:9: ( typeDeclaration )
             // ../etc/JamlAttrHash.g:785:9: typeDeclaration
             {
-            pushFollow(FOLLOW_typeDeclaration_in_synpred180_JamlAttrHash9523);
+            pushFollow(FOLLOW_typeDeclaration_in_synpred180_JamlAttrHash9522);
             typeDeclaration();
 
             state._fsp--;
@@ -20955,8 +20955,8 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:802:13: ( ELSE elseStat= statement )
             // ../etc/JamlAttrHash.g:802:13: ELSE elseStat= statement
             {
-            match(input,ELSE,FOLLOW_ELSE_in_synpred184_JamlAttrHash9821); if (state.failed) return ;
-            pushFollow(FOLLOW_statement_in_synpred184_JamlAttrHash9825);
+            match(input,ELSE,FOLLOW_ELSE_in_synpred184_JamlAttrHash9820); if (state.failed) return ;
+            pushFollow(FOLLOW_statement_in_synpred184_JamlAttrHash9824);
             elseStat=statement();
 
             state._fsp--;
@@ -20977,25 +20977,25 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:806:13: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement )
             // ../etc/JamlAttrHash.g:806:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
             {
-            pushFollow(FOLLOW_forInit_in_synpred186_JamlAttrHash10008);
+            pushFollow(FOLLOW_forInit_in_synpred186_JamlAttrHash10007);
             forInit();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,SEMI,FOLLOW_SEMI_in_synpred186_JamlAttrHash10010); if (state.failed) return ;
-            pushFollow(FOLLOW_forCondition_in_synpred186_JamlAttrHash10012);
+            match(input,SEMI,FOLLOW_SEMI_in_synpred186_JamlAttrHash10009); if (state.failed) return ;
+            pushFollow(FOLLOW_forCondition_in_synpred186_JamlAttrHash10011);
             forCondition();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,SEMI,FOLLOW_SEMI_in_synpred186_JamlAttrHash10014); if (state.failed) return ;
-            pushFollow(FOLLOW_forUpdater_in_synpred186_JamlAttrHash10016);
+            match(input,SEMI,FOLLOW_SEMI_in_synpred186_JamlAttrHash10013); if (state.failed) return ;
+            pushFollow(FOLLOW_forUpdater_in_synpred186_JamlAttrHash10015);
             forUpdater();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,RPAREN,FOLLOW_RPAREN_in_synpred186_JamlAttrHash10018); if (state.failed) return ;
-            pushFollow(FOLLOW_statement_in_synpred186_JamlAttrHash10020);
+            match(input,RPAREN,FOLLOW_RPAREN_in_synpred186_JamlAttrHash10017); if (state.failed) return ;
+            pushFollow(FOLLOW_statement_in_synpred186_JamlAttrHash10019);
             statement();
 
             state._fsp--;
@@ -21016,7 +21016,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:844:9: ( switchCaseLabel )
             // ../etc/JamlAttrHash.g:844:9: switchCaseLabel
             {
-            pushFollow(FOLLOW_switchCaseLabel_in_synpred206_JamlAttrHash10987);
+            pushFollow(FOLLOW_switchCaseLabel_in_synpred206_JamlAttrHash10986);
             switchCaseLabel();
 
             state._fsp--;
@@ -21037,7 +21037,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:856:9: ( localVariableDeclaration )
             // ../etc/JamlAttrHash.g:856:9: localVariableDeclaration
             {
-            pushFollow(FOLLOW_localVariableDeclaration_in_synpred209_JamlAttrHash11077);
+            pushFollow(FOLLOW_localVariableDeclaration_in_synpred209_JamlAttrHash11076);
             localVariableDeclaration();
 
             state._fsp--;
@@ -21058,7 +21058,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:857:9: ( expressionList )
             // ../etc/JamlAttrHash.g:857:9: expressionList
             {
-            pushFollow(FOLLOW_expressionList_in_synpred210_JamlAttrHash11099);
+            pushFollow(FOLLOW_expressionList_in_synpred210_JamlAttrHash11098);
             expressionList();
 
             state._fsp--;
@@ -21079,14 +21079,14 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:993:9: ( LPAREN type RPAREN unaryExpression )
             // ../etc/JamlAttrHash.g:993:9: LPAREN type RPAREN unaryExpression
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_synpred253_JamlAttrHash12632); if (state.failed) return ;
-            pushFollow(FOLLOW_type_in_synpred253_JamlAttrHash12634);
+            match(input,LPAREN,FOLLOW_LPAREN_in_synpred253_JamlAttrHash12631); if (state.failed) return ;
+            pushFollow(FOLLOW_type_in_synpred253_JamlAttrHash12633);
             type();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,RPAREN,FOLLOW_RPAREN_in_synpred253_JamlAttrHash12636); if (state.failed) return ;
-            pushFollow(FOLLOW_unaryExpression_in_synpred253_JamlAttrHash12638);
+            match(input,RPAREN,FOLLOW_RPAREN_in_synpred253_JamlAttrHash12635); if (state.failed) return ;
+            pushFollow(FOLLOW_unaryExpression_in_synpred253_JamlAttrHash12637);
             unaryExpression();
 
             state._fsp--;
@@ -21123,7 +21123,7 @@ public class JamlAttrHashParser extends Parser {
             	case 1 :
             	    // ../etc/JamlAttrHash.g:1061:17: arrayDeclarator
             	    {
-            	    pushFollow(FOLLOW_arrayDeclarator_in_synpred281_JamlAttrHash14539);
+            	    pushFollow(FOLLOW_arrayDeclarator_in_synpred281_JamlAttrHash14538);
             	    arrayDeclarator();
 
             	    state._fsp--;
@@ -21145,8 +21145,8 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:1063:13: ( DOT CLASS )
             // ../etc/JamlAttrHash.g:1063:17: DOT CLASS
             {
-            match(input,DOT,FOLLOW_DOT_in_synpred281_JamlAttrHash14607); if (state.failed) return ;
-            match(input,CLASS,FOLLOW_CLASS_in_synpred281_JamlAttrHash14609); if (state.failed) return ;
+            match(input,DOT,FOLLOW_DOT_in_synpred281_JamlAttrHash14606); if (state.failed) return ;
+            match(input,CLASS,FOLLOW_CLASS_in_synpred281_JamlAttrHash14608); if (state.failed) return ;
 
             }
 
@@ -21170,7 +21170,7 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:1066:13: (outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression ) )
             // ../etc/JamlAttrHash.g:1066:13: outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
             {
-            outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred289_JamlAttrHash14740); if (state.failed) return ;
+            outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred289_JamlAttrHash14739); if (state.failed) return ;
             // ../etc/JamlAttrHash.g:1067:13: ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
             int alt230=5;
             switch ( input.LA(1) ) {
@@ -21211,14 +21211,14 @@ public class JamlAttrHashParser extends Parser {
                 case 1 :
                     // ../etc/JamlAttrHash.g:1067:17: CLASS
                     {
-                    match(input,CLASS,FOLLOW_CLASS_in_synpred289_JamlAttrHash14758); if (state.failed) return ;
+                    match(input,CLASS,FOLLOW_CLASS_in_synpred289_JamlAttrHash14757); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
                     // ../etc/JamlAttrHash.g:1068:17: genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_synpred289_JamlAttrHash14821);
+                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_synpred289_JamlAttrHash14820);
                     genericTypeArgumentListSimplified();
 
                     state._fsp--;
@@ -21258,8 +21258,8 @@ public class JamlAttrHashParser extends Parser {
                         case 1 :
                             // ../etc/JamlAttrHash.g:1069:21: Super= SUPER arguments
                             {
-                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash14846); if (state.failed) return ;
-                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14848);
+                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash14845); if (state.failed) return ;
+                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14847);
                             arguments();
 
                             state._fsp--;
@@ -21270,10 +21270,10 @@ public class JamlAttrHashParser extends Parser {
                         case 2 :
                             // ../etc/JamlAttrHash.g:1070:21: SUPER innerDot= DOT IDENT arguments
                             {
-                            match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash14898); if (state.failed) return ;
-                            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred289_JamlAttrHash14902); if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred289_JamlAttrHash14904); if (state.failed) return ;
-                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14906);
+                            match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash14897); if (state.failed) return ;
+                            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred289_JamlAttrHash14901); if (state.failed) return ;
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred289_JamlAttrHash14903); if (state.failed) return ;
+                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14905);
                             arguments();
 
                             state._fsp--;
@@ -21284,8 +21284,8 @@ public class JamlAttrHashParser extends Parser {
                         case 3 :
                             // ../etc/JamlAttrHash.g:1071:21: IDENT arguments
                             {
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred289_JamlAttrHash14956); if (state.failed) return ;
-                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14958);
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred289_JamlAttrHash14955); if (state.failed) return ;
+                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14957);
                             arguments();
 
                             state._fsp--;
@@ -21302,15 +21302,15 @@ public class JamlAttrHashParser extends Parser {
                 case 3 :
                     // ../etc/JamlAttrHash.g:1073:17: THIS
                     {
-                    match(input,THIS,FOLLOW_THIS_in_synpred289_JamlAttrHash15033); if (state.failed) return ;
+                    match(input,THIS,FOLLOW_THIS_in_synpred289_JamlAttrHash15032); if (state.failed) return ;
 
                     }
                     break;
                 case 4 :
                     // ../etc/JamlAttrHash.g:1074:17: Super= SUPER arguments
                     {
-                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash15099); if (state.failed) return ;
-                    pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash15101);
+                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash15098); if (state.failed) return ;
+                    pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash15100);
                     arguments();
 
                     state._fsp--;
@@ -21321,7 +21321,7 @@ public class JamlAttrHashParser extends Parser {
                 case 5 :
                     // ../etc/JamlAttrHash.g:1075:17: innerNewExpression
                     {
-                    pushFollow(FOLLOW_innerNewExpression_in_synpred289_JamlAttrHash15149);
+                    pushFollow(FOLLOW_innerNewExpression_in_synpred289_JamlAttrHash15148);
                     innerNewExpression();
 
                     state._fsp--;
@@ -21348,13 +21348,13 @@ public class JamlAttrHashParser extends Parser {
             // ../etc/JamlAttrHash.g:1100:37: ( LBRACK expression RBRACK )
             // ../etc/JamlAttrHash.g:1100:37: LBRACK expression RBRACK
             {
-            match(input,LBRACK,FOLLOW_LBRACK_in_synpred297_JamlAttrHash15550); if (state.failed) return ;
-            pushFollow(FOLLOW_expression_in_synpred297_JamlAttrHash15553);
+            match(input,LBRACK,FOLLOW_LBRACK_in_synpred297_JamlAttrHash15549); if (state.failed) return ;
+            pushFollow(FOLLOW_expression_in_synpred297_JamlAttrHash15552);
             expression();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,RBRACK,FOLLOW_RBRACK_in_synpred297_JamlAttrHash15555); if (state.failed) return ;
+            match(input,RBRACK,FOLLOW_RBRACK_in_synpred297_JamlAttrHash15554); if (state.failed) return ;
 
             }
 
@@ -23605,716 +23605,716 @@ public class JamlAttrHashParser extends Parser {
     }
  
 
-    public static final BitSet FOLLOW_attrMapping_in_attrMappings4526 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_attrMappings4537 = new BitSet(new long[]{0x0000000000000400L,0x0000000800080020L,0x000007E000000000L});
-    public static final BitSet FOLLOW_attrMapping_in_attrMappings4541 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_attribute_in_attrMapping4561 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ASSIGN_in_attrMapping4568 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_attrMapping4570 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_attributeValue_in_attrMapping4575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_COLON_in_attribute4589 = new BitSet(new long[]{0xFFE0000000000000L,0x000000FFFFFFFFFFL,0x0000001000000000L});
-    public static final BitSet FOLLOW_keyword_in_attribute4592 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_attribute4598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_attribute4605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_attributeValue4634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_attributeValue4641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_literal4662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal4678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_literal4688 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_literal4698 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_literal4708 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_attrMapping_in_attrMappings4525 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_attrMappings4536 = new BitSet(new long[]{0x0000000000000400L,0x0000000800080020L,0x000007E000000000L});
+    public static final BitSet FOLLOW_attrMapping_in_attrMappings4540 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_attribute_in_attrMapping4560 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_ASSIGN_in_attrMapping4567 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_attrMapping4569 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_attributeValue_in_attrMapping4574 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COLON_in_attribute4588 = new BitSet(new long[]{0xFFE0000000000000L,0x000000FFFFFFFFFFL,0x0000001000000000L});
+    public static final BitSet FOLLOW_keyword_in_attribute4591 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_attribute4597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_attribute4604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_attributeValue4633 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_attributeValue4640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_literal4661 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal4677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_literal4687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_literal4697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_literal4707 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_keyword0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_compilationUnit_in_javaSource5355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationList_in_compilationUnit5391 = new BitSet(new long[]{0x2020100000000082L,0x000000444CF26048L});
-    public static final BitSet FOLLOW_packageDeclaration_in_compilationUnit5402 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE26048L});
-    public static final BitSet FOLLOW_importDeclaration_in_compilationUnit5414 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE26048L});
-    public static final BitSet FOLLOW_typeDecls_in_compilationUnit5426 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE22048L});
-    public static final BitSet FOLLOW_typeDeclaration_in_typeDecls5446 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_typeDecls5456 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration5476 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_packageDeclaration5479 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_packageDeclaration5481 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IMPORT_in_importDeclaration5507 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_STATIC_in_importDeclaration5510 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration5513 = new BitSet(new long[]{0x0000100000010000L});
-    public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration5515 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_importDeclaration5518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_typeDeclaration5542 = new BitSet(new long[]{0x2020000000000080L,0x000000444CE22048L});
-    public static final BitSet FOLLOW_classTypeDeclaration_in_typeDeclaration5557 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_interfaceTypeDeclaration_in_typeDeclaration5572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_enumTypeDeclaration_in_typeDeclaration5587 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationTypeDeclaration_in_typeDeclaration5602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CLASS_in_classTypeDeclaration5637 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classTypeDeclaration5639 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classTypeDeclaration5641 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classExtendsClause_in_classTypeDeclaration5644 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_implementsClause_in_classTypeDeclaration5647 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classBody_in_classTypeDeclaration5650 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXTENDS_in_classExtendsClause5703 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_classExtendsClause5705 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXTENDS_in_interfaceExtendsClause5749 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeList_in_interfaceExtendsClause5751 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IMPLEMENTS_in_implementsClause5795 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeList_in_implementsClause5797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeParameterList5842 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList5844 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_COMMA_in_genericTypeParameterList5847 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList5849 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeParameterList5853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_genericTypeListClosing5968 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_genericTypeListClosing5978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_genericTypeListClosing5988 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_genericTypeParameter6016 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_bound_in_genericTypeParameter6018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXTENDS_in_bound6064 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_bound6066 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_AND_in_bound6069 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_bound6071 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_ENUM_in_enumTypeDeclaration6112 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_enumTypeDeclaration6114 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_implementsClause_in_enumTypeDeclaration6116 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_enumBody_in_enumTypeDeclaration6119 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_enumBody6166 = new BitSet(new long[]{0x0020000000000080L,0x000000444CE20040L,0x0000001000000000L});
-    public static final BitSet FOLLOW_enumScopeDeclarations_in_enumBody6168 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_enumBody6170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_enumConstants_in_enumScopeDeclarations6207 = new BitSet(new long[]{0x0000100000000802L});
-    public static final BitSet FOLLOW_COMMA_in_enumScopeDeclarations6210 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_enumClassScopeDeclarations_in_enumScopeDeclarations6215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_enumClassScopeDeclarations6235 = new BitSet(new long[]{0x32A0100002800082L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_classScopeDeclarations_in_enumClassScopeDeclarations6237 = new BitSet(new long[]{0x32A0100002800082L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_enumConstant_in_enumConstants6276 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_enumConstants6279 = new BitSet(new long[]{0x0020000000000080L,0x000000444CE20040L,0x0000001000000000L});
-    public static final BitSet FOLLOW_enumConstant_in_enumConstants6282 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_annotationList_in_enumConstant6307 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_enumConstant6309 = new BitSet(new long[]{0x0000000022800002L,0x0000000000000810L});
-    public static final BitSet FOLLOW_arguments_in_enumConstant6312 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classBody_in_enumConstant6315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INTERFACE_in_interfaceTypeDeclaration6340 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceTypeDeclaration6342 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceTypeDeclaration6344 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_interfaceExtendsClause_in_interfaceTypeDeclaration6347 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_interfaceBody_in_interfaceTypeDeclaration6350 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_typeList6400 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_typeList6403 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_typeList6406 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_LCURLY_in_classBody6431 = new BitSet(new long[]{0x32A0140002800080L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_classScopeDeclarations_in_classBody6433 = new BitSet(new long[]{0x32A0140002800080L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_classBody6436 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_interfaceBody6478 = new BitSet(new long[]{0x32A0140002000080L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceBody6480 = new BitSet(new long[]{0x32A0140002000080L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_interfaceBody6483 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6521 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_classScopeDeclarations6550 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations6575 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations6589 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations6608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6610 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6612 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations6614 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6617 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6621 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_classScopeDeclarations6687 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6689 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6691 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6693 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6760 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6762 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6764 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations6831 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations6833 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6835 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations6880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6890 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations6922 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations6936 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations6955 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations6957 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations6959 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations6961 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations6964 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations6967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_interfaceScopeDeclarations7025 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations7027 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations7029 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations7031 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations7097 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_interfaceFieldDeclaratorList_in_interfaceScopeDeclarations7099 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations7146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7156 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7176 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_classFieldDeclaratorList7179 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7181 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_classFieldDeclarator7220 = new BitSet(new long[]{0x0000000000000042L});
-    public static final BitSet FOLLOW_ASSIGN_in_classFieldDeclarator7223 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_classFieldDeclarator7225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7270 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_interfaceFieldDeclaratorList7273 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7275 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator7314 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ASSIGN_in_interfaceFieldDeclarator7316 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_interfaceFieldDeclarator7318 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId7360 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId7363 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer7383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_variableInitializer7393 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator7412 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator7414 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_arrayDeclaratorList7448 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_LCURLY_in_arrayInitializer7493 = new BitSet(new long[]{0x128004446AA01400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer7496 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_arrayInitializer7499 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer7501 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_arrayInitializer7505 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_arrayInitializer7510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THROWS_in_throwsClause7548 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentList_in_throwsClause7550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifier_in_modifierList7587 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_PUBLIC_in_modifier7628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PROTECTED_in_modifier7638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRIVATE_in_modifier7648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_modifier7658 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ABSTRACT_in_modifier7668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NATIVE_in_modifier7678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier7688 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRANSIENT_in_modifier7698 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOLATILE_in_modifier7708 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRICTFP_in_modifier7718 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_modifier7728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_localModifierList7747 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_FINAL_in_localModifier7788 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_localModifier7798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_simpleType_in_type7817 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_objectType_in_type7827 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primitiveType_in_simpleType7847 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_simpleType7849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_objectType7896 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectType7898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7938 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectTypeSimplified7940 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent7980 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdent7983 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent7985 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8025 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdentSimplified8028 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8030 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdent8070 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent8073 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdentSimplified8093 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_typeIdentSimplified8096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_compilationUnit_in_javaSource5354 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationList_in_compilationUnit5390 = new BitSet(new long[]{0x2020100000000082L,0x000000444CF26048L});
+    public static final BitSet FOLLOW_packageDeclaration_in_compilationUnit5401 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE26048L});
+    public static final BitSet FOLLOW_importDeclaration_in_compilationUnit5413 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE26048L});
+    public static final BitSet FOLLOW_typeDecls_in_compilationUnit5425 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE22048L});
+    public static final BitSet FOLLOW_typeDeclaration_in_typeDecls5445 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_typeDecls5455 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration5475 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_packageDeclaration5478 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_packageDeclaration5480 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IMPORT_in_importDeclaration5506 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_STATIC_in_importDeclaration5509 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration5512 = new BitSet(new long[]{0x0000100000010000L});
+    public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration5514 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_importDeclaration5517 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_typeDeclaration5541 = new BitSet(new long[]{0x2020000000000080L,0x000000444CE22048L});
+    public static final BitSet FOLLOW_classTypeDeclaration_in_typeDeclaration5556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_interfaceTypeDeclaration_in_typeDeclaration5571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_enumTypeDeclaration_in_typeDeclaration5586 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationTypeDeclaration_in_typeDeclaration5601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CLASS_in_classTypeDeclaration5636 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classTypeDeclaration5638 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_classTypeDeclaration5640 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classExtendsClause_in_classTypeDeclaration5643 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
+    public static final BitSet FOLLOW_implementsClause_in_classTypeDeclaration5646 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classBody_in_classTypeDeclaration5649 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXTENDS_in_classExtendsClause5702 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_classExtendsClause5704 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXTENDS_in_interfaceExtendsClause5748 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeList_in_interfaceExtendsClause5750 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IMPLEMENTS_in_implementsClause5794 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeList_in_implementsClause5796 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeParameterList5841 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList5843 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_COMMA_in_genericTypeParameterList5846 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList5848 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeParameterList5852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_genericTypeListClosing5967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_genericTypeListClosing5977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_genericTypeListClosing5987 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_genericTypeParameter6015 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_bound_in_genericTypeParameter6017 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXTENDS_in_bound6063 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_bound6065 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_AND_in_bound6068 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_bound6070 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_ENUM_in_enumTypeDeclaration6111 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_enumTypeDeclaration6113 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_implementsClause_in_enumTypeDeclaration6115 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_enumBody_in_enumTypeDeclaration6118 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_enumBody6165 = new BitSet(new long[]{0x0020000000000080L,0x000000444CE20040L,0x0000001000000000L});
+    public static final BitSet FOLLOW_enumScopeDeclarations_in_enumBody6167 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_enumBody6169 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_enumConstants_in_enumScopeDeclarations6206 = new BitSet(new long[]{0x0000100000000802L});
+    public static final BitSet FOLLOW_COMMA_in_enumScopeDeclarations6209 = new BitSet(new long[]{0x0000100000000002L});
+    public static final BitSet FOLLOW_enumClassScopeDeclarations_in_enumScopeDeclarations6214 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_enumClassScopeDeclarations6234 = new BitSet(new long[]{0x32A0100002800082L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_classScopeDeclarations_in_enumClassScopeDeclarations6236 = new BitSet(new long[]{0x32A0100002800082L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_enumConstant_in_enumConstants6275 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_enumConstants6278 = new BitSet(new long[]{0x0020000000000080L,0x000000444CE20040L,0x0000001000000000L});
+    public static final BitSet FOLLOW_enumConstant_in_enumConstants6281 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_annotationList_in_enumConstant6306 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_enumConstant6308 = new BitSet(new long[]{0x0000000022800002L,0x0000000000000810L});
+    public static final BitSet FOLLOW_arguments_in_enumConstant6311 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classBody_in_enumConstant6314 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INTERFACE_in_interfaceTypeDeclaration6339 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceTypeDeclaration6341 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceTypeDeclaration6343 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_interfaceExtendsClause_in_interfaceTypeDeclaration6346 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_interfaceBody_in_interfaceTypeDeclaration6349 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_typeList6399 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_typeList6402 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_typeList6405 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_LCURLY_in_classBody6430 = new BitSet(new long[]{0x32A0140002800080L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_classScopeDeclarations_in_classBody6432 = new BitSet(new long[]{0x32A0140002800080L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_classBody6435 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_interfaceBody6477 = new BitSet(new long[]{0x32A0140002000080L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceBody6479 = new BitSet(new long[]{0x32A0140002000080L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_interfaceBody6482 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_classScopeDeclarations6549 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6551 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations6574 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations6588 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_classScopeDeclarations6607 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6609 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6611 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations6613 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6616 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6624 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_classScopeDeclarations6686 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6688 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6690 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6692 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6696 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6759 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6761 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6763 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_classScopeDeclarations6830 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations6832 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations6879 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations6921 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations6935 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations6954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations6956 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations6958 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations6960 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations6963 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations6966 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_interfaceScopeDeclarations7024 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations7026 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations7028 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations7030 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations7096 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_interfaceFieldDeclaratorList_in_interfaceScopeDeclarations7098 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations7145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7155 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7175 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_classFieldDeclaratorList7178 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7180 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_classFieldDeclarator7219 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_ASSIGN_in_classFieldDeclarator7222 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_classFieldDeclarator7224 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7269 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_interfaceFieldDeclaratorList7272 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7274 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator7313 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_ASSIGN_in_interfaceFieldDeclarator7315 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_interfaceFieldDeclarator7317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId7359 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId7362 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer7382 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_variableInitializer7392 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator7411 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator7413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_arrayDeclaratorList7447 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_LCURLY_in_arrayInitializer7492 = new BitSet(new long[]{0x128004446AA01400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer7495 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_arrayInitializer7498 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer7500 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_arrayInitializer7504 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_arrayInitializer7509 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THROWS_in_throwsClause7547 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentList_in_throwsClause7549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifier_in_modifierList7586 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_PUBLIC_in_modifier7627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PROTECTED_in_modifier7637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRIVATE_in_modifier7647 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_modifier7657 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ABSTRACT_in_modifier7667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NATIVE_in_modifier7677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier7687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRANSIENT_in_modifier7697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOLATILE_in_modifier7707 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRICTFP_in_modifier7717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_modifier7727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_localModifierList7746 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_FINAL_in_localModifier7787 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_localModifier7797 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_simpleType_in_type7816 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_objectType_in_type7826 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primitiveType_in_simpleType7846 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_simpleType7848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_objectType7895 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectType7897 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7937 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectTypeSimplified7939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent7979 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdent7982 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent7984 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8024 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdentSimplified8027 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8029 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdent8069 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent8072 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdentSimplified8092 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_typeIdentSimplified8095 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_primitiveType0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeArgumentList8205 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList8207 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_COMMA_in_genericTypeArgumentList8210 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList8212 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeArgumentList8216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_genericTypeArgument8254 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument8264 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000010L});
-    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument8266 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_genericWildcardBoundType8308 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_genericWildcardBoundType8317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified8336 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8338 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_COMMA_in_genericTypeArgumentListSimplified8341 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8343 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeArgumentListSimplified8347 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_genericTypeArgumentSimplified8389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgumentSimplified8399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8422 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_qualifiedIdentList8425 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8428 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_LPAREN_in_formalParameterList8453 = new BitSet(new long[]{0x12A0080000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList8481 = new BitSet(new long[]{0x0000080000000800L});
-    public static final BitSet FOLLOW_COMMA_in_formalParameterList8484 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList8486 = new BitSet(new long[]{0x0000080000000800L});
-    public static final BitSet FOLLOW_COMMA_in_formalParameterList8491 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_formalParameterList8493 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_formalParameterList8550 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_formalParameterList8627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl8650 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl8652 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl8654 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarArgDecl8698 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterVarArgDecl8700 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ELLIPSIS_in_formalParameterVarArgDecl8702 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarArgDecl8704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier8752 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier8795 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier8799 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_annotation_in_annotationList8852 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_AT_in_annotation8890 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation8893 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_annotationInit_in_annotation8895 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_annotationInit8919 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit8921 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_annotationInit8923 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers8960 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_annotationInitializers8963 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers8965 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers8995 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_annotationInitializer9036 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ASSIGN_in_annotationInitializer9039 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer9042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationElementValueExpression_in_annotationElementValue9065 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_annotationElementValue9075 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationElementValueArrayInitializer_in_annotationElementValue9085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_conditionalExpression_in_annotationElementValueExpression9108 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_annotationElementValueArrayInitializer9148 = new BitSet(new long[]{0x12A004446AA01C80L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9151 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_annotationElementValueArrayInitializer9154 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9156 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_annotationElementValueArrayInitializer9163 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_annotationElementValueArrayInitializer9167 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_AT_in_annotationTypeDeclaration9210 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_INTERFACE_in_annotationTypeDeclaration9212 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_annotationTypeDeclaration9214 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_annotationBody_in_annotationTypeDeclaration9216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_annotationBody9259 = new BitSet(new long[]{0x32A0040000000080L,0x000000444EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationBody9261 = new BitSet(new long[]{0x32A0040000000080L,0x000000444EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_annotationBody9264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations9306 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations9308 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations9322 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_annotationScopeDeclarations9324 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_annotationScopeDeclarations9326 = new BitSet(new long[]{0x8000100000000000L});
-    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations9328 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_annotationScopeDeclarations9331 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations9373 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_annotationScopeDeclarations9375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations9420 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue9443 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue9446 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_block9467 = new BitSet(new long[]{0x73E014446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_blockStatement_in_block9469 = new BitSet(new long[]{0x73E014446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_block9472 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement9510 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_blockStatement9512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement9523 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_blockStatement9533 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration9556 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_localVariableDeclaration9558 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration9560 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_block_in_statement9613 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ASSERT_in_statement9623 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement9627 = new BitSet(new long[]{0x0000100000000400L});
-    public static final BitSet FOLLOW_COLON_in_statement9642 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement9646 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement9648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_statement9711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IF_in_statement9800 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement9802 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement9806 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ELSE_in_statement9821 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement9825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FOR_in_statement9991 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_statement9993 = new BitSet(new long[]{0x12A010446A201480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forInit_in_statement10008 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10010 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forCondition_in_statement10012 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10014 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forUpdater_in_statement10016 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_statement10018 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_statement10055 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_statement10057 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement10059 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_statement10061 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement10063 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_statement10065 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10067 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHILE_in_statement10182 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10184 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10186 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DO_in_statement10235 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10237 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
-    public static final BitSet FOLLOW_WHILE_in_statement10239 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10241 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRY_in_statement10284 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_statement10286 = new BitSet(new long[]{0x0800000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_catches_in_statement10289 = new BitSet(new long[]{0x0800000000000002L,0x0000000000000080L});
-    public static final BitSet FOLLOW_finallyClause_in_statement10291 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_finallyClause_in_statement10296 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SWITCH_in_statement10339 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10341 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_LCURLY_in_statement10343 = new BitSet(new long[]{0x8400000000000000L});
-    public static final BitSet FOLLOW_switchBlockLabels_in_statement10345 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_statement10347 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement10373 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10375 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_statement10377 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RETURN_in_statement10423 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement10425 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THROW_in_statement10492 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement10494 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10496 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BREAK_in_statement10561 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement10563 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CONTINUE_in_statement10636 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement10638 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_statement10708 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_statement10710 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10712 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_statement10779 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_statement10792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_catchClause_in_catches10831 = new BitSet(new long[]{0x0800000000000002L});
-    public static final BitSet FOLLOW_CATCH_in_catchClause10873 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_catchClause10876 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause10879 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_catchClause10881 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_catchClause10884 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FINALLY_in_finallyClause10903 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_finallyClause10905 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels10937 = new BitSet(new long[]{0x8400000000000000L});
-    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels10939 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels10942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchCaseLabels10987 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_CASE_in_switchCaseLabel11015 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel11018 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_switchCaseLabel11020 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel11023 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel11047 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_switchDefaultLabel11050 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel11053 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit11077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expressionList_in_forInit11099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_forCondition11187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expressionList_in_forUpdater11229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_parenthesizedExpression11269 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_parenthesizedExpression11271 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_parenthesizedExpression11273 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_expressionList11314 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_expressionList11317 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_expressionList11320 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_assignmentExpression_in_expression11341 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_conditionalExpression_in_assignmentExpression11377 = new BitSet(new long[]{0x001540A280004262L});
-    public static final BitSet FOLLOW_ASSIGN_in_assignmentExpression11396 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_PLUS_ASSIGN_in_assignmentExpression11415 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_MINUS_ASSIGN_in_assignmentExpression11434 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_STAR_ASSIGN_in_assignmentExpression11453 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_DIV_ASSIGN_in_assignmentExpression11472 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_AND_ASSIGN_in_assignmentExpression11491 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_OR_ASSIGN_in_assignmentExpression11510 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_XOR_ASSIGN_in_assignmentExpression11529 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_MOD_ASSIGN_in_assignmentExpression11548 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression11567 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11586 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11605 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_assignmentExpression_in_assignmentExpression11627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_logicalOrExpression_in_conditionalExpression11652 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_conditionalExpression11655 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_assignmentExpression_in_conditionalExpression11658 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_conditionalExpression11660 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_conditionalExpression_in_conditionalExpression11663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression11684 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_LOGICAL_OR_in_logicalOrExpression11687 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression11690 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression11711 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_LOGICAL_AND_in_logicalAndExpression11714 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression11717 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11738 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_OR_in_inclusiveOrExpression11741 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11744 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression11765 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_XOR_in_exclusiveOrExpression11768 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression11771 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_equalityExpression_in_andExpression11792 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_AND_in_andExpression11795 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_equalityExpression_in_andExpression11798 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression11819 = new BitSet(new long[]{0x0000000800040002L});
-    public static final BitSet FOLLOW_EQUAL_in_equalityExpression11838 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_NOT_EQUAL_in_equalityExpression11857 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression11887 = new BitSet(new long[]{0x0000000800040002L});
-    public static final BitSet FOLLOW_relationalExpression_in_instanceOfExpression11917 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_INSTANCEOF_in_instanceOfExpression11920 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_instanceOfExpression11923 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression11944 = new BitSet(new long[]{0x0000000003180002L});
-    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_relationalExpression11963 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11982 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_LESS_THAN_in_relationalExpression12001 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_relationalExpression12020 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression12049 = new BitSet(new long[]{0x0000000003180002L});
-    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression12083 = new BitSet(new long[]{0x0000A00000000102L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression12101 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_shiftExpression12120 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_in_shiftExpression12139 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression12168 = new BitSet(new long[]{0x0000A00000000102L});
-    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression12198 = new BitSet(new long[]{0x0000004040000002L});
-    public static final BitSet FOLLOW_PLUS_in_additiveExpression12216 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_MINUS_in_additiveExpression12235 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression12264 = new BitSet(new long[]{0x0000004040000002L});
-    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression12294 = new BitSet(new long[]{0x0002000100002002L});
-    public static final BitSet FOLLOW_STAR_in_multiplicativeExpression12313 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_DIV_in_multiplicativeExpression12332 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_MOD_in_multiplicativeExpression12351 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression12380 = new BitSet(new long[]{0x0002000100002002L});
-    public static final BitSet FOLLOW_PLUS_in_unaryExpression12414 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression12416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_in_unaryExpression12443 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression12445 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INC_in_unaryExpression12471 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression12473 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEC_in_unaryExpression12497 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression12499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression12523 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NOT_in_unaryExpressionNotPlusMinus12542 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus12591 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12632 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_unaryExpressionNotPlusMinus12634 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus12636 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus12673 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primaryExpression_in_postfixedExpression12709 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_DOT_in_postfixedExpression12771 = new BitSet(new long[]{0x0000000002000000L,0x0000000090040000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_postfixedExpression12821 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_postfixedExpression12903 = new BitSet(new long[]{0x0000000020609002L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression12982 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_THIS_in_postfixedExpression13056 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_SUPER_in_postfixedExpression13119 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression13121 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_SUPER_in_postfixedExpression13174 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_postfixedExpression13178 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_postfixedExpression13180 = new BitSet(new long[]{0x0000000020609002L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression13247 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_postfixedExpression13318 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_LBRACK_in_postfixedExpression13375 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_postfixedExpression13377 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_postfixedExpression13379 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_INC_in_postfixedExpression13440 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEC_in_postfixedExpression13464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression13512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_primaryExpression13522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newExpression_in_primaryExpression13532 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentExpression_in_primaryExpression13542 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression13552 = new BitSet(new long[]{0x0000000000000000L,0x0000000090000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression13567 = new BitSet(new long[]{0x0000000020008000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression13645 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression13647 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression13716 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13718 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression13773 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13775 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression13840 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression13973 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13975 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression14031 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression14033 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression14035 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression14059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primitiveType_in_primaryExpression14201 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_primaryExpression14260 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression14323 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression14325 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_primaryExpression14385 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression14387 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression14389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression14469 = new BitSet(new long[]{0x0000000020408002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_qualifiedIdentExpression14539 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14607 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression14609 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14679 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14740 = new BitSet(new long[]{0x2000000002000000L,0x0000000090040000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression14758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14821 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression14846 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression14898 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14902 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression14904 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14906 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression14956 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14958 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_qualifiedIdentExpression15033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression15099 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression15101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_qualifiedIdentExpression15149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEW_in_newExpression15225 = new BitSet(new long[]{0x1280000002000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression15241 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression15243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_newExpression15287 = new BitSet(new long[]{0x1280000002000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_newExpression15290 = new BitSet(new long[]{0x0000000020400000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression15308 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arguments_in_newExpression15373 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classBody_in_newExpression15375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEW_in_innerNewExpression15474 = new BitSet(new long[]{0x0000000002000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_innerNewExpression15476 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_innerNewExpression15479 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_innerNewExpression15481 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classBody_in_innerNewExpression15483 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction15529 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction15531 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction15541 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction15544 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction15546 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction15550 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction15553 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction15555 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction15560 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_arguments15580 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expressionList_in_arguments15582 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_arguments15585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_synpred5_JamlAttrHash4621 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_COMMA_in_synpred5_JamlAttrHash4623 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_synpred5_JamlAttrHash4627 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_synpred5_JamlAttrHash4629 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_synpred77_JamlAttrHash5968 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_synpred78_JamlAttrHash5978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_synpred79_JamlAttrHash5988 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_bound_in_synpred80_JamlAttrHash6018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_synpred95_JamlAttrHash6550 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_synpred95_JamlAttrHash6552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred105_JamlAttrHash6589 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred105_JamlAttrHash6608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6610 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6612 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred105_JamlAttrHash6614 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6617 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6621 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_synpred105_JamlAttrHash6625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_synpred105_JamlAttrHash6687 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6689 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6691 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6693 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_synpred105_JamlAttrHash6701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6760 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6762 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6764 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_synpred106_JamlAttrHash6575 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred106_JamlAttrHash6589 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred106_JamlAttrHash6608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6610 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6612 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred106_JamlAttrHash6614 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6617 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6621 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_synpred106_JamlAttrHash6687 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6689 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6691 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6693 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6760 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6762 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6764 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_synpred106_JamlAttrHash6831 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_synpred106_JamlAttrHash6833 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6835 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_synpred107_JamlAttrHash6880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred113_JamlAttrHash6936 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred113_JamlAttrHash6955 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred113_JamlAttrHash6957 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred113_JamlAttrHash6959 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred113_JamlAttrHash6961 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred113_JamlAttrHash6964 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred113_JamlAttrHash6967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_synpred113_JamlAttrHash7025 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred113_JamlAttrHash7027 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred113_JamlAttrHash7029 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred113_JamlAttrHash7031 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred113_JamlAttrHash7034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_synpred114_JamlAttrHash6922 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred114_JamlAttrHash6936 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred114_JamlAttrHash6955 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred114_JamlAttrHash6957 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred114_JamlAttrHash6959 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred114_JamlAttrHash6961 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred114_JamlAttrHash6964 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash6967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_synpred114_JamlAttrHash7025 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred114_JamlAttrHash7027 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred114_JamlAttrHash7029 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred114_JamlAttrHash7031 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash7034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_synpred114_JamlAttrHash7097 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_interfaceFieldDeclaratorList_in_synpred114_JamlAttrHash7099 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash7101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_synpred115_JamlAttrHash7146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_synpred121_JamlAttrHash7448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred139_JamlAttrHash7849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred140_JamlAttrHash7898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred142_JamlAttrHash7983 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeIdent_in_synpred142_JamlAttrHash7985 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_COMMA_in_synpred153_JamlAttrHash8210 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_synpred153_JamlAttrHash8212 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericWildcardBoundType_in_synpred155_JamlAttrHash8266 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_COMMA_in_synpred160_JamlAttrHash8484 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred160_JamlAttrHash8486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8481 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_synpred162_JamlAttrHash8484 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8486 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_synpred162_JamlAttrHash8491 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_synpred162_JamlAttrHash8493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_synpred163_JamlAttrHash8550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred164_JamlAttrHash8795 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred164_JamlAttrHash8799 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_synpred165_JamlAttrHash8852 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_synpred177_JamlAttrHash9306 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred177_JamlAttrHash9308 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred177_JamlAttrHash9322 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_synpred177_JamlAttrHash9324 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_synpred177_JamlAttrHash9326 = new BitSet(new long[]{0x8000100000000000L});
-    public static final BitSet FOLLOW_annotationDefaultValue_in_synpred177_JamlAttrHash9328 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred177_JamlAttrHash9331 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_synpred177_JamlAttrHash9373 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred177_JamlAttrHash9375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_synpred179_JamlAttrHash9510 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred179_JamlAttrHash9512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_synpred180_JamlAttrHash9523 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ELSE_in_synpred184_JamlAttrHash9821 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_synpred184_JamlAttrHash9825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_forInit_in_synpred186_JamlAttrHash10008 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred186_JamlAttrHash10010 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forCondition_in_synpred186_JamlAttrHash10012 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred186_JamlAttrHash10014 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forUpdater_in_synpred186_JamlAttrHash10016 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_synpred186_JamlAttrHash10018 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_synpred186_JamlAttrHash10020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_synpred206_JamlAttrHash10987 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_synpred209_JamlAttrHash11077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expressionList_in_synpred210_JamlAttrHash11099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_synpred253_JamlAttrHash12632 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred253_JamlAttrHash12634 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_synpred253_JamlAttrHash12636 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_synpred253_JamlAttrHash12638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_synpred281_JamlAttrHash14539 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_synpred281_JamlAttrHash14607 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_synpred281_JamlAttrHash14609 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred289_JamlAttrHash14740 = new BitSet(new long[]{0x2000000002000000L,0x0000000090040000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_CLASS_in_synpred289_JamlAttrHash14758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_synpred289_JamlAttrHash14821 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash14846 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash14898 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_synpred289_JamlAttrHash14902 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred289_JamlAttrHash14904 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14906 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred289_JamlAttrHash14956 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14958 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_synpred289_JamlAttrHash15033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash15099 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash15101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_synpred289_JamlAttrHash15149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_synpred297_JamlAttrHash15550 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_synpred297_JamlAttrHash15553 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_synpred297_JamlAttrHash15555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeArgumentList8204 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList8206 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_COMMA_in_genericTypeArgumentList8209 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList8211 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeArgumentList8215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_genericTypeArgument8253 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument8263 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000010L});
+    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument8265 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_genericWildcardBoundType8307 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_genericWildcardBoundType8316 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified8335 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8337 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_COMMA_in_genericTypeArgumentListSimplified8340 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8342 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeArgumentListSimplified8346 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_genericTypeArgumentSimplified8388 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgumentSimplified8398 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8421 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_qualifiedIdentList8424 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8427 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_LPAREN_in_formalParameterList8452 = new BitSet(new long[]{0x12A0080000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList8480 = new BitSet(new long[]{0x0000080000000800L});
+    public static final BitSet FOLLOW_COMMA_in_formalParameterList8483 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList8485 = new BitSet(new long[]{0x0000080000000800L});
+    public static final BitSet FOLLOW_COMMA_in_formalParameterList8490 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_formalParameterList8492 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_formalParameterList8549 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_formalParameterList8626 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl8649 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl8651 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl8653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarArgDecl8697 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterVarArgDecl8699 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ELLIPSIS_in_formalParameterVarArgDecl8701 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarArgDecl8703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier8751 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier8794 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier8798 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_annotation_in_annotationList8851 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_AT_in_annotation8889 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation8892 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_annotationInit_in_annotation8894 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_annotationInit8918 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit8920 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_annotationInit8922 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers8959 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_annotationInitializers8962 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers8964 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers8994 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_annotationInitializer9035 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_ASSIGN_in_annotationInitializer9038 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer9041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationElementValueExpression_in_annotationElementValue9064 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_annotationElementValue9074 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationElementValueArrayInitializer_in_annotationElementValue9084 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_conditionalExpression_in_annotationElementValueExpression9107 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_annotationElementValueArrayInitializer9147 = new BitSet(new long[]{0x12A004446AA01C80L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9150 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_annotationElementValueArrayInitializer9153 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9155 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_annotationElementValueArrayInitializer9162 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_annotationElementValueArrayInitializer9166 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_AT_in_annotationTypeDeclaration9209 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_INTERFACE_in_annotationTypeDeclaration9211 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_annotationTypeDeclaration9213 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_annotationBody_in_annotationTypeDeclaration9215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_annotationBody9258 = new BitSet(new long[]{0x32A0040000000080L,0x000000444EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationBody9260 = new BitSet(new long[]{0x32A0040000000080L,0x000000444EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_annotationBody9263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations9305 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations9307 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations9321 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_annotationScopeDeclarations9323 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_annotationScopeDeclarations9325 = new BitSet(new long[]{0x8000100000000000L});
+    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations9327 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_annotationScopeDeclarations9330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations9372 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_annotationScopeDeclarations9374 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations9419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue9442 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue9445 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_block9466 = new BitSet(new long[]{0x73E014446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_blockStatement_in_block9468 = new BitSet(new long[]{0x73E014446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_block9471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement9509 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_blockStatement9511 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement9522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_blockStatement9532 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration9555 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_localVariableDeclaration9557 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration9559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_statement9612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ASSERT_in_statement9622 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement9626 = new BitSet(new long[]{0x0000100000000400L});
+    public static final BitSet FOLLOW_COLON_in_statement9641 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement9645 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement9647 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_statement9710 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IF_in_statement9799 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement9801 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement9805 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ELSE_in_statement9820 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement9824 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FOR_in_statement9990 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_statement9992 = new BitSet(new long[]{0x12A010446A201480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forInit_in_statement10007 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10009 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forCondition_in_statement10011 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10013 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forUpdater_in_statement10015 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_statement10017 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10019 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_statement10054 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_statement10056 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement10058 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_statement10060 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement10062 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_statement10064 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHILE_in_statement10181 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10183 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DO_in_statement10234 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10236 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
+    public static final BitSet FOLLOW_WHILE_in_statement10238 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10240 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRY_in_statement10283 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_statement10285 = new BitSet(new long[]{0x0800000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_catches_in_statement10288 = new BitSet(new long[]{0x0800000000000002L,0x0000000000000080L});
+    public static final BitSet FOLLOW_finallyClause_in_statement10290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_finallyClause_in_statement10295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SWITCH_in_statement10338 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10340 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_LCURLY_in_statement10342 = new BitSet(new long[]{0x8400000000000000L});
+    public static final BitSet FOLLOW_switchBlockLabels_in_statement10344 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_statement10346 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement10372 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10374 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_statement10376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RETURN_in_statement10422 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement10424 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10427 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THROW_in_statement10491 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement10493 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10495 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BREAK_in_statement10560 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement10562 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10565 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CONTINUE_in_statement10635 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement10637 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_statement10707 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_statement10709 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10711 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_statement10778 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10780 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_statement10791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_catchClause_in_catches10830 = new BitSet(new long[]{0x0800000000000002L});
+    public static final BitSet FOLLOW_CATCH_in_catchClause10872 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_catchClause10875 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause10878 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_catchClause10880 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_catchClause10883 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FINALLY_in_finallyClause10902 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_finallyClause10904 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels10936 = new BitSet(new long[]{0x8400000000000000L});
+    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels10938 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels10941 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchCaseLabels10986 = new BitSet(new long[]{0x0400000000000002L});
+    public static final BitSet FOLLOW_CASE_in_switchCaseLabel11014 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel11017 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_switchCaseLabel11019 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel11022 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel11046 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_switchDefaultLabel11049 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel11052 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit11076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expressionList_in_forInit11098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_forCondition11186 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expressionList_in_forUpdater11228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_parenthesizedExpression11268 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_parenthesizedExpression11270 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_parenthesizedExpression11272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_expressionList11313 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_expressionList11316 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_expressionList11319 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_assignmentExpression_in_expression11340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_conditionalExpression_in_assignmentExpression11376 = new BitSet(new long[]{0x001540A280004262L});
+    public static final BitSet FOLLOW_ASSIGN_in_assignmentExpression11395 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_PLUS_ASSIGN_in_assignmentExpression11414 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_MINUS_ASSIGN_in_assignmentExpression11433 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_STAR_ASSIGN_in_assignmentExpression11452 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_DIV_ASSIGN_in_assignmentExpression11471 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_AND_ASSIGN_in_assignmentExpression11490 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_OR_ASSIGN_in_assignmentExpression11509 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_XOR_ASSIGN_in_assignmentExpression11528 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_MOD_ASSIGN_in_assignmentExpression11547 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression11566 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11585 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11604 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_assignmentExpression_in_assignmentExpression11626 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_logicalOrExpression_in_conditionalExpression11651 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_conditionalExpression11654 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_assignmentExpression_in_conditionalExpression11657 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_conditionalExpression11659 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_conditionalExpression_in_conditionalExpression11662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression11683 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_LOGICAL_OR_in_logicalOrExpression11686 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression11689 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression11710 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_LOGICAL_AND_in_logicalAndExpression11713 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression11716 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11737 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_OR_in_inclusiveOrExpression11740 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11743 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression11764 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_XOR_in_exclusiveOrExpression11767 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression11770 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_equalityExpression_in_andExpression11791 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_AND_in_andExpression11794 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_equalityExpression_in_andExpression11797 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression11818 = new BitSet(new long[]{0x0000000800040002L});
+    public static final BitSet FOLLOW_EQUAL_in_equalityExpression11837 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_NOT_EQUAL_in_equalityExpression11856 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression11886 = new BitSet(new long[]{0x0000000800040002L});
+    public static final BitSet FOLLOW_relationalExpression_in_instanceOfExpression11916 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_INSTANCEOF_in_instanceOfExpression11919 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_instanceOfExpression11922 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression11943 = new BitSet(new long[]{0x0000000003180002L});
+    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_relationalExpression11962 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11981 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_LESS_THAN_in_relationalExpression12000 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_relationalExpression12019 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression12048 = new BitSet(new long[]{0x0000000003180002L});
+    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression12082 = new BitSet(new long[]{0x0000A00000000102L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression12100 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_shiftExpression12119 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_in_shiftExpression12138 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression12167 = new BitSet(new long[]{0x0000A00000000102L});
+    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression12197 = new BitSet(new long[]{0x0000004040000002L});
+    public static final BitSet FOLLOW_PLUS_in_additiveExpression12215 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_MINUS_in_additiveExpression12234 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression12263 = new BitSet(new long[]{0x0000004040000002L});
+    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression12293 = new BitSet(new long[]{0x0002000100002002L});
+    public static final BitSet FOLLOW_STAR_in_multiplicativeExpression12312 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_DIV_in_multiplicativeExpression12331 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_MOD_in_multiplicativeExpression12350 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression12379 = new BitSet(new long[]{0x0002000100002002L});
+    public static final BitSet FOLLOW_PLUS_in_unaryExpression12413 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression12415 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_in_unaryExpression12442 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression12444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INC_in_unaryExpression12470 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression12472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEC_in_unaryExpression12496 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression12498 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression12522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NOT_in_unaryExpressionNotPlusMinus12541 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12543 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus12590 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12631 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_unaryExpressionNotPlusMinus12633 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus12635 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus12672 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primaryExpression_in_postfixedExpression12708 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_DOT_in_postfixedExpression12770 = new BitSet(new long[]{0x0000000002000000L,0x0000000090040000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_postfixedExpression12820 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_postfixedExpression12902 = new BitSet(new long[]{0x0000000020609002L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression12981 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_THIS_in_postfixedExpression13055 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_SUPER_in_postfixedExpression13118 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression13120 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_SUPER_in_postfixedExpression13173 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_postfixedExpression13177 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_postfixedExpression13179 = new BitSet(new long[]{0x0000000020609002L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression13246 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_postfixedExpression13317 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_LBRACK_in_postfixedExpression13374 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_postfixedExpression13376 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_postfixedExpression13378 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_INC_in_postfixedExpression13439 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEC_in_postfixedExpression13463 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression13511 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_primaryExpression13521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_newExpression_in_primaryExpression13531 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentExpression_in_primaryExpression13541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression13551 = new BitSet(new long[]{0x0000000000000000L,0x0000000090000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression13566 = new BitSet(new long[]{0x0000000020008000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13584 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression13644 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression13646 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression13715 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression13772 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression13839 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13907 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression13972 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13974 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression14030 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression14032 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression14034 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression14058 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primitiveType_in_primaryExpression14200 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_primaryExpression14259 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression14322 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression14324 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_primaryExpression14384 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression14386 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression14388 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression14468 = new BitSet(new long[]{0x0000000020408002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_qualifiedIdentExpression14538 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14606 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression14608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14678 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14739 = new BitSet(new long[]{0x2000000002000000L,0x0000000090040000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression14757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14820 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression14845 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14847 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression14897 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14901 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression14903 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14905 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression14955 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_qualifiedIdentExpression15032 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression15098 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression15100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_qualifiedIdentExpression15148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NEW_in_newExpression15224 = new BitSet(new long[]{0x1280000002000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression15240 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression15242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_newExpression15286 = new BitSet(new long[]{0x1280000002000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_newExpression15289 = new BitSet(new long[]{0x0000000020400000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression15307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arguments_in_newExpression15372 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classBody_in_newExpression15374 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NEW_in_innerNewExpression15473 = new BitSet(new long[]{0x0000000002000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_innerNewExpression15475 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_innerNewExpression15478 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_innerNewExpression15480 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classBody_in_innerNewExpression15482 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction15528 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction15530 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction15540 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction15543 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction15545 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction15549 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction15552 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction15554 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction15559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_arguments15579 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expressionList_in_arguments15581 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_arguments15584 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_synpred5_JamlAttrHash4620 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_COMMA_in_synpred5_JamlAttrHash4622 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_synpred5_JamlAttrHash4626 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_synpred5_JamlAttrHash4628 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_synpred77_JamlAttrHash5967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_synpred78_JamlAttrHash5977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_synpred79_JamlAttrHash5987 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_bound_in_synpred80_JamlAttrHash6017 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_synpred95_JamlAttrHash6549 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_synpred95_JamlAttrHash6551 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred105_JamlAttrHash6588 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred105_JamlAttrHash6607 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6609 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6611 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred105_JamlAttrHash6613 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6616 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_synpred105_JamlAttrHash6624 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_synpred105_JamlAttrHash6686 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6688 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6690 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6692 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6696 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_synpred105_JamlAttrHash6700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6759 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6761 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6763 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_synpred106_JamlAttrHash6574 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred106_JamlAttrHash6588 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred106_JamlAttrHash6607 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6609 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6611 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred106_JamlAttrHash6613 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6616 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6624 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_synpred106_JamlAttrHash6686 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6688 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6690 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6692 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6696 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6759 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6761 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6763 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_synpred106_JamlAttrHash6830 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_synpred106_JamlAttrHash6832 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_synpred107_JamlAttrHash6879 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred113_JamlAttrHash6935 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred113_JamlAttrHash6954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred113_JamlAttrHash6956 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred113_JamlAttrHash6958 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred113_JamlAttrHash6960 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred113_JamlAttrHash6963 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred113_JamlAttrHash6966 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_synpred113_JamlAttrHash7024 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred113_JamlAttrHash7026 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred113_JamlAttrHash7028 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred113_JamlAttrHash7030 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred113_JamlAttrHash7033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_synpred114_JamlAttrHash6921 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred114_JamlAttrHash6935 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred114_JamlAttrHash6954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred114_JamlAttrHash6956 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred114_JamlAttrHash6958 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred114_JamlAttrHash6960 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred114_JamlAttrHash6963 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash6966 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_synpred114_JamlAttrHash7024 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred114_JamlAttrHash7026 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred114_JamlAttrHash7028 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred114_JamlAttrHash7030 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash7033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_synpred114_JamlAttrHash7096 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_interfaceFieldDeclaratorList_in_synpred114_JamlAttrHash7098 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash7100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_synpred115_JamlAttrHash7145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_synpred121_JamlAttrHash7447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred139_JamlAttrHash7848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred140_JamlAttrHash7897 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred142_JamlAttrHash7982 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeIdent_in_synpred142_JamlAttrHash7984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COMMA_in_synpred153_JamlAttrHash8209 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_synpred153_JamlAttrHash8211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericWildcardBoundType_in_synpred155_JamlAttrHash8265 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COMMA_in_synpred160_JamlAttrHash8483 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred160_JamlAttrHash8485 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8480 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_synpred162_JamlAttrHash8483 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8485 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_synpred162_JamlAttrHash8490 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_synpred162_JamlAttrHash8492 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_synpred163_JamlAttrHash8549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred164_JamlAttrHash8794 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred164_JamlAttrHash8798 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_synpred165_JamlAttrHash8851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_synpred177_JamlAttrHash9305 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred177_JamlAttrHash9307 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred177_JamlAttrHash9321 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_synpred177_JamlAttrHash9323 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_synpred177_JamlAttrHash9325 = new BitSet(new long[]{0x8000100000000000L});
+    public static final BitSet FOLLOW_annotationDefaultValue_in_synpred177_JamlAttrHash9327 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred177_JamlAttrHash9330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_synpred177_JamlAttrHash9372 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred177_JamlAttrHash9374 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_synpred179_JamlAttrHash9509 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred179_JamlAttrHash9511 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_synpred180_JamlAttrHash9522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ELSE_in_synpred184_JamlAttrHash9820 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_synpred184_JamlAttrHash9824 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_forInit_in_synpred186_JamlAttrHash10007 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred186_JamlAttrHash10009 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forCondition_in_synpred186_JamlAttrHash10011 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred186_JamlAttrHash10013 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forUpdater_in_synpred186_JamlAttrHash10015 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_synpred186_JamlAttrHash10017 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_synpred186_JamlAttrHash10019 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_synpred206_JamlAttrHash10986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_synpred209_JamlAttrHash11076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expressionList_in_synpred210_JamlAttrHash11098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_synpred253_JamlAttrHash12631 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred253_JamlAttrHash12633 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_synpred253_JamlAttrHash12635 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_synpred253_JamlAttrHash12637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_synpred281_JamlAttrHash14538 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_synpred281_JamlAttrHash14606 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_synpred281_JamlAttrHash14608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred289_JamlAttrHash14739 = new BitSet(new long[]{0x2000000002000000L,0x0000000090040000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_CLASS_in_synpred289_JamlAttrHash14757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_synpred289_JamlAttrHash14820 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash14845 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14847 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash14897 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_synpred289_JamlAttrHash14901 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred289_JamlAttrHash14903 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14905 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred289_JamlAttrHash14955 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_synpred289_JamlAttrHash15032 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash15098 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash15100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_synpred289_JamlAttrHash15148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_synpred297_JamlAttrHash15549 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_synpred297_JamlAttrHash15552 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_synpred297_JamlAttrHash15554 = new BitSet(new long[]{0x0000000000000002L});
 
 }
