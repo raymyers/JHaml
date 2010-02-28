@@ -21,7 +21,12 @@ public class EmbeddedJavaCodeTest {
     
     @Test
     public void ifStatement() {
-//    	assertEquals("<%= foo(bar); %>", jaml.parse("- if ()"));
-//    	assertEquals("<p><%= foo(bar); %></p>", jaml.parse("%p= foo(bar);"));
+    	String html = "<% if (1+1==2) { %>\n  <p />\n<% } %>";
+		assertEquals(html, jaml.parse("- if (1+1==2)\n  %p/"));
+    }
+    @Test
+    public void ifStatementNoParens() {
+    	String html = "<% if (1 + 1 == 2) { %>\n  <p />\n<% } %>";
+    	assertEquals(html, jaml.parse("- if 1 + 1 == 2\n  %p/"));
     }
 }

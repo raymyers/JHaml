@@ -101,6 +101,10 @@ public class Helper {
 	}
 	
 	public String jspScriptlet(String code) {
+		boolean isMultiLine = code.contains("\n") || code.contains("\r");
+		if (code.startsWith("if") && isMultiLine) {
+			return ifBlock(code);
+		}
 		return "<% " + code + " %>";
 	}
 
@@ -118,6 +122,15 @@ public class Helper {
 			return htmlComment(text.substring(1));
 		}
 		return text;
+	}
+
+	private String ifBlock(String string) {
+		String condition = string.substring(string.indexOf("if")+2, string.indexOf("\n")).trim();
+		if (!condition.startsWith("(")) {
+			condition = "(" + condition + ")";
+		}
+		String remainingLines = string.substring(string.indexOf("\n"));
+		return "<% if " + condition + " { %>" + remainingLines + "\n<% } %>";
 	}
 
 	private String ieConditionalComment(String string) {
