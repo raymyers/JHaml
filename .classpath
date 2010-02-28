@@ -10,7 +10,11 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Jaml/lib/commons-lang-2.4/commons-lang-2.4-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/google-guava.jar"/>
+	<classpathentry kind="lib" path="lib/google-guava.jar" sourcepath="lib/guava-libraries-read-only/src">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/workspace/guava-libraries/javadoc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/guava-libraries-read-only/lib/jsr305.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
