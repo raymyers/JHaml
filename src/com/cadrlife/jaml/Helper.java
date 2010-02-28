@@ -127,7 +127,16 @@ public class Helper {
 		if (text.startsWith("/")) {
 			return htmlComment(text.substring(1));
 		}
+		if (text.startsWith(":")) {
+			return filter(text.substring(1));
+		}
 		return text;
+	}
+
+	private String filter(String string) {
+		String filter = string.substring(0,string.indexOf("\n"));
+		String remainingLines = string.substring(string.indexOf("\n")+1);
+		return config.filters.get(filter).process(remainingLines);
 	}
 
 	private String ifBlock(String string) {
