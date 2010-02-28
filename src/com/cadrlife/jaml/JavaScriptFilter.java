@@ -1,6 +1,6 @@
 package com.cadrlife.jaml;
 
-import org.apache.commons.lang.StringUtils;
+import com.google.common.base.CharMatcher;
 
 
 public class JavaScriptFilter extends Filter {
@@ -13,7 +13,7 @@ public class JavaScriptFilter extends Filter {
 	public String process(String input) {
 		return "<script type='text/javascript'>\n" + 
 		"  //<![CDATA[\n" + 
-		indent(StringUtils.chomp(input)) + "\n" + 
+		indent(CharMatcher.WHITESPACE.trimTrailingFrom(input)) + "\n" + 
 		"  //]]>\n" + 
 		"</script>";
 	}

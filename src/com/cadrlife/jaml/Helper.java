@@ -5,9 +5,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
 
 import com.cadrlife.jaml.JamlAttrHashParser.attrMappings_return;
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Joiner;
 
 
 public class Helper {
@@ -182,7 +183,7 @@ public class Helper {
 	}
 
 	private String htmlComment(String string) {
-		if (StringUtils.isBlank(string)) {
+		if (CharMatcher.WHITESPACE.matchesAllOf(string)) {
 			return "<!--\n-->";
 		}
 		if (string.contains("\n") || string.contains("\r")) {
@@ -205,7 +206,7 @@ public class Helper {
 			attrsFromHash.remove("class");
 		}
 		if (!classes.isEmpty()) {
-			attrMap.put("class", StringUtils.join(classes, " "));
+			attrMap.put("class", Joiner.on(" ").join(classes));
 		}
 		attrMap.putAll(attrsFromHash);
 		if (!ids.isEmpty()) {
@@ -213,7 +214,7 @@ public class Helper {
 				ids = ids.subList(ids.size()-2, ids.size());
 			}
 			
-			attrMap.put("id", StringUtils.join(ids, "_"));
+			attrMap.put("id", Joiner.on("_").join(ids));
 		}
 	}
 	
