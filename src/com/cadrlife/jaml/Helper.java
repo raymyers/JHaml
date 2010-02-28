@@ -105,6 +105,12 @@ public class Helper {
 		if (code.startsWith("if") && isMultiLine) {
 			return ifBlock(code);
 		}
+		if (code.startsWith("while") && isMultiLine) {
+			return whileLoop(code);
+		}
+		if (code.startsWith("for") && isMultiLine) {
+			return forLoop(code);
+		}
 		return "<% " + code + " %>";
 	}
 
@@ -131,6 +137,24 @@ public class Helper {
 		}
 		String remainingLines = string.substring(string.indexOf("\n"));
 		return "<% if " + condition + " { %>" + remainingLines + "\n<% } %>";
+	}
+	
+	private String whileLoop(String string) {
+		String condition = string.substring(string.indexOf("while")+5, string.indexOf("\n")).trim();
+		if (!condition.startsWith("(")) {
+			condition = "(" + condition + ")";
+		}
+		String remainingLines = string.substring(string.indexOf("\n"));
+		return "<% while " + condition + " { %>" + remainingLines + "\n<% } %>";
+	}
+	
+	private String forLoop(String string) {
+		String condition = string.substring(string.indexOf("for")+3, string.indexOf("\n")).trim();
+		if (!condition.startsWith("(")) {
+			condition = "(" + condition + ")";
+		}
+		String remainingLines = string.substring(string.indexOf("\n"));
+		return "<% for " + condition + " { %>" + remainingLines + "\n<% } %>";
 	}
 
 	private String ieConditionalComment(String string) {
