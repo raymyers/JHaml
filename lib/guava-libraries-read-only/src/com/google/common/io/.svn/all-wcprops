@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/9/trunk/src/com/google/common/io
+END
+Files.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/9/trunk/src/com/google/common/io/Files.java
+END
+ByteStreams.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/9/trunk/src/com/google/common/io/ByteStreams.java
+END
+ByteProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/9/trunk/src/com/google/common/io/ByteProcessor.java
+END
+FileBackedOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/common/io/FileBackedOutputStream.java
+END
+NullOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/9/trunk/src/com/google/common/io/NullOutputStream.java
+END
+LineReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/io/LineReader.java
+END
+LimitInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/9/trunk/src/com/google/common/io/LimitInputStream.java
+END
+Resources.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/9/trunk/src/com/google/common/io/Resources.java
+END
+Closeables.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/io/Closeables.java
+END
+ByteArrayDataInput.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/9/trunk/src/com/google/common/io/ByteArrayDataInput.java
+END
+CharStreams.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/9/trunk/src/com/google/common/io/CharStreams.java
+END
+MultiReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/9/trunk/src/com/google/common/io/MultiReader.java
+END
+ByteArrayDataOutput.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/9/trunk/src/com/google/common/io/ByteArrayDataOutput.java
+END
+LineBuffer.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/io/LineBuffer.java
+END
+CountingInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/9/trunk/src/com/google/common/io/CountingInputStream.java
+END
+InputSupplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/9/trunk/src/com/google/common/io/InputSupplier.java
+END
+CountingOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/9/trunk/src/com/google/common/io/CountingOutputStream.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/9/trunk/src/com/google/common/io/package-info.java
+END
+OutputSupplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/9/trunk/src/com/google/common/io/OutputSupplier.java
+END
+PatternFilenameFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/9/trunk/src/com/google/common/io/PatternFilenameFilter.java
+END
+MultiInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/9/trunk/src/com/google/common/io/MultiInputStream.java
+END
+LineProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/9/trunk/src/com/google/common/io/LineProcessor.java
+END
+Flushables.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/io/Flushables.java
+END
+AppendableWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/9/trunk/src/com/google/common/io/AppendableWriter.java
+END

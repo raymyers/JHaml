@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/9/trunk/src/com/google/common/base
+END
+FinalizableReference.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/common/base/FinalizableReference.java
+END
+Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Service.java
+END
+Predicate.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Predicate.java
+END
+Supplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Supplier.java
+END
+FinalizableReferenceQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/9/trunk/src/com/google/common/base/FinalizableReferenceQueue.java
+END
+Splitter.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Splitter.java
+END
+FinalizableWeakReference.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/common/base/FinalizableWeakReference.java
+END
+Defaults.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2/trunk/src/com/google/common/base/Defaults.java
+END
+Functions.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Functions.java
+END
+Throwables.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Throwables.java
+END
+Charsets.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Charsets.java
+END
+Preconditions.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Preconditions.java
+END
+CharMatcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/9/trunk/src/com/google/common/base/CharMatcher.java
+END
+Predicates.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Predicates.java
+END
+Platform.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Platform.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/6/trunk/src/com/google/common/base/package-info.java
+END
+CaseFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/9/trunk/src/com/google/common/base/CaseFormat.java
+END
+Function.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Function.java
+END
+Joiner.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Joiner.java
+END
+FinalizablePhantomReference.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/9/trunk/src/com/google/common/base/FinalizablePhantomReference.java
+END
+Suppliers.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Suppliers.java
+END
+Objects.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/9/trunk/src/com/google/common/base/Objects.java
+END
+FinalizableSoftReference.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/9/trunk/src/com/google/common/base/FinalizableSoftReference.java
+END

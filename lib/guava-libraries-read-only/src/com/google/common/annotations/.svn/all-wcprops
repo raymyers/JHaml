@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/9/trunk/src/com/google/common/annotations
+END
+GwtCompatible.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/src/com/google/common/annotations/GwtCompatible.java
+END
+VisibleForTesting.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/6/trunk/src/com/google/common/annotations/VisibleForTesting.java
+END
+GwtIncompatible.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/9/trunk/src/com/google/common/annotations/GwtIncompatible.java
+END

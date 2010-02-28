@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent
+END
+ListenableFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/ListenableFuture.html
+END
+UncheckedTimeoutException.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/UncheckedTimeoutException.html
+END
+CheckedFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/CheckedFuture.html
+END
+Executors.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/Executors.html
+END
+Callables.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/Callables.html
+END
+AbstractIdleService.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/AbstractIdleService.html
+END
+ForwardingService.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/ForwardingService.html
+END
+DaemonThreadFactory.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/DaemonThreadFactory.html
+END
+package-frame.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/package-frame.html
+END
+TimeLimiter.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/TimeLimiter.html
+END
+AbstractService.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/AbstractService.html
+END
+package-use.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/package-use.html
+END
+UninterruptibleFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/UninterruptibleFuture.html
+END
+package-summary.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/package-summary.html
+END
+package-tree.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/package-tree.html
+END
+NamingThreadFactory.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/NamingThreadFactory.html
+END
+ForwardingFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/ForwardingFuture.html
+END
+Futures.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/Futures.html
+END
+SimpleTimeLimiter.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/SimpleTimeLimiter.html
+END
+AbstractFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/AbstractFuture.html
+END
+ExecutionList.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/ExecutionList.html
+END
+AbstractExecutionThreadService.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/AbstractExecutionThreadService.html
+END
+ListenableFutureTask.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/ListenableFutureTask.html
+END
+AbstractListenableFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/AbstractListenableFuture.html
+END
+AbstractCheckedFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/AbstractCheckedFuture.html
+END
+ValueFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/ValueFuture.html
+END
+FakeTimeLimiter.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/FakeTimeLimiter.html
+END

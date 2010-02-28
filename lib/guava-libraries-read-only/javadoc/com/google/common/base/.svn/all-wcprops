@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base
+END
+Charsets.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/Charsets.html
+END
+Service.State.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/Service.State.html
+END
+Preconditions.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Preconditions.html
+END
+CharMatcher.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/CharMatcher.html
+END
+package-frame.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/package-frame.html
+END
+Predicates.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Predicates.html
+END
+CaseFormat.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/CaseFormat.html
+END
+package-use.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/package-use.html
+END
+Function.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Function.html
+END
+Suppliers.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Suppliers.html
+END
+Joiner.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Joiner.html
+END
+package-summary.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/package-summary.html
+END
+FinalizablePhantomReference.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/FinalizablePhantomReference.html
+END
+package-tree.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/package-tree.html
+END
+Objects.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Objects.html
+END
+FinalizableSoftReference.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/FinalizableSoftReference.html
+END
+FinalizableReference.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/FinalizableReference.html
+END
+Service.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/Service.html
+END
+Predicate.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Predicate.html
+END
+CharMatcher.LookupTable.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/CharMatcher.LookupTable.html
+END
+Objects.ToStringHelper.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Objects.ToStringHelper.html
+END
+Supplier.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Supplier.html
+END
+FinalizableReferenceQueue.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/FinalizableReferenceQueue.html
+END
+Splitter.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/Splitter.html
+END
+Defaults.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/Defaults.html
+END
+FinalizableWeakReference.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/FinalizableWeakReference.html
+END
+Functions.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Functions.html
+END
+Joiner.MapJoiner.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/8/trunk/javadoc/com/google/common/base/Joiner.MapJoiner.html
+END
+Throwables.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/base/Throwables.html
+END

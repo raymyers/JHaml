@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use
+END
+ListenableFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/ListenableFuture.html
+END
+UncheckedTimeoutException.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/UncheckedTimeoutException.html
+END
+CheckedFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/CheckedFuture.html
+END
+Executors.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/Executors.html
+END
+Callables.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/Callables.html
+END
+AbstractIdleService.html
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/AbstractIdleService.html
+END
+DaemonThreadFactory.html
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/DaemonThreadFactory.html
+END
+ForwardingService.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/ForwardingService.html
+END
+AbstractService.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/AbstractService.html
+END
+TimeLimiter.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/TimeLimiter.html
+END
+UninterruptibleFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/UninterruptibleFuture.html
+END
+NamingThreadFactory.html
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/NamingThreadFactory.html
+END
+Futures.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/Futures.html
+END
+ForwardingFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/ForwardingFuture.html
+END
+AbstractFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/AbstractFuture.html
+END
+SimpleTimeLimiter.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/SimpleTimeLimiter.html
+END
+ExecutionList.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/ExecutionList.html
+END
+ListenableFutureTask.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/ListenableFutureTask.html
+END
+AbstractExecutionThreadService.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/AbstractExecutionThreadService.html
+END
+AbstractListenableFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/AbstractListenableFuture.html
+END
+AbstractCheckedFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/AbstractCheckedFuture.html
+END
+ValueFuture.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/ValueFuture.html
+END
+FakeTimeLimiter.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/7/trunk/javadoc/com/google/common/util/concurrent/class-use/FakeTimeLimiter.html
+END

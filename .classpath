@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry combineaccessrules="false" kind="src" path="/guava-libraries"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
@@ -11,6 +10,7 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Jaml/lib/commons-lang-2.4/commons-lang-2.4-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/google-guava.jar"/>
+	<classpathentry kind="lib" path="lib/guava-libraries-read-only/lib/jsr305.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
-
