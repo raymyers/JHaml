@@ -29,11 +29,6 @@
                       fork="true">
                    <arg line="${tool.options} ${antlrdir}/${jaml.grammar.name}.g" />
                 </java>
-       			<java classname="org.antlr.Tool"
-       	                      classpathref="ANTLR.classpath"
-       	                      fork="true">
-       	                   <arg line="${tool.options} ${antlrdir}/${jaml.grammar.name}AttrHash.g" />
-       	                </java>
                 <move todir="${antlrdir}">
                    <fileset dir="" includes="*.java" />
                    <fileset dir="" includes="*.tokens" />

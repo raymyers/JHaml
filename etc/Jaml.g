@@ -81,9 +81,11 @@ line returns [String rendering] @init { $rendering = ""; } :
 freeformText[boolean beginningOfLine] returns [String rendering] @init {String txt = "";}:
   TEXT NEWLINE {txt = $TEXT.text;}
   (content {
-    boolean isFilter = (beginningOfLine && txt.startsWith(":"));
-    if (isFilter) txt = util.spaces($TEXT.getCharPositionInLine()) + txt;
-    txt += isFilter ? ("\n" + $content.text) : $content.rendering;
+    if (beginningOfLine && txt.startsWith(":")) {
+    	txt = util.spaces($TEXT.getCharPositionInLine()) + txt + "\n" + $content.text;
+    } else {
+    	txt += $content.rendering;
+    }
   })? 
   {$rendering = util.parseFreeFormText(txt);};
       

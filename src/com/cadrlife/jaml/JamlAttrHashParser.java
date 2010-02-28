@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-28 17:08:46
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-28 17:27:04
 
 package com.cadrlife.jaml;
 import java.util.LinkedHashMap;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 import org.antlr.runtime.tree.*;
 
-public class JamlAttrHashParser extends Parser {
+@SuppressWarnings("all") public class JamlAttrHashParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "AND_ASSIGN", "ASSIGN", "AT", "BIT_SHIFT_RIGHT", "BIT_SHIFT_RIGHT_ASSIGN", "COLON", "COMMA", "DEC", "DIV", "DIV_ASSIGN", "DOT", "DOTSTAR", "ELLIPSIS", "EQUAL", "GREATER_OR_EQUAL", "GREATER_THAN", "INC", "LBRACK", "LCURLY", "LESS_OR_EQUAL", "LESS_THAN", "LOGICAL_AND", "LOGICAL_NOT", "LOGICAL_OR", "LPAREN", "MINUS", "MINUS_ASSIGN", "MOD", "MOD_ASSIGN", "NOT", "NOT_EQUAL", "OR", "OR_ASSIGN", "PLUS", "PLUS_ASSIGN", "QUESTION", "RBRACK", "RCURLY", "RPAREN", "SEMI", "SHIFT_LEFT", "SHIFT_LEFT_ASSIGN", "SHIFT_RIGHT", "SHIFT_RIGHT_ASSIGN", "STAR", "STAR_ASSIGN", "XOR", "XOR_ASSIGN", "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", "BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FALSE", "FINAL", "FINALLY", "FLOAT", "FOR", "IF", "IMPLEMENTS", "INSTANCEOF", "INTERFACE", "IMPORT", "INT", "LONG", "NATIVE", "NEW", "NULL", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", "SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRUE", "TRY", "VOID", "VOLATILE", "WHILE", "ANNOTATION_INIT_ARRAY_ELEMENT", "ANNOTATION_INIT_BLOCK", "ANNOTATION_INIT_DEFAULT_KEY", "ANNOTATION_INIT_KEY_LIST", "ANNOTATION_LIST", "ANNOTATION_METHOD_DECL", "ANNOTATION_SCOPE", "ANNOTATION_TOP_LEVEL_SCOPE", "ARGUMENT_LIST", "ARRAY_DECLARATOR", "ARRAY_DECLARATOR_LIST", "ARRAY_ELEMENT_ACCESS", "ARRAY_INITIALIZER", "BLOCK_SCOPE", "CAST_EXPR", "CATCH_CLAUSE_LIST", "CLASS_CONSTRUCTOR_CALL", "CLASS_INSTANCE_INITIALIZER", "CLASS_STATIC_INITIALIZER", "CLASS_TOP_LEVEL_SCOPE", "CONSTRUCTOR_DECL", "ENUM_TOP_LEVEL_SCOPE", "EXPR", "EXTENDS_BOUND_LIST", "EXTENDS_CLAUSE", "FOR_CONDITION", "FOR_EACH", "FOR_INIT", "FOR_UPDATE", "FORMAL_PARAM_LIST", "FORMAL_PARAM_STD_DECL", "FORMAL_PARAM_VARARG_DECL", "FUNCTION_METHOD_DECL", "GENERIC_TYPE_ARG_LIST", "GENERIC_TYPE_PARAM_LIST", "INTERFACE_TOP_LEVEL_SCOPE", "IMPLEMENTS_CLAUSE", "LABELED_STATEMENT", "LOCAL_MODIFIER_LIST", "JAVA_SOURCE", "METHOD_CALL", "MODIFIER_LIST", "PARENTESIZED_EXPR", "POST_DEC", "POST_INC", "PRE_DEC", "PRE_INC", "QUALIFIED_TYPE_IDENT", "STATIC_ARRAY_CREATOR", "SUPER_CONSTRUCTOR_CALL", "SWITCH_BLOCK_LABEL_LIST", "THIS_CONSTRUCTOR_CALL", "THROWS_CLAUSE", "TYPE", "UNARY_MINUS", "UNARY_PLUS", "VAR_DECLARATION", "VAR_DECLARATOR", "VAR_DECLARATOR_LIST", "VOID_METHOD_DECL", "IDENT", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "CHARACTER_LITERAL", "STRING_LITERAL", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "ESCAPE_SEQUENCE", "UNICODE_ESCAPE", "OCTAL_ESCAPE", "JAVA_ID_START", "JAVA_ID_PART", "WS", "COMMENT", "LINE_COMMENT"
     };
@@ -1853,7 +1853,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: implementsClause, classExtendsClause, classBody, genericTypeParameterList, IDENT, CLASS
+            // elements: classExtendsClause, genericTypeParameterList, implementsClause, classBody, IDENT, CLASS
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2870,7 +2870,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: IDENT, ENUM, implementsClause, enumBody
+            // elements: ENUM, IDENT, enumBody, implementsClause
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3546,7 +3546,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: interfaceBody, IDENT, interfaceExtendsClause, genericTypeParameterList, INTERFACE
+            // elements: interfaceExtendsClause, INTERFACE, interfaceBody, genericTypeParameterList, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -4372,7 +4372,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, modifierList, IDENT, formalParameterList, arrayDeclaratorList, throwsClause, type, block
+                                    // elements: modifierList, type, IDENT, block, formalParameterList, arrayDeclaratorList, genericTypeParameterList, throwsClause
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4510,7 +4510,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: block, genericTypeParameterList, formalParameterList, IDENT, throwsClause, modifierList
+                                    // elements: throwsClause, block, modifierList, IDENT, genericTypeParameterList, formalParameterList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4602,7 +4602,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: block, modifierList, formalParameterList, genericTypeParameterList, throwsClause
+                                    // elements: throwsClause, genericTypeParameterList, modifierList, block, formalParameterList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -4671,7 +4671,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: type, classFieldDeclaratorList, modifierList
+                            // elements: modifierList, classFieldDeclaratorList, type
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -5007,7 +5007,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: type, arrayDeclaratorList, formalParameterList, modifierList, genericTypeParameterList, throwsClause, IDENT
+                                    // elements: genericTypeParameterList, throwsClause, formalParameterList, IDENT, modifierList, arrayDeclaratorList, type
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -5100,7 +5100,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeParameterList, modifierList, IDENT, throwsClause, formalParameterList
+                                    // elements: modifierList, throwsClause, genericTypeParameterList, formalParameterList, IDENT
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -5169,7 +5169,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: interfaceFieldDeclaratorList, type, modifierList
+                            // elements: type, modifierList, interfaceFieldDeclaratorList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -7131,7 +7131,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: primitiveType, arrayDeclaratorList
+            // elements: arrayDeclaratorList, primitiveType
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -9026,7 +9026,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: localModifierList, type, variableDeclaratorId
+            // elements: localModifierList, variableDeclaratorId, type
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -9134,7 +9134,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: localModifierList, type, variableDeclaratorId
+            // elements: variableDeclaratorId, localModifierList, type
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -9280,7 +9280,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             	    // AST REWRITE
-            	    // elements: DOT, ident, qualifiedIdentifier
+            	    // elements: ident, qualifiedIdentifier, DOT
             	    // token labels: ident
             	    // rule labels: retval
             	    // token list labels: 
@@ -10376,7 +10376,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: IDENT, AT, annotationBody
+            // elements: annotationBody, AT, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -10685,7 +10685,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: modifierList, annotationDefaultValue, type, IDENT
+                            // elements: annotationDefaultValue, IDENT, modifierList, type
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10736,7 +10736,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: modifierList, classFieldDeclaratorList, type
+                            // elements: classFieldDeclaratorList, type, modifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11143,7 +11143,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: type, localModifierList, classFieldDeclaratorList
+            // elements: localModifierList, classFieldDeclaratorList, type
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -11444,7 +11444,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: expr2, ASSERT, expr1
+                            // elements: expr2, expr1, ASSERT
                             // token labels: 
                             // rule labels: retval, expr1, expr2
                             // token list labels: 
@@ -11484,7 +11484,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: ASSERT, expr1
+                            // elements: expr1, ASSERT
                             // token labels: 
                             // rule labels: retval, expr1
                             // token list labels: 
@@ -11584,7 +11584,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: elseStat, parenthesizedExpression, ifStat, IF
+                            // elements: elseStat, ifStat, IF, parenthesizedExpression
                             // token labels: 
                             // rule labels: retval, ifStat, elseStat
                             // token list labels: 
@@ -11621,7 +11621,7 @@ public class JamlAttrHashParser extends Parser {
                             {
 
                             // AST REWRITE
-                            // elements: ifStat, IF, parenthesizedExpression
+                            // elements: parenthesizedExpression, ifStat, IF
                             // token labels: 
                             // rule labels: retval, ifStat
                             // token list labels: 
@@ -11709,7 +11709,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: forUpdater, statement, FOR, forCondition, forInit
+                            // elements: statement, forCondition, forUpdater, forInit, FOR
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11779,7 +11779,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: statement, IDENT, expression, type, localModifierList
+                            // elements: statement, expression, type, IDENT, localModifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11838,7 +11838,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: statement, WHILE, parenthesizedExpression
+                    // elements: parenthesizedExpression, statement, WHILE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11894,7 +11894,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: statement, parenthesizedExpression, DO
+                    // elements: parenthesizedExpression, DO, statement
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12006,7 +12006,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: TRY, block, finallyClause, catches
+                    // elements: TRY, finallyClause, catches, block
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12073,7 +12073,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: parenthesizedExpression, SWITCH, switchBlockLabels
+                    // elements: SWITCH, switchBlockLabels, parenthesizedExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12123,7 +12123,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: SYNCHRONIZED, parenthesizedExpression, block
+                    // elements: SYNCHRONIZED, block, parenthesizedExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12187,7 +12187,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: expression, RETURN
+                    // elements: RETURN, expression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12298,7 +12298,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: BREAK, IDENT
+                    // elements: IDENT, BREAK
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12414,7 +12414,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: statement, IDENT
+                    // elements: IDENT, statement
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12837,7 +12837,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: switchCaseLabels, switchDefaultLabel, switchCaseLabels
+            // elements: switchCaseLabels, switchCaseLabels, switchDefaultLabel
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -16006,7 +16006,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: unaryExpression, type
+                    // elements: type, unaryExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -16277,7 +16277,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             	            // AST REWRITE
-            	            // elements: postfixedExpression, IDENT, DOT
+            	            // elements: IDENT, DOT, postfixedExpression
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16326,7 +16326,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             	                    // AST REWRITE
-            	                    // elements: arguments, postfixedExpression, genericTypeArgumentListSimplified
+            	                    // elements: genericTypeArgumentListSimplified, arguments, postfixedExpression
             	                    // token labels: 
             	                    // rule labels: retval
             	                    // token list labels: 
@@ -16376,7 +16376,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             	            // AST REWRITE
-            	            // elements: THIS, DOT, postfixedExpression
+            	            // elements: postfixedExpression, DOT, THIS
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16420,7 +16420,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             	            // AST REWRITE
-            	            // elements: postfixedExpression, arguments
+            	            // elements: arguments, postfixedExpression
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -16467,7 +16467,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             	            // AST REWRITE
-            	            // elements: outerDot, innerDot, SUPER, postfixedExpression, IDENT
+            	            // elements: IDENT, innerDot, postfixedExpression, outerDot, SUPER
             	            // token labels: outerDot, innerDot
             	            // rule labels: retval
             	            // token list labels: 
@@ -17039,7 +17039,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: IDENT, genericTypeArgumentListSimplified, DOT, arguments, SUPER
+                                    // elements: SUPER, IDENT, genericTypeArgumentListSimplified, DOT, arguments
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -17099,7 +17099,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: genericTypeArgumentListSimplified, IDENT, arguments
+                            // elements: arguments, IDENT, genericTypeArgumentListSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17144,7 +17144,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: genericTypeArgumentListSimplified, arguments
+                            // elements: arguments, genericTypeArgumentListSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17356,7 +17356,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: IDENT, SUPER, arguments, DOT
+                            // elements: SUPER, DOT, arguments, IDENT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17399,7 +17399,7 @@ public class JamlAttrHashParser extends Parser {
                             {
 
                             // AST REWRITE
-                            // elements: SUPER, IDENT, DOT
+                            // elements: DOT, IDENT, SUPER
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -17493,7 +17493,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     	    // AST REWRITE
-                    	    // elements: arrayDeclarator, primaryExpression
+                    	    // elements: primaryExpression, arrayDeclarator
                     	    // token labels: 
                     	    // rule labels: retval
                     	    // token list labels: 
@@ -17536,7 +17536,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: DOT, CLASS, primaryExpression
+                    // elements: primaryExpression, CLASS, DOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17580,7 +17580,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: DOT, CLASS, VOID
+                    // elements: CLASS, VOID, DOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17765,7 +17765,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     	    // AST REWRITE
-                    	    // elements: qualifiedIdentExpression, arrayDeclarator
+                    	    // elements: arrayDeclarator, qualifiedIdentExpression
                     	    // token labels: 
                     	    // rule labels: retval
                     	    // token list labels: 
@@ -17816,7 +17816,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: CLASS, qualifiedIdentExpression, DOT
+                    // elements: qualifiedIdentExpression, CLASS, DOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17860,7 +17860,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: arguments, qualifiedIdentifier
+                    // elements: qualifiedIdentifier, arguments
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17941,7 +17941,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: DOT, CLASS, qualifiedIdentifier
+                            // elements: CLASS, qualifiedIdentifier, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18026,7 +18026,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeArgumentListSimplified, qualifiedIdentifier, arguments
+                                    // elements: arguments, qualifiedIdentifier, genericTypeArgumentListSimplified
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -18077,7 +18077,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: outerDot, arguments, IDENT, SUPER, genericTypeArgumentListSimplified, qualifiedIdentifier, innerDot
+                                    // elements: innerDot, genericTypeArgumentListSimplified, SUPER, qualifiedIdentifier, arguments, IDENT, outerDot
                                     // token labels: outerDot, innerDot
                                     // rule labels: retval
                                     // token list labels: 
@@ -18142,7 +18142,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: genericTypeArgumentListSimplified, arguments, qualifiedIdentifier, IDENT, DOT
+                                    // elements: IDENT, genericTypeArgumentListSimplified, DOT, arguments, qualifiedIdentifier
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -18196,7 +18196,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: THIS, DOT, qualifiedIdentifier
+                            // elements: qualifiedIdentifier, DOT, THIS
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18240,7 +18240,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: arguments, qualifiedIdentifier
+                            // elements: qualifiedIdentifier, arguments
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18281,7 +18281,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: DOT, innerNewExpression, qualifiedIdentifier
+                            // elements: innerNewExpression, qualifiedIdentifier, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18426,7 +18426,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: primitiveType, newArrayConstruction
+                    // elements: newArrayConstruction, primitiveType
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -18517,7 +18517,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: genericTypeArgumentListSimplified, qualifiedTypeIdentSimplified, newArrayConstruction
+                            // elements: genericTypeArgumentListSimplified, newArrayConstruction, qualifiedTypeIdentSimplified
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18587,7 +18587,7 @@ public class JamlAttrHashParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: classBody, arguments, qualifiedTypeIdentSimplified, genericTypeArgumentListSimplified
+                            // elements: arguments, qualifiedTypeIdentSimplified, genericTypeArgumentListSimplified, classBody
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -18758,7 +18758,7 @@ public class JamlAttrHashParser extends Parser {
 
 
             // AST REWRITE
-            // elements: IDENT, genericTypeArgumentListSimplified, classBody, arguments
+            // elements: genericTypeArgumentListSimplified, arguments, IDENT, classBody
             // token labels: 
             // rule labels: retval
             // token list labels: 

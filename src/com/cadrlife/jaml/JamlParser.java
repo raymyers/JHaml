@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-02-28 17:08:43
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-02-28 17:24:37
 
 package com.cadrlife.jaml;
 import java.util.LinkedHashMap;
@@ -525,9 +525,11 @@ import org.antlr.runtime.tree.*;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, content13.getTree());
                     if ( state.backtracking==0 ) {
 
-                          boolean isFilter = (beginningOfLine && txt.startsWith(":"));
-                          if (isFilter) txt = util.spaces(TEXT11.getCharPositionInLine()) + txt;
-                          txt += isFilter ? ("\n" + (content13!=null?input.toString(content13.start,content13.stop):null)) : (content13!=null?content13.rendering:null);
+                          if (beginningOfLine && txt.startsWith(":")) {
+                          	txt = util.spaces(TEXT11.getCharPositionInLine()) + txt + "\n" + (content13!=null?input.toString(content13.start,content13.stop):null);
+                          } else {
+                          	txt += (content13!=null?content13.rendering:null);
+                          }
                         
                     }
 
@@ -571,7 +573,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "elementDeclaration"
-    // ../etc/Jaml.g:90:1: elementDeclaration returns [String type, Map<String,String> attrMap] : ( (a1= divAttrs[ids,classes] ( attrHash[$attrMap] )? ) | (a2= attrs[ids,classes] ( attrHash[$attrMap] )? ) );
+    // ../etc/Jaml.g:92:1: elementDeclaration returns [String type, Map<String,String> attrMap] : ( (a1= divAttrs[ids,classes] ( attrHash[$attrMap] )? ) | (a2= attrs[ids,classes] ( attrHash[$attrMap] )? ) );
     public final JamlParser.elementDeclaration_return elementDeclaration() throws RecognitionException {
     traceIn("elementDeclaration", 5);
         JamlParser.elementDeclaration_return retval = new JamlParser.elementDeclaration_return();
@@ -595,7 +597,7 @@ import org.antlr.runtime.tree.*;
           	List<String> classes = new ArrayList<String>();
           
         try {
-            // ../etc/Jaml.g:98:4: ( (a1= divAttrs[ids,classes] ( attrHash[$attrMap] )? ) | (a2= attrs[ids,classes] ( attrHash[$attrMap] )? ) )
+            // ../etc/Jaml.g:100:4: ( (a1= divAttrs[ids,classes] ( attrHash[$attrMap] )? ) | (a2= attrs[ids,classes] ( attrHash[$attrMap] )? ) )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -614,12 +616,12 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt8) {
                 case 1 :
-                    // ../etc/Jaml.g:99:3: (a1= divAttrs[ids,classes] ( attrHash[$attrMap] )? )
+                    // ../etc/Jaml.g:101:3: (a1= divAttrs[ids,classes] ( attrHash[$attrMap] )? )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    // ../etc/Jaml.g:99:3: (a1= divAttrs[ids,classes] ( attrHash[$attrMap] )? )
-                    // ../etc/Jaml.g:99:4: a1= divAttrs[ids,classes] ( attrHash[$attrMap] )?
+                    // ../etc/Jaml.g:101:3: (a1= divAttrs[ids,classes] ( attrHash[$attrMap] )? )
+                    // ../etc/Jaml.g:101:4: a1= divAttrs[ids,classes] ( attrHash[$attrMap] )?
                     {
                     pushFollow(FOLLOW_divAttrs_in_elementDeclaration290);
                     a1=divAttrs(ids, classes);
@@ -630,7 +632,7 @@ import org.antlr.runtime.tree.*;
                     if ( state.backtracking==0 ) {
                       retval.type = "div";
                     }
-                    // ../etc/Jaml.g:99:46: ( attrHash[$attrMap] )?
+                    // ../etc/Jaml.g:101:46: ( attrHash[$attrMap] )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -639,7 +641,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../etc/Jaml.g:99:46: attrHash[$attrMap]
+                            // ../etc/Jaml.g:101:46: attrHash[$attrMap]
                             {
                             pushFollow(FOLLOW_attrHash_in_elementDeclaration295);
                             attrHash14=attrHash(retval.attrMap);
@@ -660,12 +662,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:101:2: (a2= attrs[ids,classes] ( attrHash[$attrMap] )? )
+                    // ../etc/Jaml.g:103:2: (a2= attrs[ids,classes] ( attrHash[$attrMap] )? )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    // ../etc/Jaml.g:101:2: (a2= attrs[ids,classes] ( attrHash[$attrMap] )? )
-                    // ../etc/Jaml.g:101:3: a2= attrs[ids,classes] ( attrHash[$attrMap] )?
+                    // ../etc/Jaml.g:103:2: (a2= attrs[ids,classes] ( attrHash[$attrMap] )? )
+                    // ../etc/Jaml.g:103:3: a2= attrs[ids,classes] ( attrHash[$attrMap] )?
                     {
                     pushFollow(FOLLOW_attrs_in_elementDeclaration307);
                     a2=attrs(ids, classes);
@@ -676,7 +678,7 @@ import org.antlr.runtime.tree.*;
                     if ( state.backtracking==0 ) {
                       retval.type = (a2!=null?a2.type:null);
                     }
-                    // ../etc/Jaml.g:102:3: ( attrHash[$attrMap] )?
+                    // ../etc/Jaml.g:104:3: ( attrHash[$attrMap] )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -685,7 +687,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt7) {
                         case 1 :
-                            // ../etc/Jaml.g:102:3: attrHash[$attrMap]
+                            // ../etc/Jaml.g:104:3: attrHash[$attrMap]
                             {
                             pushFollow(FOLLOW_attrHash_in_elementDeclaration315);
                             attrHash15=attrHash(retval.attrMap);
@@ -740,7 +742,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "content"
-    // ../etc/Jaml.g:105:1: content returns [String rendering] : INDENT (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ DEDENT ;
+    // ../etc/Jaml.g:107:1: content returns [String rendering] : INDENT (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ DEDENT ;
     public final JamlParser.content_return content() throws RecognitionException {
     traceIn("content", 6);
         JamlParser.content_return retval = new JamlParser.content_return();
@@ -762,8 +764,8 @@ import org.antlr.runtime.tree.*;
 
          retval.rendering = ""; 
         try {
-            // ../etc/Jaml.g:105:63: ( INDENT (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ DEDENT )
-            // ../etc/Jaml.g:106:1: INDENT (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ DEDENT
+            // ../etc/Jaml.g:107:63: ( INDENT (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ DEDENT )
+            // ../etc/Jaml.g:108:1: INDENT (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ DEDENT
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -772,7 +774,7 @@ import org.antlr.runtime.tree.*;
             INDENT16_tree = (CommonTree)adaptor.create(INDENT16);
             adaptor.addChild(root_0, INDENT16_tree);
             }
-            // ../etc/Jaml.g:107:2: (e1= element | freeformText[true] | ( blankLines )=> blankLines )+
+            // ../etc/Jaml.g:109:2: (e1= element | freeformText[true] | ( blankLines )=> blankLines )+
             int cnt9=0;
             loop9:
             do {
@@ -806,7 +808,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt9) {
             	case 1 :
-            	    // ../etc/Jaml.g:107:4: e1= element
+            	    // ../etc/Jaml.g:109:4: e1= element
             	    {
             	    pushFollow(FOLLOW_element_in_content346);
             	    e1=element();
@@ -821,7 +823,7 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/Jaml.g:108:3: freeformText[true]
+            	    // ../etc/Jaml.g:110:3: freeformText[true]
             	    {
             	    pushFollow(FOLLOW_freeformText_in_content355);
             	    freeformText17=freeformText(true);
@@ -836,7 +838,7 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 3 :
-            	    // ../etc/Jaml.g:109:3: ( blankLines )=> blankLines
+            	    // ../etc/Jaml.g:111:3: ( blankLines )=> blankLines
             	    {
             	    pushFollow(FOLLOW_blankLines_in_content370);
             	    blankLines18=blankLines();
@@ -896,7 +898,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "blankLines"
-    // ../etc/Jaml.g:114:1: blankLines : DEDENT ( ( NEWLINE )+ | blankLines ) INDENT ;
+    // ../etc/Jaml.g:116:1: blankLines : DEDENT ( ( NEWLINE )+ | blankLines ) INDENT ;
     public final JamlParser.blankLines_return blankLines() throws RecognitionException {
     traceIn("blankLines", 7);
         JamlParser.blankLines_return retval = new JamlParser.blankLines_return();
@@ -915,8 +917,8 @@ import org.antlr.runtime.tree.*;
         CommonTree INDENT23_tree=null;
 
         try {
-            // ../etc/Jaml.g:114:12: ( DEDENT ( ( NEWLINE )+ | blankLines ) INDENT )
-            // ../etc/Jaml.g:114:14: DEDENT ( ( NEWLINE )+ | blankLines ) INDENT
+            // ../etc/Jaml.g:116:12: ( DEDENT ( ( NEWLINE )+ | blankLines ) INDENT )
+            // ../etc/Jaml.g:116:14: DEDENT ( ( NEWLINE )+ | blankLines ) INDENT
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -925,7 +927,7 @@ import org.antlr.runtime.tree.*;
             DEDENT20_tree = (CommonTree)adaptor.create(DEDENT20);
             adaptor.addChild(root_0, DEDENT20_tree);
             }
-            // ../etc/Jaml.g:114:21: ( ( NEWLINE )+ | blankLines )
+            // ../etc/Jaml.g:116:21: ( ( NEWLINE )+ | blankLines )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -944,9 +946,9 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt11) {
                 case 1 :
-                    // ../etc/Jaml.g:114:22: ( NEWLINE )+
+                    // ../etc/Jaml.g:116:22: ( NEWLINE )+
                     {
-                    // ../etc/Jaml.g:114:22: ( NEWLINE )+
+                    // ../etc/Jaml.g:116:22: ( NEWLINE )+
                     int cnt10=0;
                     loop10:
                     do {
@@ -960,7 +962,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../etc/Jaml.g:114:22: NEWLINE
+                    	    // ../etc/Jaml.g:116:22: NEWLINE
                     	    {
                     	    NEWLINE21=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_blankLines389); if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) {
@@ -985,7 +987,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:114:33: blankLines
+                    // ../etc/Jaml.g:116:33: blankLines
                     {
                     pushFollow(FOLLOW_blankLines_in_blankLines394);
                     blankLines22=blankLines();
@@ -1035,7 +1037,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attrs"
-    // ../etc/Jaml.g:116:1: attrs[List<String> ids, List<String> classes] returns [String type] : PERCENT ID ( idSpecifier | classSpecifier )* ;
+    // ../etc/Jaml.g:118:1: attrs[List<String> ids, List<String> classes] returns [String type] : PERCENT ID ( idSpecifier | classSpecifier )* ;
     public final JamlParser.attrs_return attrs(List<String> ids, List<String> classes) throws RecognitionException {
     traceIn("attrs", 8);
         JamlParser.attrs_return retval = new JamlParser.attrs_return();
@@ -1054,8 +1056,8 @@ import org.antlr.runtime.tree.*;
         CommonTree ID25_tree=null;
 
         try {
-            // ../etc/Jaml.g:116:68: ( PERCENT ID ( idSpecifier | classSpecifier )* )
-            // ../etc/Jaml.g:117:1: PERCENT ID ( idSpecifier | classSpecifier )*
+            // ../etc/Jaml.g:118:68: ( PERCENT ID ( idSpecifier | classSpecifier )* )
+            // ../etc/Jaml.g:119:1: PERCENT ID ( idSpecifier | classSpecifier )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1072,7 +1074,7 @@ import org.antlr.runtime.tree.*;
             if ( state.backtracking==0 ) {
               retval.type = (ID25!=null?ID25.getText():null);
             }
-            // ../etc/Jaml.g:118:1: ( idSpecifier | classSpecifier )*
+            // ../etc/Jaml.g:120:1: ( idSpecifier | classSpecifier )*
             loop12:
             do {
                 int alt12=3;
@@ -1088,7 +1090,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt12) {
             	case 1 :
-            	    // ../etc/Jaml.g:118:2: idSpecifier
+            	    // ../etc/Jaml.g:120:2: idSpecifier
             	    {
             	    pushFollow(FOLLOW_idSpecifier_in_attrs416);
             	    idSpecifier26=idSpecifier();
@@ -1103,7 +1105,7 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/Jaml.g:119:2: classSpecifier
+            	    // ../etc/Jaml.g:121:2: classSpecifier
             	    {
             	    pushFollow(FOLLOW_classSpecifier_in_attrs423);
             	    classSpecifier27=classSpecifier();
@@ -1153,7 +1155,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "divAttrs"
-    // ../etc/Jaml.g:121:1: divAttrs[List<String> ids, List<String> classes] : ( idSpecifier | classSpecifier )+ ;
+    // ../etc/Jaml.g:123:1: divAttrs[List<String> ids, List<String> classes] : ( idSpecifier | classSpecifier )+ ;
     public final JamlParser.divAttrs_return divAttrs(List<String> ids, List<String> classes) throws RecognitionException {
     traceIn("divAttrs", 9);
         JamlParser.divAttrs_return retval = new JamlParser.divAttrs_return();
@@ -1168,12 +1170,12 @@ import org.antlr.runtime.tree.*;
 
 
         try {
-            // ../etc/Jaml.g:121:50: ( ( idSpecifier | classSpecifier )+ )
-            // ../etc/Jaml.g:122:1: ( idSpecifier | classSpecifier )+
+            // ../etc/Jaml.g:123:50: ( ( idSpecifier | classSpecifier )+ )
+            // ../etc/Jaml.g:124:1: ( idSpecifier | classSpecifier )+
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/Jaml.g:122:1: ( idSpecifier | classSpecifier )+
+            // ../etc/Jaml.g:124:1: ( idSpecifier | classSpecifier )+
             int cnt13=0;
             loop13:
             do {
@@ -1190,7 +1192,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt13) {
             	case 1 :
-            	    // ../etc/Jaml.g:122:2: idSpecifier
+            	    // ../etc/Jaml.g:124:2: idSpecifier
             	    {
             	    pushFollow(FOLLOW_idSpecifier_in_divAttrs437);
             	    idSpecifier28=idSpecifier();
@@ -1205,7 +1207,7 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/Jaml.g:123:2: classSpecifier
+            	    // ../etc/Jaml.g:125:2: classSpecifier
             	    {
             	    pushFollow(FOLLOW_classSpecifier_in_divAttrs444);
             	    classSpecifier29=classSpecifier();
@@ -1260,7 +1262,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attrHash"
-    // ../etc/Jaml.g:125:1: attrHash[Map<String,String> attrMap] : BEGIN_HASH hashAttrs END_HASH ;
+    // ../etc/Jaml.g:127:1: attrHash[Map<String,String> attrMap] : BEGIN_HASH hashAttrs END_HASH ;
     public final JamlParser.attrHash_return attrHash(Map<String,String> attrMap) throws RecognitionException {
     traceIn("attrHash", 10);
         JamlParser.attrHash_return retval = new JamlParser.attrHash_return();
@@ -1277,8 +1279,8 @@ import org.antlr.runtime.tree.*;
         CommonTree END_HASH32_tree=null;
 
         try {
-            // ../etc/Jaml.g:125:38: ( BEGIN_HASH hashAttrs END_HASH )
-            // ../etc/Jaml.g:126:3: BEGIN_HASH hashAttrs END_HASH
+            // ../etc/Jaml.g:127:38: ( BEGIN_HASH hashAttrs END_HASH )
+            // ../etc/Jaml.g:128:3: BEGIN_HASH hashAttrs END_HASH
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1335,7 +1337,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "hashAttrs"
-    // ../etc/Jaml.g:130:1: hashAttrs returns [String contents] : ( notEndHash )* ;
+    // ../etc/Jaml.g:132:1: hashAttrs returns [String contents] : ( notEndHash )* ;
     public final JamlParser.hashAttrs_return hashAttrs() throws RecognitionException {
     traceIn("hashAttrs", 11);
         JamlParser.hashAttrs_return retval = new JamlParser.hashAttrs_return();
@@ -1349,12 +1351,12 @@ import org.antlr.runtime.tree.*;
 
         retval.contents ="";
         try {
-            // ../etc/Jaml.g:130:59: ( ( notEndHash )* )
-            // ../etc/Jaml.g:131:1: ( notEndHash )*
+            // ../etc/Jaml.g:132:59: ( ( notEndHash )* )
+            // ../etc/Jaml.g:133:1: ( notEndHash )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/Jaml.g:131:1: ( notEndHash )*
+            // ../etc/Jaml.g:133:1: ( notEndHash )*
             loop14:
             do {
                 int alt14=2;
@@ -1367,7 +1369,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt14) {
             	case 1 :
-            	    // ../etc/Jaml.g:131:2: notEndHash
+            	    // ../etc/Jaml.g:133:2: notEndHash
             	    {
             	    pushFollow(FOLLOW_notEndHash_in_hashAttrs490);
             	    notEndHash33=notEndHash();
@@ -1417,7 +1419,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "notEndHash"
-    // ../etc/Jaml.g:133:1: notEndHash : (~ END_HASH ) ;
+    // ../etc/Jaml.g:135:1: notEndHash : (~ END_HASH ) ;
     public final JamlParser.notEndHash_return notEndHash() throws RecognitionException {
     traceIn("notEndHash", 12);
         JamlParser.notEndHash_return retval = new JamlParser.notEndHash_return();
@@ -1430,13 +1432,13 @@ import org.antlr.runtime.tree.*;
         CommonTree set34_tree=null;
 
         try {
-            // ../etc/Jaml.g:133:12: ( (~ END_HASH ) )
-            // ../etc/Jaml.g:133:14: (~ END_HASH )
+            // ../etc/Jaml.g:135:12: ( (~ END_HASH ) )
+            // ../etc/Jaml.g:135:14: (~ END_HASH )
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/Jaml.g:133:14: (~ END_HASH )
-            // ../etc/Jaml.g:133:15: ~ END_HASH
+            // ../etc/Jaml.g:135:14: (~ END_HASH )
+            // ../etc/Jaml.g:135:15: ~ END_HASH
             {
             set34=(Token)input.LT(1);
             if ( (input.LA(1)>=INDENT && input.LA(1)<=BEGIN_HASH)||(input.LA(1)>=POUND && input.LA(1)<=JAVA_RBRACE) ) {
@@ -1487,7 +1489,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "idSpecifier"
-    // ../etc/Jaml.g:135:1: idSpecifier returns [String id] : POUND ID ;
+    // ../etc/Jaml.g:137:1: idSpecifier returns [String id] : POUND ID ;
     public final JamlParser.idSpecifier_return idSpecifier() throws RecognitionException {
     traceIn("idSpecifier", 13);
         JamlParser.idSpecifier_return retval = new JamlParser.idSpecifier_return();
@@ -1502,8 +1504,8 @@ import org.antlr.runtime.tree.*;
         CommonTree ID36_tree=null;
 
         try {
-            // ../etc/Jaml.g:135:32: ( POUND ID )
-            // ../etc/Jaml.g:135:34: POUND ID
+            // ../etc/Jaml.g:137:32: ( POUND ID )
+            // ../etc/Jaml.g:137:34: POUND ID
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1551,7 +1553,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classSpecifier"
-    // ../etc/Jaml.g:137:1: classSpecifier returns [String klass] : DOT ID ;
+    // ../etc/Jaml.g:139:1: classSpecifier returns [String klass] : DOT ID ;
     public final JamlParser.classSpecifier_return classSpecifier() throws RecognitionException {
     traceIn("classSpecifier", 14);
         JamlParser.classSpecifier_return retval = new JamlParser.classSpecifier_return();
@@ -1566,8 +1568,8 @@ import org.antlr.runtime.tree.*;
         CommonTree ID38_tree=null;
 
         try {
-            // ../etc/Jaml.g:137:38: ( DOT ID )
-            // ../etc/Jaml.g:138:1: DOT ID
+            // ../etc/Jaml.g:139:38: ( DOT ID )
+            // ../etc/Jaml.g:140:1: DOT ID
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1612,8 +1614,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred1_Jaml_fragment() throws RecognitionException {   
         traceIn("synpred1_Jaml_fragment", 15);
         try {
-            // ../etc/Jaml.g:109:3: ( blankLines )
-            // ../etc/Jaml.g:109:4: blankLines
+            // ../etc/Jaml.g:111:3: ( blankLines )
+            // ../etc/Jaml.g:111:4: blankLines
             {
             pushFollow(FOLLOW_blankLines_in_synpred1_Jaml366);
             blankLines();
