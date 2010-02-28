@@ -22,4 +22,28 @@ public class FiltersTest {
 			"</script>";
 		assertEquals(html, jaml.parse(haml));
 	}
+	@Test
+	public void cdata() {
+		String haml = 
+			":cdata\n" +
+			"  Hello\n" +
+			"  %p"; 
+		String html =
+			"<![CDATA[\n" + 
+			"  Hello\n" +
+			"  %p\n" + 
+			"]]>"; 
+		assertEquals(html, jaml.parse(haml));
+	}
+	@Test
+	public void emptyCdata() {
+		String haml = 
+			":cdata\n" +
+			"Hello";
+		String html =
+			"<![CDATA[\n" + 
+			"]]>\n" + 
+			"Hello";
+		assertEquals(html, jaml.parse(haml));
+	}
 }

@@ -66,7 +66,7 @@ element returns [String rendering]
   }
   :
   elementDeclaration 
-   ( freeformText {content = $freeformText.rendering;} | 
+   ( freeformText[false] {content = $freeformText.rendering;} | 
      NEWLINE (content {content = $content.rendering;})? |
      FORWARD_SLASH NEWLINE {selfClosing = true;})
   {$rendering = util.elem($elementDeclaration.type, $elementDeclaration.attrMap, content, selfClosing);}
@@ -74,13 +74,17 @@ element returns [String rendering]
 
 line returns [String rendering] @init { $rendering = ""; } :
   element {$rendering = $element.rendering;}
-  | freeformText {$rendering = $freeformText.rendering;}
+  | freeformText[true] {$rendering = $freeformText.rendering;}
   | NEWLINE
   ;
   
-freeformText returns [String rendering] @init {String txt = "";}:
+freeformText[boolean beginningOfLine] returns [String rendering] @init {String txt = "";}:
   TEXT NEWLINE {txt = $TEXT.text;}
-  (content {txt += $content.rendering;})? 
+  (content {
+    boolean isFilter = (beginningOfLine && txt.startsWith(":"));
+    if (isFilter) txt = util.spaces($TEXT.getCharPositionInLine()) + txt;
+    txt += isFilter ? ("\n" + $content.text) : $content.rendering;
+  })? 
   {$rendering = util.parseFreeFormText(txt);};
       
 elementDeclaration returns [String type, Map<String,String> attrMap] 
@@ -101,7 +105,7 @@ elementDeclaration returns [String type, Map<String,String> attrMap]
 content returns [String rendering] @init { $rendering = ""; } :
 INDENT 
  ( e1=element {$rendering += $e1.rendering + "\n";} | 
-  freeformText {$rendering += $freeformText.rendering + "\n";} | 
+  freeformText[true] {$rendering += $freeformText.rendering + "\n";} | 
   (blankLines)=> blankLines )+
 DEDENT
 {$rendering = "\n" + util.indent(util.stripTrailingNewline($rendering)) + "\n";}
@@ -151,19 +155,20 @@ WS : { !textMode }?=>
 IGNORED_NEWLINE  : { hashMode }?=> NL ;
 
 CHANGE_INDENT 
-@init { int tb = 0; } :{ !hashMode }?=> 
-	(NL) (' ' {tb++;})* {
-	          emit(new CommonToken(NEWLINE));
+@init { String spaces = ""; } :{ !hashMode }?=> 
+	(NL) (' ' {spaces+=" ";})* {
+	          emit(new CommonToken(NEWLINE, "\n" + spaces));
 	          System.out.println("NEWLINE");
+	          int tb = spaces.length();
 	          System.out.println(tb + "/" + currentIndentation);
 	          if (tb > currentIndentation) {
 	              for(int i = 0; i < tb - currentIndentation; i+=2) {
-		              emit(new CommonToken(INDENT));
+		              emit(new CommonToken(INDENT,""));
 		              System.out.println("INDENT");
 	              }
 	          } else if(tb < currentIndentation) {
 	              for(int i = 0; i < currentIndentation - tb; i+=2) {
-	    	          emit(new CommonToken(DEDENT));
+	    	          emit(new CommonToken(DEDENT,""));
 		    	      System.out.println("DEDENT");
 	              }
 	          } else {

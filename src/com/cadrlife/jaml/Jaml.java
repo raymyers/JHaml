@@ -12,6 +12,8 @@ public class Jaml {
 		try {
 			String output = jamlParserWrapper.parseJaml(input).rendering;
 			return output.replaceAll("\n\n+", "\n").trim();
+		} catch (RuntimeException e) {
+			throw e;
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

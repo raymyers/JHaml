@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="lib/antlr-3.2.jar" sourcepath="/home/ray/workspace/Jaml/lib/antlr-3.2"/>
+	<classpathentry kind="lib" path="lib/antlr-3.2.jar" sourcepath="lib/antlr-3.2"/>
 	<classpathentry kind="lib" path="lib/commons-lang-2.4/commons-lang-2.4.jar" sourcepath="lib/commons-lang-2.4/commons-lang-2.4-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:platform:/resource/Jaml/lib/commons-lang-2.4/commons-lang-2.4-javadoc.jar!/"/>

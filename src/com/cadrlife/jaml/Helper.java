@@ -141,9 +141,16 @@ public class Helper {
 		return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
 	}
 
-	private String filter(String string) {
-		String filter = string.substring(0,string.indexOf("\n"));
-		String remainingLines = string.substring(string.indexOf("\n")+1);
+	private String filter(String text) {
+		String filter = text;
+		String remainingLines = "";
+		if (text.contains("\n")) {
+			filter = text.substring(0,text.indexOf("\n"));
+			remainingLines = "  " + text.substring(text.indexOf("\n")+1);
+		}
+		if (!config.filters.containsKey(filter)) {
+			throw new JamlParseException("Haml Error: Filter \"" + filter + "\" is not defined.");
+		}
 		return config.filters.get(filter).process(remainingLines);
 	}
 
@@ -216,6 +223,14 @@ public class Helper {
 			
 			attrMap.put("id", Joiner.on("_").join(ids));
 		}
+	}
+
+	public String spaces(int spaces) {
+		String string = "";
+		for (int i = 0; i<spaces; i++) {
+			string += " ";
+		}
+		return string;
 	}
 	
 }
