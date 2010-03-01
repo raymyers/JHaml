@@ -71,4 +71,12 @@ public class FiltersTest {
 		String html = "&lt;div /&gt;"; 
 		assertEquals(html, jaml.parse(haml));
 	}
+	@Test
+	public void preserve() {
+		String haml = 
+			":preserve\n" +
+			"  a\n   b\n\n    c";
+		String html = "a&#x000A; b&#x000A;&#x000A;  c"; 
+		assertEquals(html, jaml.parse(haml));
+	}
 }
