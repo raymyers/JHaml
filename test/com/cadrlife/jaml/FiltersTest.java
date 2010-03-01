@@ -63,4 +63,12 @@ public class FiltersTest {
 			"</p>"; 
 		assertEquals(html, jaml.parse(haml));
 	}
+	@Test
+	public void escaped() {
+		String haml = 
+			":escaped\n" +
+			"  <div />";
+		String html = "&lt;div /&gt;"; 
+		assertEquals(html, jaml.parse(haml));
+	}
 }
