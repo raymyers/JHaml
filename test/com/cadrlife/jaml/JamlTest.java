@@ -136,6 +136,13 @@ public class JamlTest {
 			assertEquals("<" + elem + " />", jaml.parse("%" + elem + ""));
 		}
 	}
+	
+	@Test
+	public void preserveTags() {
+//		for (String elem : new JamlConfig().autoclose) {
+//			assertEquals("<" + elem + " />", jaml.parse("%" + elem + ""));
+//		}
+	}
 
 	@Test
 	public void crNewLine() {

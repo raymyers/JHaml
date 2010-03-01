@@ -79,4 +79,18 @@ public class FiltersTest {
 		String html = "a&#x000A; b&#x000A;&#x000A;  c"; 
 		assertEquals(html, jaml.parse(haml));
 	}
+	
+	@Test
+	public void css() {
+		String haml= 
+			":css\n" +
+			"  body {}";
+		String html = 
+			"<style type='text/css'>\n" +
+			"<!--\n" +
+			"  body {}\n" +
+			"-->\n" +
+			"</style>"; 
+		assertEquals(html, jaml.parse(haml));
+	}
 }
