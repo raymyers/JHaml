@@ -146,7 +146,7 @@ public class Helper {
 		String remainingLines = "";
 		if (text.contains("\n")) {
 			filter = text.substring(0,text.indexOf("\n"));
-			remainingLines = "  " + text.substring(text.indexOf("\n")+1);
+			remainingLines =  text.substring(text.indexOf("\n")+1);
 		}
 		if (!config.filters.containsKey(filter)) {
 			throw new JamlParseException("Haml Error: Filter \"" + filter + "\" is not defined.");

@@ -25,14 +25,17 @@ public class FiltersTest {
 	@Test
 	public void cdata() {
 		String haml = 
-			":cdata\n" +
-			"  Hello\n" +
-			"  %p"; 
+			"%p\n" + 
+			"  :cdata\n" +
+			"    Hello\n" +
+			"    %p"; 
 		String html =
-			"<![CDATA[\n" + 
-			"  Hello\n" +
-			"  %p\n" + 
-			"]]>"; 
+			"<p>\n" + 
+			"  <![CDATA[\n" + 
+			"    Hello\n" +
+			"    %p\n" + 
+			"  ]]>\n" +
+			"</p>"; 
 		assertEquals(html, jaml.parse(haml));
 	}
 	@Test
@@ -44,6 +47,20 @@ public class FiltersTest {
 			"<![CDATA[\n" + 
 			"]]>\n" + 
 			"Hello";
+		assertEquals(html, jaml.parse(haml));
+	}
+	@Test
+	public void plain() {
+		String haml = 
+			"%p\n" + 
+			"  :plain\n" +
+			"    %div\n" +
+			"    Hello";
+		String html =
+			"<p>\n" + 
+			"  %div\n" + 
+			"  Hello\n" +
+			"</p>"; 
 		assertEquals(html, jaml.parse(haml));
 	}
 }

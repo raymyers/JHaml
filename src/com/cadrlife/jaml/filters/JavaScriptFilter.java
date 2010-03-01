@@ -14,13 +14,8 @@ public class JavaScriptFilter extends Filter {
 	public String process(String input) {
 		return "<script type='text/javascript'>\n" + 
 		"  //<![CDATA[\n" + 
-		indent(CharMatcher.WHITESPACE.trimTrailingFrom(input)) + "\n" + 
+		indent(CharMatcher.WHITESPACE.trimTrailingFrom(input), 4) + "\n" + 
 		"  //]]>\n" + 
 		"</script>";
 	}
-	
-	public String indent(String text) {
-		return "  " + text.replaceAll("\n", "\n  "); 
-	}
-
 }

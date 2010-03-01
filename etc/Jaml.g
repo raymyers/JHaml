@@ -82,7 +82,8 @@ freeformText[boolean beginningOfLine] returns [String rendering] @init {String t
   TEXT NEWLINE {txt = $TEXT.text;}
   (content {
     if (beginningOfLine && txt.startsWith(":")) {
-    	txt = util.spaces($TEXT.getCharPositionInLine()) + txt + "\n" + $content.text;
+    	int contentPos = $content.start.getCharPositionInLine();
+    	txt = txt + $NEWLINE.text + util.spaces(contentPos) + $content.text;
     } else {
     	txt += $content.rendering;
     }
