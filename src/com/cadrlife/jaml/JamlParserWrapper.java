@@ -35,12 +35,19 @@ public class JamlParserWrapper {
 		}
 	}
 
-	public jamlSource_return parseJaml(String input) throws IOException,
-			RecognitionException {
-		JamlParser parser = primeJamlParser(input, false);
-		jamlSource_return jamlSource = parser.jamlSource(new JamlConfig());
-		throwForParseErrors(parser);
-		return jamlSource;
+	public jamlSource_return parseJaml(String input) throws JamlParseException {
+		try {
+			JamlParser parser = primeJamlParser(input, false);
+			jamlSource_return result = parser.jamlSource(new JamlConfig());
+			throwForParseErrors(parser);
+			return result;
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new JamlParseException("");
+		} catch (RecognitionException e) {
+			e.printStackTrace();
+			throw new JamlParseException("");
+		}
 	}
 
 	private void throwForParseErrors(JamlParser parser) {

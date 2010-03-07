@@ -13,6 +13,7 @@ import com.google.common.base.Joiner;
 
 public class Helper {
 	private final JamlConfig config;
+	public final JamlErrorChecker errorChecker = new JamlErrorChecker();
 
 	public Helper(JamlConfig config) {
 		this.config = config;
@@ -116,8 +117,8 @@ public class Helper {
 	}
 
 	public String parseFreeFormText(String text) {
-		if (text.startsWith("!!!") && text.trim().length() == 3) {
-			return header();
+		if (text.startsWith("!!!")) {
+			return header(text);
 		}
 		if (text.startsWith("=")) {
 			return jspExpression(text.substring(1).trim());
@@ -134,10 +135,12 @@ public class Helper {
 		if (text.startsWith(":")) {
 			return filter(text.substring(1));
 		}
-		return text.replaceAll(" *$", "");
+		errorChecker.checkNoNestingWithinPlainText(text);
+		return CharMatcher.is(' ').trimTrailingFrom(text);
 	}
 
-	private String header() {
+	private String header(String header) {
+		errorChecker.checkHeaderHasNoNestedContent(header);
 		return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
 	}
 
@@ -212,6 +215,7 @@ public class Helper {
 			classes.add(0, attrsFromHash.get("class"));
 			attrsFromHash.remove("class");
 		}
+		errorChecker.checkForNullClassesAndIds(classes, ids);
 		if (!classes.isEmpty()) {
 			attrMap.put("class", Joiner.on(" ").join(classes));
 		}
