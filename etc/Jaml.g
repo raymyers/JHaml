@@ -54,8 +54,23 @@ public void pushElementScopeForTesting() {
   element_stack.push(new element_scope());
 }
 public int getCurrentLineNumber() {
-  return this.getTokenStream().LT(-1).getLine();
+  int i=-1;
+  for (; input.LT(i).getLine() <= 0; i--) {
+    System.out.println(">>>>");
+    System.out.println(input.LT(i).getLine());
+    System.out.println(input.LT(i));
+  }
+  System.out.println(">>>>");
+  System.out.println(input.LT(i).getLine());
+  System.out.println(input.LT(i));
+  return input.LT(i).getLine();
 }
+public int getCurrentLineNumber(String token) {
+  int i=-1;
+  for (; !token.equals(input.LT(i).getText()); i--);
+  return input.LT(i).getLine();
+}
+
 }
 jamlSource[JamlConfig config] returns [String rendering]
 @init {
@@ -160,10 +175,10 @@ hashAttrs returns [String contents] @init {$contents="";} :
 
 notEndHash : (~END_HASH) {System.out.println("() " + $notEndHash.text);};
 
-idSpecifier returns [String id]: POUND ID {$id = $ID.text;};
+idSpecifier returns [String id]: POUND ID? {$id = $ID.text;};
 
 classSpecifier returns [String klass]:
-DOT ID {$klass = $ID.text;};
+DOT ID? {$klass = $ID.text;};
 
 // LEXER
 
@@ -174,7 +189,8 @@ FORWARD_SLASH: { !beginningOfLine && !hashMode }?=> '/';
 COMMA: { !textMode }?=> ',';
 ID  : { !textMode }?=> 
   ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*
-  {textMode = true;};
+  {//textMode = true;
+  };
 // NEWLINE: ('\r'? '\n') {textMode = true; beginningOfLine=true;};
 
 WS : { !textMode }?=>
@@ -250,6 +266,7 @@ HexDigit : ('0'..'9'|'a'..'f'|'A'..'F') ;
 TEXT: { textMode && !hashMode }?=>
       (~('.' | '#' | '%' | '\r' | '\n' | '{' | ' '))
       (~('\r' | '\n'))*
+      | { !hashMode }?=> ('-' | '=') (~('\r' | '\n'))*
       {
         beginningOfLine = false;
       };
@@ -258,7 +275,7 @@ HASH_CONTENTS: { hashMode }?=>
       (~('"' | '\'' | '{' | '}'));
 
 //EQUALS  : { hashMode }?=> ;
-BEGIN_HASH  : { textMode && braceDepth == 0 }?=> LBRACE {hashMode=true;};
+BEGIN_HASH  : { !beginningOfLine && braceDepth == 0 }?=> LBRACE {hashMode=true;};
 END_HASH  : { braceDepth == 1 }?=> RBRACE {hashMode=false;};
 
 JAVA_LBRACE : { hashMode }?=> LBRACE;

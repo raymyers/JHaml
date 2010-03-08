@@ -20,33 +20,33 @@ public class ErrorMessagesTest {
 		assertInputThrows("%p/\n  a", "Illegal nesting: nesting within a self-closing tag is illegal.");
 		assertInputThrows(":a\n  b", "Filter \"a\" is not defined.", 1);
 		assertInputThrows(":a= b", "Invalid filter name \":a= b\".");
-//		assertInputThrows(".", "Illegal element: classes and ids must have values.");
-//		assertInputThrows(".#", "Illegal element: classes and ids must have values.");
-//		assertInputThrows(".{} a", "Illegal element: classes and ids must have values.");
+		assertInputThrows(".", "Illegal element: classes and ids must have values.");
+		assertInputThrows(".#", "Illegal element: classes and ids must have values.");
+		assertInputThrows(".{} a", "Illegal element: classes and ids must have values.");
 //		assertInputThrows(".() a", "Illegal element: classes and ids must have values.");
-//		assertInputThrows(".= a", "Illegal element: classes and ids must have values.");
-//		assertInputThrows("%p..a", "Illegal element: classes and ids must have values.");
-//		assertInputThrows("%a/ b", "Self-closing tags can't have content.");
-//		assertInputThrows("%p{:a => 'b',\n:c => 'd'}/ e", "Self-closing tags can't have content.", 2);
-//		assertInputThrows("%p{:a => 'b',\n:c => 'd'}=", "There's no Ruby code for = to evaluate.", 2);
-//		assertInputThrows("%p.{:a => 'b',\n:c => 'd'} e", "Illegal element: classes and ids must have values.", 1);
-//		assertInputThrows("%p{:a => 'b',\n:c => 'd',\n:e => 'f'}\n%p/ a", "Self-closing tags can't have content.", 4);
+		assertInputThrows(".= a", "Illegal element: classes and ids must have values.");
+		assertInputThrows("%p..a", "Illegal element: classes and ids must have values.");
+		assertInputThrows("%a/ b", "Self-closing tags can't have content.");
+		assertInputThrows("%p{:a => 'b',\n:c => 'd'}/ e", "Self-closing tags can't have content.", 2);
+		assertInputThrows("%p{:a => 'b',\n:c => 'd'}=", "There's no Java code for = to evaluate.", 2);
+		assertInputThrows("%p.{:a => 'b',\n:c => 'd'} e", "Illegal element: classes and ids must have values.", 1);
+		assertInputThrows("%p{:a => 'b',\n:c => 'd',\n:e => 'f'}\n%p/ a", "Self-closing tags can't have content.", 4);
 //		assertInputThrows("%p{:a => 'b',\n:c => 'd',\n:e => 'f'}\n- raise 'foo'", "foo", 4);
 //		assertInputThrows("%p{:a => 'b',\n:c => raise('foo'),\n:e => 'f'}", "foo", 2);
 //		assertInputThrows("%p{:a => 'b',\n:c => 'd',\n:e => raise('foo')}", "foo", 3);
-//		assertInputThrows(" %p foo", "Indenting at the beginning of the document is illegal.");
-//		assertInputThrows("  %p foo", "Indenting at the beginning of the document is illegal.");
-		    //"- end", <<MESSAGE.rstrip,
-	}
-		/*You don't need to use "- end" in Haml. Un-indent to close a block:
+		assertInputThrows(" %p foo", "Indenting at the beginning of the document is illegal.");
+		assertInputThrows("  %p foo", "Indenting at the beginning of the document is illegal.");
+		/*    "- end", <<MESSAGE.rstrip,
+		You don't need to use "- end" in Haml. Un-indent to close a block:
 		- if foo?
 		  %strong Foo!
 		- else
 		  Not foo.
 		%p This line is un-indented, so it isn't part of the "if" block
 		MESSAGE
-		    " \n\t\n %p foo", "Indenting at the beginning of the document is illegal.", 3,
-		    "\n\n %p foo", "Indenting at the beginning of the document is illegal.", 3,
+		*/
+//		assertInputThrows(" \n\t\n %p foo", "Indenting at the beginning of the document is illegal.", 3);
+		    /*"\n\n %p foo", "Indenting at the beginning of the document is illegal.", 3,
 		    "%p\n  foo\n foo", "Inconsistent indentation: 1 space was used for indentation, but the rest of the document was indented using 2 spaces.", 3,
 		    "%p\n  foo\n%p\n foo", "Inconsistent indentation: 1 space was used for indentation, but the rest of the document was indented using 2 spaces.", 4,
 		    "%p\n\t\tfoo\n\tfoo", "Inconsistent indentation: 1 tab was used for indentation, but the rest of the document was indented using 2 tabs.", 3,
@@ -81,8 +81,8 @@ public class ErrorMessagesTest {
 		    "!!!\n\n  bar", "Illegal nesting: nesting within a header command is illegal.", 3,
 		    "foo\n:ruby\n  1\n  2\n  3\n- raise 'foo'", "foo", 6,
 		    "foo\n:erb\n  1\n  2\n  3\n- raise 'foo'", "foo", 6,
-		    "= raise 'foo'\nfoo\nbar\nbaz\nbang", "foo", 1,
-		  }*/
+		    "= raise 'foo'\nfoo\nbar\nbaz\nbang", "foo", 1,*/
+		  }
 	private void assertInputThrows(String input, String message) {
 		assertInputThrows(input, message, lastLineNumber(input));
 	}

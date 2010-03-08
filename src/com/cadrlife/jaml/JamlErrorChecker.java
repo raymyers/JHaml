@@ -6,6 +6,8 @@ import com.cadrlife.jaml.util.IndentUtils;
 import com.google.common.base.CharMatcher;
 
 public class JamlErrorChecker {
+	private static final String INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL = "Indenting at the beginning of the document is illegal.";
+	private static final String SELF_CLOSING_TAGS_CAN_T_HAVE_CONTENT = "Self-closing tags can't have content.";
 	private static final String INVALID_FILTER_NAME = "Invalid filter name \":%s\".";
 	private static final String FILTER_IS_NOT_DEFINED = "Filter \"%s\" is not defined.";
 	private static final String ILLEGAL_NESTING_NESTING_WITHIN_A_SELF_CLOSING_TAG_IS_ILLEGAL = "Illegal nesting: nesting within a self-closing tag is illegal.";
@@ -25,17 +27,20 @@ public class JamlErrorChecker {
 			throwError(ILLEGAL_NESTING_NESTING_WITHIN_A_HEADER_COMMAND_IS_ILLEGAL);
 		}
 	}
-	private void throwError(int lineNumberOffset, String message) {
-		throw new JamlParseException(message, parser.getCurrentLineNumber()+lineNumberOffset);
+	private void throwError(int lineNumber, String message) {
+		throw new JamlParseException(message, lineNumber);
 	}
 	
 	private void throwError(String message) {
-		throwError(0, message);
+		throwError(parser.getCurrentLineNumber(), message);
 	}
 	public void checkForNullClassesAndIds(List<String> classes,
 			List<String> ids) {
-		if (classes.contains(null) || ids.contains(null)) {
-			throwError(ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
+		if (classes.contains(null)) {
+			throwError(parser.getCurrentLineNumber("."), ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
+		}
+		if (ids.contains(null)) {
+			throwError(parser.getCurrentLineNumber("#"), ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
 		}
 		
 	}
@@ -66,16 +71,24 @@ public class JamlErrorChecker {
 	}
 	public void checkContentOfSelfClosingTags(String content) {
 		if (!content.trim().isEmpty()) {
-			throwError(ILLEGAL_NESTING_NESTING_WITHIN_A_SELF_CLOSING_TAG_IS_ILLEGAL);
+			if (content.contains("\n")) {
+				throwError(ILLEGAL_NESTING_NESTING_WITHIN_A_SELF_CLOSING_TAG_IS_ILLEGAL);
+			}
+			throwError(SELF_CLOSING_TAGS_CAN_T_HAVE_CONTENT);
 		}
 	}
 	public void checkFilterIsDefined(JamlConfig config, String filter, String content) {
 		if (!config.filters.containsKey(filter)) {
 			int contentLines = CharMatcher.is('\n').countIn(content);
 			if (filter.contains(" ")) {
-				throwError(-contentLines, String.format(INVALID_FILTER_NAME,filter));
+				throwError(parser.getCurrentLineNumber()-contentLines, String.format(INVALID_FILTER_NAME,filter));
 			}
-			throwError(-contentLines, String.format(FILTER_IS_NOT_DEFINED,filter));
+			throwError(parser.getCurrentLineNumber()-contentLines, String.format(FILTER_IS_NOT_DEFINED,filter));
+		}
+	}
+	public void checkDocumentDoesNotBeginWithIndentation(String input) {
+		if (CharMatcher.is('\n').trimLeadingFrom(input).startsWith(" ")) {
+			throwError(1, INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL);
 		}
 	}
 }

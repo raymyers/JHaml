@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-03-07 21:47:45
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-03-07 23:53:30
 
 package com.cadrlife.jaml;
 
@@ -81,8 +81,8 @@ import java.util.ArrayList;
         try {
             int _type = POUND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:170:6: ( '#' )
-            // ../etc/Jaml.g:170:10: '#'
+            // ../etc/Jaml.g:185:6: ( '#' )
+            // ../etc/Jaml.g:185:10: '#'
             {
             match('#'); 
             textMode = false; beginningOfLine=false;
@@ -104,8 +104,8 @@ import java.util.ArrayList;
         try {
             int _type = DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:171:4: ( '.' )
-            // ../etc/Jaml.g:171:10: '.'
+            // ../etc/Jaml.g:186:4: ( '.' )
+            // ../etc/Jaml.g:186:10: '.'
             {
             match('.'); 
             textMode = false; beginningOfLine=false;
@@ -127,8 +127,8 @@ import java.util.ArrayList;
         try {
             int _type = PERCENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:172:8: ( '%' )
-            // ../etc/Jaml.g:172:10: '%'
+            // ../etc/Jaml.g:187:8: ( '%' )
+            // ../etc/Jaml.g:187:10: '%'
             {
             match('%'); 
             textMode = false; beginningOfLine=false;
@@ -150,8 +150,8 @@ import java.util.ArrayList;
         try {
             int _type = FORWARD_SLASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:173:14: ({...}? => '/' )
-            // ../etc/Jaml.g:173:16: {...}? => '/'
+            // ../etc/Jaml.g:188:14: ({...}? => '/' )
+            // ../etc/Jaml.g:188:16: {...}? => '/'
             {
             if ( !(( !beginningOfLine && !hashMode )) ) {
                 throw new FailedPredicateException(input, "FORWARD_SLASH", " !beginningOfLine && !hashMode ");
@@ -175,8 +175,8 @@ import java.util.ArrayList;
         try {
             int _type = COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:174:6: ({...}? => ',' )
-            // ../etc/Jaml.g:174:8: {...}? => ','
+            // ../etc/Jaml.g:189:6: ({...}? => ',' )
+            // ../etc/Jaml.g:189:8: {...}? => ','
             {
             if ( !(( !textMode )) ) {
                 throw new FailedPredicateException(input, "COMMA", " !textMode ");
@@ -200,8 +200,8 @@ import java.util.ArrayList;
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:175:5: ({...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
-            // ../etc/Jaml.g:175:7: {...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../etc/Jaml.g:190:5: ({...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
+            // ../etc/Jaml.g:190:7: {...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             {
             if ( !(( !textMode )) ) {
                 throw new FailedPredicateException(input, "ID", " !textMode ");
@@ -215,7 +215,7 @@ import java.util.ArrayList;
                 recover(mse);
                 throw mse;}
 
-            // ../etc/Jaml.g:176:23: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../etc/Jaml.g:191:23: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -248,7 +248,8 @@ import java.util.ArrayList;
                 }
             } while (true);
 
-            textMode = true;
+            //textMode = true;
+              
 
             }
 
@@ -267,8 +268,8 @@ import java.util.ArrayList;
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:180:4: ({...}? => Spaces )
-            // ../etc/Jaml.g:180:6: {...}? => Spaces
+            // ../etc/Jaml.g:196:4: ({...}? => Spaces )
+            // ../etc/Jaml.g:196:6: {...}? => Spaces
             {
             if ( !(( !textMode )) ) {
                 throw new FailedPredicateException(input, "WS", " !textMode ");
@@ -293,8 +294,8 @@ import java.util.ArrayList;
         try {
             int _type = IGNORED_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:183:18: ({...}? => NL )
-            // ../etc/Jaml.g:183:20: {...}? => NL
+            // ../etc/Jaml.g:199:18: ({...}? => NL )
+            // ../etc/Jaml.g:199:20: {...}? => NL
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "IGNORED_NEWLINE", " hashMode ");
@@ -319,20 +320,20 @@ import java.util.ArrayList;
             int _type = CHANGE_INDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
              String spaces = ""; 
-            // ../etc/Jaml.g:186:31: ({...}? => ( NL ) ( ' ' )* )
-            // ../etc/Jaml.g:186:32: {...}? => ( NL ) ( ' ' )*
+            // ../etc/Jaml.g:202:31: ({...}? => ( NL ) ( ' ' )* )
+            // ../etc/Jaml.g:202:32: {...}? => ( NL ) ( ' ' )*
             {
             if ( !(( !hashMode )) ) {
                 throw new FailedPredicateException(input, "CHANGE_INDENT", " !hashMode ");
             }
-            // ../etc/Jaml.g:187:2: ( NL )
-            // ../etc/Jaml.g:187:3: NL
+            // ../etc/Jaml.g:203:2: ( NL )
+            // ../etc/Jaml.g:203:3: NL
             {
             mNL(); 
 
             }
 
-            // ../etc/Jaml.g:187:7: ( ' ' )*
+            // ../etc/Jaml.g:203:7: ( ' ' )*
             loop2:
             do {
                 int alt2=2;
@@ -345,7 +346,7 @@ import java.util.ArrayList;
 
                 switch (alt2) {
             	case 1 :
-            	    // ../etc/Jaml.g:187:8: ' '
+            	    // ../etc/Jaml.g:203:8: ' '
             	    {
             	    match(' '); 
             	    spaces+=" ";
@@ -396,10 +397,10 @@ import java.util.ArrayList;
     public final void mNL() throws RecognitionException {
     traceIn("NL", 10);
         try {
-            // ../etc/Jaml.g:210:3: ( ( '\\r' )? '\\n' )
-            // ../etc/Jaml.g:210:5: ( '\\r' )? '\\n'
+            // ../etc/Jaml.g:226:3: ( ( '\\r' )? '\\n' )
+            // ../etc/Jaml.g:226:5: ( '\\r' )? '\\n'
             {
-            // ../etc/Jaml.g:210:5: ( '\\r' )?
+            // ../etc/Jaml.g:226:5: ( '\\r' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -408,7 +409,7 @@ import java.util.ArrayList;
             }
             switch (alt3) {
                 case 1 :
-                    // ../etc/Jaml.g:210:5: '\\r'
+                    // ../etc/Jaml.g:226:5: '\\r'
                     {
                     match('\r'); 
 
@@ -432,10 +433,10 @@ import java.util.ArrayList;
     public final void mSpacesQ() throws RecognitionException {
     traceIn("SpacesQ", 11);
         try {
-            // ../etc/Jaml.g:212:17: ( ( ' ' )* )
-            // ../etc/Jaml.g:212:19: ( ' ' )*
+            // ../etc/Jaml.g:228:17: ( ( ' ' )* )
+            // ../etc/Jaml.g:228:19: ( ' ' )*
             {
-            // ../etc/Jaml.g:212:19: ( ' ' )*
+            // ../etc/Jaml.g:228:19: ( ' ' )*
             loop4:
             do {
                 int alt4=2;
@@ -448,7 +449,7 @@ import java.util.ArrayList;
 
                 switch (alt4) {
             	case 1 :
-            	    // ../etc/Jaml.g:212:20: ' '
+            	    // ../etc/Jaml.g:228:20: ' '
             	    {
             	    match(' '); 
 
@@ -474,10 +475,10 @@ import java.util.ArrayList;
     public final void mSpaces() throws RecognitionException {
     traceIn("Spaces", 12);
         try {
-            // ../etc/Jaml.g:213:16: ( ( ' ' )+ )
-            // ../etc/Jaml.g:213:18: ( ' ' )+
+            // ../etc/Jaml.g:229:16: ( ( ' ' )+ )
+            // ../etc/Jaml.g:229:18: ( ' ' )+
             {
-            // ../etc/Jaml.g:213:18: ( ' ' )+
+            // ../etc/Jaml.g:229:18: ( ' ' )+
             int cnt5=0;
             loop5:
             do {
@@ -491,7 +492,7 @@ import java.util.ArrayList;
 
                 switch (alt5) {
             	case 1 :
-            	    // ../etc/Jaml.g:213:19: ' '
+            	    // ../etc/Jaml.g:229:19: ' '
             	    {
             	    match(' '); 
 
@@ -523,14 +524,14 @@ import java.util.ArrayList;
         try {
             int _type = StringLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:215:14: ({...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"' )
-            // ../etc/Jaml.g:215:16: {...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"'
+            // ../etc/Jaml.g:231:14: ({...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"' )
+            // ../etc/Jaml.g:231:16: {...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )* '\"'
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "StringLiteral", " hashMode ");
             }
             match('\"'); 
-            // ../etc/Jaml.g:216:9: ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )*
+            // ../etc/Jaml.g:232:9: ( EscapeSequence | ~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )*
             loop6:
             do {
                 int alt6=3;
@@ -546,14 +547,14 @@ import java.util.ArrayList;
 
                 switch (alt6) {
             	case 1 :
-            	    // ../etc/Jaml.g:216:11: EscapeSequence
+            	    // ../etc/Jaml.g:232:11: EscapeSequence
             	    {
             	    mEscapeSequence(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/Jaml.g:216:28: ~ ( '\\\\' | '\"' | '\\r' | '\\n' )
+            	    // ../etc/Jaml.g:232:28: ~ ( '\\\\' | '\"' | '\\r' | '\\n' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -592,11 +593,11 @@ import java.util.ArrayList;
         try {
             int _type = CHARLITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:221:5: ( '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) )* '\\'' )
-            // ../etc/Jaml.g:221:9: '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) )* '\\''
+            // ../etc/Jaml.g:237:5: ( '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) )* '\\'' )
+            // ../etc/Jaml.g:237:9: '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) )* '\\''
             {
             match('\''); 
-            // ../etc/Jaml.g:222:9: ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) )*
+            // ../etc/Jaml.g:238:9: ( EscapeSequence | ~ ( '\\'' | '\\\\' | '\\r' | '\\n' ) )*
             loop7:
             do {
                 int alt7=3;
@@ -612,14 +613,14 @@ import java.util.ArrayList;
 
                 switch (alt7) {
             	case 1 :
-            	    // ../etc/Jaml.g:222:13: EscapeSequence
+            	    // ../etc/Jaml.g:238:13: EscapeSequence
             	    {
             	    mEscapeSequence(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/Jaml.g:223:13: ~ ( '\\'' | '\\\\' | '\\r' | '\\n' )
+            	    // ../etc/Jaml.g:239:13: ~ ( '\\'' | '\\\\' | '\\r' | '\\n' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -656,7 +657,7 @@ import java.util.ArrayList;
     public final void mEscapeSequence() throws RecognitionException {
     traceIn("EscapeSequence", 15);
         try {
-            // ../etc/Jaml.g:230:3: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UnicodeEscape | OctalEscape )
+            // ../etc/Jaml.g:246:3: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UnicodeEscape | OctalEscape )
             int alt8=3;
             int LA8_0 = input.LA(1);
 
@@ -707,7 +708,7 @@ import java.util.ArrayList;
             }
             switch (alt8) {
                 case 1 :
-                    // ../etc/Jaml.g:230:7: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                    // ../etc/Jaml.g:246:7: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                     {
                     match('\\'); 
                     if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -723,14 +724,14 @@ import java.util.ArrayList;
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:231:7: UnicodeEscape
+                    // ../etc/Jaml.g:247:7: UnicodeEscape
                     {
                     mUnicodeEscape(); 
 
                     }
                     break;
                 case 3 :
-                    // ../etc/Jaml.g:232:7: OctalEscape
+                    // ../etc/Jaml.g:248:7: OctalEscape
                     {
                     mOctalEscape(); 
 
@@ -749,7 +750,7 @@ import java.util.ArrayList;
     public final void mOctalEscape() throws RecognitionException {
     traceIn("OctalEscape", 16);
         try {
-            // ../etc/Jaml.g:237:3: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+            // ../etc/Jaml.g:253:3: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
             int alt9=3;
             int LA9_0 = input.LA(1);
 
@@ -795,25 +796,25 @@ import java.util.ArrayList;
             }
             switch (alt9) {
                 case 1 :
-                    // ../etc/Jaml.g:237:7: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                    // ../etc/Jaml.g:253:7: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // ../etc/Jaml.g:237:12: ( '0' .. '3' )
-                    // ../etc/Jaml.g:237:13: '0' .. '3'
+                    // ../etc/Jaml.g:253:12: ( '0' .. '3' )
+                    // ../etc/Jaml.g:253:13: '0' .. '3'
                     {
                     matchRange('0','3'); 
 
                     }
 
-                    // ../etc/Jaml.g:237:23: ( '0' .. '7' )
-                    // ../etc/Jaml.g:237:24: '0' .. '7'
+                    // ../etc/Jaml.g:253:23: ( '0' .. '7' )
+                    // ../etc/Jaml.g:253:24: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // ../etc/Jaml.g:237:34: ( '0' .. '7' )
-                    // ../etc/Jaml.g:237:35: '0' .. '7'
+                    // ../etc/Jaml.g:253:34: ( '0' .. '7' )
+                    // ../etc/Jaml.g:253:35: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -823,18 +824,18 @@ import java.util.ArrayList;
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:238:7: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+                    // ../etc/Jaml.g:254:7: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // ../etc/Jaml.g:238:12: ( '0' .. '7' )
-                    // ../etc/Jaml.g:238:13: '0' .. '7'
+                    // ../etc/Jaml.g:254:12: ( '0' .. '7' )
+                    // ../etc/Jaml.g:254:13: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // ../etc/Jaml.g:238:23: ( '0' .. '7' )
-                    // ../etc/Jaml.g:238:24: '0' .. '7'
+                    // ../etc/Jaml.g:254:23: ( '0' .. '7' )
+                    // ../etc/Jaml.g:254:24: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -844,11 +845,11 @@ import java.util.ArrayList;
                     }
                     break;
                 case 3 :
-                    // ../etc/Jaml.g:239:7: '\\\\' ( '0' .. '7' )
+                    // ../etc/Jaml.g:255:7: '\\\\' ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // ../etc/Jaml.g:239:12: ( '0' .. '7' )
-                    // ../etc/Jaml.g:239:13: '0' .. '7'
+                    // ../etc/Jaml.g:255:12: ( '0' .. '7' )
+                    // ../etc/Jaml.g:255:13: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -870,8 +871,8 @@ import java.util.ArrayList;
     public final void mUnicodeEscape() throws RecognitionException {
     traceIn("UnicodeEscape", 17);
         try {
-            // ../etc/Jaml.g:244:3: ( '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit )
-            // ../etc/Jaml.g:244:7: '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit
+            // ../etc/Jaml.g:260:3: ( '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit )
+            // ../etc/Jaml.g:260:7: '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit
             {
             match('\\'); 
             match('u'); 
@@ -893,8 +894,8 @@ import java.util.ArrayList;
     public final void mHexDigit() throws RecognitionException {
     traceIn("HexDigit", 18);
         try {
-            // ../etc/Jaml.g:248:10: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // ../etc/Jaml.g:248:12: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // ../etc/Jaml.g:264:10: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // ../etc/Jaml.g:264:12: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -921,66 +922,149 @@ import java.util.ArrayList;
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:250:5: ({...}? => (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' ) ) (~ ( '\\r' | '\\n' ) )* )
-            // ../etc/Jaml.g:250:7: {...}? => (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' ) ) (~ ( '\\r' | '\\n' ) )*
-            {
-            if ( !(( textMode && !hashMode )) ) {
-                throw new FailedPredicateException(input, "TEXT", " textMode && !hashMode ");
-            }
-            // ../etc/Jaml.g:251:7: (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' ) )
-            // ../etc/Jaml.g:251:8: ~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' )
-            {
-            if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='\"')||input.LA(1)=='$'||(input.LA(1)>='&' && input.LA(1)<='-')||(input.LA(1)>='/' && input.LA(1)<='z')||(input.LA(1)>='|' && input.LA(1)<='\uFFFF') ) {
-                input.consume();
+            // ../etc/Jaml.g:266:5: ({...}? => (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' ) ) (~ ( '\\r' | '\\n' ) )* | {...}? => ( '-' | '=' ) (~ ( '\\r' | '\\n' ) )* )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
+            if ( (LA12_0=='-'||LA12_0=='=') && ((( textMode && !hashMode )||( !hashMode )))) {
+                int LA12_1 = input.LA(2);
+
+                if ( (( textMode && !hashMode )) ) {
+                    alt12=1;
+                }
+                else if ( (( !hashMode )) ) {
+                    alt12=2;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 12, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else if ( ((LA12_0>='\u0000' && LA12_0<='\t')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||(LA12_0>='!' && LA12_0<='\"')||LA12_0=='$'||(LA12_0>='&' && LA12_0<=',')||(LA12_0>='/' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='z')||(LA12_0>='|' && LA12_0<='\uFFFF')) && (( textMode && !hashMode ))) {
+                alt12=1;
             }
             else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 12, 0, input);
 
+                throw nvae;
+            }
+            switch (alt12) {
+                case 1 :
+                    // ../etc/Jaml.g:266:7: {...}? => (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' ) ) (~ ( '\\r' | '\\n' ) )*
+                    {
+                    if ( !(( textMode && !hashMode )) ) {
+                        throw new FailedPredicateException(input, "TEXT", " textMode && !hashMode ");
+                    }
+                    // ../etc/Jaml.g:267:7: (~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' ) )
+                    // ../etc/Jaml.g:267:8: ~ ( '.' | '#' | '%' | '\\r' | '\\n' | '{' | ' ' )
+                    {
+                    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='\"')||input.LA(1)=='$'||(input.LA(1)>='&' && input.LA(1)<='-')||(input.LA(1)>='/' && input.LA(1)<='z')||(input.LA(1)>='|' && input.LA(1)<='\uFFFF') ) {
+                        input.consume();
+
+                    }
+                    else {
+                        MismatchedSetException mse = new MismatchedSetException(null,input);
+                        recover(mse);
+                        throw mse;}
+
+
+                    }
+
+                    // ../etc/Jaml.g:268:7: (~ ( '\\r' | '\\n' ) )*
+                    loop10:
+                    do {
+                        int alt10=2;
+                        int LA10_0 = input.LA(1);
+
+                        if ( ((LA10_0>='\u0000' && LA10_0<='\t')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\uFFFF')) ) {
+                            alt10=1;
+                        }
+
+
+                        switch (alt10) {
+                    	case 1 :
+                    	    // ../etc/Jaml.g:268:8: ~ ( '\\r' | '\\n' )
+                    	    {
+                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
+                    	        input.consume();
+
+                    	    }
+                    	    else {
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        recover(mse);
+                    	        throw mse;}
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop10;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+                case 2 :
+                    // ../etc/Jaml.g:269:9: {...}? => ( '-' | '=' ) (~ ( '\\r' | '\\n' ) )*
+                    {
+                    if ( !(( !hashMode )) ) {
+                        throw new FailedPredicateException(input, "TEXT", " !hashMode ");
+                    }
+                    if ( input.LA(1)=='-'||input.LA(1)=='=' ) {
+                        input.consume();
+
+                    }
+                    else {
+                        MismatchedSetException mse = new MismatchedSetException(null,input);
+                        recover(mse);
+                        throw mse;}
+
+                    // ../etc/Jaml.g:269:38: (~ ( '\\r' | '\\n' ) )*
+                    loop11:
+                    do {
+                        int alt11=2;
+                        int LA11_0 = input.LA(1);
+
+                        if ( ((LA11_0>='\u0000' && LA11_0<='\t')||(LA11_0>='\u000B' && LA11_0<='\f')||(LA11_0>='\u000E' && LA11_0<='\uFFFF')) ) {
+                            alt11=1;
+                        }
+
+
+                        switch (alt11) {
+                    	case 1 :
+                    	    // ../etc/Jaml.g:269:39: ~ ( '\\r' | '\\n' )
+                    	    {
+                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
+                    	        input.consume();
+
+                    	    }
+                    	    else {
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        recover(mse);
+                    	        throw mse;}
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop11;
+                        }
+                    } while (true);
+
+
+                            beginningOfLine = false;
+                          
+
+                    }
+                    break;
 
             }
-
-            // ../etc/Jaml.g:252:7: (~ ( '\\r' | '\\n' ) )*
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
-
-                if ( ((LA10_0>='\u0000' && LA10_0<='\t')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\uFFFF')) ) {
-                    alt10=1;
-                }
-
-
-                switch (alt10) {
-            	case 1 :
-            	    // ../etc/Jaml.g:252:8: ~ ( '\\r' | '\\n' )
-            	    {
-            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
-            	        input.consume();
-
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        recover(mse);
-            	        throw mse;}
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop10;
-                }
-            } while (true);
-
-
-                    beginningOfLine = false;
-                  
-
-            }
-
             state.type = _type;
             state.channel = _channel;
         }
@@ -996,14 +1080,14 @@ import java.util.ArrayList;
         try {
             int _type = HASH_CONTENTS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:257:14: ({...}? => (~ ( '\"' | '\\'' | '{' | '}' ) ) )
-            // ../etc/Jaml.g:257:16: {...}? => (~ ( '\"' | '\\'' | '{' | '}' ) )
+            // ../etc/Jaml.g:274:14: ({...}? => (~ ( '\"' | '\\'' | '{' | '}' ) ) )
+            // ../etc/Jaml.g:274:16: {...}? => (~ ( '\"' | '\\'' | '{' | '}' ) )
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "HASH_CONTENTS", " hashMode ");
             }
-            // ../etc/Jaml.g:258:7: (~ ( '\"' | '\\'' | '{' | '}' ) )
-            // ../etc/Jaml.g:258:8: ~ ( '\"' | '\\'' | '{' | '}' )
+            // ../etc/Jaml.g:275:7: (~ ( '\"' | '\\'' | '{' | '}' ) )
+            // ../etc/Jaml.g:275:8: ~ ( '\"' | '\\'' | '{' | '}' )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='z')||input.LA(1)=='|'||(input.LA(1)>='~' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -1035,11 +1119,11 @@ import java.util.ArrayList;
         try {
             int _type = BEGIN_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:261:13: ({...}? => LBRACE )
-            // ../etc/Jaml.g:261:15: {...}? => LBRACE
+            // ../etc/Jaml.g:278:13: ({...}? => LBRACE )
+            // ../etc/Jaml.g:278:15: {...}? => LBRACE
             {
-            if ( !(( textMode && braceDepth == 0 )) ) {
-                throw new FailedPredicateException(input, "BEGIN_HASH", " textMode && braceDepth == 0 ");
+            if ( !(( !beginningOfLine && braceDepth == 0 )) ) {
+                throw new FailedPredicateException(input, "BEGIN_HASH", " !beginningOfLine && braceDepth == 0 ");
             }
             mLBRACE(); 
             hashMode=true;
@@ -1061,8 +1145,8 @@ import java.util.ArrayList;
         try {
             int _type = END_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:262:11: ({...}? => RBRACE )
-            // ../etc/Jaml.g:262:13: {...}? => RBRACE
+            // ../etc/Jaml.g:279:11: ({...}? => RBRACE )
+            // ../etc/Jaml.g:279:13: {...}? => RBRACE
             {
             if ( !(( braceDepth == 1 )) ) {
                 throw new FailedPredicateException(input, "END_HASH", " braceDepth == 1 ");
@@ -1087,8 +1171,8 @@ import java.util.ArrayList;
         try {
             int _type = JAVA_LBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:264:13: ({...}? => LBRACE )
-            // ../etc/Jaml.g:264:15: {...}? => LBRACE
+            // ../etc/Jaml.g:281:13: ({...}? => LBRACE )
+            // ../etc/Jaml.g:281:15: {...}? => LBRACE
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "JAVA_LBRACE", " hashMode ");
@@ -1112,8 +1196,8 @@ import java.util.ArrayList;
         try {
             int _type = JAVA_RBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:265:13: ({...}? => RBRACE )
-            // ../etc/Jaml.g:265:15: {...}? => RBRACE
+            // ../etc/Jaml.g:282:13: ({...}? => RBRACE )
+            // ../etc/Jaml.g:282:15: {...}? => RBRACE
             {
             if ( !(( braceDepth > 1 )) ) {
                 throw new FailedPredicateException(input, "JAVA_RBRACE", " braceDepth > 1 ");
@@ -1135,8 +1219,8 @@ import java.util.ArrayList;
     public final void mLBRACE() throws RecognitionException {
     traceIn("LBRACE", 25);
         try {
-            // ../etc/Jaml.g:267:17: ( '{' )
-            // ../etc/Jaml.g:267:19: '{'
+            // ../etc/Jaml.g:284:17: ( '{' )
+            // ../etc/Jaml.g:284:19: '{'
             {
             match('{'); 
             braceDepth++;
@@ -1154,8 +1238,8 @@ import java.util.ArrayList;
     public final void mRBRACE() throws RecognitionException {
     traceIn("RBRACE", 26);
         try {
-            // ../etc/Jaml.g:268:18: ({...}? => '}' )
-            // ../etc/Jaml.g:268:20: {...}? => '}'
+            // ../etc/Jaml.g:285:18: ({...}? => '}' )
+            // ../etc/Jaml.g:285:20: {...}? => '}'
             {
             if ( !(( hashMode )) ) {
                 throw new FailedPredicateException(input, "RBRACE", " hashMode ");
@@ -1178,8 +1262,8 @@ import java.util.ArrayList;
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:272:9: ({...}? => ' ' )
-            // ../etc/Jaml.g:272:11: {...}? => ' '
+            // ../etc/Jaml.g:289:9: ({...}? => ' ' )
+            // ../etc/Jaml.g:289:11: {...}? => ' '
             {
             if ( !((false)) ) {
                 throw new FailedPredicateException(input, "NEWLINE", "false");
@@ -1203,8 +1287,8 @@ import java.util.ArrayList;
         try {
             int _type = INDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:273:8: ({...}? => ' ' )
-            // ../etc/Jaml.g:273:10: {...}? => ' '
+            // ../etc/Jaml.g:290:8: ({...}? => ' ' )
+            // ../etc/Jaml.g:290:10: {...}? => ' '
             {
             if ( !((false)) ) {
                 throw new FailedPredicateException(input, "INDENT", "false");
@@ -1228,8 +1312,8 @@ import java.util.ArrayList;
         try {
             int _type = DEDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:274:8: ({...}? => ' ' )
-            // ../etc/Jaml.g:274:10: {...}? => ' '
+            // ../etc/Jaml.g:291:8: ({...}? => ' ' )
+            // ../etc/Jaml.g:291:10: {...}? => ' '
             {
             if ( !((false)) ) {
                 throw new FailedPredicateException(input, "DEDENT", "false");
@@ -1249,9 +1333,9 @@ import java.util.ArrayList;
 
     public void mTokens() throws RecognitionException {
         // ../etc/Jaml.g:1:8: ( POUND | DOT | PERCENT | FORWARD_SLASH | COMMA | ID | WS | IGNORED_NEWLINE | CHANGE_INDENT | StringLiteral | CHARLITERAL | TEXT | HASH_CONTENTS | BEGIN_HASH | END_HASH | JAVA_LBRACE | JAVA_RBRACE | NEWLINE | INDENT | DEDENT )
-        int alt11=20;
-        alt11 = dfa11.predict(input);
-        switch (alt11) {
+        int alt13=20;
+        alt13 = dfa13.predict(input);
+        switch (alt13) {
             case 1 :
                 // ../etc/Jaml.g:1:10: POUND
                 {
@@ -1398,54 +1482,55 @@ import java.util.ArrayList;
     }
 
 
-    protected DFA11 dfa11 = new DFA11(this);
-    static final String DFA11_eotS =
-        "\1\uffff\1\17\1\20\1\21\1\23\1\24\1\26\1\27\1\32\1\33\2\22\1\43"+
-        "\1\44\1\45\6\uffff\1\53\3\uffff\1\60\3\uffff\2\22\1\66\2\22\1\73"+
-        "\17\uffff\4\22\1\uffff\4\22\5\uffff\3\22\1\uffff\3\22\1\uffff\10"+
-        "\22";
-    static final String DFA11_eofS =
-        "\120\uffff";
-    static final String DFA11_minS =
-        "\7\0\1\40\1\12\1\40\10\0\1\uffff\5\0\1\uffff\1\40\1\uffff\1\0\1"+
-        "\uffff\1\42\2\0\1\42\5\0\5\uffff\1\0\4\uffff\1\0\1\uffff\1\0\1\60"+
-        "\4\0\1\60\3\0\4\uffff\1\60\2\0\1\uffff\1\60\2\0\1\uffff\1\60\1\0"+
-        "\1\60\1\0\2\60\2\0";
-    static final String DFA11_maxS =
-        "\1\uffff\3\0\3\uffff\1\40\1\12\1\40\4\uffff\4\0\1\uffff\2\0\1\uffff"+
-        "\2\0\1\uffff\1\40\1\uffff\1\0\1\uffff\1\165\2\uffff\1\165\2\uffff"+
-        "\3\0\5\uffff\1\0\4\uffff\1\0\1\uffff\1\uffff\1\146\2\uffff\1\0\1"+
-        "\uffff\1\146\2\uffff\1\0\4\uffff\1\146\2\uffff\1\uffff\1\146\2\uffff"+
-        "\1\uffff\1\146\1\uffff\1\146\1\uffff\2\146\2\uffff";
-    static final String DFA11_acceptS =
-        "\22\uffff\1\14\5\uffff\1\7\1\uffff\1\15\1\uffff\1\11\11\uffff\1"+
-        "\1\1\2\1\3\1\4\1\5\1\uffff\1\6\1\22\1\23\1\24\1\uffff\1\10\12\uffff"+
-        "\1\17\1\21\1\16\1\20\3\uffff\1\12\3\uffff\1\13\10\uffff";
-    static final String DFA11_specialS =
-        "\1\43\3\uffff\1\22\1\27\1\56\1\1\1\53\1\0\1\52\1\70\1\23\1\31\1"+
-        "\7\1\10\1\6\1\3\1\uffff\1\15\1\24\1\12\1\21\1\26\1\uffff\1\50\1"+
-        "\uffff\1\25\1\uffff\1\36\1\13\1\16\1\47\1\54\1\32\1\64\1\30\1\65"+
-        "\5\uffff\1\4\4\uffff\1\2\1\uffff\1\61\1\45\1\63\1\33\1\57\1\67\1"+
-        "\46\1\17\1\51\1\60\4\uffff\1\37\1\55\1\11\1\uffff\1\42\1\5\1\66"+
-        "\1\uffff\1\40\1\14\1\44\1\34\1\41\1\62\1\35\1\20}>";
-    static final String[] DFA11_transitionS = {
-            "\12\14\1\11\2\14\1\10\22\14\1\7\1\14\1\12\1\1\1\14\1\3\1\14"+
-            "\1\13\4\14\1\5\1\14\1\2\1\4\21\14\32\6\6\14\32\6\1\16\1\14\1"+
-            "\15\uff82\14",
+    protected DFA13 dfa13 = new DFA13(this);
+    static final String DFA13_eotS =
+        "\1\uffff\1\20\1\21\1\22\1\24\1\25\1\27\1\30\1\33\1\34\2\23\1\45"+
+        "\1\46\1\47\1\50\6\uffff\1\56\3\uffff\1\63\3\uffff\2\70\1\72\2\70"+
+        "\1\77\21\uffff\3\70\1\uffff\1\70\1\uffff\4\70\5\uffff\3\70\1\uffff"+
+        "\3\70\1\uffff\10\70";
+    static final String DFA13_eofS =
+        "\124\uffff";
+    static final String DFA13_minS =
+        "\7\0\1\40\1\12\1\40\11\0\1\uffff\5\0\1\uffff\1\40\1\uffff\1\0\1"+
+        "\uffff\6\0\1\uffff\4\0\5\uffff\1\0\4\uffff\1\0\1\uffff\3\0\1\uffff"+
+        "\7\0\4\uffff\3\0\1\uffff\3\0\1\uffff\10\0";
+    static final String DFA13_maxS =
+        "\1\uffff\3\0\3\uffff\1\40\1\12\1\40\5\uffff\4\0\1\uffff\2\0\1\uffff"+
+        "\2\0\1\uffff\1\40\1\uffff\1\0\1\uffff\6\uffff\1\uffff\4\0\5\uffff"+
+        "\1\0\4\uffff\1\0\1\uffff\3\uffff\1\uffff\1\uffff\1\0\4\uffff\1\0"+
+        "\4\uffff\3\uffff\1\uffff\3\uffff\1\uffff\10\uffff";
+    static final String DFA13_acceptS =
+        "\23\uffff\1\14\5\uffff\1\7\1\uffff\1\15\1\uffff\1\11\6\uffff\1"+
+        "\14\4\uffff\1\1\1\2\1\3\1\4\1\5\1\uffff\1\6\1\22\1\23\1\24\1\uffff"+
+        "\1\10\3\uffff\1\14\7\uffff\1\17\1\21\1\16\1\20\3\uffff\1\12\3\uffff"+
+        "\1\13\10\uffff";
+    static final String DFA13_specialS =
+        "\1\62\3\uffff\1\15\1\4\1\14\1\41\1\47\1\56\1\64\1\37\1\21\1\35"+
+        "\1\70\1\20\1\55\1\54\1\63\1\uffff\1\46\1\42\1\53\1\44\1\11\1\uffff"+
+        "\1\12\1\uffff\1\43\1\uffff\1\32\1\34\1\51\1\24\1\52\1\71\1\uffff"+
+        "\1\40\1\45\1\33\1\50\5\uffff\1\60\4\uffff\1\61\1\uffff\1\10\1\27"+
+        "\1\22\1\uffff\1\57\1\67\1\23\1\25\1\26\1\17\1\65\4\uffff\1\66\1"+
+        "\0\1\36\1\uffff\1\2\1\31\1\7\1\uffff\1\5\1\72\1\3\1\16\1\6\1\13"+
+        "\1\30\1\1}>";
+    static final String[] DFA13_transitionS = {
+            "\12\15\1\11\2\15\1\10\22\15\1\7\1\15\1\12\1\1\1\15\1\3\1\15"+
+            "\1\13\4\15\1\5\1\14\1\2\1\4\15\15\1\14\3\15\32\6\6\15\32\6\1"+
+            "\17\1\15\1\16\uff82\15",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
-            "\12\22\1\uffff\2\22\1\uffff\ufff2\22",
-            "\12\22\1\uffff\2\22\1\uffff\ufff2\22",
-            "\12\22\1\uffff\2\22\1\uffff\42\22\12\25\7\22\32\25\6\22\32"+
-            "\25\uff85\22",
-            "\1\30",
+            "\12\23\1\uffff\2\23\1\uffff\ufff2\23",
+            "\12\23\1\uffff\2\23\1\uffff\ufff2\23",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\26\7\23\32\26\6\23\32"+
+            "\26\uff85\23",
             "\1\31",
-            "\1\34",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\71\36\1\35\uffa3\36",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\64\41\1\40\uffa3\41",
-            "\12\22\1\uffff\2\22\1\uffff\ufff2\22",
-            "\12\22\1\uffff\2\22\1\uffff\ufff2\22",
+            "\1\32",
+            "\1\35",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\71\37\1\36\uffa3\37",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\64\42\1\41\uffa3\42",
+            "\12\44\1\uffff\2\44\1\uffff\ufff2\44",
+            "\12\23\1\uffff\2\23\1\uffff\ufff2\23",
+            "\12\23\1\uffff\2\23\1\uffff\ufff2\23",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -1453,106 +1538,117 @@ import java.util.ArrayList;
             "",
             "\1\uffff",
             "\1\uffff",
-            "\12\22\1\uffff\2\22\1\uffff\42\22\12\25\7\22\32\25\6\22\32"+
-            "\25\uff85\22",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\26\7\23\32\26\6\23\32"+
+            "\26\uff85\23",
             "\1\uffff",
             "\1\uffff",
             "",
-            "\1\34",
+            "\1\35",
             "",
             "\1\uffff",
             "",
-            "\1\62\4\uffff\1\62\10\uffff\4\64\4\65\44\uffff\1\62\5\uffff"+
-            "\1\62\3\uffff\1\62\7\uffff\1\62\3\uffff\1\62\1\uffff\1\62\1"+
-            "\63",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\71\36\1\35\uffa3\36",
-            "\12\22\1\uffff\2\22\1\uffff\ufff2\22",
-            "\1\67\4\uffff\1\67\10\uffff\4\71\4\72\44\uffff\1\67\5\uffff"+
-            "\1\67\3\uffff\1\67\7\uffff\1\67\3\uffff\1\67\1\uffff\1\67\1"+
-            "\70",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\64\41\1\40\uffa3\41",
-            "\12\22\1\uffff\2\22\1\uffff\ufff2\22",
+            "\12\23\1\uffff\2\23\1\uffff\24\23\1\65\4\23\1\65\10\23\4\67"+
+            "\4\71\44\23\1\65\5\23\1\65\3\23\1\65\7\23\1\65\3\23\1\65\1\23"+
+            "\1\65\1\66\uff8a\23",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\71\37\1\36\uffa3\37",
+            "\12\23\1\uffff\2\23\1\uffff\ufff2\23",
+            "\12\23\1\uffff\2\23\1\uffff\24\23\1\73\4\23\1\73\10\23\4\75"+
+            "\4\76\44\23\1\73\5\23\1\73\3\23\1\73\7\23\1\73\3\23\1\73\1\23"+
+            "\1\73\1\74\uff8a\23",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\64\42\1\41\uffa3\42",
+            "\12\23\1\uffff\2\23\1\uffff\ufff2\23",
+            "",
+            "\1\uffff",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
             "",
-            "",
-            "",
-            "",
-            "",
-            "\1\uffff",
             "",
             "",
             "",
             "",
             "\1\uffff",
             "",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\71\36\1\35\uffa3\36",
-            "\12\100\7\uffff\6\100\32\uffff\6\100",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\15\36\10\101\44\36"+
-            "\1\35\uffa3\36",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\15\36\10\102\44\36"+
-            "\1\35\uffa3\36",
-            "\1\uffff",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\64\41\1\40\uffa3\41",
-            "\12\104\7\uffff\6\104\32\uffff\6\104",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\10\41\10\105\44\41"+
-            "\1\40\uffa3\41",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\10\41\10\106\44\41"+
-            "\1\40\uffa3\41",
+            "",
+            "",
+            "",
             "\1\uffff",
             "",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\71\37\1\36\uffa3\37",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\104\7\23\6\104\32\23"+
+            "\6\104\uff99\23",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\15\37\10\105\44\37"+
+            "\1\36\uffa3\37",
+            "",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\15\37\10\106\44\37"+
+            "\1\36\uffa3\37",
+            "\1\uffff",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\64\42\1\41\uffa3\42",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\110\7\23\6\110\32\23"+
+            "\6\110\uff99\23",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\10\42\10\111\44\42"+
+            "\1\41\uffa3\42",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\10\42\10\112\44\42"+
+            "\1\41\uffa3\42",
+            "\1\uffff",
             "",
             "",
             "",
-            "\12\110\7\uffff\6\110\32\uffff\6\110",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\15\36\10\111\44\36"+
-            "\1\35\uffa3\36",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\71\36\1\35\uffa3\36",
             "",
-            "\12\112\7\uffff\6\112\32\uffff\6\112",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\10\41\10\113\44\41"+
-            "\1\40\uffa3\41",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\64\41\1\40\uffa3\41",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\114\7\23\6\114\32\23"+
+            "\6\114\uff99\23",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\15\37\10\115\44\37"+
+            "\1\36\uffa3\37",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\71\37\1\36\uffa3\37",
             "",
-            "\12\114\7\uffff\6\114\32\uffff\6\114",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\71\36\1\35\uffa3\36",
-            "\12\115\7\uffff\6\115\32\uffff\6\115",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\64\41\1\40\uffa3\41",
-            "\12\116\7\uffff\6\116\32\uffff\6\116",
-            "\12\117\7\uffff\6\117\32\uffff\6\117",
-            "\12\36\1\uffff\2\36\1\uffff\24\36\1\37\71\36\1\35\uffa3\36",
-            "\12\41\1\uffff\2\41\1\uffff\31\41\1\42\64\41\1\40\uffa3\41"
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\116\7\23\6\116\32\23"+
+            "\6\116\uff99\23",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\10\42\10\117\44\42"+
+            "\1\41\uffa3\42",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\64\42\1\41\uffa3\42",
+            "",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\120\7\23\6\120\32\23"+
+            "\6\120\uff99\23",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\71\37\1\36\uffa3\37",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\121\7\23\6\121\32\23"+
+            "\6\121\uff99\23",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\64\42\1\41\uffa3\42",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\122\7\23\6\122\32\23"+
+            "\6\122\uff99\23",
+            "\12\23\1\uffff\2\23\1\uffff\42\23\12\123\7\23\6\123\32\23"+
+            "\6\123\uff99\23",
+            "\12\37\1\uffff\2\37\1\uffff\24\37\1\40\71\37\1\36\uffa3\37",
+            "\12\42\1\uffff\2\42\1\uffff\31\42\1\43\64\42\1\41\uffa3\42"
     };
 
-    static final short[] DFA11_eot = DFA.unpackEncodedString(DFA11_eotS);
-    static final short[] DFA11_eof = DFA.unpackEncodedString(DFA11_eofS);
-    static final char[] DFA11_min = DFA.unpackEncodedStringToUnsignedChars(DFA11_minS);
-    static final char[] DFA11_max = DFA.unpackEncodedStringToUnsignedChars(DFA11_maxS);
-    static final short[] DFA11_accept = DFA.unpackEncodedString(DFA11_acceptS);
-    static final short[] DFA11_special = DFA.unpackEncodedString(DFA11_specialS);
-    static final short[][] DFA11_transition;
+    static final short[] DFA13_eot = DFA.unpackEncodedString(DFA13_eotS);
+    static final short[] DFA13_eof = DFA.unpackEncodedString(DFA13_eofS);
+    static final char[] DFA13_min = DFA.unpackEncodedStringToUnsignedChars(DFA13_minS);
+    static final char[] DFA13_max = DFA.unpackEncodedStringToUnsignedChars(DFA13_maxS);
+    static final short[] DFA13_accept = DFA.unpackEncodedString(DFA13_acceptS);
+    static final short[] DFA13_special = DFA.unpackEncodedString(DFA13_specialS);
+    static final short[][] DFA13_transition;
 
     static {
-        int numStates = DFA11_transitionS.length;
-        DFA11_transition = new short[numStates][];
+        int numStates = DFA13_transitionS.length;
+        DFA13_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA11_transition[i] = DFA.unpackEncodedString(DFA11_transitionS[i]);
+            DFA13_transition[i] = DFA.unpackEncodedString(DFA13_transitionS[i]);
         }
     }
 
-    class DFA11 extends DFA {
+    class DFA13 extends DFA {
 
-        public DFA11(BaseRecognizer recognizer) {
+        public DFA13(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 11;
-            this.eot = DFA11_eot;
-            this.eof = DFA11_eof;
-            this.min = DFA11_min;
-            this.max = DFA11_max;
-            this.accept = DFA11_accept;
-            this.special = DFA11_special;
-            this.transition = DFA11_transition;
+            this.decisionNumber = 13;
+            this.eot = DFA13_eot;
+            this.eof = DFA13_eof;
+            this.min = DFA13_min;
+            this.max = DFA13_max;
+            this.accept = DFA13_accept;
+            this.special = DFA13_special;
+            this.transition = DFA13_transition;
         }
         public String getDescription() {
             return "1:1: Tokens : ( POUND | DOT | PERCENT | FORWARD_SLASH | COMMA | ID | WS | IGNORED_NEWLINE | CHANGE_INDENT | StringLiteral | CHARLITERAL | TEXT | HASH_CONTENTS | BEGIN_HASH | END_HASH | JAVA_LBRACE | JAVA_RBRACE | NEWLINE | INDENT | DEDENT );";
@@ -1562,1001 +1658,1053 @@ import java.util.ArrayList;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA11_9 = input.LA(1);
+                        int LA13_69 = input.LA(1);
 
                          
-                        int index11_9 = input.index();
+                        int index13_69 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_9==' ') && (( !hashMode ))) {s = 28;}
+                        if ( (LA13_69=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
 
-                        else s = 27;
+                        else if ( (LA13_69=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
+
+                        else if ( ((LA13_69>='0' && LA13_69<='7')) && ((( textMode && !hashMode )||( hashMode )))) {s = 77;}
+
+                        else if ( ((LA13_69>='\u0000' && LA13_69<='\t')||(LA13_69>='\u000B' && LA13_69<='\f')||(LA13_69>='\u000E' && LA13_69<='!')||(LA13_69>='#' && LA13_69<='/')||(LA13_69>='8' && LA13_69<='[')||(LA13_69>=']' && LA13_69<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+
+                        else s = 56;
 
                          
-                        input.seek(index11_9);
+                        input.seek(index13_69);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA11_7 = input.LA(1);
+                        int LA13_83 = input.LA(1);
 
                          
-                        int index11_7 = input.index();
+                        int index13_83 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_7==' ') && (( !textMode ))) {s = 24;}
+                        if ( (LA13_83=='\'') ) {s = 35;}
+
+                        else if ( (LA13_83=='\\') ) {s = 33;}
+
+                        else if ( ((LA13_83>='\u0000' && LA13_83<='\t')||(LA13_83>='\u000B' && LA13_83<='\f')||(LA13_83>='\u000E' && LA13_83<='&')||(LA13_83>='(' && LA13_83<='[')||(LA13_83>=']' && LA13_83<='\uFFFF')) ) {s = 34;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_83);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA13_72 = input.LA(1);
+
+                         
+                        int index13_72 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_72>='0' && LA13_72<='9')||(LA13_72>='A' && LA13_72<='F')||(LA13_72>='a' && LA13_72<='f')) ) {s = 78;}
+
+                        else if ( ((LA13_72>='\u0000' && LA13_72<='\t')||(LA13_72>='\u000B' && LA13_72<='\f')||(LA13_72>='\u000E' && LA13_72<='/')||(LA13_72>=':' && LA13_72<='@')||(LA13_72>='G' && LA13_72<='`')||(LA13_72>='g' && LA13_72<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_72);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA13_78 = input.LA(1);
+
+                         
+                        int index13_78 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_78>='0' && LA13_78<='9')||(LA13_78>='A' && LA13_78<='F')||(LA13_78>='a' && LA13_78<='f')) ) {s = 81;}
+
+                        else if ( ((LA13_78>='\u0000' && LA13_78<='\t')||(LA13_78>='\u000B' && LA13_78<='\f')||(LA13_78>='\u000E' && LA13_78<='/')||(LA13_78>=':' && LA13_78<='@')||(LA13_78>='G' && LA13_78<='`')||(LA13_78>='g' && LA13_78<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_78);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA13_5 = input.LA(1);
+
+                         
+                        int index13_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_5>='\u0000' && LA13_5<='\t')||(LA13_5>='\u000B' && LA13_5<='\f')||(LA13_5>='\u000E' && LA13_5<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 21;
+
+                         
+                        input.seek(index13_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA13_76 = input.LA(1);
+
+                         
+                        int index13_76 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_76>='0' && LA13_76<='9')||(LA13_76>='A' && LA13_76<='F')||(LA13_76>='a' && LA13_76<='f')) && ((( textMode && !hashMode )||( hashMode )))) {s = 80;}
+
+                        else if ( ((LA13_76>='\u0000' && LA13_76<='\t')||(LA13_76>='\u000B' && LA13_76<='\f')||(LA13_76>='\u000E' && LA13_76<='/')||(LA13_76>=':' && LA13_76<='@')||(LA13_76>='G' && LA13_76<='`')||(LA13_76>='g' && LA13_76<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_76);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA13_80 = input.LA(1);
+
+                         
+                        int index13_80 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_80>='0' && LA13_80<='9')||(LA13_80>='A' && LA13_80<='F')||(LA13_80>='a' && LA13_80<='f')) && ((( textMode && !hashMode )||( hashMode )))) {s = 82;}
+
+                        else if ( ((LA13_80>='\u0000' && LA13_80<='\t')||(LA13_80>='\u000B' && LA13_80<='\f')||(LA13_80>='\u000E' && LA13_80<='/')||(LA13_80>=':' && LA13_80<='@')||(LA13_80>='G' && LA13_80<='`')||(LA13_80>='g' && LA13_80<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_80);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA13_74 = input.LA(1);
+
+                         
+                        int index13_74 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA13_74=='\'') ) {s = 35;}
+
+                        else if ( (LA13_74=='\\') ) {s = 33;}
+
+                        else if ( ((LA13_74>='\u0000' && LA13_74<='\t')||(LA13_74>='\u000B' && LA13_74<='\f')||(LA13_74>='\u000E' && LA13_74<='&')||(LA13_74>='(' && LA13_74<='[')||(LA13_74>=']' && LA13_74<='\uFFFF')) ) {s = 34;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_74);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA13_53 = input.LA(1);
+
+                         
+                        int index13_53 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA13_53=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
+
+                        else if ( (LA13_53=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
+
+                        else if ( ((LA13_53>='\u0000' && LA13_53<='\t')||(LA13_53>='\u000B' && LA13_53<='\f')||(LA13_53>='\u000E' && LA13_53<='!')||(LA13_53>='#' && LA13_53<='[')||(LA13_53>=']' && LA13_53<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_53);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA13_24 = input.LA(1);
+
+                         
+                        int index13_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (( !textMode )) ) {s = 25;}
+
+                        else if ( (( hashMode )) ) {s = 27;}
+
+                        else if ( ((false)) ) {s = 48;}
+
+                        else if ( ((false)) ) {s = 49;}
+
+                        else if ( ((false)) ) {s = 50;}
+
+                         
+                        input.seek(index13_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA13_26 = input.LA(1);
+
+                         
+                        int index13_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA13_26==' ') && (( !hashMode ))) {s = 29;}
+
+                        else s = 51;
+
+                         
+                        input.seek(index13_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA13_81 = input.LA(1);
+
+                         
+                        int index13_81 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_81>='0' && LA13_81<='9')||(LA13_81>='A' && LA13_81<='F')||(LA13_81>='a' && LA13_81<='f')) ) {s = 83;}
+
+                        else if ( ((LA13_81>='\u0000' && LA13_81<='\t')||(LA13_81>='\u000B' && LA13_81<='\f')||(LA13_81>='\u000E' && LA13_81<='/')||(LA13_81>=':' && LA13_81<='@')||(LA13_81>='G' && LA13_81<='`')||(LA13_81>='g' && LA13_81<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_81);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA13_6 = input.LA(1);
+
+                         
+                        int index13_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_6>='0' && LA13_6<='9')||(LA13_6>='A' && LA13_6<='Z')||(LA13_6>='a' && LA13_6<='z')) && ((( !textMode )||( textMode && !hashMode )))) {s = 22;}
+
+                        else if ( ((LA13_6>='\u0000' && LA13_6<='\t')||(LA13_6>='\u000B' && LA13_6<='\f')||(LA13_6>='\u000E' && LA13_6<='/')||(LA13_6>=':' && LA13_6<='@')||(LA13_6>='[' && LA13_6<='`')||(LA13_6>='{' && LA13_6<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
 
                         else s = 23;
 
                          
-                        input.seek(index11_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA11_48 = input.LA(1);
-
-                         
-                        int index11_48 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( hashMode )) ) {s = 49;}
-
-                        else if ( (( !hashMode )) ) {s = 28;}
-
-                         
-                        input.seek(index11_48);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA11_17 = input.LA(1);
-
-                         
-                        int index11_17 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!((( hashMode )))) ) {s = 40;}
-
-                        else if ( (( hashMode )) ) {s = 26;}
-
-                         
-                        input.seek(index11_17);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA11_43 = input.LA(1);
-
-                         
-                        int index11_43 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( !textMode )) ) {s = 44;}
-
-                        else if ( (( textMode && !hashMode )) ) {s = 18;}
-
-                         
-                        input.seek(index11_43);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA11_69 = input.LA(1);
-
-                         
-                        int index11_69 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA11_69>='0' && LA11_69<='7')) ) {s = 75;}
-
-                        else if ( (LA11_69=='\'') ) {s = 34;}
-
-                        else if ( (LA11_69=='\\') ) {s = 32;}
-
-                        else if ( ((LA11_69>='\u0000' && LA11_69<='\t')||(LA11_69>='\u000B' && LA11_69<='\f')||(LA11_69>='\u000E' && LA11_69<='&')||(LA11_69>='(' && LA11_69<='/')||(LA11_69>='8' && LA11_69<='[')||(LA11_69>=']' && LA11_69<='\uFFFF')) ) {s = 33;}
-
-                        else s = 18;
-
-                         
-                        input.seek(index11_69);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA11_16 = input.LA(1);
-
-                         
-                        int index11_16 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!((( hashMode )))) ) {s = 39;}
-
-                        else if ( (( hashMode )) ) {s = 26;}
-
-                         
-                        input.seek(index11_16);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA11_14 = input.LA(1);
-
-                         
-                        int index11_14 = input.index();
-                        input.rewind();
-                        s = -1;
-                        s = 37;
-
-                         
-                        input.seek(index11_14);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA11_15 = input.LA(1);
-
-                         
-                        int index11_15 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!((( hashMode )))) ) {s = 38;}
-
-                        else if ( (( hashMode )) ) {s = 26;}
-
-                         
-                        input.seek(index11_15);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA11_66 = input.LA(1);
-
-                         
-                        int index11_66 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA11_66=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
-
-                        else if ( (LA11_66=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
-
-                        else if ( ((LA11_66>='\u0000' && LA11_66<='\t')||(LA11_66>='\u000B' && LA11_66<='\f')||(LA11_66>='\u000E' && LA11_66<='!')||(LA11_66>='#' && LA11_66<='[')||(LA11_66>=']' && LA11_66<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
-
-                        else s = 18;
-
-                         
-                        input.seek(index11_66);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA11_21 = input.LA(1);
-
-                         
-                        int index11_21 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA11_21>='0' && LA11_21<='9')||(LA11_21>='A' && LA11_21<='Z')||(LA11_21>='a' && LA11_21<='z')) && ((( !textMode )||( textMode && !hashMode )))) {s = 21;}
-
-                        else if ( ((LA11_21>='\u0000' && LA11_21<='\t')||(LA11_21>='\u000B' && LA11_21<='\f')||(LA11_21>='\u000E' && LA11_21<='/')||(LA11_21>=':' && LA11_21<='@')||(LA11_21>='[' && LA11_21<='`')||(LA11_21>='{' && LA11_21<='\uFFFF')) && (( textMode && !hashMode ))) {s = 18;}
-
-                        else s = 43;
-
-                         
-                        input.seek(index11_21);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA11_30 = input.LA(1);
-
-                         
-                        int index11_30 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA11_30=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
-
-                        else if ( (LA11_30=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
-
-                        else if ( ((LA11_30>='\u0000' && LA11_30<='\t')||(LA11_30>='\u000B' && LA11_30<='\f')||(LA11_30>='\u000E' && LA11_30<='!')||(LA11_30>='#' && LA11_30<='[')||(LA11_30>=']' && LA11_30<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
-
-                        else s = 18;
-
-                         
-                        input.seek(index11_30);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA11_73 = input.LA(1);
-
-                         
-                        int index11_73 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA11_73=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
-
-                        else if ( (LA11_73=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
-
-                        else if ( ((LA11_73>='\u0000' && LA11_73<='\t')||(LA11_73>='\u000B' && LA11_73<='\f')||(LA11_73>='\u000E' && LA11_73<='!')||(LA11_73>='#' && LA11_73<='[')||(LA11_73>=']' && LA11_73<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
-
-                        else s = 18;
-
-                         
-                        input.seek(index11_73);
+                        input.seek(index13_6);
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA11_19 = input.LA(1);
+                        int LA13_4 = input.LA(1);
 
                          
-                        int index11_19 = input.index();
+                        int index13_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( !beginningOfLine && !hashMode )) ) {s = 41;}
-
-                        else if ( (( textMode && !hashMode )) ) {s = 18;}
-
-                        else if ( (( hashMode )) ) {s = 26;}
-
-                         
-                        input.seek(index11_19);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 14 : 
-                        int LA11_31 = input.LA(1);
-
-                         
-                        int index11_31 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA11_31>='\u0000' && LA11_31<='\t')||(LA11_31>='\u000B' && LA11_31<='\f')||(LA11_31>='\u000E' && LA11_31<='\uFFFF')) && (( textMode && !hashMode ))) {s = 18;}
-
-                        else s = 54;
-
-                         
-                        input.seek(index11_31);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 15 : 
-                        int LA11_57 = input.LA(1);
-
-                         
-                        int index11_57 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA11_57=='\'') ) {s = 34;}
-
-                        else if ( (LA11_57=='\\') ) {s = 32;}
-
-                        else if ( ((LA11_57>='0' && LA11_57<='7')) ) {s = 69;}
-
-                        else if ( ((LA11_57>='\u0000' && LA11_57<='\t')||(LA11_57>='\u000B' && LA11_57<='\f')||(LA11_57>='\u000E' && LA11_57<='&')||(LA11_57>='(' && LA11_57<='/')||(LA11_57>='8' && LA11_57<='[')||(LA11_57>=']' && LA11_57<='\uFFFF')) ) {s = 33;}
-
-                        else s = 18;
-
-                         
-                        input.seek(index11_57);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 16 : 
-                        int LA11_79 = input.LA(1);
-
-                         
-                        int index11_79 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA11_79=='\'') ) {s = 34;}
-
-                        else if ( (LA11_79=='\\') ) {s = 32;}
-
-                        else if ( ((LA11_79>='\u0000' && LA11_79<='\t')||(LA11_79>='\u000B' && LA11_79<='\f')||(LA11_79>='\u000E' && LA11_79<='&')||(LA11_79>='(' && LA11_79<='[')||(LA11_79>=']' && LA11_79<='\uFFFF')) ) {s = 33;}
-
-                        else s = 18;
-
-                         
-                        input.seek(index11_79);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 17 : 
-                        int LA11_22 = input.LA(1);
-
-                         
-                        int index11_22 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( !textMode )) ) {s = 44;}
-
-                        else if ( (( textMode && !hashMode )) ) {s = 18;}
-
-                        else if ( (( hashMode )) ) {s = 26;}
-
-                         
-                        input.seek(index11_22);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 18 : 
-                        int LA11_4 = input.LA(1);
-
-                         
-                        int index11_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA11_4>='\u0000' && LA11_4<='\t')||(LA11_4>='\u000B' && LA11_4<='\f')||(LA11_4>='\u000E' && LA11_4<='\uFFFF')) && (( textMode && !hashMode ))) {s = 18;}
-
-                        else s = 19;
-
-                         
-                        input.seek(index11_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 19 : 
-                        int LA11_12 = input.LA(1);
-
-                         
-                        int index11_12 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA11_12>='\u0000' && LA11_12<='\t')||(LA11_12>='\u000B' && LA11_12<='\f')||(LA11_12>='\u000E' && LA11_12<='\uFFFF')) && (( textMode && !hashMode ))) {s = 18;}
-
-                        else s = 35;
-
-                         
-                        input.seek(index11_12);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 20 : 
-                        int LA11_20 = input.LA(1);
-
-                         
-                        int index11_20 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( !textMode )) ) {s = 42;}
-
-                        else if ( (( textMode && !hashMode )) ) {s = 18;}
-
-                        else if ( (( hashMode )) ) {s = 26;}
-
-                         
-                        input.seek(index11_20);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 21 : 
-                        int LA11_27 = input.LA(1);
-
-                         
-                        int index11_27 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( hashMode )) ) {s = 49;}
-
-                        else if ( (( !hashMode )) ) {s = 28;}
-
-                        else if ( (( hashMode )) ) {s = 26;}
-
-                         
-                        input.seek(index11_27);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 22 : 
-                        int LA11_23 = input.LA(1);
-
-                         
-                        int index11_23 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (( !textMode )) ) {s = 24;}
-
-                        else if ( (( hashMode )) ) {s = 26;}
-
-                        else if ( ((false)) ) {s = 45;}
-
-                        else if ( ((false)) ) {s = 46;}
-
-                        else if ( ((false)) ) {s = 47;}
-
-                         
-                        input.seek(index11_23);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 23 : 
-                        int LA11_5 = input.LA(1);
-
-                         
-                        int index11_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( ((LA11_5>='\u0000' && LA11_5<='\t')||(LA11_5>='\u000B' && LA11_5<='\f')||(LA11_5>='\u000E' && LA11_5<='\uFFFF')) && (( textMode && !hashMode ))) {s = 18;}
+                        if ( ((LA13_4>='\u0000' && LA13_4<='\t')||(LA13_4>='\u000B' && LA13_4<='\f')||(LA13_4>='\u000E' && LA13_4<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
 
                         else s = 20;
 
                          
-                        input.seek(index11_5);
+                        input.seek(index13_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA13_79 = input.LA(1);
+
+                         
+                        int index13_79 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA13_79=='\'') ) {s = 35;}
+
+                        else if ( (LA13_79=='\\') ) {s = 33;}
+
+                        else if ( ((LA13_79>='\u0000' && LA13_79<='\t')||(LA13_79>='\u000B' && LA13_79<='\f')||(LA13_79>='\u000E' && LA13_79<='&')||(LA13_79>='(' && LA13_79<='[')||(LA13_79>=']' && LA13_79<='\uFFFF')) ) {s = 34;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_79);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA13_62 = input.LA(1);
+
+                         
+                        int index13_62 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_62>='0' && LA13_62<='7')) ) {s = 74;}
+
+                        else if ( (LA13_62=='\'') ) {s = 35;}
+
+                        else if ( (LA13_62=='\\') ) {s = 33;}
+
+                        else if ( ((LA13_62>='\u0000' && LA13_62<='\t')||(LA13_62>='\u000B' && LA13_62<='\f')||(LA13_62>='\u000E' && LA13_62<='&')||(LA13_62>='(' && LA13_62<='/')||(LA13_62>='8' && LA13_62<='[')||(LA13_62>=']' && LA13_62<='\uFFFF')) ) {s = 34;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_62);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA13_15 = input.LA(1);
+
+                         
+                        int index13_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        s = 40;
+
+                         
+                        input.seek(index13_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA13_12 = input.LA(1);
+
+                         
+                        int index13_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_12>='\u0000' && LA13_12<='\t')||(LA13_12>='\u000B' && LA13_12<='\f')||(LA13_12>='\u000E' && LA13_12<='\uFFFF')) && ((( textMode && !hashMode )||( !hashMode )))) {s = 36;}
+
+                        else s = 37;
+
+                         
+                        input.seek(index13_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA13_55 = input.LA(1);
+
+                         
+                        int index13_55 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_55>='0' && LA13_55<='7')) && ((( textMode && !hashMode )||( hashMode )))) {s = 69;}
+
+                        else if ( (LA13_55=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
+
+                        else if ( (LA13_55=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
+
+                        else if ( ((LA13_55>='\u0000' && LA13_55<='\t')||(LA13_55>='\u000B' && LA13_55<='\f')||(LA13_55>='\u000E' && LA13_55<='!')||(LA13_55>='#' && LA13_55<='/')||(LA13_55>='8' && LA13_55<='[')||(LA13_55>=']' && LA13_55<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_55);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA13_59 = input.LA(1);
+
+                         
+                        int index13_59 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA13_59=='\'') ) {s = 35;}
+
+                        else if ( (LA13_59=='\\') ) {s = 33;}
+
+                        else if ( ((LA13_59>='\u0000' && LA13_59<='\t')||(LA13_59>='\u000B' && LA13_59<='\f')||(LA13_59>='\u000E' && LA13_59<='&')||(LA13_59>='(' && LA13_59<='[')||(LA13_59>=']' && LA13_59<='\uFFFF')) ) {s = 34;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_59);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA13_33 = input.LA(1);
+
+                         
+                        int index13_33 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA13_33=='\"'||LA13_33=='\''||LA13_33=='\\'||LA13_33=='b'||LA13_33=='f'||LA13_33=='n'||LA13_33=='r'||LA13_33=='t') ) {s = 59;}
+
+                        else if ( (LA13_33=='u') ) {s = 60;}
+
+                        else if ( ((LA13_33>='0' && LA13_33<='3')) ) {s = 61;}
+
+                        else if ( ((LA13_33>='\u0000' && LA13_33<='\t')||(LA13_33>='\u000B' && LA13_33<='\f')||(LA13_33>='\u000E' && LA13_33<='!')||(LA13_33>='#' && LA13_33<='&')||(LA13_33>='(' && LA13_33<='/')||(LA13_33>='8' && LA13_33<='[')||(LA13_33>=']' && LA13_33<='a')||(LA13_33>='c' && LA13_33<='e')||(LA13_33>='g' && LA13_33<='m')||(LA13_33>='o' && LA13_33<='q')||LA13_33=='s'||(LA13_33>='v' && LA13_33<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else if ( ((LA13_33>='4' && LA13_33<='7')) ) {s = 62;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_33);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA13_60 = input.LA(1);
+
+                         
+                        int index13_60 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_60>='0' && LA13_60<='9')||(LA13_60>='A' && LA13_60<='F')||(LA13_60>='a' && LA13_60<='f')) ) {s = 72;}
+
+                        else if ( ((LA13_60>='\u0000' && LA13_60<='\t')||(LA13_60>='\u000B' && LA13_60<='\f')||(LA13_60>='\u000E' && LA13_60<='/')||(LA13_60>=':' && LA13_60<='@')||(LA13_60>='G' && LA13_60<='`')||(LA13_60>='g' && LA13_60<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_60);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA13_61 = input.LA(1);
+
+                         
+                        int index13_61 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_61>='0' && LA13_61<='7')) ) {s = 73;}
+
+                        else if ( (LA13_61=='\'') ) {s = 35;}
+
+                        else if ( (LA13_61=='\\') ) {s = 33;}
+
+                        else if ( ((LA13_61>='\u0000' && LA13_61<='\t')||(LA13_61>='\u000B' && LA13_61<='\f')||(LA13_61>='\u000E' && LA13_61<='&')||(LA13_61>='(' && LA13_61<='/')||(LA13_61>='8' && LA13_61<='[')||(LA13_61>=']' && LA13_61<='\uFFFF')) ) {s = 34;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_61);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA13_54 = input.LA(1);
+
+                         
+                        int index13_54 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_54>='0' && LA13_54<='9')||(LA13_54>='A' && LA13_54<='F')||(LA13_54>='a' && LA13_54<='f')) && ((( textMode && !hashMode )||( hashMode )))) {s = 68;}
+
+                        else if ( ((LA13_54>='\u0000' && LA13_54<='\t')||(LA13_54>='\u000B' && LA13_54<='\f')||(LA13_54>='\u000E' && LA13_54<='/')||(LA13_54>=':' && LA13_54<='@')||(LA13_54>='G' && LA13_54<='`')||(LA13_54>='g' && LA13_54<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_54);
                         if ( s>=0 ) return s;
                         break;
                     case 24 : 
-                        int LA11_36 = input.LA(1);
+                        int LA13_82 = input.LA(1);
 
                          
-                        int index11_36 = input.index();
+                        int index13_82 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( textMode && !hashMode )) ) {s = 18;}
+                        if ( (LA13_82=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
 
-                        else if ( ((( braceDepth == 1 )&&( hashMode ))) ) {s = 60;}
+                        else if ( (LA13_82=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
 
-                        else if ( ((( braceDepth > 1 )&&( hashMode ))) ) {s = 61;}
+                        else if ( ((LA13_82>='\u0000' && LA13_82<='\t')||(LA13_82>='\u000B' && LA13_82<='\f')||(LA13_82>='\u000E' && LA13_82<='!')||(LA13_82>='#' && LA13_82<='[')||(LA13_82>=']' && LA13_82<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+
+                        else s = 56;
 
                          
-                        input.seek(index11_36);
+                        input.seek(index13_82);
                         if ( s>=0 ) return s;
                         break;
                     case 25 : 
-                        int LA11_13 = input.LA(1);
+                        int LA13_73 = input.LA(1);
 
                          
-                        int index11_13 = input.index();
+                        int index13_73 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_13>='\u0000' && LA11_13<='\t')||(LA11_13>='\u000B' && LA11_13<='\f')||(LA11_13>='\u000E' && LA11_13<='\uFFFF')) && (( textMode && !hashMode ))) {s = 18;}
+                        if ( (LA13_73=='\'') ) {s = 35;}
 
-                        else s = 36;
+                        else if ( (LA13_73=='\\') ) {s = 33;}
+
+                        else if ( ((LA13_73>='0' && LA13_73<='7')) ) {s = 79;}
+
+                        else if ( ((LA13_73>='\u0000' && LA13_73<='\t')||(LA13_73>='\u000B' && LA13_73<='\f')||(LA13_73>='\u000E' && LA13_73<='&')||(LA13_73>='(' && LA13_73<='/')||(LA13_73>='8' && LA13_73<='[')||(LA13_73>=']' && LA13_73<='\uFFFF')) ) {s = 34;}
+
+                        else s = 56;
 
                          
-                        input.seek(index11_13);
+                        input.seek(index13_73);
                         if ( s>=0 ) return s;
                         break;
                     case 26 : 
-                        int LA11_34 = input.LA(1);
+                        int LA13_30 = input.LA(1);
 
                          
-                        int index11_34 = input.index();
+                        int index13_30 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_34>='\u0000' && LA11_34<='\t')||(LA11_34>='\u000B' && LA11_34<='\f')||(LA11_34>='\u000E' && LA11_34<='\uFFFF')) && (( textMode && !hashMode ))) {s = 18;}
+                        if ( (LA13_30=='\"'||LA13_30=='\''||LA13_30=='\\'||LA13_30=='b'||LA13_30=='f'||LA13_30=='n'||LA13_30=='r'||LA13_30=='t') && ((( textMode && !hashMode )||( hashMode )))) {s = 53;}
 
-                        else s = 59;
+                        else if ( (LA13_30=='u') && ((( textMode && !hashMode )||( hashMode )))) {s = 54;}
+
+                        else if ( ((LA13_30>='0' && LA13_30<='3')) && ((( textMode && !hashMode )||( hashMode )))) {s = 55;}
+
+                        else if ( ((LA13_30>='\u0000' && LA13_30<='\t')||(LA13_30>='\u000B' && LA13_30<='\f')||(LA13_30>='\u000E' && LA13_30<='!')||(LA13_30>='#' && LA13_30<='&')||(LA13_30>='(' && LA13_30<='/')||(LA13_30>='8' && LA13_30<='[')||(LA13_30>=']' && LA13_30<='a')||(LA13_30>='c' && LA13_30<='e')||(LA13_30>='g' && LA13_30<='m')||(LA13_30>='o' && LA13_30<='q')||LA13_30=='s'||(LA13_30>='v' && LA13_30<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else if ( ((LA13_30>='4' && LA13_30<='7')) && ((( textMode && !hashMode )||( hashMode )))) {s = 57;}
+
+                        else s = 56;
 
                          
-                        input.seek(index11_34);
+                        input.seek(index13_30);
                         if ( s>=0 ) return s;
                         break;
                     case 27 : 
-                        int LA11_53 = input.LA(1);
+                        int LA13_39 = input.LA(1);
 
                          
-                        int index11_53 = input.index();
+                        int index13_39 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_53=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+                        if ( (( textMode && !hashMode )) ) {s = 56;}
 
-                        else if ( (LA11_53=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
+                        else if ( ((( braceDepth == 1 )&&( hashMode ))) ) {s = 64;}
 
-                        else if ( ((LA11_53>='0' && LA11_53<='7')) && ((( textMode && !hashMode )||( hashMode )))) {s = 66;}
-
-                        else if ( ((LA11_53>='\u0000' && LA11_53<='\t')||(LA11_53>='\u000B' && LA11_53<='\f')||(LA11_53>='\u000E' && LA11_53<='!')||(LA11_53>='#' && LA11_53<='/')||(LA11_53>='8' && LA11_53<='[')||(LA11_53>=']' && LA11_53<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
-
-                        else s = 18;
+                        else if ( ((( braceDepth > 1 )&&( hashMode ))) ) {s = 65;}
 
                          
-                        input.seek(index11_53);
+                        input.seek(index13_39);
                         if ( s>=0 ) return s;
                         break;
                     case 28 : 
-                        int LA11_75 = input.LA(1);
+                        int LA13_31 = input.LA(1);
 
                          
-                        int index11_75 = input.index();
+                        int index13_31 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_75=='\'') ) {s = 34;}
+                        if ( (LA13_31=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
 
-                        else if ( (LA11_75=='\\') ) {s = 32;}
+                        else if ( (LA13_31=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
 
-                        else if ( ((LA11_75>='\u0000' && LA11_75<='\t')||(LA11_75>='\u000B' && LA11_75<='\f')||(LA11_75>='\u000E' && LA11_75<='&')||(LA11_75>='(' && LA11_75<='[')||(LA11_75>=']' && LA11_75<='\uFFFF')) ) {s = 33;}
+                        else if ( ((LA13_31>='\u0000' && LA13_31<='\t')||(LA13_31>='\u000B' && LA13_31<='\f')||(LA13_31>='\u000E' && LA13_31<='!')||(LA13_31>='#' && LA13_31<='[')||(LA13_31>=']' && LA13_31<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
 
-                        else s = 18;
+                        else s = 56;
 
                          
-                        input.seek(index11_75);
+                        input.seek(index13_31);
                         if ( s>=0 ) return s;
                         break;
                     case 29 : 
-                        int LA11_78 = input.LA(1);
+                        int LA13_13 = input.LA(1);
 
                          
-                        int index11_78 = input.index();
+                        int index13_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_78=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+                        if ( ((LA13_13>='\u0000' && LA13_13<='\t')||(LA13_13>='\u000B' && LA13_13<='\f')||(LA13_13>='\u000E' && LA13_13<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
 
-                        else if ( (LA11_78=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
-
-                        else if ( ((LA11_78>='\u0000' && LA11_78<='\t')||(LA11_78>='\u000B' && LA11_78<='\f')||(LA11_78>='\u000E' && LA11_78<='!')||(LA11_78>='#' && LA11_78<='[')||(LA11_78>=']' && LA11_78<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
-
-                        else s = 18;
+                        else s = 38;
 
                          
-                        input.seek(index11_78);
+                        input.seek(index13_13);
                         if ( s>=0 ) return s;
                         break;
                     case 30 : 
-                        int LA11_29 = input.LA(1);
+                        int LA13_70 = input.LA(1);
 
                          
-                        int index11_29 = input.index();
+                        int index13_70 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_29=='\"'||LA11_29=='\''||LA11_29=='\\'||LA11_29=='b'||LA11_29=='f'||LA11_29=='n'||LA11_29=='r'||LA11_29=='t') && ((( textMode && !hashMode )||( hashMode )))) {s = 50;}
+                        if ( (LA13_70=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
 
-                        else if ( (LA11_29=='u') && ((( textMode && !hashMode )||( hashMode )))) {s = 51;}
+                        else if ( (LA13_70=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
 
-                        else if ( ((LA11_29>='0' && LA11_29<='3')) && ((( textMode && !hashMode )||( hashMode )))) {s = 52;}
+                        else if ( ((LA13_70>='\u0000' && LA13_70<='\t')||(LA13_70>='\u000B' && LA13_70<='\f')||(LA13_70>='\u000E' && LA13_70<='!')||(LA13_70>='#' && LA13_70<='[')||(LA13_70>=']' && LA13_70<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
 
-                        else if ( ((LA11_29>='4' && LA11_29<='7')) && ((( textMode && !hashMode )||( hashMode )))) {s = 53;}
-
-                        else s = 18;
+                        else s = 56;
 
                          
-                        input.seek(index11_29);
+                        input.seek(index13_70);
                         if ( s>=0 ) return s;
                         break;
                     case 31 : 
-                        int LA11_64 = input.LA(1);
+                        int LA13_11 = input.LA(1);
 
                          
-                        int index11_64 = input.index();
+                        int index13_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_64>='0' && LA11_64<='9')||(LA11_64>='A' && LA11_64<='F')||(LA11_64>='a' && LA11_64<='f')) && ((( textMode && !hashMode )||( hashMode )))) {s = 72;}
+                        if ( (LA13_11=='\\') ) {s = 33;}
 
-                        else s = 18;
+                        else if ( ((LA13_11>='\u0000' && LA13_11<='\t')||(LA13_11>='\u000B' && LA13_11<='\f')||(LA13_11>='\u000E' && LA13_11<='&')||(LA13_11>='(' && LA13_11<='[')||(LA13_11>=']' && LA13_11<='\uFFFF')) ) {s = 34;}
+
+                        else if ( (LA13_11=='\'') ) {s = 35;}
+
+                        else s = 19;
 
                          
-                        input.seek(index11_64);
+                        input.seek(index13_11);
                         if ( s>=0 ) return s;
                         break;
                     case 32 : 
-                        int LA11_72 = input.LA(1);
+                        int LA13_37 = input.LA(1);
 
                          
-                        int index11_72 = input.index();
+                        int index13_37 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_72>='0' && LA11_72<='9')||(LA11_72>='A' && LA11_72<='F')||(LA11_72>='a' && LA11_72<='f')) && ((( textMode && !hashMode )||( hashMode )))) {s = 76;}
+                        if ( ((( textMode && !hashMode )||( !hashMode ))) ) {s = 56;}
 
-                        else s = 18;
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_72);
+                        input.seek(index13_37);
                         if ( s>=0 ) return s;
                         break;
                     case 33 : 
-                        int LA11_76 = input.LA(1);
+                        int LA13_7 = input.LA(1);
 
                          
-                        int index11_76 = input.index();
+                        int index13_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_76>='0' && LA11_76<='9')||(LA11_76>='A' && LA11_76<='F')||(LA11_76>='a' && LA11_76<='f')) && ((( textMode && !hashMode )||( hashMode )))) {s = 78;}
+                        if ( (LA13_7==' ') && (( !textMode ))) {s = 25;}
 
-                        else s = 18;
+                        else s = 24;
 
                          
-                        input.seek(index11_76);
+                        input.seek(index13_7);
                         if ( s>=0 ) return s;
                         break;
                     case 34 : 
-                        int LA11_68 = input.LA(1);
+                        int LA13_21 = input.LA(1);
 
                          
-                        int index11_68 = input.index();
+                        int index13_21 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_68>='0' && LA11_68<='9')||(LA11_68>='A' && LA11_68<='F')||(LA11_68>='a' && LA11_68<='f')) ) {s = 74;}
+                        if ( (( !textMode )) ) {s = 45;}
 
-                        else s = 18;
+                        else if ( (( textMode && !hashMode )) ) {s = 36;}
+
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_68);
+                        input.seek(index13_21);
                         if ( s>=0 ) return s;
                         break;
                     case 35 : 
-                        int LA11_0 = input.LA(1);
+                        int LA13_28 = input.LA(1);
 
                          
-                        int index11_0 = input.index();
+                        int index13_28 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_0=='#') ) {s = 1;}
+                        if ( (( hashMode )) ) {s = 52;}
 
-                        else if ( (LA11_0=='.') ) {s = 2;}
+                        else if ( (( !hashMode )) ) {s = 29;}
 
-                        else if ( (LA11_0=='%') ) {s = 3;}
-
-                        else if ( (LA11_0=='/') && ((( !beginningOfLine && !hashMode )||( textMode && !hashMode )||( hashMode )))) {s = 4;}
-
-                        else if ( (LA11_0==',') && ((( !textMode )||( textMode && !hashMode )||( hashMode )))) {s = 5;}
-
-                        else if ( ((LA11_0>='A' && LA11_0<='Z')||(LA11_0>='a' && LA11_0<='z')) && ((( !textMode )||( textMode && !hashMode )||( hashMode )))) {s = 6;}
-
-                        else if ( (LA11_0==' ') && ((( !textMode )||(false)||( hashMode )))) {s = 7;}
-
-                        else if ( (LA11_0=='\r') && ((( !hashMode )||( hashMode )))) {s = 8;}
-
-                        else if ( (LA11_0=='\n') && ((( !hashMode )||( hashMode )))) {s = 9;}
-
-                        else if ( (LA11_0=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 10;}
-
-                        else if ( (LA11_0=='\'') ) {s = 11;}
-
-                        else if ( ((LA11_0>='\u0000' && LA11_0<='\t')||(LA11_0>='\u000B' && LA11_0<='\f')||(LA11_0>='\u000E' && LA11_0<='\u001F')||LA11_0=='!'||LA11_0=='$'||LA11_0=='&'||(LA11_0>='(' && LA11_0<='+')||LA11_0=='-'||(LA11_0>='0' && LA11_0<='@')||(LA11_0>='[' && LA11_0<='`')||LA11_0=='|'||(LA11_0>='~' && LA11_0<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 12;}
-
-                        else if ( (LA11_0=='}') && (((( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||( textMode && !hashMode )||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))))) {s = 13;}
-
-                        else if ( (LA11_0=='{') && ((( textMode && braceDepth == 0 )||( hashMode )))) {s = 14;}
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_0);
+                        input.seek(index13_28);
                         if ( s>=0 ) return s;
                         break;
                     case 36 : 
-                        int LA11_74 = input.LA(1);
+                        int LA13_23 = input.LA(1);
 
                          
-                        int index11_74 = input.index();
+                        int index13_23 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_74>='0' && LA11_74<='9')||(LA11_74>='A' && LA11_74<='F')||(LA11_74>='a' && LA11_74<='f')) ) {s = 77;}
+                        if ( (( !textMode )) ) {s = 47;}
 
-                        else s = 18;
+                        else if ( (( textMode && !hashMode )) ) {s = 36;}
+
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_74);
+                        input.seek(index13_23);
                         if ( s>=0 ) return s;
                         break;
                     case 37 : 
-                        int LA11_51 = input.LA(1);
+                        int LA13_38 = input.LA(1);
 
                          
-                        int index11_51 = input.index();
+                        int index13_38 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_51>='0' && LA11_51<='9')||(LA11_51>='A' && LA11_51<='F')||(LA11_51>='a' && LA11_51<='f')) && ((( textMode && !hashMode )||( hashMode )))) {s = 64;}
+                        if ( (( textMode && !hashMode )) ) {s = 56;}
 
-                        else s = 18;
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_51);
+                        input.seek(index13_38);
                         if ( s>=0 ) return s;
                         break;
                     case 38 : 
-                        int LA11_56 = input.LA(1);
+                        int LA13_20 = input.LA(1);
 
                          
-                        int index11_56 = input.index();
+                        int index13_20 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_56>='0' && LA11_56<='9')||(LA11_56>='A' && LA11_56<='F')||(LA11_56>='a' && LA11_56<='f')) ) {s = 68;}
+                        if ( (( !beginningOfLine && !hashMode )) ) {s = 44;}
 
-                        else s = 18;
+                        else if ( (( textMode && !hashMode )) ) {s = 36;}
+
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_56);
+                        input.seek(index13_20);
                         if ( s>=0 ) return s;
                         break;
                     case 39 : 
-                        int LA11_32 = input.LA(1);
+                        int LA13_8 = input.LA(1);
 
                          
-                        int index11_32 = input.index();
+                        int index13_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_32=='\"'||LA11_32=='\''||LA11_32=='\\'||LA11_32=='b'||LA11_32=='f'||LA11_32=='n'||LA11_32=='r'||LA11_32=='t') ) {s = 55;}
+                        if ( (LA13_8=='\n') && ((( !hashMode )||( hashMode )))) {s = 26;}
 
-                        else if ( (LA11_32=='u') ) {s = 56;}
-
-                        else if ( ((LA11_32>='0' && LA11_32<='3')) ) {s = 57;}
-
-                        else if ( ((LA11_32>='4' && LA11_32<='7')) ) {s = 58;}
-
-                        else s = 18;
+                        else s = 27;
 
                          
-                        input.seek(index11_32);
+                        input.seek(index13_8);
                         if ( s>=0 ) return s;
                         break;
                     case 40 : 
-                        int LA11_25 = input.LA(1);
+                        int LA13_40 = input.LA(1);
 
                          
-                        int index11_25 = input.index();
+                        int index13_40 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_25==' ') && (( !hashMode ))) {s = 28;}
+                        if ( (( !beginningOfLine && braceDepth == 0 )) ) {s = 66;}
 
-                        else s = 48;
+                        else if ( (( hashMode )) ) {s = 67;}
 
                          
-                        input.seek(index11_25);
+                        input.seek(index13_40);
                         if ( s>=0 ) return s;
                         break;
                     case 41 : 
-                        int LA11_58 = input.LA(1);
+                        int LA13_32 = input.LA(1);
 
                          
-                        int index11_58 = input.index();
+                        int index13_32 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_58=='\'') ) {s = 34;}
+                        if ( ((LA13_32>='\u0000' && LA13_32<='\t')||(LA13_32>='\u000B' && LA13_32<='\f')||(LA13_32>='\u000E' && LA13_32<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
 
-                        else if ( (LA11_58=='\\') ) {s = 32;}
-
-                        else if ( ((LA11_58>='0' && LA11_58<='7')) ) {s = 70;}
-
-                        else if ( ((LA11_58>='\u0000' && LA11_58<='\t')||(LA11_58>='\u000B' && LA11_58<='\f')||(LA11_58>='\u000E' && LA11_58<='&')||(LA11_58>='(' && LA11_58<='/')||(LA11_58>='8' && LA11_58<='[')||(LA11_58>=']' && LA11_58<='\uFFFF')) ) {s = 33;}
-
-                        else s = 18;
+                        else s = 58;
 
                          
-                        input.seek(index11_58);
+                        input.seek(index13_32);
                         if ( s>=0 ) return s;
                         break;
                     case 42 : 
-                        int LA11_10 = input.LA(1);
+                        int LA13_34 = input.LA(1);
 
                          
-                        int index11_10 = input.index();
+                        int index13_34 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_10=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
+                        if ( (LA13_34=='\'') ) {s = 35;}
 
-                        else if ( ((LA11_10>='\u0000' && LA11_10<='\t')||(LA11_10>='\u000B' && LA11_10<='\f')||(LA11_10>='\u000E' && LA11_10<='!')||(LA11_10>='#' && LA11_10<='[')||(LA11_10>=']' && LA11_10<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
+                        else if ( (LA13_34=='\\') ) {s = 33;}
 
-                        else if ( (LA11_10=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+                        else if ( ((LA13_34>='\u0000' && LA13_34<='\t')||(LA13_34>='\u000B' && LA13_34<='\f')||(LA13_34>='\u000E' && LA13_34<='&')||(LA13_34>='(' && LA13_34<='[')||(LA13_34>=']' && LA13_34<='\uFFFF')) ) {s = 34;}
 
-                        else s = 18;
+                        else s = 56;
 
                          
-                        input.seek(index11_10);
+                        input.seek(index13_34);
                         if ( s>=0 ) return s;
                         break;
                     case 43 : 
-                        int LA11_8 = input.LA(1);
+                        int LA13_22 = input.LA(1);
 
                          
-                        int index11_8 = input.index();
+                        int index13_22 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_8=='\n') && ((( !hashMode )||( hashMode )))) {s = 25;}
+                        if ( ((LA13_22>='0' && LA13_22<='9')||(LA13_22>='A' && LA13_22<='Z')||(LA13_22>='a' && LA13_22<='z')) && ((( !textMode )||( textMode && !hashMode )))) {s = 22;}
 
-                        else s = 26;
+                        else if ( ((LA13_22>='\u0000' && LA13_22<='\t')||(LA13_22>='\u000B' && LA13_22<='\f')||(LA13_22>='\u000E' && LA13_22<='/')||(LA13_22>=':' && LA13_22<='@')||(LA13_22>='[' && LA13_22<='`')||(LA13_22>='{' && LA13_22<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 46;
 
                          
-                        input.seek(index11_8);
+                        input.seek(index13_22);
                         if ( s>=0 ) return s;
                         break;
                     case 44 : 
-                        int LA11_33 = input.LA(1);
+                        int LA13_17 = input.LA(1);
 
                          
-                        int index11_33 = input.index();
+                        int index13_17 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_33=='\'') ) {s = 34;}
+                        if ( (!((( hashMode )))) ) {s = 42;}
 
-                        else if ( (LA11_33=='\\') ) {s = 32;}
-
-                        else if ( ((LA11_33>='\u0000' && LA11_33<='\t')||(LA11_33>='\u000B' && LA11_33<='\f')||(LA11_33>='\u000E' && LA11_33<='&')||(LA11_33>='(' && LA11_33<='[')||(LA11_33>=']' && LA11_33<='\uFFFF')) ) {s = 33;}
-
-                        else s = 18;
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_33);
+                        input.seek(index13_17);
                         if ( s>=0 ) return s;
                         break;
                     case 45 : 
-                        int LA11_65 = input.LA(1);
+                        int LA13_16 = input.LA(1);
 
                          
-                        int index11_65 = input.index();
+                        int index13_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_65>='0' && LA11_65<='7')) && ((( textMode && !hashMode )||( hashMode )))) {s = 73;}
+                        if ( (!((( hashMode )))) ) {s = 41;}
 
-                        else if ( (LA11_65=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
-
-                        else if ( (LA11_65=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
-
-                        else if ( ((LA11_65>='\u0000' && LA11_65<='\t')||(LA11_65>='\u000B' && LA11_65<='\f')||(LA11_65>='\u000E' && LA11_65<='!')||(LA11_65>='#' && LA11_65<='/')||(LA11_65>='8' && LA11_65<='[')||(LA11_65>=']' && LA11_65<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
-
-                        else s = 18;
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_65);
+                        input.seek(index13_16);
                         if ( s>=0 ) return s;
                         break;
                     case 46 : 
-                        int LA11_6 = input.LA(1);
+                        int LA13_9 = input.LA(1);
 
                          
-                        int index11_6 = input.index();
+                        int index13_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_6>='0' && LA11_6<='9')||(LA11_6>='A' && LA11_6<='Z')||(LA11_6>='a' && LA11_6<='z')) && ((( !textMode )||( textMode && !hashMode )))) {s = 21;}
+                        if ( (LA13_9==' ') && (( !hashMode ))) {s = 29;}
 
-                        else if ( ((LA11_6>='\u0000' && LA11_6<='\t')||(LA11_6>='\u000B' && LA11_6<='\f')||(LA11_6>='\u000E' && LA11_6<='/')||(LA11_6>=':' && LA11_6<='@')||(LA11_6>='[' && LA11_6<='`')||(LA11_6>='{' && LA11_6<='\uFFFF')) && (( textMode && !hashMode ))) {s = 18;}
-
-                        else s = 22;
+                        else s = 28;
 
                          
-                        input.seek(index11_6);
+                        input.seek(index13_9);
                         if ( s>=0 ) return s;
                         break;
                     case 47 : 
-                        int LA11_54 = input.LA(1);
+                        int LA13_57 = input.LA(1);
 
                          
-                        int index11_54 = input.index();
+                        int index13_57 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( hashMode )) ) {s = 67;}
+                        if ( ((LA13_57>='0' && LA13_57<='7')) && ((( textMode && !hashMode )||( hashMode )))) {s = 70;}
 
-                        else if ( (( textMode && !hashMode )) ) {s = 18;}
+                        else if ( (LA13_57=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
+
+                        else if ( (LA13_57=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
+
+                        else if ( ((LA13_57>='\u0000' && LA13_57<='\t')||(LA13_57>='\u000B' && LA13_57<='\f')||(LA13_57>='\u000E' && LA13_57<='!')||(LA13_57>='#' && LA13_57<='/')||(LA13_57>='8' && LA13_57<='[')||(LA13_57>=']' && LA13_57<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+
+                        else s = 56;
 
                          
-                        input.seek(index11_54);
+                        input.seek(index13_57);
                         if ( s>=0 ) return s;
                         break;
                     case 48 : 
-                        int LA11_59 = input.LA(1);
+                        int LA13_46 = input.LA(1);
 
                          
-                        int index11_59 = input.index();
+                        int index13_46 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (!((( textMode && !hashMode )))) ) {s = 71;}
+                        if ( (( !textMode )) ) {s = 47;}
 
-                        else if ( (( textMode && !hashMode )) ) {s = 18;}
+                        else if ( (( textMode && !hashMode )) ) {s = 56;}
 
                          
-                        input.seek(index11_59);
+                        input.seek(index13_46);
                         if ( s>=0 ) return s;
                         break;
                     case 49 : 
-                        int LA11_50 = input.LA(1);
+                        int LA13_51 = input.LA(1);
 
                          
-                        int index11_50 = input.index();
+                        int index13_51 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_50=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+                        if ( (( hashMode )) ) {s = 52;}
 
-                        else if ( (LA11_50=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
-
-                        else if ( ((LA11_50>='\u0000' && LA11_50<='\t')||(LA11_50>='\u000B' && LA11_50<='\f')||(LA11_50>='\u000E' && LA11_50<='!')||(LA11_50>='#' && LA11_50<='[')||(LA11_50>=']' && LA11_50<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
-
-                        else s = 18;
+                        else if ( (( !hashMode )) ) {s = 29;}
 
                          
-                        input.seek(index11_50);
+                        input.seek(index13_51);
                         if ( s>=0 ) return s;
                         break;
                     case 50 : 
-                        int LA11_77 = input.LA(1);
+                        int LA13_0 = input.LA(1);
 
                          
-                        int index11_77 = input.index();
+                        int index13_0 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_77>='0' && LA11_77<='9')||(LA11_77>='A' && LA11_77<='F')||(LA11_77>='a' && LA11_77<='f')) ) {s = 79;}
+                        if ( (LA13_0=='#') ) {s = 1;}
 
-                        else s = 18;
+                        else if ( (LA13_0=='.') ) {s = 2;}
+
+                        else if ( (LA13_0=='%') ) {s = 3;}
+
+                        else if ( (LA13_0=='/') && ((( !beginningOfLine && !hashMode )||( textMode && !hashMode )||( hashMode )))) {s = 4;}
+
+                        else if ( (LA13_0==',') && ((( !textMode )||( textMode && !hashMode )||( hashMode )))) {s = 5;}
+
+                        else if ( ((LA13_0>='A' && LA13_0<='Z')||(LA13_0>='a' && LA13_0<='z')) && ((( !textMode )||( textMode && !hashMode )||( hashMode )))) {s = 6;}
+
+                        else if ( (LA13_0==' ') && ((( !textMode )||(false)||( hashMode )))) {s = 7;}
+
+                        else if ( (LA13_0=='\r') && ((( !hashMode )||( hashMode )))) {s = 8;}
+
+                        else if ( (LA13_0=='\n') && ((( !hashMode )||( hashMode )))) {s = 9;}
+
+                        else if ( (LA13_0=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 10;}
+
+                        else if ( (LA13_0=='\'') ) {s = 11;}
+
+                        else if ( (LA13_0=='-'||LA13_0=='=') && ((( textMode && !hashMode )||( !hashMode )||( hashMode )))) {s = 12;}
+
+                        else if ( ((LA13_0>='\u0000' && LA13_0<='\t')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||LA13_0=='!'||LA13_0=='$'||LA13_0=='&'||(LA13_0>='(' && LA13_0<='+')||(LA13_0>='0' && LA13_0<='<')||(LA13_0>='>' && LA13_0<='@')||(LA13_0>='[' && LA13_0<='`')||LA13_0=='|'||(LA13_0>='~' && LA13_0<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 13;}
+
+                        else if ( (LA13_0=='}') && (((( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||( textMode && !hashMode )||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth == 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))||(( braceDepth > 1 )&&( hashMode ))))) {s = 14;}
+
+                        else if ( (LA13_0=='{') && ((( !beginningOfLine && braceDepth == 0 )||( hashMode )))) {s = 15;}
 
                          
-                        input.seek(index11_77);
+                        input.seek(index13_0);
                         if ( s>=0 ) return s;
                         break;
                     case 51 : 
-                        int LA11_52 = input.LA(1);
+                        int LA13_18 = input.LA(1);
 
                          
-                        int index11_52 = input.index();
+                        int index13_18 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( ((LA11_52>='0' && LA11_52<='7')) && ((( textMode && !hashMode )||( hashMode )))) {s = 65;}
+                        if ( (!((( hashMode )))) ) {s = 43;}
 
-                        else if ( (LA11_52=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
-
-                        else if ( (LA11_52=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 29;}
-
-                        else if ( ((LA11_52>='\u0000' && LA11_52<='\t')||(LA11_52>='\u000B' && LA11_52<='\f')||(LA11_52>='\u000E' && LA11_52<='!')||(LA11_52>='#' && LA11_52<='/')||(LA11_52>='8' && LA11_52<='[')||(LA11_52>=']' && LA11_52<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
-
-                        else s = 18;
+                        else if ( (( hashMode )) ) {s = 27;}
 
                          
-                        input.seek(index11_52);
+                        input.seek(index13_18);
                         if ( s>=0 ) return s;
                         break;
                     case 52 : 
-                        int LA11_35 = input.LA(1);
+                        int LA13_10 = input.LA(1);
 
                          
-                        int index11_35 = input.index();
+                        int index13_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( textMode && !hashMode )) ) {s = 18;}
+                        if ( (LA13_10=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
 
-                        else if ( (( hashMode )) ) {s = 26;}
+                        else if ( ((LA13_10>='\u0000' && LA13_10<='\t')||(LA13_10>='\u000B' && LA13_10<='\f')||(LA13_10>='\u000E' && LA13_10<='!')||(LA13_10>='#' && LA13_10<='[')||(LA13_10>=']' && LA13_10<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+
+                        else if ( (LA13_10=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
+
+                        else s = 19;
 
                          
-                        input.seek(index11_35);
+                        input.seek(index13_10);
                         if ( s>=0 ) return s;
                         break;
                     case 53 : 
-                        int LA11_37 = input.LA(1);
+                        int LA13_63 = input.LA(1);
 
                          
-                        int index11_37 = input.index();
+                        int index13_63 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (( textMode && braceDepth == 0 )) ) {s = 62;}
+                        if ( (!((( textMode && !hashMode )))) ) {s = 75;}
 
-                        else if ( (( hashMode )) ) {s = 63;}
+                        else if ( (( textMode && !hashMode )) ) {s = 56;}
 
                          
-                        input.seek(index11_37);
+                        input.seek(index13_63);
                         if ( s>=0 ) return s;
                         break;
                     case 54 : 
-                        int LA11_70 = input.LA(1);
+                        int LA13_68 = input.LA(1);
 
                          
-                        int index11_70 = input.index();
+                        int index13_68 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_70=='\'') ) {s = 34;}
+                        if ( ((LA13_68>='0' && LA13_68<='9')||(LA13_68>='A' && LA13_68<='F')||(LA13_68>='a' && LA13_68<='f')) && ((( textMode && !hashMode )||( hashMode )))) {s = 76;}
 
-                        else if ( (LA11_70=='\\') ) {s = 32;}
+                        else if ( ((LA13_68>='\u0000' && LA13_68<='\t')||(LA13_68>='\u000B' && LA13_68<='\f')||(LA13_68>='\u000E' && LA13_68<='/')||(LA13_68>=':' && LA13_68<='@')||(LA13_68>='G' && LA13_68<='`')||(LA13_68>='g' && LA13_68<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
 
-                        else if ( ((LA11_70>='\u0000' && LA11_70<='\t')||(LA11_70>='\u000B' && LA11_70<='\f')||(LA11_70>='\u000E' && LA11_70<='&')||(LA11_70>='(' && LA11_70<='[')||(LA11_70>=']' && LA11_70<='\uFFFF')) ) {s = 33;}
-
-                        else s = 18;
+                        else s = 56;
 
                          
-                        input.seek(index11_70);
+                        input.seek(index13_68);
                         if ( s>=0 ) return s;
                         break;
                     case 55 : 
-                        int LA11_55 = input.LA(1);
+                        int LA13_58 = input.LA(1);
 
                          
-                        int index11_55 = input.index();
+                        int index13_58 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_55=='\'') ) {s = 34;}
+                        if ( (( hashMode )) ) {s = 71;}
 
-                        else if ( (LA11_55=='\\') ) {s = 32;}
-
-                        else if ( ((LA11_55>='\u0000' && LA11_55<='\t')||(LA11_55>='\u000B' && LA11_55<='\f')||(LA11_55>='\u000E' && LA11_55<='&')||(LA11_55>='(' && LA11_55<='[')||(LA11_55>=']' && LA11_55<='\uFFFF')) ) {s = 33;}
-
-                        else s = 18;
+                        else if ( (( textMode && !hashMode )) ) {s = 56;}
 
                          
-                        input.seek(index11_55);
+                        input.seek(index13_58);
                         if ( s>=0 ) return s;
                         break;
                     case 56 : 
-                        int LA11_11 = input.LA(1);
+                        int LA13_14 = input.LA(1);
 
                          
-                        int index11_11 = input.index();
+                        int index13_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA11_11=='\\') ) {s = 32;}
+                        if ( ((LA13_14>='\u0000' && LA13_14<='\t')||(LA13_14>='\u000B' && LA13_14<='\f')||(LA13_14>='\u000E' && LA13_14<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
 
-                        else if ( ((LA11_11>='\u0000' && LA11_11<='\t')||(LA11_11>='\u000B' && LA11_11<='\f')||(LA11_11>='\u000E' && LA11_11<='&')||(LA11_11>='(' && LA11_11<='[')||(LA11_11>=']' && LA11_11<='\uFFFF')) ) {s = 33;}
-
-                        else if ( (LA11_11=='\'') ) {s = 34;}
-
-                        else s = 18;
+                        else s = 39;
 
                          
-                        input.seek(index11_11);
+                        input.seek(index13_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 57 : 
+                        int LA13_35 = input.LA(1);
+
+                         
+                        int index13_35 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( ((LA13_35>='\u0000' && LA13_35<='\t')||(LA13_35>='\u000B' && LA13_35<='\f')||(LA13_35>='\u000E' && LA13_35<='\uFFFF')) && (( textMode && !hashMode ))) {s = 19;}
+
+                        else s = 63;
+
+                         
+                        input.seek(index13_35);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 58 : 
+                        int LA13_77 = input.LA(1);
+
+                         
+                        int index13_77 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA13_77=='\"') && ((( textMode && !hashMode )||( hashMode )))) {s = 32;}
+
+                        else if ( (LA13_77=='\\') && ((( textMode && !hashMode )||( hashMode )))) {s = 30;}
+
+                        else if ( ((LA13_77>='\u0000' && LA13_77<='\t')||(LA13_77>='\u000B' && LA13_77<='\f')||(LA13_77>='\u000E' && LA13_77<='!')||(LA13_77>='#' && LA13_77<='[')||(LA13_77>=']' && LA13_77<='\uFFFF')) && ((( textMode && !hashMode )||( hashMode )))) {s = 31;}
+
+                        else s = 56;
+
+                         
+                        input.seek(index13_77);
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 11, _s, input);
+                new NoViableAltException(getDescription(), 13, _s, input);
             error(nvae);
             throw nvae;
         }

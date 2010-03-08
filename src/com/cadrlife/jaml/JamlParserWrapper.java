@@ -38,6 +38,7 @@ public class JamlParserWrapper {
 	public jamlSource_return parseJaml(String input) throws JamlParseException {
 		try {
 			JamlParser parser = primeJamlParser(input, false);
+			new JamlErrorChecker(parser).checkDocumentDoesNotBeginWithIndentation(input);
 			jamlSource_return result = parser.jamlSource(new JamlConfig());
 			throwForParseErrors(parser);
 			return result;

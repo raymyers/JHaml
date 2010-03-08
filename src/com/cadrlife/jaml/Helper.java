@@ -56,6 +56,9 @@ public class Helper {
 	
 	public void parseAttrHash(String input, Map<String, String> attrMap) {
 		System.out.println(">>> "+ input);
+		if (input.trim().isEmpty()) {
+			return;
+		}
 		JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
 		try {
 			attrMappings_return parseJamlAttrHash = jamlParserWrapper.parseJamlAttrHash(input,this);
