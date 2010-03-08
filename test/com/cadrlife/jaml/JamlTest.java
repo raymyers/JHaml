@@ -175,4 +175,11 @@ public class JamlTest {
 		assertEquals("<p>\n  <a />\n  <b />\n</p>", jaml.parse("%p\n  %a/\n\n\n\n  %b/"));
 		assertEquals("<p>\n  <p>\n    <a />\n    <b />\n  </p>\n</p>", jaml.parse("%p\n  %p\n    %a/\n\n    %b/"));
 	}
+	
+	@Test
+	public void flexibleTabulation() {
+		assertEquals("<p>\n  foo\n</p>\n<q>\n  bar\n  <a>\n    baz\n  </a>\n</q>", jaml.parse("%p\n foo\n%q\n bar\n %a\n  baz"));
+		assertEquals("<p>\n  foo\n</p>\n<q>\n  bar\n  <a>\n    baz\n  </a>\n</q>", jaml.parse("%p\n\tfoo\n%q\n\tbar\n\t%a\n\t\tbaz"));
+//		assertEquals("<p>\n      \t \t bar\n   baz\n</p>", jaml.parse("%p\n  :plain\n        \t \t bar\n     baz"));
+	}
 }
