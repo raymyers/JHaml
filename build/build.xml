@@ -35,7 +35,7 @@
                 </move>
                 <!-- Add suppress warnings to parsers. -->
        			<replaceregexp file="${antlrdir}/${jaml.grammar.name}Lexer.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" /> 
-       			<replaceregexp file="${antlrdir}/${jaml.grammar.name}Parser.java" match="^public class" replace="@SuppressWarnings(&quot;unused&quot;) public class" flags="m" /> 
+       			<replaceregexp file="${antlrdir}/${jaml.grammar.name}Parser.java" match="^public class" replace="@SuppressWarnings({&quot;unused&quot;,&quot;unchecked&quot;}) public class" flags="m" /> 
                 <!-- Move generated Java code to the correct package directory. -->
                 <move todir="${srcdir}/${jaml.parse.package}">
                    <fileset dir="${antlrdir}" includes="*.java" />

@@ -113,6 +113,7 @@ public class JamlAttributeHashTest {
 					new StringInputStream(("%p" + input))));
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			JamlParser parser = new JamlParser(tokens);
+			parser.pushElementScopeForTesting();
 			elementDeclaration_return prog = parser.elementDeclaration();
 			if (parser.failed()) {
 				throw new RuntimeException();

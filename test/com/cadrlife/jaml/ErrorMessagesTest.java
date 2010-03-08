@@ -9,15 +9,15 @@ public class ErrorMessagesTest {
 	@Test
 	public void errorMessages() {
 		assertInputThrows("!!!\n  a", "Illegal nesting: nesting within a header command is illegal.");
-//		assertInputThrows("a\n  b", "Illegal nesting: nesting within plain text is illegal.");
-//		assertInputThrows("/ a\n  b", "Illegal nesting: nesting within a tag that already has content is illegal.");
-//		assertInputThrows("% a", "Invalid tag: \"% a\".");
-//		assertInputThrows("%p a\n  b", "Illegal nesting: content can't be both given on the same line as %p and nested within it.");
-//		assertInputThrows("%p=", "There's no Ruby code for = to evaluate.");
+		assertInputThrows("a\n  b", "Illegal nesting: nesting within plain text is illegal.");
+		assertInputThrows("/ a\n  b", "Illegal nesting: nesting within a tag that already has content is illegal.");
+		assertInputThrows("% a", "Invalid tag: \"% a\".");
+		assertInputThrows("%p a\n  b", "Illegal nesting: content can't be both given on the same line as %p and nested within it.");
+		assertInputThrows("%p=", "There's no Java code for = to evaluate.");
 //		assertInputThrows("%p~", "There's no Ruby code for ~ to evaluate.");
 //		assertInputThrows("~", "There's no Ruby code for ~ to evaluate.");
-//		assertInputThrows("=", "There's no Ruby code for = to evaluate.");
-//		assertInputThrows("%p/\n  a", "Illegal nesting: nesting within a self-closing tag is illegal.");
+		assertInputThrows("=", "There's no Java code for = to evaluate.");
+		assertInputThrows("%p/\n  a", "Illegal nesting: nesting within a self-closing tag is illegal.");
 //		assertInputThrows(":a\n  b", "Filter \"a\" is not defined.", 1);
 //		assertInputThrows(":a= b", "Invalid filter name \":a= b\".");
 //		assertInputThrows(".", "Illegal element: classes and ids must have values.");

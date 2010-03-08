@@ -19,9 +19,11 @@ public class Helper {
 		this.config = config;
 	}
 	
-	public String elem(String el, Map<String,String> attribMap, String content, boolean selfClosing) {
+	public String elem(String tag, String el, Map<String,String> attribMap, String content, boolean selfClosing) {
+		errorChecker.checkElementHasLegalTag(tag, el);
 		boolean autoClose = config.autoclose.contains(el) && content.isEmpty();
 		if (selfClosing || autoClose) {
+			errorChecker.checkContentOfSelfClosingTags(content);
 			return "<" + el + attribs(attribMap) + " />";
 		}
 		return "<" + el + attribs(attribMap) + ">" + content + "</" + el + ">";
@@ -99,6 +101,7 @@ public class Helper {
 	}
 
 	public String jspExpression(String code) {
+		errorChecker.checkJavaCodeIsNotEmpty("=",code);
 		return "<%= " + code + " %>";
 	}
 	
@@ -116,7 +119,7 @@ public class Helper {
 		return "<% " + code + " %>";
 	}
 
-	public String parseFreeFormText(String text) {
+	public String parseFreeFormText(String currentElementType, String text) {
 		if (text.startsWith("!!!")) {
 			return header(text);
 		}
@@ -135,7 +138,7 @@ public class Helper {
 		if (text.startsWith(":")) {
 			return filter(text.substring(1));
 		}
-		errorChecker.checkNoNestingWithinPlainText(text);
+		errorChecker.checkNoNestingWithinContent(currentElementType, text);
 		return CharMatcher.is(' ').trimTrailingFrom(text);
 	}
 
@@ -196,7 +199,8 @@ public class Helper {
 		if (CharMatcher.WHITESPACE.matchesAllOf(string)) {
 			return "<!--\n-->";
 		}
-		if (string.contains("\n") || string.contains("\r")) {
+		errorChecker.checkNoNestingWithContentOnFirstLine(string);
+		if (string.contains("\n")) {
 			return "<!--\n" + string + "\n-->";
 		}
 		return "<!-- " + string.trim() + " -->";

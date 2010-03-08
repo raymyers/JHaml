@@ -49,6 +49,10 @@ package com.cadrlife.jaml;
 String output = "";
 JamlConfig config = new JamlConfig();
 Helper util = new Helper(config);
+boolean shouldParseText = true;
+public void pushElementScopeForTesting() {
+  element_stack.push(new element_scope());
+}
 }
 
 jamlSource[JamlConfig config] returns [String rendering]
@@ -59,17 +63,19 @@ jamlSource[JamlConfig config] returns [String rendering]
 }
 : (line {$rendering += $line.rendering + "\n";})*;
 
-element returns [String rendering] 
+element returns [String rendering]
+  scope {
+    String type;
+  } 
   @init {
   	String content = ""; 
   	boolean selfClosing=false;
   }
   :
-  elementDeclaration 
+  elementDeclaration (FORWARD_SLASH {selfClosing = true;})?
    ( freeformText[false] {content = $freeformText.rendering;} | 
-     NEWLINE (content {content = $content.rendering;})? |
-     FORWARD_SLASH NEWLINE {selfClosing = true;})
-  {$rendering = util.elem($elementDeclaration.type, $elementDeclaration.attrMap, content, selfClosing);}
+     NEWLINE (content {content = $content.rendering;})?)
+  {$rendering = util.elem($element.text, $element::type, $elementDeclaration.attrMap, content, selfClosing);}
   ;
 
 line returns [String rendering] @init { $rendering = ""; } :
@@ -78,19 +84,37 @@ line returns [String rendering] @init { $rendering = ""; } :
   | NEWLINE
   ;
   
-freeformText[boolean beginningOfLine] returns [String rendering] @init {String txt = "";}:
-  TEXT NEWLINE {txt = $TEXT.text;}
+freeformText[boolean beginningOfLine] returns [String rendering] 
+@init {
+  String txt = "";
+  boolean isFilter = false;
+}:
+  TEXT NEWLINE {
+    txt = $TEXT.text; 
+    if (shouldParseText && beginningOfLine && txt.startsWith(":")) {
+      isFilter = true;
+      shouldParseText = false;
+    }
+  }
   (content {
-    if (beginningOfLine && txt.startsWith(":")) {
+    if (isFilter) {
     	int contentPos = $content.start.getCharPositionInLine();
     	txt = txt + $NEWLINE.text + util.spaces(contentPos) + $content.text;
     } else {
     	txt += $content.rendering;
     }
   })? 
-  {$rendering = util.parseFreeFormText(txt);};
+  {
+    if (isFilter) {
+      shouldParseText = true;
+    }
+    if (shouldParseText) {
+      String currentElementType = element_stack.isEmpty() ? null : $element::type;  
+      $rendering = util.parseFreeFormText(currentElementType, txt);
+    }
+  };
       
-elementDeclaration returns [String type, Map<String,String> attrMap] 
+elementDeclaration returns [Map<String,String> attrMap] 
   @init {
   	$attrMap = new LinkedHashMap<String,String>();
   	List<String> ids = new ArrayList<String>();
@@ -99,10 +123,9 @@ elementDeclaration returns [String type, Map<String,String> attrMap]
   @after {
   	util.mergeAttributes($attrMap, ids, classes);
   }:
-  (a1=divAttrs[ids,classes] {$type = "div";} attrHash[$attrMap]?)
+  (divAttrs[ids,classes] {$element::type = "div";} attrHash[$attrMap]?)
 | 
- (a2=attrs[ids,classes] {$type = $a2.type;} 
-  attrHash[$attrMap]?)
+ (attrs[ids,classes] attrHash[$attrMap]?)
   ;
 
 content returns [String rendering] @init { $rendering = ""; } :
@@ -116,8 +139,8 @@ DEDENT
 
 blankLines : DEDENT (NEWLINE+ | blankLines) INDENT;
 
-attrs[List<String> ids, List<String> classes] returns [String type]:
-PERCENT ID {$type = $ID.text;}
+attrs[List<String> ids, List<String> classes]:
+PERCENT ID? {$element::type = $ID.text;}
 (idSpecifier {$ids.add($idSpecifier.id);} |
  classSpecifier {$classes.add($classSpecifier.klass);})*;
 
@@ -153,7 +176,7 @@ ID  : { !textMode }?=>
 // NEWLINE: ('\r'? '\n') {textMode = true; beginningOfLine=true;};
 
 WS : { !textMode }?=>
-  Spaces {if ( !hashMode ) { skip(); textMode=true; }};
+  Spaces {if ( !hashMode ) { $channel = HIDDEN; textMode=true; }};
 
 IGNORED_NEWLINE  : { hashMode }?=> NL ;
 
