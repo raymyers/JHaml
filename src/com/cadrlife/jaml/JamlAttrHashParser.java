@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-02-28 17:27:04
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JamlAttrHash.g 2010-03-07 21:53:24
 
 package com.cadrlife.jaml;
 import java.util.LinkedHashMap;
@@ -226,7 +226,7 @@ import org.antlr.runtime.tree.*;
     public String getGrammarFileName() { return "../etc/JamlAttrHash.g"; }
 
 
-        Helper jamlUtil = new Helper(new JamlConfig());
+        Helper jamlUtil;
         
         private boolean mMessageCollectionEnabled = false;
         private boolean mHasErrors = false;
@@ -297,8 +297,8 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attrMappings"
-    // ../etc/JamlAttrHash.g:280:1: attrMappings returns [Map<String,String> attrMap] : (am= attrMapping ( ',' am= attrMapping )* ) ;
-    public final JamlAttrHashParser.attrMappings_return attrMappings() throws RecognitionException {
+    // ../etc/JamlAttrHash.g:280:1: attrMappings[Helper helper] returns [Map<String,String> attrMap] : (am= attrMapping ( ',' am= attrMapping )* ) ;
+    public final JamlAttrHashParser.attrMappings_return attrMappings(Helper helper) throws RecognitionException {
     traceIn("attrMappings", 1);
         JamlAttrHashParser.attrMappings_return retval = new JamlAttrHashParser.attrMappings_return();
         retval.start = input.LT(1);
@@ -311,18 +311,21 @@ import org.antlr.runtime.tree.*;
 
         CommonTree char_literal1_tree=null;
 
-        retval.attrMap = new LinkedHashMap<String,String>();
+
+            retval.attrMap = new LinkedHashMap<String,String>();
+            jamlUtil = helper;
+          
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return retval; }
-            // ../etc/JamlAttrHash.g:281:57: ( (am= attrMapping ( ',' am= attrMapping )* ) )
-            // ../etc/JamlAttrHash.g:283:3: (am= attrMapping ( ',' am= attrMapping )* )
+            // ../etc/JamlAttrHash.g:284:4: ( (am= attrMapping ( ',' am= attrMapping )* ) )
+            // ../etc/JamlAttrHash.g:286:3: (am= attrMapping ( ',' am= attrMapping )* )
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/JamlAttrHash.g:283:3: (am= attrMapping ( ',' am= attrMapping )* )
-            // ../etc/JamlAttrHash.g:283:5: am= attrMapping ( ',' am= attrMapping )*
+            // ../etc/JamlAttrHash.g:286:3: (am= attrMapping ( ',' am= attrMapping )* )
+            // ../etc/JamlAttrHash.g:286:5: am= attrMapping ( ',' am= attrMapping )*
             {
-            pushFollow(FOLLOW_attrMapping_in_attrMappings4525);
+            pushFollow(FOLLOW_attrMapping_in_attrMappings4526);
             am=attrMapping();
 
             state._fsp--;
@@ -331,7 +334,7 @@ import org.antlr.runtime.tree.*;
             if ( state.backtracking==0 ) {
               retval.attrMap.put((am!=null?am.attr:null),(am!=null?am.value:null));
             }
-            // ../etc/JamlAttrHash.g:284:5: ( ',' am= attrMapping )*
+            // ../etc/JamlAttrHash.g:287:5: ( ',' am= attrMapping )*
             loop1:
             do {
                 int alt1=2;
@@ -344,14 +347,14 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt1) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:284:6: ',' am= attrMapping
+            	    // ../etc/JamlAttrHash.g:287:6: ',' am= attrMapping
             	    {
-            	    char_literal1=(Token)match(input,COMMA,FOLLOW_COMMA_in_attrMappings4536); if (state.failed) return retval;
+            	    char_literal1=(Token)match(input,COMMA,FOLLOW_COMMA_in_attrMappings4537); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal1_tree = (CommonTree)adaptor.create(char_literal1);
             	    adaptor.addChild(root_0, char_literal1_tree);
             	    }
-            	    pushFollow(FOLLOW_attrMapping_in_attrMappings4540);
+            	    pushFollow(FOLLOW_attrMapping_in_attrMappings4541);
             	    am=attrMapping();
 
             	    state._fsp--;
@@ -405,7 +408,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attrMapping"
-    // ../etc/JamlAttrHash.g:286:1: attrMapping returns [String attr, String value] : attribute '=' '>' attributeValue ;
+    // ../etc/JamlAttrHash.g:289:1: attrMapping returns [String attr, String value] : attribute '=' '>' attributeValue ;
     public final JamlAttrHashParser.attrMapping_return attrMapping() throws RecognitionException {
     traceIn("attrMapping", 2);
         JamlAttrHashParser.attrMapping_return retval = new JamlAttrHashParser.attrMapping_return();
@@ -425,12 +428,12 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return retval; }
-            // ../etc/JamlAttrHash.g:286:48: ( attribute '=' '>' attributeValue )
-            // ../etc/JamlAttrHash.g:287:3: attribute '=' '>' attributeValue
+            // ../etc/JamlAttrHash.g:289:48: ( attribute '=' '>' attributeValue )
+            // ../etc/JamlAttrHash.g:290:3: attribute '=' '>' attributeValue
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_attribute_in_attrMapping4560);
+            pushFollow(FOLLOW_attribute_in_attrMapping4561);
             attribute2=attribute();
 
             state._fsp--;
@@ -439,17 +442,17 @@ import org.antlr.runtime.tree.*;
             if ( state.backtracking==0 ) {
               retval.attr =(attribute2!=null?attribute2.value:null);
             }
-            char_literal3=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_attrMapping4567); if (state.failed) return retval;
+            char_literal3=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_attrMapping4568); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             char_literal3_tree = (CommonTree)adaptor.create(char_literal3);
             adaptor.addChild(root_0, char_literal3_tree);
             }
-            char_literal4=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_attrMapping4569); if (state.failed) return retval;
+            char_literal4=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_attrMapping4570); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             char_literal4_tree = (CommonTree)adaptor.create(char_literal4);
             adaptor.addChild(root_0, char_literal4_tree);
             }
-            pushFollow(FOLLOW_attributeValue_in_attrMapping4574);
+            pushFollow(FOLLOW_attributeValue_in_attrMapping4575);
             attributeValue5=attributeValue();
 
             state._fsp--;
@@ -490,7 +493,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attribute"
-    // ../etc/JamlAttrHash.g:291:1: attribute returns [String value] : ( ':' ( keyword | IDENT ) | literal );
+    // ../etc/JamlAttrHash.g:294:1: attribute returns [String value] : ( ':' ( keyword | IDENT ) | literal );
     public final JamlAttrHashParser.attribute_return attribute() throws RecognitionException {
     traceIn("attribute", 3);
         JamlAttrHashParser.attribute_return retval = new JamlAttrHashParser.attribute_return();
@@ -510,7 +513,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return retval; }
-            // ../etc/JamlAttrHash.g:291:33: ( ':' ( keyword | IDENT ) | literal )
+            // ../etc/JamlAttrHash.g:294:33: ( ':' ( keyword | IDENT ) | literal )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -529,16 +532,16 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt3) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:292:1: ':' ( keyword | IDENT )
+                    // ../etc/JamlAttrHash.g:295:1: ':' ( keyword | IDENT )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    char_literal6=(Token)match(input,COLON,FOLLOW_COLON_in_attribute4588); if (state.failed) return retval;
+                    char_literal6=(Token)match(input,COLON,FOLLOW_COLON_in_attribute4589); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     char_literal6_tree = (CommonTree)adaptor.create(char_literal6);
                     adaptor.addChild(root_0, char_literal6_tree);
                     }
-                    // ../etc/JamlAttrHash.g:292:5: ( keyword | IDENT )
+                    // ../etc/JamlAttrHash.g:295:5: ( keyword | IDENT )
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -557,9 +560,9 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt2) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:292:6: keyword
+                            // ../etc/JamlAttrHash.g:295:6: keyword
                             {
-                            pushFollow(FOLLOW_keyword_in_attribute4591);
+                            pushFollow(FOLLOW_keyword_in_attribute4592);
                             keyword7=keyword();
 
                             state._fsp--;
@@ -572,9 +575,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:292:42: IDENT
+                            // ../etc/JamlAttrHash.g:295:42: IDENT
                             {
-                            IDENT8=(Token)match(input,IDENT,FOLLOW_IDENT_in_attribute4597); if (state.failed) return retval;
+                            IDENT8=(Token)match(input,IDENT,FOLLOW_IDENT_in_attribute4598); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             IDENT8_tree = (CommonTree)adaptor.create(IDENT8);
                             adaptor.addChild(root_0, IDENT8_tree);
@@ -592,11 +595,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:293:1: literal
+                    // ../etc/JamlAttrHash.g:296:1: literal
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_literal_in_attribute4604);
+                    pushFollow(FOLLOW_literal_in_attribute4605);
                     literal9=literal();
 
                     state._fsp--;
@@ -639,7 +642,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attributeValue"
-    // ../etc/JamlAttrHash.g:296:1: attributeValue returns [String value] : ( ( literal ',' | literal EOF )=> literal | expression );
+    // ../etc/JamlAttrHash.g:299:1: attributeValue returns [String value] : ( ( literal ',' | literal EOF )=> literal | expression );
     public final JamlAttrHashParser.attributeValue_return attributeValue() throws RecognitionException {
     traceIn("attributeValue", 4);
         JamlAttrHashParser.attributeValue_return retval = new JamlAttrHashParser.attributeValue_return();
@@ -655,7 +658,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return retval; }
-            // ../etc/JamlAttrHash.g:296:38: ( ( literal ',' | literal EOF )=> literal | expression )
+            // ../etc/JamlAttrHash.g:299:38: ( ( literal ',' | literal EOF )=> literal | expression )
             int alt4=2;
             switch ( input.LA(1) ) {
             case HEX_LITERAL:
@@ -792,11 +795,11 @@ import org.antlr.runtime.tree.*;
 
             switch (alt4) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:297:1: ( literal ',' | literal EOF )=> literal
+                    // ../etc/JamlAttrHash.g:300:1: ( literal ',' | literal EOF )=> literal
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_literal_in_attributeValue4633);
+                    pushFollow(FOLLOW_literal_in_attributeValue4634);
                     literal10=literal();
 
                     state._fsp--;
@@ -809,11 +812,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:298:1: expression
+                    // ../etc/JamlAttrHash.g:301:1: expression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expression_in_attributeValue4640);
+                    pushFollow(FOLLOW_expression_in_attributeValue4641);
                     expression11=expression();
 
                     state._fsp--;
@@ -856,7 +859,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "literal"
-    // ../etc/JamlAttrHash.g:301:1: literal returns [String value] : (lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= CHARACTER_LITERAL | lit= STRING_LITERAL | lit= ( TRUE | FALSE | NULL ) );
+    // ../etc/JamlAttrHash.g:304:1: literal returns [String value] : (lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= CHARACTER_LITERAL | lit= STRING_LITERAL | lit= ( TRUE | FALSE | NULL ) );
     public final JamlAttrHashParser.literal_return literal() throws RecognitionException {
     traceIn("literal", 5);
         JamlAttrHashParser.literal_return retval = new JamlAttrHashParser.literal_return();
@@ -870,7 +873,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return retval; }
-            // ../etc/JamlAttrHash.g:301:32: (lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= CHARACTER_LITERAL | lit= STRING_LITERAL | lit= ( TRUE | FALSE | NULL ) )
+            // ../etc/JamlAttrHash.g:304:32: (lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= CHARACTER_LITERAL | lit= STRING_LITERAL | lit= ( TRUE | FALSE | NULL ) )
             int alt5=5;
             switch ( input.LA(1) ) {
             case HEX_LITERAL:
@@ -912,7 +915,7 @@ import org.antlr.runtime.tree.*;
 
             switch (alt5) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:302:3: lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL )
+                    // ../etc/JamlAttrHash.g:305:3: lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -935,11 +938,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:303:3: lit= FLOATING_POINT_LITERAL
+                    // ../etc/JamlAttrHash.g:306:3: lit= FLOATING_POINT_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal4677); if (state.failed) return retval;
+                    lit=(Token)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal4678); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -951,11 +954,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:304:3: lit= CHARACTER_LITERAL
+                    // ../etc/JamlAttrHash.g:307:3: lit= CHARACTER_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_literal4687); if (state.failed) return retval;
+                    lit=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_literal4688); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -967,11 +970,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:305:3: lit= STRING_LITERAL
+                    // ../etc/JamlAttrHash.g:308:3: lit= STRING_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal4697); if (state.failed) return retval;
+                    lit=(Token)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal4698); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -983,7 +986,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:306:3: lit= ( TRUE | FALSE | NULL )
+                    // ../etc/JamlAttrHash.g:309:3: lit= ( TRUE | FALSE | NULL )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1035,7 +1038,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "keyword"
-    // ../etc/JamlAttrHash.g:309:1: keyword : ( ABSTRACT | ASSERT | BOOLEAN | BREAK | BYTE | CASE | CATCH | CHAR | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | ENUM | EXTENDS | FALSE | FINAL | FINALLY | FLOAT | FOR | IF | IMPLEMENTS | INSTANCEOF | INTERFACE | IMPORT | INT | LONG | NATIVE | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | STRICTFP | SUPER | SWITCH | SYNCHRONIZED | THIS | THROW | THROWS | TRANSIENT | TRUE | TRY | VOID | VOLATILE | WHILE );
+    // ../etc/JamlAttrHash.g:312:1: keyword : ( ABSTRACT | ASSERT | BOOLEAN | BREAK | BYTE | CASE | CATCH | CHAR | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | ENUM | EXTENDS | FALSE | FINAL | FINALLY | FLOAT | FOR | IF | IMPLEMENTS | INSTANCEOF | INTERFACE | IMPORT | INT | LONG | NATIVE | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | STRICTFP | SUPER | SWITCH | SYNCHRONIZED | THIS | THROW | THROWS | TRANSIENT | TRUE | TRY | VOID | VOLATILE | WHILE );
     public final JamlAttrHashParser.keyword_return keyword() throws RecognitionException {
     traceIn("keyword", 6);
         JamlAttrHashParser.keyword_return retval = new JamlAttrHashParser.keyword_return();
@@ -1049,7 +1052,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
-            // ../etc/JamlAttrHash.g:309:9: ( ABSTRACT | ASSERT | BOOLEAN | BREAK | BYTE | CASE | CATCH | CHAR | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | ENUM | EXTENDS | FALSE | FINAL | FINALLY | FLOAT | FOR | IF | IMPLEMENTS | INSTANCEOF | INTERFACE | IMPORT | INT | LONG | NATIVE | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | STRICTFP | SUPER | SWITCH | SYNCHRONIZED | THIS | THROW | THROWS | TRANSIENT | TRUE | TRY | VOID | VOLATILE | WHILE )
+            // ../etc/JamlAttrHash.g:312:9: ( ABSTRACT | ASSERT | BOOLEAN | BREAK | BYTE | CASE | CATCH | CHAR | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | ENUM | EXTENDS | FALSE | FINAL | FINALLY | FLOAT | FOR | IF | IMPLEMENTS | INSTANCEOF | INTERFACE | IMPORT | INT | LONG | NATIVE | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | STRICTFP | SUPER | SWITCH | SYNCHRONIZED | THIS | THROW | THROWS | TRANSIENT | TRUE | TRY | VOID | VOLATILE | WHILE )
             // ../etc/JamlAttrHash.g:
             {
             root_0 = (CommonTree)adaptor.nil();
@@ -1097,7 +1100,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "javaSource"
-    // ../etc/JamlAttrHash.g:363:1: javaSource : compilationUnit -> ^( JAVA_SOURCE compilationUnit ) ;
+    // ../etc/JamlAttrHash.g:366:1: javaSource : compilationUnit -> ^( JAVA_SOURCE compilationUnit ) ;
     public final JamlAttrHashParser.javaSource_return javaSource() throws RecognitionException {
     traceIn("javaSource", 7);
         JamlAttrHashParser.javaSource_return retval = new JamlAttrHashParser.javaSource_return();
@@ -1111,10 +1114,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_compilationUnit=new RewriteRuleSubtreeStream(adaptor,"rule compilationUnit");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
-            // ../etc/JamlAttrHash.g:364:5: ( compilationUnit -> ^( JAVA_SOURCE compilationUnit ) )
-            // ../etc/JamlAttrHash.g:364:9: compilationUnit
+            // ../etc/JamlAttrHash.g:367:5: ( compilationUnit -> ^( JAVA_SOURCE compilationUnit ) )
+            // ../etc/JamlAttrHash.g:367:9: compilationUnit
             {
-            pushFollow(FOLLOW_compilationUnit_in_javaSource5354);
+            pushFollow(FOLLOW_compilationUnit_in_javaSource5355);
             compilationUnit13=compilationUnit();
 
             state._fsp--;
@@ -1134,9 +1137,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 365:9: -> ^( JAVA_SOURCE compilationUnit )
+            // 368:9: -> ^( JAVA_SOURCE compilationUnit )
             {
-                // ../etc/JamlAttrHash.g:365:13: ^( JAVA_SOURCE compilationUnit )
+                // ../etc/JamlAttrHash.g:368:13: ^( JAVA_SOURCE compilationUnit )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(JAVA_SOURCE, "JAVA_SOURCE"), root_1);
@@ -1179,7 +1182,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "compilationUnit"
-    // ../etc/JamlAttrHash.g:368:1: compilationUnit : annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* ;
+    // ../etc/JamlAttrHash.g:371:1: compilationUnit : annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* ;
     public final JamlAttrHashParser.compilationUnit_return compilationUnit() throws RecognitionException {
     traceIn("compilationUnit", 8);
         JamlAttrHashParser.compilationUnit_return retval = new JamlAttrHashParser.compilationUnit_return();
@@ -1199,18 +1202,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
-            // ../etc/JamlAttrHash.g:369:5: ( annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* )
-            // ../etc/JamlAttrHash.g:369:9: annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )*
+            // ../etc/JamlAttrHash.g:372:5: ( annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* )
+            // ../etc/JamlAttrHash.g:372:9: annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_annotationList_in_compilationUnit5390);
+            pushFollow(FOLLOW_annotationList_in_compilationUnit5391);
             annotationList14=annotationList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, annotationList14.getTree());
-            // ../etc/JamlAttrHash.g:370:9: ( packageDeclaration )?
+            // ../etc/JamlAttrHash.g:373:9: ( packageDeclaration )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1221,7 +1224,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: packageDeclaration
                     {
-                    pushFollow(FOLLOW_packageDeclaration_in_compilationUnit5401);
+                    pushFollow(FOLLOW_packageDeclaration_in_compilationUnit5402);
                     packageDeclaration15=packageDeclaration();
 
                     state._fsp--;
@@ -1233,7 +1236,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:371:9: ( importDeclaration )*
+            // ../etc/JamlAttrHash.g:374:9: ( importDeclaration )*
             loop7:
             do {
                 int alt7=2;
@@ -1248,7 +1251,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: importDeclaration
             	    {
-            	    pushFollow(FOLLOW_importDeclaration_in_compilationUnit5413);
+            	    pushFollow(FOLLOW_importDeclaration_in_compilationUnit5414);
             	    importDeclaration16=importDeclaration();
 
             	    state._fsp--;
@@ -1263,7 +1266,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            // ../etc/JamlAttrHash.g:372:9: ( typeDecls )*
+            // ../etc/JamlAttrHash.g:375:9: ( typeDecls )*
             loop8:
             do {
                 int alt8=2;
@@ -1278,7 +1281,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: typeDecls
             	    {
-            	    pushFollow(FOLLOW_typeDecls_in_compilationUnit5425);
+            	    pushFollow(FOLLOW_typeDecls_in_compilationUnit5426);
             	    typeDecls17=typeDecls();
 
             	    state._fsp--;
@@ -1324,7 +1327,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeDecls"
-    // ../etc/JamlAttrHash.g:375:1: typeDecls : ( typeDeclaration | SEMI );
+    // ../etc/JamlAttrHash.g:378:1: typeDecls : ( typeDeclaration | SEMI );
     public final JamlAttrHashParser.typeDecls_return typeDecls() throws RecognitionException {
     traceIn("typeDecls", 9);
         JamlAttrHashParser.typeDecls_return retval = new JamlAttrHashParser.typeDecls_return();
@@ -1340,7 +1343,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
-            // ../etc/JamlAttrHash.g:376:5: ( typeDeclaration | SEMI )
+            // ../etc/JamlAttrHash.g:379:5: ( typeDeclaration | SEMI )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1359,11 +1362,11 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt9) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:376:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:379:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_typeDecls5445);
+                    pushFollow(FOLLOW_typeDeclaration_in_typeDecls5446);
                     typeDeclaration18=typeDeclaration();
 
                     state._fsp--;
@@ -1373,11 +1376,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:377:9: SEMI
+                    // ../etc/JamlAttrHash.g:380:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI19=(Token)match(input,SEMI,FOLLOW_SEMI_in_typeDecls5455); if (state.failed) return retval;
+                    SEMI19=(Token)match(input,SEMI,FOLLOW_SEMI_in_typeDecls5456); if (state.failed) return retval;
 
                     }
                     break;
@@ -1411,7 +1414,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "packageDeclaration"
-    // ../etc/JamlAttrHash.g:380:1: packageDeclaration : PACKAGE qualifiedIdentifier SEMI ;
+    // ../etc/JamlAttrHash.g:383:1: packageDeclaration : PACKAGE qualifiedIdentifier SEMI ;
     public final JamlAttrHashParser.packageDeclaration_return packageDeclaration() throws RecognitionException {
     traceIn("packageDeclaration", 10);
         JamlAttrHashParser.packageDeclaration_return retval = new JamlAttrHashParser.packageDeclaration_return();
@@ -1429,23 +1432,23 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
-            // ../etc/JamlAttrHash.g:381:5: ( PACKAGE qualifiedIdentifier SEMI )
-            // ../etc/JamlAttrHash.g:381:9: PACKAGE qualifiedIdentifier SEMI
+            // ../etc/JamlAttrHash.g:384:5: ( PACKAGE qualifiedIdentifier SEMI )
+            // ../etc/JamlAttrHash.g:384:9: PACKAGE qualifiedIdentifier SEMI
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            PACKAGE20=(Token)match(input,PACKAGE,FOLLOW_PACKAGE_in_packageDeclaration5475); if (state.failed) return retval;
+            PACKAGE20=(Token)match(input,PACKAGE,FOLLOW_PACKAGE_in_packageDeclaration5476); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             PACKAGE20_tree = (CommonTree)adaptor.create(PACKAGE20);
             root_0 = (CommonTree)adaptor.becomeRoot(PACKAGE20_tree, root_0);
             }
-            pushFollow(FOLLOW_qualifiedIdentifier_in_packageDeclaration5478);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_packageDeclaration5479);
             qualifiedIdentifier21=qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier21.getTree());
-            SEMI22=(Token)match(input,SEMI,FOLLOW_SEMI_in_packageDeclaration5480); if (state.failed) return retval;
+            SEMI22=(Token)match(input,SEMI,FOLLOW_SEMI_in_packageDeclaration5481); if (state.failed) return retval;
 
             }
 
@@ -1477,7 +1480,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "importDeclaration"
-    // ../etc/JamlAttrHash.g:384:1: importDeclaration : IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI ;
+    // ../etc/JamlAttrHash.g:387:1: importDeclaration : IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI ;
     public final JamlAttrHashParser.importDeclaration_return importDeclaration() throws RecognitionException {
     traceIn("importDeclaration", 11);
         JamlAttrHashParser.importDeclaration_return retval = new JamlAttrHashParser.importDeclaration_return();
@@ -1499,17 +1502,17 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
-            // ../etc/JamlAttrHash.g:385:5: ( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI )
-            // ../etc/JamlAttrHash.g:385:9: IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI
+            // ../etc/JamlAttrHash.g:388:5: ( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI )
+            // ../etc/JamlAttrHash.g:388:9: IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IMPORT23=(Token)match(input,IMPORT,FOLLOW_IMPORT_in_importDeclaration5506); if (state.failed) return retval;
+            IMPORT23=(Token)match(input,IMPORT,FOLLOW_IMPORT_in_importDeclaration5507); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IMPORT23_tree = (CommonTree)adaptor.create(IMPORT23);
             root_0 = (CommonTree)adaptor.becomeRoot(IMPORT23_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:385:17: ( STATIC )?
+            // ../etc/JamlAttrHash.g:388:17: ( STATIC )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1520,7 +1523,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: STATIC
                     {
-                    STATIC24=(Token)match(input,STATIC,FOLLOW_STATIC_in_importDeclaration5509); if (state.failed) return retval;
+                    STATIC24=(Token)match(input,STATIC,FOLLOW_STATIC_in_importDeclaration5510); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STATIC24_tree = (CommonTree)adaptor.create(STATIC24);
                     adaptor.addChild(root_0, STATIC24_tree);
@@ -1531,13 +1534,13 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration5512);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration5513);
             qualifiedIdentifier25=qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier25.getTree());
-            // ../etc/JamlAttrHash.g:385:45: ( DOTSTAR )?
+            // ../etc/JamlAttrHash.g:388:45: ( DOTSTAR )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1548,7 +1551,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: DOTSTAR
                     {
-                    DOTSTAR26=(Token)match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration5514); if (state.failed) return retval;
+                    DOTSTAR26=(Token)match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration5515); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     DOTSTAR26_tree = (CommonTree)adaptor.create(DOTSTAR26);
                     adaptor.addChild(root_0, DOTSTAR26_tree);
@@ -1559,7 +1562,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            SEMI27=(Token)match(input,SEMI,FOLLOW_SEMI_in_importDeclaration5517); if (state.failed) return retval;
+            SEMI27=(Token)match(input,SEMI,FOLLOW_SEMI_in_importDeclaration5518); if (state.failed) return retval;
 
             }
 
@@ -1591,7 +1594,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeDeclaration"
-    // ../etc/JamlAttrHash.g:388:1: typeDeclaration : modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) ;
+    // ../etc/JamlAttrHash.g:391:1: typeDeclaration : modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) ;
     public final JamlAttrHashParser.typeDeclaration_return typeDeclaration() throws RecognitionException {
     traceIn("typeDeclaration", 12);
         JamlAttrHashParser.typeDeclaration_return retval = new JamlAttrHashParser.typeDeclaration_return();
@@ -1613,17 +1616,17 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return retval; }
-            // ../etc/JamlAttrHash.g:389:5: ( modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) )
-            // ../etc/JamlAttrHash.g:389:9: modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] )
+            // ../etc/JamlAttrHash.g:392:5: ( modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) )
+            // ../etc/JamlAttrHash.g:392:9: modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] )
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_modifierList_in_typeDeclaration5541);
+            pushFollow(FOLLOW_modifierList_in_typeDeclaration5542);
             modifierList28=modifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            // ../etc/JamlAttrHash.g:390:9: ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] )
+            // ../etc/JamlAttrHash.g:393:9: ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] )
             int alt12=4;
             switch ( input.LA(1) ) {
             case CLASS:
@@ -1656,9 +1659,9 @@ import org.antlr.runtime.tree.*;
 
             switch (alt12) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:390:13: classTypeDeclaration[$modifierList.tree]
+                    // ../etc/JamlAttrHash.g:393:13: classTypeDeclaration[$modifierList.tree]
                     {
-                    pushFollow(FOLLOW_classTypeDeclaration_in_typeDeclaration5556);
+                    pushFollow(FOLLOW_classTypeDeclaration_in_typeDeclaration5557);
                     classTypeDeclaration29=classTypeDeclaration((modifierList28!=null?((CommonTree)modifierList28.tree):null));
 
                     state._fsp--;
@@ -1668,9 +1671,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:391:13: interfaceTypeDeclaration[$modifierList.tree]
+                    // ../etc/JamlAttrHash.g:394:13: interfaceTypeDeclaration[$modifierList.tree]
                     {
-                    pushFollow(FOLLOW_interfaceTypeDeclaration_in_typeDeclaration5571);
+                    pushFollow(FOLLOW_interfaceTypeDeclaration_in_typeDeclaration5572);
                     interfaceTypeDeclaration30=interfaceTypeDeclaration((modifierList28!=null?((CommonTree)modifierList28.tree):null));
 
                     state._fsp--;
@@ -1680,9 +1683,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:392:13: enumTypeDeclaration[$modifierList.tree]
+                    // ../etc/JamlAttrHash.g:395:13: enumTypeDeclaration[$modifierList.tree]
                     {
-                    pushFollow(FOLLOW_enumTypeDeclaration_in_typeDeclaration5586);
+                    pushFollow(FOLLOW_enumTypeDeclaration_in_typeDeclaration5587);
                     enumTypeDeclaration31=enumTypeDeclaration((modifierList28!=null?((CommonTree)modifierList28.tree):null));
 
                     state._fsp--;
@@ -1692,9 +1695,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:393:13: annotationTypeDeclaration[$modifierList.tree]
+                    // ../etc/JamlAttrHash.g:396:13: annotationTypeDeclaration[$modifierList.tree]
                     {
-                    pushFollow(FOLLOW_annotationTypeDeclaration_in_typeDeclaration5601);
+                    pushFollow(FOLLOW_annotationTypeDeclaration_in_typeDeclaration5602);
                     annotationTypeDeclaration32=annotationTypeDeclaration((modifierList28!=null?((CommonTree)modifierList28.tree):null));
 
                     state._fsp--;
@@ -1737,7 +1740,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classTypeDeclaration"
-    // ../etc/JamlAttrHash.g:397:1: classTypeDeclaration[CommonTree modifiers] : CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) ;
+    // ../etc/JamlAttrHash.g:400:1: classTypeDeclaration[CommonTree modifiers] : CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) ;
     public final JamlAttrHashParser.classTypeDeclaration_return classTypeDeclaration(CommonTree modifiers) throws RecognitionException {
     traceIn("classTypeDeclaration", 13);
         JamlAttrHashParser.classTypeDeclaration_return retval = new JamlAttrHashParser.classTypeDeclaration_return();
@@ -1766,16 +1769,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classBody=new RewriteRuleSubtreeStream(adaptor,"rule classBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return retval; }
-            // ../etc/JamlAttrHash.g:398:5: ( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) )
-            // ../etc/JamlAttrHash.g:398:9: CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody
+            // ../etc/JamlAttrHash.g:401:5: ( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) )
+            // ../etc/JamlAttrHash.g:401:9: CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody
             {
-            CLASS33=(Token)match(input,CLASS,FOLLOW_CLASS_in_classTypeDeclaration5636); if (state.failed) return retval; 
+            CLASS33=(Token)match(input,CLASS,FOLLOW_CLASS_in_classTypeDeclaration5637); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_CLASS.add(CLASS33);
 
-            IDENT34=(Token)match(input,IDENT,FOLLOW_IDENT_in_classTypeDeclaration5638); if (state.failed) return retval; 
+            IDENT34=(Token)match(input,IDENT,FOLLOW_IDENT_in_classTypeDeclaration5639); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT34);
 
-            // ../etc/JamlAttrHash.g:398:21: ( genericTypeParameterList )?
+            // ../etc/JamlAttrHash.g:401:21: ( genericTypeParameterList )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1786,7 +1789,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                     {
-                    pushFollow(FOLLOW_genericTypeParameterList_in_classTypeDeclaration5640);
+                    pushFollow(FOLLOW_genericTypeParameterList_in_classTypeDeclaration5641);
                     genericTypeParameterList35=genericTypeParameterList();
 
                     state._fsp--;
@@ -1798,7 +1801,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:398:47: ( classExtendsClause )?
+            // ../etc/JamlAttrHash.g:401:47: ( classExtendsClause )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1809,7 +1812,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: classExtendsClause
                     {
-                    pushFollow(FOLLOW_classExtendsClause_in_classTypeDeclaration5643);
+                    pushFollow(FOLLOW_classExtendsClause_in_classTypeDeclaration5644);
                     classExtendsClause36=classExtendsClause();
 
                     state._fsp--;
@@ -1821,7 +1824,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:398:67: ( implementsClause )?
+            // ../etc/JamlAttrHash.g:401:67: ( implementsClause )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -1832,7 +1835,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: implementsClause
                     {
-                    pushFollow(FOLLOW_implementsClause_in_classTypeDeclaration5646);
+                    pushFollow(FOLLOW_implementsClause_in_classTypeDeclaration5647);
                     implementsClause37=implementsClause();
 
                     state._fsp--;
@@ -1844,7 +1847,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            pushFollow(FOLLOW_classBody_in_classTypeDeclaration5649);
+            pushFollow(FOLLOW_classBody_in_classTypeDeclaration5650);
             classBody38=classBody();
 
             state._fsp--;
@@ -1864,28 +1867,28 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 399:9: -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody )
+            // 402:9: -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody )
             {
-                // ../etc/JamlAttrHash.g:399:13: ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody )
+                // ../etc/JamlAttrHash.g:402:13: ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_CLASS.nextNode(), root_1);
 
                 adaptor.addChild(root_1, modifiers);
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                // ../etc/JamlAttrHash.g:399:40: ( genericTypeParameterList )?
+                // ../etc/JamlAttrHash.g:402:40: ( genericTypeParameterList )?
                 if ( stream_genericTypeParameterList.hasNext() ) {
                     adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
                 }
                 stream_genericTypeParameterList.reset();
-                // ../etc/JamlAttrHash.g:399:66: ( classExtendsClause )?
+                // ../etc/JamlAttrHash.g:402:66: ( classExtendsClause )?
                 if ( stream_classExtendsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_classExtendsClause.nextTree());
 
                 }
                 stream_classExtendsClause.reset();
-                // ../etc/JamlAttrHash.g:399:86: ( implementsClause )?
+                // ../etc/JamlAttrHash.g:402:86: ( implementsClause )?
                 if ( stream_implementsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_implementsClause.nextTree());
 
@@ -1929,7 +1932,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classExtendsClause"
-    // ../etc/JamlAttrHash.g:402:1: classExtendsClause : EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) ;
+    // ../etc/JamlAttrHash.g:405:1: classExtendsClause : EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) ;
     public final JamlAttrHashParser.classExtendsClause_return classExtendsClause() throws RecognitionException {
     traceIn("classExtendsClause", 14);
         JamlAttrHashParser.classExtendsClause_return retval = new JamlAttrHashParser.classExtendsClause_return();
@@ -1946,13 +1949,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
-            // ../etc/JamlAttrHash.g:403:5: ( EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) )
-            // ../etc/JamlAttrHash.g:403:9: EXTENDS type
+            // ../etc/JamlAttrHash.g:406:5: ( EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) )
+            // ../etc/JamlAttrHash.g:406:9: EXTENDS type
             {
-            EXTENDS39=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_classExtendsClause5702); if (state.failed) return retval; 
+            EXTENDS39=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_classExtendsClause5703); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS39);
 
-            pushFollow(FOLLOW_type_in_classExtendsClause5704);
+            pushFollow(FOLLOW_type_in_classExtendsClause5705);
             type40=type();
 
             state._fsp--;
@@ -1972,9 +1975,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 404:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
+            // 407:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
             {
-                // ../etc/JamlAttrHash.g:404:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
+                // ../etc/JamlAttrHash.g:407:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_CLAUSE, EXTENDS39, "EXTENDS_CLAUSE"), root_1);
@@ -2017,7 +2020,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceExtendsClause"
-    // ../etc/JamlAttrHash.g:407:1: interfaceExtendsClause : EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) ;
+    // ../etc/JamlAttrHash.g:410:1: interfaceExtendsClause : EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) ;
     public final JamlAttrHashParser.interfaceExtendsClause_return interfaceExtendsClause() throws RecognitionException {
     traceIn("interfaceExtendsClause", 15);
         JamlAttrHashParser.interfaceExtendsClause_return retval = new JamlAttrHashParser.interfaceExtendsClause_return();
@@ -2034,13 +2037,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_typeList=new RewriteRuleSubtreeStream(adaptor,"rule typeList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
-            // ../etc/JamlAttrHash.g:408:5: ( EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) )
-            // ../etc/JamlAttrHash.g:408:9: EXTENDS typeList
+            // ../etc/JamlAttrHash.g:411:5: ( EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) )
+            // ../etc/JamlAttrHash.g:411:9: EXTENDS typeList
             {
-            EXTENDS41=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_interfaceExtendsClause5748); if (state.failed) return retval; 
+            EXTENDS41=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_interfaceExtendsClause5749); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS41);
 
-            pushFollow(FOLLOW_typeList_in_interfaceExtendsClause5750);
+            pushFollow(FOLLOW_typeList_in_interfaceExtendsClause5751);
             typeList42=typeList();
 
             state._fsp--;
@@ -2060,9 +2063,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 409:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList )
+            // 412:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList )
             {
-                // ../etc/JamlAttrHash.g:409:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList )
+                // ../etc/JamlAttrHash.g:412:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_CLAUSE, EXTENDS41, "EXTENDS_CLAUSE"), root_1);
@@ -2105,7 +2108,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "implementsClause"
-    // ../etc/JamlAttrHash.g:412:1: implementsClause : IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) ;
+    // ../etc/JamlAttrHash.g:415:1: implementsClause : IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) ;
     public final JamlAttrHashParser.implementsClause_return implementsClause() throws RecognitionException {
     traceIn("implementsClause", 16);
         JamlAttrHashParser.implementsClause_return retval = new JamlAttrHashParser.implementsClause_return();
@@ -2122,13 +2125,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_typeList=new RewriteRuleSubtreeStream(adaptor,"rule typeList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
-            // ../etc/JamlAttrHash.g:413:5: ( IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) )
-            // ../etc/JamlAttrHash.g:413:9: IMPLEMENTS typeList
+            // ../etc/JamlAttrHash.g:416:5: ( IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) )
+            // ../etc/JamlAttrHash.g:416:9: IMPLEMENTS typeList
             {
-            IMPLEMENTS43=(Token)match(input,IMPLEMENTS,FOLLOW_IMPLEMENTS_in_implementsClause5794); if (state.failed) return retval; 
+            IMPLEMENTS43=(Token)match(input,IMPLEMENTS,FOLLOW_IMPLEMENTS_in_implementsClause5795); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IMPLEMENTS.add(IMPLEMENTS43);
 
-            pushFollow(FOLLOW_typeList_in_implementsClause5796);
+            pushFollow(FOLLOW_typeList_in_implementsClause5797);
             typeList44=typeList();
 
             state._fsp--;
@@ -2148,9 +2151,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 414:9: -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList )
+            // 417:9: -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList )
             {
-                // ../etc/JamlAttrHash.g:414:13: ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList )
+                // ../etc/JamlAttrHash.g:417:13: ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(IMPLEMENTS_CLAUSE, IMPLEMENTS43, "IMPLEMENTS_CLAUSE"), root_1);
@@ -2193,7 +2196,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeParameterList"
-    // ../etc/JamlAttrHash.g:417:1: genericTypeParameterList : LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) ;
+    // ../etc/JamlAttrHash.g:420:1: genericTypeParameterList : LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) ;
     public final JamlAttrHashParser.genericTypeParameterList_return genericTypeParameterList() throws RecognitionException {
     traceIn("genericTypeParameterList", 17);
         JamlAttrHashParser.genericTypeParameterList_return retval = new JamlAttrHashParser.genericTypeParameterList_return();
@@ -2218,19 +2221,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeListClosing=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeListClosing");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
-            // ../etc/JamlAttrHash.g:418:5: ( LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) )
-            // ../etc/JamlAttrHash.g:418:9: LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing
+            // ../etc/JamlAttrHash.g:421:5: ( LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) )
+            // ../etc/JamlAttrHash.g:421:9: LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing
             {
-            LESS_THAN45=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeParameterList5841); if (state.failed) return retval; 
+            LESS_THAN45=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeParameterList5842); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN45);
 
-            pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList5843);
+            pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList5844);
             genericTypeParameter46=genericTypeParameter();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_genericTypeParameter.add(genericTypeParameter46.getTree());
-            // ../etc/JamlAttrHash.g:418:40: ( COMMA genericTypeParameter )*
+            // ../etc/JamlAttrHash.g:421:40: ( COMMA genericTypeParameter )*
             loop16:
             do {
                 int alt16=2;
@@ -2243,12 +2246,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt16) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:418:41: COMMA genericTypeParameter
+            	    // ../etc/JamlAttrHash.g:421:41: COMMA genericTypeParameter
             	    {
-            	    COMMA47=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeParameterList5846); if (state.failed) return retval; 
+            	    COMMA47=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeParameterList5847); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA47);
 
-            	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList5848);
+            	    pushFollow(FOLLOW_genericTypeParameter_in_genericTypeParameterList5849);
             	    genericTypeParameter48=genericTypeParameter();
 
             	    state._fsp--;
@@ -2263,7 +2266,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeParameterList5852);
+            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeParameterList5853);
             genericTypeListClosing49=genericTypeListClosing();
 
             state._fsp--;
@@ -2283,9 +2286,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 419:9: -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ )
+            // 422:9: -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ )
             {
-                // ../etc/JamlAttrHash.g:419:13: ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ )
+                // ../etc/JamlAttrHash.g:422:13: ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GENERIC_TYPE_PARAM_LIST, LESS_THAN45, "GENERIC_TYPE_PARAM_LIST"), root_1);
@@ -2335,7 +2338,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeListClosing"
-    // ../etc/JamlAttrHash.g:422:1: genericTypeListClosing : ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | );
+    // ../etc/JamlAttrHash.g:425:1: genericTypeListClosing : ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | );
     public final JamlAttrHashParser.genericTypeListClosing_return genericTypeListClosing() throws RecognitionException {
     traceIn("genericTypeListClosing", 18);
         JamlAttrHashParser.genericTypeListClosing_return retval = new JamlAttrHashParser.genericTypeListClosing_return();
@@ -2353,7 +2356,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
-            // ../etc/JamlAttrHash.g:426:5: ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | )
+            // ../etc/JamlAttrHash.g:429:5: ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | )
             int alt17=4;
             switch ( input.LA(1) ) {
             case GREATER_THAN:
@@ -2473,11 +2476,11 @@ import org.antlr.runtime.tree.*;
 
             switch (alt17) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:426:9: GREATER_THAN
+                    // ../etc/JamlAttrHash.g:429:9: GREATER_THAN
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    GREATER_THAN50=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_genericTypeListClosing5967); if (state.failed) return retval;
+                    GREATER_THAN50=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_genericTypeListClosing5968); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     GREATER_THAN50_tree = (CommonTree)adaptor.create(GREATER_THAN50);
                     adaptor.addChild(root_0, GREATER_THAN50_tree);
@@ -2486,11 +2489,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:427:9: SHIFT_RIGHT
+                    // ../etc/JamlAttrHash.g:430:9: SHIFT_RIGHT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SHIFT_RIGHT51=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_genericTypeListClosing5977); if (state.failed) return retval;
+                    SHIFT_RIGHT51=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_genericTypeListClosing5978); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     SHIFT_RIGHT51_tree = (CommonTree)adaptor.create(SHIFT_RIGHT51);
                     adaptor.addChild(root_0, SHIFT_RIGHT51_tree);
@@ -2499,11 +2502,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:428:9: BIT_SHIFT_RIGHT
+                    // ../etc/JamlAttrHash.g:431:9: BIT_SHIFT_RIGHT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    BIT_SHIFT_RIGHT52=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_genericTypeListClosing5987); if (state.failed) return retval;
+                    BIT_SHIFT_RIGHT52=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_genericTypeListClosing5988); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     BIT_SHIFT_RIGHT52_tree = (CommonTree)adaptor.create(BIT_SHIFT_RIGHT52);
                     adaptor.addChild(root_0, BIT_SHIFT_RIGHT52_tree);
@@ -2512,7 +2515,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:430:5: 
+                    // ../etc/JamlAttrHash.g:433:5: 
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2548,7 +2551,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeParameter"
-    // ../etc/JamlAttrHash.g:432:1: genericTypeParameter : IDENT ( bound )? -> ^( IDENT ( bound )? ) ;
+    // ../etc/JamlAttrHash.g:435:1: genericTypeParameter : IDENT ( bound )? -> ^( IDENT ( bound )? ) ;
     public final JamlAttrHashParser.genericTypeParameter_return genericTypeParameter() throws RecognitionException {
     traceIn("genericTypeParameter", 19);
         JamlAttrHashParser.genericTypeParameter_return retval = new JamlAttrHashParser.genericTypeParameter_return();
@@ -2565,13 +2568,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_bound=new RewriteRuleSubtreeStream(adaptor,"rule bound");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
-            // ../etc/JamlAttrHash.g:433:5: ( IDENT ( bound )? -> ^( IDENT ( bound )? ) )
-            // ../etc/JamlAttrHash.g:433:9: IDENT ( bound )?
+            // ../etc/JamlAttrHash.g:436:5: ( IDENT ( bound )? -> ^( IDENT ( bound )? ) )
+            // ../etc/JamlAttrHash.g:436:9: IDENT ( bound )?
             {
-            IDENT53=(Token)match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter6015); if (state.failed) return retval; 
+            IDENT53=(Token)match(input,IDENT,FOLLOW_IDENT_in_genericTypeParameter6016); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT53);
 
-            // ../etc/JamlAttrHash.g:433:15: ( bound )?
+            // ../etc/JamlAttrHash.g:436:15: ( bound )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -2597,7 +2600,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: bound
                     {
-                    pushFollow(FOLLOW_bound_in_genericTypeParameter6017);
+                    pushFollow(FOLLOW_bound_in_genericTypeParameter6018);
                     bound54=bound();
 
                     state._fsp--;
@@ -2623,14 +2626,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 434:9: -> ^( IDENT ( bound )? )
+            // 437:9: -> ^( IDENT ( bound )? )
             {
-                // ../etc/JamlAttrHash.g:434:13: ^( IDENT ( bound )? )
+                // ../etc/JamlAttrHash.g:437:13: ^( IDENT ( bound )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_IDENT.nextNode(), root_1);
 
-                // ../etc/JamlAttrHash.g:434:21: ( bound )?
+                // ../etc/JamlAttrHash.g:437:21: ( bound )?
                 if ( stream_bound.hasNext() ) {
                     adaptor.addChild(root_1, stream_bound.nextTree());
 
@@ -2673,7 +2676,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "bound"
-    // ../etc/JamlAttrHash.g:437:1: bound : EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) ;
+    // ../etc/JamlAttrHash.g:440:1: bound : EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) ;
     public final JamlAttrHashParser.bound_return bound() throws RecognitionException {
     traceIn("bound", 20);
         JamlAttrHashParser.bound_return retval = new JamlAttrHashParser.bound_return();
@@ -2695,19 +2698,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
-            // ../etc/JamlAttrHash.g:438:5: ( EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) )
-            // ../etc/JamlAttrHash.g:438:9: EXTENDS type ( AND type )*
+            // ../etc/JamlAttrHash.g:441:5: ( EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) )
+            // ../etc/JamlAttrHash.g:441:9: EXTENDS type ( AND type )*
             {
-            EXTENDS55=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_bound6063); if (state.failed) return retval; 
+            EXTENDS55=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_bound6064); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS55);
 
-            pushFollow(FOLLOW_type_in_bound6065);
+            pushFollow(FOLLOW_type_in_bound6066);
             type56=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type56.getTree());
-            // ../etc/JamlAttrHash.g:438:22: ( AND type )*
+            // ../etc/JamlAttrHash.g:441:22: ( AND type )*
             loop19:
             do {
                 int alt19=2;
@@ -2720,12 +2723,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt19) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:438:23: AND type
+            	    // ../etc/JamlAttrHash.g:441:23: AND type
             	    {
-            	    AND57=(Token)match(input,AND,FOLLOW_AND_in_bound6068); if (state.failed) return retval; 
+            	    AND57=(Token)match(input,AND,FOLLOW_AND_in_bound6069); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_AND.add(AND57);
 
-            	    pushFollow(FOLLOW_type_in_bound6070);
+            	    pushFollow(FOLLOW_type_in_bound6071);
             	    type58=type();
 
             	    state._fsp--;
@@ -2754,9 +2757,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 439:9: -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
+            // 442:9: -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
             {
-                // ../etc/JamlAttrHash.g:439:13: ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
+                // ../etc/JamlAttrHash.g:442:13: ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_BOUND_LIST, EXTENDS55, "EXTENDS_BOUND_LIST"), root_1);
@@ -2806,7 +2809,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumTypeDeclaration"
-    // ../etc/JamlAttrHash.g:442:1: enumTypeDeclaration[CommonTree modifiers] : ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) ;
+    // ../etc/JamlAttrHash.g:445:1: enumTypeDeclaration[CommonTree modifiers] : ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) ;
     public final JamlAttrHashParser.enumTypeDeclaration_return enumTypeDeclaration(CommonTree modifiers) throws RecognitionException {
     traceIn("enumTypeDeclaration", 21);
         JamlAttrHashParser.enumTypeDeclaration_return retval = new JamlAttrHashParser.enumTypeDeclaration_return();
@@ -2829,16 +2832,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_enumBody=new RewriteRuleSubtreeStream(adaptor,"rule enumBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return retval; }
-            // ../etc/JamlAttrHash.g:443:5: ( ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) )
-            // ../etc/JamlAttrHash.g:443:9: ENUM IDENT ( implementsClause )? enumBody
+            // ../etc/JamlAttrHash.g:446:5: ( ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) )
+            // ../etc/JamlAttrHash.g:446:9: ENUM IDENT ( implementsClause )? enumBody
             {
-            ENUM59=(Token)match(input,ENUM,FOLLOW_ENUM_in_enumTypeDeclaration6111); if (state.failed) return retval; 
+            ENUM59=(Token)match(input,ENUM,FOLLOW_ENUM_in_enumTypeDeclaration6112); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ENUM.add(ENUM59);
 
-            IDENT60=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumTypeDeclaration6113); if (state.failed) return retval; 
+            IDENT60=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumTypeDeclaration6114); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT60);
 
-            // ../etc/JamlAttrHash.g:443:20: ( implementsClause )?
+            // ../etc/JamlAttrHash.g:446:20: ( implementsClause )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -2849,7 +2852,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: implementsClause
                     {
-                    pushFollow(FOLLOW_implementsClause_in_enumTypeDeclaration6115);
+                    pushFollow(FOLLOW_implementsClause_in_enumTypeDeclaration6116);
                     implementsClause61=implementsClause();
 
                     state._fsp--;
@@ -2861,7 +2864,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            pushFollow(FOLLOW_enumBody_in_enumTypeDeclaration6118);
+            pushFollow(FOLLOW_enumBody_in_enumTypeDeclaration6119);
             enumBody62=enumBody();
 
             state._fsp--;
@@ -2881,16 +2884,16 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 444:9: -> ^( ENUM IDENT ( implementsClause )? enumBody )
+            // 447:9: -> ^( ENUM IDENT ( implementsClause )? enumBody )
             {
-                // ../etc/JamlAttrHash.g:444:13: ^( ENUM IDENT ( implementsClause )? enumBody )
+                // ../etc/JamlAttrHash.g:447:13: ^( ENUM IDENT ( implementsClause )? enumBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_ENUM.nextNode(), root_1);
 
                 adaptor.addChild(root_1, modifiers);
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                // ../etc/JamlAttrHash.g:444:39: ( implementsClause )?
+                // ../etc/JamlAttrHash.g:447:39: ( implementsClause )?
                 if ( stream_implementsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_implementsClause.nextTree());
 
@@ -2934,7 +2937,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumBody"
-    // ../etc/JamlAttrHash.g:447:1: enumBody : LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) ;
+    // ../etc/JamlAttrHash.g:450:1: enumBody : LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) ;
     public final JamlAttrHashParser.enumBody_return enumBody() throws RecognitionException {
     traceIn("enumBody", 22);
         JamlAttrHashParser.enumBody_return retval = new JamlAttrHashParser.enumBody_return();
@@ -2954,19 +2957,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_enumScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule enumScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
-            // ../etc/JamlAttrHash.g:448:5: ( LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) )
-            // ../etc/JamlAttrHash.g:448:9: LCURLY enumScopeDeclarations RCURLY
+            // ../etc/JamlAttrHash.g:451:5: ( LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) )
+            // ../etc/JamlAttrHash.g:451:9: LCURLY enumScopeDeclarations RCURLY
             {
-            LCURLY63=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_enumBody6165); if (state.failed) return retval; 
+            LCURLY63=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_enumBody6166); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY63);
 
-            pushFollow(FOLLOW_enumScopeDeclarations_in_enumBody6167);
+            pushFollow(FOLLOW_enumScopeDeclarations_in_enumBody6168);
             enumScopeDeclarations64=enumScopeDeclarations();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_enumScopeDeclarations.add(enumScopeDeclarations64.getTree());
-            RCURLY65=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_enumBody6169); if (state.failed) return retval; 
+            RCURLY65=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_enumBody6170); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY65);
 
 
@@ -2983,9 +2986,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 449:9: -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations )
+            // 452:9: -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations )
             {
-                // ../etc/JamlAttrHash.g:449:13: ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations )
+                // ../etc/JamlAttrHash.g:452:13: ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ENUM_TOP_LEVEL_SCOPE, LCURLY63, "ENUM_TOP_LEVEL_SCOPE"), root_1);
@@ -3028,7 +3031,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumScopeDeclarations"
-    // ../etc/JamlAttrHash.g:452:1: enumScopeDeclarations : enumConstants ( COMMA )? ( enumClassScopeDeclarations )? ;
+    // ../etc/JamlAttrHash.g:455:1: enumScopeDeclarations : enumConstants ( COMMA )? ( enumClassScopeDeclarations )? ;
     public final JamlAttrHashParser.enumScopeDeclarations_return enumScopeDeclarations() throws RecognitionException {
     traceIn("enumScopeDeclarations", 23);
         JamlAttrHashParser.enumScopeDeclarations_return retval = new JamlAttrHashParser.enumScopeDeclarations_return();
@@ -3046,18 +3049,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
-            // ../etc/JamlAttrHash.g:453:5: ( enumConstants ( COMMA )? ( enumClassScopeDeclarations )? )
-            // ../etc/JamlAttrHash.g:453:9: enumConstants ( COMMA )? ( enumClassScopeDeclarations )?
+            // ../etc/JamlAttrHash.g:456:5: ( enumConstants ( COMMA )? ( enumClassScopeDeclarations )? )
+            // ../etc/JamlAttrHash.g:456:9: enumConstants ( COMMA )? ( enumClassScopeDeclarations )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_enumConstants_in_enumScopeDeclarations6206);
+            pushFollow(FOLLOW_enumConstants_in_enumScopeDeclarations6207);
             enumConstants66=enumConstants();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, enumConstants66.getTree());
-            // ../etc/JamlAttrHash.g:453:23: ( COMMA )?
+            // ../etc/JamlAttrHash.g:456:23: ( COMMA )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -3066,16 +3069,16 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt21) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:453:24: COMMA
+                    // ../etc/JamlAttrHash.g:456:24: COMMA
                     {
-                    COMMA67=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumScopeDeclarations6209); if (state.failed) return retval;
+                    COMMA67=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumScopeDeclarations6210); if (state.failed) return retval;
 
                     }
                     break;
 
             }
 
-            // ../etc/JamlAttrHash.g:453:33: ( enumClassScopeDeclarations )?
+            // ../etc/JamlAttrHash.g:456:33: ( enumClassScopeDeclarations )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -3086,7 +3089,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: enumClassScopeDeclarations
                     {
-                    pushFollow(FOLLOW_enumClassScopeDeclarations_in_enumScopeDeclarations6214);
+                    pushFollow(FOLLOW_enumClassScopeDeclarations_in_enumScopeDeclarations6215);
                     enumClassScopeDeclarations68=enumClassScopeDeclarations();
 
                     state._fsp--;
@@ -3129,7 +3132,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumClassScopeDeclarations"
-    // ../etc/JamlAttrHash.g:456:1: enumClassScopeDeclarations : SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
+    // ../etc/JamlAttrHash.g:459:1: enumClassScopeDeclarations : SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
     public final JamlAttrHashParser.enumClassScopeDeclarations_return enumClassScopeDeclarations() throws RecognitionException {
     traceIn("enumClassScopeDeclarations", 24);
         JamlAttrHashParser.enumClassScopeDeclarations_return retval = new JamlAttrHashParser.enumClassScopeDeclarations_return();
@@ -3146,13 +3149,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule classScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
-            // ../etc/JamlAttrHash.g:457:5: ( SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
-            // ../etc/JamlAttrHash.g:457:9: SEMI ( classScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:460:5: ( SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
+            // ../etc/JamlAttrHash.g:460:9: SEMI ( classScopeDeclarations )*
             {
-            SEMI69=(Token)match(input,SEMI,FOLLOW_SEMI_in_enumClassScopeDeclarations6234); if (state.failed) return retval; 
+            SEMI69=(Token)match(input,SEMI,FOLLOW_SEMI_in_enumClassScopeDeclarations6235); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_SEMI.add(SEMI69);
 
-            // ../etc/JamlAttrHash.g:457:14: ( classScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:460:14: ( classScopeDeclarations )*
             loop23:
             do {
                 int alt23=2;
@@ -3167,7 +3170,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: classScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_classScopeDeclarations_in_enumClassScopeDeclarations6236);
+            	    pushFollow(FOLLOW_classScopeDeclarations_in_enumClassScopeDeclarations6237);
             	    classScopeDeclarations70=classScopeDeclarations();
 
             	    state._fsp--;
@@ -3196,14 +3199,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 458:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+            // 461:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
             {
-                // ../etc/JamlAttrHash.g:458:13: ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+                // ../etc/JamlAttrHash.g:461:13: ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_TOP_LEVEL_SCOPE, SEMI69, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:458:69: ( classScopeDeclarations )*
+                // ../etc/JamlAttrHash.g:461:69: ( classScopeDeclarations )*
                 while ( stream_classScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_classScopeDeclarations.nextTree());
 
@@ -3246,7 +3249,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumConstants"
-    // ../etc/JamlAttrHash.g:461:1: enumConstants : enumConstant ( COMMA enumConstant )* ;
+    // ../etc/JamlAttrHash.g:464:1: enumConstants : enumConstant ( COMMA enumConstant )* ;
     public final JamlAttrHashParser.enumConstants_return enumConstants() throws RecognitionException {
     traceIn("enumConstants", 25);
         JamlAttrHashParser.enumConstants_return retval = new JamlAttrHashParser.enumConstants_return();
@@ -3264,18 +3267,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return retval; }
-            // ../etc/JamlAttrHash.g:462:5: ( enumConstant ( COMMA enumConstant )* )
-            // ../etc/JamlAttrHash.g:462:9: enumConstant ( COMMA enumConstant )*
+            // ../etc/JamlAttrHash.g:465:5: ( enumConstant ( COMMA enumConstant )* )
+            // ../etc/JamlAttrHash.g:465:9: enumConstant ( COMMA enumConstant )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_enumConstant_in_enumConstants6275);
+            pushFollow(FOLLOW_enumConstant_in_enumConstants6276);
             enumConstant71=enumConstant();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, enumConstant71.getTree());
-            // ../etc/JamlAttrHash.g:462:22: ( COMMA enumConstant )*
+            // ../etc/JamlAttrHash.g:465:22: ( COMMA enumConstant )*
             loop24:
             do {
                 int alt24=2;
@@ -3294,10 +3297,10 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt24) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:462:23: COMMA enumConstant
+            	    // ../etc/JamlAttrHash.g:465:23: COMMA enumConstant
             	    {
-            	    COMMA72=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumConstants6278); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_enumConstant_in_enumConstants6281);
+            	    COMMA72=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumConstants6279); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_enumConstant_in_enumConstants6282);
             	    enumConstant73=enumConstant();
 
             	    state._fsp--;
@@ -3343,7 +3346,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "enumConstant"
-    // ../etc/JamlAttrHash.g:465:1: enumConstant : annotationList IDENT ( arguments )? ( classBody )? ;
+    // ../etc/JamlAttrHash.g:468:1: enumConstant : annotationList IDENT ( arguments )? ( classBody )? ;
     public final JamlAttrHashParser.enumConstant_return enumConstant() throws RecognitionException {
     traceIn("enumConstant", 26);
         JamlAttrHashParser.enumConstant_return retval = new JamlAttrHashParser.enumConstant_return();
@@ -3363,23 +3366,23 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
-            // ../etc/JamlAttrHash.g:466:5: ( annotationList IDENT ( arguments )? ( classBody )? )
-            // ../etc/JamlAttrHash.g:466:9: annotationList IDENT ( arguments )? ( classBody )?
+            // ../etc/JamlAttrHash.g:469:5: ( annotationList IDENT ( arguments )? ( classBody )? )
+            // ../etc/JamlAttrHash.g:469:9: annotationList IDENT ( arguments )? ( classBody )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_annotationList_in_enumConstant6306);
+            pushFollow(FOLLOW_annotationList_in_enumConstant6307);
             annotationList74=annotationList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, annotationList74.getTree());
-            IDENT75=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumConstant6308); if (state.failed) return retval;
+            IDENT75=(Token)match(input,IDENT,FOLLOW_IDENT_in_enumConstant6309); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT75_tree = (CommonTree)adaptor.create(IDENT75);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT75_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:466:31: ( arguments )?
+            // ../etc/JamlAttrHash.g:469:31: ( arguments )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -3390,7 +3393,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_enumConstant6311);
+                    pushFollow(FOLLOW_arguments_in_enumConstant6312);
                     arguments76=arguments();
 
                     state._fsp--;
@@ -3402,7 +3405,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:466:42: ( classBody )?
+            // ../etc/JamlAttrHash.g:469:42: ( classBody )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -3413,7 +3416,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: classBody
                     {
-                    pushFollow(FOLLOW_classBody_in_enumConstant6314);
+                    pushFollow(FOLLOW_classBody_in_enumConstant6315);
                     classBody77=classBody();
 
                     state._fsp--;
@@ -3456,7 +3459,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceTypeDeclaration"
-    // ../etc/JamlAttrHash.g:469:1: interfaceTypeDeclaration[CommonTree modifiers] : INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) ;
+    // ../etc/JamlAttrHash.g:472:1: interfaceTypeDeclaration[CommonTree modifiers] : INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) ;
     public final JamlAttrHashParser.interfaceTypeDeclaration_return interfaceTypeDeclaration(CommonTree modifiers) throws RecognitionException {
     traceIn("interfaceTypeDeclaration", 27);
         JamlAttrHashParser.interfaceTypeDeclaration_return retval = new JamlAttrHashParser.interfaceTypeDeclaration_return();
@@ -3482,16 +3485,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_interfaceExtendsClause=new RewriteRuleSubtreeStream(adaptor,"rule interfaceExtendsClause");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
-            // ../etc/JamlAttrHash.g:470:5: ( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) )
-            // ../etc/JamlAttrHash.g:470:9: INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody
+            // ../etc/JamlAttrHash.g:473:5: ( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) )
+            // ../etc/JamlAttrHash.g:473:9: INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody
             {
-            INTERFACE78=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_interfaceTypeDeclaration6339); if (state.failed) return retval; 
+            INTERFACE78=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_interfaceTypeDeclaration6340); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_INTERFACE.add(INTERFACE78);
 
-            IDENT79=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceTypeDeclaration6341); if (state.failed) return retval; 
+            IDENT79=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceTypeDeclaration6342); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT79);
 
-            // ../etc/JamlAttrHash.g:470:25: ( genericTypeParameterList )?
+            // ../etc/JamlAttrHash.g:473:25: ( genericTypeParameterList )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -3502,7 +3505,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                     {
-                    pushFollow(FOLLOW_genericTypeParameterList_in_interfaceTypeDeclaration6343);
+                    pushFollow(FOLLOW_genericTypeParameterList_in_interfaceTypeDeclaration6344);
                     genericTypeParameterList80=genericTypeParameterList();
 
                     state._fsp--;
@@ -3514,7 +3517,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:470:51: ( interfaceExtendsClause )?
+            // ../etc/JamlAttrHash.g:473:51: ( interfaceExtendsClause )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -3525,7 +3528,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: interfaceExtendsClause
                     {
-                    pushFollow(FOLLOW_interfaceExtendsClause_in_interfaceTypeDeclaration6346);
+                    pushFollow(FOLLOW_interfaceExtendsClause_in_interfaceTypeDeclaration6347);
                     interfaceExtendsClause81=interfaceExtendsClause();
 
                     state._fsp--;
@@ -3537,7 +3540,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            pushFollow(FOLLOW_interfaceBody_in_interfaceTypeDeclaration6349);
+            pushFollow(FOLLOW_interfaceBody_in_interfaceTypeDeclaration6350);
             interfaceBody82=interfaceBody();
 
             state._fsp--;
@@ -3557,22 +3560,22 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 471:9: -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody )
+            // 474:9: -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody )
             {
-                // ../etc/JamlAttrHash.g:471:13: ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody )
+                // ../etc/JamlAttrHash.g:474:13: ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_INTERFACE.nextNode(), root_1);
 
                 adaptor.addChild(root_1, modifiers);
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                // ../etc/JamlAttrHash.g:471:44: ( genericTypeParameterList )?
+                // ../etc/JamlAttrHash.g:474:44: ( genericTypeParameterList )?
                 if ( stream_genericTypeParameterList.hasNext() ) {
                     adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
                 }
                 stream_genericTypeParameterList.reset();
-                // ../etc/JamlAttrHash.g:471:70: ( interfaceExtendsClause )?
+                // ../etc/JamlAttrHash.g:474:70: ( interfaceExtendsClause )?
                 if ( stream_interfaceExtendsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_interfaceExtendsClause.nextTree());
 
@@ -3616,7 +3619,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeList"
-    // ../etc/JamlAttrHash.g:474:1: typeList : type ( COMMA type )* ;
+    // ../etc/JamlAttrHash.g:477:1: typeList : type ( COMMA type )* ;
     public final JamlAttrHashParser.typeList_return typeList() throws RecognitionException {
     traceIn("typeList", 28);
         JamlAttrHashParser.typeList_return retval = new JamlAttrHashParser.typeList_return();
@@ -3634,18 +3637,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
-            // ../etc/JamlAttrHash.g:475:5: ( type ( COMMA type )* )
-            // ../etc/JamlAttrHash.g:475:9: type ( COMMA type )*
+            // ../etc/JamlAttrHash.g:478:5: ( type ( COMMA type )* )
+            // ../etc/JamlAttrHash.g:478:9: type ( COMMA type )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_type_in_typeList6399);
+            pushFollow(FOLLOW_type_in_typeList6400);
             type83=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, type83.getTree());
-            // ../etc/JamlAttrHash.g:475:14: ( COMMA type )*
+            // ../etc/JamlAttrHash.g:478:14: ( COMMA type )*
             loop29:
             do {
                 int alt29=2;
@@ -3658,10 +3661,10 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt29) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:475:15: COMMA type
+            	    // ../etc/JamlAttrHash.g:478:15: COMMA type
             	    {
-            	    COMMA84=(Token)match(input,COMMA,FOLLOW_COMMA_in_typeList6402); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_type_in_typeList6405);
+            	    COMMA84=(Token)match(input,COMMA,FOLLOW_COMMA_in_typeList6403); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_type_in_typeList6406);
             	    type85=type();
 
             	    state._fsp--;
@@ -3707,7 +3710,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classBody"
-    // ../etc/JamlAttrHash.g:478:1: classBody : LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
+    // ../etc/JamlAttrHash.g:481:1: classBody : LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
     public final JamlAttrHashParser.classBody_return classBody() throws RecognitionException {
     traceIn("classBody", 29);
         JamlAttrHashParser.classBody_return retval = new JamlAttrHashParser.classBody_return();
@@ -3727,13 +3730,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule classScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
-            // ../etc/JamlAttrHash.g:479:5: ( LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
-            // ../etc/JamlAttrHash.g:479:9: LCURLY ( classScopeDeclarations )* RCURLY
+            // ../etc/JamlAttrHash.g:482:5: ( LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
+            // ../etc/JamlAttrHash.g:482:9: LCURLY ( classScopeDeclarations )* RCURLY
             {
-            LCURLY86=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_classBody6430); if (state.failed) return retval; 
+            LCURLY86=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_classBody6431); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY86);
 
-            // ../etc/JamlAttrHash.g:479:16: ( classScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:482:16: ( classScopeDeclarations )*
             loop30:
             do {
                 int alt30=2;
@@ -3748,7 +3751,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: classScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_classScopeDeclarations_in_classBody6432);
+            	    pushFollow(FOLLOW_classScopeDeclarations_in_classBody6433);
             	    classScopeDeclarations87=classScopeDeclarations();
 
             	    state._fsp--;
@@ -3763,7 +3766,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            RCURLY88=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_classBody6435); if (state.failed) return retval; 
+            RCURLY88=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_classBody6436); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY88);
 
 
@@ -3780,14 +3783,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 480:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+            // 483:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
             {
-                // ../etc/JamlAttrHash.g:480:13: ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+                // ../etc/JamlAttrHash.g:483:13: ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_TOP_LEVEL_SCOPE, LCURLY86, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:480:71: ( classScopeDeclarations )*
+                // ../etc/JamlAttrHash.g:483:71: ( classScopeDeclarations )*
                 while ( stream_classScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_classScopeDeclarations.nextTree());
 
@@ -3830,7 +3833,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceBody"
-    // ../etc/JamlAttrHash.g:483:1: interfaceBody : LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) ;
+    // ../etc/JamlAttrHash.g:486:1: interfaceBody : LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) ;
     public final JamlAttrHashParser.interfaceBody_return interfaceBody() throws RecognitionException {
     traceIn("interfaceBody", 30);
         JamlAttrHashParser.interfaceBody_return retval = new JamlAttrHashParser.interfaceBody_return();
@@ -3850,13 +3853,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_interfaceScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule interfaceScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
-            // ../etc/JamlAttrHash.g:484:5: ( LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) )
-            // ../etc/JamlAttrHash.g:484:9: LCURLY ( interfaceScopeDeclarations )* RCURLY
+            // ../etc/JamlAttrHash.g:487:5: ( LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) )
+            // ../etc/JamlAttrHash.g:487:9: LCURLY ( interfaceScopeDeclarations )* RCURLY
             {
-            LCURLY89=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_interfaceBody6477); if (state.failed) return retval; 
+            LCURLY89=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_interfaceBody6478); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY89);
 
-            // ../etc/JamlAttrHash.g:484:16: ( interfaceScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:487:16: ( interfaceScopeDeclarations )*
             loop31:
             do {
                 int alt31=2;
@@ -3871,7 +3874,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: interfaceScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceBody6479);
+            	    pushFollow(FOLLOW_interfaceScopeDeclarations_in_interfaceBody6480);
             	    interfaceScopeDeclarations90=interfaceScopeDeclarations();
 
             	    state._fsp--;
@@ -3886,7 +3889,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            RCURLY91=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_interfaceBody6482); if (state.failed) return retval; 
+            RCURLY91=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_interfaceBody6483); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY91);
 
 
@@ -3903,14 +3906,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 485:9: -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* )
+            // 488:9: -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* )
             {
-                // ../etc/JamlAttrHash.g:485:13: ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* )
+                // ../etc/JamlAttrHash.g:488:13: ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(INTERFACE_TOP_LEVEL_SCOPE, LCURLY89, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:485:75: ( interfaceScopeDeclarations )*
+                // ../etc/JamlAttrHash.g:488:75: ( interfaceScopeDeclarations )*
                 while ( stream_interfaceScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_interfaceScopeDeclarations.nextTree());
 
@@ -3953,7 +3956,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classScopeDeclarations"
-    // ../etc/JamlAttrHash.g:488:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );
+    // ../etc/JamlAttrHash.g:491:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );
     public final JamlAttrHashParser.classScopeDeclarations_return classScopeDeclarations() throws RecognitionException {
     traceIn("classScopeDeclarations", 31);
         JamlAttrHashParser.classScopeDeclarations_return retval = new JamlAttrHashParser.classScopeDeclarations_return();
@@ -4030,14 +4033,14 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_formalParameterList=new RewriteRuleSubtreeStream(adaptor,"rule formalParameterList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
-            // ../etc/JamlAttrHash.g:489:5: ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI )
+            // ../etc/JamlAttrHash.g:492:5: ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI )
             int alt41=5;
             alt41 = dfa41.predict(input);
             switch (alt41) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:489:9: block
+                    // ../etc/JamlAttrHash.g:492:9: block
                     {
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations6520);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations6521);
                     block92=block();
 
                     state._fsp--;
@@ -4057,9 +4060,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 489:25: -> ^( CLASS_INSTANCE_INITIALIZER block )
+                    // 492:25: -> ^( CLASS_INSTANCE_INITIALIZER block )
                     {
-                        // ../etc/JamlAttrHash.g:489:29: ^( CLASS_INSTANCE_INITIALIZER block )
+                        // ../etc/JamlAttrHash.g:492:29: ^( CLASS_INSTANCE_INITIALIZER block )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_INSTANCE_INITIALIZER, "CLASS_INSTANCE_INITIALIZER"), root_1);
@@ -4075,12 +4078,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:490:9: STATIC block
+                    // ../etc/JamlAttrHash.g:493:9: STATIC block
                     {
-                    STATIC93=(Token)match(input,STATIC,FOLLOW_STATIC_in_classScopeDeclarations6549); if (state.failed) return retval; 
+                    STATIC93=(Token)match(input,STATIC,FOLLOW_STATIC_in_classScopeDeclarations6550); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_STATIC.add(STATIC93);
 
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations6551);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations6552);
                     block94=block();
 
                     state._fsp--;
@@ -4100,9 +4103,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 490:25: -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
+                    // 493:25: -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
                     {
-                        // ../etc/JamlAttrHash.g:490:29: ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
+                        // ../etc/JamlAttrHash.g:493:29: ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_STATIC_INITIALIZER, STATIC93, "CLASS_STATIC_INITIALIZER"), root_1);
@@ -4118,15 +4121,15 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:491:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:494:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     {
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations6574);
+                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations6575);
                     modifierList95=modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_modifierList.add(modifierList95.getTree());
-                    // ../etc/JamlAttrHash.g:492:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:495:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     int alt40=2;
                     switch ( input.LA(1) ) {
                     case LESS_THAN:
@@ -4190,9 +4193,9 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt40) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:492:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
+                            // ../etc/JamlAttrHash.g:495:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
                             {
-                            // ../etc/JamlAttrHash.g:492:13: ( genericTypeParameterList )?
+                            // ../etc/JamlAttrHash.g:495:13: ( genericTypeParameterList )?
                             int alt32=2;
                             int LA32_0 = input.LA(1);
 
@@ -4203,7 +4206,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                                     {
-                                    pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations6588);
+                                    pushFollow(FOLLOW_genericTypeParameterList_in_classScopeDeclarations6589);
                                     genericTypeParameterList96=genericTypeParameterList();
 
                                     state._fsp--;
@@ -4215,7 +4218,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:493:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
+                            // ../etc/JamlAttrHash.g:496:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) )
                             int alt39=3;
                             switch ( input.LA(1) ) {
                             case BOOLEAN:
@@ -4264,24 +4267,24 @@ import org.antlr.runtime.tree.*;
 
                             switch (alt39) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:493:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
+                                    // ../etc/JamlAttrHash.g:496:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                                     {
-                                    pushFollow(FOLLOW_type_in_classScopeDeclarations6607);
+                                    pushFollow(FOLLOW_type_in_classScopeDeclarations6608);
                                     type97=type();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_type.add(type97.getTree());
-                                    IDENT98=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6609); if (state.failed) return retval; 
+                                    IDENT98=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6610); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT98);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6611);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6612);
                                     formalParameterList99=formalParameterList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList99.getTree());
-                                    // ../etc/JamlAttrHash.g:493:48: ( arrayDeclaratorList )?
+                                    // ../etc/JamlAttrHash.g:496:48: ( arrayDeclaratorList )?
                                     int alt33=2;
                                     int LA33_0 = input.LA(1);
 
@@ -4292,7 +4295,7 @@ import org.antlr.runtime.tree.*;
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                                             {
-                                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations6613);
+                                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations6614);
                                             arrayDeclaratorList100=arrayDeclaratorList();
 
                                             state._fsp--;
@@ -4304,7 +4307,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    // ../etc/JamlAttrHash.g:493:69: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:496:69: ( throwsClause )?
                                     int alt34=2;
                                     int LA34_0 = input.LA(1);
 
@@ -4315,7 +4318,7 @@ import org.antlr.runtime.tree.*;
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6616);
+                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6617);
                                             throwsClause101=throwsClause();
 
                                             state._fsp--;
@@ -4327,7 +4330,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    // ../etc/JamlAttrHash.g:493:83: ( block | SEMI )
+                                    // ../etc/JamlAttrHash.g:496:83: ( block | SEMI )
                                     int alt35=2;
                                     int LA35_0 = input.LA(1);
 
@@ -4346,9 +4349,9 @@ import org.antlr.runtime.tree.*;
                                     }
                                     switch (alt35) {
                                         case 1 :
-                                            // ../etc/JamlAttrHash.g:493:84: block
+                                            // ../etc/JamlAttrHash.g:496:84: block
                                             {
-                                            pushFollow(FOLLOW_block_in_classScopeDeclarations6620);
+                                            pushFollow(FOLLOW_block_in_classScopeDeclarations6621);
                                             block102=block();
 
                                             state._fsp--;
@@ -4358,9 +4361,9 @@ import org.antlr.runtime.tree.*;
                                             }
                                             break;
                                         case 2 :
-                                            // ../etc/JamlAttrHash.g:493:92: SEMI
+                                            // ../etc/JamlAttrHash.g:496:92: SEMI
                                             {
-                                            SEMI103=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6624); if (state.failed) return retval; 
+                                            SEMI103=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6625); if (state.failed) return retval; 
                                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI103);
 
 
@@ -4383,15 +4386,15 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 494:17: -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
+                                    // 497:17: -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
                                     {
-                                        // ../etc/JamlAttrHash.g:494:21: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
+                                        // ../etc/JamlAttrHash.g:497:21: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION_METHOD_DECL, "FUNCTION_METHOD_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:494:57: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:497:57: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
@@ -4400,19 +4403,19 @@ import org.antlr.runtime.tree.*;
                                         adaptor.addChild(root_1, stream_type.nextTree());
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:494:114: ( arrayDeclaratorList )?
+                                        // ../etc/JamlAttrHash.g:497:114: ( arrayDeclaratorList )?
                                         if ( stream_arrayDeclaratorList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
                                         }
                                         stream_arrayDeclaratorList.reset();
-                                        // ../etc/JamlAttrHash.g:494:135: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:497:135: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
                                         }
                                         stream_throwsClause.reset();
-                                        // ../etc/JamlAttrHash.g:494:149: ( block )?
+                                        // ../etc/JamlAttrHash.g:497:149: ( block )?
                                         if ( stream_block.hasNext() ) {
                                             adaptor.addChild(root_1, stream_block.nextTree());
 
@@ -4428,21 +4431,21 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:495:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
+                                    // ../etc/JamlAttrHash.g:498:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                                     {
-                                    VOID104=(Token)match(input,VOID,FOLLOW_VOID_in_classScopeDeclarations6686); if (state.failed) return retval; 
+                                    VOID104=(Token)match(input,VOID,FOLLOW_VOID_in_classScopeDeclarations6687); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_VOID.add(VOID104);
 
-                                    IDENT105=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6688); if (state.failed) return retval; 
+                                    IDENT105=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6689); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT105);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6690);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6691);
                                     formalParameterList106=formalParameterList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList106.getTree());
-                                    // ../etc/JamlAttrHash.g:495:48: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:498:48: ( throwsClause )?
                                     int alt36=2;
                                     int LA36_0 = input.LA(1);
 
@@ -4453,7 +4456,7 @@ import org.antlr.runtime.tree.*;
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6692);
+                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6693);
                                             throwsClause107=throwsClause();
 
                                             state._fsp--;
@@ -4465,7 +4468,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    // ../etc/JamlAttrHash.g:495:62: ( block | SEMI )
+                                    // ../etc/JamlAttrHash.g:498:62: ( block | SEMI )
                                     int alt37=2;
                                     int LA37_0 = input.LA(1);
 
@@ -4484,9 +4487,9 @@ import org.antlr.runtime.tree.*;
                                     }
                                     switch (alt37) {
                                         case 1 :
-                                            // ../etc/JamlAttrHash.g:495:63: block
+                                            // ../etc/JamlAttrHash.g:498:63: block
                                             {
-                                            pushFollow(FOLLOW_block_in_classScopeDeclarations6696);
+                                            pushFollow(FOLLOW_block_in_classScopeDeclarations6697);
                                             block108=block();
 
                                             state._fsp--;
@@ -4496,9 +4499,9 @@ import org.antlr.runtime.tree.*;
                                             }
                                             break;
                                         case 2 :
-                                            // ../etc/JamlAttrHash.g:495:71: SEMI
+                                            // ../etc/JamlAttrHash.g:498:71: SEMI
                                             {
-                                            SEMI109=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6700); if (state.failed) return retval; 
+                                            SEMI109=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6701); if (state.failed) return retval; 
                                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI109);
 
 
@@ -4521,15 +4524,15 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 496:17: -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
+                                    // 499:17: -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
                                     {
-                                        // ../etc/JamlAttrHash.g:496:21: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
+                                        // ../etc/JamlAttrHash.g:499:21: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VOID_METHOD_DECL, "VOID_METHOD_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:496:53: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:499:53: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
@@ -4537,13 +4540,13 @@ import org.antlr.runtime.tree.*;
                                         stream_genericTypeParameterList.reset();
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:496:105: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:499:105: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
                                         }
                                         stream_throwsClause.reset();
-                                        // ../etc/JamlAttrHash.g:496:119: ( block )?
+                                        // ../etc/JamlAttrHash.g:499:119: ( block )?
                                         if ( stream_block.hasNext() ) {
                                             adaptor.addChild(root_1, stream_block.nextTree());
 
@@ -4559,18 +4562,18 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 3 :
-                                    // ../etc/JamlAttrHash.g:497:17: ident= IDENT formalParameterList ( throwsClause )? block
+                                    // ../etc/JamlAttrHash.g:500:17: ident= IDENT formalParameterList ( throwsClause )? block
                                     {
-                                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6759); if (state.failed) return retval; 
+                                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations6760); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(ident);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6761);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations6762);
                                     formalParameterList110=formalParameterList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList110.getTree());
-                                    // ../etc/JamlAttrHash.g:497:49: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:500:49: ( throwsClause )?
                                     int alt38=2;
                                     int LA38_0 = input.LA(1);
 
@@ -4581,7 +4584,7 @@ import org.antlr.runtime.tree.*;
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6763);
+                                            pushFollow(FOLLOW_throwsClause_in_classScopeDeclarations6764);
                                             throwsClause111=throwsClause();
 
                                             state._fsp--;
@@ -4593,7 +4596,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    pushFollow(FOLLOW_block_in_classScopeDeclarations6766);
+                                    pushFollow(FOLLOW_block_in_classScopeDeclarations6767);
                                     block112=block();
 
                                     state._fsp--;
@@ -4613,22 +4616,22 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 498:17: -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
+                                    // 501:17: -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
                                     {
-                                        // ../etc/JamlAttrHash.g:498:21: ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
+                                        // ../etc/JamlAttrHash.g:501:21: ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CONSTRUCTOR_DECL, ident, "CONSTRUCTOR_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:498:81: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:501:81: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
                                         }
                                         stream_genericTypeParameterList.reset();
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:498:127: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:501:127: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
@@ -4651,21 +4654,21 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:500:13: type classFieldDeclaratorList SEMI
+                            // ../etc/JamlAttrHash.g:503:13: type classFieldDeclaratorList SEMI
                             {
-                            pushFollow(FOLLOW_type_in_classScopeDeclarations6830);
+                            pushFollow(FOLLOW_type_in_classScopeDeclarations6831);
                             type113=type();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_type.add(type113.getTree());
-                            pushFollow(FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations6832);
+                            pushFollow(FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations6833);
                             classFieldDeclaratorList114=classFieldDeclaratorList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_classFieldDeclaratorList.add(classFieldDeclaratorList114.getTree());
-                            SEMI115=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6834); if (state.failed) return retval; 
+                            SEMI115=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6835); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI115);
 
 
@@ -4682,9 +4685,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 501:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                            // 504:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                             {
-                                // ../etc/JamlAttrHash.g:501:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                                // ../etc/JamlAttrHash.g:504:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -4708,11 +4711,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:503:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:506:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations6879);
+                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations6880);
                     typeDeclaration116=typeDeclaration();
 
                     state._fsp--;
@@ -4722,11 +4725,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:504:9: SEMI
+                    // ../etc/JamlAttrHash.g:507:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI117=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6889); if (state.failed) return retval;
+                    SEMI117=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations6890); if (state.failed) return retval;
 
                     }
                     break;
@@ -4760,7 +4763,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceScopeDeclarations"
-    // ../etc/JamlAttrHash.g:507:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );
+    // ../etc/JamlAttrHash.g:510:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );
     public final JamlAttrHashParser.interfaceScopeDeclarations_return interfaceScopeDeclarations() throws RecognitionException {
     traceIn("interfaceScopeDeclarations", 32);
         JamlAttrHashParser.interfaceScopeDeclarations_return retval = new JamlAttrHashParser.interfaceScopeDeclarations_return();
@@ -4817,20 +4820,20 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_formalParameterList=new RewriteRuleSubtreeStream(adaptor,"rule formalParameterList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return retval; }
-            // ../etc/JamlAttrHash.g:508:5: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI )
+            // ../etc/JamlAttrHash.g:511:5: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI )
             int alt48=3;
             alt48 = dfa48.predict(input);
             switch (alt48) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:508:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:511:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
                     {
-                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations6921);
+                    pushFollow(FOLLOW_modifierList_in_interfaceScopeDeclarations6922);
                     modifierList118=modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_modifierList.add(modifierList118.getTree());
-                    // ../etc/JamlAttrHash.g:509:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:512:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) )
                     int alt47=2;
                     switch ( input.LA(1) ) {
                     case LESS_THAN:
@@ -4894,9 +4897,9 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt47) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:509:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) )
+                            // ../etc/JamlAttrHash.g:512:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) )
                             {
-                            // ../etc/JamlAttrHash.g:509:13: ( genericTypeParameterList )?
+                            // ../etc/JamlAttrHash.g:512:13: ( genericTypeParameterList )?
                             int alt42=2;
                             int LA42_0 = input.LA(1);
 
@@ -4907,7 +4910,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                                     {
-                                    pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations6935);
+                                    pushFollow(FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations6936);
                                     genericTypeParameterList119=genericTypeParameterList();
 
                                     state._fsp--;
@@ -4919,7 +4922,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:510:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) )
+                            // ../etc/JamlAttrHash.g:513:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) )
                             int alt46=2;
                             int LA46_0 = input.LA(1);
 
@@ -4938,24 +4941,24 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt46) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:510:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
+                                    // ../etc/JamlAttrHash.g:513:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                                     {
-                                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations6954);
+                                    pushFollow(FOLLOW_type_in_interfaceScopeDeclarations6955);
                                     type120=type();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_type.add(type120.getTree());
-                                    IDENT121=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations6956); if (state.failed) return retval; 
+                                    IDENT121=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations6957); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT121);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations6958);
+                                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations6959);
                                     formalParameterList122=formalParameterList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList122.getTree());
-                                    // ../etc/JamlAttrHash.g:510:48: ( arrayDeclaratorList )?
+                                    // ../etc/JamlAttrHash.g:513:48: ( arrayDeclaratorList )?
                                     int alt43=2;
                                     int LA43_0 = input.LA(1);
 
@@ -4966,7 +4969,7 @@ import org.antlr.runtime.tree.*;
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                                             {
-                                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations6960);
+                                            pushFollow(FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations6961);
                                             arrayDeclaratorList123=arrayDeclaratorList();
 
                                             state._fsp--;
@@ -4978,7 +4981,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    // ../etc/JamlAttrHash.g:510:69: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:513:69: ( throwsClause )?
                                     int alt44=2;
                                     int LA44_0 = input.LA(1);
 
@@ -4989,7 +4992,7 @@ import org.antlr.runtime.tree.*;
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations6963);
+                                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations6964);
                                             throwsClause124=throwsClause();
 
                                             state._fsp--;
@@ -5001,7 +5004,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    SEMI125=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations6966); if (state.failed) return retval; 
+                                    SEMI125=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations6967); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI125);
 
 
@@ -5018,15 +5021,15 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 511:17: -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
+                                    // 514:17: -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
                                     {
-                                        // ../etc/JamlAttrHash.g:511:21: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
+                                        // ../etc/JamlAttrHash.g:514:21: ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION_METHOD_DECL, "FUNCTION_METHOD_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:511:57: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:514:57: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
@@ -5035,13 +5038,13 @@ import org.antlr.runtime.tree.*;
                                         adaptor.addChild(root_1, stream_type.nextTree());
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:511:114: ( arrayDeclaratorList )?
+                                        // ../etc/JamlAttrHash.g:514:114: ( arrayDeclaratorList )?
                                         if ( stream_arrayDeclaratorList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
                                         }
                                         stream_arrayDeclaratorList.reset();
-                                        // ../etc/JamlAttrHash.g:511:135: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:514:135: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
@@ -5057,21 +5060,21 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:512:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
+                                    // ../etc/JamlAttrHash.g:515:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                                     {
-                                    VOID126=(Token)match(input,VOID,FOLLOW_VOID_in_interfaceScopeDeclarations7024); if (state.failed) return retval; 
+                                    VOID126=(Token)match(input,VOID,FOLLOW_VOID_in_interfaceScopeDeclarations7025); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_VOID.add(VOID126);
 
-                                    IDENT127=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations7026); if (state.failed) return retval; 
+                                    IDENT127=(Token)match(input,IDENT,FOLLOW_IDENT_in_interfaceScopeDeclarations7027); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT127);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations7028);
+                                    pushFollow(FOLLOW_formalParameterList_in_interfaceScopeDeclarations7029);
                                     formalParameterList128=formalParameterList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList128.getTree());
-                                    // ../etc/JamlAttrHash.g:512:48: ( throwsClause )?
+                                    // ../etc/JamlAttrHash.g:515:48: ( throwsClause )?
                                     int alt45=2;
                                     int LA45_0 = input.LA(1);
 
@@ -5082,7 +5085,7 @@ import org.antlr.runtime.tree.*;
                                         case 1 :
                                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                                             {
-                                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations7030);
+                                            pushFollow(FOLLOW_throwsClause_in_interfaceScopeDeclarations7031);
                                             throwsClause129=throwsClause();
 
                                             state._fsp--;
@@ -5094,7 +5097,7 @@ import org.antlr.runtime.tree.*;
 
                                     }
 
-                                    SEMI130=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7033); if (state.failed) return retval; 
+                                    SEMI130=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7034); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI130);
 
 
@@ -5111,15 +5114,15 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 513:17: -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
+                                    // 516:17: -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
                                     {
-                                        // ../etc/JamlAttrHash.g:513:21: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
+                                        // ../etc/JamlAttrHash.g:516:21: ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VOID_METHOD_DECL, "VOID_METHOD_DECL"), root_1);
 
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
-                                        // ../etc/JamlAttrHash.g:513:53: ( genericTypeParameterList )?
+                                        // ../etc/JamlAttrHash.g:516:53: ( genericTypeParameterList )?
                                         if ( stream_genericTypeParameterList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_genericTypeParameterList.nextTree());
 
@@ -5127,7 +5130,7 @@ import org.antlr.runtime.tree.*;
                                         stream_genericTypeParameterList.reset();
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // ../etc/JamlAttrHash.g:513:105: ( throwsClause )?
+                                        // ../etc/JamlAttrHash.g:516:105: ( throwsClause )?
                                         if ( stream_throwsClause.hasNext() ) {
                                             adaptor.addChild(root_1, stream_throwsClause.nextTree());
 
@@ -5149,21 +5152,21 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:515:13: type interfaceFieldDeclaratorList SEMI
+                            // ../etc/JamlAttrHash.g:518:13: type interfaceFieldDeclaratorList SEMI
                             {
-                            pushFollow(FOLLOW_type_in_interfaceScopeDeclarations7096);
+                            pushFollow(FOLLOW_type_in_interfaceScopeDeclarations7097);
                             type131=type();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_type.add(type131.getTree());
-                            pushFollow(FOLLOW_interfaceFieldDeclaratorList_in_interfaceScopeDeclarations7098);
+                            pushFollow(FOLLOW_interfaceFieldDeclaratorList_in_interfaceScopeDeclarations7099);
                             interfaceFieldDeclaratorList132=interfaceFieldDeclaratorList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_interfaceFieldDeclaratorList.add(interfaceFieldDeclaratorList132.getTree());
-                            SEMI133=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7100); if (state.failed) return retval; 
+                            SEMI133=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7101); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI133);
 
 
@@ -5180,9 +5183,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 516:13: -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList )
+                            // 519:13: -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList )
                             {
-                                // ../etc/JamlAttrHash.g:516:17: ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList )
+                                // ../etc/JamlAttrHash.g:519:17: ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -5206,11 +5209,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:518:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:521:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations7145);
+                    pushFollow(FOLLOW_typeDeclaration_in_interfaceScopeDeclarations7146);
                     typeDeclaration134=typeDeclaration();
 
                     state._fsp--;
@@ -5220,11 +5223,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:519:9: SEMI
+                    // ../etc/JamlAttrHash.g:522:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI135=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7155); if (state.failed) return retval;
+                    SEMI135=(Token)match(input,SEMI,FOLLOW_SEMI_in_interfaceScopeDeclarations7156); if (state.failed) return retval;
 
                     }
                     break;
@@ -5258,7 +5261,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classFieldDeclaratorList"
-    // ../etc/JamlAttrHash.g:522:1: classFieldDeclaratorList : classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) ;
+    // ../etc/JamlAttrHash.g:525:1: classFieldDeclaratorList : classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) ;
     public final JamlAttrHashParser.classFieldDeclaratorList_return classFieldDeclaratorList() throws RecognitionException {
     traceIn("classFieldDeclaratorList", 33);
         JamlAttrHashParser.classFieldDeclaratorList_return retval = new JamlAttrHashParser.classFieldDeclaratorList_return();
@@ -5277,16 +5280,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classFieldDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule classFieldDeclarator");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return retval; }
-            // ../etc/JamlAttrHash.g:523:5: ( classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) )
-            // ../etc/JamlAttrHash.g:523:9: classFieldDeclarator ( COMMA classFieldDeclarator )*
+            // ../etc/JamlAttrHash.g:526:5: ( classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) )
+            // ../etc/JamlAttrHash.g:526:9: classFieldDeclarator ( COMMA classFieldDeclarator )*
             {
-            pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7175);
+            pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7176);
             classFieldDeclarator136=classFieldDeclarator();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_classFieldDeclarator.add(classFieldDeclarator136.getTree());
-            // ../etc/JamlAttrHash.g:523:30: ( COMMA classFieldDeclarator )*
+            // ../etc/JamlAttrHash.g:526:30: ( COMMA classFieldDeclarator )*
             loop49:
             do {
                 int alt49=2;
@@ -5299,12 +5302,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt49) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:523:31: COMMA classFieldDeclarator
+            	    // ../etc/JamlAttrHash.g:526:31: COMMA classFieldDeclarator
             	    {
-            	    COMMA137=(Token)match(input,COMMA,FOLLOW_COMMA_in_classFieldDeclaratorList7178); if (state.failed) return retval; 
+            	    COMMA137=(Token)match(input,COMMA,FOLLOW_COMMA_in_classFieldDeclaratorList7179); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA137);
 
-            	    pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7180);
+            	    pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7181);
             	    classFieldDeclarator138=classFieldDeclarator();
 
             	    state._fsp--;
@@ -5333,9 +5336,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 524:9: -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
+            // 527:9: -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
             {
-                // ../etc/JamlAttrHash.g:524:13: ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
+                // ../etc/JamlAttrHash.g:527:13: ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR_LIST, "VAR_DECLARATOR_LIST"), root_1);
@@ -5385,7 +5388,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classFieldDeclarator"
-    // ../etc/JamlAttrHash.g:527:1: classFieldDeclarator : variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
+    // ../etc/JamlAttrHash.g:530:1: classFieldDeclarator : variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
     public final JamlAttrHashParser.classFieldDeclarator_return classFieldDeclarator() throws RecognitionException {
     traceIn("classFieldDeclarator", 34);
         JamlAttrHashParser.classFieldDeclarator_return retval = new JamlAttrHashParser.classFieldDeclarator_return();
@@ -5405,16 +5408,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_variableInitializer=new RewriteRuleSubtreeStream(adaptor,"rule variableInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return retval; }
-            // ../etc/JamlAttrHash.g:528:5: ( variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
-            // ../etc/JamlAttrHash.g:528:9: variableDeclaratorId ( ASSIGN variableInitializer )?
+            // ../etc/JamlAttrHash.g:531:5: ( variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
+            // ../etc/JamlAttrHash.g:531:9: variableDeclaratorId ( ASSIGN variableInitializer )?
             {
-            pushFollow(FOLLOW_variableDeclaratorId_in_classFieldDeclarator7219);
+            pushFollow(FOLLOW_variableDeclaratorId_in_classFieldDeclarator7220);
             variableDeclaratorId139=variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_variableDeclaratorId.add(variableDeclaratorId139.getTree());
-            // ../etc/JamlAttrHash.g:528:30: ( ASSIGN variableInitializer )?
+            // ../etc/JamlAttrHash.g:531:30: ( ASSIGN variableInitializer )?
             int alt50=2;
             int LA50_0 = input.LA(1);
 
@@ -5423,12 +5426,12 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt50) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:528:31: ASSIGN variableInitializer
+                    // ../etc/JamlAttrHash.g:531:31: ASSIGN variableInitializer
                     {
-                    ASSIGN140=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_classFieldDeclarator7222); if (state.failed) return retval; 
+                    ASSIGN140=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_classFieldDeclarator7223); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ASSIGN.add(ASSIGN140);
 
-                    pushFollow(FOLLOW_variableInitializer_in_classFieldDeclarator7224);
+                    pushFollow(FOLLOW_variableInitializer_in_classFieldDeclarator7225);
                     variableInitializer141=variableInitializer();
 
                     state._fsp--;
@@ -5454,15 +5457,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 529:9: -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
+            // 532:9: -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
             {
-                // ../etc/JamlAttrHash.g:529:13: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
+                // ../etc/JamlAttrHash.g:532:13: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR, "VAR_DECLARATOR"), root_1);
 
                 adaptor.addChild(root_1, stream_variableDeclaratorId.nextTree());
-                // ../etc/JamlAttrHash.g:529:51: ( variableInitializer )?
+                // ../etc/JamlAttrHash.g:532:51: ( variableInitializer )?
                 if ( stream_variableInitializer.hasNext() ) {
                     adaptor.addChild(root_1, stream_variableInitializer.nextTree());
 
@@ -5505,7 +5508,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceFieldDeclaratorList"
-    // ../etc/JamlAttrHash.g:532:1: interfaceFieldDeclaratorList : interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) ;
+    // ../etc/JamlAttrHash.g:535:1: interfaceFieldDeclaratorList : interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) ;
     public final JamlAttrHashParser.interfaceFieldDeclaratorList_return interfaceFieldDeclaratorList() throws RecognitionException {
     traceIn("interfaceFieldDeclaratorList", 35);
         JamlAttrHashParser.interfaceFieldDeclaratorList_return retval = new JamlAttrHashParser.interfaceFieldDeclaratorList_return();
@@ -5524,16 +5527,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_interfaceFieldDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule interfaceFieldDeclarator");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return retval; }
-            // ../etc/JamlAttrHash.g:533:5: ( interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) )
-            // ../etc/JamlAttrHash.g:533:9: interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )*
+            // ../etc/JamlAttrHash.g:536:5: ( interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) )
+            // ../etc/JamlAttrHash.g:536:9: interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )*
             {
-            pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7269);
+            pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7270);
             interfaceFieldDeclarator142=interfaceFieldDeclarator();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_interfaceFieldDeclarator.add(interfaceFieldDeclarator142.getTree());
-            // ../etc/JamlAttrHash.g:533:34: ( COMMA interfaceFieldDeclarator )*
+            // ../etc/JamlAttrHash.g:536:34: ( COMMA interfaceFieldDeclarator )*
             loop51:
             do {
                 int alt51=2;
@@ -5546,12 +5549,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt51) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:533:35: COMMA interfaceFieldDeclarator
+            	    // ../etc/JamlAttrHash.g:536:35: COMMA interfaceFieldDeclarator
             	    {
-            	    COMMA143=(Token)match(input,COMMA,FOLLOW_COMMA_in_interfaceFieldDeclaratorList7272); if (state.failed) return retval; 
+            	    COMMA143=(Token)match(input,COMMA,FOLLOW_COMMA_in_interfaceFieldDeclaratorList7273); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA143);
 
-            	    pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7274);
+            	    pushFollow(FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7275);
             	    interfaceFieldDeclarator144=interfaceFieldDeclarator();
 
             	    state._fsp--;
@@ -5580,9 +5583,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 534:9: -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ )
+            // 537:9: -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ )
             {
-                // ../etc/JamlAttrHash.g:534:13: ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ )
+                // ../etc/JamlAttrHash.g:537:13: ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR_LIST, "VAR_DECLARATOR_LIST"), root_1);
@@ -5632,7 +5635,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "interfaceFieldDeclarator"
-    // ../etc/JamlAttrHash.g:537:1: interfaceFieldDeclarator : variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) ;
+    // ../etc/JamlAttrHash.g:540:1: interfaceFieldDeclarator : variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) ;
     public final JamlAttrHashParser.interfaceFieldDeclarator_return interfaceFieldDeclarator() throws RecognitionException {
     traceIn("interfaceFieldDeclarator", 36);
         JamlAttrHashParser.interfaceFieldDeclarator_return retval = new JamlAttrHashParser.interfaceFieldDeclarator_return();
@@ -5652,19 +5655,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_variableInitializer=new RewriteRuleSubtreeStream(adaptor,"rule variableInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return retval; }
-            // ../etc/JamlAttrHash.g:538:5: ( variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) )
-            // ../etc/JamlAttrHash.g:538:9: variableDeclaratorId ASSIGN variableInitializer
+            // ../etc/JamlAttrHash.g:541:5: ( variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) )
+            // ../etc/JamlAttrHash.g:541:9: variableDeclaratorId ASSIGN variableInitializer
             {
-            pushFollow(FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator7313);
+            pushFollow(FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator7314);
             variableDeclaratorId145=variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_variableDeclaratorId.add(variableDeclaratorId145.getTree());
-            ASSIGN146=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_interfaceFieldDeclarator7315); if (state.failed) return retval; 
+            ASSIGN146=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_interfaceFieldDeclarator7316); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ASSIGN.add(ASSIGN146);
 
-            pushFollow(FOLLOW_variableInitializer_in_interfaceFieldDeclarator7317);
+            pushFollow(FOLLOW_variableInitializer_in_interfaceFieldDeclarator7318);
             variableInitializer147=variableInitializer();
 
             state._fsp--;
@@ -5684,9 +5687,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 539:9: -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer )
+            // 542:9: -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer )
             {
-                // ../etc/JamlAttrHash.g:539:13: ^( VAR_DECLARATOR variableDeclaratorId variableInitializer )
+                // ../etc/JamlAttrHash.g:542:13: ^( VAR_DECLARATOR variableDeclaratorId variableInitializer )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR, "VAR_DECLARATOR"), root_1);
@@ -5730,7 +5733,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "variableDeclaratorId"
-    // ../etc/JamlAttrHash.g:542:1: variableDeclaratorId : IDENT ( arrayDeclaratorList )? ;
+    // ../etc/JamlAttrHash.g:545:1: variableDeclaratorId : IDENT ( arrayDeclaratorList )? ;
     public final JamlAttrHashParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
     traceIn("variableDeclaratorId", 37);
         JamlAttrHashParser.variableDeclaratorId_return retval = new JamlAttrHashParser.variableDeclaratorId_return();
@@ -5746,17 +5749,17 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return retval; }
-            // ../etc/JamlAttrHash.g:543:5: ( IDENT ( arrayDeclaratorList )? )
-            // ../etc/JamlAttrHash.g:543:9: IDENT ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:546:5: ( IDENT ( arrayDeclaratorList )? )
+            // ../etc/JamlAttrHash.g:546:9: IDENT ( arrayDeclaratorList )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT148=(Token)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId7359); if (state.failed) return retval;
+            IDENT148=(Token)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId7360); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT148_tree = (CommonTree)adaptor.create(IDENT148);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT148_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:543:16: ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:546:16: ( arrayDeclaratorList )?
             int alt52=2;
             int LA52_0 = input.LA(1);
 
@@ -5767,7 +5770,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId7362);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId7363);
                     arrayDeclaratorList149=arrayDeclaratorList();
 
                     state._fsp--;
@@ -5810,7 +5813,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "variableInitializer"
-    // ../etc/JamlAttrHash.g:546:1: variableInitializer : ( arrayInitializer | expression );
+    // ../etc/JamlAttrHash.g:549:1: variableInitializer : ( arrayInitializer | expression );
     public final JamlAttrHashParser.variableInitializer_return variableInitializer() throws RecognitionException {
     traceIn("variableInitializer", 38);
         JamlAttrHashParser.variableInitializer_return retval = new JamlAttrHashParser.variableInitializer_return();
@@ -5826,7 +5829,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return retval; }
-            // ../etc/JamlAttrHash.g:547:5: ( arrayInitializer | expression )
+            // ../etc/JamlAttrHash.g:550:5: ( arrayInitializer | expression )
             int alt53=2;
             int LA53_0 = input.LA(1);
 
@@ -5845,11 +5848,11 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt53) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:547:9: arrayInitializer
+                    // ../etc/JamlAttrHash.g:550:9: arrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer7382);
+                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer7383);
                     arrayInitializer150=arrayInitializer();
 
                     state._fsp--;
@@ -5859,11 +5862,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:548:9: expression
+                    // ../etc/JamlAttrHash.g:551:9: expression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expression_in_variableInitializer7392);
+                    pushFollow(FOLLOW_expression_in_variableInitializer7393);
                     expression151=expression();
 
                     state._fsp--;
@@ -5902,7 +5905,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "arrayDeclarator"
-    // ../etc/JamlAttrHash.g:551:1: arrayDeclarator : LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) ;
+    // ../etc/JamlAttrHash.g:554:1: arrayDeclarator : LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) ;
     public final JamlAttrHashParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
     traceIn("arrayDeclarator", 39);
         JamlAttrHashParser.arrayDeclarator_return retval = new JamlAttrHashParser.arrayDeclarator_return();
@@ -5920,13 +5923,13 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return retval; }
-            // ../etc/JamlAttrHash.g:552:5: ( LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) )
-            // ../etc/JamlAttrHash.g:552:9: LBRACK RBRACK
+            // ../etc/JamlAttrHash.g:555:5: ( LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) )
+            // ../etc/JamlAttrHash.g:555:9: LBRACK RBRACK
             {
-            LBRACK152=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator7411); if (state.failed) return retval; 
+            LBRACK152=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator7412); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LBRACK.add(LBRACK152);
 
-            RBRACK153=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator7413); if (state.failed) return retval; 
+            RBRACK153=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator7414); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RBRACK.add(RBRACK153);
 
 
@@ -5943,9 +5946,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 553:9: -> ^( ARRAY_DECLARATOR )
+            // 556:9: -> ^( ARRAY_DECLARATOR )
             {
-                // ../etc/JamlAttrHash.g:553:13: ^( ARRAY_DECLARATOR )
+                // ../etc/JamlAttrHash.g:556:13: ^( ARRAY_DECLARATOR )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_DECLARATOR, "ARRAY_DECLARATOR"), root_1);
@@ -5986,7 +5989,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "arrayDeclaratorList"
-    // ../etc/JamlAttrHash.g:556:1: arrayDeclaratorList : ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) ;
+    // ../etc/JamlAttrHash.g:559:1: arrayDeclaratorList : ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) ;
     public final JamlAttrHashParser.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException {
     traceIn("arrayDeclaratorList", 40);
         JamlAttrHashParser.arrayDeclaratorList_return retval = new JamlAttrHashParser.arrayDeclaratorList_return();
@@ -6000,10 +6003,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_arrayDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule arrayDeclarator");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return retval; }
-            // ../etc/JamlAttrHash.g:557:5: ( ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) )
-            // ../etc/JamlAttrHash.g:557:9: ( arrayDeclarator )+
+            // ../etc/JamlAttrHash.g:560:5: ( ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) )
+            // ../etc/JamlAttrHash.g:560:9: ( arrayDeclarator )+
             {
-            // ../etc/JamlAttrHash.g:557:9: ( arrayDeclarator )+
+            // ../etc/JamlAttrHash.g:560:9: ( arrayDeclarator )+
             int cnt54=0;
             loop54:
             do {
@@ -6025,7 +6028,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: arrayDeclarator
             	    {
-            	    pushFollow(FOLLOW_arrayDeclarator_in_arrayDeclaratorList7447);
+            	    pushFollow(FOLLOW_arrayDeclarator_in_arrayDeclaratorList7448);
             	    arrayDeclarator154=arrayDeclarator();
 
             	    state._fsp--;
@@ -6059,9 +6062,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 558:9: -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
+            // 561:9: -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
             {
-                // ../etc/JamlAttrHash.g:558:13: ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
+                // ../etc/JamlAttrHash.g:561:13: ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_DECLARATOR_LIST, "ARRAY_DECLARATOR_LIST"), root_1);
@@ -6111,7 +6114,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "arrayInitializer"
-    // ../etc/JamlAttrHash.g:561:1: arrayInitializer : LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) ;
+    // ../etc/JamlAttrHash.g:564:1: arrayInitializer : LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) ;
     public final JamlAttrHashParser.arrayInitializer_return arrayInitializer() throws RecognitionException {
     traceIn("arrayInitializer", 41);
         JamlAttrHashParser.arrayInitializer_return retval = new JamlAttrHashParser.arrayInitializer_return();
@@ -6138,13 +6141,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_variableInitializer=new RewriteRuleSubtreeStream(adaptor,"rule variableInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return retval; }
-            // ../etc/JamlAttrHash.g:562:5: ( LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) )
-            // ../etc/JamlAttrHash.g:562:9: LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY
+            // ../etc/JamlAttrHash.g:565:5: ( LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) )
+            // ../etc/JamlAttrHash.g:565:9: LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY
             {
-            LCURLY155=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_arrayInitializer7492); if (state.failed) return retval; 
+            LCURLY155=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_arrayInitializer7493); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY155);
 
-            // ../etc/JamlAttrHash.g:562:16: ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )?
+            // ../etc/JamlAttrHash.g:565:16: ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )?
             int alt57=2;
             int LA57_0 = input.LA(1);
 
@@ -6153,15 +6156,15 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt57) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:562:17: variableInitializer ( COMMA variableInitializer )* ( COMMA )?
+                    // ../etc/JamlAttrHash.g:565:17: variableInitializer ( COMMA variableInitializer )* ( COMMA )?
                     {
-                    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer7495);
+                    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer7496);
                     variableInitializer156=variableInitializer();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_variableInitializer.add(variableInitializer156.getTree());
-                    // ../etc/JamlAttrHash.g:562:37: ( COMMA variableInitializer )*
+                    // ../etc/JamlAttrHash.g:565:37: ( COMMA variableInitializer )*
                     loop55:
                     do {
                         int alt55=2;
@@ -6180,12 +6183,12 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt55) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:562:38: COMMA variableInitializer
+                    	    // ../etc/JamlAttrHash.g:565:38: COMMA variableInitializer
                     	    {
-                    	    COMMA157=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer7498); if (state.failed) return retval; 
+                    	    COMMA157=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer7499); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA157);
 
-                    	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer7500);
+                    	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer7501);
                     	    variableInitializer158=variableInitializer();
 
                     	    state._fsp--;
@@ -6200,7 +6203,7 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:562:66: ( COMMA )?
+                    // ../etc/JamlAttrHash.g:565:66: ( COMMA )?
                     int alt56=2;
                     int LA56_0 = input.LA(1);
 
@@ -6211,7 +6214,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: COMMA
                             {
-                            COMMA159=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer7504); if (state.failed) return retval; 
+                            COMMA159=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer7505); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COMMA.add(COMMA159);
 
 
@@ -6226,7 +6229,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            RCURLY160=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_arrayInitializer7509); if (state.failed) return retval; 
+            RCURLY160=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_arrayInitializer7510); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY160);
 
 
@@ -6243,14 +6246,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 563:9: -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
+            // 566:9: -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
             {
-                // ../etc/JamlAttrHash.g:563:13: ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
+                // ../etc/JamlAttrHash.g:566:13: ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_INITIALIZER, LCURLY155, "ARRAY_INITIALIZER"), root_1);
 
-                // ../etc/JamlAttrHash.g:563:63: ( variableInitializer )*
+                // ../etc/JamlAttrHash.g:566:63: ( variableInitializer )*
                 while ( stream_variableInitializer.hasNext() ) {
                     adaptor.addChild(root_1, stream_variableInitializer.nextTree());
 
@@ -6293,7 +6296,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "throwsClause"
-    // ../etc/JamlAttrHash.g:566:1: throwsClause : THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) ;
+    // ../etc/JamlAttrHash.g:569:1: throwsClause : THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) ;
     public final JamlAttrHashParser.throwsClause_return throwsClause() throws RecognitionException {
     traceIn("throwsClause", 42);
         JamlAttrHashParser.throwsClause_return retval = new JamlAttrHashParser.throwsClause_return();
@@ -6310,13 +6313,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_qualifiedIdentList=new RewriteRuleSubtreeStream(adaptor,"rule qualifiedIdentList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return retval; }
-            // ../etc/JamlAttrHash.g:567:5: ( THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) )
-            // ../etc/JamlAttrHash.g:567:9: THROWS qualifiedIdentList
+            // ../etc/JamlAttrHash.g:570:5: ( THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) )
+            // ../etc/JamlAttrHash.g:570:9: THROWS qualifiedIdentList
             {
-            THROWS161=(Token)match(input,THROWS,FOLLOW_THROWS_in_throwsClause7547); if (state.failed) return retval; 
+            THROWS161=(Token)match(input,THROWS,FOLLOW_THROWS_in_throwsClause7548); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_THROWS.add(THROWS161);
 
-            pushFollow(FOLLOW_qualifiedIdentList_in_throwsClause7549);
+            pushFollow(FOLLOW_qualifiedIdentList_in_throwsClause7550);
             qualifiedIdentList162=qualifiedIdentList();
 
             state._fsp--;
@@ -6336,9 +6339,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 568:9: -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList )
+            // 571:9: -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList )
             {
-                // ../etc/JamlAttrHash.g:568:13: ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList )
+                // ../etc/JamlAttrHash.g:571:13: ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(THROWS_CLAUSE, THROWS161, "THROWS_CLAUSE"), root_1);
@@ -6381,7 +6384,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "modifierList"
-    // ../etc/JamlAttrHash.g:571:1: modifierList : ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) ;
+    // ../etc/JamlAttrHash.g:574:1: modifierList : ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) ;
     public final JamlAttrHashParser.modifierList_return modifierList() throws RecognitionException {
     traceIn("modifierList", 43);
         JamlAttrHashParser.modifierList_return retval = new JamlAttrHashParser.modifierList_return();
@@ -6395,10 +6398,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_modifier=new RewriteRuleSubtreeStream(adaptor,"rule modifier");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return retval; }
-            // ../etc/JamlAttrHash.g:572:5: ( ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) )
-            // ../etc/JamlAttrHash.g:572:9: ( modifier )*
+            // ../etc/JamlAttrHash.g:575:5: ( ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) )
+            // ../etc/JamlAttrHash.g:575:9: ( modifier )*
             {
-            // ../etc/JamlAttrHash.g:572:9: ( modifier )*
+            // ../etc/JamlAttrHash.g:575:9: ( modifier )*
             loop58:
             do {
                 int alt58=2;
@@ -6422,7 +6425,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: modifier
             	    {
-            	    pushFollow(FOLLOW_modifier_in_modifierList7586);
+            	    pushFollow(FOLLOW_modifier_in_modifierList7587);
             	    modifier163=modifier();
 
             	    state._fsp--;
@@ -6451,14 +6454,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 573:9: -> ^( MODIFIER_LIST ( modifier )* )
+            // 576:9: -> ^( MODIFIER_LIST ( modifier )* )
             {
-                // ../etc/JamlAttrHash.g:573:13: ^( MODIFIER_LIST ( modifier )* )
+                // ../etc/JamlAttrHash.g:576:13: ^( MODIFIER_LIST ( modifier )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(MODIFIER_LIST, "MODIFIER_LIST"), root_1);
 
-                // ../etc/JamlAttrHash.g:573:29: ( modifier )*
+                // ../etc/JamlAttrHash.g:576:29: ( modifier )*
                 while ( stream_modifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_modifier.nextTree());
 
@@ -6501,7 +6504,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "modifier"
-    // ../etc/JamlAttrHash.g:576:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
+    // ../etc/JamlAttrHash.g:579:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
     public final JamlAttrHashParser.modifier_return modifier() throws RecognitionException {
     traceIn("modifier", 44);
         JamlAttrHashParser.modifier_return retval = new JamlAttrHashParser.modifier_return();
@@ -6535,7 +6538,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return retval; }
-            // ../etc/JamlAttrHash.g:577:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
+            // ../etc/JamlAttrHash.g:580:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier )
             int alt59=11;
             switch ( input.LA(1) ) {
             case PUBLIC:
@@ -6604,11 +6607,11 @@ import org.antlr.runtime.tree.*;
 
             switch (alt59) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:577:9: PUBLIC
+                    // ../etc/JamlAttrHash.g:580:9: PUBLIC
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PUBLIC164=(Token)match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier7627); if (state.failed) return retval;
+                    PUBLIC164=(Token)match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier7628); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PUBLIC164_tree = (CommonTree)adaptor.create(PUBLIC164);
                     adaptor.addChild(root_0, PUBLIC164_tree);
@@ -6617,11 +6620,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:578:9: PROTECTED
+                    // ../etc/JamlAttrHash.g:581:9: PROTECTED
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PROTECTED165=(Token)match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier7637); if (state.failed) return retval;
+                    PROTECTED165=(Token)match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier7638); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PROTECTED165_tree = (CommonTree)adaptor.create(PROTECTED165);
                     adaptor.addChild(root_0, PROTECTED165_tree);
@@ -6630,11 +6633,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:579:9: PRIVATE
+                    // ../etc/JamlAttrHash.g:582:9: PRIVATE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PRIVATE166=(Token)match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier7647); if (state.failed) return retval;
+                    PRIVATE166=(Token)match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier7648); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PRIVATE166_tree = (CommonTree)adaptor.create(PRIVATE166);
                     adaptor.addChild(root_0, PRIVATE166_tree);
@@ -6643,11 +6646,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:580:9: STATIC
+                    // ../etc/JamlAttrHash.g:583:9: STATIC
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    STATIC167=(Token)match(input,STATIC,FOLLOW_STATIC_in_modifier7657); if (state.failed) return retval;
+                    STATIC167=(Token)match(input,STATIC,FOLLOW_STATIC_in_modifier7658); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STATIC167_tree = (CommonTree)adaptor.create(STATIC167);
                     adaptor.addChild(root_0, STATIC167_tree);
@@ -6656,11 +6659,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:581:9: ABSTRACT
+                    // ../etc/JamlAttrHash.g:584:9: ABSTRACT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    ABSTRACT168=(Token)match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier7667); if (state.failed) return retval;
+                    ABSTRACT168=(Token)match(input,ABSTRACT,FOLLOW_ABSTRACT_in_modifier7668); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     ABSTRACT168_tree = (CommonTree)adaptor.create(ABSTRACT168);
                     adaptor.addChild(root_0, ABSTRACT168_tree);
@@ -6669,11 +6672,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 6 :
-                    // ../etc/JamlAttrHash.g:582:9: NATIVE
+                    // ../etc/JamlAttrHash.g:585:9: NATIVE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    NATIVE169=(Token)match(input,NATIVE,FOLLOW_NATIVE_in_modifier7677); if (state.failed) return retval;
+                    NATIVE169=(Token)match(input,NATIVE,FOLLOW_NATIVE_in_modifier7678); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     NATIVE169_tree = (CommonTree)adaptor.create(NATIVE169);
                     adaptor.addChild(root_0, NATIVE169_tree);
@@ -6682,11 +6685,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 7 :
-                    // ../etc/JamlAttrHash.g:583:9: SYNCHRONIZED
+                    // ../etc/JamlAttrHash.g:586:9: SYNCHRONIZED
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SYNCHRONIZED170=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier7687); if (state.failed) return retval;
+                    SYNCHRONIZED170=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_modifier7688); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     SYNCHRONIZED170_tree = (CommonTree)adaptor.create(SYNCHRONIZED170);
                     adaptor.addChild(root_0, SYNCHRONIZED170_tree);
@@ -6695,11 +6698,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 8 :
-                    // ../etc/JamlAttrHash.g:584:9: TRANSIENT
+                    // ../etc/JamlAttrHash.g:587:9: TRANSIENT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    TRANSIENT171=(Token)match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier7697); if (state.failed) return retval;
+                    TRANSIENT171=(Token)match(input,TRANSIENT,FOLLOW_TRANSIENT_in_modifier7698); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     TRANSIENT171_tree = (CommonTree)adaptor.create(TRANSIENT171);
                     adaptor.addChild(root_0, TRANSIENT171_tree);
@@ -6708,11 +6711,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 9 :
-                    // ../etc/JamlAttrHash.g:585:9: VOLATILE
+                    // ../etc/JamlAttrHash.g:588:9: VOLATILE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    VOLATILE172=(Token)match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier7707); if (state.failed) return retval;
+                    VOLATILE172=(Token)match(input,VOLATILE,FOLLOW_VOLATILE_in_modifier7708); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     VOLATILE172_tree = (CommonTree)adaptor.create(VOLATILE172);
                     adaptor.addChild(root_0, VOLATILE172_tree);
@@ -6721,11 +6724,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 10 :
-                    // ../etc/JamlAttrHash.g:586:9: STRICTFP
+                    // ../etc/JamlAttrHash.g:589:9: STRICTFP
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    STRICTFP173=(Token)match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier7717); if (state.failed) return retval;
+                    STRICTFP173=(Token)match(input,STRICTFP,FOLLOW_STRICTFP_in_modifier7718); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STRICTFP173_tree = (CommonTree)adaptor.create(STRICTFP173);
                     adaptor.addChild(root_0, STRICTFP173_tree);
@@ -6734,11 +6737,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 11 :
-                    // ../etc/JamlAttrHash.g:587:9: localModifier
+                    // ../etc/JamlAttrHash.g:590:9: localModifier
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_localModifier_in_modifier7727);
+                    pushFollow(FOLLOW_localModifier_in_modifier7728);
                     localModifier174=localModifier();
 
                     state._fsp--;
@@ -6777,7 +6780,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "localModifierList"
-    // ../etc/JamlAttrHash.g:590:1: localModifierList : ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
+    // ../etc/JamlAttrHash.g:593:1: localModifierList : ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
     public final JamlAttrHashParser.localModifierList_return localModifierList() throws RecognitionException {
     traceIn("localModifierList", 45);
         JamlAttrHashParser.localModifierList_return retval = new JamlAttrHashParser.localModifierList_return();
@@ -6791,10 +6794,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_localModifier=new RewriteRuleSubtreeStream(adaptor,"rule localModifier");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return retval; }
-            // ../etc/JamlAttrHash.g:591:5: ( ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
-            // ../etc/JamlAttrHash.g:591:9: ( localModifier )*
+            // ../etc/JamlAttrHash.g:594:5: ( ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
+            // ../etc/JamlAttrHash.g:594:9: ( localModifier )*
             {
-            // ../etc/JamlAttrHash.g:591:9: ( localModifier )*
+            // ../etc/JamlAttrHash.g:594:9: ( localModifier )*
             loop60:
             do {
                 int alt60=2;
@@ -6809,7 +6812,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: localModifier
             	    {
-            	    pushFollow(FOLLOW_localModifier_in_localModifierList7746);
+            	    pushFollow(FOLLOW_localModifier_in_localModifierList7747);
             	    localModifier175=localModifier();
 
             	    state._fsp--;
@@ -6838,14 +6841,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 592:9: -> ^( LOCAL_MODIFIER_LIST ( localModifier )* )
+            // 595:9: -> ^( LOCAL_MODIFIER_LIST ( localModifier )* )
             {
-                // ../etc/JamlAttrHash.g:592:12: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
+                // ../etc/JamlAttrHash.g:595:12: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LOCAL_MODIFIER_LIST, "LOCAL_MODIFIER_LIST"), root_1);
 
-                // ../etc/JamlAttrHash.g:592:34: ( localModifier )*
+                // ../etc/JamlAttrHash.g:595:34: ( localModifier )*
                 while ( stream_localModifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_localModifier.nextTree());
 
@@ -6888,7 +6891,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "localModifier"
-    // ../etc/JamlAttrHash.g:595:1: localModifier : ( FINAL | annotation );
+    // ../etc/JamlAttrHash.g:598:1: localModifier : ( FINAL | annotation );
     public final JamlAttrHashParser.localModifier_return localModifier() throws RecognitionException {
     traceIn("localModifier", 46);
         JamlAttrHashParser.localModifier_return retval = new JamlAttrHashParser.localModifier_return();
@@ -6904,7 +6907,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return retval; }
-            // ../etc/JamlAttrHash.g:596:5: ( FINAL | annotation )
+            // ../etc/JamlAttrHash.g:599:5: ( FINAL | annotation )
             int alt61=2;
             int LA61_0 = input.LA(1);
 
@@ -6923,11 +6926,11 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt61) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:596:9: FINAL
+                    // ../etc/JamlAttrHash.g:599:9: FINAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    FINAL176=(Token)match(input,FINAL,FOLLOW_FINAL_in_localModifier7787); if (state.failed) return retval;
+                    FINAL176=(Token)match(input,FINAL,FOLLOW_FINAL_in_localModifier7788); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     FINAL176_tree = (CommonTree)adaptor.create(FINAL176);
                     adaptor.addChild(root_0, FINAL176_tree);
@@ -6936,11 +6939,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:597:9: annotation
+                    // ../etc/JamlAttrHash.g:600:9: annotation
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_annotation_in_localModifier7797);
+                    pushFollow(FOLLOW_annotation_in_localModifier7798);
                     annotation177=annotation();
 
                     state._fsp--;
@@ -6979,7 +6982,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "type"
-    // ../etc/JamlAttrHash.g:600:1: type : ( simpleType | objectType );
+    // ../etc/JamlAttrHash.g:603:1: type : ( simpleType | objectType );
     public final JamlAttrHashParser.type_return type() throws RecognitionException {
     traceIn("type", 47);
         JamlAttrHashParser.type_return retval = new JamlAttrHashParser.type_return();
@@ -6995,7 +6998,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 47) ) { return retval; }
-            // ../etc/JamlAttrHash.g:601:5: ( simpleType | objectType )
+            // ../etc/JamlAttrHash.g:604:5: ( simpleType | objectType )
             int alt62=2;
             int LA62_0 = input.LA(1);
 
@@ -7014,11 +7017,11 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt62) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:601:9: simpleType
+                    // ../etc/JamlAttrHash.g:604:9: simpleType
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_simpleType_in_type7816);
+                    pushFollow(FOLLOW_simpleType_in_type7817);
                     simpleType178=simpleType();
 
                     state._fsp--;
@@ -7028,11 +7031,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:602:9: objectType
+                    // ../etc/JamlAttrHash.g:605:9: objectType
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_objectType_in_type7826);
+                    pushFollow(FOLLOW_objectType_in_type7827);
                     objectType179=objectType();
 
                     state._fsp--;
@@ -7071,7 +7074,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "simpleType"
-    // ../etc/JamlAttrHash.g:605:1: simpleType : primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) ;
+    // ../etc/JamlAttrHash.g:608:1: simpleType : primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) ;
     public final JamlAttrHashParser.simpleType_return simpleType() throws RecognitionException {
     traceIn("simpleType", 48);
         JamlAttrHashParser.simpleType_return retval = new JamlAttrHashParser.simpleType_return();
@@ -7088,16 +7091,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_primitiveType=new RewriteRuleSubtreeStream(adaptor,"rule primitiveType");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 48) ) { return retval; }
-            // ../etc/JamlAttrHash.g:606:5: ( primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) )
-            // ../etc/JamlAttrHash.g:606:9: primitiveType ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:609:5: ( primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) )
+            // ../etc/JamlAttrHash.g:609:9: primitiveType ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_primitiveType_in_simpleType7846);
+            pushFollow(FOLLOW_primitiveType_in_simpleType7847);
             primitiveType180=primitiveType();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_primitiveType.add(primitiveType180.getTree());
-            // ../etc/JamlAttrHash.g:606:23: ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:609:23: ( arrayDeclaratorList )?
             int alt63=2;
             int LA63_0 = input.LA(1);
 
@@ -7116,7 +7119,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_simpleType7848);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_simpleType7849);
                     arrayDeclaratorList181=arrayDeclaratorList();
 
                     state._fsp--;
@@ -7142,15 +7145,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 607:9: -> ^( TYPE primitiveType ( arrayDeclaratorList )? )
+            // 610:9: -> ^( TYPE primitiveType ( arrayDeclaratorList )? )
             {
-                // ../etc/JamlAttrHash.g:607:13: ^( TYPE primitiveType ( arrayDeclaratorList )? )
+                // ../etc/JamlAttrHash.g:610:13: ^( TYPE primitiveType ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_primitiveType.nextTree());
-                // ../etc/JamlAttrHash.g:607:34: ( arrayDeclaratorList )?
+                // ../etc/JamlAttrHash.g:610:34: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -7193,7 +7196,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "objectType"
-    // ../etc/JamlAttrHash.g:610:1: objectType : qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) ;
+    // ../etc/JamlAttrHash.g:613:1: objectType : qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) ;
     public final JamlAttrHashParser.objectType_return objectType() throws RecognitionException {
     traceIn("objectType", 49);
         JamlAttrHashParser.objectType_return retval = new JamlAttrHashParser.objectType_return();
@@ -7210,16 +7213,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_qualifiedTypeIdent=new RewriteRuleSubtreeStream(adaptor,"rule qualifiedTypeIdent");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 49) ) { return retval; }
-            // ../etc/JamlAttrHash.g:611:5: ( qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) )
-            // ../etc/JamlAttrHash.g:611:9: qualifiedTypeIdent ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:614:5: ( qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) )
+            // ../etc/JamlAttrHash.g:614:9: qualifiedTypeIdent ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_qualifiedTypeIdent_in_objectType7895);
+            pushFollow(FOLLOW_qualifiedTypeIdent_in_objectType7896);
             qualifiedTypeIdent182=qualifiedTypeIdent();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_qualifiedTypeIdent.add(qualifiedTypeIdent182.getTree());
-            // ../etc/JamlAttrHash.g:611:28: ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:614:28: ( arrayDeclaratorList )?
             int alt64=2;
             int LA64_0 = input.LA(1);
 
@@ -7234,7 +7237,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectType7897);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectType7898);
                     arrayDeclaratorList183=arrayDeclaratorList();
 
                     state._fsp--;
@@ -7260,15 +7263,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 612:9: -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
+            // 615:9: -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
             {
-                // ../etc/JamlAttrHash.g:612:13: ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
+                // ../etc/JamlAttrHash.g:615:13: ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_qualifiedTypeIdent.nextTree());
-                // ../etc/JamlAttrHash.g:612:39: ( arrayDeclaratorList )?
+                // ../etc/JamlAttrHash.g:615:39: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -7311,7 +7314,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "objectTypeSimplified"
-    // ../etc/JamlAttrHash.g:615:1: objectTypeSimplified : qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) ;
+    // ../etc/JamlAttrHash.g:618:1: objectTypeSimplified : qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) ;
     public final JamlAttrHashParser.objectTypeSimplified_return objectTypeSimplified() throws RecognitionException {
     traceIn("objectTypeSimplified", 50);
         JamlAttrHashParser.objectTypeSimplified_return retval = new JamlAttrHashParser.objectTypeSimplified_return();
@@ -7328,16 +7331,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_qualifiedTypeIdentSimplified=new RewriteRuleSubtreeStream(adaptor,"rule qualifiedTypeIdentSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
-            // ../etc/JamlAttrHash.g:616:5: ( qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) )
-            // ../etc/JamlAttrHash.g:616:9: qualifiedTypeIdentSimplified ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:619:5: ( qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) )
+            // ../etc/JamlAttrHash.g:619:9: qualifiedTypeIdentSimplified ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7937);
+            pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7938);
             qualifiedTypeIdentSimplified184=qualifiedTypeIdentSimplified();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_qualifiedTypeIdentSimplified.add(qualifiedTypeIdentSimplified184.getTree());
-            // ../etc/JamlAttrHash.g:616:38: ( arrayDeclaratorList )?
+            // ../etc/JamlAttrHash.g:619:38: ( arrayDeclaratorList )?
             int alt65=2;
             int LA65_0 = input.LA(1);
 
@@ -7348,7 +7351,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectTypeSimplified7939);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectTypeSimplified7940);
                     arrayDeclaratorList185=arrayDeclaratorList();
 
                     state._fsp--;
@@ -7374,15 +7377,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 617:9: -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
+            // 620:9: -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
             {
-                // ../etc/JamlAttrHash.g:617:13: ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
+                // ../etc/JamlAttrHash.g:620:13: ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_qualifiedTypeIdentSimplified.nextTree());
-                // ../etc/JamlAttrHash.g:617:49: ( arrayDeclaratorList )?
+                // ../etc/JamlAttrHash.g:620:49: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -7425,7 +7428,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedTypeIdent"
-    // ../etc/JamlAttrHash.g:620:1: qualifiedTypeIdent : typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
+    // ../etc/JamlAttrHash.g:623:1: qualifiedTypeIdent : typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
     public final JamlAttrHashParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
     traceIn("qualifiedTypeIdent", 51);
         JamlAttrHashParser.qualifiedTypeIdent_return retval = new JamlAttrHashParser.qualifiedTypeIdent_return();
@@ -7444,16 +7447,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_typeIdent=new RewriteRuleSubtreeStream(adaptor,"rule typeIdent");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 51) ) { return retval; }
-            // ../etc/JamlAttrHash.g:621:5: ( typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
-            // ../etc/JamlAttrHash.g:621:9: typeIdent ( DOT typeIdent )*
+            // ../etc/JamlAttrHash.g:624:5: ( typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
+            // ../etc/JamlAttrHash.g:624:9: typeIdent ( DOT typeIdent )*
             {
-            pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7979);
+            pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7980);
             typeIdent186=typeIdent();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_typeIdent.add(typeIdent186.getTree());
-            // ../etc/JamlAttrHash.g:621:19: ( DOT typeIdent )*
+            // ../etc/JamlAttrHash.g:624:19: ( DOT typeIdent )*
             loop66:
             do {
                 int alt66=2;
@@ -7472,12 +7475,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt66) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:621:20: DOT typeIdent
+            	    // ../etc/JamlAttrHash.g:624:20: DOT typeIdent
             	    {
-            	    DOT187=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdent7982); if (state.failed) return retval; 
+            	    DOT187=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdent7983); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT187);
 
-            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7984);
+            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent7985);
             	    typeIdent188=typeIdent();
 
             	    state._fsp--;
@@ -7506,9 +7509,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 622:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
+            // 625:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
             {
-                // ../etc/JamlAttrHash.g:622:13: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
+                // ../etc/JamlAttrHash.g:625:13: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(QUALIFIED_TYPE_IDENT, "QUALIFIED_TYPE_IDENT"), root_1);
@@ -7558,7 +7561,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedTypeIdentSimplified"
-    // ../etc/JamlAttrHash.g:625:1: qualifiedTypeIdentSimplified : typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) ;
+    // ../etc/JamlAttrHash.g:628:1: qualifiedTypeIdentSimplified : typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) ;
     public final JamlAttrHashParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified() throws RecognitionException {
     traceIn("qualifiedTypeIdentSimplified", 52);
         JamlAttrHashParser.qualifiedTypeIdentSimplified_return retval = new JamlAttrHashParser.qualifiedTypeIdentSimplified_return();
@@ -7577,16 +7580,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_typeIdentSimplified=new RewriteRuleSubtreeStream(adaptor,"rule typeIdentSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
-            // ../etc/JamlAttrHash.g:626:5: ( typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) )
-            // ../etc/JamlAttrHash.g:626:9: typeIdentSimplified ( DOT typeIdentSimplified )*
+            // ../etc/JamlAttrHash.g:629:5: ( typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) )
+            // ../etc/JamlAttrHash.g:629:9: typeIdentSimplified ( DOT typeIdentSimplified )*
             {
-            pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8024);
+            pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8025);
             typeIdentSimplified189=typeIdentSimplified();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_typeIdentSimplified.add(typeIdentSimplified189.getTree());
-            // ../etc/JamlAttrHash.g:626:29: ( DOT typeIdentSimplified )*
+            // ../etc/JamlAttrHash.g:629:29: ( DOT typeIdentSimplified )*
             loop67:
             do {
                 int alt67=2;
@@ -7599,12 +7602,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt67) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:626:30: DOT typeIdentSimplified
+            	    // ../etc/JamlAttrHash.g:629:30: DOT typeIdentSimplified
             	    {
-            	    DOT190=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdentSimplified8027); if (state.failed) return retval; 
+            	    DOT190=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdentSimplified8028); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT190);
 
-            	    pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8029);
+            	    pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8030);
             	    typeIdentSimplified191=typeIdentSimplified();
 
             	    state._fsp--;
@@ -7633,9 +7636,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 627:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
+            // 630:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
             {
-                // ../etc/JamlAttrHash.g:627:13: ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
+                // ../etc/JamlAttrHash.g:630:13: ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(QUALIFIED_TYPE_IDENT, "QUALIFIED_TYPE_IDENT"), root_1);
@@ -7685,7 +7688,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeIdent"
-    // ../etc/JamlAttrHash.g:630:1: typeIdent : IDENT ( genericTypeArgumentList )? ;
+    // ../etc/JamlAttrHash.g:633:1: typeIdent : IDENT ( genericTypeArgumentList )? ;
     public final JamlAttrHashParser.typeIdent_return typeIdent() throws RecognitionException {
     traceIn("typeIdent", 53);
         JamlAttrHashParser.typeIdent_return retval = new JamlAttrHashParser.typeIdent_return();
@@ -7701,17 +7704,17 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
-            // ../etc/JamlAttrHash.g:631:5: ( IDENT ( genericTypeArgumentList )? )
-            // ../etc/JamlAttrHash.g:631:9: IDENT ( genericTypeArgumentList )?
+            // ../etc/JamlAttrHash.g:634:5: ( IDENT ( genericTypeArgumentList )? )
+            // ../etc/JamlAttrHash.g:634:9: IDENT ( genericTypeArgumentList )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT192=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdent8069); if (state.failed) return retval;
+            IDENT192=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdent8070); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT192_tree = (CommonTree)adaptor.create(IDENT192);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT192_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:631:16: ( genericTypeArgumentList )?
+            // ../etc/JamlAttrHash.g:634:16: ( genericTypeArgumentList )?
             int alt68=2;
             int LA68_0 = input.LA(1);
 
@@ -7722,7 +7725,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentList
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent8072);
+                    pushFollow(FOLLOW_genericTypeArgumentList_in_typeIdent8073);
                     genericTypeArgumentList193=genericTypeArgumentList();
 
                     state._fsp--;
@@ -7765,7 +7768,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "typeIdentSimplified"
-    // ../etc/JamlAttrHash.g:634:1: typeIdentSimplified : IDENT ( genericTypeArgumentListSimplified )? ;
+    // ../etc/JamlAttrHash.g:637:1: typeIdentSimplified : IDENT ( genericTypeArgumentListSimplified )? ;
     public final JamlAttrHashParser.typeIdentSimplified_return typeIdentSimplified() throws RecognitionException {
     traceIn("typeIdentSimplified", 54);
         JamlAttrHashParser.typeIdentSimplified_return retval = new JamlAttrHashParser.typeIdentSimplified_return();
@@ -7781,17 +7784,17 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
-            // ../etc/JamlAttrHash.g:635:5: ( IDENT ( genericTypeArgumentListSimplified )? )
-            // ../etc/JamlAttrHash.g:635:9: IDENT ( genericTypeArgumentListSimplified )?
+            // ../etc/JamlAttrHash.g:638:5: ( IDENT ( genericTypeArgumentListSimplified )? )
+            // ../etc/JamlAttrHash.g:638:9: IDENT ( genericTypeArgumentListSimplified )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT194=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdentSimplified8092); if (state.failed) return retval;
+            IDENT194=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdentSimplified8093); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT194_tree = (CommonTree)adaptor.create(IDENT194);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT194_tree, root_0);
             }
-            // ../etc/JamlAttrHash.g:635:16: ( genericTypeArgumentListSimplified )?
+            // ../etc/JamlAttrHash.g:638:16: ( genericTypeArgumentListSimplified )?
             int alt69=2;
             int LA69_0 = input.LA(1);
 
@@ -7802,7 +7805,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentListSimplified
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_typeIdentSimplified8095);
+                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_typeIdentSimplified8096);
                     genericTypeArgumentListSimplified195=genericTypeArgumentListSimplified();
 
                     state._fsp--;
@@ -7845,7 +7848,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "primitiveType"
-    // ../etc/JamlAttrHash.g:638:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
+    // ../etc/JamlAttrHash.g:641:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
     public final JamlAttrHashParser.primitiveType_return primitiveType() throws RecognitionException {
     traceIn("primitiveType", 55);
         JamlAttrHashParser.primitiveType_return retval = new JamlAttrHashParser.primitiveType_return();
@@ -7859,7 +7862,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
-            // ../etc/JamlAttrHash.g:639:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
+            // ../etc/JamlAttrHash.g:642:5: ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE )
             // ../etc/JamlAttrHash.g:
             {
             root_0 = (CommonTree)adaptor.nil();
@@ -7907,7 +7910,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeArgumentList"
-    // ../etc/JamlAttrHash.g:649:1: genericTypeArgumentList : LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) ;
+    // ../etc/JamlAttrHash.g:652:1: genericTypeArgumentList : LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) ;
     public final JamlAttrHashParser.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException {
     traceIn("genericTypeArgumentList", 56);
         JamlAttrHashParser.genericTypeArgumentList_return retval = new JamlAttrHashParser.genericTypeArgumentList_return();
@@ -7932,19 +7935,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeListClosing=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeListClosing");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
-            // ../etc/JamlAttrHash.g:650:5: ( LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) )
-            // ../etc/JamlAttrHash.g:650:9: LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing
+            // ../etc/JamlAttrHash.g:653:5: ( LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) )
+            // ../etc/JamlAttrHash.g:653:9: LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing
             {
-            LESS_THAN197=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentList8204); if (state.failed) return retval; 
+            LESS_THAN197=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentList8205); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN197);
 
-            pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList8206);
+            pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList8207);
             genericTypeArgument198=genericTypeArgument();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_genericTypeArgument.add(genericTypeArgument198.getTree());
-            // ../etc/JamlAttrHash.g:650:39: ( COMMA genericTypeArgument )*
+            // ../etc/JamlAttrHash.g:653:39: ( COMMA genericTypeArgument )*
             loop70:
             do {
                 int alt70=2;
@@ -7963,12 +7966,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt70) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:650:40: COMMA genericTypeArgument
+            	    // ../etc/JamlAttrHash.g:653:40: COMMA genericTypeArgument
             	    {
-            	    COMMA199=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentList8209); if (state.failed) return retval; 
+            	    COMMA199=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentList8210); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA199);
 
-            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList8211);
+            	    pushFollow(FOLLOW_genericTypeArgument_in_genericTypeArgumentList8212);
             	    genericTypeArgument200=genericTypeArgument();
 
             	    state._fsp--;
@@ -7983,7 +7986,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeArgumentList8215);
+            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeArgumentList8216);
             genericTypeListClosing201=genericTypeListClosing();
 
             state._fsp--;
@@ -8003,9 +8006,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 651:9: -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ )
+            // 654:9: -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ )
             {
-                // ../etc/JamlAttrHash.g:651:13: ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ )
+                // ../etc/JamlAttrHash.g:654:13: ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GENERIC_TYPE_ARG_LIST, LESS_THAN197, "GENERIC_TYPE_ARG_LIST"), root_1);
@@ -8055,7 +8058,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeArgument"
-    // ../etc/JamlAttrHash.g:654:1: genericTypeArgument : ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) );
+    // ../etc/JamlAttrHash.g:657:1: genericTypeArgument : ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) );
     public final JamlAttrHashParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException {
     traceIn("genericTypeArgument", 57);
         JamlAttrHashParser.genericTypeArgument_return retval = new JamlAttrHashParser.genericTypeArgument_return();
@@ -8074,7 +8077,7 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericWildcardBoundType=new RewriteRuleSubtreeStream(adaptor,"rule genericWildcardBoundType");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
-            // ../etc/JamlAttrHash.g:655:5: ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) )
+            // ../etc/JamlAttrHash.g:658:5: ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) )
             int alt72=2;
             int LA72_0 = input.LA(1);
 
@@ -8093,11 +8096,11 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt72) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:655:9: type
+                    // ../etc/JamlAttrHash.g:658:9: type
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_type_in_genericTypeArgument8253);
+                    pushFollow(FOLLOW_type_in_genericTypeArgument8254);
                     type202=type();
 
                     state._fsp--;
@@ -8107,12 +8110,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:656:9: QUESTION ( genericWildcardBoundType )?
+                    // ../etc/JamlAttrHash.g:659:9: QUESTION ( genericWildcardBoundType )?
                     {
-                    QUESTION203=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument8263); if (state.failed) return retval; 
+                    QUESTION203=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgument8264); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_QUESTION.add(QUESTION203);
 
-                    // ../etc/JamlAttrHash.g:656:18: ( genericWildcardBoundType )?
+                    // ../etc/JamlAttrHash.g:659:18: ( genericWildcardBoundType )?
                     int alt71=2;
                     int LA71_0 = input.LA(1);
 
@@ -8145,7 +8148,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: genericWildcardBoundType
                             {
-                            pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument8265);
+                            pushFollow(FOLLOW_genericWildcardBoundType_in_genericTypeArgument8266);
                             genericWildcardBoundType204=genericWildcardBoundType();
 
                             state._fsp--;
@@ -8171,14 +8174,14 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 657:9: -> ^( QUESTION ( genericWildcardBoundType )? )
+                    // 660:9: -> ^( QUESTION ( genericWildcardBoundType )? )
                     {
-                        // ../etc/JamlAttrHash.g:657:13: ^( QUESTION ( genericWildcardBoundType )? )
+                        // ../etc/JamlAttrHash.g:660:13: ^( QUESTION ( genericWildcardBoundType )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_QUESTION.nextNode(), root_1);
 
-                        // ../etc/JamlAttrHash.g:657:24: ( genericWildcardBoundType )?
+                        // ../etc/JamlAttrHash.g:660:24: ( genericWildcardBoundType )?
                         if ( stream_genericWildcardBoundType.hasNext() ) {
                             adaptor.addChild(root_1, stream_genericWildcardBoundType.nextTree());
 
@@ -8223,7 +8226,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericWildcardBoundType"
-    // ../etc/JamlAttrHash.g:660:1: genericWildcardBoundType : ( EXTENDS | SUPER ) type ;
+    // ../etc/JamlAttrHash.g:663:1: genericWildcardBoundType : ( EXTENDS | SUPER ) type ;
     public final JamlAttrHashParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException {
     traceIn("genericWildcardBoundType", 58);
         JamlAttrHashParser.genericWildcardBoundType_return retval = new JamlAttrHashParser.genericWildcardBoundType_return();
@@ -8239,8 +8242,8 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
-            // ../etc/JamlAttrHash.g:661:5: ( ( EXTENDS | SUPER ) type )
-            // ../etc/JamlAttrHash.g:661:9: ( EXTENDS | SUPER ) type
+            // ../etc/JamlAttrHash.g:664:5: ( ( EXTENDS | SUPER ) type )
+            // ../etc/JamlAttrHash.g:664:9: ( EXTENDS | SUPER ) type
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -8257,7 +8260,7 @@ import org.antlr.runtime.tree.*;
                 throw mse;
             }
 
-            pushFollow(FOLLOW_type_in_genericWildcardBoundType8316);
+            pushFollow(FOLLOW_type_in_genericWildcardBoundType8317);
             type206=type();
 
             state._fsp--;
@@ -8294,7 +8297,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeArgumentListSimplified"
-    // ../etc/JamlAttrHash.g:664:1: genericTypeArgumentListSimplified : LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) ;
+    // ../etc/JamlAttrHash.g:667:1: genericTypeArgumentListSimplified : LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) ;
     public final JamlAttrHashParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified() throws RecognitionException {
     traceIn("genericTypeArgumentListSimplified", 59);
         JamlAttrHashParser.genericTypeArgumentListSimplified_return retval = new JamlAttrHashParser.genericTypeArgumentListSimplified_return();
@@ -8319,19 +8322,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeListClosing=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeListClosing");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
-            // ../etc/JamlAttrHash.g:665:5: ( LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) )
-            // ../etc/JamlAttrHash.g:665:9: LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing
+            // ../etc/JamlAttrHash.g:668:5: ( LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) )
+            // ../etc/JamlAttrHash.g:668:9: LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing
             {
-            LESS_THAN207=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified8335); if (state.failed) return retval; 
+            LESS_THAN207=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified8336); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LESS_THAN.add(LESS_THAN207);
 
-            pushFollow(FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8337);
+            pushFollow(FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8338);
             genericTypeArgumentSimplified208=genericTypeArgumentSimplified();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_genericTypeArgumentSimplified.add(genericTypeArgumentSimplified208.getTree());
-            // ../etc/JamlAttrHash.g:665:49: ( COMMA genericTypeArgumentSimplified )*
+            // ../etc/JamlAttrHash.g:668:49: ( COMMA genericTypeArgumentSimplified )*
             loop73:
             do {
                 int alt73=2;
@@ -8344,12 +8347,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt73) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:665:50: COMMA genericTypeArgumentSimplified
+            	    // ../etc/JamlAttrHash.g:668:50: COMMA genericTypeArgumentSimplified
             	    {
-            	    COMMA209=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentListSimplified8340); if (state.failed) return retval; 
+            	    COMMA209=(Token)match(input,COMMA,FOLLOW_COMMA_in_genericTypeArgumentListSimplified8341); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA209);
 
-            	    pushFollow(FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8342);
+            	    pushFollow(FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8343);
             	    genericTypeArgumentSimplified210=genericTypeArgumentSimplified();
 
             	    state._fsp--;
@@ -8364,7 +8367,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeArgumentListSimplified8346);
+            pushFollow(FOLLOW_genericTypeListClosing_in_genericTypeArgumentListSimplified8347);
             genericTypeListClosing211=genericTypeListClosing();
 
             state._fsp--;
@@ -8384,9 +8387,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 666:9: -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ )
+            // 669:9: -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ )
             {
-                // ../etc/JamlAttrHash.g:666:13: ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ )
+                // ../etc/JamlAttrHash.g:669:13: ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GENERIC_TYPE_ARG_LIST, LESS_THAN207, "GENERIC_TYPE_ARG_LIST"), root_1);
@@ -8436,7 +8439,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "genericTypeArgumentSimplified"
-    // ../etc/JamlAttrHash.g:669:1: genericTypeArgumentSimplified : ( type | QUESTION );
+    // ../etc/JamlAttrHash.g:672:1: genericTypeArgumentSimplified : ( type | QUESTION );
     public final JamlAttrHashParser.genericTypeArgumentSimplified_return genericTypeArgumentSimplified() throws RecognitionException {
     traceIn("genericTypeArgumentSimplified", 60);
         JamlAttrHashParser.genericTypeArgumentSimplified_return retval = new JamlAttrHashParser.genericTypeArgumentSimplified_return();
@@ -8452,7 +8455,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return retval; }
-            // ../etc/JamlAttrHash.g:670:5: ( type | QUESTION )
+            // ../etc/JamlAttrHash.g:673:5: ( type | QUESTION )
             int alt74=2;
             int LA74_0 = input.LA(1);
 
@@ -8471,11 +8474,11 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt74) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:670:9: type
+                    // ../etc/JamlAttrHash.g:673:9: type
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_type_in_genericTypeArgumentSimplified8388);
+                    pushFollow(FOLLOW_type_in_genericTypeArgumentSimplified8389);
                     type212=type();
 
                     state._fsp--;
@@ -8485,11 +8488,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:671:9: QUESTION
+                    // ../etc/JamlAttrHash.g:674:9: QUESTION
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    QUESTION213=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgumentSimplified8398); if (state.failed) return retval;
+                    QUESTION213=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_genericTypeArgumentSimplified8399); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     QUESTION213_tree = (CommonTree)adaptor.create(QUESTION213);
                     adaptor.addChild(root_0, QUESTION213_tree);
@@ -8527,7 +8530,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedIdentList"
-    // ../etc/JamlAttrHash.g:674:1: qualifiedIdentList : qualifiedIdentifier ( COMMA qualifiedIdentifier )* ;
+    // ../etc/JamlAttrHash.g:677:1: qualifiedIdentList : qualifiedIdentifier ( COMMA qualifiedIdentifier )* ;
     public final JamlAttrHashParser.qualifiedIdentList_return qualifiedIdentList() throws RecognitionException {
     traceIn("qualifiedIdentList", 61);
         JamlAttrHashParser.qualifiedIdentList_return retval = new JamlAttrHashParser.qualifiedIdentList_return();
@@ -8545,18 +8548,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 61) ) { return retval; }
-            // ../etc/JamlAttrHash.g:675:5: ( qualifiedIdentifier ( COMMA qualifiedIdentifier )* )
-            // ../etc/JamlAttrHash.g:675:9: qualifiedIdentifier ( COMMA qualifiedIdentifier )*
+            // ../etc/JamlAttrHash.g:678:5: ( qualifiedIdentifier ( COMMA qualifiedIdentifier )* )
+            // ../etc/JamlAttrHash.g:678:9: qualifiedIdentifier ( COMMA qualifiedIdentifier )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8421);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8422);
             qualifiedIdentifier214=qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier214.getTree());
-            // ../etc/JamlAttrHash.g:675:29: ( COMMA qualifiedIdentifier )*
+            // ../etc/JamlAttrHash.g:678:29: ( COMMA qualifiedIdentifier )*
             loop75:
             do {
                 int alt75=2;
@@ -8569,10 +8572,10 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt75) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:675:30: COMMA qualifiedIdentifier
+            	    // ../etc/JamlAttrHash.g:678:30: COMMA qualifiedIdentifier
             	    {
-            	    COMMA215=(Token)match(input,COMMA,FOLLOW_COMMA_in_qualifiedIdentList8424); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8427);
+            	    COMMA215=(Token)match(input,COMMA,FOLLOW_COMMA_in_qualifiedIdentList8425); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8428);
             	    qualifiedIdentifier216=qualifiedIdentifier();
 
             	    state._fsp--;
@@ -8618,7 +8621,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "formalParameterList"
-    // ../etc/JamlAttrHash.g:678:1: formalParameterList : LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN ;
+    // ../etc/JamlAttrHash.g:681:1: formalParameterList : LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN ;
     public final JamlAttrHashParser.formalParameterList_return formalParameterList() throws RecognitionException {
     traceIn("formalParameterList", 62);
         JamlAttrHashParser.formalParameterList_return retval = new JamlAttrHashParser.formalParameterList_return();
@@ -8650,13 +8653,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_formalParameterStandardDecl=new RewriteRuleSubtreeStream(adaptor,"rule formalParameterStandardDecl");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return retval; }
-            // ../etc/JamlAttrHash.g:679:5: ( LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN )
-            // ../etc/JamlAttrHash.g:679:9: LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN
+            // ../etc/JamlAttrHash.g:682:5: ( LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN )
+            // ../etc/JamlAttrHash.g:682:9: LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN
             {
-            LPAREN217=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList8452); if (state.failed) return retval; 
+            LPAREN217=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList8453); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN217);
 
-            // ../etc/JamlAttrHash.g:680:9: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) )
+            // ../etc/JamlAttrHash.g:683:9: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) )
             int alt78=3;
             switch ( input.LA(1) ) {
             case FINAL:
@@ -8757,15 +8760,15 @@ import org.antlr.runtime.tree.*;
 
             switch (alt78) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:681:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
+                    // ../etc/JamlAttrHash.g:684:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
                     {
-                    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList8480);
+                    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList8481);
                     formalParameterStandardDecl218=formalParameterStandardDecl();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_formalParameterStandardDecl.add(formalParameterStandardDecl218.getTree());
-                    // ../etc/JamlAttrHash.g:681:41: ( COMMA formalParameterStandardDecl )*
+                    // ../etc/JamlAttrHash.g:684:41: ( COMMA formalParameterStandardDecl )*
                     loop76:
                     do {
                         int alt76=2;
@@ -8784,12 +8787,12 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt76) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:681:42: COMMA formalParameterStandardDecl
+                    	    // ../etc/JamlAttrHash.g:684:42: COMMA formalParameterStandardDecl
                     	    {
-                    	    COMMA219=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList8483); if (state.failed) return retval; 
+                    	    COMMA219=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList8484); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA219);
 
-                    	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList8485);
+                    	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList8486);
                     	    formalParameterStandardDecl220=formalParameterStandardDecl();
 
                     	    state._fsp--;
@@ -8804,7 +8807,7 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:681:78: ( COMMA formalParameterVarArgDecl )?
+                    // ../etc/JamlAttrHash.g:684:78: ( COMMA formalParameterVarArgDecl )?
                     int alt77=2;
                     int LA77_0 = input.LA(1);
 
@@ -8813,12 +8816,12 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt77) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:681:79: COMMA formalParameterVarArgDecl
+                            // ../etc/JamlAttrHash.g:684:79: COMMA formalParameterVarArgDecl
                             {
-                            COMMA221=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList8490); if (state.failed) return retval; 
+                            COMMA221=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList8491); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COMMA.add(COMMA221);
 
-                            pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList8492);
+                            pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList8493);
                             formalParameterVarArgDecl222=formalParameterVarArgDecl();
 
                             state._fsp--;
@@ -8844,9 +8847,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 682:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? )
+                    // 685:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? )
                     {
-                        // ../etc/JamlAttrHash.g:682:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? )
+                        // ../etc/JamlAttrHash.g:685:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_LIST, LPAREN217, "FORMAL_PARAM_LIST"), root_1);
@@ -8859,7 +8862,7 @@ import org.antlr.runtime.tree.*;
 
                         }
                         stream_formalParameterStandardDecl.reset();
-                        // ../etc/JamlAttrHash.g:682:96: ( formalParameterVarArgDecl )?
+                        // ../etc/JamlAttrHash.g:685:96: ( formalParameterVarArgDecl )?
                         if ( stream_formalParameterVarArgDecl.hasNext() ) {
                             adaptor.addChild(root_1, stream_formalParameterVarArgDecl.nextTree());
 
@@ -8875,9 +8878,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:684:13: formalParameterVarArgDecl
+                    // ../etc/JamlAttrHash.g:687:13: formalParameterVarArgDecl
                     {
-                    pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList8549);
+                    pushFollow(FOLLOW_formalParameterVarArgDecl_in_formalParameterList8550);
                     formalParameterVarArgDecl223=formalParameterVarArgDecl();
 
                     state._fsp--;
@@ -8897,9 +8900,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 685:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl )
+                    // 688:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl )
                     {
-                        // ../etc/JamlAttrHash.g:685:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl )
+                        // ../etc/JamlAttrHash.g:688:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_LIST, LPAREN217, "FORMAL_PARAM_LIST"), root_1);
@@ -8915,7 +8918,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:687:13: 
+                    // ../etc/JamlAttrHash.g:690:13: 
                     {
 
                     // AST REWRITE
@@ -8930,9 +8933,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 687:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
+                    // 690:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
                     {
-                        // ../etc/JamlAttrHash.g:687:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
+                        // ../etc/JamlAttrHash.g:690:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_LIST, LPAREN217, "FORMAL_PARAM_LIST"), root_1);
@@ -8948,7 +8951,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            RPAREN224=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_formalParameterList8626); if (state.failed) return retval; 
+            RPAREN224=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_formalParameterList8627); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN224);
 
 
@@ -8982,7 +8985,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "formalParameterStandardDecl"
-    // ../etc/JamlAttrHash.g:692:1: formalParameterStandardDecl : localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
+    // ../etc/JamlAttrHash.g:695:1: formalParameterStandardDecl : localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
     public final JamlAttrHashParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException {
     traceIn("formalParameterStandardDecl", 63);
         JamlAttrHashParser.formalParameterStandardDecl_return retval = new JamlAttrHashParser.formalParameterStandardDecl_return();
@@ -9002,22 +9005,22 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
-            // ../etc/JamlAttrHash.g:693:5: ( localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
-            // ../etc/JamlAttrHash.g:693:9: localModifierList type variableDeclaratorId
+            // ../etc/JamlAttrHash.g:696:5: ( localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
+            // ../etc/JamlAttrHash.g:696:9: localModifierList type variableDeclaratorId
             {
-            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl8649);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl8650);
             localModifierList225=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList225.getTree());
-            pushFollow(FOLLOW_type_in_formalParameterStandardDecl8651);
+            pushFollow(FOLLOW_type_in_formalParameterStandardDecl8652);
             type226=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type226.getTree());
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl8653);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl8654);
             variableDeclaratorId227=variableDeclaratorId();
 
             state._fsp--;
@@ -9037,9 +9040,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 694:9: -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
+            // 697:9: -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
             {
-                // ../etc/JamlAttrHash.g:694:13: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
+                // ../etc/JamlAttrHash.g:697:13: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_STD_DECL, "FORMAL_PARAM_STD_DECL"), root_1);
@@ -9084,7 +9087,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "formalParameterVarArgDecl"
-    // ../etc/JamlAttrHash.g:697:1: formalParameterVarArgDecl : localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
+    // ../etc/JamlAttrHash.g:700:1: formalParameterVarArgDecl : localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
     public final JamlAttrHashParser.formalParameterVarArgDecl_return formalParameterVarArgDecl() throws RecognitionException {
     traceIn("formalParameterVarArgDecl", 64);
         JamlAttrHashParser.formalParameterVarArgDecl_return retval = new JamlAttrHashParser.formalParameterVarArgDecl_return();
@@ -9107,25 +9110,25 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
-            // ../etc/JamlAttrHash.g:698:5: ( localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
-            // ../etc/JamlAttrHash.g:698:9: localModifierList type ELLIPSIS variableDeclaratorId
+            // ../etc/JamlAttrHash.g:701:5: ( localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) )
+            // ../etc/JamlAttrHash.g:701:9: localModifierList type ELLIPSIS variableDeclaratorId
             {
-            pushFollow(FOLLOW_localModifierList_in_formalParameterVarArgDecl8697);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterVarArgDecl8698);
             localModifierList228=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList228.getTree());
-            pushFollow(FOLLOW_type_in_formalParameterVarArgDecl8699);
+            pushFollow(FOLLOW_type_in_formalParameterVarArgDecl8700);
             type229=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type229.getTree());
-            ELLIPSIS230=(Token)match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_formalParameterVarArgDecl8701); if (state.failed) return retval; 
+            ELLIPSIS230=(Token)match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_formalParameterVarArgDecl8702); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ELLIPSIS.add(ELLIPSIS230);
 
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarArgDecl8703);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterVarArgDecl8704);
             variableDeclaratorId231=variableDeclaratorId();
 
             state._fsp--;
@@ -9145,9 +9148,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 699:9: -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
+            // 702:9: -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
             {
-                // ../etc/JamlAttrHash.g:699:13: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
+                // ../etc/JamlAttrHash.g:702:13: ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_VARARG_DECL, "FORMAL_PARAM_VARARG_DECL"), root_1);
@@ -9192,7 +9195,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedIdentifier"
-    // ../etc/JamlAttrHash.g:702:1: qualifiedIdentifier : ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* ;
+    // ../etc/JamlAttrHash.g:705:1: qualifiedIdentifier : ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* ;
     public final JamlAttrHashParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
     traceIn("qualifiedIdentifier", 65);
         JamlAttrHashParser.qualifiedIdentifier_return retval = new JamlAttrHashParser.qualifiedIdentifier_return();
@@ -9212,13 +9215,13 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
-            // ../etc/JamlAttrHash.g:703:5: ( ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* )
-            // ../etc/JamlAttrHash.g:703:9: ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
+            // ../etc/JamlAttrHash.g:706:5: ( ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* )
+            // ../etc/JamlAttrHash.g:706:9: ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
             {
-            // ../etc/JamlAttrHash.g:703:9: ( IDENT -> IDENT )
-            // ../etc/JamlAttrHash.g:703:13: IDENT
+            // ../etc/JamlAttrHash.g:706:9: ( IDENT -> IDENT )
+            // ../etc/JamlAttrHash.g:706:13: IDENT
             {
-            IDENT232=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8751); if (state.failed) return retval; 
+            IDENT232=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8752); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT232);
 
 
@@ -9235,7 +9238,7 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 703:33: -> IDENT
+            // 706:33: -> IDENT
             {
                 adaptor.addChild(root_0, stream_IDENT.nextNode());
 
@@ -9244,7 +9247,7 @@ import org.antlr.runtime.tree.*;
             retval.tree = root_0;}
             }
 
-            // ../etc/JamlAttrHash.g:705:9: ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
+            // ../etc/JamlAttrHash.g:708:9: ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
             loop79:
             do {
                 int alt79=2;
@@ -9269,12 +9272,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt79) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:705:13: DOT ident= IDENT
+            	    // ../etc/JamlAttrHash.g:708:13: DOT ident= IDENT
             	    {
-            	    DOT233=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier8794); if (state.failed) return retval; 
+            	    DOT233=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier8795); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT233);
 
-            	    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8798); if (state.failed) return retval; 
+            	    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier8799); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_IDENT.add(ident);
 
 
@@ -9292,9 +9295,9 @@ import org.antlr.runtime.tree.*;
             	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	    root_0 = (CommonTree)adaptor.nil();
-            	    // 705:33: -> ^( DOT $qualifiedIdentifier $ident)
+            	    // 708:33: -> ^( DOT $qualifiedIdentifier $ident)
             	    {
-            	        // ../etc/JamlAttrHash.g:705:37: ^( DOT $qualifiedIdentifier $ident)
+            	        // ../etc/JamlAttrHash.g:708:37: ^( DOT $qualifiedIdentifier $ident)
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.nil();
             	        root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -9347,7 +9350,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationList"
-    // ../etc/JamlAttrHash.g:711:1: annotationList : ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) ;
+    // ../etc/JamlAttrHash.g:714:1: annotationList : ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) ;
     public final JamlAttrHashParser.annotationList_return annotationList() throws RecognitionException {
     traceIn("annotationList", 66);
         JamlAttrHashParser.annotationList_return retval = new JamlAttrHashParser.annotationList_return();
@@ -9361,10 +9364,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotation=new RewriteRuleSubtreeStream(adaptor,"rule annotation");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
-            // ../etc/JamlAttrHash.g:712:5: ( ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) )
-            // ../etc/JamlAttrHash.g:712:9: ( annotation )*
+            // ../etc/JamlAttrHash.g:715:5: ( ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) )
+            // ../etc/JamlAttrHash.g:715:9: ( annotation )*
             {
-            // ../etc/JamlAttrHash.g:712:9: ( annotation )*
+            // ../etc/JamlAttrHash.g:715:9: ( annotation )*
             loop80:
             do {
                 int alt80=2;
@@ -9391,7 +9394,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: annotation
             	    {
-            	    pushFollow(FOLLOW_annotation_in_annotationList8851);
+            	    pushFollow(FOLLOW_annotation_in_annotationList8852);
             	    annotation234=annotation();
 
             	    state._fsp--;
@@ -9420,14 +9423,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 713:9: -> ^( ANNOTATION_LIST ( annotation )* )
+            // 716:9: -> ^( ANNOTATION_LIST ( annotation )* )
             {
-                // ../etc/JamlAttrHash.g:713:13: ^( ANNOTATION_LIST ( annotation )* )
+                // ../etc/JamlAttrHash.g:716:13: ^( ANNOTATION_LIST ( annotation )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_LIST, "ANNOTATION_LIST"), root_1);
 
-                // ../etc/JamlAttrHash.g:713:31: ( annotation )*
+                // ../etc/JamlAttrHash.g:716:31: ( annotation )*
                 while ( stream_annotation.hasNext() ) {
                     adaptor.addChild(root_1, stream_annotation.nextTree());
 
@@ -9470,7 +9473,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotation"
-    // ../etc/JamlAttrHash.g:716:1: annotation : AT qualifiedIdentifier ( annotationInit )? ;
+    // ../etc/JamlAttrHash.g:719:1: annotation : AT qualifiedIdentifier ( annotationInit )? ;
     public final JamlAttrHashParser.annotation_return annotation() throws RecognitionException {
     traceIn("annotation", 67);
         JamlAttrHashParser.annotation_return retval = new JamlAttrHashParser.annotation_return();
@@ -9488,23 +9491,23 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
-            // ../etc/JamlAttrHash.g:717:5: ( AT qualifiedIdentifier ( annotationInit )? )
-            // ../etc/JamlAttrHash.g:717:9: AT qualifiedIdentifier ( annotationInit )?
+            // ../etc/JamlAttrHash.g:720:5: ( AT qualifiedIdentifier ( annotationInit )? )
+            // ../etc/JamlAttrHash.g:720:9: AT qualifiedIdentifier ( annotationInit )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            AT235=(Token)match(input,AT,FOLLOW_AT_in_annotation8889); if (state.failed) return retval;
+            AT235=(Token)match(input,AT,FOLLOW_AT_in_annotation8890); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             AT235_tree = (CommonTree)adaptor.create(AT235);
             root_0 = (CommonTree)adaptor.becomeRoot(AT235_tree, root_0);
             }
-            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation8892);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_annotation8893);
             qualifiedIdentifier236=qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier236.getTree());
-            // ../etc/JamlAttrHash.g:717:33: ( annotationInit )?
+            // ../etc/JamlAttrHash.g:720:33: ( annotationInit )?
             int alt81=2;
             int LA81_0 = input.LA(1);
 
@@ -9515,7 +9518,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: annotationInit
                     {
-                    pushFollow(FOLLOW_annotationInit_in_annotation8894);
+                    pushFollow(FOLLOW_annotationInit_in_annotation8895);
                     annotationInit237=annotationInit();
 
                     state._fsp--;
@@ -9558,7 +9561,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationInit"
-    // ../etc/JamlAttrHash.g:720:1: annotationInit : LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) ;
+    // ../etc/JamlAttrHash.g:723:1: annotationInit : LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) ;
     public final JamlAttrHashParser.annotationInit_return annotationInit() throws RecognitionException {
     traceIn("annotationInit", 68);
         JamlAttrHashParser.annotationInit_return retval = new JamlAttrHashParser.annotationInit_return();
@@ -9578,19 +9581,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationInitializers=new RewriteRuleSubtreeStream(adaptor,"rule annotationInitializers");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
-            // ../etc/JamlAttrHash.g:721:5: ( LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) )
-            // ../etc/JamlAttrHash.g:721:9: LPAREN annotationInitializers RPAREN
+            // ../etc/JamlAttrHash.g:724:5: ( LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) )
+            // ../etc/JamlAttrHash.g:724:9: LPAREN annotationInitializers RPAREN
             {
-            LPAREN238=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationInit8918); if (state.failed) return retval; 
+            LPAREN238=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationInit8919); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN238);
 
-            pushFollow(FOLLOW_annotationInitializers_in_annotationInit8920);
+            pushFollow(FOLLOW_annotationInitializers_in_annotationInit8921);
             annotationInitializers239=annotationInitializers();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_annotationInitializers.add(annotationInitializers239.getTree());
-            RPAREN240=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationInit8922); if (state.failed) return retval; 
+            RPAREN240=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationInit8923); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN240);
 
 
@@ -9607,9 +9610,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 722:9: -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers )
+            // 725:9: -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers )
             {
-                // ../etc/JamlAttrHash.g:722:13: ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers )
+                // ../etc/JamlAttrHash.g:725:13: ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_INIT_BLOCK, LPAREN238, "ANNOTATION_INIT_BLOCK"), root_1);
@@ -9652,7 +9655,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationInitializers"
-    // ../etc/JamlAttrHash.g:725:1: annotationInitializers : ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
+    // ../etc/JamlAttrHash.g:728:1: annotationInitializers : ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
     public final JamlAttrHashParser.annotationInitializers_return annotationInitializers() throws RecognitionException {
     traceIn("annotationInitializers", 69);
         JamlAttrHashParser.annotationInitializers_return retval = new JamlAttrHashParser.annotationInitializers_return();
@@ -9674,7 +9677,7 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationInitializer=new RewriteRuleSubtreeStream(adaptor,"rule annotationInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
-            // ../etc/JamlAttrHash.g:726:5: ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
+            // ../etc/JamlAttrHash.g:729:5: ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) )
             int alt83=2;
             int LA83_0 = input.LA(1);
 
@@ -9707,15 +9710,15 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt83) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:726:9: annotationInitializer ( COMMA annotationInitializer )*
+                    // ../etc/JamlAttrHash.g:729:9: annotationInitializer ( COMMA annotationInitializer )*
                     {
-                    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8959);
+                    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8960);
                     annotationInitializer241=annotationInitializer();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_annotationInitializer.add(annotationInitializer241.getTree());
-                    // ../etc/JamlAttrHash.g:726:31: ( COMMA annotationInitializer )*
+                    // ../etc/JamlAttrHash.g:729:31: ( COMMA annotationInitializer )*
                     loop82:
                     do {
                         int alt82=2;
@@ -9728,12 +9731,12 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt82) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:726:32: COMMA annotationInitializer
+                    	    // ../etc/JamlAttrHash.g:729:32: COMMA annotationInitializer
                     	    {
-                    	    COMMA242=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationInitializers8962); if (state.failed) return retval; 
+                    	    COMMA242=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationInitializers8963); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA242);
 
-                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8964);
+                    	    pushFollow(FOLLOW_annotationInitializer_in_annotationInitializers8965);
                     	    annotationInitializer243=annotationInitializer();
 
                     	    state._fsp--;
@@ -9762,9 +9765,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 727:9: -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
+                    // 730:9: -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
                     {
-                        // ../etc/JamlAttrHash.g:727:13: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
+                        // ../etc/JamlAttrHash.g:730:13: ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_INIT_KEY_LIST, "ANNOTATION_INIT_KEY_LIST"), root_1);
@@ -9787,9 +9790,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:728:9: annotationElementValue
+                    // ../etc/JamlAttrHash.g:731:9: annotationElementValue
                     {
-                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers8994);
+                    pushFollow(FOLLOW_annotationElementValue_in_annotationInitializers8995);
                     annotationElementValue244=annotationElementValue();
 
                     state._fsp--;
@@ -9809,9 +9812,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 729:9: -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
+                    // 732:9: -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
                     {
-                        // ../etc/JamlAttrHash.g:729:13: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
+                        // ../etc/JamlAttrHash.g:732:13: ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_INIT_DEFAULT_KEY, "ANNOTATION_INIT_DEFAULT_KEY"), root_1);
@@ -9856,7 +9859,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationInitializer"
-    // ../etc/JamlAttrHash.g:732:1: annotationInitializer : IDENT ASSIGN annotationElementValue ;
+    // ../etc/JamlAttrHash.g:735:1: annotationInitializer : IDENT ASSIGN annotationElementValue ;
     public final JamlAttrHashParser.annotationInitializer_return annotationInitializer() throws RecognitionException {
     traceIn("annotationInitializer", 70);
         JamlAttrHashParser.annotationInitializer_return retval = new JamlAttrHashParser.annotationInitializer_return();
@@ -9874,18 +9877,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
-            // ../etc/JamlAttrHash.g:733:5: ( IDENT ASSIGN annotationElementValue )
-            // ../etc/JamlAttrHash.g:733:9: IDENT ASSIGN annotationElementValue
+            // ../etc/JamlAttrHash.g:736:5: ( IDENT ASSIGN annotationElementValue )
+            // ../etc/JamlAttrHash.g:736:9: IDENT ASSIGN annotationElementValue
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT245=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer9035); if (state.failed) return retval;
+            IDENT245=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationInitializer9036); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT245_tree = (CommonTree)adaptor.create(IDENT245);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT245_tree, root_0);
             }
-            ASSIGN246=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_annotationInitializer9038); if (state.failed) return retval;
-            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer9041);
+            ASSIGN246=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_annotationInitializer9039); if (state.failed) return retval;
+            pushFollow(FOLLOW_annotationElementValue_in_annotationInitializer9042);
             annotationElementValue247=annotationElementValue();
 
             state._fsp--;
@@ -9922,7 +9925,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationElementValue"
-    // ../etc/JamlAttrHash.g:736:1: annotationElementValue : ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer );
+    // ../etc/JamlAttrHash.g:739:1: annotationElementValue : ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer );
     public final JamlAttrHashParser.annotationElementValue_return annotationElementValue() throws RecognitionException {
     traceIn("annotationElementValue", 71);
         JamlAttrHashParser.annotationElementValue_return retval = new JamlAttrHashParser.annotationElementValue_return();
@@ -9940,7 +9943,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 71) ) { return retval; }
-            // ../etc/JamlAttrHash.g:737:5: ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer )
+            // ../etc/JamlAttrHash.g:740:5: ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer )
             int alt84=3;
             switch ( input.LA(1) ) {
             case DEC:
@@ -9997,11 +10000,11 @@ import org.antlr.runtime.tree.*;
 
             switch (alt84) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:737:9: annotationElementValueExpression
+                    // ../etc/JamlAttrHash.g:740:9: annotationElementValueExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_annotationElementValueExpression_in_annotationElementValue9064);
+                    pushFollow(FOLLOW_annotationElementValueExpression_in_annotationElementValue9065);
                     annotationElementValueExpression248=annotationElementValueExpression();
 
                     state._fsp--;
@@ -10011,11 +10014,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:738:9: annotation
+                    // ../etc/JamlAttrHash.g:741:9: annotation
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_annotation_in_annotationElementValue9074);
+                    pushFollow(FOLLOW_annotation_in_annotationElementValue9075);
                     annotation249=annotation();
 
                     state._fsp--;
@@ -10025,11 +10028,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:739:9: annotationElementValueArrayInitializer
+                    // ../etc/JamlAttrHash.g:742:9: annotationElementValueArrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_annotationElementValueArrayInitializer_in_annotationElementValue9084);
+                    pushFollow(FOLLOW_annotationElementValueArrayInitializer_in_annotationElementValue9085);
                     annotationElementValueArrayInitializer250=annotationElementValueArrayInitializer();
 
                     state._fsp--;
@@ -10068,7 +10071,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationElementValueExpression"
-    // ../etc/JamlAttrHash.g:742:1: annotationElementValueExpression : conditionalExpression -> ^( EXPR conditionalExpression ) ;
+    // ../etc/JamlAttrHash.g:745:1: annotationElementValueExpression : conditionalExpression -> ^( EXPR conditionalExpression ) ;
     public final JamlAttrHashParser.annotationElementValueExpression_return annotationElementValueExpression() throws RecognitionException {
     traceIn("annotationElementValueExpression", 72);
         JamlAttrHashParser.annotationElementValueExpression_return retval = new JamlAttrHashParser.annotationElementValueExpression_return();
@@ -10082,10 +10085,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_conditionalExpression=new RewriteRuleSubtreeStream(adaptor,"rule conditionalExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return retval; }
-            // ../etc/JamlAttrHash.g:743:5: ( conditionalExpression -> ^( EXPR conditionalExpression ) )
-            // ../etc/JamlAttrHash.g:743:9: conditionalExpression
+            // ../etc/JamlAttrHash.g:746:5: ( conditionalExpression -> ^( EXPR conditionalExpression ) )
+            // ../etc/JamlAttrHash.g:746:9: conditionalExpression
             {
-            pushFollow(FOLLOW_conditionalExpression_in_annotationElementValueExpression9107);
+            pushFollow(FOLLOW_conditionalExpression_in_annotationElementValueExpression9108);
             conditionalExpression251=conditionalExpression();
 
             state._fsp--;
@@ -10105,9 +10108,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 744:9: -> ^( EXPR conditionalExpression )
+            // 747:9: -> ^( EXPR conditionalExpression )
             {
-                // ../etc/JamlAttrHash.g:744:13: ^( EXPR conditionalExpression )
+                // ../etc/JamlAttrHash.g:747:13: ^( EXPR conditionalExpression )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXPR, "EXPR"), root_1);
@@ -10150,7 +10153,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationElementValueArrayInitializer"
-    // ../etc/JamlAttrHash.g:747:1: annotationElementValueArrayInitializer : LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) ;
+    // ../etc/JamlAttrHash.g:750:1: annotationElementValueArrayInitializer : LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) ;
     public final JamlAttrHashParser.annotationElementValueArrayInitializer_return annotationElementValueArrayInitializer() throws RecognitionException {
     traceIn("annotationElementValueArrayInitializer", 73);
         JamlAttrHashParser.annotationElementValueArrayInitializer_return retval = new JamlAttrHashParser.annotationElementValueArrayInitializer_return();
@@ -10177,13 +10180,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationElementValue=new RewriteRuleSubtreeStream(adaptor,"rule annotationElementValue");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 73) ) { return retval; }
-            // ../etc/JamlAttrHash.g:748:5: ( LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) )
-            // ../etc/JamlAttrHash.g:748:9: LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY
+            // ../etc/JamlAttrHash.g:751:5: ( LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) )
+            // ../etc/JamlAttrHash.g:751:9: LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY
             {
-            LCURLY252=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationElementValueArrayInitializer9147); if (state.failed) return retval; 
+            LCURLY252=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationElementValueArrayInitializer9148); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY252);
 
-            // ../etc/JamlAttrHash.g:748:16: ( annotationElementValue ( COMMA annotationElementValue )* )?
+            // ../etc/JamlAttrHash.g:751:16: ( annotationElementValue ( COMMA annotationElementValue )* )?
             int alt86=2;
             int LA86_0 = input.LA(1);
 
@@ -10192,15 +10195,15 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt86) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:748:17: annotationElementValue ( COMMA annotationElementValue )*
+                    // ../etc/JamlAttrHash.g:751:17: annotationElementValue ( COMMA annotationElementValue )*
                     {
-                    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9150);
+                    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9151);
                     annotationElementValue253=annotationElementValue();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_annotationElementValue.add(annotationElementValue253.getTree());
-                    // ../etc/JamlAttrHash.g:748:40: ( COMMA annotationElementValue )*
+                    // ../etc/JamlAttrHash.g:751:40: ( COMMA annotationElementValue )*
                     loop85:
                     do {
                         int alt85=2;
@@ -10219,12 +10222,12 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt85) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:748:41: COMMA annotationElementValue
+                    	    // ../etc/JamlAttrHash.g:751:41: COMMA annotationElementValue
                     	    {
-                    	    COMMA254=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer9153); if (state.failed) return retval; 
+                    	    COMMA254=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer9154); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA254);
 
-                    	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9155);
+                    	    pushFollow(FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9156);
                     	    annotationElementValue255=annotationElementValue();
 
                     	    state._fsp--;
@@ -10245,7 +10248,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:748:74: ( COMMA )?
+            // ../etc/JamlAttrHash.g:751:74: ( COMMA )?
             int alt87=2;
             int LA87_0 = input.LA(1);
 
@@ -10254,9 +10257,9 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt87) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:748:75: COMMA
+                    // ../etc/JamlAttrHash.g:751:75: COMMA
                     {
-                    COMMA256=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer9162); if (state.failed) return retval; 
+                    COMMA256=(Token)match(input,COMMA,FOLLOW_COMMA_in_annotationElementValueArrayInitializer9163); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_COMMA.add(COMMA256);
 
 
@@ -10265,7 +10268,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            RCURLY257=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_annotationElementValueArrayInitializer9166); if (state.failed) return retval; 
+            RCURLY257=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_annotationElementValueArrayInitializer9167); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY257);
 
 
@@ -10282,14 +10285,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 749:9: -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* )
+            // 752:9: -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* )
             {
-                // ../etc/JamlAttrHash.g:749:13: ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* )
+                // ../etc/JamlAttrHash.g:752:13: ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_INIT_ARRAY_ELEMENT, LCURLY252, "ANNOTATION_ELEM_VALUE_ARRAY_INIT"), root_1);
 
-                // ../etc/JamlAttrHash.g:749:90: ( annotationElementValue )*
+                // ../etc/JamlAttrHash.g:752:90: ( annotationElementValue )*
                 while ( stream_annotationElementValue.hasNext() ) {
                     adaptor.addChild(root_1, stream_annotationElementValue.nextTree());
 
@@ -10332,7 +10335,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationTypeDeclaration"
-    // ../etc/JamlAttrHash.g:752:1: annotationTypeDeclaration[CommonTree modifiers] : AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) ;
+    // ../etc/JamlAttrHash.g:755:1: annotationTypeDeclaration[CommonTree modifiers] : AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) ;
     public final JamlAttrHashParser.annotationTypeDeclaration_return annotationTypeDeclaration(CommonTree modifiers) throws RecognitionException {
     traceIn("annotationTypeDeclaration", 74);
         JamlAttrHashParser.annotationTypeDeclaration_return retval = new JamlAttrHashParser.annotationTypeDeclaration_return();
@@ -10355,19 +10358,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationBody=new RewriteRuleSubtreeStream(adaptor,"rule annotationBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 74) ) { return retval; }
-            // ../etc/JamlAttrHash.g:753:5: ( AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) )
-            // ../etc/JamlAttrHash.g:753:9: AT INTERFACE IDENT annotationBody
+            // ../etc/JamlAttrHash.g:756:5: ( AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) )
+            // ../etc/JamlAttrHash.g:756:9: AT INTERFACE IDENT annotationBody
             {
-            AT258=(Token)match(input,AT,FOLLOW_AT_in_annotationTypeDeclaration9209); if (state.failed) return retval; 
+            AT258=(Token)match(input,AT,FOLLOW_AT_in_annotationTypeDeclaration9210); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_AT.add(AT258);
 
-            INTERFACE259=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_annotationTypeDeclaration9211); if (state.failed) return retval; 
+            INTERFACE259=(Token)match(input,INTERFACE,FOLLOW_INTERFACE_in_annotationTypeDeclaration9212); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_INTERFACE.add(INTERFACE259);
 
-            IDENT260=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationTypeDeclaration9213); if (state.failed) return retval; 
+            IDENT260=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationTypeDeclaration9214); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT260);
 
-            pushFollow(FOLLOW_annotationBody_in_annotationTypeDeclaration9215);
+            pushFollow(FOLLOW_annotationBody_in_annotationTypeDeclaration9216);
             annotationBody261=annotationBody();
 
             state._fsp--;
@@ -10387,9 +10390,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 754:9: -> ^( AT IDENT annotationBody )
+            // 757:9: -> ^( AT IDENT annotationBody )
             {
-                // ../etc/JamlAttrHash.g:754:12: ^( AT IDENT annotationBody )
+                // ../etc/JamlAttrHash.g:757:12: ^( AT IDENT annotationBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_AT.nextNode(), root_1);
@@ -10434,7 +10437,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationBody"
-    // ../etc/JamlAttrHash.g:757:1: annotationBody : LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) ;
+    // ../etc/JamlAttrHash.g:760:1: annotationBody : LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) ;
     public final JamlAttrHashParser.annotationBody_return annotationBody() throws RecognitionException {
     traceIn("annotationBody", 75);
         JamlAttrHashParser.annotationBody_return retval = new JamlAttrHashParser.annotationBody_return();
@@ -10454,13 +10457,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_annotationScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule annotationScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 75) ) { return retval; }
-            // ../etc/JamlAttrHash.g:758:5: ( LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) )
-            // ../etc/JamlAttrHash.g:758:9: LCURLY ( annotationScopeDeclarations )* RCURLY
+            // ../etc/JamlAttrHash.g:761:5: ( LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) )
+            // ../etc/JamlAttrHash.g:761:9: LCURLY ( annotationScopeDeclarations )* RCURLY
             {
-            LCURLY262=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationBody9258); if (state.failed) return retval; 
+            LCURLY262=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_annotationBody9259); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY262);
 
-            // ../etc/JamlAttrHash.g:758:16: ( annotationScopeDeclarations )*
+            // ../etc/JamlAttrHash.g:761:16: ( annotationScopeDeclarations )*
             loop88:
             do {
                 int alt88=2;
@@ -10475,7 +10478,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: annotationScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationBody9260);
+            	    pushFollow(FOLLOW_annotationScopeDeclarations_in_annotationBody9261);
             	    annotationScopeDeclarations263=annotationScopeDeclarations();
 
             	    state._fsp--;
@@ -10490,7 +10493,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            RCURLY264=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_annotationBody9263); if (state.failed) return retval; 
+            RCURLY264=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_annotationBody9264); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY264);
 
 
@@ -10507,14 +10510,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 759:9: -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* )
+            // 762:9: -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* )
             {
-                // ../etc/JamlAttrHash.g:759:13: ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* )
+                // ../etc/JamlAttrHash.g:762:13: ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_TOP_LEVEL_SCOPE, LCURLY262, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:759:76: ( annotationScopeDeclarations )*
+                // ../etc/JamlAttrHash.g:762:76: ( annotationScopeDeclarations )*
                 while ( stream_annotationScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_annotationScopeDeclarations.nextTree());
 
@@ -10557,7 +10560,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationScopeDeclarations"
-    // ../etc/JamlAttrHash.g:762:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );
+    // ../etc/JamlAttrHash.g:765:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );
     public final JamlAttrHashParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException {
     traceIn("annotationScopeDeclarations", 76);
         JamlAttrHashParser.annotationScopeDeclarations_return retval = new JamlAttrHashParser.annotationScopeDeclarations_return();
@@ -10596,26 +10599,26 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classFieldDeclaratorList=new RewriteRuleSubtreeStream(adaptor,"rule classFieldDeclaratorList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 76) ) { return retval; }
-            // ../etc/JamlAttrHash.g:763:5: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration )
+            // ../etc/JamlAttrHash.g:766:5: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration )
             int alt91=2;
             alt91 = dfa91.predict(input);
             switch (alt91) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:763:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:766:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     {
-                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations9305);
+                    pushFollow(FOLLOW_modifierList_in_annotationScopeDeclarations9306);
                     modifierList265=modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_modifierList.add(modifierList265.getTree());
-                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations9307);
+                    pushFollow(FOLLOW_type_in_annotationScopeDeclarations9308);
                     type266=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_type.add(type266.getTree());
-                    // ../etc/JamlAttrHash.g:764:9: ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // ../etc/JamlAttrHash.g:767:9: ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     int alt90=2;
                     int LA90_0 = input.LA(1);
 
@@ -10645,18 +10648,18 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt90) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:764:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
+                            // ../etc/JamlAttrHash.g:767:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
                             {
-                            IDENT267=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations9321); if (state.failed) return retval; 
+                            IDENT267=(Token)match(input,IDENT,FOLLOW_IDENT_in_annotationScopeDeclarations9322); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT267);
 
-                            LPAREN268=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationScopeDeclarations9323); if (state.failed) return retval; 
+                            LPAREN268=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_annotationScopeDeclarations9324); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN268);
 
-                            RPAREN269=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationScopeDeclarations9325); if (state.failed) return retval; 
+                            RPAREN269=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_annotationScopeDeclarations9326); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN269);
 
-                            // ../etc/JamlAttrHash.g:764:33: ( annotationDefaultValue )?
+                            // ../etc/JamlAttrHash.g:767:33: ( annotationDefaultValue )?
                             int alt89=2;
                             int LA89_0 = input.LA(1);
 
@@ -10667,7 +10670,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: annotationDefaultValue
                                     {
-                                    pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations9327);
+                                    pushFollow(FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations9328);
                                     annotationDefaultValue270=annotationDefaultValue();
 
                                     state._fsp--;
@@ -10679,7 +10682,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            SEMI271=(Token)match(input,SEMI,FOLLOW_SEMI_in_annotationScopeDeclarations9330); if (state.failed) return retval; 
+                            SEMI271=(Token)match(input,SEMI,FOLLOW_SEMI_in_annotationScopeDeclarations9331); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI271);
 
 
@@ -10696,9 +10699,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 765:13: -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
+                            // 768:13: -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
                             {
-                                // ../etc/JamlAttrHash.g:765:17: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
+                                // ../etc/JamlAttrHash.g:768:17: ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ANNOTATION_METHOD_DECL, "ANNOTATION_METHOD_DECL"), root_1);
@@ -10706,7 +10709,7 @@ import org.antlr.runtime.tree.*;
                                 adaptor.addChild(root_1, stream_modifierList.nextTree());
                                 adaptor.addChild(root_1, stream_type.nextTree());
                                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                                // ../etc/JamlAttrHash.g:765:66: ( annotationDefaultValue )?
+                                // ../etc/JamlAttrHash.g:768:66: ( annotationDefaultValue )?
                                 if ( stream_annotationDefaultValue.hasNext() ) {
                                     adaptor.addChild(root_1, stream_annotationDefaultValue.nextTree());
 
@@ -10722,15 +10725,15 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:766:13: classFieldDeclaratorList SEMI
+                            // ../etc/JamlAttrHash.g:769:13: classFieldDeclaratorList SEMI
                             {
-                            pushFollow(FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations9372);
+                            pushFollow(FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations9373);
                             classFieldDeclaratorList272=classFieldDeclaratorList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_classFieldDeclaratorList.add(classFieldDeclaratorList272.getTree());
-                            SEMI273=(Token)match(input,SEMI,FOLLOW_SEMI_in_annotationScopeDeclarations9374); if (state.failed) return retval; 
+                            SEMI273=(Token)match(input,SEMI,FOLLOW_SEMI_in_annotationScopeDeclarations9375); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI273);
 
 
@@ -10747,9 +10750,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 767:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                            // 770:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                             {
-                                // ../etc/JamlAttrHash.g:767:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                                // ../etc/JamlAttrHash.g:770:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -10773,11 +10776,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:769:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:772:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations9419);
+                    pushFollow(FOLLOW_typeDeclaration_in_annotationScopeDeclarations9420);
                     typeDeclaration274=typeDeclaration();
 
                     state._fsp--;
@@ -10816,7 +10819,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "annotationDefaultValue"
-    // ../etc/JamlAttrHash.g:772:1: annotationDefaultValue : DEFAULT annotationElementValue ;
+    // ../etc/JamlAttrHash.g:775:1: annotationDefaultValue : DEFAULT annotationElementValue ;
     public final JamlAttrHashParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException {
     traceIn("annotationDefaultValue", 77);
         JamlAttrHashParser.annotationDefaultValue_return retval = new JamlAttrHashParser.annotationDefaultValue_return();
@@ -10832,17 +10835,17 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 77) ) { return retval; }
-            // ../etc/JamlAttrHash.g:773:5: ( DEFAULT annotationElementValue )
-            // ../etc/JamlAttrHash.g:773:9: DEFAULT annotationElementValue
+            // ../etc/JamlAttrHash.g:776:5: ( DEFAULT annotationElementValue )
+            // ../etc/JamlAttrHash.g:776:9: DEFAULT annotationElementValue
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            DEFAULT275=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue9442); if (state.failed) return retval;
+            DEFAULT275=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_annotationDefaultValue9443); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             DEFAULT275_tree = (CommonTree)adaptor.create(DEFAULT275);
             root_0 = (CommonTree)adaptor.becomeRoot(DEFAULT275_tree, root_0);
             }
-            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue9445);
+            pushFollow(FOLLOW_annotationElementValue_in_annotationDefaultValue9446);
             annotationElementValue276=annotationElementValue();
 
             state._fsp--;
@@ -10879,7 +10882,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "block"
-    // ../etc/JamlAttrHash.g:778:1: block : LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) ;
+    // ../etc/JamlAttrHash.g:781:1: block : LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) ;
     public final JamlAttrHashParser.block_return block() throws RecognitionException {
     traceIn("block", 78);
         JamlAttrHashParser.block_return retval = new JamlAttrHashParser.block_return();
@@ -10899,13 +10902,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_blockStatement=new RewriteRuleSubtreeStream(adaptor,"rule blockStatement");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 78) ) { return retval; }
-            // ../etc/JamlAttrHash.g:779:5: ( LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) )
-            // ../etc/JamlAttrHash.g:779:9: LCURLY ( blockStatement )* RCURLY
+            // ../etc/JamlAttrHash.g:782:5: ( LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) )
+            // ../etc/JamlAttrHash.g:782:9: LCURLY ( blockStatement )* RCURLY
             {
-            LCURLY277=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_block9466); if (state.failed) return retval; 
+            LCURLY277=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_block9467); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY277);
 
-            // ../etc/JamlAttrHash.g:779:16: ( blockStatement )*
+            // ../etc/JamlAttrHash.g:782:16: ( blockStatement )*
             loop92:
             do {
                 int alt92=2;
@@ -10920,7 +10923,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_block9468);
+            	    pushFollow(FOLLOW_blockStatement_in_block9469);
             	    blockStatement278=blockStatement();
 
             	    state._fsp--;
@@ -10935,7 +10938,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            RCURLY279=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_block9471); if (state.failed) return retval; 
+            RCURLY279=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_block9472); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY279);
 
 
@@ -10952,14 +10955,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 780:9: -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
+            // 783:9: -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
             {
-                // ../etc/JamlAttrHash.g:780:13: ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
+                // ../etc/JamlAttrHash.g:783:13: ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BLOCK_SCOPE, LCURLY277, "BLOCK_SCOPE"), root_1);
 
-                // ../etc/JamlAttrHash.g:780:51: ( blockStatement )*
+                // ../etc/JamlAttrHash.g:783:51: ( blockStatement )*
                 while ( stream_blockStatement.hasNext() ) {
                     adaptor.addChild(root_1, stream_blockStatement.nextTree());
 
@@ -11002,7 +11005,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "blockStatement"
-    // ../etc/JamlAttrHash.g:783:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );
+    // ../etc/JamlAttrHash.g:786:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );
     public final JamlAttrHashParser.blockStatement_return blockStatement() throws RecognitionException {
     traceIn("blockStatement", 79);
         JamlAttrHashParser.blockStatement_return retval = new JamlAttrHashParser.blockStatement_return();
@@ -11022,31 +11025,31 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 79) ) { return retval; }
-            // ../etc/JamlAttrHash.g:784:5: ( localVariableDeclaration SEMI | typeDeclaration | statement )
+            // ../etc/JamlAttrHash.g:787:5: ( localVariableDeclaration SEMI | typeDeclaration | statement )
             int alt93=3;
             alt93 = dfa93.predict(input);
             switch (alt93) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:784:9: localVariableDeclaration SEMI
+                    // ../etc/JamlAttrHash.g:787:9: localVariableDeclaration SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement9509);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement9510);
                     localVariableDeclaration280=localVariableDeclaration();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, localVariableDeclaration280.getTree());
-                    SEMI281=(Token)match(input,SEMI,FOLLOW_SEMI_in_blockStatement9511); if (state.failed) return retval;
+                    SEMI281=(Token)match(input,SEMI,FOLLOW_SEMI_in_blockStatement9512); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:785:9: typeDeclaration
+                    // ../etc/JamlAttrHash.g:788:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement9522);
+                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement9523);
                     typeDeclaration282=typeDeclaration();
 
                     state._fsp--;
@@ -11056,11 +11059,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:786:9: statement
+                    // ../etc/JamlAttrHash.g:789:9: statement
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_statement_in_blockStatement9532);
+                    pushFollow(FOLLOW_statement_in_blockStatement9533);
                     statement283=statement();
 
                     state._fsp--;
@@ -11099,7 +11102,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "localVariableDeclaration"
-    // ../etc/JamlAttrHash.g:789:1: localVariableDeclaration : localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) ;
+    // ../etc/JamlAttrHash.g:792:1: localVariableDeclaration : localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) ;
     public final JamlAttrHashParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
     traceIn("localVariableDeclaration", 80);
         JamlAttrHashParser.localVariableDeclaration_return retval = new JamlAttrHashParser.localVariableDeclaration_return();
@@ -11119,22 +11122,22 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_classFieldDeclaratorList=new RewriteRuleSubtreeStream(adaptor,"rule classFieldDeclaratorList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 80) ) { return retval; }
-            // ../etc/JamlAttrHash.g:790:5: ( localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) )
-            // ../etc/JamlAttrHash.g:790:9: localModifierList type classFieldDeclaratorList
+            // ../etc/JamlAttrHash.g:793:5: ( localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) )
+            // ../etc/JamlAttrHash.g:793:9: localModifierList type classFieldDeclaratorList
             {
-            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration9555);
+            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration9556);
             localModifierList284=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList284.getTree());
-            pushFollow(FOLLOW_type_in_localVariableDeclaration9557);
+            pushFollow(FOLLOW_type_in_localVariableDeclaration9558);
             type285=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type285.getTree());
-            pushFollow(FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration9559);
+            pushFollow(FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration9560);
             classFieldDeclaratorList286=classFieldDeclaratorList();
 
             state._fsp--;
@@ -11154,9 +11157,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 791:9: -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
+            // 794:9: -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
             {
-                // ../etc/JamlAttrHash.g:791:13: ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
+                // ../etc/JamlAttrHash.g:794:13: ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -11201,7 +11204,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "statement"
-    // ../etc/JamlAttrHash.g:795:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );
+    // ../etc/JamlAttrHash.g:798:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );
     public final JamlAttrHashParser.statement_return statement() throws RecognitionException {
     traceIn("statement", 81);
         JamlAttrHashParser.statement_return retval = new JamlAttrHashParser.statement_return();
@@ -11378,16 +11381,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_parenthesizedExpression=new RewriteRuleSubtreeStream(adaptor,"rule parenthesizedExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 81) ) { return retval; }
-            // ../etc/JamlAttrHash.g:796:5: ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI )
+            // ../etc/JamlAttrHash.g:799:5: ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI )
             int alt102=16;
             alt102 = dfa102.predict(input);
             switch (alt102) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:796:9: block
+                    // ../etc/JamlAttrHash.g:799:9: block
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_block_in_statement9612);
+                    pushFollow(FOLLOW_block_in_statement9613);
                     block287=block();
 
                     state._fsp--;
@@ -11397,18 +11400,18 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:797:9: ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
+                    // ../etc/JamlAttrHash.g:800:9: ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
                     {
-                    ASSERT288=(Token)match(input,ASSERT,FOLLOW_ASSERT_in_statement9622); if (state.failed) return retval; 
+                    ASSERT288=(Token)match(input,ASSERT,FOLLOW_ASSERT_in_statement9623); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ASSERT.add(ASSERT288);
 
-                    pushFollow(FOLLOW_expression_in_statement9626);
+                    pushFollow(FOLLOW_expression_in_statement9627);
                     expr1=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_expression.add(expr1.getTree());
-                    // ../etc/JamlAttrHash.g:798:9: ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
+                    // ../etc/JamlAttrHash.g:801:9: ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) )
                     int alt94=2;
                     int LA94_0 = input.LA(1);
 
@@ -11427,18 +11430,18 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt94) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:798:13: COLON expr2= expression SEMI
+                            // ../etc/JamlAttrHash.g:801:13: COLON expr2= expression SEMI
                             {
-                            COLON289=(Token)match(input,COLON,FOLLOW_COLON_in_statement9641); if (state.failed) return retval; 
+                            COLON289=(Token)match(input,COLON,FOLLOW_COLON_in_statement9642); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COLON.add(COLON289);
 
-                            pushFollow(FOLLOW_expression_in_statement9645);
+                            pushFollow(FOLLOW_expression_in_statement9646);
                             expr2=expression();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_expression.add(expr2.getTree());
-                            SEMI290=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9647); if (state.failed) return retval; 
+                            SEMI290=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9648); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI290);
 
 
@@ -11457,9 +11460,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_expr2=new RewriteRuleSubtreeStream(adaptor,"rule expr2",expr2!=null?expr2.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 798:77: -> ^( ASSERT $expr1 $expr2)
+                            // 801:77: -> ^( ASSERT $expr1 $expr2)
                             {
-                                // ../etc/JamlAttrHash.g:798:81: ^( ASSERT $expr1 $expr2)
+                                // ../etc/JamlAttrHash.g:801:81: ^( ASSERT $expr1 $expr2)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_ASSERT.nextNode(), root_1);
@@ -11476,9 +11479,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:799:13: SEMI
+                            // ../etc/JamlAttrHash.g:802:13: SEMI
                             {
-                            SEMI291=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9710); if (state.failed) return retval; 
+                            SEMI291=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement9711); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI291);
 
 
@@ -11496,9 +11499,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_expr1=new RewriteRuleSubtreeStream(adaptor,"rule expr1",expr1!=null?expr1.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 799:77: -> ^( ASSERT $expr1)
+                            // 802:77: -> ^( ASSERT $expr1)
                             {
-                                // ../etc/JamlAttrHash.g:799:81: ^( ASSERT $expr1)
+                                // ../etc/JamlAttrHash.g:802:81: ^( ASSERT $expr1)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_ASSERT.nextNode(), root_1);
@@ -11520,24 +11523,24 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:801:9: IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
+                    // ../etc/JamlAttrHash.g:804:9: IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
                     {
-                    IF292=(Token)match(input,IF,FOLLOW_IF_in_statement9799); if (state.failed) return retval; 
+                    IF292=(Token)match(input,IF,FOLLOW_IF_in_statement9800); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IF.add(IF292);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement9801);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement9802);
                     parenthesizedExpression293=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression293.getTree());
-                    pushFollow(FOLLOW_statement_in_statement9805);
+                    pushFollow(FOLLOW_statement_in_statement9806);
                     ifStat=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_statement.add(ifStat.getTree());
-                    // ../etc/JamlAttrHash.g:802:9: ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
+                    // ../etc/JamlAttrHash.g:805:9: ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
                     int alt95=2;
                     int LA95_0 = input.LA(1);
 
@@ -11570,12 +11573,12 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt95) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:802:13: ELSE elseStat= statement
+                            // ../etc/JamlAttrHash.g:805:13: ELSE elseStat= statement
                             {
-                            ELSE294=(Token)match(input,ELSE,FOLLOW_ELSE_in_statement9820); if (state.failed) return retval; 
+                            ELSE294=(Token)match(input,ELSE,FOLLOW_ELSE_in_statement9821); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_ELSE.add(ELSE294);
 
-                            pushFollow(FOLLOW_statement_in_statement9824);
+                            pushFollow(FOLLOW_statement_in_statement9825);
                             elseStat=statement();
 
                             state._fsp--;
@@ -11597,9 +11600,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_elseStat=new RewriteRuleSubtreeStream(adaptor,"rule elseStat",elseStat!=null?elseStat.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 802:77: -> ^( IF parenthesizedExpression $ifStat $elseStat)
+                            // 805:77: -> ^( IF parenthesizedExpression $ifStat $elseStat)
                             {
-                                // ../etc/JamlAttrHash.g:802:81: ^( IF parenthesizedExpression $ifStat $elseStat)
+                                // ../etc/JamlAttrHash.g:805:81: ^( IF parenthesizedExpression $ifStat $elseStat)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_IF.nextNode(), root_1);
@@ -11617,7 +11620,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:803:77: 
+                            // ../etc/JamlAttrHash.g:806:77: 
                             {
 
                             // AST REWRITE
@@ -11633,9 +11636,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_ifStat=new RewriteRuleSubtreeStream(adaptor,"rule ifStat",ifStat!=null?ifStat.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 803:77: -> ^( IF parenthesizedExpression $ifStat)
+                            // 806:77: -> ^( IF parenthesizedExpression $ifStat)
                             {
-                                // ../etc/JamlAttrHash.g:803:81: ^( IF parenthesizedExpression $ifStat)
+                                // ../etc/JamlAttrHash.g:806:81: ^( IF parenthesizedExpression $ifStat)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_IF.nextNode(), root_1);
@@ -11658,49 +11661,49 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:805:9: FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
+                    // ../etc/JamlAttrHash.g:808:9: FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
                     {
-                    FOR295=(Token)match(input,FOR,FOLLOW_FOR_in_statement9990); if (state.failed) return retval; 
+                    FOR295=(Token)match(input,FOR,FOLLOW_FOR_in_statement9991); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_FOR.add(FOR295);
 
-                    LPAREN296=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_statement9992); if (state.failed) return retval; 
+                    LPAREN296=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_statement9993); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN296);
 
-                    // ../etc/JamlAttrHash.g:806:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
+                    // ../etc/JamlAttrHash.g:809:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
                     int alt96=2;
                     alt96 = dfa96.predict(input);
                     switch (alt96) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:806:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
+                            // ../etc/JamlAttrHash.g:809:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
                             {
-                            pushFollow(FOLLOW_forInit_in_statement10007);
+                            pushFollow(FOLLOW_forInit_in_statement10008);
                             forInit297=forInit();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forInit.add(forInit297.getTree());
-                            SEMI298=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10009); if (state.failed) return retval; 
+                            SEMI298=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10010); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI298);
 
-                            pushFollow(FOLLOW_forCondition_in_statement10011);
+                            pushFollow(FOLLOW_forCondition_in_statement10012);
                             forCondition299=forCondition();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forCondition.add(forCondition299.getTree());
-                            SEMI300=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10013); if (state.failed) return retval; 
+                            SEMI300=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10014); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI300);
 
-                            pushFollow(FOLLOW_forUpdater_in_statement10015);
+                            pushFollow(FOLLOW_forUpdater_in_statement10016);
                             forUpdater301=forUpdater();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forUpdater.add(forUpdater301.getTree());
-                            RPAREN302=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement10017); if (state.failed) return retval; 
+                            RPAREN302=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement10018); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN302);
 
-                            pushFollow(FOLLOW_statement_in_statement10019);
+                            pushFollow(FOLLOW_statement_in_statement10020);
                             statement303=statement();
 
                             state._fsp--;
@@ -11720,9 +11723,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 806:77: -> ^( FOR forInit forCondition forUpdater statement )
+                            // 809:77: -> ^( FOR forInit forCondition forUpdater statement )
                             {
-                                // ../etc/JamlAttrHash.g:806:81: ^( FOR forInit forCondition forUpdater statement )
+                                // ../etc/JamlAttrHash.g:809:81: ^( FOR forInit forCondition forUpdater statement )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_FOR.nextNode(), root_1);
@@ -11741,36 +11744,36 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:807:13: localModifierList type IDENT COLON expression RPAREN statement
+                            // ../etc/JamlAttrHash.g:810:13: localModifierList type IDENT COLON expression RPAREN statement
                             {
-                            pushFollow(FOLLOW_localModifierList_in_statement10054);
+                            pushFollow(FOLLOW_localModifierList_in_statement10055);
                             localModifierList304=localModifierList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList304.getTree());
-                            pushFollow(FOLLOW_type_in_statement10056);
+                            pushFollow(FOLLOW_type_in_statement10057);
                             type305=type();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_type.add(type305.getTree());
-                            IDENT306=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10058); if (state.failed) return retval; 
+                            IDENT306=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10059); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT306);
 
-                            COLON307=(Token)match(input,COLON,FOLLOW_COLON_in_statement10060); if (state.failed) return retval; 
+                            COLON307=(Token)match(input,COLON,FOLLOW_COLON_in_statement10061); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COLON.add(COLON307);
 
-                            pushFollow(FOLLOW_expression_in_statement10062);
+                            pushFollow(FOLLOW_expression_in_statement10063);
                             expression308=expression();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_expression.add(expression308.getTree());
-                            RPAREN309=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement10064); if (state.failed) return retval; 
+                            RPAREN309=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement10065); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN309);
 
-                            pushFollow(FOLLOW_statement_in_statement10066);
+                            pushFollow(FOLLOW_statement_in_statement10067);
                             statement310=statement();
 
                             state._fsp--;
@@ -11790,9 +11793,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 808:77: -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
+                            // 811:77: -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
                             {
-                                // ../etc/JamlAttrHash.g:808:81: ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
+                                // ../etc/JamlAttrHash.g:811:81: ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_EACH, FOR295, "FOR_EACH"), root_1);
@@ -11818,18 +11821,18 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:810:9: WHILE parenthesizedExpression statement
+                    // ../etc/JamlAttrHash.g:813:9: WHILE parenthesizedExpression statement
                     {
-                    WHILE311=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement10181); if (state.failed) return retval; 
+                    WHILE311=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement10182); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_WHILE.add(WHILE311);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10183);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10184);
                     parenthesizedExpression312=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression312.getTree());
-                    pushFollow(FOLLOW_statement_in_statement10185);
+                    pushFollow(FOLLOW_statement_in_statement10186);
                     statement313=statement();
 
                     state._fsp--;
@@ -11849,9 +11852,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 810:77: -> ^( WHILE parenthesizedExpression statement )
+                    // 813:77: -> ^( WHILE parenthesizedExpression statement )
                     {
-                        // ../etc/JamlAttrHash.g:810:81: ^( WHILE parenthesizedExpression statement )
+                        // ../etc/JamlAttrHash.g:813:81: ^( WHILE parenthesizedExpression statement )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_WHILE.nextNode(), root_1);
@@ -11868,27 +11871,27 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 6 :
-                    // ../etc/JamlAttrHash.g:811:9: DO statement WHILE parenthesizedExpression SEMI
+                    // ../etc/JamlAttrHash.g:814:9: DO statement WHILE parenthesizedExpression SEMI
                     {
-                    DO314=(Token)match(input,DO,FOLLOW_DO_in_statement10234); if (state.failed) return retval; 
+                    DO314=(Token)match(input,DO,FOLLOW_DO_in_statement10235); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DO.add(DO314);
 
-                    pushFollow(FOLLOW_statement_in_statement10236);
+                    pushFollow(FOLLOW_statement_in_statement10237);
                     statement315=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_statement.add(statement315.getTree());
-                    WHILE316=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement10238); if (state.failed) return retval; 
+                    WHILE316=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement10239); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_WHILE.add(WHILE316);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10240);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10241);
                     parenthesizedExpression317=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression317.getTree());
-                    SEMI318=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10242); if (state.failed) return retval; 
+                    SEMI318=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10243); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI318);
 
 
@@ -11905,9 +11908,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 811:77: -> ^( DO statement parenthesizedExpression )
+                    // 814:77: -> ^( DO statement parenthesizedExpression )
                     {
-                        // ../etc/JamlAttrHash.g:811:81: ^( DO statement parenthesizedExpression )
+                        // ../etc/JamlAttrHash.g:814:81: ^( DO statement parenthesizedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DO.nextNode(), root_1);
@@ -11924,18 +11927,18 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 7 :
-                    // ../etc/JamlAttrHash.g:812:9: TRY block ( catches ( finallyClause )? | finallyClause )
+                    // ../etc/JamlAttrHash.g:815:9: TRY block ( catches ( finallyClause )? | finallyClause )
                     {
-                    TRY319=(Token)match(input,TRY,FOLLOW_TRY_in_statement10283); if (state.failed) return retval; 
+                    TRY319=(Token)match(input,TRY,FOLLOW_TRY_in_statement10284); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_TRY.add(TRY319);
 
-                    pushFollow(FOLLOW_block_in_statement10285);
+                    pushFollow(FOLLOW_block_in_statement10286);
                     block320=block();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_block.add(block320.getTree());
-                    // ../etc/JamlAttrHash.g:812:19: ( catches ( finallyClause )? | finallyClause )
+                    // ../etc/JamlAttrHash.g:815:19: ( catches ( finallyClause )? | finallyClause )
                     int alt98=2;
                     int LA98_0 = input.LA(1);
 
@@ -11954,15 +11957,15 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt98) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:812:20: catches ( finallyClause )?
+                            // ../etc/JamlAttrHash.g:815:20: catches ( finallyClause )?
                             {
-                            pushFollow(FOLLOW_catches_in_statement10288);
+                            pushFollow(FOLLOW_catches_in_statement10289);
                             catches321=catches();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_catches.add(catches321.getTree());
-                            // ../etc/JamlAttrHash.g:812:28: ( finallyClause )?
+                            // ../etc/JamlAttrHash.g:815:28: ( finallyClause )?
                             int alt97=2;
                             int LA97_0 = input.LA(1);
 
@@ -11973,7 +11976,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: finallyClause
                                     {
-                                    pushFollow(FOLLOW_finallyClause_in_statement10290);
+                                    pushFollow(FOLLOW_finallyClause_in_statement10291);
                                     finallyClause322=finallyClause();
 
                                     state._fsp--;
@@ -11989,9 +11992,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:812:45: finallyClause
+                            // ../etc/JamlAttrHash.g:815:45: finallyClause
                             {
-                            pushFollow(FOLLOW_finallyClause_in_statement10295);
+                            pushFollow(FOLLOW_finallyClause_in_statement10296);
                             finallyClause323=finallyClause();
 
                             state._fsp--;
@@ -12017,21 +12020,21 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 812:77: -> ^( TRY block ( catches )? ( finallyClause )? )
+                    // 815:77: -> ^( TRY block ( catches )? ( finallyClause )? )
                     {
-                        // ../etc/JamlAttrHash.g:812:81: ^( TRY block ( catches )? ( finallyClause )? )
+                        // ../etc/JamlAttrHash.g:815:81: ^( TRY block ( catches )? ( finallyClause )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_TRY.nextNode(), root_1);
 
                         adaptor.addChild(root_1, stream_block.nextTree());
-                        // ../etc/JamlAttrHash.g:812:93: ( catches )?
+                        // ../etc/JamlAttrHash.g:815:93: ( catches )?
                         if ( stream_catches.hasNext() ) {
                             adaptor.addChild(root_1, stream_catches.nextTree());
 
                         }
                         stream_catches.reset();
-                        // ../etc/JamlAttrHash.g:812:102: ( finallyClause )?
+                        // ../etc/JamlAttrHash.g:815:102: ( finallyClause )?
                         if ( stream_finallyClause.hasNext() ) {
                             adaptor.addChild(root_1, stream_finallyClause.nextTree());
 
@@ -12047,27 +12050,27 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 8 :
-                    // ../etc/JamlAttrHash.g:813:9: SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY
+                    // ../etc/JamlAttrHash.g:816:9: SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY
                     {
-                    SWITCH324=(Token)match(input,SWITCH,FOLLOW_SWITCH_in_statement10338); if (state.failed) return retval; 
+                    SWITCH324=(Token)match(input,SWITCH,FOLLOW_SWITCH_in_statement10339); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SWITCH.add(SWITCH324);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10340);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10341);
                     parenthesizedExpression325=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression325.getTree());
-                    LCURLY326=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_statement10342); if (state.failed) return retval; 
+                    LCURLY326=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_statement10343); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY326);
 
-                    pushFollow(FOLLOW_switchBlockLabels_in_statement10344);
+                    pushFollow(FOLLOW_switchBlockLabels_in_statement10345);
                     switchBlockLabels327=switchBlockLabels();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_switchBlockLabels.add(switchBlockLabels327.getTree());
-                    RCURLY328=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_statement10346); if (state.failed) return retval; 
+                    RCURLY328=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_statement10347); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY328);
 
 
@@ -12084,9 +12087,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 813:77: -> ^( SWITCH parenthesizedExpression switchBlockLabels )
+                    // 816:77: -> ^( SWITCH parenthesizedExpression switchBlockLabels )
                     {
-                        // ../etc/JamlAttrHash.g:813:81: ^( SWITCH parenthesizedExpression switchBlockLabels )
+                        // ../etc/JamlAttrHash.g:816:81: ^( SWITCH parenthesizedExpression switchBlockLabels )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_SWITCH.nextNode(), root_1);
@@ -12103,18 +12106,18 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 9 :
-                    // ../etc/JamlAttrHash.g:814:9: SYNCHRONIZED parenthesizedExpression block
+                    // ../etc/JamlAttrHash.g:817:9: SYNCHRONIZED parenthesizedExpression block
                     {
-                    SYNCHRONIZED329=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement10372); if (state.failed) return retval; 
+                    SYNCHRONIZED329=(Token)match(input,SYNCHRONIZED,FOLLOW_SYNCHRONIZED_in_statement10373); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SYNCHRONIZED.add(SYNCHRONIZED329);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10374);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement10375);
                     parenthesizedExpression330=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression330.getTree());
-                    pushFollow(FOLLOW_block_in_statement10376);
+                    pushFollow(FOLLOW_block_in_statement10377);
                     block331=block();
 
                     state._fsp--;
@@ -12134,9 +12137,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 814:77: -> ^( SYNCHRONIZED parenthesizedExpression block )
+                    // 817:77: -> ^( SYNCHRONIZED parenthesizedExpression block )
                     {
-                        // ../etc/JamlAttrHash.g:814:81: ^( SYNCHRONIZED parenthesizedExpression block )
+                        // ../etc/JamlAttrHash.g:817:81: ^( SYNCHRONIZED parenthesizedExpression block )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_SYNCHRONIZED.nextNode(), root_1);
@@ -12153,12 +12156,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 10 :
-                    // ../etc/JamlAttrHash.g:815:9: RETURN ( expression )? SEMI
+                    // ../etc/JamlAttrHash.g:818:9: RETURN ( expression )? SEMI
                     {
-                    RETURN332=(Token)match(input,RETURN,FOLLOW_RETURN_in_statement10422); if (state.failed) return retval; 
+                    RETURN332=(Token)match(input,RETURN,FOLLOW_RETURN_in_statement10423); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RETURN.add(RETURN332);
 
-                    // ../etc/JamlAttrHash.g:815:16: ( expression )?
+                    // ../etc/JamlAttrHash.g:818:16: ( expression )?
                     int alt99=2;
                     int LA99_0 = input.LA(1);
 
@@ -12169,7 +12172,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: expression
                             {
-                            pushFollow(FOLLOW_expression_in_statement10424);
+                            pushFollow(FOLLOW_expression_in_statement10425);
                             expression333=expression();
 
                             state._fsp--;
@@ -12181,7 +12184,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    SEMI334=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10427); if (state.failed) return retval; 
+                    SEMI334=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10428); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI334);
 
 
@@ -12198,14 +12201,14 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 815:77: -> ^( RETURN ( expression )? )
+                    // 818:77: -> ^( RETURN ( expression )? )
                     {
-                        // ../etc/JamlAttrHash.g:815:81: ^( RETURN ( expression )? )
+                        // ../etc/JamlAttrHash.g:818:81: ^( RETURN ( expression )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_RETURN.nextNode(), root_1);
 
-                        // ../etc/JamlAttrHash.g:815:90: ( expression )?
+                        // ../etc/JamlAttrHash.g:818:90: ( expression )?
                         if ( stream_expression.hasNext() ) {
                             adaptor.addChild(root_1, stream_expression.nextTree());
 
@@ -12221,18 +12224,18 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 11 :
-                    // ../etc/JamlAttrHash.g:816:9: THROW expression SEMI
+                    // ../etc/JamlAttrHash.g:819:9: THROW expression SEMI
                     {
-                    THROW335=(Token)match(input,THROW,FOLLOW_THROW_in_statement10491); if (state.failed) return retval; 
+                    THROW335=(Token)match(input,THROW,FOLLOW_THROW_in_statement10492); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_THROW.add(THROW335);
 
-                    pushFollow(FOLLOW_expression_in_statement10493);
+                    pushFollow(FOLLOW_expression_in_statement10494);
                     expression336=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_expression.add(expression336.getTree());
-                    SEMI337=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10495); if (state.failed) return retval; 
+                    SEMI337=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10496); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI337);
 
 
@@ -12249,9 +12252,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 816:77: -> ^( THROW expression )
+                    // 819:77: -> ^( THROW expression )
                     {
-                        // ../etc/JamlAttrHash.g:816:81: ^( THROW expression )
+                        // ../etc/JamlAttrHash.g:819:81: ^( THROW expression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_THROW.nextNode(), root_1);
@@ -12267,12 +12270,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 12 :
-                    // ../etc/JamlAttrHash.g:817:9: BREAK ( IDENT )? SEMI
+                    // ../etc/JamlAttrHash.g:820:9: BREAK ( IDENT )? SEMI
                     {
-                    BREAK338=(Token)match(input,BREAK,FOLLOW_BREAK_in_statement10560); if (state.failed) return retval; 
+                    BREAK338=(Token)match(input,BREAK,FOLLOW_BREAK_in_statement10561); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_BREAK.add(BREAK338);
 
-                    // ../etc/JamlAttrHash.g:817:15: ( IDENT )?
+                    // ../etc/JamlAttrHash.g:820:15: ( IDENT )?
                     int alt100=2;
                     int LA100_0 = input.LA(1);
 
@@ -12283,7 +12286,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: IDENT
                             {
-                            IDENT339=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10562); if (state.failed) return retval; 
+                            IDENT339=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10563); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT339);
 
 
@@ -12292,7 +12295,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    SEMI340=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10565); if (state.failed) return retval; 
+                    SEMI340=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10566); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI340);
 
 
@@ -12309,14 +12312,14 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 817:77: -> ^( BREAK ( IDENT )? )
+                    // 820:77: -> ^( BREAK ( IDENT )? )
                     {
-                        // ../etc/JamlAttrHash.g:817:81: ^( BREAK ( IDENT )? )
+                        // ../etc/JamlAttrHash.g:820:81: ^( BREAK ( IDENT )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_BREAK.nextNode(), root_1);
 
-                        // ../etc/JamlAttrHash.g:817:89: ( IDENT )?
+                        // ../etc/JamlAttrHash.g:820:89: ( IDENT )?
                         if ( stream_IDENT.hasNext() ) {
                             adaptor.addChild(root_1, stream_IDENT.nextNode());
 
@@ -12332,12 +12335,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 13 :
-                    // ../etc/JamlAttrHash.g:818:9: CONTINUE ( IDENT )? SEMI
+                    // ../etc/JamlAttrHash.g:821:9: CONTINUE ( IDENT )? SEMI
                     {
-                    CONTINUE341=(Token)match(input,CONTINUE,FOLLOW_CONTINUE_in_statement10635); if (state.failed) return retval; 
+                    CONTINUE341=(Token)match(input,CONTINUE,FOLLOW_CONTINUE_in_statement10636); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CONTINUE.add(CONTINUE341);
 
-                    // ../etc/JamlAttrHash.g:818:18: ( IDENT )?
+                    // ../etc/JamlAttrHash.g:821:18: ( IDENT )?
                     int alt101=2;
                     int LA101_0 = input.LA(1);
 
@@ -12348,7 +12351,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: IDENT
                             {
-                            IDENT342=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10637); if (state.failed) return retval; 
+                            IDENT342=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10638); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT342);
 
 
@@ -12357,7 +12360,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    SEMI343=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10640); if (state.failed) return retval; 
+                    SEMI343=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10641); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI343);
 
 
@@ -12374,14 +12377,14 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 818:77: -> ^( CONTINUE ( IDENT )? )
+                    // 821:77: -> ^( CONTINUE ( IDENT )? )
                     {
-                        // ../etc/JamlAttrHash.g:818:81: ^( CONTINUE ( IDENT )? )
+                        // ../etc/JamlAttrHash.g:821:81: ^( CONTINUE ( IDENT )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_CONTINUE.nextNode(), root_1);
 
-                        // ../etc/JamlAttrHash.g:818:92: ( IDENT )?
+                        // ../etc/JamlAttrHash.g:821:92: ( IDENT )?
                         if ( stream_IDENT.hasNext() ) {
                             adaptor.addChild(root_1, stream_IDENT.nextNode());
 
@@ -12397,15 +12400,15 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 14 :
-                    // ../etc/JamlAttrHash.g:819:9: IDENT COLON statement
+                    // ../etc/JamlAttrHash.g:822:9: IDENT COLON statement
                     {
-                    IDENT344=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10707); if (state.failed) return retval; 
+                    IDENT344=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement10708); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT344);
 
-                    COLON345=(Token)match(input,COLON,FOLLOW_COLON_in_statement10709); if (state.failed) return retval; 
+                    COLON345=(Token)match(input,COLON,FOLLOW_COLON_in_statement10710); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_COLON.add(COLON345);
 
-                    pushFollow(FOLLOW_statement_in_statement10711);
+                    pushFollow(FOLLOW_statement_in_statement10712);
                     statement346=statement();
 
                     state._fsp--;
@@ -12425,9 +12428,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 819:77: -> ^( LABELED_STATEMENT IDENT statement )
+                    // 822:77: -> ^( LABELED_STATEMENT IDENT statement )
                     {
-                        // ../etc/JamlAttrHash.g:819:81: ^( LABELED_STATEMENT IDENT statement )
+                        // ../etc/JamlAttrHash.g:822:81: ^( LABELED_STATEMENT IDENT statement )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LABELED_STATEMENT, "LABELED_STATEMENT"), root_1);
@@ -12444,26 +12447,26 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 15 :
-                    // ../etc/JamlAttrHash.g:820:9: expression SEMI
+                    // ../etc/JamlAttrHash.g:823:9: expression SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expression_in_statement10778);
+                    pushFollow(FOLLOW_expression_in_statement10779);
                     expression347=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expression347.getTree());
-                    SEMI348=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10780); if (state.failed) return retval;
+                    SEMI348=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10781); if (state.failed) return retval;
 
                     }
                     break;
                 case 16 :
-                    // ../etc/JamlAttrHash.g:821:9: SEMI
+                    // ../etc/JamlAttrHash.g:824:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI349=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10791); if (state.failed) return retval;
+                    SEMI349=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement10792); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     SEMI349_tree = (CommonTree)adaptor.create(SEMI349);
                     adaptor.addChild(root_0, SEMI349_tree);
@@ -12501,7 +12504,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "catches"
-    // ../etc/JamlAttrHash.g:824:1: catches : ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
+    // ../etc/JamlAttrHash.g:827:1: catches : ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
     public final JamlAttrHashParser.catches_return catches() throws RecognitionException {
     traceIn("catches", 82);
         JamlAttrHashParser.catches_return retval = new JamlAttrHashParser.catches_return();
@@ -12515,10 +12518,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_catchClause=new RewriteRuleSubtreeStream(adaptor,"rule catchClause");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 82) ) { return retval; }
-            // ../etc/JamlAttrHash.g:825:5: ( ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
-            // ../etc/JamlAttrHash.g:825:9: ( catchClause )+
+            // ../etc/JamlAttrHash.g:828:5: ( ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) )
+            // ../etc/JamlAttrHash.g:828:9: ( catchClause )+
             {
-            // ../etc/JamlAttrHash.g:825:9: ( catchClause )+
+            // ../etc/JamlAttrHash.g:828:9: ( catchClause )+
             int cnt103=0;
             loop103:
             do {
@@ -12534,7 +12537,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: catchClause
             	    {
-            	    pushFollow(FOLLOW_catchClause_in_catches10830);
+            	    pushFollow(FOLLOW_catchClause_in_catches10831);
             	    catchClause350=catchClause();
 
             	    state._fsp--;
@@ -12568,9 +12571,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 826:9: -> ^( CATCH_CLAUSE_LIST ( catchClause )+ )
+            // 829:9: -> ^( CATCH_CLAUSE_LIST ( catchClause )+ )
             {
-                // ../etc/JamlAttrHash.g:826:13: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
+                // ../etc/JamlAttrHash.g:829:13: ^( CATCH_CLAUSE_LIST ( catchClause )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CATCH_CLAUSE_LIST, "CATCH_CLAUSE_LIST"), root_1);
@@ -12620,7 +12623,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "catchClause"
-    // ../etc/JamlAttrHash.g:829:1: catchClause : CATCH LPAREN formalParameterStandardDecl RPAREN block ;
+    // ../etc/JamlAttrHash.g:832:1: catchClause : CATCH LPAREN formalParameterStandardDecl RPAREN block ;
     public final JamlAttrHashParser.catchClause_return catchClause() throws RecognitionException {
     traceIn("catchClause", 83);
         JamlAttrHashParser.catchClause_return retval = new JamlAttrHashParser.catchClause_return();
@@ -12642,25 +12645,25 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 83) ) { return retval; }
-            // ../etc/JamlAttrHash.g:830:5: ( CATCH LPAREN formalParameterStandardDecl RPAREN block )
-            // ../etc/JamlAttrHash.g:830:9: CATCH LPAREN formalParameterStandardDecl RPAREN block
+            // ../etc/JamlAttrHash.g:833:5: ( CATCH LPAREN formalParameterStandardDecl RPAREN block )
+            // ../etc/JamlAttrHash.g:833:9: CATCH LPAREN formalParameterStandardDecl RPAREN block
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            CATCH351=(Token)match(input,CATCH,FOLLOW_CATCH_in_catchClause10872); if (state.failed) return retval;
+            CATCH351=(Token)match(input,CATCH,FOLLOW_CATCH_in_catchClause10873); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             CATCH351_tree = (CommonTree)adaptor.create(CATCH351);
             root_0 = (CommonTree)adaptor.becomeRoot(CATCH351_tree, root_0);
             }
-            LPAREN352=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_catchClause10875); if (state.failed) return retval;
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause10878);
+            LPAREN352=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_catchClause10876); if (state.failed) return retval;
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_catchClause10879);
             formalParameterStandardDecl353=formalParameterStandardDecl();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, formalParameterStandardDecl353.getTree());
-            RPAREN354=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_catchClause10880); if (state.failed) return retval;
-            pushFollow(FOLLOW_block_in_catchClause10883);
+            RPAREN354=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_catchClause10881); if (state.failed) return retval;
+            pushFollow(FOLLOW_block_in_catchClause10884);
             block355=block();
 
             state._fsp--;
@@ -12697,7 +12700,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "finallyClause"
-    // ../etc/JamlAttrHash.g:833:1: finallyClause : FINALLY block -> block ;
+    // ../etc/JamlAttrHash.g:836:1: finallyClause : FINALLY block -> block ;
     public final JamlAttrHashParser.finallyClause_return finallyClause() throws RecognitionException {
     traceIn("finallyClause", 84);
         JamlAttrHashParser.finallyClause_return retval = new JamlAttrHashParser.finallyClause_return();
@@ -12714,13 +12717,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 84) ) { return retval; }
-            // ../etc/JamlAttrHash.g:834:5: ( FINALLY block -> block )
-            // ../etc/JamlAttrHash.g:834:9: FINALLY block
+            // ../etc/JamlAttrHash.g:837:5: ( FINALLY block -> block )
+            // ../etc/JamlAttrHash.g:837:9: FINALLY block
             {
-            FINALLY356=(Token)match(input,FINALLY,FOLLOW_FINALLY_in_finallyClause10902); if (state.failed) return retval; 
+            FINALLY356=(Token)match(input,FINALLY,FOLLOW_FINALLY_in_finallyClause10903); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_FINALLY.add(FINALLY356);
 
-            pushFollow(FOLLOW_block_in_finallyClause10904);
+            pushFollow(FOLLOW_block_in_finallyClause10905);
             block357=block();
 
             state._fsp--;
@@ -12740,7 +12743,7 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 835:9: -> block
+            // 838:9: -> block
             {
                 adaptor.addChild(root_0, stream_block.nextTree());
 
@@ -12777,7 +12780,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "switchBlockLabels"
-    // ../etc/JamlAttrHash.g:838:1: switchBlockLabels : switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) ;
+    // ../etc/JamlAttrHash.g:841:1: switchBlockLabels : switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) ;
     public final JamlAttrHashParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
     traceIn("switchBlockLabels", 85);
         JamlAttrHashParser.switchBlockLabels_return retval = new JamlAttrHashParser.switchBlockLabels_return();
@@ -12796,16 +12799,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_switchCaseLabels=new RewriteRuleSubtreeStream(adaptor,"rule switchCaseLabels");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 85) ) { return retval; }
-            // ../etc/JamlAttrHash.g:839:5: ( switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) )
-            // ../etc/JamlAttrHash.g:839:9: switchCaseLabels ( switchDefaultLabel )? switchCaseLabels
+            // ../etc/JamlAttrHash.g:842:5: ( switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) )
+            // ../etc/JamlAttrHash.g:842:9: switchCaseLabels ( switchDefaultLabel )? switchCaseLabels
             {
-            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10936);
+            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10937);
             switchCaseLabels358=switchCaseLabels();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_switchCaseLabels.add(switchCaseLabels358.getTree());
-            // ../etc/JamlAttrHash.g:839:26: ( switchDefaultLabel )?
+            // ../etc/JamlAttrHash.g:842:26: ( switchDefaultLabel )?
             int alt104=2;
             int LA104_0 = input.LA(1);
 
@@ -12816,7 +12819,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: switchDefaultLabel
                     {
-                    pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels10938);
+                    pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels10939);
                     switchDefaultLabel359=switchDefaultLabel();
 
                     state._fsp--;
@@ -12828,7 +12831,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10941);
+            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels10942);
             switchCaseLabels360=switchCaseLabels();
 
             state._fsp--;
@@ -12848,15 +12851,15 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 840:9: -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
+            // 843:9: -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
             {
-                // ../etc/JamlAttrHash.g:840:13: ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
+                // ../etc/JamlAttrHash.g:843:13: ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SWITCH_BLOCK_LABEL_LIST, "SWITCH_BLOCK_LABEL_LIST"), root_1);
 
                 adaptor.addChild(root_1, stream_switchCaseLabels.nextTree());
-                // ../etc/JamlAttrHash.g:840:56: ( switchDefaultLabel )?
+                // ../etc/JamlAttrHash.g:843:56: ( switchDefaultLabel )?
                 if ( stream_switchDefaultLabel.hasNext() ) {
                     adaptor.addChild(root_1, stream_switchDefaultLabel.nextTree());
 
@@ -12900,7 +12903,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "switchCaseLabels"
-    // ../etc/JamlAttrHash.g:843:1: switchCaseLabels : ( switchCaseLabel )* ;
+    // ../etc/JamlAttrHash.g:846:1: switchCaseLabels : ( switchCaseLabel )* ;
     public final JamlAttrHashParser.switchCaseLabels_return switchCaseLabels() throws RecognitionException {
     traceIn("switchCaseLabels", 86);
         JamlAttrHashParser.switchCaseLabels_return retval = new JamlAttrHashParser.switchCaseLabels_return();
@@ -12914,12 +12917,12 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 86) ) { return retval; }
-            // ../etc/JamlAttrHash.g:844:5: ( ( switchCaseLabel )* )
-            // ../etc/JamlAttrHash.g:844:9: ( switchCaseLabel )*
+            // ../etc/JamlAttrHash.g:847:5: ( ( switchCaseLabel )* )
+            // ../etc/JamlAttrHash.g:847:9: ( switchCaseLabel )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/JamlAttrHash.g:844:9: ( switchCaseLabel )*
+            // ../etc/JamlAttrHash.g:847:9: ( switchCaseLabel )*
             loop105:
             do {
                 int alt105=2;
@@ -12940,7 +12943,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: switchCaseLabel
             	    {
-            	    pushFollow(FOLLOW_switchCaseLabel_in_switchCaseLabels10986);
+            	    pushFollow(FOLLOW_switchCaseLabel_in_switchCaseLabels10987);
             	    switchCaseLabel361=switchCaseLabel();
 
             	    state._fsp--;
@@ -12986,7 +12989,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "switchCaseLabel"
-    // ../etc/JamlAttrHash.g:847:1: switchCaseLabel : CASE expression COLON ( blockStatement )* ;
+    // ../etc/JamlAttrHash.g:850:1: switchCaseLabel : CASE expression COLON ( blockStatement )* ;
     public final JamlAttrHashParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
     traceIn("switchCaseLabel", 87);
         JamlAttrHashParser.switchCaseLabel_return retval = new JamlAttrHashParser.switchCaseLabel_return();
@@ -13006,24 +13009,24 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 87) ) { return retval; }
-            // ../etc/JamlAttrHash.g:848:5: ( CASE expression COLON ( blockStatement )* )
-            // ../etc/JamlAttrHash.g:848:9: CASE expression COLON ( blockStatement )*
+            // ../etc/JamlAttrHash.g:851:5: ( CASE expression COLON ( blockStatement )* )
+            // ../etc/JamlAttrHash.g:851:9: CASE expression COLON ( blockStatement )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            CASE362=(Token)match(input,CASE,FOLLOW_CASE_in_switchCaseLabel11014); if (state.failed) return retval;
+            CASE362=(Token)match(input,CASE,FOLLOW_CASE_in_switchCaseLabel11015); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             CASE362_tree = (CommonTree)adaptor.create(CASE362);
             root_0 = (CommonTree)adaptor.becomeRoot(CASE362_tree, root_0);
             }
-            pushFollow(FOLLOW_expression_in_switchCaseLabel11017);
+            pushFollow(FOLLOW_expression_in_switchCaseLabel11018);
             expression363=expression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expression363.getTree());
-            COLON364=(Token)match(input,COLON,FOLLOW_COLON_in_switchCaseLabel11019); if (state.failed) return retval;
-            // ../etc/JamlAttrHash.g:848:33: ( blockStatement )*
+            COLON364=(Token)match(input,COLON,FOLLOW_COLON_in_switchCaseLabel11020); if (state.failed) return retval;
+            // ../etc/JamlAttrHash.g:851:33: ( blockStatement )*
             loop106:
             do {
                 int alt106=2;
@@ -13038,7 +13041,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel11022);
+            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel11023);
             	    blockStatement365=blockStatement();
 
             	    state._fsp--;
@@ -13084,7 +13087,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "switchDefaultLabel"
-    // ../etc/JamlAttrHash.g:851:1: switchDefaultLabel : DEFAULT COLON ( blockStatement )* ;
+    // ../etc/JamlAttrHash.g:854:1: switchDefaultLabel : DEFAULT COLON ( blockStatement )* ;
     public final JamlAttrHashParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
     traceIn("switchDefaultLabel", 88);
         JamlAttrHashParser.switchDefaultLabel_return retval = new JamlAttrHashParser.switchDefaultLabel_return();
@@ -13102,18 +13105,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 88) ) { return retval; }
-            // ../etc/JamlAttrHash.g:852:5: ( DEFAULT COLON ( blockStatement )* )
-            // ../etc/JamlAttrHash.g:852:9: DEFAULT COLON ( blockStatement )*
+            // ../etc/JamlAttrHash.g:855:5: ( DEFAULT COLON ( blockStatement )* )
+            // ../etc/JamlAttrHash.g:855:9: DEFAULT COLON ( blockStatement )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            DEFAULT366=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel11046); if (state.failed) return retval;
+            DEFAULT366=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel11047); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             DEFAULT366_tree = (CommonTree)adaptor.create(DEFAULT366);
             root_0 = (CommonTree)adaptor.becomeRoot(DEFAULT366_tree, root_0);
             }
-            COLON367=(Token)match(input,COLON,FOLLOW_COLON_in_switchDefaultLabel11049); if (state.failed) return retval;
-            // ../etc/JamlAttrHash.g:852:25: ( blockStatement )*
+            COLON367=(Token)match(input,COLON,FOLLOW_COLON_in_switchDefaultLabel11050); if (state.failed) return retval;
+            // ../etc/JamlAttrHash.g:855:25: ( blockStatement )*
             loop107:
             do {
                 int alt107=2;
@@ -13128,7 +13131,7 @@ import org.antlr.runtime.tree.*;
             	case 1 :
             	    // ../etc/JamlAttrHash.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel11052);
+            	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel11053);
             	    blockStatement368=blockStatement();
 
             	    state._fsp--;
@@ -13174,7 +13177,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "forInit"
-    // ../etc/JamlAttrHash.g:855:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );
+    // ../etc/JamlAttrHash.g:858:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );
     public final JamlAttrHashParser.forInit_return forInit() throws RecognitionException {
     traceIn("forInit", 89);
         JamlAttrHashParser.forInit_return retval = new JamlAttrHashParser.forInit_return();
@@ -13191,14 +13194,14 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_localVariableDeclaration=new RewriteRuleSubtreeStream(adaptor,"rule localVariableDeclaration");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 89) ) { return retval; }
-            // ../etc/JamlAttrHash.g:856:5: ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) )
+            // ../etc/JamlAttrHash.g:859:5: ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) )
             int alt108=3;
             alt108 = dfa108.predict(input);
             switch (alt108) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:856:9: localVariableDeclaration
+                    // ../etc/JamlAttrHash.g:859:9: localVariableDeclaration
                     {
-                    pushFollow(FOLLOW_localVariableDeclaration_in_forInit11076);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_forInit11077);
                     localVariableDeclaration369=localVariableDeclaration();
 
                     state._fsp--;
@@ -13218,9 +13221,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 856:37: -> ^( FOR_INIT localVariableDeclaration )
+                    // 859:37: -> ^( FOR_INIT localVariableDeclaration )
                     {
-                        // ../etc/JamlAttrHash.g:856:41: ^( FOR_INIT localVariableDeclaration )
+                        // ../etc/JamlAttrHash.g:859:41: ^( FOR_INIT localVariableDeclaration )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -13236,9 +13239,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:857:9: expressionList
+                    // ../etc/JamlAttrHash.g:860:9: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_forInit11098);
+                    pushFollow(FOLLOW_expressionList_in_forInit11099);
                     expressionList370=expressionList();
 
                     state._fsp--;
@@ -13258,9 +13261,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 857:37: -> ^( FOR_INIT expressionList )
+                    // 860:37: -> ^( FOR_INIT expressionList )
                     {
-                        // ../etc/JamlAttrHash.g:857:41: ^( FOR_INIT expressionList )
+                        // ../etc/JamlAttrHash.g:860:41: ^( FOR_INIT expressionList )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -13276,7 +13279,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:858:37: 
+                    // ../etc/JamlAttrHash.g:861:37: 
                     {
 
                     // AST REWRITE
@@ -13291,9 +13294,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 858:37: -> ^( FOR_INIT )
+                    // 861:37: -> ^( FOR_INIT )
                     {
-                        // ../etc/JamlAttrHash.g:858:41: ^( FOR_INIT )
+                        // ../etc/JamlAttrHash.g:861:41: ^( FOR_INIT )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -13336,7 +13339,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "forCondition"
-    // ../etc/JamlAttrHash.g:861:1: forCondition : ( expression )? -> ^( FOR_CONDITION ( expression )? ) ;
+    // ../etc/JamlAttrHash.g:864:1: forCondition : ( expression )? -> ^( FOR_CONDITION ( expression )? ) ;
     public final JamlAttrHashParser.forCondition_return forCondition() throws RecognitionException {
     traceIn("forCondition", 90);
         JamlAttrHashParser.forCondition_return retval = new JamlAttrHashParser.forCondition_return();
@@ -13350,10 +13353,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 90) ) { return retval; }
-            // ../etc/JamlAttrHash.g:862:5: ( ( expression )? -> ^( FOR_CONDITION ( expression )? ) )
-            // ../etc/JamlAttrHash.g:862:9: ( expression )?
+            // ../etc/JamlAttrHash.g:865:5: ( ( expression )? -> ^( FOR_CONDITION ( expression )? ) )
+            // ../etc/JamlAttrHash.g:865:9: ( expression )?
             {
-            // ../etc/JamlAttrHash.g:862:9: ( expression )?
+            // ../etc/JamlAttrHash.g:865:9: ( expression )?
             int alt109=2;
             int LA109_0 = input.LA(1);
 
@@ -13364,7 +13367,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: expression
                     {
-                    pushFollow(FOLLOW_expression_in_forCondition11186);
+                    pushFollow(FOLLOW_expression_in_forCondition11187);
                     expression371=expression();
 
                     state._fsp--;
@@ -13390,14 +13393,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 863:9: -> ^( FOR_CONDITION ( expression )? )
+            // 866:9: -> ^( FOR_CONDITION ( expression )? )
             {
-                // ../etc/JamlAttrHash.g:863:13: ^( FOR_CONDITION ( expression )? )
+                // ../etc/JamlAttrHash.g:866:13: ^( FOR_CONDITION ( expression )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_CONDITION, "FOR_CONDITION"), root_1);
 
-                // ../etc/JamlAttrHash.g:863:29: ( expression )?
+                // ../etc/JamlAttrHash.g:866:29: ( expression )?
                 if ( stream_expression.hasNext() ) {
                     adaptor.addChild(root_1, stream_expression.nextTree());
 
@@ -13440,7 +13443,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "forUpdater"
-    // ../etc/JamlAttrHash.g:866:1: forUpdater : ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) ;
+    // ../etc/JamlAttrHash.g:869:1: forUpdater : ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) ;
     public final JamlAttrHashParser.forUpdater_return forUpdater() throws RecognitionException {
     traceIn("forUpdater", 91);
         JamlAttrHashParser.forUpdater_return retval = new JamlAttrHashParser.forUpdater_return();
@@ -13454,10 +13457,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_expressionList=new RewriteRuleSubtreeStream(adaptor,"rule expressionList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 91) ) { return retval; }
-            // ../etc/JamlAttrHash.g:867:5: ( ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) )
-            // ../etc/JamlAttrHash.g:867:9: ( expressionList )?
+            // ../etc/JamlAttrHash.g:870:5: ( ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) )
+            // ../etc/JamlAttrHash.g:870:9: ( expressionList )?
             {
-            // ../etc/JamlAttrHash.g:867:9: ( expressionList )?
+            // ../etc/JamlAttrHash.g:870:9: ( expressionList )?
             int alt110=2;
             int LA110_0 = input.LA(1);
 
@@ -13468,7 +13471,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_forUpdater11228);
+                    pushFollow(FOLLOW_expressionList_in_forUpdater11229);
                     expressionList372=expressionList();
 
                     state._fsp--;
@@ -13494,14 +13497,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 868:9: -> ^( FOR_UPDATE ( expressionList )? )
+            // 871:9: -> ^( FOR_UPDATE ( expressionList )? )
             {
-                // ../etc/JamlAttrHash.g:868:13: ^( FOR_UPDATE ( expressionList )? )
+                // ../etc/JamlAttrHash.g:871:13: ^( FOR_UPDATE ( expressionList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_UPDATE, "FOR_UPDATE"), root_1);
 
-                // ../etc/JamlAttrHash.g:868:26: ( expressionList )?
+                // ../etc/JamlAttrHash.g:871:26: ( expressionList )?
                 if ( stream_expressionList.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressionList.nextTree());
 
@@ -13544,7 +13547,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "parenthesizedExpression"
-    // ../etc/JamlAttrHash.g:873:1: parenthesizedExpression : LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) ;
+    // ../etc/JamlAttrHash.g:876:1: parenthesizedExpression : LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) ;
     public final JamlAttrHashParser.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
     traceIn("parenthesizedExpression", 92);
         JamlAttrHashParser.parenthesizedExpression_return retval = new JamlAttrHashParser.parenthesizedExpression_return();
@@ -13564,19 +13567,19 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 92) ) { return retval; }
-            // ../etc/JamlAttrHash.g:874:5: ( LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) )
-            // ../etc/JamlAttrHash.g:874:9: LPAREN expression RPAREN
+            // ../etc/JamlAttrHash.g:877:5: ( LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) )
+            // ../etc/JamlAttrHash.g:877:9: LPAREN expression RPAREN
             {
-            LPAREN373=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedExpression11268); if (state.failed) return retval; 
+            LPAREN373=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedExpression11269); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN373);
 
-            pushFollow(FOLLOW_expression_in_parenthesizedExpression11270);
+            pushFollow(FOLLOW_expression_in_parenthesizedExpression11271);
             expression374=expression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_expression.add(expression374.getTree());
-            RPAREN375=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedExpression11272); if (state.failed) return retval; 
+            RPAREN375=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedExpression11273); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN375);
 
 
@@ -13593,9 +13596,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 875:9: -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
+            // 878:9: -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
             {
-                // ../etc/JamlAttrHash.g:875:13: ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
+                // ../etc/JamlAttrHash.g:878:13: ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PARENTESIZED_EXPR, LPAREN373, "PARENTESIZED_EXPR"), root_1);
@@ -13638,7 +13641,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "expressionList"
-    // ../etc/JamlAttrHash.g:878:1: expressionList : expression ( COMMA expression )* ;
+    // ../etc/JamlAttrHash.g:881:1: expressionList : expression ( COMMA expression )* ;
     public final JamlAttrHashParser.expressionList_return expressionList() throws RecognitionException {
     traceIn("expressionList", 93);
         JamlAttrHashParser.expressionList_return retval = new JamlAttrHashParser.expressionList_return();
@@ -13656,18 +13659,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 93) ) { return retval; }
-            // ../etc/JamlAttrHash.g:879:5: ( expression ( COMMA expression )* )
-            // ../etc/JamlAttrHash.g:879:9: expression ( COMMA expression )*
+            // ../etc/JamlAttrHash.g:882:5: ( expression ( COMMA expression )* )
+            // ../etc/JamlAttrHash.g:882:9: expression ( COMMA expression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_expression_in_expressionList11313);
+            pushFollow(FOLLOW_expression_in_expressionList11314);
             expression376=expression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expression376.getTree());
-            // ../etc/JamlAttrHash.g:879:20: ( COMMA expression )*
+            // ../etc/JamlAttrHash.g:882:20: ( COMMA expression )*
             loop111:
             do {
                 int alt111=2;
@@ -13680,10 +13683,10 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt111) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:879:21: COMMA expression
+            	    // ../etc/JamlAttrHash.g:882:21: COMMA expression
             	    {
-            	    COMMA377=(Token)match(input,COMMA,FOLLOW_COMMA_in_expressionList11316); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_expression_in_expressionList11319);
+            	    COMMA377=(Token)match(input,COMMA,FOLLOW_COMMA_in_expressionList11317); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_expression_in_expressionList11320);
             	    expression378=expression();
 
             	    state._fsp--;
@@ -13729,7 +13732,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "expression"
-    // ../etc/JamlAttrHash.g:882:1: expression : assignmentExpression -> ^( EXPR assignmentExpression ) ;
+    // ../etc/JamlAttrHash.g:885:1: expression : assignmentExpression -> ^( EXPR assignmentExpression ) ;
     public final JamlAttrHashParser.expression_return expression() throws RecognitionException {
     traceIn("expression", 94);
         JamlAttrHashParser.expression_return retval = new JamlAttrHashParser.expression_return();
@@ -13743,10 +13746,10 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_assignmentExpression=new RewriteRuleSubtreeStream(adaptor,"rule assignmentExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 94) ) { return retval; }
-            // ../etc/JamlAttrHash.g:883:5: ( assignmentExpression -> ^( EXPR assignmentExpression ) )
-            // ../etc/JamlAttrHash.g:883:9: assignmentExpression
+            // ../etc/JamlAttrHash.g:886:5: ( assignmentExpression -> ^( EXPR assignmentExpression ) )
+            // ../etc/JamlAttrHash.g:886:9: assignmentExpression
             {
-            pushFollow(FOLLOW_assignmentExpression_in_expression11340);
+            pushFollow(FOLLOW_assignmentExpression_in_expression11341);
             assignmentExpression379=assignmentExpression();
 
             state._fsp--;
@@ -13766,9 +13769,9 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 884:9: -> ^( EXPR assignmentExpression )
+            // 887:9: -> ^( EXPR assignmentExpression )
             {
-                // ../etc/JamlAttrHash.g:884:13: ^( EXPR assignmentExpression )
+                // ../etc/JamlAttrHash.g:887:13: ^( EXPR assignmentExpression )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXPR, "EXPR"), root_1);
@@ -13811,7 +13814,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "assignmentExpression"
-    // ../etc/JamlAttrHash.g:887:1: assignmentExpression : conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? ;
+    // ../etc/JamlAttrHash.g:890:1: assignmentExpression : conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? ;
     public final JamlAttrHashParser.assignmentExpression_return assignmentExpression() throws RecognitionException {
     traceIn("assignmentExpression", 95);
         JamlAttrHashParser.assignmentExpression_return retval = new JamlAttrHashParser.assignmentExpression_return();
@@ -13851,18 +13854,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 95) ) { return retval; }
-            // ../etc/JamlAttrHash.g:888:5: ( conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? )
-            // ../etc/JamlAttrHash.g:888:9: conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )?
+            // ../etc/JamlAttrHash.g:891:5: ( conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? )
+            // ../etc/JamlAttrHash.g:891:9: conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_conditionalExpression_in_assignmentExpression11376);
+            pushFollow(FOLLOW_conditionalExpression_in_assignmentExpression11377);
             conditionalExpression380=conditionalExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, conditionalExpression380.getTree());
-            // ../etc/JamlAttrHash.g:889:9: ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )?
+            // ../etc/JamlAttrHash.g:892:9: ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )?
             int alt113=2;
             int LA113_0 = input.LA(1);
 
@@ -13871,9 +13874,9 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt113) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:889:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression
+                    // ../etc/JamlAttrHash.g:892:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression
                     {
-                    // ../etc/JamlAttrHash.g:889:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN )
+                    // ../etc/JamlAttrHash.g:892:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN )
                     int alt112=12;
                     switch ( input.LA(1) ) {
                     case ASSIGN:
@@ -13946,9 +13949,9 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt112) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:889:17: ASSIGN
+                            // ../etc/JamlAttrHash.g:892:17: ASSIGN
                             {
-                            ASSIGN381=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignmentExpression11395); if (state.failed) return retval;
+                            ASSIGN381=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignmentExpression11396); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             ASSIGN381_tree = (CommonTree)adaptor.create(ASSIGN381);
                             root_0 = (CommonTree)adaptor.becomeRoot(ASSIGN381_tree, root_0);
@@ -13957,9 +13960,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:890:17: PLUS_ASSIGN
+                            // ../etc/JamlAttrHash.g:893:17: PLUS_ASSIGN
                             {
-                            PLUS_ASSIGN382=(Token)match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_assignmentExpression11414); if (state.failed) return retval;
+                            PLUS_ASSIGN382=(Token)match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_assignmentExpression11415); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             PLUS_ASSIGN382_tree = (CommonTree)adaptor.create(PLUS_ASSIGN382);
                             root_0 = (CommonTree)adaptor.becomeRoot(PLUS_ASSIGN382_tree, root_0);
@@ -13968,9 +13971,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:891:17: MINUS_ASSIGN
+                            // ../etc/JamlAttrHash.g:894:17: MINUS_ASSIGN
                             {
-                            MINUS_ASSIGN383=(Token)match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_assignmentExpression11433); if (state.failed) return retval;
+                            MINUS_ASSIGN383=(Token)match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_assignmentExpression11434); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             MINUS_ASSIGN383_tree = (CommonTree)adaptor.create(MINUS_ASSIGN383);
                             root_0 = (CommonTree)adaptor.becomeRoot(MINUS_ASSIGN383_tree, root_0);
@@ -13979,9 +13982,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 4 :
-                            // ../etc/JamlAttrHash.g:892:17: STAR_ASSIGN
+                            // ../etc/JamlAttrHash.g:895:17: STAR_ASSIGN
                             {
-                            STAR_ASSIGN384=(Token)match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_assignmentExpression11452); if (state.failed) return retval;
+                            STAR_ASSIGN384=(Token)match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_assignmentExpression11453); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             STAR_ASSIGN384_tree = (CommonTree)adaptor.create(STAR_ASSIGN384);
                             root_0 = (CommonTree)adaptor.becomeRoot(STAR_ASSIGN384_tree, root_0);
@@ -13990,9 +13993,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 5 :
-                            // ../etc/JamlAttrHash.g:893:17: DIV_ASSIGN
+                            // ../etc/JamlAttrHash.g:896:17: DIV_ASSIGN
                             {
-                            DIV_ASSIGN385=(Token)match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_assignmentExpression11471); if (state.failed) return retval;
+                            DIV_ASSIGN385=(Token)match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_assignmentExpression11472); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             DIV_ASSIGN385_tree = (CommonTree)adaptor.create(DIV_ASSIGN385);
                             root_0 = (CommonTree)adaptor.becomeRoot(DIV_ASSIGN385_tree, root_0);
@@ -14001,9 +14004,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 6 :
-                            // ../etc/JamlAttrHash.g:894:17: AND_ASSIGN
+                            // ../etc/JamlAttrHash.g:897:17: AND_ASSIGN
                             {
-                            AND_ASSIGN386=(Token)match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_assignmentExpression11490); if (state.failed) return retval;
+                            AND_ASSIGN386=(Token)match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_assignmentExpression11491); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             AND_ASSIGN386_tree = (CommonTree)adaptor.create(AND_ASSIGN386);
                             root_0 = (CommonTree)adaptor.becomeRoot(AND_ASSIGN386_tree, root_0);
@@ -14012,9 +14015,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 7 :
-                            // ../etc/JamlAttrHash.g:895:17: OR_ASSIGN
+                            // ../etc/JamlAttrHash.g:898:17: OR_ASSIGN
                             {
-                            OR_ASSIGN387=(Token)match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_assignmentExpression11509); if (state.failed) return retval;
+                            OR_ASSIGN387=(Token)match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_assignmentExpression11510); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             OR_ASSIGN387_tree = (CommonTree)adaptor.create(OR_ASSIGN387);
                             root_0 = (CommonTree)adaptor.becomeRoot(OR_ASSIGN387_tree, root_0);
@@ -14023,9 +14026,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 8 :
-                            // ../etc/JamlAttrHash.g:896:17: XOR_ASSIGN
+                            // ../etc/JamlAttrHash.g:899:17: XOR_ASSIGN
                             {
-                            XOR_ASSIGN388=(Token)match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_assignmentExpression11528); if (state.failed) return retval;
+                            XOR_ASSIGN388=(Token)match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_assignmentExpression11529); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             XOR_ASSIGN388_tree = (CommonTree)adaptor.create(XOR_ASSIGN388);
                             root_0 = (CommonTree)adaptor.becomeRoot(XOR_ASSIGN388_tree, root_0);
@@ -14034,9 +14037,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 9 :
-                            // ../etc/JamlAttrHash.g:897:17: MOD_ASSIGN
+                            // ../etc/JamlAttrHash.g:900:17: MOD_ASSIGN
                             {
-                            MOD_ASSIGN389=(Token)match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_assignmentExpression11547); if (state.failed) return retval;
+                            MOD_ASSIGN389=(Token)match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_assignmentExpression11548); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             MOD_ASSIGN389_tree = (CommonTree)adaptor.create(MOD_ASSIGN389);
                             root_0 = (CommonTree)adaptor.becomeRoot(MOD_ASSIGN389_tree, root_0);
@@ -14045,9 +14048,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 10 :
-                            // ../etc/JamlAttrHash.g:898:17: SHIFT_LEFT_ASSIGN
+                            // ../etc/JamlAttrHash.g:901:17: SHIFT_LEFT_ASSIGN
                             {
-                            SHIFT_LEFT_ASSIGN390=(Token)match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression11566); if (state.failed) return retval;
+                            SHIFT_LEFT_ASSIGN390=(Token)match(input,SHIFT_LEFT_ASSIGN,FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression11567); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             SHIFT_LEFT_ASSIGN390_tree = (CommonTree)adaptor.create(SHIFT_LEFT_ASSIGN390);
                             root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_LEFT_ASSIGN390_tree, root_0);
@@ -14056,9 +14059,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 11 :
-                            // ../etc/JamlAttrHash.g:899:17: SHIFT_RIGHT_ASSIGN
+                            // ../etc/JamlAttrHash.g:902:17: SHIFT_RIGHT_ASSIGN
                             {
-                            SHIFT_RIGHT_ASSIGN391=(Token)match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11585); if (state.failed) return retval;
+                            SHIFT_RIGHT_ASSIGN391=(Token)match(input,SHIFT_RIGHT_ASSIGN,FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11586); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             SHIFT_RIGHT_ASSIGN391_tree = (CommonTree)adaptor.create(SHIFT_RIGHT_ASSIGN391);
                             root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_RIGHT_ASSIGN391_tree, root_0);
@@ -14067,9 +14070,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 12 :
-                            // ../etc/JamlAttrHash.g:900:17: BIT_SHIFT_RIGHT_ASSIGN
+                            // ../etc/JamlAttrHash.g:903:17: BIT_SHIFT_RIGHT_ASSIGN
                             {
-                            BIT_SHIFT_RIGHT_ASSIGN392=(Token)match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11604); if (state.failed) return retval;
+                            BIT_SHIFT_RIGHT_ASSIGN392=(Token)match(input,BIT_SHIFT_RIGHT_ASSIGN,FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11605); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             BIT_SHIFT_RIGHT_ASSIGN392_tree = (CommonTree)adaptor.create(BIT_SHIFT_RIGHT_ASSIGN392);
                             root_0 = (CommonTree)adaptor.becomeRoot(BIT_SHIFT_RIGHT_ASSIGN392_tree, root_0);
@@ -14080,7 +14083,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    pushFollow(FOLLOW_assignmentExpression_in_assignmentExpression11626);
+                    pushFollow(FOLLOW_assignmentExpression_in_assignmentExpression11627);
                     assignmentExpression393=assignmentExpression();
 
                     state._fsp--;
@@ -14123,7 +14126,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "conditionalExpression"
-    // ../etc/JamlAttrHash.g:905:1: conditionalExpression : logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? ;
+    // ../etc/JamlAttrHash.g:908:1: conditionalExpression : logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? ;
     public final JamlAttrHashParser.conditionalExpression_return conditionalExpression() throws RecognitionException {
     traceIn("conditionalExpression", 96);
         JamlAttrHashParser.conditionalExpression_return retval = new JamlAttrHashParser.conditionalExpression_return();
@@ -14145,18 +14148,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 96) ) { return retval; }
-            // ../etc/JamlAttrHash.g:906:5: ( logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? )
-            // ../etc/JamlAttrHash.g:906:9: logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )?
+            // ../etc/JamlAttrHash.g:909:5: ( logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? )
+            // ../etc/JamlAttrHash.g:909:9: logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_logicalOrExpression_in_conditionalExpression11651);
+            pushFollow(FOLLOW_logicalOrExpression_in_conditionalExpression11652);
             logicalOrExpression394=logicalOrExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalOrExpression394.getTree());
-            // ../etc/JamlAttrHash.g:906:29: ( QUESTION assignmentExpression COLON conditionalExpression )?
+            // ../etc/JamlAttrHash.g:909:29: ( QUESTION assignmentExpression COLON conditionalExpression )?
             int alt114=2;
             int LA114_0 = input.LA(1);
 
@@ -14165,21 +14168,21 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt114) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:906:30: QUESTION assignmentExpression COLON conditionalExpression
+                    // ../etc/JamlAttrHash.g:909:30: QUESTION assignmentExpression COLON conditionalExpression
                     {
-                    QUESTION395=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_conditionalExpression11654); if (state.failed) return retval;
+                    QUESTION395=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_conditionalExpression11655); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     QUESTION395_tree = (CommonTree)adaptor.create(QUESTION395);
                     root_0 = (CommonTree)adaptor.becomeRoot(QUESTION395_tree, root_0);
                     }
-                    pushFollow(FOLLOW_assignmentExpression_in_conditionalExpression11657);
+                    pushFollow(FOLLOW_assignmentExpression_in_conditionalExpression11658);
                     assignmentExpression396=assignmentExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, assignmentExpression396.getTree());
-                    COLON397=(Token)match(input,COLON,FOLLOW_COLON_in_conditionalExpression11659); if (state.failed) return retval;
-                    pushFollow(FOLLOW_conditionalExpression_in_conditionalExpression11662);
+                    COLON397=(Token)match(input,COLON,FOLLOW_COLON_in_conditionalExpression11660); if (state.failed) return retval;
+                    pushFollow(FOLLOW_conditionalExpression_in_conditionalExpression11663);
                     conditionalExpression398=conditionalExpression();
 
                     state._fsp--;
@@ -14222,7 +14225,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "logicalOrExpression"
-    // ../etc/JamlAttrHash.g:909:1: logicalOrExpression : logicalAndExpression ( LOGICAL_OR logicalAndExpression )* ;
+    // ../etc/JamlAttrHash.g:912:1: logicalOrExpression : logicalAndExpression ( LOGICAL_OR logicalAndExpression )* ;
     public final JamlAttrHashParser.logicalOrExpression_return logicalOrExpression() throws RecognitionException {
     traceIn("logicalOrExpression", 97);
         JamlAttrHashParser.logicalOrExpression_return retval = new JamlAttrHashParser.logicalOrExpression_return();
@@ -14240,18 +14243,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 97) ) { return retval; }
-            // ../etc/JamlAttrHash.g:910:5: ( logicalAndExpression ( LOGICAL_OR logicalAndExpression )* )
-            // ../etc/JamlAttrHash.g:910:9: logicalAndExpression ( LOGICAL_OR logicalAndExpression )*
+            // ../etc/JamlAttrHash.g:913:5: ( logicalAndExpression ( LOGICAL_OR logicalAndExpression )* )
+            // ../etc/JamlAttrHash.g:913:9: logicalAndExpression ( LOGICAL_OR logicalAndExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression11683);
+            pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression11684);
             logicalAndExpression399=logicalAndExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalAndExpression399.getTree());
-            // ../etc/JamlAttrHash.g:910:30: ( LOGICAL_OR logicalAndExpression )*
+            // ../etc/JamlAttrHash.g:913:30: ( LOGICAL_OR logicalAndExpression )*
             loop115:
             do {
                 int alt115=2;
@@ -14264,14 +14267,14 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt115) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:910:31: LOGICAL_OR logicalAndExpression
+            	    // ../etc/JamlAttrHash.g:913:31: LOGICAL_OR logicalAndExpression
             	    {
-            	    LOGICAL_OR400=(Token)match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_logicalOrExpression11686); if (state.failed) return retval;
+            	    LOGICAL_OR400=(Token)match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_logicalOrExpression11687); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    LOGICAL_OR400_tree = (CommonTree)adaptor.create(LOGICAL_OR400);
             	    root_0 = (CommonTree)adaptor.becomeRoot(LOGICAL_OR400_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression11689);
+            	    pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression11690);
             	    logicalAndExpression401=logicalAndExpression();
 
             	    state._fsp--;
@@ -14317,7 +14320,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "logicalAndExpression"
-    // ../etc/JamlAttrHash.g:913:1: logicalAndExpression : inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* ;
+    // ../etc/JamlAttrHash.g:916:1: logicalAndExpression : inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* ;
     public final JamlAttrHashParser.logicalAndExpression_return logicalAndExpression() throws RecognitionException {
     traceIn("logicalAndExpression", 98);
         JamlAttrHashParser.logicalAndExpression_return retval = new JamlAttrHashParser.logicalAndExpression_return();
@@ -14335,18 +14338,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 98) ) { return retval; }
-            // ../etc/JamlAttrHash.g:914:5: ( inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* )
-            // ../etc/JamlAttrHash.g:914:9: inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )*
+            // ../etc/JamlAttrHash.g:917:5: ( inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* )
+            // ../etc/JamlAttrHash.g:917:9: inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression11710);
+            pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression11711);
             inclusiveOrExpression402=inclusiveOrExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, inclusiveOrExpression402.getTree());
-            // ../etc/JamlAttrHash.g:914:31: ( LOGICAL_AND inclusiveOrExpression )*
+            // ../etc/JamlAttrHash.g:917:31: ( LOGICAL_AND inclusiveOrExpression )*
             loop116:
             do {
                 int alt116=2;
@@ -14359,14 +14362,14 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt116) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:914:32: LOGICAL_AND inclusiveOrExpression
+            	    // ../etc/JamlAttrHash.g:917:32: LOGICAL_AND inclusiveOrExpression
             	    {
-            	    LOGICAL_AND403=(Token)match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_logicalAndExpression11713); if (state.failed) return retval;
+            	    LOGICAL_AND403=(Token)match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_logicalAndExpression11714); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    LOGICAL_AND403_tree = (CommonTree)adaptor.create(LOGICAL_AND403);
             	    root_0 = (CommonTree)adaptor.becomeRoot(LOGICAL_AND403_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression11716);
+            	    pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression11717);
             	    inclusiveOrExpression404=inclusiveOrExpression();
 
             	    state._fsp--;
@@ -14412,7 +14415,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "inclusiveOrExpression"
-    // ../etc/JamlAttrHash.g:917:1: inclusiveOrExpression : exclusiveOrExpression ( OR exclusiveOrExpression )* ;
+    // ../etc/JamlAttrHash.g:920:1: inclusiveOrExpression : exclusiveOrExpression ( OR exclusiveOrExpression )* ;
     public final JamlAttrHashParser.inclusiveOrExpression_return inclusiveOrExpression() throws RecognitionException {
     traceIn("inclusiveOrExpression", 99);
         JamlAttrHashParser.inclusiveOrExpression_return retval = new JamlAttrHashParser.inclusiveOrExpression_return();
@@ -14430,18 +14433,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 99) ) { return retval; }
-            // ../etc/JamlAttrHash.g:918:5: ( exclusiveOrExpression ( OR exclusiveOrExpression )* )
-            // ../etc/JamlAttrHash.g:918:9: exclusiveOrExpression ( OR exclusiveOrExpression )*
+            // ../etc/JamlAttrHash.g:921:5: ( exclusiveOrExpression ( OR exclusiveOrExpression )* )
+            // ../etc/JamlAttrHash.g:921:9: exclusiveOrExpression ( OR exclusiveOrExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11737);
+            pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11738);
             exclusiveOrExpression405=exclusiveOrExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, exclusiveOrExpression405.getTree());
-            // ../etc/JamlAttrHash.g:918:31: ( OR exclusiveOrExpression )*
+            // ../etc/JamlAttrHash.g:921:31: ( OR exclusiveOrExpression )*
             loop117:
             do {
                 int alt117=2;
@@ -14454,14 +14457,14 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt117) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:918:32: OR exclusiveOrExpression
+            	    // ../etc/JamlAttrHash.g:921:32: OR exclusiveOrExpression
             	    {
-            	    OR406=(Token)match(input,OR,FOLLOW_OR_in_inclusiveOrExpression11740); if (state.failed) return retval;
+            	    OR406=(Token)match(input,OR,FOLLOW_OR_in_inclusiveOrExpression11741); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    OR406_tree = (CommonTree)adaptor.create(OR406);
             	    root_0 = (CommonTree)adaptor.becomeRoot(OR406_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11743);
+            	    pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11744);
             	    exclusiveOrExpression407=exclusiveOrExpression();
 
             	    state._fsp--;
@@ -14507,7 +14510,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "exclusiveOrExpression"
-    // ../etc/JamlAttrHash.g:921:1: exclusiveOrExpression : andExpression ( XOR andExpression )* ;
+    // ../etc/JamlAttrHash.g:924:1: exclusiveOrExpression : andExpression ( XOR andExpression )* ;
     public final JamlAttrHashParser.exclusiveOrExpression_return exclusiveOrExpression() throws RecognitionException {
     traceIn("exclusiveOrExpression", 100);
         JamlAttrHashParser.exclusiveOrExpression_return retval = new JamlAttrHashParser.exclusiveOrExpression_return();
@@ -14525,18 +14528,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 100) ) { return retval; }
-            // ../etc/JamlAttrHash.g:922:5: ( andExpression ( XOR andExpression )* )
-            // ../etc/JamlAttrHash.g:922:9: andExpression ( XOR andExpression )*
+            // ../etc/JamlAttrHash.g:925:5: ( andExpression ( XOR andExpression )* )
+            // ../etc/JamlAttrHash.g:925:9: andExpression ( XOR andExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression11764);
+            pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression11765);
             andExpression408=andExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, andExpression408.getTree());
-            // ../etc/JamlAttrHash.g:922:23: ( XOR andExpression )*
+            // ../etc/JamlAttrHash.g:925:23: ( XOR andExpression )*
             loop118:
             do {
                 int alt118=2;
@@ -14549,14 +14552,14 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt118) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:922:24: XOR andExpression
+            	    // ../etc/JamlAttrHash.g:925:24: XOR andExpression
             	    {
-            	    XOR409=(Token)match(input,XOR,FOLLOW_XOR_in_exclusiveOrExpression11767); if (state.failed) return retval;
+            	    XOR409=(Token)match(input,XOR,FOLLOW_XOR_in_exclusiveOrExpression11768); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    XOR409_tree = (CommonTree)adaptor.create(XOR409);
             	    root_0 = (CommonTree)adaptor.becomeRoot(XOR409_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression11770);
+            	    pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression11771);
             	    andExpression410=andExpression();
 
             	    state._fsp--;
@@ -14602,7 +14605,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "andExpression"
-    // ../etc/JamlAttrHash.g:925:1: andExpression : equalityExpression ( AND equalityExpression )* ;
+    // ../etc/JamlAttrHash.g:928:1: andExpression : equalityExpression ( AND equalityExpression )* ;
     public final JamlAttrHashParser.andExpression_return andExpression() throws RecognitionException {
     traceIn("andExpression", 101);
         JamlAttrHashParser.andExpression_return retval = new JamlAttrHashParser.andExpression_return();
@@ -14620,18 +14623,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 101) ) { return retval; }
-            // ../etc/JamlAttrHash.g:926:5: ( equalityExpression ( AND equalityExpression )* )
-            // ../etc/JamlAttrHash.g:926:9: equalityExpression ( AND equalityExpression )*
+            // ../etc/JamlAttrHash.g:929:5: ( equalityExpression ( AND equalityExpression )* )
+            // ../etc/JamlAttrHash.g:929:9: equalityExpression ( AND equalityExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_equalityExpression_in_andExpression11791);
+            pushFollow(FOLLOW_equalityExpression_in_andExpression11792);
             equalityExpression411=equalityExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, equalityExpression411.getTree());
-            // ../etc/JamlAttrHash.g:926:28: ( AND equalityExpression )*
+            // ../etc/JamlAttrHash.g:929:28: ( AND equalityExpression )*
             loop119:
             do {
                 int alt119=2;
@@ -14644,14 +14647,14 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt119) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:926:29: AND equalityExpression
+            	    // ../etc/JamlAttrHash.g:929:29: AND equalityExpression
             	    {
-            	    AND412=(Token)match(input,AND,FOLLOW_AND_in_andExpression11794); if (state.failed) return retval;
+            	    AND412=(Token)match(input,AND,FOLLOW_AND_in_andExpression11795); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    AND412_tree = (CommonTree)adaptor.create(AND412);
             	    root_0 = (CommonTree)adaptor.becomeRoot(AND412_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_equalityExpression_in_andExpression11797);
+            	    pushFollow(FOLLOW_equalityExpression_in_andExpression11798);
             	    equalityExpression413=equalityExpression();
 
             	    state._fsp--;
@@ -14697,7 +14700,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "equalityExpression"
-    // ../etc/JamlAttrHash.g:929:1: equalityExpression : instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* ;
+    // ../etc/JamlAttrHash.g:932:1: equalityExpression : instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* ;
     public final JamlAttrHashParser.equalityExpression_return equalityExpression() throws RecognitionException {
     traceIn("equalityExpression", 102);
         JamlAttrHashParser.equalityExpression_return retval = new JamlAttrHashParser.equalityExpression_return();
@@ -14717,18 +14720,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 102) ) { return retval; }
-            // ../etc/JamlAttrHash.g:930:5: ( instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* )
-            // ../etc/JamlAttrHash.g:930:9: instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
+            // ../etc/JamlAttrHash.g:933:5: ( instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* )
+            // ../etc/JamlAttrHash.g:933:9: instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression11818);
+            pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression11819);
             instanceOfExpression414=instanceOfExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, instanceOfExpression414.getTree());
-            // ../etc/JamlAttrHash.g:931:9: ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
+            // ../etc/JamlAttrHash.g:934:9: ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
             loop121:
             do {
                 int alt121=2;
@@ -14741,9 +14744,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt121) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:931:13: ( EQUAL | NOT_EQUAL ) instanceOfExpression
+            	    // ../etc/JamlAttrHash.g:934:13: ( EQUAL | NOT_EQUAL ) instanceOfExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:931:13: ( EQUAL | NOT_EQUAL )
+            	    // ../etc/JamlAttrHash.g:934:13: ( EQUAL | NOT_EQUAL )
             	    int alt120=2;
             	    int LA120_0 = input.LA(1);
 
@@ -14762,9 +14765,9 @@ import org.antlr.runtime.tree.*;
             	    }
             	    switch (alt120) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:931:17: EQUAL
+            	            // ../etc/JamlAttrHash.g:934:17: EQUAL
             	            {
-            	            EQUAL415=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_equalityExpression11837); if (state.failed) return retval;
+            	            EQUAL415=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_equalityExpression11838); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            EQUAL415_tree = (CommonTree)adaptor.create(EQUAL415);
             	            root_0 = (CommonTree)adaptor.becomeRoot(EQUAL415_tree, root_0);
@@ -14773,9 +14776,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:932:17: NOT_EQUAL
+            	            // ../etc/JamlAttrHash.g:935:17: NOT_EQUAL
             	            {
-            	            NOT_EQUAL416=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_equalityExpression11856); if (state.failed) return retval;
+            	            NOT_EQUAL416=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_equalityExpression11857); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            NOT_EQUAL416_tree = (CommonTree)adaptor.create(NOT_EQUAL416);
             	            root_0 = (CommonTree)adaptor.becomeRoot(NOT_EQUAL416_tree, root_0);
@@ -14786,7 +14789,7 @@ import org.antlr.runtime.tree.*;
 
             	    }
 
-            	    pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression11886);
+            	    pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression11887);
             	    instanceOfExpression417=instanceOfExpression();
 
             	    state._fsp--;
@@ -14832,7 +14835,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "instanceOfExpression"
-    // ../etc/JamlAttrHash.g:938:1: instanceOfExpression : relationalExpression ( INSTANCEOF type )? ;
+    // ../etc/JamlAttrHash.g:941:1: instanceOfExpression : relationalExpression ( INSTANCEOF type )? ;
     public final JamlAttrHashParser.instanceOfExpression_return instanceOfExpression() throws RecognitionException {
     traceIn("instanceOfExpression", 103);
         JamlAttrHashParser.instanceOfExpression_return retval = new JamlAttrHashParser.instanceOfExpression_return();
@@ -14850,18 +14853,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 103) ) { return retval; }
-            // ../etc/JamlAttrHash.g:939:5: ( relationalExpression ( INSTANCEOF type )? )
-            // ../etc/JamlAttrHash.g:939:9: relationalExpression ( INSTANCEOF type )?
+            // ../etc/JamlAttrHash.g:942:5: ( relationalExpression ( INSTANCEOF type )? )
+            // ../etc/JamlAttrHash.g:942:9: relationalExpression ( INSTANCEOF type )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_relationalExpression_in_instanceOfExpression11916);
+            pushFollow(FOLLOW_relationalExpression_in_instanceOfExpression11917);
             relationalExpression418=relationalExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, relationalExpression418.getTree());
-            // ../etc/JamlAttrHash.g:939:30: ( INSTANCEOF type )?
+            // ../etc/JamlAttrHash.g:942:30: ( INSTANCEOF type )?
             int alt122=2;
             int LA122_0 = input.LA(1);
 
@@ -14870,14 +14873,14 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt122) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:939:31: INSTANCEOF type
+                    // ../etc/JamlAttrHash.g:942:31: INSTANCEOF type
                     {
-                    INSTANCEOF419=(Token)match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_instanceOfExpression11919); if (state.failed) return retval;
+                    INSTANCEOF419=(Token)match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_instanceOfExpression11920); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     INSTANCEOF419_tree = (CommonTree)adaptor.create(INSTANCEOF419);
                     root_0 = (CommonTree)adaptor.becomeRoot(INSTANCEOF419_tree, root_0);
                     }
-                    pushFollow(FOLLOW_type_in_instanceOfExpression11922);
+                    pushFollow(FOLLOW_type_in_instanceOfExpression11923);
                     type420=type();
 
                     state._fsp--;
@@ -14920,7 +14923,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "relationalExpression"
-    // ../etc/JamlAttrHash.g:942:1: relationalExpression : shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* ;
+    // ../etc/JamlAttrHash.g:945:1: relationalExpression : shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* ;
     public final JamlAttrHashParser.relationalExpression_return relationalExpression() throws RecognitionException {
     traceIn("relationalExpression", 104);
         JamlAttrHashParser.relationalExpression_return retval = new JamlAttrHashParser.relationalExpression_return();
@@ -14944,18 +14947,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 104) ) { return retval; }
-            // ../etc/JamlAttrHash.g:943:5: ( shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* )
-            // ../etc/JamlAttrHash.g:943:9: shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
+            // ../etc/JamlAttrHash.g:946:5: ( shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* )
+            // ../etc/JamlAttrHash.g:946:9: shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_shiftExpression_in_relationalExpression11943);
+            pushFollow(FOLLOW_shiftExpression_in_relationalExpression11944);
             shiftExpression421=shiftExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, shiftExpression421.getTree());
-            // ../etc/JamlAttrHash.g:944:9: ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
+            // ../etc/JamlAttrHash.g:947:9: ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
             loop124:
             do {
                 int alt124=2;
@@ -14968,9 +14971,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt124) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:944:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression
+            	    // ../etc/JamlAttrHash.g:947:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:944:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN )
+            	    // ../etc/JamlAttrHash.g:947:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN )
             	    int alt123=4;
             	    switch ( input.LA(1) ) {
             	    case LESS_OR_EQUAL:
@@ -15003,9 +15006,9 @@ import org.antlr.runtime.tree.*;
 
             	    switch (alt123) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:944:17: LESS_OR_EQUAL
+            	            // ../etc/JamlAttrHash.g:947:17: LESS_OR_EQUAL
             	            {
-            	            LESS_OR_EQUAL422=(Token)match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_relationalExpression11962); if (state.failed) return retval;
+            	            LESS_OR_EQUAL422=(Token)match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_relationalExpression11963); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            LESS_OR_EQUAL422_tree = (CommonTree)adaptor.create(LESS_OR_EQUAL422);
             	            root_0 = (CommonTree)adaptor.becomeRoot(LESS_OR_EQUAL422_tree, root_0);
@@ -15014,9 +15017,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:945:17: GREATER_OR_EQUAL
+            	            // ../etc/JamlAttrHash.g:948:17: GREATER_OR_EQUAL
             	            {
-            	            GREATER_OR_EQUAL423=(Token)match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11981); if (state.failed) return retval;
+            	            GREATER_OR_EQUAL423=(Token)match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11982); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            GREATER_OR_EQUAL423_tree = (CommonTree)adaptor.create(GREATER_OR_EQUAL423);
             	            root_0 = (CommonTree)adaptor.becomeRoot(GREATER_OR_EQUAL423_tree, root_0);
@@ -15025,9 +15028,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 3 :
-            	            // ../etc/JamlAttrHash.g:946:17: LESS_THAN
+            	            // ../etc/JamlAttrHash.g:949:17: LESS_THAN
             	            {
-            	            LESS_THAN424=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_relationalExpression12000); if (state.failed) return retval;
+            	            LESS_THAN424=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_relationalExpression12001); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            LESS_THAN424_tree = (CommonTree)adaptor.create(LESS_THAN424);
             	            root_0 = (CommonTree)adaptor.becomeRoot(LESS_THAN424_tree, root_0);
@@ -15036,9 +15039,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 4 :
-            	            // ../etc/JamlAttrHash.g:947:17: GREATER_THAN
+            	            // ../etc/JamlAttrHash.g:950:17: GREATER_THAN
             	            {
-            	            GREATER_THAN425=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_relationalExpression12019); if (state.failed) return retval;
+            	            GREATER_THAN425=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_relationalExpression12020); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            GREATER_THAN425_tree = (CommonTree)adaptor.create(GREATER_THAN425);
             	            root_0 = (CommonTree)adaptor.becomeRoot(GREATER_THAN425_tree, root_0);
@@ -15049,7 +15052,7 @@ import org.antlr.runtime.tree.*;
 
             	    }
 
-            	    pushFollow(FOLLOW_shiftExpression_in_relationalExpression12048);
+            	    pushFollow(FOLLOW_shiftExpression_in_relationalExpression12049);
             	    shiftExpression426=shiftExpression();
 
             	    state._fsp--;
@@ -15095,7 +15098,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "shiftExpression"
-    // ../etc/JamlAttrHash.g:953:1: shiftExpression : additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* ;
+    // ../etc/JamlAttrHash.g:956:1: shiftExpression : additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* ;
     public final JamlAttrHashParser.shiftExpression_return shiftExpression() throws RecognitionException {
     traceIn("shiftExpression", 105);
         JamlAttrHashParser.shiftExpression_return retval = new JamlAttrHashParser.shiftExpression_return();
@@ -15117,18 +15120,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 105) ) { return retval; }
-            // ../etc/JamlAttrHash.g:954:5: ( additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* )
-            // ../etc/JamlAttrHash.g:954:9: additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
+            // ../etc/JamlAttrHash.g:957:5: ( additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* )
+            // ../etc/JamlAttrHash.g:957:9: additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_additiveExpression_in_shiftExpression12082);
+            pushFollow(FOLLOW_additiveExpression_in_shiftExpression12083);
             additiveExpression427=additiveExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, additiveExpression427.getTree());
-            // ../etc/JamlAttrHash.g:955:9: ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
+            // ../etc/JamlAttrHash.g:958:9: ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
             loop126:
             do {
                 int alt126=2;
@@ -15141,9 +15144,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt126) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:955:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression
+            	    // ../etc/JamlAttrHash.g:958:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:955:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT )
+            	    // ../etc/JamlAttrHash.g:958:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT )
             	    int alt125=3;
             	    switch ( input.LA(1) ) {
             	    case BIT_SHIFT_RIGHT:
@@ -15171,9 +15174,9 @@ import org.antlr.runtime.tree.*;
 
             	    switch (alt125) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:955:17: BIT_SHIFT_RIGHT
+            	            // ../etc/JamlAttrHash.g:958:17: BIT_SHIFT_RIGHT
             	            {
-            	            BIT_SHIFT_RIGHT428=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression12100); if (state.failed) return retval;
+            	            BIT_SHIFT_RIGHT428=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression12101); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            BIT_SHIFT_RIGHT428_tree = (CommonTree)adaptor.create(BIT_SHIFT_RIGHT428);
             	            root_0 = (CommonTree)adaptor.becomeRoot(BIT_SHIFT_RIGHT428_tree, root_0);
@@ -15182,9 +15185,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:956:17: SHIFT_RIGHT
+            	            // ../etc/JamlAttrHash.g:959:17: SHIFT_RIGHT
             	            {
-            	            SHIFT_RIGHT429=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_shiftExpression12119); if (state.failed) return retval;
+            	            SHIFT_RIGHT429=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_shiftExpression12120); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            SHIFT_RIGHT429_tree = (CommonTree)adaptor.create(SHIFT_RIGHT429);
             	            root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_RIGHT429_tree, root_0);
@@ -15193,9 +15196,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 3 :
-            	            // ../etc/JamlAttrHash.g:957:17: SHIFT_LEFT
+            	            // ../etc/JamlAttrHash.g:960:17: SHIFT_LEFT
             	            {
-            	            SHIFT_LEFT430=(Token)match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_shiftExpression12138); if (state.failed) return retval;
+            	            SHIFT_LEFT430=(Token)match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_shiftExpression12139); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            SHIFT_LEFT430_tree = (CommonTree)adaptor.create(SHIFT_LEFT430);
             	            root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_LEFT430_tree, root_0);
@@ -15206,7 +15209,7 @@ import org.antlr.runtime.tree.*;
 
             	    }
 
-            	    pushFollow(FOLLOW_additiveExpression_in_shiftExpression12167);
+            	    pushFollow(FOLLOW_additiveExpression_in_shiftExpression12168);
             	    additiveExpression431=additiveExpression();
 
             	    state._fsp--;
@@ -15252,7 +15255,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "additiveExpression"
-    // ../etc/JamlAttrHash.g:963:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* ;
+    // ../etc/JamlAttrHash.g:966:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* ;
     public final JamlAttrHashParser.additiveExpression_return additiveExpression() throws RecognitionException {
     traceIn("additiveExpression", 106);
         JamlAttrHashParser.additiveExpression_return retval = new JamlAttrHashParser.additiveExpression_return();
@@ -15272,18 +15275,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 106) ) { return retval; }
-            // ../etc/JamlAttrHash.g:964:5: ( multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* )
-            // ../etc/JamlAttrHash.g:964:9: multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )*
+            // ../etc/JamlAttrHash.g:967:5: ( multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* )
+            // ../etc/JamlAttrHash.g:967:9: multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression12197);
+            pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression12198);
             multiplicativeExpression432=multiplicativeExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, multiplicativeExpression432.getTree());
-            // ../etc/JamlAttrHash.g:965:9: ( ( PLUS | MINUS ) multiplicativeExpression )*
+            // ../etc/JamlAttrHash.g:968:9: ( ( PLUS | MINUS ) multiplicativeExpression )*
             loop128:
             do {
                 int alt128=2;
@@ -15296,9 +15299,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt128) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:965:13: ( PLUS | MINUS ) multiplicativeExpression
+            	    // ../etc/JamlAttrHash.g:968:13: ( PLUS | MINUS ) multiplicativeExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:965:13: ( PLUS | MINUS )
+            	    // ../etc/JamlAttrHash.g:968:13: ( PLUS | MINUS )
             	    int alt127=2;
             	    int LA127_0 = input.LA(1);
 
@@ -15317,9 +15320,9 @@ import org.antlr.runtime.tree.*;
             	    }
             	    switch (alt127) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:965:17: PLUS
+            	            // ../etc/JamlAttrHash.g:968:17: PLUS
             	            {
-            	            PLUS433=(Token)match(input,PLUS,FOLLOW_PLUS_in_additiveExpression12215); if (state.failed) return retval;
+            	            PLUS433=(Token)match(input,PLUS,FOLLOW_PLUS_in_additiveExpression12216); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            PLUS433_tree = (CommonTree)adaptor.create(PLUS433);
             	            root_0 = (CommonTree)adaptor.becomeRoot(PLUS433_tree, root_0);
@@ -15328,9 +15331,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:966:17: MINUS
+            	            // ../etc/JamlAttrHash.g:969:17: MINUS
             	            {
-            	            MINUS434=(Token)match(input,MINUS,FOLLOW_MINUS_in_additiveExpression12234); if (state.failed) return retval;
+            	            MINUS434=(Token)match(input,MINUS,FOLLOW_MINUS_in_additiveExpression12235); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            MINUS434_tree = (CommonTree)adaptor.create(MINUS434);
             	            root_0 = (CommonTree)adaptor.becomeRoot(MINUS434_tree, root_0);
@@ -15341,7 +15344,7 @@ import org.antlr.runtime.tree.*;
 
             	    }
 
-            	    pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression12263);
+            	    pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression12264);
             	    multiplicativeExpression435=multiplicativeExpression();
 
             	    state._fsp--;
@@ -15387,7 +15390,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "multiplicativeExpression"
-    // ../etc/JamlAttrHash.g:972:1: multiplicativeExpression : unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* ;
+    // ../etc/JamlAttrHash.g:975:1: multiplicativeExpression : unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* ;
     public final JamlAttrHashParser.multiplicativeExpression_return multiplicativeExpression() throws RecognitionException {
     traceIn("multiplicativeExpression", 107);
         JamlAttrHashParser.multiplicativeExpression_return retval = new JamlAttrHashParser.multiplicativeExpression_return();
@@ -15409,18 +15412,18 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 107) ) { return retval; }
-            // ../etc/JamlAttrHash.g:973:5: ( unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* )
-            // ../etc/JamlAttrHash.g:973:9: unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )*
+            // ../etc/JamlAttrHash.g:976:5: ( unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* )
+            // ../etc/JamlAttrHash.g:976:9: unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression12293);
+            pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression12294);
             unaryExpression436=unaryExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryExpression436.getTree());
-            // ../etc/JamlAttrHash.g:974:9: ( ( STAR | DIV | MOD ) unaryExpression )*
+            // ../etc/JamlAttrHash.g:977:9: ( ( STAR | DIV | MOD ) unaryExpression )*
             loop130:
             do {
                 int alt130=2;
@@ -15433,9 +15436,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt130) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:974:13: ( STAR | DIV | MOD ) unaryExpression
+            	    // ../etc/JamlAttrHash.g:977:13: ( STAR | DIV | MOD ) unaryExpression
             	    {
-            	    // ../etc/JamlAttrHash.g:974:13: ( STAR | DIV | MOD )
+            	    // ../etc/JamlAttrHash.g:977:13: ( STAR | DIV | MOD )
             	    int alt129=3;
             	    switch ( input.LA(1) ) {
             	    case STAR:
@@ -15463,9 +15466,9 @@ import org.antlr.runtime.tree.*;
 
             	    switch (alt129) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:974:17: STAR
+            	            // ../etc/JamlAttrHash.g:977:17: STAR
             	            {
-            	            STAR437=(Token)match(input,STAR,FOLLOW_STAR_in_multiplicativeExpression12312); if (state.failed) return retval;
+            	            STAR437=(Token)match(input,STAR,FOLLOW_STAR_in_multiplicativeExpression12313); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            STAR437_tree = (CommonTree)adaptor.create(STAR437);
             	            root_0 = (CommonTree)adaptor.becomeRoot(STAR437_tree, root_0);
@@ -15474,9 +15477,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:975:17: DIV
+            	            // ../etc/JamlAttrHash.g:978:17: DIV
             	            {
-            	            DIV438=(Token)match(input,DIV,FOLLOW_DIV_in_multiplicativeExpression12331); if (state.failed) return retval;
+            	            DIV438=(Token)match(input,DIV,FOLLOW_DIV_in_multiplicativeExpression12332); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            DIV438_tree = (CommonTree)adaptor.create(DIV438);
             	            root_0 = (CommonTree)adaptor.becomeRoot(DIV438_tree, root_0);
@@ -15485,9 +15488,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 3 :
-            	            // ../etc/JamlAttrHash.g:976:17: MOD
+            	            // ../etc/JamlAttrHash.g:979:17: MOD
             	            {
-            	            MOD439=(Token)match(input,MOD,FOLLOW_MOD_in_multiplicativeExpression12350); if (state.failed) return retval;
+            	            MOD439=(Token)match(input,MOD,FOLLOW_MOD_in_multiplicativeExpression12351); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            MOD439_tree = (CommonTree)adaptor.create(MOD439);
             	            root_0 = (CommonTree)adaptor.becomeRoot(MOD439_tree, root_0);
@@ -15498,7 +15501,7 @@ import org.antlr.runtime.tree.*;
 
             	    }
 
-            	    pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression12379);
+            	    pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression12380);
             	    unaryExpression440=unaryExpression();
 
             	    state._fsp--;
@@ -15544,7 +15547,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "unaryExpression"
-    // ../etc/JamlAttrHash.g:982:1: unaryExpression : ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus );
+    // ../etc/JamlAttrHash.g:985:1: unaryExpression : ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus );
     public final JamlAttrHashParser.unaryExpression_return unaryExpression() throws RecognitionException {
     traceIn("unaryExpression", 108);
         JamlAttrHashParser.unaryExpression_return retval = new JamlAttrHashParser.unaryExpression_return();
@@ -15579,7 +15582,7 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_unaryExpression=new RewriteRuleSubtreeStream(adaptor,"rule unaryExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 108) ) { return retval; }
-            // ../etc/JamlAttrHash.g:983:5: ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus )
+            // ../etc/JamlAttrHash.g:986:5: ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus )
             int alt131=5;
             switch ( input.LA(1) ) {
             case PLUS:
@@ -15642,12 +15645,12 @@ import org.antlr.runtime.tree.*;
 
             switch (alt131) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:983:9: PLUS unaryExpression
+                    // ../etc/JamlAttrHash.g:986:9: PLUS unaryExpression
                     {
-                    PLUS441=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression12413); if (state.failed) return retval; 
+                    PLUS441=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression12414); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_PLUS.add(PLUS441);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression12415);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression12416);
                     unaryExpression442=unaryExpression();
 
                     state._fsp--;
@@ -15667,9 +15670,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 983:37: -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
+                    // 986:37: -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:983:41: ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
+                        // ../etc/JamlAttrHash.g:986:41: ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(UNARY_PLUS, PLUS441, "UNARY_PLUS"), root_1);
@@ -15685,12 +15688,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:984:9: MINUS unaryExpression
+                    // ../etc/JamlAttrHash.g:987:9: MINUS unaryExpression
                     {
-                    MINUS443=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression12442); if (state.failed) return retval; 
+                    MINUS443=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression12443); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_MINUS.add(MINUS443);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression12444);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression12445);
                     unaryExpression444=unaryExpression();
 
                     state._fsp--;
@@ -15710,9 +15713,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 984:37: -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
+                    // 987:37: -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:984:41: ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
+                        // ../etc/JamlAttrHash.g:987:41: ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(UNARY_MINUS, MINUS443, "UNARY_MINUS"), root_1);
@@ -15728,12 +15731,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:985:9: INC postfixedExpression
+                    // ../etc/JamlAttrHash.g:988:9: INC postfixedExpression
                     {
-                    INC445=(Token)match(input,INC,FOLLOW_INC_in_unaryExpression12470); if (state.failed) return retval; 
+                    INC445=(Token)match(input,INC,FOLLOW_INC_in_unaryExpression12471); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INC.add(INC445);
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression12472);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression12473);
                     postfixedExpression446=postfixedExpression();
 
                     state._fsp--;
@@ -15753,9 +15756,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 985:37: -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
+                    // 988:37: -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
                     {
-                        // ../etc/JamlAttrHash.g:985:41: ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
+                        // ../etc/JamlAttrHash.g:988:41: ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PRE_INC, INC445, "PRE_INC"), root_1);
@@ -15771,12 +15774,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:986:9: DEC postfixedExpression
+                    // ../etc/JamlAttrHash.g:989:9: DEC postfixedExpression
                     {
-                    DEC447=(Token)match(input,DEC,FOLLOW_DEC_in_unaryExpression12496); if (state.failed) return retval; 
+                    DEC447=(Token)match(input,DEC,FOLLOW_DEC_in_unaryExpression12497); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DEC.add(DEC447);
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression12498);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression12499);
                     postfixedExpression448=postfixedExpression();
 
                     state._fsp--;
@@ -15796,9 +15799,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 986:37: -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
+                    // 989:37: -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
                     {
-                        // ../etc/JamlAttrHash.g:986:41: ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
+                        // ../etc/JamlAttrHash.g:989:41: ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PRE_DEC, DEC447, "PRE_DEC"), root_1);
@@ -15814,11 +15817,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:987:9: unaryExpressionNotPlusMinus
+                    // ../etc/JamlAttrHash.g:990:9: unaryExpressionNotPlusMinus
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression12522);
+                    pushFollow(FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression12523);
                     unaryExpressionNotPlusMinus449=unaryExpressionNotPlusMinus();
 
                     state._fsp--;
@@ -15857,7 +15860,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "unaryExpressionNotPlusMinus"
-    // ../etc/JamlAttrHash.g:990:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );
+    // ../etc/JamlAttrHash.g:993:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );
     public final JamlAttrHashParser.unaryExpressionNotPlusMinus_return unaryExpressionNotPlusMinus() throws RecognitionException {
     traceIn("unaryExpressionNotPlusMinus", 109);
         JamlAttrHashParser.unaryExpressionNotPlusMinus_return retval = new JamlAttrHashParser.unaryExpressionNotPlusMinus_return();
@@ -15892,17 +15895,17 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 109) ) { return retval; }
-            // ../etc/JamlAttrHash.g:991:5: ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression )
+            // ../etc/JamlAttrHash.g:994:5: ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression )
             int alt132=4;
             alt132 = dfa132.predict(input);
             switch (alt132) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:991:9: NOT unaryExpression
+                    // ../etc/JamlAttrHash.g:994:9: NOT unaryExpression
                     {
-                    NOT450=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpressionNotPlusMinus12541); if (state.failed) return retval; 
+                    NOT450=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpressionNotPlusMinus12542); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_NOT.add(NOT450);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12543);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12544);
                     unaryExpression451=unaryExpression();
 
                     state._fsp--;
@@ -15922,9 +15925,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 991:57: -> ^( NOT unaryExpression )
+                    // 994:57: -> ^( NOT unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:991:61: ^( NOT unaryExpression )
+                        // ../etc/JamlAttrHash.g:994:61: ^( NOT unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_NOT.nextNode(), root_1);
@@ -15940,12 +15943,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:992:9: LOGICAL_NOT unaryExpression
+                    // ../etc/JamlAttrHash.g:995:9: LOGICAL_NOT unaryExpression
                     {
-                    LOGICAL_NOT452=(Token)match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus12590); if (state.failed) return retval; 
+                    LOGICAL_NOT452=(Token)match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus12591); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LOGICAL_NOT.add(LOGICAL_NOT452);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12592);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12593);
                     unaryExpression453=unaryExpression();
 
                     state._fsp--;
@@ -15965,9 +15968,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 992:57: -> ^( LOGICAL_NOT unaryExpression )
+                    // 995:57: -> ^( LOGICAL_NOT unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:992:61: ^( LOGICAL_NOT unaryExpression )
+                        // ../etc/JamlAttrHash.g:995:61: ^( LOGICAL_NOT unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_LOGICAL_NOT.nextNode(), root_1);
@@ -15983,21 +15986,21 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:993:9: LPAREN type RPAREN unaryExpression
+                    // ../etc/JamlAttrHash.g:996:9: LPAREN type RPAREN unaryExpression
                     {
-                    LPAREN454=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12631); if (state.failed) return retval; 
+                    LPAREN454=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12632); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN454);
 
-                    pushFollow(FOLLOW_type_in_unaryExpressionNotPlusMinus12633);
+                    pushFollow(FOLLOW_type_in_unaryExpressionNotPlusMinus12634);
                     type455=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_type.add(type455.getTree());
-                    RPAREN456=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus12635); if (state.failed) return retval; 
+                    RPAREN456=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus12636); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN456);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12637);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12638);
                     unaryExpression457=unaryExpression();
 
                     state._fsp--;
@@ -16017,9 +16020,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 993:57: -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
+                    // 996:57: -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
                     {
-                        // ../etc/JamlAttrHash.g:993:61: ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
+                        // ../etc/JamlAttrHash.g:996:61: ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CAST_EXPR, LPAREN454, "CAST_EXPR"), root_1);
@@ -16036,11 +16039,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:994:9: postfixedExpression
+                    // ../etc/JamlAttrHash.g:997:9: postfixedExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus12672);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus12673);
                     postfixedExpression458=postfixedExpression();
 
                     state._fsp--;
@@ -16079,7 +16082,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "postfixedExpression"
-    // ../etc/JamlAttrHash.g:997:1: postfixedExpression : ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? ;
+    // ../etc/JamlAttrHash.g:1000:1: postfixedExpression : ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? ;
     public final JamlAttrHashParser.postfixedExpression_return postfixedExpression() throws RecognitionException {
     traceIn("postfixedExpression", 110);
         JamlAttrHashParser.postfixedExpression_return retval = new JamlAttrHashParser.postfixedExpression_return();
@@ -16139,13 +16142,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_innerNewExpression=new RewriteRuleSubtreeStream(adaptor,"rule innerNewExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 110) ) { return retval; }
-            // ../etc/JamlAttrHash.g:999:5: ( ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? )
-            // ../etc/JamlAttrHash.g:999:9: ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
+            // ../etc/JamlAttrHash.g:1002:5: ( ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? )
+            // ../etc/JamlAttrHash.g:1002:9: ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
             {
-            // ../etc/JamlAttrHash.g:999:9: ( primaryExpression -> primaryExpression )
-            // ../etc/JamlAttrHash.g:999:13: primaryExpression
+            // ../etc/JamlAttrHash.g:1002:9: ( primaryExpression -> primaryExpression )
+            // ../etc/JamlAttrHash.g:1002:13: primaryExpression
             {
-            pushFollow(FOLLOW_primaryExpression_in_postfixedExpression12708);
+            pushFollow(FOLLOW_primaryExpression_in_postfixedExpression12709);
             primaryExpression459=primaryExpression();
 
             state._fsp--;
@@ -16165,7 +16168,7 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 999:53: -> primaryExpression
+            // 1002:53: -> primaryExpression
             {
                 adaptor.addChild(root_0, stream_primaryExpression.nextTree());
 
@@ -16174,7 +16177,7 @@ import org.antlr.runtime.tree.*;
             retval.tree = root_0;}
             }
 
-            // ../etc/JamlAttrHash.g:1002:9: (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )*
+            // ../etc/JamlAttrHash.g:1005:9: (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )*
             loop137:
             do {
                 int alt137=3;
@@ -16190,12 +16193,12 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt137) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1002:13: outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
+            	    // ../etc/JamlAttrHash.g:1005:13: outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
             	    {
-            	    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression12770); if (state.failed) return retval; 
+            	    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression12771); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(outerDot);
 
-            	    // ../etc/JamlAttrHash.g:1003:13: ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
+            	    // ../etc/JamlAttrHash.g:1006:13: ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
             	    int alt136=5;
             	    switch ( input.LA(1) ) {
             	    case LESS_THAN:
@@ -16243,12 +16246,12 @@ import org.antlr.runtime.tree.*;
 
             	    switch (alt136) {
             	        case 1 :
-            	            // ../etc/JamlAttrHash.g:1003:17: ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )?
+            	            // ../etc/JamlAttrHash.g:1006:17: ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )?
             	            {
-            	            // ../etc/JamlAttrHash.g:1003:17: ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) )
-            	            // ../etc/JamlAttrHash.g:1003:21: ( genericTypeArgumentListSimplified )? IDENT
+            	            // ../etc/JamlAttrHash.g:1006:17: ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) )
+            	            // ../etc/JamlAttrHash.g:1006:21: ( genericTypeArgumentListSimplified )? IDENT
             	            {
-            	            // ../etc/JamlAttrHash.g:1003:21: ( genericTypeArgumentListSimplified )?
+            	            // ../etc/JamlAttrHash.g:1006:21: ( genericTypeArgumentListSimplified )?
             	            int alt133=2;
             	            int LA133_0 = input.LA(1);
 
@@ -16259,7 +16262,7 @@ import org.antlr.runtime.tree.*;
             	                case 1 :
             	                    // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentListSimplified
             	                    {
-            	                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_postfixedExpression12820);
+            	                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_postfixedExpression12821);
             	                    genericTypeArgumentListSimplified460=genericTypeArgumentListSimplified();
 
             	                    state._fsp--;
@@ -16271,7 +16274,7 @@ import org.antlr.runtime.tree.*;
 
             	            }
 
-            	            IDENT461=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression12902); if (state.failed) return retval; 
+            	            IDENT461=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression12903); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_IDENT.add(IDENT461);
 
 
@@ -16288,9 +16291,9 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 1005:53: -> ^( DOT $postfixedExpression IDENT )
+            	            // 1008:53: -> ^( DOT $postfixedExpression IDENT )
             	            {
-            	                // ../etc/JamlAttrHash.g:1005:57: ^( DOT $postfixedExpression IDENT )
+            	                // ../etc/JamlAttrHash.g:1008:57: ^( DOT $postfixedExpression IDENT )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -16306,7 +16309,7 @@ import org.antlr.runtime.tree.*;
             	            retval.tree = root_0;}
             	            }
 
-            	            // ../etc/JamlAttrHash.g:1007:17: ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )?
+            	            // ../etc/JamlAttrHash.g:1010:17: ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )?
             	            int alt134=2;
             	            int LA134_0 = input.LA(1);
 
@@ -16315,9 +16318,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            switch (alt134) {
             	                case 1 :
-            	                    // ../etc/JamlAttrHash.g:1007:21: arguments
+            	                    // ../etc/JamlAttrHash.g:1010:21: arguments
             	                    {
-            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression12981);
+            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression12982);
             	                    arguments462=arguments();
 
             	                    state._fsp--;
@@ -16337,15 +16340,15 @@ import org.antlr.runtime.tree.*;
             	                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	                    root_0 = (CommonTree)adaptor.nil();
-            	                    // 1007:53: -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments )
+            	                    // 1010:53: -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments )
             	                    {
-            	                        // ../etc/JamlAttrHash.g:1007:57: ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments )
+            	                        // ../etc/JamlAttrHash.g:1010:57: ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments )
             	                        {
             	                        CommonTree root_1 = (CommonTree)adaptor.nil();
             	                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
             	                        adaptor.addChild(root_1, stream_retval.nextTree());
-            	                        // ../etc/JamlAttrHash.g:1007:92: ( genericTypeArgumentListSimplified )?
+            	                        // ../etc/JamlAttrHash.g:1010:92: ( genericTypeArgumentListSimplified )?
             	                        if ( stream_genericTypeArgumentListSimplified.hasNext() ) {
             	                            adaptor.addChild(root_1, stream_genericTypeArgumentListSimplified.nextTree());
 
@@ -16368,9 +16371,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 2 :
-            	            // ../etc/JamlAttrHash.g:1009:17: THIS
+            	            // ../etc/JamlAttrHash.g:1012:17: THIS
             	            {
-            	            THIS463=(Token)match(input,THIS,FOLLOW_THIS_in_postfixedExpression13055); if (state.failed) return retval; 
+            	            THIS463=(Token)match(input,THIS,FOLLOW_THIS_in_postfixedExpression13056); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_THIS.add(THIS463);
 
 
@@ -16387,9 +16390,9 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 1009:53: -> ^( DOT $postfixedExpression THIS )
+            	            // 1012:53: -> ^( DOT $postfixedExpression THIS )
             	            {
-            	                // ../etc/JamlAttrHash.g:1009:57: ^( DOT $postfixedExpression THIS )
+            	                // ../etc/JamlAttrHash.g:1012:57: ^( DOT $postfixedExpression THIS )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -16406,12 +16409,12 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 3 :
-            	            // ../etc/JamlAttrHash.g:1010:17: Super= SUPER arguments
+            	            // ../etc/JamlAttrHash.g:1013:17: Super= SUPER arguments
             	            {
-            	            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression13118); if (state.failed) return retval; 
+            	            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression13119); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-            	            pushFollow(FOLLOW_arguments_in_postfixedExpression13120);
+            	            pushFollow(FOLLOW_arguments_in_postfixedExpression13121);
             	            arguments464=arguments();
 
             	            state._fsp--;
@@ -16431,9 +16434,9 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 1010:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
+            	            // 1013:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
             	            {
-            	                // ../etc/JamlAttrHash.g:1010:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
+            	                // ../etc/JamlAttrHash.g:1013:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -16450,18 +16453,18 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 4 :
-            	            // ../etc/JamlAttrHash.g:1011:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
+            	            // ../etc/JamlAttrHash.g:1014:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
             	            {
-            	            // ../etc/JamlAttrHash.g:1011:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) )
-            	            // ../etc/JamlAttrHash.g:1011:21: SUPER innerDot= DOT IDENT
+            	            // ../etc/JamlAttrHash.g:1014:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) )
+            	            // ../etc/JamlAttrHash.g:1014:21: SUPER innerDot= DOT IDENT
             	            {
-            	            SUPER465=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression13173); if (state.failed) return retval; 
+            	            SUPER465=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression13174); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_SUPER.add(SUPER465);
 
-            	            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression13177); if (state.failed) return retval; 
+            	            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression13178); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_DOT.add(innerDot);
 
-            	            IDENT466=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression13179); if (state.failed) return retval; 
+            	            IDENT466=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression13180); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_IDENT.add(IDENT466);
 
 
@@ -16480,14 +16483,14 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 1011:53: -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
+            	            // 1014:53: -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
             	            {
-            	                // ../etc/JamlAttrHash.g:1011:57: ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
+            	                // ../etc/JamlAttrHash.g:1014:57: ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_innerDot.nextNode(), root_1);
 
-            	                // ../etc/JamlAttrHash.g:1011:69: ^( $outerDot $postfixedExpression SUPER )
+            	                // ../etc/JamlAttrHash.g:1014:69: ^( $outerDot $postfixedExpression SUPER )
             	                {
             	                CommonTree root_2 = (CommonTree)adaptor.nil();
             	                root_2 = (CommonTree)adaptor.becomeRoot(stream_outerDot.nextNode(), root_2);
@@ -16507,7 +16510,7 @@ import org.antlr.runtime.tree.*;
             	            retval.tree = root_0;}
             	            }
 
-            	            // ../etc/JamlAttrHash.g:1013:17: ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
+            	            // ../etc/JamlAttrHash.g:1016:17: ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
             	            int alt135=2;
             	            int LA135_0 = input.LA(1);
 
@@ -16516,9 +16519,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            switch (alt135) {
             	                case 1 :
-            	                    // ../etc/JamlAttrHash.g:1013:21: arguments
+            	                    // ../etc/JamlAttrHash.g:1016:21: arguments
             	                    {
-            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression13246);
+            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression13247);
             	                    arguments467=arguments();
 
             	                    state._fsp--;
@@ -16538,9 +16541,9 @@ import org.antlr.runtime.tree.*;
             	                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	                    root_0 = (CommonTree)adaptor.nil();
-            	                    // 1013:53: -> ^( METHOD_CALL $postfixedExpression arguments )
+            	                    // 1016:53: -> ^( METHOD_CALL $postfixedExpression arguments )
             	                    {
-            	                        // ../etc/JamlAttrHash.g:1013:57: ^( METHOD_CALL $postfixedExpression arguments )
+            	                        // ../etc/JamlAttrHash.g:1016:57: ^( METHOD_CALL $postfixedExpression arguments )
             	                        {
             	                        CommonTree root_1 = (CommonTree)adaptor.nil();
             	                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -16563,9 +16566,9 @@ import org.antlr.runtime.tree.*;
             	            }
             	            break;
             	        case 5 :
-            	            // ../etc/JamlAttrHash.g:1015:17: innerNewExpression
+            	            // ../etc/JamlAttrHash.g:1018:17: innerNewExpression
             	            {
-            	            pushFollow(FOLLOW_innerNewExpression_in_postfixedExpression13317);
+            	            pushFollow(FOLLOW_innerNewExpression_in_postfixedExpression13318);
             	            innerNewExpression468=innerNewExpression();
 
             	            state._fsp--;
@@ -16585,9 +16588,9 @@ import org.antlr.runtime.tree.*;
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 1015:53: -> ^( DOT $postfixedExpression innerNewExpression )
+            	            // 1018:53: -> ^( DOT $postfixedExpression innerNewExpression )
             	            {
-            	                // ../etc/JamlAttrHash.g:1015:57: ^( DOT $postfixedExpression innerNewExpression )
+            	                // ../etc/JamlAttrHash.g:1018:57: ^( DOT $postfixedExpression innerNewExpression )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -16610,18 +16613,18 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/JamlAttrHash.g:1017:13: LBRACK expression RBRACK
+            	    // ../etc/JamlAttrHash.g:1020:13: LBRACK expression RBRACK
             	    {
-            	    LBRACK469=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_postfixedExpression13374); if (state.failed) return retval; 
+            	    LBRACK469=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_postfixedExpression13375); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_LBRACK.add(LBRACK469);
 
-            	    pushFollow(FOLLOW_expression_in_postfixedExpression13376);
+            	    pushFollow(FOLLOW_expression_in_postfixedExpression13377);
             	    expression470=expression();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_expression.add(expression470.getTree());
-            	    RBRACK471=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_postfixedExpression13378); if (state.failed) return retval; 
+            	    RBRACK471=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_postfixedExpression13379); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_RBRACK.add(RBRACK471);
 
 
@@ -16638,9 +16641,9 @@ import org.antlr.runtime.tree.*;
             	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	    root_0 = (CommonTree)adaptor.nil();
-            	    // 1017:53: -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
+            	    // 1020:53: -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
             	    {
-            	        // ../etc/JamlAttrHash.g:1017:57: ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
+            	        // ../etc/JamlAttrHash.g:1020:57: ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.nil();
             	        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_ELEMENT_ACCESS, "ARRAY_ELEMENT_ACCESS"), root_1);
@@ -16662,7 +16665,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            // ../etc/JamlAttrHash.g:1020:9: ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
+            // ../etc/JamlAttrHash.g:1023:9: ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
             int alt138=3;
             int LA138_0 = input.LA(1);
 
@@ -16674,9 +16677,9 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt138) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1020:13: INC
+                    // ../etc/JamlAttrHash.g:1023:13: INC
                     {
-                    INC472=(Token)match(input,INC,FOLLOW_INC_in_postfixedExpression13439); if (state.failed) return retval; 
+                    INC472=(Token)match(input,INC,FOLLOW_INC_in_postfixedExpression13440); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INC.add(INC472);
 
 
@@ -16693,9 +16696,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1020:17: -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
+                    // 1023:17: -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
                     {
-                        // ../etc/JamlAttrHash.g:1020:20: ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
+                        // ../etc/JamlAttrHash.g:1023:20: ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POST_INC, INC472, "POST_INC"), root_1);
@@ -16711,9 +16714,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1021:13: DEC
+                    // ../etc/JamlAttrHash.g:1024:13: DEC
                     {
-                    DEC473=(Token)match(input,DEC,FOLLOW_DEC_in_postfixedExpression13463); if (state.failed) return retval; 
+                    DEC473=(Token)match(input,DEC,FOLLOW_DEC_in_postfixedExpression13464); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DEC.add(DEC473);
 
 
@@ -16730,9 +16733,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1021:17: -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
+                    // 1024:17: -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
                     {
-                        // ../etc/JamlAttrHash.g:1021:20: ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
+                        // ../etc/JamlAttrHash.g:1024:20: ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POST_DEC, DEC473, "POST_DEC"), root_1);
@@ -16781,7 +16784,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "primaryExpression"
-    // ../etc/JamlAttrHash.g:1025:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );
+    // ../etc/JamlAttrHash.g:1028:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );
     public final JamlAttrHashParser.primaryExpression_return primaryExpression() throws RecognitionException {
     traceIn("primaryExpression", 111);
         JamlAttrHashParser.primaryExpression_return retval = new JamlAttrHashParser.primaryExpression_return();
@@ -16860,16 +16863,16 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeArgumentListSimplified=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeArgumentListSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 111) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1026:5: ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) )
+            // ../etc/JamlAttrHash.g:1029:5: ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) )
             int alt144=10;
             alt144 = dfa144.predict(input);
             switch (alt144) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1026:9: parenthesizedExpression
+                    // ../etc/JamlAttrHash.g:1029:9: parenthesizedExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression13511);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression13512);
                     parenthesizedExpression474=parenthesizedExpression();
 
                     state._fsp--;
@@ -16879,11 +16882,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1027:9: literal
+                    // ../etc/JamlAttrHash.g:1030:9: literal
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_literal_in_primaryExpression13521);
+                    pushFollow(FOLLOW_literal_in_primaryExpression13522);
                     literal475=literal();
 
                     state._fsp--;
@@ -16893,11 +16896,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:1028:9: newExpression
+                    // ../etc/JamlAttrHash.g:1031:9: newExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_newExpression_in_primaryExpression13531);
+                    pushFollow(FOLLOW_newExpression_in_primaryExpression13532);
                     newExpression476=newExpression();
 
                     state._fsp--;
@@ -16907,11 +16910,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:1029:9: qualifiedIdentExpression
+                    // ../etc/JamlAttrHash.g:1032:9: qualifiedIdentExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_qualifiedIdentExpression_in_primaryExpression13541);
+                    pushFollow(FOLLOW_qualifiedIdentExpression_in_primaryExpression13542);
                     qualifiedIdentExpression477=qualifiedIdentExpression();
 
                     state._fsp--;
@@ -16921,15 +16924,15 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:1030:9: genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
+                    // ../etc/JamlAttrHash.g:1033:9: genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression13551);
+                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression13552);
                     genericTypeArgumentListSimplified478=genericTypeArgumentListSimplified();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_genericTypeArgumentListSimplified.add(genericTypeArgumentListSimplified478.getTree());
-                    // ../etc/JamlAttrHash.g:1031:9: ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
+                    // ../etc/JamlAttrHash.g:1034:9: ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) )
                     int alt140=3;
                     switch ( input.LA(1) ) {
                     case SUPER:
@@ -16957,12 +16960,12 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt140) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1031:13: SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
+                            // ../etc/JamlAttrHash.g:1034:13: SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
                             {
-                            SUPER479=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13566); if (state.failed) return retval; 
+                            SUPER479=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13567); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SUPER.add(SUPER479);
 
-                            // ../etc/JamlAttrHash.g:1032:13: ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
+                            // ../etc/JamlAttrHash.g:1035:13: ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) )
                             int alt139=2;
                             int LA139_0 = input.LA(1);
 
@@ -16981,9 +16984,9 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt139) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:1032:17: arguments
+                                    // ../etc/JamlAttrHash.g:1035:17: arguments
                                     {
-                                    pushFollow(FOLLOW_arguments_in_primaryExpression13584);
+                                    pushFollow(FOLLOW_arguments_in_primaryExpression13585);
                                     arguments480=arguments();
 
                                     state._fsp--;
@@ -17003,9 +17006,9 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 1032:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
+                                    // 1035:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:1032:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:1035:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, SUPER479, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -17022,15 +17025,15 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:1033:17: DOT IDENT arguments
+                                    // ../etc/JamlAttrHash.g:1036:17: DOT IDENT arguments
                                     {
-                                    DOT481=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression13644); if (state.failed) return retval; 
+                                    DOT481=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression13645); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_DOT.add(DOT481);
 
-                                    IDENT482=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13646); if (state.failed) return retval; 
+                                    IDENT482=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13647); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT482);
 
-                                    pushFollow(FOLLOW_arguments_in_primaryExpression13648);
+                                    pushFollow(FOLLOW_arguments_in_primaryExpression13649);
                                     arguments483=arguments();
 
                                     state._fsp--;
@@ -17050,14 +17053,14 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 1033:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments )
+                                    // 1036:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:1033:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:1036:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // ../etc/JamlAttrHash.g:1033:75: ^( DOT SUPER IDENT )
+                                        // ../etc/JamlAttrHash.g:1036:75: ^( DOT SUPER IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -17085,12 +17088,12 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1035:13: IDENT arguments
+                            // ../etc/JamlAttrHash.g:1038:13: IDENT arguments
                             {
-                            IDENT484=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13715); if (state.failed) return retval; 
+                            IDENT484=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression13716); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT484);
 
-                            pushFollow(FOLLOW_arguments_in_primaryExpression13717);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression13718);
                             arguments485=arguments();
 
                             state._fsp--;
@@ -17110,9 +17113,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1035:57: -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments )
+                            // 1038:57: -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments )
                             {
-                                // ../etc/JamlAttrHash.g:1035:61: ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments )
+                                // ../etc/JamlAttrHash.g:1038:61: ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -17130,12 +17133,12 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:1036:13: THIS arguments
+                            // ../etc/JamlAttrHash.g:1039:13: THIS arguments
                             {
-                            THIS486=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13772); if (state.failed) return retval; 
+                            THIS486=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13773); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_THIS.add(THIS486);
 
-                            pushFollow(FOLLOW_arguments_in_primaryExpression13774);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression13775);
                             arguments487=arguments();
 
                             state._fsp--;
@@ -17155,9 +17158,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1036:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
+                            // 1039:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
                             {
-                                // ../etc/JamlAttrHash.g:1036:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
+                                // ../etc/JamlAttrHash.g:1039:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(THIS_CONSTRUCTOR_CALL, THIS486, "THIS_CONSTRUCTOR_CALL"), root_1);
@@ -17180,12 +17183,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 6 :
-                    // ../etc/JamlAttrHash.g:1038:9: ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
+                    // ../etc/JamlAttrHash.g:1041:9: ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
                     {
-                    // ../etc/JamlAttrHash.g:1038:9: ( THIS -> THIS )
-                    // ../etc/JamlAttrHash.g:1038:13: THIS
+                    // ../etc/JamlAttrHash.g:1041:9: ( THIS -> THIS )
+                    // ../etc/JamlAttrHash.g:1041:13: THIS
                     {
-                    THIS488=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13839); if (state.failed) return retval; 
+                    THIS488=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression13840); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_THIS.add(THIS488);
 
 
@@ -17202,7 +17205,7 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1038:57: -> THIS
+                    // 1041:57: -> THIS
                     {
                         adaptor.addChild(root_0, stream_THIS.nextNode());
 
@@ -17211,7 +17214,7 @@ import org.antlr.runtime.tree.*;
                     retval.tree = root_0;}
                     }
 
-                    // ../etc/JamlAttrHash.g:1040:9: ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
+                    // ../etc/JamlAttrHash.g:1043:9: ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
                     int alt141=2;
                     int LA141_0 = input.LA(1);
 
@@ -17220,9 +17223,9 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt141) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1040:13: arguments
+                            // ../etc/JamlAttrHash.g:1043:13: arguments
                             {
-                            pushFollow(FOLLOW_arguments_in_primaryExpression13907);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression13908);
                             arguments489=arguments();
 
                             state._fsp--;
@@ -17242,9 +17245,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1040:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
+                            // 1043:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
                             {
-                                // ../etc/JamlAttrHash.g:1040:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
+                                // ../etc/JamlAttrHash.g:1043:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(THIS_CONSTRUCTOR_CALL, THIS488, "THIS_CONSTRUCTOR_CALL"), root_1);
@@ -17266,12 +17269,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 7 :
-                    // ../etc/JamlAttrHash.g:1042:9: SUPER arguments
+                    // ../etc/JamlAttrHash.g:1045:9: SUPER arguments
                     {
-                    SUPER490=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13972); if (state.failed) return retval; 
+                    SUPER490=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression13973); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER490);
 
-                    pushFollow(FOLLOW_arguments_in_primaryExpression13974);
+                    pushFollow(FOLLOW_arguments_in_primaryExpression13975);
                     arguments491=arguments();
 
                     state._fsp--;
@@ -17291,9 +17294,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1042:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
+                    // 1045:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
                     {
-                        // ../etc/JamlAttrHash.g:1042:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
+                        // ../etc/JamlAttrHash.g:1045:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, SUPER490, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -17309,24 +17312,24 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 8 :
-                    // ../etc/JamlAttrHash.g:1043:9: ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
+                    // ../etc/JamlAttrHash.g:1046:9: ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
                     {
-                    // ../etc/JamlAttrHash.g:1043:9: ( SUPER DOT IDENT )
-                    // ../etc/JamlAttrHash.g:1043:13: SUPER DOT IDENT
+                    // ../etc/JamlAttrHash.g:1046:9: ( SUPER DOT IDENT )
+                    // ../etc/JamlAttrHash.g:1046:13: SUPER DOT IDENT
                     {
-                    SUPER492=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression14030); if (state.failed) return retval; 
+                    SUPER492=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression14031); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER492);
 
-                    DOT493=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14032); if (state.failed) return retval; 
+                    DOT493=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14033); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT493);
 
-                    IDENT494=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression14034); if (state.failed) return retval; 
+                    IDENT494=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression14035); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT494);
 
 
                     }
 
-                    // ../etc/JamlAttrHash.g:1045:9: ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
+                    // ../etc/JamlAttrHash.g:1048:9: ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
                     int alt142=2;
                     int LA142_0 = input.LA(1);
 
@@ -17345,9 +17348,9 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt142) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1045:13: arguments
+                            // ../etc/JamlAttrHash.g:1048:13: arguments
                             {
-                            pushFollow(FOLLOW_arguments_in_primaryExpression14058);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression14059);
                             arguments495=arguments();
 
                             state._fsp--;
@@ -17367,14 +17370,14 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1045:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
+                            // 1048:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
                             {
-                                // ../etc/JamlAttrHash.g:1045:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
+                                // ../etc/JamlAttrHash.g:1048:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                // ../etc/JamlAttrHash.g:1045:75: ^( DOT SUPER IDENT )
+                                // ../etc/JamlAttrHash.g:1048:75: ^( DOT SUPER IDENT )
                                 {
                                 CommonTree root_2 = (CommonTree)adaptor.nil();
                                 root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -17395,7 +17398,7 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1046:57: 
+                            // ../etc/JamlAttrHash.g:1049:57: 
                             {
 
                             // AST REWRITE
@@ -17410,9 +17413,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1046:57: -> ^( DOT SUPER IDENT )
+                            // 1049:57: -> ^( DOT SUPER IDENT )
                             {
-                                // ../etc/JamlAttrHash.g:1046:61: ^( DOT SUPER IDENT )
+                                // ../etc/JamlAttrHash.g:1049:61: ^( DOT SUPER IDENT )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17435,12 +17438,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 9 :
-                    // ../etc/JamlAttrHash.g:1048:9: ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS
+                    // ../etc/JamlAttrHash.g:1051:9: ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS
                     {
-                    // ../etc/JamlAttrHash.g:1048:9: ( primitiveType -> primitiveType )
-                    // ../etc/JamlAttrHash.g:1048:13: primitiveType
+                    // ../etc/JamlAttrHash.g:1051:9: ( primitiveType -> primitiveType )
+                    // ../etc/JamlAttrHash.g:1051:13: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_primaryExpression14200);
+                    pushFollow(FOLLOW_primitiveType_in_primaryExpression14201);
                     primitiveType496=primitiveType();
 
                     state._fsp--;
@@ -17460,7 +17463,7 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1048:57: -> primitiveType
+                    // 1051:57: -> primitiveType
                     {
                         adaptor.addChild(root_0, stream_primitiveType.nextTree());
 
@@ -17469,7 +17472,7 @@ import org.antlr.runtime.tree.*;
                     retval.tree = root_0;}
                     }
 
-                    // ../etc/JamlAttrHash.g:1050:9: ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )*
+                    // ../etc/JamlAttrHash.g:1053:9: ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )*
                     loop143:
                     do {
                         int alt143=2;
@@ -17482,9 +17485,9 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt143) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:1050:13: arrayDeclarator
+                    	    // ../etc/JamlAttrHash.g:1053:13: arrayDeclarator
                     	    {
-                    	    pushFollow(FOLLOW_arrayDeclarator_in_primaryExpression14259);
+                    	    pushFollow(FOLLOW_arrayDeclarator_in_primaryExpression14260);
                     	    arrayDeclarator497=arrayDeclarator();
 
                     	    state._fsp--;
@@ -17504,9 +17507,9 @@ import org.antlr.runtime.tree.*;
                     	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     	    root_0 = (CommonTree)adaptor.nil();
-                    	    // 1050:57: -> ^( arrayDeclarator $primaryExpression)
+                    	    // 1053:57: -> ^( arrayDeclarator $primaryExpression)
                     	    {
-                    	        // ../etc/JamlAttrHash.g:1050:61: ^( arrayDeclarator $primaryExpression)
+                    	        // ../etc/JamlAttrHash.g:1053:61: ^( arrayDeclarator $primaryExpression)
                     	        {
                     	        CommonTree root_1 = (CommonTree)adaptor.nil();
                     	        root_1 = (CommonTree)adaptor.becomeRoot(stream_arrayDeclarator.nextNode(), root_1);
@@ -17527,10 +17530,10 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    DOT498=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14322); if (state.failed) return retval; 
+                    DOT498=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14323); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT498);
 
-                    CLASS499=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression14324); if (state.failed) return retval; 
+                    CLASS499=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression14325); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS499);
 
 
@@ -17547,9 +17550,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1052:57: -> ^( DOT $primaryExpression CLASS )
+                    // 1055:57: -> ^( DOT $primaryExpression CLASS )
                     {
-                        // ../etc/JamlAttrHash.g:1052:61: ^( DOT $primaryExpression CLASS )
+                        // ../etc/JamlAttrHash.g:1055:61: ^( DOT $primaryExpression CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17566,15 +17569,15 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 10 :
-                    // ../etc/JamlAttrHash.g:1053:9: VOID DOT CLASS
+                    // ../etc/JamlAttrHash.g:1056:9: VOID DOT CLASS
                     {
-                    VOID500=(Token)match(input,VOID,FOLLOW_VOID_in_primaryExpression14384); if (state.failed) return retval; 
+                    VOID500=(Token)match(input,VOID,FOLLOW_VOID_in_primaryExpression14385); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_VOID.add(VOID500);
 
-                    DOT501=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14386); if (state.failed) return retval; 
+                    DOT501=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression14387); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT501);
 
-                    CLASS502=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression14388); if (state.failed) return retval; 
+                    CLASS502=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression14389); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS502);
 
 
@@ -17591,9 +17594,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1053:57: -> ^( DOT VOID CLASS )
+                    // 1056:57: -> ^( DOT VOID CLASS )
                     {
-                        // ../etc/JamlAttrHash.g:1053:61: ^( DOT VOID CLASS )
+                        // ../etc/JamlAttrHash.g:1056:61: ^( DOT VOID CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17639,7 +17642,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "qualifiedIdentExpression"
-    // ../etc/JamlAttrHash.g:1056:1: qualifiedIdentExpression : ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? ;
+    // ../etc/JamlAttrHash.g:1059:1: qualifiedIdentExpression : ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? ;
     public final JamlAttrHashParser.qualifiedIdentExpression_return qualifiedIdentExpression() throws RecognitionException {
     traceIn("qualifiedIdentExpression", 112);
         JamlAttrHashParser.qualifiedIdentExpression_return retval = new JamlAttrHashParser.qualifiedIdentExpression_return();
@@ -17698,13 +17701,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_innerNewExpression=new RewriteRuleSubtreeStream(adaptor,"rule innerNewExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 112) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1058:5: ( ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? )
-            // ../etc/JamlAttrHash.g:1058:9: ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
+            // ../etc/JamlAttrHash.g:1061:5: ( ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? )
+            // ../etc/JamlAttrHash.g:1061:9: ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
             {
-            // ../etc/JamlAttrHash.g:1058:9: ( qualifiedIdentifier -> qualifiedIdentifier )
-            // ../etc/JamlAttrHash.g:1058:13: qualifiedIdentifier
+            // ../etc/JamlAttrHash.g:1061:9: ( qualifiedIdentifier -> qualifiedIdentifier )
+            // ../etc/JamlAttrHash.g:1061:13: qualifiedIdentifier
             {
-            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression14468);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression14469);
             qualifiedIdentifier503=qualifiedIdentifier();
 
             state._fsp--;
@@ -17724,7 +17727,7 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 1058:61: -> qualifiedIdentifier
+            // 1061:61: -> qualifiedIdentifier
             {
                 adaptor.addChild(root_0, stream_qualifiedIdentifier.nextTree());
 
@@ -17733,14 +17736,14 @@ import org.antlr.runtime.tree.*;
             retval.tree = root_0;}
             }
 
-            // ../etc/JamlAttrHash.g:1061:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
+            // ../etc/JamlAttrHash.g:1064:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
             int alt148=4;
             alt148 = dfa148.predict(input);
             switch (alt148) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1061:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
+                    // ../etc/JamlAttrHash.g:1064:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
                     {
-                    // ../etc/JamlAttrHash.g:1061:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+
+                    // ../etc/JamlAttrHash.g:1064:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+
                     int cnt145=0;
                     loop145:
                     do {
@@ -17754,9 +17757,9 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt145) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:1061:17: arrayDeclarator
+                    	    // ../etc/JamlAttrHash.g:1064:17: arrayDeclarator
                     	    {
-                    	    pushFollow(FOLLOW_arrayDeclarator_in_qualifiedIdentExpression14538);
+                    	    pushFollow(FOLLOW_arrayDeclarator_in_qualifiedIdentExpression14539);
                     	    arrayDeclarator504=arrayDeclarator();
 
                     	    state._fsp--;
@@ -17776,9 +17779,9 @@ import org.antlr.runtime.tree.*;
                     	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     	    root_0 = (CommonTree)adaptor.nil();
-                    	    // 1061:57: -> ^( arrayDeclarator $qualifiedIdentExpression)
+                    	    // 1064:57: -> ^( arrayDeclarator $qualifiedIdentExpression)
                     	    {
-                    	        // ../etc/JamlAttrHash.g:1061:61: ^( arrayDeclarator $qualifiedIdentExpression)
+                    	        // ../etc/JamlAttrHash.g:1064:61: ^( arrayDeclarator $qualifiedIdentExpression)
                     	        {
                     	        CommonTree root_1 = (CommonTree)adaptor.nil();
                     	        root_1 = (CommonTree)adaptor.becomeRoot(stream_arrayDeclarator.nextNode(), root_1);
@@ -17804,13 +17807,13 @@ import org.antlr.runtime.tree.*;
                         cnt145++;
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:1063:13: ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
-                    // ../etc/JamlAttrHash.g:1063:17: DOT CLASS
+                    // ../etc/JamlAttrHash.g:1066:13: ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
+                    // ../etc/JamlAttrHash.g:1066:17: DOT CLASS
                     {
-                    DOT505=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14606); if (state.failed) return retval; 
+                    DOT505=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14607); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT505);
 
-                    CLASS506=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14608); if (state.failed) return retval; 
+                    CLASS506=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14609); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS506);
 
 
@@ -17827,9 +17830,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1063:57: -> ^( DOT $qualifiedIdentExpression CLASS )
+                    // 1066:57: -> ^( DOT $qualifiedIdentExpression CLASS )
                     {
-                        // ../etc/JamlAttrHash.g:1063:61: ^( DOT $qualifiedIdentExpression CLASS )
+                        // ../etc/JamlAttrHash.g:1066:61: ^( DOT $qualifiedIdentExpression CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17849,9 +17852,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1065:13: arguments
+                    // ../etc/JamlAttrHash.g:1068:13: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14678);
+                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14679);
                     arguments507=arguments();
 
                     state._fsp--;
@@ -17871,9 +17874,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1065:57: -> ^( METHOD_CALL qualifiedIdentifier arguments )
+                    // 1068:57: -> ^( METHOD_CALL qualifiedIdentifier arguments )
                     {
-                        // ../etc/JamlAttrHash.g:1065:61: ^( METHOD_CALL qualifiedIdentifier arguments )
+                        // ../etc/JamlAttrHash.g:1068:61: ^( METHOD_CALL qualifiedIdentifier arguments )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -17890,12 +17893,12 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:1066:13: outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
+                    // ../etc/JamlAttrHash.g:1069:13: outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
                     {
-                    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14739); if (state.failed) return retval; 
+                    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14740); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(outerDot);
 
-                    // ../etc/JamlAttrHash.g:1067:13: ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
+                    // ../etc/JamlAttrHash.g:1070:13: ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
                     int alt147=5;
                     switch ( input.LA(1) ) {
                     case CLASS:
@@ -17933,9 +17936,9 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt147) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1067:17: CLASS
+                            // ../etc/JamlAttrHash.g:1070:17: CLASS
                             {
-                            CLASS508=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14757); if (state.failed) return retval; 
+                            CLASS508=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression14758); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_CLASS.add(CLASS508);
 
 
@@ -17952,9 +17955,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1067:57: -> ^( DOT qualifiedIdentifier CLASS )
+                            // 1070:57: -> ^( DOT qualifiedIdentifier CLASS )
                             {
-                                // ../etc/JamlAttrHash.g:1067:61: ^( DOT qualifiedIdentifier CLASS )
+                                // ../etc/JamlAttrHash.g:1070:61: ^( DOT qualifiedIdentifier CLASS )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -17971,15 +17974,15 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1068:17: genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
+                            // ../etc/JamlAttrHash.g:1071:17: genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14820);
+                            pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14821);
                             genericTypeArgumentListSimplified509=genericTypeArgumentListSimplified();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_genericTypeArgumentListSimplified.add(genericTypeArgumentListSimplified509.getTree());
-                            // ../etc/JamlAttrHash.g:1069:17: (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
+                            // ../etc/JamlAttrHash.g:1072:17: (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) )
                             int alt146=3;
                             int LA146_0 = input.LA(1);
 
@@ -18012,12 +18015,12 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt146) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:1069:21: Super= SUPER arguments
+                                    // ../etc/JamlAttrHash.g:1072:21: Super= SUPER arguments
                                     {
-                                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14845); if (state.failed) return retval; 
+                                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14846); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14847);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14848);
                                     arguments510=arguments();
 
                                     state._fsp--;
@@ -18037,9 +18040,9 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 1069:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments )
+                                    // 1072:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:1069:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:1072:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -18057,18 +18060,18 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:1070:21: SUPER innerDot= DOT IDENT arguments
+                                    // ../etc/JamlAttrHash.g:1073:21: SUPER innerDot= DOT IDENT arguments
                                     {
-                                    SUPER511=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14897); if (state.failed) return retval; 
+                                    SUPER511=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression14898); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER511);
 
-                                    innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14901); if (state.failed) return retval; 
+                                    innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression14902); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_DOT.add(innerDot);
 
-                                    IDENT512=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14903); if (state.failed) return retval; 
+                                    IDENT512=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14904); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT512);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14905);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14906);
                                     arguments513=arguments();
 
                                     state._fsp--;
@@ -18090,19 +18093,19 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 1070:57: -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments )
+                                    // 1073:57: -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:1070:61: ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:1073:61: ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // ../etc/JamlAttrHash.g:1070:75: ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT )
+                                        // ../etc/JamlAttrHash.g:1073:75: ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_innerDot.nextNode(), root_2);
 
-                                        // ../etc/JamlAttrHash.g:1070:87: ^( $outerDot qualifiedIdentifier SUPER )
+                                        // ../etc/JamlAttrHash.g:1073:87: ^( $outerDot qualifiedIdentifier SUPER )
                                         {
                                         CommonTree root_3 = (CommonTree)adaptor.nil();
                                         root_3 = (CommonTree)adaptor.becomeRoot(stream_outerDot.nextNode(), root_3);
@@ -18128,12 +18131,12 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 3 :
-                                    // ../etc/JamlAttrHash.g:1071:21: IDENT arguments
+                                    // ../etc/JamlAttrHash.g:1074:21: IDENT arguments
                                     {
-                                    IDENT514=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14955); if (state.failed) return retval; 
+                                    IDENT514=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression14956); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT514);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14957);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression14958);
                                     arguments515=arguments();
 
                                     state._fsp--;
@@ -18153,14 +18156,14 @@ import org.antlr.runtime.tree.*;
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 1071:57: -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments )
+                                    // 1074:57: -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments )
                                     {
-                                        // ../etc/JamlAttrHash.g:1071:61: ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments )
+                                        // ../etc/JamlAttrHash.g:1074:61: ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // ../etc/JamlAttrHash.g:1071:75: ^( DOT qualifiedIdentifier IDENT )
+                                        // ../etc/JamlAttrHash.g:1074:75: ^( DOT qualifiedIdentifier IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -18188,9 +18191,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:1073:17: THIS
+                            // ../etc/JamlAttrHash.g:1076:17: THIS
                             {
-                            THIS516=(Token)match(input,THIS,FOLLOW_THIS_in_qualifiedIdentExpression15032); if (state.failed) return retval; 
+                            THIS516=(Token)match(input,THIS,FOLLOW_THIS_in_qualifiedIdentExpression15033); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_THIS.add(THIS516);
 
 
@@ -18207,9 +18210,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1073:57: -> ^( DOT qualifiedIdentifier THIS )
+                            // 1076:57: -> ^( DOT qualifiedIdentifier THIS )
                             {
-                                // ../etc/JamlAttrHash.g:1073:61: ^( DOT qualifiedIdentifier THIS )
+                                // ../etc/JamlAttrHash.g:1076:61: ^( DOT qualifiedIdentifier THIS )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -18226,12 +18229,12 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 4 :
-                            // ../etc/JamlAttrHash.g:1074:17: Super= SUPER arguments
+                            // ../etc/JamlAttrHash.g:1077:17: Super= SUPER arguments
                             {
-                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression15098); if (state.failed) return retval; 
+                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression15099); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-                            pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression15100);
+                            pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression15101);
                             arguments517=arguments();
 
                             state._fsp--;
@@ -18251,9 +18254,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1074:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
+                            // 1077:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
                             {
-                                // ../etc/JamlAttrHash.g:1074:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
+                                // ../etc/JamlAttrHash.g:1077:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -18270,9 +18273,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 5 :
-                            // ../etc/JamlAttrHash.g:1075:17: innerNewExpression
+                            // ../etc/JamlAttrHash.g:1078:17: innerNewExpression
                             {
-                            pushFollow(FOLLOW_innerNewExpression_in_qualifiedIdentExpression15148);
+                            pushFollow(FOLLOW_innerNewExpression_in_qualifiedIdentExpression15149);
                             innerNewExpression518=innerNewExpression();
 
                             state._fsp--;
@@ -18292,9 +18295,9 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1075:57: -> ^( DOT qualifiedIdentifier innerNewExpression )
+                            // 1078:57: -> ^( DOT qualifiedIdentifier innerNewExpression )
                             {
-                                // ../etc/JamlAttrHash.g:1075:61: ^( DOT qualifiedIdentifier innerNewExpression )
+                                // ../etc/JamlAttrHash.g:1078:61: ^( DOT qualifiedIdentifier innerNewExpression )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -18350,7 +18353,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "newExpression"
-    // ../etc/JamlAttrHash.g:1080:1: newExpression : NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) ;
+    // ../etc/JamlAttrHash.g:1083:1: newExpression : NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) ;
     public final JamlAttrHashParser.newExpression_return newExpression() throws RecognitionException {
     traceIn("newExpression", 113);
         JamlAttrHashParser.newExpression_return retval = new JamlAttrHashParser.newExpression_return();
@@ -18384,13 +18387,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeArgumentListSimplified=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeArgumentListSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 113) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1081:5: ( NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) )
-            // ../etc/JamlAttrHash.g:1081:9: NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
+            // ../etc/JamlAttrHash.g:1084:5: ( NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) )
+            // ../etc/JamlAttrHash.g:1084:9: NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
             {
-            NEW519=(Token)match(input,NEW,FOLLOW_NEW_in_newExpression15224); if (state.failed) return retval; 
+            NEW519=(Token)match(input,NEW,FOLLOW_NEW_in_newExpression15225); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_NEW.add(NEW519);
 
-            // ../etc/JamlAttrHash.g:1082:9: ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
+            // ../etc/JamlAttrHash.g:1085:9: ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
             int alt152=2;
             int LA152_0 = input.LA(1);
 
@@ -18409,15 +18412,15 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt152) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1082:13: primitiveType newArrayConstruction
+                    // ../etc/JamlAttrHash.g:1085:13: primitiveType newArrayConstruction
                     {
-                    pushFollow(FOLLOW_primitiveType_in_newExpression15240);
+                    pushFollow(FOLLOW_primitiveType_in_newExpression15241);
                     primitiveType520=primitiveType();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_primitiveType.add(primitiveType520.getTree());
-                    pushFollow(FOLLOW_newArrayConstruction_in_newExpression15242);
+                    pushFollow(FOLLOW_newArrayConstruction_in_newExpression15243);
                     newArrayConstruction521=newArrayConstruction();
 
                     state._fsp--;
@@ -18437,9 +18440,9 @@ import org.antlr.runtime.tree.*;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 1083:13: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
+                    // 1086:13: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
                     {
-                        // ../etc/JamlAttrHash.g:1083:17: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
+                        // ../etc/JamlAttrHash.g:1086:17: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(STATIC_ARRAY_CREATOR, NEW519, "STATIC_ARRAY_CREATOR"), root_1);
@@ -18456,9 +18459,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1084:13: ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) )
+                    // ../etc/JamlAttrHash.g:1087:13: ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) )
                     {
-                    // ../etc/JamlAttrHash.g:1084:13: ( genericTypeArgumentListSimplified )?
+                    // ../etc/JamlAttrHash.g:1087:13: ( genericTypeArgumentListSimplified )?
                     int alt149=2;
                     int LA149_0 = input.LA(1);
 
@@ -18469,7 +18472,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentListSimplified
                             {
-                            pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_newExpression15286);
+                            pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_newExpression15287);
                             genericTypeArgumentListSimplified522=genericTypeArgumentListSimplified();
 
                             state._fsp--;
@@ -18481,13 +18484,13 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_newExpression15289);
+                    pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_newExpression15290);
                     qualifiedTypeIdentSimplified523=qualifiedTypeIdentSimplified();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_qualifiedTypeIdentSimplified.add(qualifiedTypeIdentSimplified523.getTree());
-                    // ../etc/JamlAttrHash.g:1085:13: ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) )
+                    // ../etc/JamlAttrHash.g:1088:13: ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) )
                     int alt151=2;
                     int LA151_0 = input.LA(1);
 
@@ -18506,9 +18509,9 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt151) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1085:17: newArrayConstruction
+                            // ../etc/JamlAttrHash.g:1088:17: newArrayConstruction
                             {
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression15307);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression15308);
                             newArrayConstruction524=newArrayConstruction();
 
                             state._fsp--;
@@ -18528,14 +18531,14 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1086:17: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction )
+                            // 1089:17: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction )
                             {
-                                // ../etc/JamlAttrHash.g:1086:21: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction )
+                                // ../etc/JamlAttrHash.g:1089:21: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(STATIC_ARRAY_CREATOR, NEW519, "STATIC_ARRAY_CREATOR"), root_1);
 
-                                // ../etc/JamlAttrHash.g:1086:74: ( genericTypeArgumentListSimplified )?
+                                // ../etc/JamlAttrHash.g:1089:74: ( genericTypeArgumentListSimplified )?
                                 if ( stream_genericTypeArgumentListSimplified.hasNext() ) {
                                     adaptor.addChild(root_1, stream_genericTypeArgumentListSimplified.nextTree());
 
@@ -18553,15 +18556,15 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1087:17: arguments ( classBody )?
+                            // ../etc/JamlAttrHash.g:1090:17: arguments ( classBody )?
                             {
-                            pushFollow(FOLLOW_arguments_in_newExpression15372);
+                            pushFollow(FOLLOW_arguments_in_newExpression15373);
                             arguments525=arguments();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_arguments.add(arguments525.getTree());
-                            // ../etc/JamlAttrHash.g:1087:27: ( classBody )?
+                            // ../etc/JamlAttrHash.g:1090:27: ( classBody )?
                             int alt150=2;
                             int LA150_0 = input.LA(1);
 
@@ -18572,7 +18575,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: classBody
                                     {
-                                    pushFollow(FOLLOW_classBody_in_newExpression15374);
+                                    pushFollow(FOLLOW_classBody_in_newExpression15375);
                                     classBody526=classBody();
 
                                     state._fsp--;
@@ -18598,14 +18601,14 @@ import org.antlr.runtime.tree.*;
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 1088:17: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? )
+                            // 1091:17: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? )
                             {
-                                // ../etc/JamlAttrHash.g:1088:21: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? )
+                                // ../etc/JamlAttrHash.g:1091:21: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_CONSTRUCTOR_CALL, NEW519, "STATIC_ARRAY_CREATOR"), root_1);
 
-                                // ../etc/JamlAttrHash.g:1088:76: ( genericTypeArgumentListSimplified )?
+                                // ../etc/JamlAttrHash.g:1091:76: ( genericTypeArgumentListSimplified )?
                                 if ( stream_genericTypeArgumentListSimplified.hasNext() ) {
                                     adaptor.addChild(root_1, stream_genericTypeArgumentListSimplified.nextTree());
 
@@ -18613,7 +18616,7 @@ import org.antlr.runtime.tree.*;
                                 stream_genericTypeArgumentListSimplified.reset();
                                 adaptor.addChild(root_1, stream_qualifiedTypeIdentSimplified.nextTree());
                                 adaptor.addChild(root_1, stream_arguments.nextTree());
-                                // ../etc/JamlAttrHash.g:1088:150: ( classBody )?
+                                // ../etc/JamlAttrHash.g:1091:150: ( classBody )?
                                 if ( stream_classBody.hasNext() ) {
                                     adaptor.addChild(root_1, stream_classBody.nextTree());
 
@@ -18668,7 +18671,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "innerNewExpression"
-    // ../etc/JamlAttrHash.g:1093:1: innerNewExpression : NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) ;
+    // ../etc/JamlAttrHash.g:1096:1: innerNewExpression : NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) ;
     public final JamlAttrHashParser.innerNewExpression_return innerNewExpression() throws RecognitionException {
     traceIn("innerNewExpression", 114);
         JamlAttrHashParser.innerNewExpression_return retval = new JamlAttrHashParser.innerNewExpression_return();
@@ -18694,13 +18697,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_genericTypeArgumentListSimplified=new RewriteRuleSubtreeStream(adaptor,"rule genericTypeArgumentListSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 114) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1094:5: ( NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) )
-            // ../etc/JamlAttrHash.g:1094:9: NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )?
+            // ../etc/JamlAttrHash.g:1097:5: ( NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) )
+            // ../etc/JamlAttrHash.g:1097:9: NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )?
             {
-            NEW527=(Token)match(input,NEW,FOLLOW_NEW_in_innerNewExpression15473); if (state.failed) return retval; 
+            NEW527=(Token)match(input,NEW,FOLLOW_NEW_in_innerNewExpression15474); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_NEW.add(NEW527);
 
-            // ../etc/JamlAttrHash.g:1094:13: ( genericTypeArgumentListSimplified )?
+            // ../etc/JamlAttrHash.g:1097:13: ( genericTypeArgumentListSimplified )?
             int alt153=2;
             int LA153_0 = input.LA(1);
 
@@ -18711,7 +18714,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeArgumentListSimplified
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_innerNewExpression15475);
+                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_innerNewExpression15476);
                     genericTypeArgumentListSimplified528=genericTypeArgumentListSimplified();
 
                     state._fsp--;
@@ -18723,16 +18726,16 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            IDENT529=(Token)match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression15478); if (state.failed) return retval; 
+            IDENT529=(Token)match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression15479); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT529);
 
-            pushFollow(FOLLOW_arguments_in_innerNewExpression15480);
+            pushFollow(FOLLOW_arguments_in_innerNewExpression15481);
             arguments530=arguments();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_arguments.add(arguments530.getTree());
-            // ../etc/JamlAttrHash.g:1094:64: ( classBody )?
+            // ../etc/JamlAttrHash.g:1097:64: ( classBody )?
             int alt154=2;
             int LA154_0 = input.LA(1);
 
@@ -18743,7 +18746,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: classBody
                     {
-                    pushFollow(FOLLOW_classBody_in_innerNewExpression15482);
+                    pushFollow(FOLLOW_classBody_in_innerNewExpression15483);
                     classBody531=classBody();
 
                     state._fsp--;
@@ -18769,14 +18772,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 1095:9: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? )
+            // 1098:9: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? )
             {
-                // ../etc/JamlAttrHash.g:1095:13: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? )
+                // ../etc/JamlAttrHash.g:1098:13: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_CONSTRUCTOR_CALL, NEW527, "STATIC_ARRAY_CREATOR"), root_1);
 
-                // ../etc/JamlAttrHash.g:1095:68: ( genericTypeArgumentListSimplified )?
+                // ../etc/JamlAttrHash.g:1098:68: ( genericTypeArgumentListSimplified )?
                 if ( stream_genericTypeArgumentListSimplified.hasNext() ) {
                     adaptor.addChild(root_1, stream_genericTypeArgumentListSimplified.nextTree());
 
@@ -18784,7 +18787,7 @@ import org.antlr.runtime.tree.*;
                 stream_genericTypeArgumentListSimplified.reset();
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
                 adaptor.addChild(root_1, stream_arguments.nextTree());
-                // ../etc/JamlAttrHash.g:1095:119: ( classBody )?
+                // ../etc/JamlAttrHash.g:1098:119: ( classBody )?
                 if ( stream_classBody.hasNext() ) {
                     adaptor.addChild(root_1, stream_classBody.nextTree());
 
@@ -18827,7 +18830,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "newArrayConstruction"
-    // ../etc/JamlAttrHash.g:1098:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? );
+    // ../etc/JamlAttrHash.g:1101:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? );
     public final JamlAttrHashParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
     traceIn("newArrayConstruction", 115);
         JamlAttrHashParser.newArrayConstruction_return retval = new JamlAttrHashParser.newArrayConstruction_return();
@@ -18857,7 +18860,7 @@ import org.antlr.runtime.tree.*;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 115) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1099:5: ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? )
+            // ../etc/JamlAttrHash.g:1102:5: ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? )
             int alt157=2;
             int LA157_0 = input.LA(1);
 
@@ -18887,17 +18890,17 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt157) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1099:9: arrayDeclaratorList arrayInitializer
+                    // ../etc/JamlAttrHash.g:1102:9: arrayDeclaratorList arrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction15528);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction15529);
                     arrayDeclaratorList532=arrayDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, arrayDeclaratorList532.getTree());
-                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction15530);
+                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction15531);
                     arrayInitializer533=arrayInitializer();
 
                     state._fsp--;
@@ -18907,35 +18910,35 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1100:9: LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )?
+                    // ../etc/JamlAttrHash.g:1103:9: LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    LBRACK534=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction15540); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_newArrayConstruction15543);
+                    LBRACK534=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction15541); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expression_in_newArrayConstruction15544);
                     expression535=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expression535.getTree());
-                    RBRACK536=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction15545); if (state.failed) return retval;
-                    // ../etc/JamlAttrHash.g:1100:36: ( LBRACK expression RBRACK )*
+                    RBRACK536=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction15546); if (state.failed) return retval;
+                    // ../etc/JamlAttrHash.g:1103:36: ( LBRACK expression RBRACK )*
                     loop155:
                     do {
                         int alt155=2;
                         alt155 = dfa155.predict(input);
                         switch (alt155) {
                     	case 1 :
-                    	    // ../etc/JamlAttrHash.g:1100:37: LBRACK expression RBRACK
+                    	    // ../etc/JamlAttrHash.g:1103:37: LBRACK expression RBRACK
                     	    {
-                    	    LBRACK537=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction15549); if (state.failed) return retval;
-                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction15552);
+                    	    LBRACK537=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction15550); if (state.failed) return retval;
+                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction15553);
                     	    expression538=expression();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) adaptor.addChild(root_0, expression538.getTree());
-                    	    RBRACK539=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction15554); if (state.failed) return retval;
+                    	    RBRACK539=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction15555); if (state.failed) return retval;
 
                     	    }
                     	    break;
@@ -18945,7 +18948,7 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    // ../etc/JamlAttrHash.g:1100:66: ( arrayDeclaratorList )?
+                    // ../etc/JamlAttrHash.g:1103:66: ( arrayDeclaratorList )?
                     int alt156=2;
                     int LA156_0 = input.LA(1);
 
@@ -18960,7 +18963,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction15559);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction15560);
                             arrayDeclaratorList540=arrayDeclaratorList();
 
                             state._fsp--;
@@ -19005,7 +19008,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "arguments"
-    // ../etc/JamlAttrHash.g:1103:1: arguments : LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) ;
+    // ../etc/JamlAttrHash.g:1106:1: arguments : LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) ;
     public final JamlAttrHashParser.arguments_return arguments() throws RecognitionException {
     traceIn("arguments", 116);
         JamlAttrHashParser.arguments_return retval = new JamlAttrHashParser.arguments_return();
@@ -19025,13 +19028,13 @@ import org.antlr.runtime.tree.*;
         RewriteRuleSubtreeStream stream_expressionList=new RewriteRuleSubtreeStream(adaptor,"rule expressionList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 116) ) { return retval; }
-            // ../etc/JamlAttrHash.g:1104:5: ( LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) )
-            // ../etc/JamlAttrHash.g:1104:9: LPAREN ( expressionList )? RPAREN
+            // ../etc/JamlAttrHash.g:1107:5: ( LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) )
+            // ../etc/JamlAttrHash.g:1107:9: LPAREN ( expressionList )? RPAREN
             {
-            LPAREN541=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_arguments15579); if (state.failed) return retval; 
+            LPAREN541=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_arguments15580); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN541);
 
-            // ../etc/JamlAttrHash.g:1104:16: ( expressionList )?
+            // ../etc/JamlAttrHash.g:1107:16: ( expressionList )?
             int alt158=2;
             int LA158_0 = input.LA(1);
 
@@ -19042,7 +19045,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_arguments15581);
+                    pushFollow(FOLLOW_expressionList_in_arguments15582);
                     expressionList542=expressionList();
 
                     state._fsp--;
@@ -19054,7 +19057,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            RPAREN543=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_arguments15584); if (state.failed) return retval; 
+            RPAREN543=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_arguments15585); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN543);
 
 
@@ -19071,14 +19074,14 @@ import org.antlr.runtime.tree.*;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 1105:9: -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
+            // 1108:9: -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
             {
-                // ../etc/JamlAttrHash.g:1105:13: ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
+                // ../etc/JamlAttrHash.g:1108:13: ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARGUMENT_LIST, LPAREN541, "ARGUMENT_LIST"), root_1);
 
-                // ../etc/JamlAttrHash.g:1105:55: ( expressionList )?
+                // ../etc/JamlAttrHash.g:1108:55: ( expressionList )?
                 if ( stream_expressionList.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressionList.nextTree());
 
@@ -19119,7 +19122,7 @@ import org.antlr.runtime.tree.*;
     public final void synpred5_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred5_JamlAttrHash_fragment", 121);
         try {
-            // ../etc/JamlAttrHash.g:297:1: ( literal ',' | literal EOF )
+            // ../etc/JamlAttrHash.g:300:1: ( literal ',' | literal EOF )
             int alt160=2;
             switch ( input.LA(1) ) {
             case HEX_LITERAL:
@@ -19231,26 +19234,26 @@ import org.antlr.runtime.tree.*;
 
             switch (alt160) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:297:2: literal ','
+                    // ../etc/JamlAttrHash.g:300:2: literal ','
                     {
-                    pushFollow(FOLLOW_literal_in_synpred5_JamlAttrHash4620);
+                    pushFollow(FOLLOW_literal_in_synpred5_JamlAttrHash4621);
                     literal();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,COMMA,FOLLOW_COMMA_in_synpred5_JamlAttrHash4622); if (state.failed) return ;
+                    match(input,COMMA,FOLLOW_COMMA_in_synpred5_JamlAttrHash4623); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:297:16: literal EOF
+                    // ../etc/JamlAttrHash.g:300:16: literal EOF
                     {
-                    pushFollow(FOLLOW_literal_in_synpred5_JamlAttrHash4626);
+                    pushFollow(FOLLOW_literal_in_synpred5_JamlAttrHash4627);
                     literal();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,EOF,FOLLOW_EOF_in_synpred5_JamlAttrHash4628); if (state.failed) return ;
+                    match(input,EOF,FOLLOW_EOF_in_synpred5_JamlAttrHash4629); if (state.failed) return ;
 
                     }
                     break;
@@ -19266,10 +19269,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred77_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred77_JamlAttrHash_fragment", 193);
         try {
-            // ../etc/JamlAttrHash.g:426:9: ( GREATER_THAN )
-            // ../etc/JamlAttrHash.g:426:9: GREATER_THAN
+            // ../etc/JamlAttrHash.g:429:9: ( GREATER_THAN )
+            // ../etc/JamlAttrHash.g:429:9: GREATER_THAN
             {
-            match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_synpred77_JamlAttrHash5967); if (state.failed) return ;
+            match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_synpred77_JamlAttrHash5968); if (state.failed) return ;
 
             }
 
@@ -19283,10 +19286,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred78_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred78_JamlAttrHash_fragment", 194);
         try {
-            // ../etc/JamlAttrHash.g:427:9: ( SHIFT_RIGHT )
-            // ../etc/JamlAttrHash.g:427:9: SHIFT_RIGHT
+            // ../etc/JamlAttrHash.g:430:9: ( SHIFT_RIGHT )
+            // ../etc/JamlAttrHash.g:430:9: SHIFT_RIGHT
             {
-            match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_synpred78_JamlAttrHash5977); if (state.failed) return ;
+            match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_synpred78_JamlAttrHash5978); if (state.failed) return ;
 
             }
 
@@ -19300,10 +19303,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred79_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred79_JamlAttrHash_fragment", 195);
         try {
-            // ../etc/JamlAttrHash.g:428:9: ( BIT_SHIFT_RIGHT )
-            // ../etc/JamlAttrHash.g:428:9: BIT_SHIFT_RIGHT
+            // ../etc/JamlAttrHash.g:431:9: ( BIT_SHIFT_RIGHT )
+            // ../etc/JamlAttrHash.g:431:9: BIT_SHIFT_RIGHT
             {
-            match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_synpred79_JamlAttrHash5987); if (state.failed) return ;
+            match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_synpred79_JamlAttrHash5988); if (state.failed) return ;
 
             }
 
@@ -19317,10 +19320,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred80_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred80_JamlAttrHash_fragment", 196);
         try {
-            // ../etc/JamlAttrHash.g:433:15: ( bound )
-            // ../etc/JamlAttrHash.g:433:15: bound
+            // ../etc/JamlAttrHash.g:436:15: ( bound )
+            // ../etc/JamlAttrHash.g:436:15: bound
             {
-            pushFollow(FOLLOW_bound_in_synpred80_JamlAttrHash6017);
+            pushFollow(FOLLOW_bound_in_synpred80_JamlAttrHash6018);
             bound();
 
             state._fsp--;
@@ -19338,11 +19341,11 @@ import org.antlr.runtime.tree.*;
     public final void synpred95_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred95_JamlAttrHash_fragment", 211);
         try {
-            // ../etc/JamlAttrHash.g:490:9: ( STATIC block )
-            // ../etc/JamlAttrHash.g:490:9: STATIC block
+            // ../etc/JamlAttrHash.g:493:9: ( STATIC block )
+            // ../etc/JamlAttrHash.g:493:9: STATIC block
             {
-            match(input,STATIC,FOLLOW_STATIC_in_synpred95_JamlAttrHash6549); if (state.failed) return ;
-            pushFollow(FOLLOW_block_in_synpred95_JamlAttrHash6551);
+            match(input,STATIC,FOLLOW_STATIC_in_synpred95_JamlAttrHash6550); if (state.failed) return ;
+            pushFollow(FOLLOW_block_in_synpred95_JamlAttrHash6552);
             block();
 
             state._fsp--;
@@ -19362,10 +19365,10 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred105_JamlAttrHash_fragment", 221);
         try {
-            // ../etc/JamlAttrHash.g:492:13: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) )
-            // ../etc/JamlAttrHash.g:492:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
+            // ../etc/JamlAttrHash.g:495:13: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) )
+            // ../etc/JamlAttrHash.g:495:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
             {
-            // ../etc/JamlAttrHash.g:492:13: ( genericTypeParameterList )?
+            // ../etc/JamlAttrHash.g:495:13: ( genericTypeParameterList )?
             int alt166=2;
             int LA166_0 = input.LA(1);
 
@@ -19376,7 +19379,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                     {
-                    pushFollow(FOLLOW_genericTypeParameterList_in_synpred105_JamlAttrHash6588);
+                    pushFollow(FOLLOW_genericTypeParameterList_in_synpred105_JamlAttrHash6589);
                     genericTypeParameterList();
 
                     state._fsp--;
@@ -19387,7 +19390,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:493:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
+            // ../etc/JamlAttrHash.g:496:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
             int alt173=3;
             switch ( input.LA(1) ) {
             case BOOLEAN:
@@ -19436,20 +19439,20 @@ import org.antlr.runtime.tree.*;
 
             switch (alt173) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:493:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
+                    // ../etc/JamlAttrHash.g:496:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                     {
-                    pushFollow(FOLLOW_type_in_synpred105_JamlAttrHash6607);
+                    pushFollow(FOLLOW_type_in_synpred105_JamlAttrHash6608);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6609); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6611);
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6610); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6612);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:493:48: ( arrayDeclaratorList )?
+                    // ../etc/JamlAttrHash.g:496:48: ( arrayDeclaratorList )?
                     int alt167=2;
                     int LA167_0 = input.LA(1);
 
@@ -19460,7 +19463,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred105_JamlAttrHash6613);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred105_JamlAttrHash6614);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -19471,7 +19474,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:493:69: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:496:69: ( throwsClause )?
                     int alt168=2;
                     int LA168_0 = input.LA(1);
 
@@ -19482,7 +19485,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6616);
+                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6617);
                             throwsClause();
 
                             state._fsp--;
@@ -19493,7 +19496,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:493:83: ( block | SEMI )
+                    // ../etc/JamlAttrHash.g:496:83: ( block | SEMI )
                     int alt169=2;
                     int LA169_0 = input.LA(1);
 
@@ -19512,9 +19515,9 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt169) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:493:84: block
+                            // ../etc/JamlAttrHash.g:496:84: block
                             {
-                            pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6620);
+                            pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6621);
                             block();
 
                             state._fsp--;
@@ -19523,9 +19526,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:493:92: SEMI
+                            // ../etc/JamlAttrHash.g:496:92: SEMI
                             {
-                            match(input,SEMI,FOLLOW_SEMI_in_synpred105_JamlAttrHash6624); if (state.failed) return ;
+                            match(input,SEMI,FOLLOW_SEMI_in_synpred105_JamlAttrHash6625); if (state.failed) return ;
 
                             }
                             break;
@@ -19536,16 +19539,16 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:495:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
+                    // ../etc/JamlAttrHash.g:498:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                     {
-                    match(input,VOID,FOLLOW_VOID_in_synpred105_JamlAttrHash6686); if (state.failed) return ;
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6688); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6690);
+                    match(input,VOID,FOLLOW_VOID_in_synpred105_JamlAttrHash6687); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6689); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6691);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:495:48: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:498:48: ( throwsClause )?
                     int alt170=2;
                     int LA170_0 = input.LA(1);
 
@@ -19556,7 +19559,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6692);
+                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6693);
                             throwsClause();
 
                             state._fsp--;
@@ -19567,7 +19570,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:495:62: ( block | SEMI )
+                    // ../etc/JamlAttrHash.g:498:62: ( block | SEMI )
                     int alt171=2;
                     int LA171_0 = input.LA(1);
 
@@ -19586,9 +19589,9 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt171) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:495:63: block
+                            // ../etc/JamlAttrHash.g:498:63: block
                             {
-                            pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6696);
+                            pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6697);
                             block();
 
                             state._fsp--;
@@ -19597,9 +19600,9 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:495:71: SEMI
+                            // ../etc/JamlAttrHash.g:498:71: SEMI
                             {
-                            match(input,SEMI,FOLLOW_SEMI_in_synpred105_JamlAttrHash6700); if (state.failed) return ;
+                            match(input,SEMI,FOLLOW_SEMI_in_synpred105_JamlAttrHash6701); if (state.failed) return ;
 
                             }
                             break;
@@ -19610,15 +19613,15 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:497:17: ident= IDENT formalParameterList ( throwsClause )? block
+                    // ../etc/JamlAttrHash.g:500:17: ident= IDENT formalParameterList ( throwsClause )? block
                     {
-                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6759); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6761);
+                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred105_JamlAttrHash6760); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6762);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:497:49: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:500:49: ( throwsClause )?
                     int alt172=2;
                     int LA172_0 = input.LA(1);
 
@@ -19629,7 +19632,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6763);
+                            pushFollow(FOLLOW_throwsClause_in_synpred105_JamlAttrHash6764);
                             throwsClause();
 
                             state._fsp--;
@@ -19640,7 +19643,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6766);
+                    pushFollow(FOLLOW_block_in_synpred105_JamlAttrHash6767);
                     block();
 
                     state._fsp--;
@@ -19666,15 +19669,15 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred106_JamlAttrHash_fragment", 222);
         try {
-            // ../etc/JamlAttrHash.g:491:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI ) )
-            // ../etc/JamlAttrHash.g:491:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:494:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI ) )
+            // ../etc/JamlAttrHash.g:494:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
             {
-            pushFollow(FOLLOW_modifierList_in_synpred106_JamlAttrHash6574);
+            pushFollow(FOLLOW_modifierList_in_synpred106_JamlAttrHash6575);
             modifierList();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:492:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:495:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block ) | type classFieldDeclaratorList SEMI )
             int alt182=2;
             switch ( input.LA(1) ) {
             case LESS_THAN:
@@ -19738,9 +19741,9 @@ import org.antlr.runtime.tree.*;
 
             switch (alt182) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:492:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
+                    // ../etc/JamlAttrHash.g:495:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
                     {
-                    // ../etc/JamlAttrHash.g:492:13: ( genericTypeParameterList )?
+                    // ../etc/JamlAttrHash.g:495:13: ( genericTypeParameterList )?
                     int alt174=2;
                     int LA174_0 = input.LA(1);
 
@@ -19751,7 +19754,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_synpred106_JamlAttrHash6588);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_synpred106_JamlAttrHash6589);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -19762,7 +19765,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:493:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
+                    // ../etc/JamlAttrHash.g:496:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) | ident= IDENT formalParameterList ( throwsClause )? block )
                     int alt181=3;
                     switch ( input.LA(1) ) {
                     case BOOLEAN:
@@ -19811,20 +19814,20 @@ import org.antlr.runtime.tree.*;
 
                     switch (alt181) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:493:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
+                            // ../etc/JamlAttrHash.g:496:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI )
                             {
-                            pushFollow(FOLLOW_type_in_synpred106_JamlAttrHash6607);
+                            pushFollow(FOLLOW_type_in_synpred106_JamlAttrHash6608);
                             type();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6609); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6611);
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6610); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6612);
                             formalParameterList();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:493:48: ( arrayDeclaratorList )?
+                            // ../etc/JamlAttrHash.g:496:48: ( arrayDeclaratorList )?
                             int alt175=2;
                             int LA175_0 = input.LA(1);
 
@@ -19835,7 +19838,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                                     {
-                                    pushFollow(FOLLOW_arrayDeclaratorList_in_synpred106_JamlAttrHash6613);
+                                    pushFollow(FOLLOW_arrayDeclaratorList_in_synpred106_JamlAttrHash6614);
                                     arrayDeclaratorList();
 
                                     state._fsp--;
@@ -19846,7 +19849,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:493:69: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:496:69: ( throwsClause )?
                             int alt176=2;
                             int LA176_0 = input.LA(1);
 
@@ -19857,7 +19860,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6616);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6617);
                                     throwsClause();
 
                                     state._fsp--;
@@ -19868,7 +19871,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:493:83: ( block | SEMI )
+                            // ../etc/JamlAttrHash.g:496:83: ( block | SEMI )
                             int alt177=2;
                             int LA177_0 = input.LA(1);
 
@@ -19887,9 +19890,9 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt177) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:493:84: block
+                                    // ../etc/JamlAttrHash.g:496:84: block
                                     {
-                                    pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6620);
+                                    pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6621);
                                     block();
 
                                     state._fsp--;
@@ -19898,9 +19901,9 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:493:92: SEMI
+                                    // ../etc/JamlAttrHash.g:496:92: SEMI
                                     {
-                                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6624); if (state.failed) return ;
+                                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6625); if (state.failed) return ;
 
                                     }
                                     break;
@@ -19911,16 +19914,16 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:495:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
+                            // ../etc/JamlAttrHash.g:498:17: VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI )
                             {
-                            match(input,VOID,FOLLOW_VOID_in_synpred106_JamlAttrHash6686); if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6688); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6690);
+                            match(input,VOID,FOLLOW_VOID_in_synpred106_JamlAttrHash6687); if (state.failed) return ;
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6689); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6691);
                             formalParameterList();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:495:48: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:498:48: ( throwsClause )?
                             int alt178=2;
                             int LA178_0 = input.LA(1);
 
@@ -19931,7 +19934,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6692);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6693);
                                     throwsClause();
 
                                     state._fsp--;
@@ -19942,7 +19945,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:495:62: ( block | SEMI )
+                            // ../etc/JamlAttrHash.g:498:62: ( block | SEMI )
                             int alt179=2;
                             int LA179_0 = input.LA(1);
 
@@ -19961,9 +19964,9 @@ import org.antlr.runtime.tree.*;
                             }
                             switch (alt179) {
                                 case 1 :
-                                    // ../etc/JamlAttrHash.g:495:63: block
+                                    // ../etc/JamlAttrHash.g:498:63: block
                                     {
-                                    pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6696);
+                                    pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6697);
                                     block();
 
                                     state._fsp--;
@@ -19972,9 +19975,9 @@ import org.antlr.runtime.tree.*;
                                     }
                                     break;
                                 case 2 :
-                                    // ../etc/JamlAttrHash.g:495:71: SEMI
+                                    // ../etc/JamlAttrHash.g:498:71: SEMI
                                     {
-                                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6700); if (state.failed) return ;
+                                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6701); if (state.failed) return ;
 
                                     }
                                     break;
@@ -19985,15 +19988,15 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:497:17: ident= IDENT formalParameterList ( throwsClause )? block
+                            // ../etc/JamlAttrHash.g:500:17: ident= IDENT formalParameterList ( throwsClause )? block
                             {
-                            ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6759); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6761);
+                            ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred106_JamlAttrHash6760); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6762);
                             formalParameterList();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:497:49: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:500:49: ( throwsClause )?
                             int alt180=2;
                             int LA180_0 = input.LA(1);
 
@@ -20004,7 +20007,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6763);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred106_JamlAttrHash6764);
                                     throwsClause();
 
                                     state._fsp--;
@@ -20015,7 +20018,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6766);
+                            pushFollow(FOLLOW_block_in_synpred106_JamlAttrHash6767);
                             block();
 
                             state._fsp--;
@@ -20030,19 +20033,19 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:500:13: type classFieldDeclaratorList SEMI
+                    // ../etc/JamlAttrHash.g:503:13: type classFieldDeclaratorList SEMI
                     {
-                    pushFollow(FOLLOW_type_in_synpred106_JamlAttrHash6830);
+                    pushFollow(FOLLOW_type_in_synpred106_JamlAttrHash6831);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred106_JamlAttrHash6832);
+                    pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred106_JamlAttrHash6833);
                     classFieldDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6834); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred106_JamlAttrHash6835); if (state.failed) return ;
 
                     }
                     break;
@@ -20062,10 +20065,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred107_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred107_JamlAttrHash_fragment", 223);
         try {
-            // ../etc/JamlAttrHash.g:503:9: ( typeDeclaration )
-            // ../etc/JamlAttrHash.g:503:9: typeDeclaration
+            // ../etc/JamlAttrHash.g:506:9: ( typeDeclaration )
+            // ../etc/JamlAttrHash.g:506:9: typeDeclaration
             {
-            pushFollow(FOLLOW_typeDeclaration_in_synpred107_JamlAttrHash6879);
+            pushFollow(FOLLOW_typeDeclaration_in_synpred107_JamlAttrHash6880);
             typeDeclaration();
 
             state._fsp--;
@@ -20083,10 +20086,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred113_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred113_JamlAttrHash_fragment", 229);
         try {
-            // ../etc/JamlAttrHash.g:509:13: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) )
-            // ../etc/JamlAttrHash.g:509:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
+            // ../etc/JamlAttrHash.g:512:13: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) )
+            // ../etc/JamlAttrHash.g:512:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
             {
-            // ../etc/JamlAttrHash.g:509:13: ( genericTypeParameterList )?
+            // ../etc/JamlAttrHash.g:512:13: ( genericTypeParameterList )?
             int alt185=2;
             int LA185_0 = input.LA(1);
 
@@ -20097,7 +20100,7 @@ import org.antlr.runtime.tree.*;
                 case 1 :
                     // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                     {
-                    pushFollow(FOLLOW_genericTypeParameterList_in_synpred113_JamlAttrHash6935);
+                    pushFollow(FOLLOW_genericTypeParameterList_in_synpred113_JamlAttrHash6936);
                     genericTypeParameterList();
 
                     state._fsp--;
@@ -20108,7 +20111,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JamlAttrHash.g:510:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
+            // ../etc/JamlAttrHash.g:513:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
             int alt189=2;
             int LA189_0 = input.LA(1);
 
@@ -20127,20 +20130,20 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt189) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:510:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
+                    // ../etc/JamlAttrHash.g:513:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                     {
-                    pushFollow(FOLLOW_type_in_synpred113_JamlAttrHash6954);
+                    pushFollow(FOLLOW_type_in_synpred113_JamlAttrHash6955);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash6956); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred113_JamlAttrHash6958);
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash6957); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred113_JamlAttrHash6959);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:510:48: ( arrayDeclaratorList )?
+                    // ../etc/JamlAttrHash.g:513:48: ( arrayDeclaratorList )?
                     int alt186=2;
                     int LA186_0 = input.LA(1);
 
@@ -20151,7 +20154,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred113_JamlAttrHash6960);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred113_JamlAttrHash6961);
                             arrayDeclaratorList();
 
                             state._fsp--;
@@ -20162,7 +20165,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:510:69: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:513:69: ( throwsClause )?
                     int alt187=2;
                     int LA187_0 = input.LA(1);
 
@@ -20173,7 +20176,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred113_JamlAttrHash6963);
+                            pushFollow(FOLLOW_throwsClause_in_synpred113_JamlAttrHash6964);
                             throwsClause();
 
                             state._fsp--;
@@ -20184,21 +20187,21 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred113_JamlAttrHash6966); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred113_JamlAttrHash6967); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:512:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
+                    // ../etc/JamlAttrHash.g:515:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                     {
-                    match(input,VOID,FOLLOW_VOID_in_synpred113_JamlAttrHash7024); if (state.failed) return ;
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash7026); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterList_in_synpred113_JamlAttrHash7028);
+                    match(input,VOID,FOLLOW_VOID_in_synpred113_JamlAttrHash7025); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred113_JamlAttrHash7027); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterList_in_synpred113_JamlAttrHash7029);
                     formalParameterList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:512:48: ( throwsClause )?
+                    // ../etc/JamlAttrHash.g:515:48: ( throwsClause )?
                     int alt188=2;
                     int LA188_0 = input.LA(1);
 
@@ -20209,7 +20212,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: throwsClause
                             {
-                            pushFollow(FOLLOW_throwsClause_in_synpred113_JamlAttrHash7030);
+                            pushFollow(FOLLOW_throwsClause_in_synpred113_JamlAttrHash7031);
                             throwsClause();
 
                             state._fsp--;
@@ -20220,7 +20223,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred113_JamlAttrHash7033); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred113_JamlAttrHash7034); if (state.failed) return ;
 
                     }
                     break;
@@ -20240,15 +20243,15 @@ import org.antlr.runtime.tree.*;
     public final void synpred114_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred114_JamlAttrHash_fragment", 230);
         try {
-            // ../etc/JamlAttrHash.g:508:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI ) )
-            // ../etc/JamlAttrHash.g:508:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:511:9: ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI ) )
+            // ../etc/JamlAttrHash.g:511:9: modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
             {
-            pushFollow(FOLLOW_modifierList_in_synpred114_JamlAttrHash6921);
+            pushFollow(FOLLOW_modifierList_in_synpred114_JamlAttrHash6922);
             modifierList();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:509:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:512:9: ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI ) | type interfaceFieldDeclaratorList SEMI )
             int alt195=2;
             switch ( input.LA(1) ) {
             case LESS_THAN:
@@ -20312,9 +20315,9 @@ import org.antlr.runtime.tree.*;
 
             switch (alt195) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:509:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
+                    // ../etc/JamlAttrHash.g:512:13: ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
                     {
-                    // ../etc/JamlAttrHash.g:509:13: ( genericTypeParameterList )?
+                    // ../etc/JamlAttrHash.g:512:13: ( genericTypeParameterList )?
                     int alt190=2;
                     int LA190_0 = input.LA(1);
 
@@ -20325,7 +20328,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: genericTypeParameterList
                             {
-                            pushFollow(FOLLOW_genericTypeParameterList_in_synpred114_JamlAttrHash6935);
+                            pushFollow(FOLLOW_genericTypeParameterList_in_synpred114_JamlAttrHash6936);
                             genericTypeParameterList();
 
                             state._fsp--;
@@ -20336,7 +20339,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JamlAttrHash.g:510:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
+                    // ../etc/JamlAttrHash.g:513:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI | VOID IDENT formalParameterList ( throwsClause )? SEMI )
                     int alt194=2;
                     int LA194_0 = input.LA(1);
 
@@ -20355,20 +20358,20 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt194) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:510:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
+                            // ../etc/JamlAttrHash.g:513:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI
                             {
-                            pushFollow(FOLLOW_type_in_synpred114_JamlAttrHash6954);
+                            pushFollow(FOLLOW_type_in_synpred114_JamlAttrHash6955);
                             type();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred114_JamlAttrHash6956); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred114_JamlAttrHash6958);
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred114_JamlAttrHash6957); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred114_JamlAttrHash6959);
                             formalParameterList();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:510:48: ( arrayDeclaratorList )?
+                            // ../etc/JamlAttrHash.g:513:48: ( arrayDeclaratorList )?
                             int alt191=2;
                             int LA191_0 = input.LA(1);
 
@@ -20379,7 +20382,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: arrayDeclaratorList
                                     {
-                                    pushFollow(FOLLOW_arrayDeclaratorList_in_synpred114_JamlAttrHash6960);
+                                    pushFollow(FOLLOW_arrayDeclaratorList_in_synpred114_JamlAttrHash6961);
                                     arrayDeclaratorList();
 
                                     state._fsp--;
@@ -20390,7 +20393,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            // ../etc/JamlAttrHash.g:510:69: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:513:69: ( throwsClause )?
                             int alt192=2;
                             int LA192_0 = input.LA(1);
 
@@ -20401,7 +20404,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred114_JamlAttrHash6963);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred114_JamlAttrHash6964);
                                     throwsClause();
 
                                     state._fsp--;
@@ -20412,21 +20415,21 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash6966); if (state.failed) return ;
+                            match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash6967); if (state.failed) return ;
 
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:512:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
+                            // ../etc/JamlAttrHash.g:515:17: VOID IDENT formalParameterList ( throwsClause )? SEMI
                             {
-                            match(input,VOID,FOLLOW_VOID_in_synpred114_JamlAttrHash7024); if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred114_JamlAttrHash7026); if (state.failed) return ;
-                            pushFollow(FOLLOW_formalParameterList_in_synpred114_JamlAttrHash7028);
+                            match(input,VOID,FOLLOW_VOID_in_synpred114_JamlAttrHash7025); if (state.failed) return ;
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred114_JamlAttrHash7027); if (state.failed) return ;
+                            pushFollow(FOLLOW_formalParameterList_in_synpred114_JamlAttrHash7029);
                             formalParameterList();
 
                             state._fsp--;
                             if (state.failed) return ;
-                            // ../etc/JamlAttrHash.g:512:48: ( throwsClause )?
+                            // ../etc/JamlAttrHash.g:515:48: ( throwsClause )?
                             int alt193=2;
                             int LA193_0 = input.LA(1);
 
@@ -20437,7 +20440,7 @@ import org.antlr.runtime.tree.*;
                                 case 1 :
                                     // ../etc/JamlAttrHash.g:0:0: throwsClause
                                     {
-                                    pushFollow(FOLLOW_throwsClause_in_synpred114_JamlAttrHash7030);
+                                    pushFollow(FOLLOW_throwsClause_in_synpred114_JamlAttrHash7031);
                                     throwsClause();
 
                                     state._fsp--;
@@ -20448,7 +20451,7 @@ import org.antlr.runtime.tree.*;
 
                             }
 
-                            match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash7033); if (state.failed) return ;
+                            match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash7034); if (state.failed) return ;
 
                             }
                             break;
@@ -20459,19 +20462,19 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:515:13: type interfaceFieldDeclaratorList SEMI
+                    // ../etc/JamlAttrHash.g:518:13: type interfaceFieldDeclaratorList SEMI
                     {
-                    pushFollow(FOLLOW_type_in_synpred114_JamlAttrHash7096);
+                    pushFollow(FOLLOW_type_in_synpred114_JamlAttrHash7097);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    pushFollow(FOLLOW_interfaceFieldDeclaratorList_in_synpred114_JamlAttrHash7098);
+                    pushFollow(FOLLOW_interfaceFieldDeclaratorList_in_synpred114_JamlAttrHash7099);
                     interfaceFieldDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash7100); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred114_JamlAttrHash7101); if (state.failed) return ;
 
                     }
                     break;
@@ -20491,10 +20494,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred115_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred115_JamlAttrHash_fragment", 231);
         try {
-            // ../etc/JamlAttrHash.g:518:9: ( typeDeclaration )
-            // ../etc/JamlAttrHash.g:518:9: typeDeclaration
+            // ../etc/JamlAttrHash.g:521:9: ( typeDeclaration )
+            // ../etc/JamlAttrHash.g:521:9: typeDeclaration
             {
-            pushFollow(FOLLOW_typeDeclaration_in_synpred115_JamlAttrHash7145);
+            pushFollow(FOLLOW_typeDeclaration_in_synpred115_JamlAttrHash7146);
             typeDeclaration();
 
             state._fsp--;
@@ -20512,10 +20515,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred121_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred121_JamlAttrHash_fragment", 237);
         try {
-            // ../etc/JamlAttrHash.g:557:9: ( arrayDeclarator )
-            // ../etc/JamlAttrHash.g:557:9: arrayDeclarator
+            // ../etc/JamlAttrHash.g:560:9: ( arrayDeclarator )
+            // ../etc/JamlAttrHash.g:560:9: arrayDeclarator
             {
-            pushFollow(FOLLOW_arrayDeclarator_in_synpred121_JamlAttrHash7447);
+            pushFollow(FOLLOW_arrayDeclarator_in_synpred121_JamlAttrHash7448);
             arrayDeclarator();
 
             state._fsp--;
@@ -20533,10 +20536,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred139_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred139_JamlAttrHash_fragment", 255);
         try {
-            // ../etc/JamlAttrHash.g:606:23: ( arrayDeclaratorList )
-            // ../etc/JamlAttrHash.g:606:23: arrayDeclaratorList
+            // ../etc/JamlAttrHash.g:609:23: ( arrayDeclaratorList )
+            // ../etc/JamlAttrHash.g:609:23: arrayDeclaratorList
             {
-            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred139_JamlAttrHash7848);
+            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred139_JamlAttrHash7849);
             arrayDeclaratorList();
 
             state._fsp--;
@@ -20554,10 +20557,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred140_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred140_JamlAttrHash_fragment", 256);
         try {
-            // ../etc/JamlAttrHash.g:611:28: ( arrayDeclaratorList )
-            // ../etc/JamlAttrHash.g:611:28: arrayDeclaratorList
+            // ../etc/JamlAttrHash.g:614:28: ( arrayDeclaratorList )
+            // ../etc/JamlAttrHash.g:614:28: arrayDeclaratorList
             {
-            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred140_JamlAttrHash7897);
+            pushFollow(FOLLOW_arrayDeclaratorList_in_synpred140_JamlAttrHash7898);
             arrayDeclaratorList();
 
             state._fsp--;
@@ -20575,11 +20578,11 @@ import org.antlr.runtime.tree.*;
     public final void synpred142_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred142_JamlAttrHash_fragment", 258);
         try {
-            // ../etc/JamlAttrHash.g:621:20: ( DOT typeIdent )
-            // ../etc/JamlAttrHash.g:621:20: DOT typeIdent
+            // ../etc/JamlAttrHash.g:624:20: ( DOT typeIdent )
+            // ../etc/JamlAttrHash.g:624:20: DOT typeIdent
             {
-            match(input,DOT,FOLLOW_DOT_in_synpred142_JamlAttrHash7982); if (state.failed) return ;
-            pushFollow(FOLLOW_typeIdent_in_synpred142_JamlAttrHash7984);
+            match(input,DOT,FOLLOW_DOT_in_synpred142_JamlAttrHash7983); if (state.failed) return ;
+            pushFollow(FOLLOW_typeIdent_in_synpred142_JamlAttrHash7985);
             typeIdent();
 
             state._fsp--;
@@ -20597,11 +20600,11 @@ import org.antlr.runtime.tree.*;
     public final void synpred153_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred153_JamlAttrHash_fragment", 269);
         try {
-            // ../etc/JamlAttrHash.g:650:40: ( COMMA genericTypeArgument )
-            // ../etc/JamlAttrHash.g:650:40: COMMA genericTypeArgument
+            // ../etc/JamlAttrHash.g:653:40: ( COMMA genericTypeArgument )
+            // ../etc/JamlAttrHash.g:653:40: COMMA genericTypeArgument
             {
-            match(input,COMMA,FOLLOW_COMMA_in_synpred153_JamlAttrHash8209); if (state.failed) return ;
-            pushFollow(FOLLOW_genericTypeArgument_in_synpred153_JamlAttrHash8211);
+            match(input,COMMA,FOLLOW_COMMA_in_synpred153_JamlAttrHash8210); if (state.failed) return ;
+            pushFollow(FOLLOW_genericTypeArgument_in_synpred153_JamlAttrHash8212);
             genericTypeArgument();
 
             state._fsp--;
@@ -20619,10 +20622,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred155_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred155_JamlAttrHash_fragment", 271);
         try {
-            // ../etc/JamlAttrHash.g:656:18: ( genericWildcardBoundType )
-            // ../etc/JamlAttrHash.g:656:18: genericWildcardBoundType
+            // ../etc/JamlAttrHash.g:659:18: ( genericWildcardBoundType )
+            // ../etc/JamlAttrHash.g:659:18: genericWildcardBoundType
             {
-            pushFollow(FOLLOW_genericWildcardBoundType_in_synpred155_JamlAttrHash8265);
+            pushFollow(FOLLOW_genericWildcardBoundType_in_synpred155_JamlAttrHash8266);
             genericWildcardBoundType();
 
             state._fsp--;
@@ -20640,11 +20643,11 @@ import org.antlr.runtime.tree.*;
     public final void synpred160_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred160_JamlAttrHash_fragment", 276);
         try {
-            // ../etc/JamlAttrHash.g:681:42: ( COMMA formalParameterStandardDecl )
-            // ../etc/JamlAttrHash.g:681:42: COMMA formalParameterStandardDecl
+            // ../etc/JamlAttrHash.g:684:42: ( COMMA formalParameterStandardDecl )
+            // ../etc/JamlAttrHash.g:684:42: COMMA formalParameterStandardDecl
             {
-            match(input,COMMA,FOLLOW_COMMA_in_synpred160_JamlAttrHash8483); if (state.failed) return ;
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred160_JamlAttrHash8485);
+            match(input,COMMA,FOLLOW_COMMA_in_synpred160_JamlAttrHash8484); if (state.failed) return ;
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred160_JamlAttrHash8486);
             formalParameterStandardDecl();
 
             state._fsp--;
@@ -20662,15 +20665,15 @@ import org.antlr.runtime.tree.*;
     public final void synpred162_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred162_JamlAttrHash_fragment", 278);
         try {
-            // ../etc/JamlAttrHash.g:681:13: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? )
-            // ../etc/JamlAttrHash.g:681:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
+            // ../etc/JamlAttrHash.g:684:13: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? )
+            // ../etc/JamlAttrHash.g:684:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )?
             {
-            pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8480);
+            pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8481);
             formalParameterStandardDecl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:681:41: ( COMMA formalParameterStandardDecl )*
+            // ../etc/JamlAttrHash.g:684:41: ( COMMA formalParameterStandardDecl )*
             loop198:
             do {
                 int alt198=2;
@@ -20689,10 +20692,10 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt198) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:681:42: COMMA formalParameterStandardDecl
+            	    // ../etc/JamlAttrHash.g:684:42: COMMA formalParameterStandardDecl
             	    {
-            	    match(input,COMMA,FOLLOW_COMMA_in_synpred162_JamlAttrHash8483); if (state.failed) return ;
-            	    pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8485);
+            	    match(input,COMMA,FOLLOW_COMMA_in_synpred162_JamlAttrHash8484); if (state.failed) return ;
+            	    pushFollow(FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8486);
             	    formalParameterStandardDecl();
 
             	    state._fsp--;
@@ -20706,7 +20709,7 @@ import org.antlr.runtime.tree.*;
                 }
             } while (true);
 
-            // ../etc/JamlAttrHash.g:681:78: ( COMMA formalParameterVarArgDecl )?
+            // ../etc/JamlAttrHash.g:684:78: ( COMMA formalParameterVarArgDecl )?
             int alt199=2;
             int LA199_0 = input.LA(1);
 
@@ -20715,10 +20718,10 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt199) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:681:79: COMMA formalParameterVarArgDecl
+                    // ../etc/JamlAttrHash.g:684:79: COMMA formalParameterVarArgDecl
                     {
-                    match(input,COMMA,FOLLOW_COMMA_in_synpred162_JamlAttrHash8490); if (state.failed) return ;
-                    pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred162_JamlAttrHash8492);
+                    match(input,COMMA,FOLLOW_COMMA_in_synpred162_JamlAttrHash8491); if (state.failed) return ;
+                    pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred162_JamlAttrHash8493);
                     formalParameterVarArgDecl();
 
                     state._fsp--;
@@ -20742,10 +20745,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred163_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred163_JamlAttrHash_fragment", 279);
         try {
-            // ../etc/JamlAttrHash.g:684:13: ( formalParameterVarArgDecl )
-            // ../etc/JamlAttrHash.g:684:13: formalParameterVarArgDecl
+            // ../etc/JamlAttrHash.g:687:13: ( formalParameterVarArgDecl )
+            // ../etc/JamlAttrHash.g:687:13: formalParameterVarArgDecl
             {
-            pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred163_JamlAttrHash8549);
+            pushFollow(FOLLOW_formalParameterVarArgDecl_in_synpred163_JamlAttrHash8550);
             formalParameterVarArgDecl();
 
             state._fsp--;
@@ -20765,11 +20768,11 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred164_JamlAttrHash_fragment", 280);
         try {
-            // ../etc/JamlAttrHash.g:705:13: ( DOT ident= IDENT )
-            // ../etc/JamlAttrHash.g:705:13: DOT ident= IDENT
+            // ../etc/JamlAttrHash.g:708:13: ( DOT ident= IDENT )
+            // ../etc/JamlAttrHash.g:708:13: DOT ident= IDENT
             {
-            match(input,DOT,FOLLOW_DOT_in_synpred164_JamlAttrHash8794); if (state.failed) return ;
-            ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred164_JamlAttrHash8798); if (state.failed) return ;
+            match(input,DOT,FOLLOW_DOT_in_synpred164_JamlAttrHash8795); if (state.failed) return ;
+            ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred164_JamlAttrHash8799); if (state.failed) return ;
 
             }
 
@@ -20783,10 +20786,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred165_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred165_JamlAttrHash_fragment", 281);
         try {
-            // ../etc/JamlAttrHash.g:712:9: ( annotation )
-            // ../etc/JamlAttrHash.g:712:9: annotation
+            // ../etc/JamlAttrHash.g:715:9: ( annotation )
+            // ../etc/JamlAttrHash.g:715:9: annotation
             {
-            pushFollow(FOLLOW_annotation_in_synpred165_JamlAttrHash8851);
+            pushFollow(FOLLOW_annotation_in_synpred165_JamlAttrHash8852);
             annotation();
 
             state._fsp--;
@@ -20804,20 +20807,20 @@ import org.antlr.runtime.tree.*;
     public final void synpred177_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred177_JamlAttrHash_fragment", 293);
         try {
-            // ../etc/JamlAttrHash.g:763:9: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI ) )
-            // ../etc/JamlAttrHash.g:763:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:766:9: ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI ) )
+            // ../etc/JamlAttrHash.g:766:9: modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
             {
-            pushFollow(FOLLOW_modifierList_in_synpred177_JamlAttrHash9305);
+            pushFollow(FOLLOW_modifierList_in_synpred177_JamlAttrHash9306);
             modifierList();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_type_in_synpred177_JamlAttrHash9307);
+            pushFollow(FOLLOW_type_in_synpred177_JamlAttrHash9308);
             type();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:764:9: ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
+            // ../etc/JamlAttrHash.g:767:9: ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI | classFieldDeclaratorList SEMI )
             int alt204=2;
             int LA204_0 = input.LA(1);
 
@@ -20847,12 +20850,12 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt204) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:764:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
+                    // ../etc/JamlAttrHash.g:767:13: IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_synpred177_JamlAttrHash9321); if (state.failed) return ;
-                    match(input,LPAREN,FOLLOW_LPAREN_in_synpred177_JamlAttrHash9323); if (state.failed) return ;
-                    match(input,RPAREN,FOLLOW_RPAREN_in_synpred177_JamlAttrHash9325); if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:764:33: ( annotationDefaultValue )?
+                    match(input,IDENT,FOLLOW_IDENT_in_synpred177_JamlAttrHash9322); if (state.failed) return ;
+                    match(input,LPAREN,FOLLOW_LPAREN_in_synpred177_JamlAttrHash9324); if (state.failed) return ;
+                    match(input,RPAREN,FOLLOW_RPAREN_in_synpred177_JamlAttrHash9326); if (state.failed) return ;
+                    // ../etc/JamlAttrHash.g:767:33: ( annotationDefaultValue )?
                     int alt203=2;
                     int LA203_0 = input.LA(1);
 
@@ -20863,7 +20866,7 @@ import org.antlr.runtime.tree.*;
                         case 1 :
                             // ../etc/JamlAttrHash.g:0:0: annotationDefaultValue
                             {
-                            pushFollow(FOLLOW_annotationDefaultValue_in_synpred177_JamlAttrHash9327);
+                            pushFollow(FOLLOW_annotationDefaultValue_in_synpred177_JamlAttrHash9328);
                             annotationDefaultValue();
 
                             state._fsp--;
@@ -20874,19 +20877,19 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred177_JamlAttrHash9330); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred177_JamlAttrHash9331); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:766:13: classFieldDeclaratorList SEMI
+                    // ../etc/JamlAttrHash.g:769:13: classFieldDeclaratorList SEMI
                     {
-                    pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred177_JamlAttrHash9372);
+                    pushFollow(FOLLOW_classFieldDeclaratorList_in_synpred177_JamlAttrHash9373);
                     classFieldDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    match(input,SEMI,FOLLOW_SEMI_in_synpred177_JamlAttrHash9374); if (state.failed) return ;
+                    match(input,SEMI,FOLLOW_SEMI_in_synpred177_JamlAttrHash9375); if (state.failed) return ;
 
                     }
                     break;
@@ -20906,15 +20909,15 @@ import org.antlr.runtime.tree.*;
     public final void synpred179_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred179_JamlAttrHash_fragment", 295);
         try {
-            // ../etc/JamlAttrHash.g:784:9: ( localVariableDeclaration SEMI )
-            // ../etc/JamlAttrHash.g:784:9: localVariableDeclaration SEMI
+            // ../etc/JamlAttrHash.g:787:9: ( localVariableDeclaration SEMI )
+            // ../etc/JamlAttrHash.g:787:9: localVariableDeclaration SEMI
             {
-            pushFollow(FOLLOW_localVariableDeclaration_in_synpred179_JamlAttrHash9509);
+            pushFollow(FOLLOW_localVariableDeclaration_in_synpred179_JamlAttrHash9510);
             localVariableDeclaration();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,SEMI,FOLLOW_SEMI_in_synpred179_JamlAttrHash9511); if (state.failed) return ;
+            match(input,SEMI,FOLLOW_SEMI_in_synpred179_JamlAttrHash9512); if (state.failed) return ;
 
             }
 
@@ -20928,10 +20931,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred180_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred180_JamlAttrHash_fragment", 296);
         try {
-            // ../etc/JamlAttrHash.g:785:9: ( typeDeclaration )
-            // ../etc/JamlAttrHash.g:785:9: typeDeclaration
+            // ../etc/JamlAttrHash.g:788:9: ( typeDeclaration )
+            // ../etc/JamlAttrHash.g:788:9: typeDeclaration
             {
-            pushFollow(FOLLOW_typeDeclaration_in_synpred180_JamlAttrHash9522);
+            pushFollow(FOLLOW_typeDeclaration_in_synpred180_JamlAttrHash9523);
             typeDeclaration();
 
             state._fsp--;
@@ -20952,11 +20955,11 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred184_JamlAttrHash_fragment", 300);
         try {
-            // ../etc/JamlAttrHash.g:802:13: ( ELSE elseStat= statement )
-            // ../etc/JamlAttrHash.g:802:13: ELSE elseStat= statement
+            // ../etc/JamlAttrHash.g:805:13: ( ELSE elseStat= statement )
+            // ../etc/JamlAttrHash.g:805:13: ELSE elseStat= statement
             {
-            match(input,ELSE,FOLLOW_ELSE_in_synpred184_JamlAttrHash9820); if (state.failed) return ;
-            pushFollow(FOLLOW_statement_in_synpred184_JamlAttrHash9824);
+            match(input,ELSE,FOLLOW_ELSE_in_synpred184_JamlAttrHash9821); if (state.failed) return ;
+            pushFollow(FOLLOW_statement_in_synpred184_JamlAttrHash9825);
             elseStat=statement();
 
             state._fsp--;
@@ -20974,28 +20977,28 @@ import org.antlr.runtime.tree.*;
     public final void synpred186_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred186_JamlAttrHash_fragment", 302);
         try {
-            // ../etc/JamlAttrHash.g:806:13: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement )
-            // ../etc/JamlAttrHash.g:806:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
+            // ../etc/JamlAttrHash.g:809:13: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement )
+            // ../etc/JamlAttrHash.g:809:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
             {
-            pushFollow(FOLLOW_forInit_in_synpred186_JamlAttrHash10007);
+            pushFollow(FOLLOW_forInit_in_synpred186_JamlAttrHash10008);
             forInit();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,SEMI,FOLLOW_SEMI_in_synpred186_JamlAttrHash10009); if (state.failed) return ;
-            pushFollow(FOLLOW_forCondition_in_synpred186_JamlAttrHash10011);
+            match(input,SEMI,FOLLOW_SEMI_in_synpred186_JamlAttrHash10010); if (state.failed) return ;
+            pushFollow(FOLLOW_forCondition_in_synpred186_JamlAttrHash10012);
             forCondition();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,SEMI,FOLLOW_SEMI_in_synpred186_JamlAttrHash10013); if (state.failed) return ;
-            pushFollow(FOLLOW_forUpdater_in_synpred186_JamlAttrHash10015);
+            match(input,SEMI,FOLLOW_SEMI_in_synpred186_JamlAttrHash10014); if (state.failed) return ;
+            pushFollow(FOLLOW_forUpdater_in_synpred186_JamlAttrHash10016);
             forUpdater();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,RPAREN,FOLLOW_RPAREN_in_synpred186_JamlAttrHash10017); if (state.failed) return ;
-            pushFollow(FOLLOW_statement_in_synpred186_JamlAttrHash10019);
+            match(input,RPAREN,FOLLOW_RPAREN_in_synpred186_JamlAttrHash10018); if (state.failed) return ;
+            pushFollow(FOLLOW_statement_in_synpred186_JamlAttrHash10020);
             statement();
 
             state._fsp--;
@@ -21013,10 +21016,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred206_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred206_JamlAttrHash_fragment", 322);
         try {
-            // ../etc/JamlAttrHash.g:844:9: ( switchCaseLabel )
-            // ../etc/JamlAttrHash.g:844:9: switchCaseLabel
+            // ../etc/JamlAttrHash.g:847:9: ( switchCaseLabel )
+            // ../etc/JamlAttrHash.g:847:9: switchCaseLabel
             {
-            pushFollow(FOLLOW_switchCaseLabel_in_synpred206_JamlAttrHash10986);
+            pushFollow(FOLLOW_switchCaseLabel_in_synpred206_JamlAttrHash10987);
             switchCaseLabel();
 
             state._fsp--;
@@ -21034,10 +21037,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred209_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred209_JamlAttrHash_fragment", 325);
         try {
-            // ../etc/JamlAttrHash.g:856:9: ( localVariableDeclaration )
-            // ../etc/JamlAttrHash.g:856:9: localVariableDeclaration
+            // ../etc/JamlAttrHash.g:859:9: ( localVariableDeclaration )
+            // ../etc/JamlAttrHash.g:859:9: localVariableDeclaration
             {
-            pushFollow(FOLLOW_localVariableDeclaration_in_synpred209_JamlAttrHash11076);
+            pushFollow(FOLLOW_localVariableDeclaration_in_synpred209_JamlAttrHash11077);
             localVariableDeclaration();
 
             state._fsp--;
@@ -21055,10 +21058,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred210_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred210_JamlAttrHash_fragment", 326);
         try {
-            // ../etc/JamlAttrHash.g:857:9: ( expressionList )
-            // ../etc/JamlAttrHash.g:857:9: expressionList
+            // ../etc/JamlAttrHash.g:860:9: ( expressionList )
+            // ../etc/JamlAttrHash.g:860:9: expressionList
             {
-            pushFollow(FOLLOW_expressionList_in_synpred210_JamlAttrHash11098);
+            pushFollow(FOLLOW_expressionList_in_synpred210_JamlAttrHash11099);
             expressionList();
 
             state._fsp--;
@@ -21076,17 +21079,17 @@ import org.antlr.runtime.tree.*;
     public final void synpred253_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred253_JamlAttrHash_fragment", 369);
         try {
-            // ../etc/JamlAttrHash.g:993:9: ( LPAREN type RPAREN unaryExpression )
-            // ../etc/JamlAttrHash.g:993:9: LPAREN type RPAREN unaryExpression
+            // ../etc/JamlAttrHash.g:996:9: ( LPAREN type RPAREN unaryExpression )
+            // ../etc/JamlAttrHash.g:996:9: LPAREN type RPAREN unaryExpression
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_synpred253_JamlAttrHash12631); if (state.failed) return ;
-            pushFollow(FOLLOW_type_in_synpred253_JamlAttrHash12633);
+            match(input,LPAREN,FOLLOW_LPAREN_in_synpred253_JamlAttrHash12632); if (state.failed) return ;
+            pushFollow(FOLLOW_type_in_synpred253_JamlAttrHash12634);
             type();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,RPAREN,FOLLOW_RPAREN_in_synpred253_JamlAttrHash12635); if (state.failed) return ;
-            pushFollow(FOLLOW_unaryExpression_in_synpred253_JamlAttrHash12637);
+            match(input,RPAREN,FOLLOW_RPAREN_in_synpred253_JamlAttrHash12636); if (state.failed) return ;
+            pushFollow(FOLLOW_unaryExpression_in_synpred253_JamlAttrHash12638);
             unaryExpression();
 
             state._fsp--;
@@ -21104,10 +21107,10 @@ import org.antlr.runtime.tree.*;
     public final void synpred281_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred281_JamlAttrHash_fragment", 397);
         try {
-            // ../etc/JamlAttrHash.g:1061:13: ( ( arrayDeclarator )+ ( DOT CLASS ) )
-            // ../etc/JamlAttrHash.g:1061:13: ( arrayDeclarator )+ ( DOT CLASS )
+            // ../etc/JamlAttrHash.g:1064:13: ( ( arrayDeclarator )+ ( DOT CLASS ) )
+            // ../etc/JamlAttrHash.g:1064:13: ( arrayDeclarator )+ ( DOT CLASS )
             {
-            // ../etc/JamlAttrHash.g:1061:13: ( arrayDeclarator )+
+            // ../etc/JamlAttrHash.g:1064:13: ( arrayDeclarator )+
             int cnt227=0;
             loop227:
             do {
@@ -21121,9 +21124,9 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt227) {
             	case 1 :
-            	    // ../etc/JamlAttrHash.g:1061:17: arrayDeclarator
+            	    // ../etc/JamlAttrHash.g:1064:17: arrayDeclarator
             	    {
-            	    pushFollow(FOLLOW_arrayDeclarator_in_synpred281_JamlAttrHash14538);
+            	    pushFollow(FOLLOW_arrayDeclarator_in_synpred281_JamlAttrHash14539);
             	    arrayDeclarator();
 
             	    state._fsp--;
@@ -21142,11 +21145,11 @@ import org.antlr.runtime.tree.*;
                 cnt227++;
             } while (true);
 
-            // ../etc/JamlAttrHash.g:1063:13: ( DOT CLASS )
-            // ../etc/JamlAttrHash.g:1063:17: DOT CLASS
+            // ../etc/JamlAttrHash.g:1066:13: ( DOT CLASS )
+            // ../etc/JamlAttrHash.g:1066:17: DOT CLASS
             {
-            match(input,DOT,FOLLOW_DOT_in_synpred281_JamlAttrHash14606); if (state.failed) return ;
-            match(input,CLASS,FOLLOW_CLASS_in_synpred281_JamlAttrHash14608); if (state.failed) return ;
+            match(input,DOT,FOLLOW_DOT_in_synpred281_JamlAttrHash14607); if (state.failed) return ;
+            match(input,CLASS,FOLLOW_CLASS_in_synpred281_JamlAttrHash14609); if (state.failed) return ;
 
             }
 
@@ -21167,11 +21170,11 @@ import org.antlr.runtime.tree.*;
 
         traceIn("synpred289_JamlAttrHash_fragment", 405);
         try {
-            // ../etc/JamlAttrHash.g:1066:13: (outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression ) )
-            // ../etc/JamlAttrHash.g:1066:13: outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
+            // ../etc/JamlAttrHash.g:1069:13: (outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression ) )
+            // ../etc/JamlAttrHash.g:1069:13: outerDot= DOT ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
             {
-            outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred289_JamlAttrHash14739); if (state.failed) return ;
-            // ../etc/JamlAttrHash.g:1067:13: ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
+            outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred289_JamlAttrHash14740); if (state.failed) return ;
+            // ../etc/JamlAttrHash.g:1070:13: ( CLASS | genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
             int alt230=5;
             switch ( input.LA(1) ) {
             case CLASS:
@@ -21209,21 +21212,21 @@ import org.antlr.runtime.tree.*;
 
             switch (alt230) {
                 case 1 :
-                    // ../etc/JamlAttrHash.g:1067:17: CLASS
+                    // ../etc/JamlAttrHash.g:1070:17: CLASS
                     {
-                    match(input,CLASS,FOLLOW_CLASS_in_synpred289_JamlAttrHash14757); if (state.failed) return ;
+                    match(input,CLASS,FOLLOW_CLASS_in_synpred289_JamlAttrHash14758); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // ../etc/JamlAttrHash.g:1068:17: genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
+                    // ../etc/JamlAttrHash.g:1071:17: genericTypeArgumentListSimplified (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
                     {
-                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_synpred289_JamlAttrHash14820);
+                    pushFollow(FOLLOW_genericTypeArgumentListSimplified_in_synpred289_JamlAttrHash14821);
                     genericTypeArgumentListSimplified();
 
                     state._fsp--;
                     if (state.failed) return ;
-                    // ../etc/JamlAttrHash.g:1069:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
+                    // ../etc/JamlAttrHash.g:1072:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
                     int alt229=3;
                     int LA229_0 = input.LA(1);
 
@@ -21256,10 +21259,10 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt229) {
                         case 1 :
-                            // ../etc/JamlAttrHash.g:1069:21: Super= SUPER arguments
+                            // ../etc/JamlAttrHash.g:1072:21: Super= SUPER arguments
                             {
-                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash14845); if (state.failed) return ;
-                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14847);
+                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash14846); if (state.failed) return ;
+                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14848);
                             arguments();
 
                             state._fsp--;
@@ -21268,12 +21271,12 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 2 :
-                            // ../etc/JamlAttrHash.g:1070:21: SUPER innerDot= DOT IDENT arguments
+                            // ../etc/JamlAttrHash.g:1073:21: SUPER innerDot= DOT IDENT arguments
                             {
-                            match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash14897); if (state.failed) return ;
-                            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred289_JamlAttrHash14901); if (state.failed) return ;
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred289_JamlAttrHash14903); if (state.failed) return ;
-                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14905);
+                            match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash14898); if (state.failed) return ;
+                            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred289_JamlAttrHash14902); if (state.failed) return ;
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred289_JamlAttrHash14904); if (state.failed) return ;
+                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14906);
                             arguments();
 
                             state._fsp--;
@@ -21282,10 +21285,10 @@ import org.antlr.runtime.tree.*;
                             }
                             break;
                         case 3 :
-                            // ../etc/JamlAttrHash.g:1071:21: IDENT arguments
+                            // ../etc/JamlAttrHash.g:1074:21: IDENT arguments
                             {
-                            match(input,IDENT,FOLLOW_IDENT_in_synpred289_JamlAttrHash14955); if (state.failed) return ;
-                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14957);
+                            match(input,IDENT,FOLLOW_IDENT_in_synpred289_JamlAttrHash14956); if (state.failed) return ;
+                            pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash14958);
                             arguments();
 
                             state._fsp--;
@@ -21300,17 +21303,17 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JamlAttrHash.g:1073:17: THIS
+                    // ../etc/JamlAttrHash.g:1076:17: THIS
                     {
-                    match(input,THIS,FOLLOW_THIS_in_synpred289_JamlAttrHash15032); if (state.failed) return ;
+                    match(input,THIS,FOLLOW_THIS_in_synpred289_JamlAttrHash15033); if (state.failed) return ;
 
                     }
                     break;
                 case 4 :
-                    // ../etc/JamlAttrHash.g:1074:17: Super= SUPER arguments
+                    // ../etc/JamlAttrHash.g:1077:17: Super= SUPER arguments
                     {
-                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash15098); if (state.failed) return ;
-                    pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash15100);
+                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred289_JamlAttrHash15099); if (state.failed) return ;
+                    pushFollow(FOLLOW_arguments_in_synpred289_JamlAttrHash15101);
                     arguments();
 
                     state._fsp--;
@@ -21319,9 +21322,9 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JamlAttrHash.g:1075:17: innerNewExpression
+                    // ../etc/JamlAttrHash.g:1078:17: innerNewExpression
                     {
-                    pushFollow(FOLLOW_innerNewExpression_in_synpred289_JamlAttrHash15148);
+                    pushFollow(FOLLOW_innerNewExpression_in_synpred289_JamlAttrHash15149);
                     innerNewExpression();
 
                     state._fsp--;
@@ -21345,16 +21348,16 @@ import org.antlr.runtime.tree.*;
     public final void synpred297_JamlAttrHash_fragment() throws RecognitionException {   
         traceIn("synpred297_JamlAttrHash_fragment", 413);
         try {
-            // ../etc/JamlAttrHash.g:1100:37: ( LBRACK expression RBRACK )
-            // ../etc/JamlAttrHash.g:1100:37: LBRACK expression RBRACK
+            // ../etc/JamlAttrHash.g:1103:37: ( LBRACK expression RBRACK )
+            // ../etc/JamlAttrHash.g:1103:37: LBRACK expression RBRACK
             {
-            match(input,LBRACK,FOLLOW_LBRACK_in_synpred297_JamlAttrHash15549); if (state.failed) return ;
-            pushFollow(FOLLOW_expression_in_synpred297_JamlAttrHash15552);
+            match(input,LBRACK,FOLLOW_LBRACK_in_synpred297_JamlAttrHash15550); if (state.failed) return ;
+            pushFollow(FOLLOW_expression_in_synpred297_JamlAttrHash15553);
             expression();
 
             state._fsp--;
             if (state.failed) return ;
-            match(input,RBRACK,FOLLOW_RBRACK_in_synpred297_JamlAttrHash15554); if (state.failed) return ;
+            match(input,RBRACK,FOLLOW_RBRACK_in_synpred297_JamlAttrHash15555); if (state.failed) return ;
 
             }
 
@@ -21942,7 +21945,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA41_transition;
         }
         public String getDescription() {
-            return "488:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
+            return "491:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22209,7 +22212,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA48_transition;
         }
         public String getDescription() {
-            return "507:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
+            return "510:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22470,7 +22473,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA91_transition;
         }
         public String getDescription() {
-            return "762:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );";
+            return "765:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22763,7 +22766,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA93_transition;
         }
         public String getDescription() {
-            return "783:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );";
+            return "786:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22922,7 +22925,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA102_transition;
         }
         public String getDescription() {
-            return "795:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );";
+            return "798:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );";
         }
     }
     static final String DFA96_eotS =
@@ -22998,7 +23001,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA96_transition;
         }
         public String getDescription() {
-            return "806:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )";
+            return "809:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23144,7 +23147,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA108_transition;
         }
         public String getDescription() {
-            return "855:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );";
+            return "858:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23253,7 +23256,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA132_transition;
         }
         public String getDescription() {
-            return "990:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );";
+            return "993:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23342,7 +23345,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA144_transition;
         }
         public String getDescription() {
-            return "1025:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );";
+            return "1028:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );";
         }
     }
     static final String DFA148_eotS =
@@ -23439,7 +23442,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA148_transition;
         }
         public String getDescription() {
-            return "1061:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?";
+            return "1064:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23575,7 +23578,7 @@ import org.antlr.runtime.tree.*;
             this.transition = DFA155_transition;
         }
         public String getDescription() {
-            return "()* loopback of 1100:36: ( LBRACK expression RBRACK )*";
+            return "()* loopback of 1103:36: ( LBRACK expression RBRACK )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -23606,716 +23609,716 @@ import org.antlr.runtime.tree.*;
     }
  
 
-    public static final BitSet FOLLOW_attrMapping_in_attrMappings4525 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_attrMappings4536 = new BitSet(new long[]{0x0000000000000400L,0x0000000800080020L,0x000007E000000000L});
-    public static final BitSet FOLLOW_attrMapping_in_attrMappings4540 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_attribute_in_attrMapping4560 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ASSIGN_in_attrMapping4567 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_attrMapping4569 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_attributeValue_in_attrMapping4574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_COLON_in_attribute4588 = new BitSet(new long[]{0xFFE0000000000000L,0x000000FFFFFFFFFFL,0x0000001000000000L});
-    public static final BitSet FOLLOW_keyword_in_attribute4591 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_attribute4597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_attribute4604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_attributeValue4633 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_attributeValue4640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_literal4661 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal4677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_literal4687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_literal4697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_literal4707 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_attrMapping_in_attrMappings4526 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_attrMappings4537 = new BitSet(new long[]{0x0000000000000400L,0x0000000800080020L,0x000007E000000000L});
+    public static final BitSet FOLLOW_attrMapping_in_attrMappings4541 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_attribute_in_attrMapping4561 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_ASSIGN_in_attrMapping4568 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_attrMapping4570 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_attributeValue_in_attrMapping4575 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COLON_in_attribute4589 = new BitSet(new long[]{0xFFE0000000000000L,0x000000FFFFFFFFFFL,0x0000001000000000L});
+    public static final BitSet FOLLOW_keyword_in_attribute4592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_attribute4598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_attribute4605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_attributeValue4634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_attributeValue4641 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_literal4662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal4678 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_literal4688 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_literal4698 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_literal4708 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_keyword0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_compilationUnit_in_javaSource5354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationList_in_compilationUnit5390 = new BitSet(new long[]{0x2020100000000082L,0x000000444CF26048L});
-    public static final BitSet FOLLOW_packageDeclaration_in_compilationUnit5401 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE26048L});
-    public static final BitSet FOLLOW_importDeclaration_in_compilationUnit5413 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE26048L});
-    public static final BitSet FOLLOW_typeDecls_in_compilationUnit5425 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE22048L});
-    public static final BitSet FOLLOW_typeDeclaration_in_typeDecls5445 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_typeDecls5455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration5475 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_packageDeclaration5478 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_packageDeclaration5480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IMPORT_in_importDeclaration5506 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_STATIC_in_importDeclaration5509 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration5512 = new BitSet(new long[]{0x0000100000010000L});
-    public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration5514 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_importDeclaration5517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_typeDeclaration5541 = new BitSet(new long[]{0x2020000000000080L,0x000000444CE22048L});
-    public static final BitSet FOLLOW_classTypeDeclaration_in_typeDeclaration5556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_interfaceTypeDeclaration_in_typeDeclaration5571 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_enumTypeDeclaration_in_typeDeclaration5586 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationTypeDeclaration_in_typeDeclaration5601 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CLASS_in_classTypeDeclaration5636 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classTypeDeclaration5638 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classTypeDeclaration5640 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classExtendsClause_in_classTypeDeclaration5643 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_implementsClause_in_classTypeDeclaration5646 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classBody_in_classTypeDeclaration5649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXTENDS_in_classExtendsClause5702 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_classExtendsClause5704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXTENDS_in_interfaceExtendsClause5748 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeList_in_interfaceExtendsClause5750 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IMPLEMENTS_in_implementsClause5794 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeList_in_implementsClause5796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeParameterList5841 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList5843 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_COMMA_in_genericTypeParameterList5846 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList5848 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeParameterList5852 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_genericTypeListClosing5967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_genericTypeListClosing5977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_genericTypeListClosing5987 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_genericTypeParameter6015 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_bound_in_genericTypeParameter6017 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXTENDS_in_bound6063 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_bound6065 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_AND_in_bound6068 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_bound6070 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_ENUM_in_enumTypeDeclaration6111 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_enumTypeDeclaration6113 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_implementsClause_in_enumTypeDeclaration6115 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_enumBody_in_enumTypeDeclaration6118 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_enumBody6165 = new BitSet(new long[]{0x0020000000000080L,0x000000444CE20040L,0x0000001000000000L});
-    public static final BitSet FOLLOW_enumScopeDeclarations_in_enumBody6167 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_enumBody6169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_enumConstants_in_enumScopeDeclarations6206 = new BitSet(new long[]{0x0000100000000802L});
-    public static final BitSet FOLLOW_COMMA_in_enumScopeDeclarations6209 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_enumClassScopeDeclarations_in_enumScopeDeclarations6214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_enumClassScopeDeclarations6234 = new BitSet(new long[]{0x32A0100002800082L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_classScopeDeclarations_in_enumClassScopeDeclarations6236 = new BitSet(new long[]{0x32A0100002800082L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_enumConstant_in_enumConstants6275 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_enumConstants6278 = new BitSet(new long[]{0x0020000000000080L,0x000000444CE20040L,0x0000001000000000L});
-    public static final BitSet FOLLOW_enumConstant_in_enumConstants6281 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_annotationList_in_enumConstant6306 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_enumConstant6308 = new BitSet(new long[]{0x0000000022800002L,0x0000000000000810L});
-    public static final BitSet FOLLOW_arguments_in_enumConstant6311 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classBody_in_enumConstant6314 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INTERFACE_in_interfaceTypeDeclaration6339 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceTypeDeclaration6341 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceTypeDeclaration6343 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_interfaceExtendsClause_in_interfaceTypeDeclaration6346 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_interfaceBody_in_interfaceTypeDeclaration6349 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_typeList6399 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_typeList6402 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_typeList6405 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_LCURLY_in_classBody6430 = new BitSet(new long[]{0x32A0140002800080L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_classScopeDeclarations_in_classBody6432 = new BitSet(new long[]{0x32A0140002800080L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_classBody6435 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_interfaceBody6477 = new BitSet(new long[]{0x32A0140002000080L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceBody6479 = new BitSet(new long[]{0x32A0140002000080L,0x000000644EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_interfaceBody6482 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6520 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_classScopeDeclarations6549 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations6574 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations6588 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations6607 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6609 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6611 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations6613 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6616 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_classScopeDeclarations6686 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6688 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6690 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6692 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6700 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6759 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6761 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6763 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations6766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations6830 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations6832 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations6879 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations6921 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations6935 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations6954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations6956 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations6958 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations6960 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations6963 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations6966 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_interfaceScopeDeclarations7024 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations7026 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations7028 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations7030 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations7096 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_interfaceFieldDeclaratorList_in_interfaceScopeDeclarations7098 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations7145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7155 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7175 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_classFieldDeclaratorList7178 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7180 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_classFieldDeclarator7219 = new BitSet(new long[]{0x0000000000000042L});
-    public static final BitSet FOLLOW_ASSIGN_in_classFieldDeclarator7222 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_classFieldDeclarator7224 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7269 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_interfaceFieldDeclaratorList7272 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7274 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator7313 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ASSIGN_in_interfaceFieldDeclarator7315 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_interfaceFieldDeclarator7317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId7359 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId7362 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer7382 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_variableInitializer7392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator7411 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator7413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_arrayDeclaratorList7447 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_LCURLY_in_arrayInitializer7492 = new BitSet(new long[]{0x128004446AA01400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer7495 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_arrayInitializer7498 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer7500 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_arrayInitializer7504 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_arrayInitializer7509 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THROWS_in_throwsClause7547 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentList_in_throwsClause7549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifier_in_modifierList7586 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_PUBLIC_in_modifier7627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PROTECTED_in_modifier7637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRIVATE_in_modifier7647 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_modifier7657 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ABSTRACT_in_modifier7667 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NATIVE_in_modifier7677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier7687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRANSIENT_in_modifier7697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOLATILE_in_modifier7707 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRICTFP_in_modifier7717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_modifier7727 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_localModifierList7746 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_FINAL_in_localModifier7787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_localModifier7797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_simpleType_in_type7816 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_objectType_in_type7826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primitiveType_in_simpleType7846 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_simpleType7848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_objectType7895 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectType7897 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7937 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectTypeSimplified7939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent7979 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdent7982 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent7984 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8024 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdentSimplified8027 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8029 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdent8069 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent8072 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdentSimplified8092 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_typeIdentSimplified8095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_compilationUnit_in_javaSource5355 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationList_in_compilationUnit5391 = new BitSet(new long[]{0x2020100000000082L,0x000000444CF26048L});
+    public static final BitSet FOLLOW_packageDeclaration_in_compilationUnit5402 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE26048L});
+    public static final BitSet FOLLOW_importDeclaration_in_compilationUnit5414 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE26048L});
+    public static final BitSet FOLLOW_typeDecls_in_compilationUnit5426 = new BitSet(new long[]{0x2020100000000082L,0x000000444CE22048L});
+    public static final BitSet FOLLOW_typeDeclaration_in_typeDecls5446 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_typeDecls5456 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration5476 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_packageDeclaration5479 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_packageDeclaration5481 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IMPORT_in_importDeclaration5507 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_STATIC_in_importDeclaration5510 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration5513 = new BitSet(new long[]{0x0000100000010000L});
+    public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration5515 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_importDeclaration5518 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_typeDeclaration5542 = new BitSet(new long[]{0x2020000000000080L,0x000000444CE22048L});
+    public static final BitSet FOLLOW_classTypeDeclaration_in_typeDeclaration5557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_interfaceTypeDeclaration_in_typeDeclaration5572 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_enumTypeDeclaration_in_typeDeclaration5587 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationTypeDeclaration_in_typeDeclaration5602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CLASS_in_classTypeDeclaration5637 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classTypeDeclaration5639 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_classTypeDeclaration5641 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classExtendsClause_in_classTypeDeclaration5644 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
+    public static final BitSet FOLLOW_implementsClause_in_classTypeDeclaration5647 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classBody_in_classTypeDeclaration5650 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXTENDS_in_classExtendsClause5703 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_classExtendsClause5705 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXTENDS_in_interfaceExtendsClause5749 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeList_in_interfaceExtendsClause5751 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IMPLEMENTS_in_implementsClause5795 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeList_in_implementsClause5797 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeParameterList5842 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList5844 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_COMMA_in_genericTypeParameterList5847 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameter_in_genericTypeParameterList5849 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeParameterList5853 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_genericTypeListClosing5968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_genericTypeListClosing5978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_genericTypeListClosing5988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_genericTypeParameter6016 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_bound_in_genericTypeParameter6018 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXTENDS_in_bound6064 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_bound6066 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_AND_in_bound6069 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_bound6071 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_ENUM_in_enumTypeDeclaration6112 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_enumTypeDeclaration6114 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_implementsClause_in_enumTypeDeclaration6116 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_enumBody_in_enumTypeDeclaration6119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_enumBody6166 = new BitSet(new long[]{0x0020000000000080L,0x000000444CE20040L,0x0000001000000000L});
+    public static final BitSet FOLLOW_enumScopeDeclarations_in_enumBody6168 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_enumBody6170 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_enumConstants_in_enumScopeDeclarations6207 = new BitSet(new long[]{0x0000100000000802L});
+    public static final BitSet FOLLOW_COMMA_in_enumScopeDeclarations6210 = new BitSet(new long[]{0x0000100000000002L});
+    public static final BitSet FOLLOW_enumClassScopeDeclarations_in_enumScopeDeclarations6215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_enumClassScopeDeclarations6235 = new BitSet(new long[]{0x32A0100002800082L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_classScopeDeclarations_in_enumClassScopeDeclarations6237 = new BitSet(new long[]{0x32A0100002800082L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_enumConstant_in_enumConstants6276 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_enumConstants6279 = new BitSet(new long[]{0x0020000000000080L,0x000000444CE20040L,0x0000001000000000L});
+    public static final BitSet FOLLOW_enumConstant_in_enumConstants6282 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_annotationList_in_enumConstant6307 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_enumConstant6309 = new BitSet(new long[]{0x0000000022800002L,0x0000000000000810L});
+    public static final BitSet FOLLOW_arguments_in_enumConstant6312 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classBody_in_enumConstant6315 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INTERFACE_in_interfaceTypeDeclaration6340 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceTypeDeclaration6342 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceTypeDeclaration6344 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_interfaceExtendsClause_in_interfaceTypeDeclaration6347 = new BitSet(new long[]{0x0000000002800000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_interfaceBody_in_interfaceTypeDeclaration6350 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_typeList6400 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_typeList6403 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_typeList6406 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_LCURLY_in_classBody6431 = new BitSet(new long[]{0x32A0140002800080L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_classScopeDeclarations_in_classBody6433 = new BitSet(new long[]{0x32A0140002800080L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_classBody6436 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_interfaceBody6478 = new BitSet(new long[]{0x32A0140002000080L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_interfaceScopeDeclarations_in_interfaceBody6480 = new BitSet(new long[]{0x32A0140002000080L,0x000000644EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_interfaceBody6483 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_classScopeDeclarations6550 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations6575 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_classScopeDeclarations6589 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_classScopeDeclarations6608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6610 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6612 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations6614 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6617 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6621 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6625 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_classScopeDeclarations6687 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6689 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6691 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6693 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations6760 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations6762 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_classScopeDeclarations6764 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations6767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_classScopeDeclarations6831 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations6833 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations6880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations6890 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_interfaceScopeDeclarations6922 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_interfaceScopeDeclarations6936 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations6955 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations6957 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations6959 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_interfaceScopeDeclarations6961 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations6964 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations6967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_interfaceScopeDeclarations7025 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_interfaceScopeDeclarations7027 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_interfaceScopeDeclarations7029 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_interfaceScopeDeclarations7031 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7034 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_interfaceScopeDeclarations7097 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_interfaceFieldDeclaratorList_in_interfaceScopeDeclarations7099 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_interfaceScopeDeclarations7146 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_interfaceScopeDeclarations7156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7176 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_classFieldDeclaratorList7179 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList7181 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_classFieldDeclarator7220 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_ASSIGN_in_classFieldDeclarator7223 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_classFieldDeclarator7225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7270 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_interfaceFieldDeclaratorList7273 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_interfaceFieldDeclarator_in_interfaceFieldDeclaratorList7275 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_interfaceFieldDeclarator7314 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_ASSIGN_in_interfaceFieldDeclarator7316 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_interfaceFieldDeclarator7318 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId7360 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId7363 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer7383 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_variableInitializer7393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator7412 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator7414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_arrayDeclaratorList7448 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_LCURLY_in_arrayInitializer7493 = new BitSet(new long[]{0x128004446AA01400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer7496 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_arrayInitializer7499 = new BitSet(new long[]{0x128000446AA01400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer7501 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_arrayInitializer7505 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_arrayInitializer7510 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THROWS_in_throwsClause7548 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentList_in_throwsClause7550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifier_in_modifierList7587 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_PUBLIC_in_modifier7628 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PROTECTED_in_modifier7638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRIVATE_in_modifier7648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_modifier7658 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ABSTRACT_in_modifier7668 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NATIVE_in_modifier7678 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_modifier7688 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRANSIENT_in_modifier7698 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOLATILE_in_modifier7708 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRICTFP_in_modifier7718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_modifier7728 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_localModifierList7747 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_FINAL_in_localModifier7788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_localModifier7798 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_simpleType_in_type7817 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_objectType_in_type7827 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primitiveType_in_simpleType7847 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_simpleType7849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_objectType7896 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectType7898 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified7938 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectTypeSimplified7940 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent7980 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdent7983 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent7985 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8025 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdentSimplified8028 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified8030 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdent8070 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentList_in_typeIdent8073 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdentSimplified8093 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_typeIdentSimplified8096 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_primitiveType0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeArgumentList8204 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList8206 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_COMMA_in_genericTypeArgumentList8209 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList8211 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeArgumentList8215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_genericTypeArgument8253 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument8263 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000010L});
-    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument8265 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_genericWildcardBoundType8307 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_genericWildcardBoundType8316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified8335 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8337 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_COMMA_in_genericTypeArgumentListSimplified8340 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8342 = new BitSet(new long[]{0x0000800000100900L});
-    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeArgumentListSimplified8346 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_genericTypeArgumentSimplified8388 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgumentSimplified8398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8421 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_qualifiedIdentList8424 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8427 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_LPAREN_in_formalParameterList8452 = new BitSet(new long[]{0x12A0080000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList8480 = new BitSet(new long[]{0x0000080000000800L});
-    public static final BitSet FOLLOW_COMMA_in_formalParameterList8483 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList8485 = new BitSet(new long[]{0x0000080000000800L});
-    public static final BitSet FOLLOW_COMMA_in_formalParameterList8490 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_formalParameterList8492 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_formalParameterList8549 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_formalParameterList8626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl8649 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl8651 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl8653 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarArgDecl8697 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_formalParameterVarArgDecl8699 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ELLIPSIS_in_formalParameterVarArgDecl8701 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarArgDecl8703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier8751 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier8794 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier8798 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_annotation_in_annotationList8851 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
-    public static final BitSet FOLLOW_AT_in_annotation8889 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation8892 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_annotationInit_in_annotation8894 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_annotationInit8918 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit8920 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_annotationInit8922 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers8959 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_annotationInitializers8962 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers8964 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers8994 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_annotationInitializer9035 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ASSIGN_in_annotationInitializer9038 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer9041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationElementValueExpression_in_annotationElementValue9064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_annotationElementValue9074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotationElementValueArrayInitializer_in_annotationElementValue9084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_conditionalExpression_in_annotationElementValueExpression9107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_annotationElementValueArrayInitializer9147 = new BitSet(new long[]{0x12A004446AA01C80L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9150 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_annotationElementValueArrayInitializer9153 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9155 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_annotationElementValueArrayInitializer9162 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_annotationElementValueArrayInitializer9166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_AT_in_annotationTypeDeclaration9209 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_INTERFACE_in_annotationTypeDeclaration9211 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_annotationTypeDeclaration9213 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_annotationBody_in_annotationTypeDeclaration9215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_annotationBody9258 = new BitSet(new long[]{0x32A0040000000080L,0x000000444EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationBody9260 = new BitSet(new long[]{0x32A0040000000080L,0x000000444EE3A14AL,0x0000001000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_annotationBody9263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations9305 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations9307 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations9321 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_annotationScopeDeclarations9323 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_annotationScopeDeclarations9325 = new BitSet(new long[]{0x8000100000000000L});
-    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations9327 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_annotationScopeDeclarations9330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations9372 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_annotationScopeDeclarations9374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations9419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue9442 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue9445 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LCURLY_in_block9466 = new BitSet(new long[]{0x73E014446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_blockStatement_in_block9468 = new BitSet(new long[]{0x73E014446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_block9471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement9509 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_blockStatement9511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement9522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_blockStatement9532 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration9555 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_localVariableDeclaration9557 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration9559 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_block_in_statement9612 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ASSERT_in_statement9622 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement9626 = new BitSet(new long[]{0x0000100000000400L});
-    public static final BitSet FOLLOW_COLON_in_statement9641 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement9645 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement9647 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_statement9710 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IF_in_statement9799 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement9801 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement9805 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ELSE_in_statement9820 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement9824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FOR_in_statement9990 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_statement9992 = new BitSet(new long[]{0x12A010446A201480L,0x0000006CDEEF8162L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forInit_in_statement10007 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10009 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forCondition_in_statement10011 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10013 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forUpdater_in_statement10015 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_statement10017 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10019 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_statement10054 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_statement10056 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement10058 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_statement10060 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement10062 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_statement10064 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHILE_in_statement10181 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10183 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10185 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DO_in_statement10234 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10236 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
-    public static final BitSet FOLLOW_WHILE_in_statement10238 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10240 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10242 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRY_in_statement10283 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_statement10285 = new BitSet(new long[]{0x0800000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_catches_in_statement10288 = new BitSet(new long[]{0x0800000000000002L,0x0000000000000080L});
-    public static final BitSet FOLLOW_finallyClause_in_statement10290 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_finallyClause_in_statement10295 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SWITCH_in_statement10338 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10340 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_LCURLY_in_statement10342 = new BitSet(new long[]{0x8400000000000000L});
-    public static final BitSet FOLLOW_switchBlockLabels_in_statement10344 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_statement10346 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement10372 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10374 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_statement10376 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RETURN_in_statement10422 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement10424 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10427 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THROW_in_statement10491 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_statement10493 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10495 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BREAK_in_statement10560 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement10562 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10565 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CONTINUE_in_statement10635 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_statement10637 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_statement10707 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_statement10709 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_statement10711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_statement10778 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement10780 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_statement10791 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_catchClause_in_catches10830 = new BitSet(new long[]{0x0800000000000002L});
-    public static final BitSet FOLLOW_CATCH_in_catchClause10872 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_catchClause10875 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause10878 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_catchClause10880 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_catchClause10883 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FINALLY_in_finallyClause10902 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_finallyClause10904 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels10936 = new BitSet(new long[]{0x8400000000000000L});
-    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels10938 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels10941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchCaseLabels10986 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_CASE_in_switchCaseLabel11014 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel11017 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_switchCaseLabel11019 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel11022 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel11046 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_switchDefaultLabel11049 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel11052 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit11076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expressionList_in_forInit11098 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_forCondition11186 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expressionList_in_forUpdater11228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_parenthesizedExpression11268 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_parenthesizedExpression11270 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_parenthesizedExpression11272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_expressionList11313 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_expressionList11316 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_expressionList11319 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_assignmentExpression_in_expression11340 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_conditionalExpression_in_assignmentExpression11376 = new BitSet(new long[]{0x001540A280004262L});
-    public static final BitSet FOLLOW_ASSIGN_in_assignmentExpression11395 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_PLUS_ASSIGN_in_assignmentExpression11414 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_MINUS_ASSIGN_in_assignmentExpression11433 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_STAR_ASSIGN_in_assignmentExpression11452 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_DIV_ASSIGN_in_assignmentExpression11471 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_AND_ASSIGN_in_assignmentExpression11490 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_OR_ASSIGN_in_assignmentExpression11509 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_XOR_ASSIGN_in_assignmentExpression11528 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_MOD_ASSIGN_in_assignmentExpression11547 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression11566 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11585 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11604 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_assignmentExpression_in_assignmentExpression11626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_logicalOrExpression_in_conditionalExpression11651 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_conditionalExpression11654 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_assignmentExpression_in_conditionalExpression11657 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_conditionalExpression11659 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_conditionalExpression_in_conditionalExpression11662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression11683 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_LOGICAL_OR_in_logicalOrExpression11686 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression11689 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression11710 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_LOGICAL_AND_in_logicalAndExpression11713 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression11716 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11737 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_OR_in_inclusiveOrExpression11740 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11743 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression11764 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_XOR_in_exclusiveOrExpression11767 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression11770 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_equalityExpression_in_andExpression11791 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_AND_in_andExpression11794 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_equalityExpression_in_andExpression11797 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression11818 = new BitSet(new long[]{0x0000000800040002L});
-    public static final BitSet FOLLOW_EQUAL_in_equalityExpression11837 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_NOT_EQUAL_in_equalityExpression11856 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression11886 = new BitSet(new long[]{0x0000000800040002L});
-    public static final BitSet FOLLOW_relationalExpression_in_instanceOfExpression11916 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_INSTANCEOF_in_instanceOfExpression11919 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_instanceOfExpression11922 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression11943 = new BitSet(new long[]{0x0000000003180002L});
-    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_relationalExpression11962 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11981 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_LESS_THAN_in_relationalExpression12000 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_relationalExpression12019 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression12048 = new BitSet(new long[]{0x0000000003180002L});
-    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression12082 = new BitSet(new long[]{0x0000A00000000102L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression12100 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_shiftExpression12119 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_in_shiftExpression12138 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression12167 = new BitSet(new long[]{0x0000A00000000102L});
-    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression12197 = new BitSet(new long[]{0x0000004040000002L});
-    public static final BitSet FOLLOW_PLUS_in_additiveExpression12215 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_MINUS_in_additiveExpression12234 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression12263 = new BitSet(new long[]{0x0000004040000002L});
-    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression12293 = new BitSet(new long[]{0x0002000100002002L});
-    public static final BitSet FOLLOW_STAR_in_multiplicativeExpression12312 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_DIV_in_multiplicativeExpression12331 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_MOD_in_multiplicativeExpression12350 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression12379 = new BitSet(new long[]{0x0002000100002002L});
-    public static final BitSet FOLLOW_PLUS_in_unaryExpression12413 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression12415 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_in_unaryExpression12442 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression12444 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INC_in_unaryExpression12470 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression12472 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEC_in_unaryExpression12496 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression12498 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression12522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NOT_in_unaryExpressionNotPlusMinus12541 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus12590 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12592 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12631 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_unaryExpressionNotPlusMinus12633 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus12635 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus12672 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primaryExpression_in_postfixedExpression12708 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_DOT_in_postfixedExpression12770 = new BitSet(new long[]{0x0000000002000000L,0x0000000090040000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_postfixedExpression12820 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_postfixedExpression12902 = new BitSet(new long[]{0x0000000020609002L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression12981 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_THIS_in_postfixedExpression13055 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_SUPER_in_postfixedExpression13118 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression13120 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_SUPER_in_postfixedExpression13173 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_postfixedExpression13177 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_postfixedExpression13179 = new BitSet(new long[]{0x0000000020609002L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression13246 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_postfixedExpression13317 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_LBRACK_in_postfixedExpression13374 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_postfixedExpression13376 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_postfixedExpression13378 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_INC_in_postfixedExpression13439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEC_in_postfixedExpression13463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression13511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_primaryExpression13521 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newExpression_in_primaryExpression13531 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentExpression_in_primaryExpression13541 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression13551 = new BitSet(new long[]{0x0000000000000000L,0x0000000090000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression13566 = new BitSet(new long[]{0x0000000020008000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13584 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression13644 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression13646 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression13715 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression13772 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13774 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression13839 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13907 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression13972 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression13974 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression14030 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression14032 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression14034 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression14058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primitiveType_in_primaryExpression14200 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_primaryExpression14259 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression14322 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression14324 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_primaryExpression14384 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression14386 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression14388 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression14468 = new BitSet(new long[]{0x0000000020408002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_qualifiedIdentExpression14538 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14606 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression14608 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14739 = new BitSet(new long[]{0x2000000002000000L,0x0000000090040000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression14757 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14820 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression14845 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14847 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression14897 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14901 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression14903 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14905 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression14955 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14957 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_qualifiedIdentExpression15032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression15098 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression15100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_qualifiedIdentExpression15148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEW_in_newExpression15224 = new BitSet(new long[]{0x1280000002000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression15240 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression15242 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_newExpression15286 = new BitSet(new long[]{0x1280000002000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_newExpression15289 = new BitSet(new long[]{0x0000000020400000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression15307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arguments_in_newExpression15372 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classBody_in_newExpression15374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEW_in_innerNewExpression15473 = new BitSet(new long[]{0x0000000002000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_innerNewExpression15475 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_innerNewExpression15478 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_innerNewExpression15480 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
-    public static final BitSet FOLLOW_classBody_in_innerNewExpression15482 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction15528 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction15530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction15540 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction15543 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction15545 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction15549 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction15552 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction15554 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction15559 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_arguments15579 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expressionList_in_arguments15581 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_arguments15584 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_synpred5_JamlAttrHash4620 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_COMMA_in_synpred5_JamlAttrHash4622 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_synpred5_JamlAttrHash4626 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_synpred5_JamlAttrHash4628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_synpred77_JamlAttrHash5967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_synpred78_JamlAttrHash5977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_synpred79_JamlAttrHash5987 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_bound_in_synpred80_JamlAttrHash6017 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_synpred95_JamlAttrHash6549 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_synpred95_JamlAttrHash6551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred105_JamlAttrHash6588 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred105_JamlAttrHash6607 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6609 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6611 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred105_JamlAttrHash6613 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6616 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_synpred105_JamlAttrHash6624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_synpred105_JamlAttrHash6686 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6688 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6690 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6692 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_synpred105_JamlAttrHash6700 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6759 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6761 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6763 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_synpred106_JamlAttrHash6574 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred106_JamlAttrHash6588 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred106_JamlAttrHash6607 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6609 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6611 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred106_JamlAttrHash6613 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6616 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_synpred106_JamlAttrHash6686 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6688 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6690 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6692 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6700 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6759 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6761 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6763 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_synpred106_JamlAttrHash6830 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_synpred106_JamlAttrHash6832 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_synpred107_JamlAttrHash6879 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred113_JamlAttrHash6935 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred113_JamlAttrHash6954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred113_JamlAttrHash6956 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred113_JamlAttrHash6958 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred113_JamlAttrHash6960 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred113_JamlAttrHash6963 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred113_JamlAttrHash6966 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_synpred113_JamlAttrHash7024 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred113_JamlAttrHash7026 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred113_JamlAttrHash7028 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred113_JamlAttrHash7030 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred113_JamlAttrHash7033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_synpred114_JamlAttrHash6921 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred114_JamlAttrHash6935 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred114_JamlAttrHash6954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred114_JamlAttrHash6956 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred114_JamlAttrHash6958 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred114_JamlAttrHash6960 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred114_JamlAttrHash6963 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash6966 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_synpred114_JamlAttrHash7024 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred114_JamlAttrHash7026 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_synpred114_JamlAttrHash7028 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_throwsClause_in_synpred114_JamlAttrHash7030 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash7033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_synpred114_JamlAttrHash7096 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_interfaceFieldDeclaratorList_in_synpred114_JamlAttrHash7098 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash7100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_synpred115_JamlAttrHash7145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_synpred121_JamlAttrHash7447 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred139_JamlAttrHash7848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred140_JamlAttrHash7897 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred142_JamlAttrHash7982 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_typeIdent_in_synpred142_JamlAttrHash7984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_COMMA_in_synpred153_JamlAttrHash8209 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_genericTypeArgument_in_synpred153_JamlAttrHash8211 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericWildcardBoundType_in_synpred155_JamlAttrHash8265 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_COMMA_in_synpred160_JamlAttrHash8483 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred160_JamlAttrHash8485 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8480 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_synpred162_JamlAttrHash8483 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8485 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_synpred162_JamlAttrHash8490 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
-    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_synpred162_JamlAttrHash8492 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_synpred163_JamlAttrHash8549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred164_JamlAttrHash8794 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred164_JamlAttrHash8798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_annotation_in_synpred165_JamlAttrHash8851 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_synpred177_JamlAttrHash9305 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred177_JamlAttrHash9307 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred177_JamlAttrHash9321 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_synpred177_JamlAttrHash9323 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_synpred177_JamlAttrHash9325 = new BitSet(new long[]{0x8000100000000000L});
-    public static final BitSet FOLLOW_annotationDefaultValue_in_synpred177_JamlAttrHash9327 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred177_JamlAttrHash9330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_synpred177_JamlAttrHash9372 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred177_JamlAttrHash9374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_synpred179_JamlAttrHash9509 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred179_JamlAttrHash9511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_synpred180_JamlAttrHash9522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ELSE_in_synpred184_JamlAttrHash9820 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_synpred184_JamlAttrHash9824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_forInit_in_synpred186_JamlAttrHash10007 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred186_JamlAttrHash10009 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forCondition_in_synpred186_JamlAttrHash10011 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_synpred186_JamlAttrHash10013 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_forUpdater_in_synpred186_JamlAttrHash10015 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_synpred186_JamlAttrHash10017 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
-    public static final BitSet FOLLOW_statement_in_synpred186_JamlAttrHash10019 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_synpred206_JamlAttrHash10986 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_synpred209_JamlAttrHash11076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expressionList_in_synpred210_JamlAttrHash11098 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_synpred253_JamlAttrHash12631 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
-    public static final BitSet FOLLOW_type_in_synpred253_JamlAttrHash12633 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_synpred253_JamlAttrHash12635 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_unaryExpression_in_synpred253_JamlAttrHash12637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_synpred281_JamlAttrHash14538 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_synpred281_JamlAttrHash14606 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_synpred281_JamlAttrHash14608 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred289_JamlAttrHash14739 = new BitSet(new long[]{0x2000000002000000L,0x0000000090040000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_CLASS_in_synpred289_JamlAttrHash14757 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_synpred289_JamlAttrHash14820 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash14845 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14847 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash14897 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_synpred289_JamlAttrHash14901 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred289_JamlAttrHash14903 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14905 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred289_JamlAttrHash14955 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14957 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_synpred289_JamlAttrHash15032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash15098 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash15100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_synpred289_JamlAttrHash15148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_synpred297_JamlAttrHash15549 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
-    public static final BitSet FOLLOW_expression_in_synpred297_JamlAttrHash15552 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_synpred297_JamlAttrHash15554 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeArgumentList8205 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList8207 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_COMMA_in_genericTypeArgumentList8210 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_genericTypeArgumentList8212 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeArgumentList8216 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_genericTypeArgument8254 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgument8264 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000010L});
+    public static final BitSet FOLLOW_genericWildcardBoundType_in_genericTypeArgument8266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_genericWildcardBoundType8308 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_genericWildcardBoundType8317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LESS_THAN_in_genericTypeArgumentListSimplified8336 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8338 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_COMMA_in_genericTypeArgumentListSimplified8341 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgumentSimplified_in_genericTypeArgumentListSimplified8343 = new BitSet(new long[]{0x0000800000100900L});
+    public static final BitSet FOLLOW_genericTypeListClosing_in_genericTypeArgumentListSimplified8347 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_genericTypeArgumentSimplified8389 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_genericTypeArgumentSimplified8399 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8422 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_qualifiedIdentList8425 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList8428 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_LPAREN_in_formalParameterList8453 = new BitSet(new long[]{0x12A0080000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList8481 = new BitSet(new long[]{0x0000080000000800L});
+    public static final BitSet FOLLOW_COMMA_in_formalParameterList8484 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList8486 = new BitSet(new long[]{0x0000080000000800L});
+    public static final BitSet FOLLOW_COMMA_in_formalParameterList8491 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_formalParameterList8493 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_formalParameterList8550 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_formalParameterList8627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl8650 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl8652 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl8654 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterVarArgDecl8698 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_formalParameterVarArgDecl8700 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ELLIPSIS_in_formalParameterVarArgDecl8702 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterVarArgDecl8704 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier8752 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier8795 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier8799 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_annotation_in_annotationList8852 = new BitSet(new long[]{0x0020000000000082L,0x000000444CE20040L});
+    public static final BitSet FOLLOW_AT_in_annotation8890 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_annotation8893 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_annotationInit_in_annotation8895 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_annotationInit8919 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationInitializers_in_annotationInit8921 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_annotationInit8923 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers8960 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_annotationInitializers8963 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_annotationInitializer_in_annotationInitializers8965 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializers8995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_annotationInitializer9036 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_ASSIGN_in_annotationInitializer9039 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationInitializer9042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationElementValueExpression_in_annotationElementValue9065 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_annotationElementValue9075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotationElementValueArrayInitializer_in_annotationElementValue9085 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_conditionalExpression_in_annotationElementValueExpression9108 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_annotationElementValueArrayInitializer9148 = new BitSet(new long[]{0x12A004446AA01C80L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9151 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_annotationElementValueArrayInitializer9154 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationElementValueArrayInitializer9156 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_annotationElementValueArrayInitializer9163 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_annotationElementValueArrayInitializer9167 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_AT_in_annotationTypeDeclaration9210 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_INTERFACE_in_annotationTypeDeclaration9212 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_annotationTypeDeclaration9214 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_annotationBody_in_annotationTypeDeclaration9216 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_annotationBody9259 = new BitSet(new long[]{0x32A0040000000080L,0x000000444EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_annotationScopeDeclarations_in_annotationBody9261 = new BitSet(new long[]{0x32A0040000000080L,0x000000444EE3A14AL,0x0000001000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_annotationBody9264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_annotationScopeDeclarations9306 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_annotationScopeDeclarations9308 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_annotationScopeDeclarations9322 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_annotationScopeDeclarations9324 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_annotationScopeDeclarations9326 = new BitSet(new long[]{0x8000100000000000L});
+    public static final BitSet FOLLOW_annotationDefaultValue_in_annotationScopeDeclarations9328 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_annotationScopeDeclarations9331 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_annotationScopeDeclarations9373 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_annotationScopeDeclarations9375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_annotationScopeDeclarations9420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEFAULT_in_annotationDefaultValue9443 = new BitSet(new long[]{0x12A000446AA01480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_annotationElementValue_in_annotationDefaultValue9446 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LCURLY_in_block9467 = new BitSet(new long[]{0x73E014446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_blockStatement_in_block9469 = new BitSet(new long[]{0x73E014446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_block9472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement9510 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_blockStatement9512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement9523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_blockStatement9533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration9556 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_localVariableDeclaration9558 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration9560 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_statement9613 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ASSERT_in_statement9623 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement9627 = new BitSet(new long[]{0x0000100000000400L});
+    public static final BitSet FOLLOW_COLON_in_statement9642 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement9646 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement9648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_statement9711 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IF_in_statement9800 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement9802 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement9806 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ELSE_in_statement9821 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement9825 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FOR_in_statement9991 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_statement9993 = new BitSet(new long[]{0x12A010446A201480L,0x0000006CDEEF8162L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forInit_in_statement10008 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10010 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forCondition_in_statement10012 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10014 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forUpdater_in_statement10016 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_statement10018 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_statement10055 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_statement10057 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement10059 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_statement10061 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement10063 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_statement10065 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10067 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHILE_in_statement10182 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10184 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10186 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DO_in_statement10235 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10237 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
+    public static final BitSet FOLLOW_WHILE_in_statement10239 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10241 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRY_in_statement10284 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_statement10286 = new BitSet(new long[]{0x0800000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_catches_in_statement10289 = new BitSet(new long[]{0x0800000000000002L,0x0000000000000080L});
+    public static final BitSet FOLLOW_finallyClause_in_statement10291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_finallyClause_in_statement10296 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SWITCH_in_statement10339 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10341 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_LCURLY_in_statement10343 = new BitSet(new long[]{0x8400000000000000L});
+    public static final BitSet FOLLOW_switchBlockLabels_in_statement10345 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_statement10347 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SYNCHRONIZED_in_statement10373 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement10375 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_statement10377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RETURN_in_statement10423 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement10425 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10428 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THROW_in_statement10492 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_statement10494 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10496 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BREAK_in_statement10561 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement10563 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CONTINUE_in_statement10636 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_statement10638 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10641 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_statement10708 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_statement10710 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_statement10712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_statement10779 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement10781 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_statement10792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_catchClause_in_catches10831 = new BitSet(new long[]{0x0800000000000002L});
+    public static final BitSet FOLLOW_CATCH_in_catchClause10873 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_catchClause10876 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_catchClause10879 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_catchClause10881 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_catchClause10884 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FINALLY_in_finallyClause10903 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_finallyClause10905 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels10937 = new BitSet(new long[]{0x8400000000000000L});
+    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels10939 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels10942 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchCaseLabels10987 = new BitSet(new long[]{0x0400000000000002L});
+    public static final BitSet FOLLOW_CASE_in_switchCaseLabel11015 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel11018 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_switchCaseLabel11020 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel11023 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel11047 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_switchDefaultLabel11050 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel11053 = new BitSet(new long[]{0x73E010446AA01482L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit11077 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expressionList_in_forInit11099 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_forCondition11187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expressionList_in_forUpdater11229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_parenthesizedExpression11269 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_parenthesizedExpression11271 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_parenthesizedExpression11273 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_expressionList11314 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_expressionList11317 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_expressionList11320 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_assignmentExpression_in_expression11341 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_conditionalExpression_in_assignmentExpression11377 = new BitSet(new long[]{0x001540A280004262L});
+    public static final BitSet FOLLOW_ASSIGN_in_assignmentExpression11396 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_PLUS_ASSIGN_in_assignmentExpression11415 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_MINUS_ASSIGN_in_assignmentExpression11434 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_STAR_ASSIGN_in_assignmentExpression11453 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_DIV_ASSIGN_in_assignmentExpression11472 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_AND_ASSIGN_in_assignmentExpression11491 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_OR_ASSIGN_in_assignmentExpression11510 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_XOR_ASSIGN_in_assignmentExpression11529 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_MOD_ASSIGN_in_assignmentExpression11548 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_ASSIGN_in_assignmentExpression11567 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11586 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_ASSIGN_in_assignmentExpression11605 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_assignmentExpression_in_assignmentExpression11627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_logicalOrExpression_in_conditionalExpression11652 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_conditionalExpression11655 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_assignmentExpression_in_conditionalExpression11658 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_conditionalExpression11660 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_conditionalExpression_in_conditionalExpression11663 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression11684 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_LOGICAL_OR_in_logicalOrExpression11687 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression11690 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression11711 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_LOGICAL_AND_in_logicalAndExpression11714 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression11717 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11738 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_OR_in_inclusiveOrExpression11741 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression11744 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression11765 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_XOR_in_exclusiveOrExpression11768 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression11771 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_equalityExpression_in_andExpression11792 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_AND_in_andExpression11795 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_equalityExpression_in_andExpression11798 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression11819 = new BitSet(new long[]{0x0000000800040002L});
+    public static final BitSet FOLLOW_EQUAL_in_equalityExpression11838 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_NOT_EQUAL_in_equalityExpression11857 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression11887 = new BitSet(new long[]{0x0000000800040002L});
+    public static final BitSet FOLLOW_relationalExpression_in_instanceOfExpression11917 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_INSTANCEOF_in_instanceOfExpression11920 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_instanceOfExpression11923 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression11944 = new BitSet(new long[]{0x0000000003180002L});
+    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_relationalExpression11963 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_relationalExpression11982 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_LESS_THAN_in_relationalExpression12001 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_relationalExpression12020 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression12049 = new BitSet(new long[]{0x0000000003180002L});
+    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression12083 = new BitSet(new long[]{0x0000A00000000102L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression12101 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_shiftExpression12120 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_in_shiftExpression12139 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression12168 = new BitSet(new long[]{0x0000A00000000102L});
+    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression12198 = new BitSet(new long[]{0x0000004040000002L});
+    public static final BitSet FOLLOW_PLUS_in_additiveExpression12216 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_MINUS_in_additiveExpression12235 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression12264 = new BitSet(new long[]{0x0000004040000002L});
+    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression12294 = new BitSet(new long[]{0x0002000100002002L});
+    public static final BitSet FOLLOW_STAR_in_multiplicativeExpression12313 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_DIV_in_multiplicativeExpression12332 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_MOD_in_multiplicativeExpression12351 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression12380 = new BitSet(new long[]{0x0002000100002002L});
+    public static final BitSet FOLLOW_PLUS_in_unaryExpression12414 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression12416 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_in_unaryExpression12443 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression12445 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INC_in_unaryExpression12471 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression12473 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEC_in_unaryExpression12497 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression12499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression12523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NOT_in_unaryExpressionNotPlusMinus12542 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus12591 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus12632 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_unaryExpressionNotPlusMinus12634 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus12636 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus12638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus12673 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primaryExpression_in_postfixedExpression12709 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_DOT_in_postfixedExpression12771 = new BitSet(new long[]{0x0000000002000000L,0x0000000090040000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_postfixedExpression12821 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_postfixedExpression12903 = new BitSet(new long[]{0x0000000020609002L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression12982 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_THIS_in_postfixedExpression13056 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_SUPER_in_postfixedExpression13119 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression13121 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_SUPER_in_postfixedExpression13174 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_postfixedExpression13178 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_postfixedExpression13180 = new BitSet(new long[]{0x0000000020609002L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression13247 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_postfixedExpression13318 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_LBRACK_in_postfixedExpression13375 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_postfixedExpression13377 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_postfixedExpression13379 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_INC_in_postfixedExpression13440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEC_in_postfixedExpression13464 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression13512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_primaryExpression13522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_newExpression_in_primaryExpression13532 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentExpression_in_primaryExpression13542 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_primaryExpression13552 = new BitSet(new long[]{0x0000000000000000L,0x0000000090000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression13567 = new BitSet(new long[]{0x0000000020008000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13585 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression13645 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression13647 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13649 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression13716 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression13773 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression13840 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression13973 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression13975 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression14031 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression14033 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression14035 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression14059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primitiveType_in_primaryExpression14201 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_primaryExpression14260 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression14323 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression14325 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_primaryExpression14385 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression14387 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression14389 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression14469 = new BitSet(new long[]{0x0000000020408002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_qualifiedIdentExpression14539 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14607 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression14609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14679 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14740 = new BitSet(new long[]{0x2000000002000000L,0x0000000090040000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression14758 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_qualifiedIdentExpression14821 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression14846 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression14898 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression14902 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression14904 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14906 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression14956 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression14958 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_qualifiedIdentExpression15033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression15099 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression15101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_qualifiedIdentExpression15149 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NEW_in_newExpression15225 = new BitSet(new long[]{0x1280000002000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression15241 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression15243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_newExpression15287 = new BitSet(new long[]{0x1280000002000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_newExpression15290 = new BitSet(new long[]{0x0000000020400000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression15308 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arguments_in_newExpression15373 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classBody_in_newExpression15375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NEW_in_innerNewExpression15474 = new BitSet(new long[]{0x0000000002000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_innerNewExpression15476 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_innerNewExpression15479 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_innerNewExpression15481 = new BitSet(new long[]{0x0000000002800002L,0x0000000000000810L});
+    public static final BitSet FOLLOW_classBody_in_innerNewExpression15483 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction15529 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction15531 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction15541 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction15544 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction15546 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction15550 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction15553 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction15555 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction15560 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_arguments15580 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expressionList_in_arguments15582 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_arguments15585 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_synpred5_JamlAttrHash4621 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_COMMA_in_synpred5_JamlAttrHash4623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_synpred5_JamlAttrHash4627 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_synpred5_JamlAttrHash4629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_synpred77_JamlAttrHash5968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_synpred78_JamlAttrHash5978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_synpred79_JamlAttrHash5988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_bound_in_synpred80_JamlAttrHash6018 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_synpred95_JamlAttrHash6550 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_synpred95_JamlAttrHash6552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred105_JamlAttrHash6589 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred105_JamlAttrHash6608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6610 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6612 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred105_JamlAttrHash6614 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6617 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6621 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_synpred105_JamlAttrHash6625 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_synpred105_JamlAttrHash6687 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6689 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6691 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6693 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_synpred105_JamlAttrHash6701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred105_JamlAttrHash6760 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred105_JamlAttrHash6762 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred105_JamlAttrHash6764 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_synpred105_JamlAttrHash6767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_synpred106_JamlAttrHash6575 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred106_JamlAttrHash6589 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred106_JamlAttrHash6608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6610 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6612 = new BitSet(new long[]{0x0000100000C00000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred106_JamlAttrHash6614 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6617 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6621 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6625 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_synpred106_JamlAttrHash6687 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6689 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6691 = new BitSet(new long[]{0x0000100000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6693 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred106_JamlAttrHash6760 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred106_JamlAttrHash6762 = new BitSet(new long[]{0x0000000000800000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred106_JamlAttrHash6764 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_synpred106_JamlAttrHash6767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_synpred106_JamlAttrHash6831 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_synpred106_JamlAttrHash6833 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred106_JamlAttrHash6835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_synpred107_JamlAttrHash6880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred113_JamlAttrHash6936 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred113_JamlAttrHash6955 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred113_JamlAttrHash6957 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred113_JamlAttrHash6959 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred113_JamlAttrHash6961 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred113_JamlAttrHash6964 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred113_JamlAttrHash6967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_synpred113_JamlAttrHash7025 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred113_JamlAttrHash7027 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred113_JamlAttrHash7029 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred113_JamlAttrHash7031 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred113_JamlAttrHash7034 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_synpred114_JamlAttrHash6922 = new BitSet(new long[]{0x1280000002000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeParameterList_in_synpred114_JamlAttrHash6936 = new BitSet(new long[]{0x1280000000000000L,0x0000002002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred114_JamlAttrHash6955 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred114_JamlAttrHash6957 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred114_JamlAttrHash6959 = new BitSet(new long[]{0x0000100000400000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred114_JamlAttrHash6961 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred114_JamlAttrHash6964 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash6967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_synpred114_JamlAttrHash7025 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred114_JamlAttrHash7027 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_synpred114_JamlAttrHash7029 = new BitSet(new long[]{0x0000100000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_throwsClause_in_synpred114_JamlAttrHash7031 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash7034 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_synpred114_JamlAttrHash7097 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_interfaceFieldDeclaratorList_in_synpred114_JamlAttrHash7099 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred114_JamlAttrHash7101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_synpred115_JamlAttrHash7146 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_synpred121_JamlAttrHash7448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred139_JamlAttrHash7849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_synpred140_JamlAttrHash7898 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred142_JamlAttrHash7983 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_typeIdent_in_synpred142_JamlAttrHash7985 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COMMA_in_synpred153_JamlAttrHash8210 = new BitSet(new long[]{0x1280010000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_genericTypeArgument_in_synpred153_JamlAttrHash8212 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericWildcardBoundType_in_synpred155_JamlAttrHash8266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COMMA_in_synpred160_JamlAttrHash8484 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred160_JamlAttrHash8486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8481 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_synpred162_JamlAttrHash8484 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_synpred162_JamlAttrHash8486 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_synpred162_JamlAttrHash8491 = new BitSet(new long[]{0x12A0000000000080L,0x000000444EE38142L,0x0000001000000000L});
+    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_synpred162_JamlAttrHash8493 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_formalParameterVarArgDecl_in_synpred163_JamlAttrHash8550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred164_JamlAttrHash8795 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred164_JamlAttrHash8799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_annotation_in_synpred165_JamlAttrHash8852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_synpred177_JamlAttrHash9306 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred177_JamlAttrHash9308 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred177_JamlAttrHash9322 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_synpred177_JamlAttrHash9324 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_synpred177_JamlAttrHash9326 = new BitSet(new long[]{0x8000100000000000L});
+    public static final BitSet FOLLOW_annotationDefaultValue_in_synpred177_JamlAttrHash9328 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred177_JamlAttrHash9331 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_synpred177_JamlAttrHash9373 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred177_JamlAttrHash9375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_synpred179_JamlAttrHash9510 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred179_JamlAttrHash9512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_synpred180_JamlAttrHash9523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ELSE_in_synpred184_JamlAttrHash9821 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_synpred184_JamlAttrHash9825 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_forInit_in_synpred186_JamlAttrHash10008 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred186_JamlAttrHash10010 = new BitSet(new long[]{0x128010446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forCondition_in_synpred186_JamlAttrHash10012 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_synpred186_JamlAttrHash10014 = new BitSet(new long[]{0x128008446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_forUpdater_in_synpred186_JamlAttrHash10016 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_synpred186_JamlAttrHash10018 = new BitSet(new long[]{0x73E010446AA01480L,0x000000FDFFEFA76BL,0x000007F000000000L});
+    public static final BitSet FOLLOW_statement_in_synpred186_JamlAttrHash10020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_synpred206_JamlAttrHash10987 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_synpred209_JamlAttrHash11077 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expressionList_in_synpred210_JamlAttrHash11099 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_synpred253_JamlAttrHash12632 = new BitSet(new long[]{0x1280000000000000L,0x0000000002018102L,0x0000001000000000L});
+    public static final BitSet FOLLOW_type_in_synpred253_JamlAttrHash12634 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_synpred253_JamlAttrHash12636 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_unaryExpression_in_synpred253_JamlAttrHash12638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_synpred281_JamlAttrHash14539 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_synpred281_JamlAttrHash14607 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_synpred281_JamlAttrHash14609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred289_JamlAttrHash14740 = new BitSet(new long[]{0x2000000002000000L,0x0000000090040000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_CLASS_in_synpred289_JamlAttrHash14758 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genericTypeArgumentListSimplified_in_synpred289_JamlAttrHash14821 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash14846 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash14898 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_synpred289_JamlAttrHash14902 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred289_JamlAttrHash14904 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14906 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred289_JamlAttrHash14956 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash14958 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_synpred289_JamlAttrHash15033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred289_JamlAttrHash15099 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred289_JamlAttrHash15101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_synpred289_JamlAttrHash15149 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_synpred297_JamlAttrHash15550 = new BitSet(new long[]{0x128000446A201400L,0x00000028920D8122L,0x000007F000000000L});
+    public static final BitSet FOLLOW_expression_in_synpred297_JamlAttrHash15553 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_synpred297_JamlAttrHash15555 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -192,7 +192,7 @@ import java.util.Map;
 }
 
 @members {
-    Helper jamlUtil = new Helper(new JamlConfig());
+    Helper jamlUtil;
     
     private boolean mMessageCollectionEnabled = false;
     private boolean mHasErrors = false;
@@ -277,8 +277,11 @@ package com.cadrlife.jaml;
 public boolean preserveWhitespacesAndComments = true;
 }
 
-attrMappings returns [Map<String,String> attrMap] 
-  @init {$attrMap = new LinkedHashMap<String,String>();}:
+attrMappings[Helper helper] returns [Map<String,String> attrMap] 
+  @init {
+    $attrMap = new LinkedHashMap<String,String>();
+    jamlUtil = helper;
+  }:
  
   ( am=attrMapping  {$attrMap.put($am.attr,$am.value);} 
     (',' am=attrMapping {$attrMap.put($am.attr,$am.value);})* );

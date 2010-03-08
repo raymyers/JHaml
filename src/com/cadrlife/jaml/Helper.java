@@ -13,10 +13,13 @@ import com.google.common.base.Joiner;
 
 public class Helper {
 	private final JamlConfig config;
-	public final JamlErrorChecker errorChecker = new JamlErrorChecker();
+	private final JamlErrorChecker errorChecker;
+	private final JamlParser parser;
 
-	public Helper(JamlConfig config) {
+	public Helper(JamlConfig config, JamlParser parser) {
 		this.config = config;
+		this.parser = parser;
+		errorChecker = new JamlErrorChecker(this.parser);
 	}
 	
 	public String elem(String tag, String el, Map<String,String> attribMap, String content, boolean selfClosing) {
@@ -55,7 +58,7 @@ public class Helper {
 		System.out.println(">>> "+ input);
 		JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
 		try {
-			attrMappings_return parseJamlAttrHash = jamlParserWrapper.parseJamlAttrHash(input);
+			attrMappings_return parseJamlAttrHash = jamlParserWrapper.parseJamlAttrHash(input,this);
 			attrMap.putAll(parseJamlAttrHash.attrMap);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -154,9 +157,7 @@ public class Helper {
 			filter = text.substring(0,text.indexOf("\n"));
 			remainingLines =  text.substring(text.indexOf("\n")+1);
 		}
-		if (!config.filters.containsKey(filter)) {
-			throw new JamlParseException("Haml Error: Filter \"" + filter + "\" is not defined.");
-		}
+		errorChecker.checkFilterIsDefined(config, filter, remainingLines);
 		return config.filters.get(filter).process(remainingLines);
 	}
 

@@ -12,7 +12,7 @@ import com.cadrlife.util.StringInputStream;
 
 public class JamlParserWrapper {
 
-	public attrMappings_return parseJamlAttrHash(String input)
+	public attrMappings_return parseJamlAttrHash(String input, Helper helper)
 		throws IOException, RecognitionException {
 		input += "\n";
 		JamlAttrHashLexer lexer = new JamlAttrHashLexer(new ANTLRInputStream(
@@ -21,7 +21,7 @@ public class JamlParserWrapper {
 		CommonTokenStream tokens = tokens1;
 			JamlAttrHashParser parser = new JamlAttrHashParser(tokens);
 			parser.enableErrorMessageCollection(true);
-		attrMappings_return attrMappings = parser.attrMappings();
+		attrMappings_return attrMappings = parser.attrMappings(helper);
 		throwForParseErrors(parser);
 		return attrMappings;
 	}

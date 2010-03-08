@@ -48,18 +48,20 @@ package com.cadrlife.jaml;
 @parser::members {
 String output = "";
 JamlConfig config = new JamlConfig();
-Helper util = new Helper(config);
+Helper util = new Helper(config,this);
 boolean shouldParseText = true;
 public void pushElementScopeForTesting() {
   element_stack.push(new element_scope());
 }
+public int getCurrentLineNumber() {
+  return this.getTokenStream().LT(-1).getLine();
 }
-
+}
 jamlSource[JamlConfig config] returns [String rendering]
 @init {
   $rendering = ""; 
   this.config = $config;
-  Helper util = new Helper(config);
+  Helper util = new Helper(config, this);
 }
 : (line {$rendering += $line.rendering + "\n";})*;
 

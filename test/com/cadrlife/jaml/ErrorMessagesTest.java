@@ -18,8 +18,8 @@ public class ErrorMessagesTest {
 //		assertInputThrows("~", "There's no Ruby code for ~ to evaluate.");
 		assertInputThrows("=", "There's no Java code for = to evaluate.");
 		assertInputThrows("%p/\n  a", "Illegal nesting: nesting within a self-closing tag is illegal.");
-//		assertInputThrows(":a\n  b", "Filter \"a\" is not defined.", 1);
-//		assertInputThrows(":a= b", "Invalid filter name \":a= b\".");
+		assertInputThrows(":a\n  b", "Filter \"a\" is not defined.", 1);
+		assertInputThrows(":a= b", "Invalid filter name \":a= b\".");
 //		assertInputThrows(".", "Illegal element: classes and ids must have values.");
 //		assertInputThrows(".#", "Illegal element: classes and ids must have values.");
 //		assertInputThrows(".{} a", "Illegal element: classes and ids must have values.");
@@ -95,6 +95,7 @@ public class ErrorMessagesTest {
 			fail("No exception thrown, expected: " + message + "\nOutput:\n" + output);
 		} catch (JamlParseException e) {
 			assertEquals(message, e.getMessage());
+			assertEquals(line, e.getLineNumber());
 		}
 	}
 }
