@@ -28,6 +28,7 @@ package com.cadrlife.jaml;
 	boolean hashMode = false;
 	boolean beginningOfLine = true;
 	int braceDepth = 0;
+	int indentationSize = -1;
 	
 	List tokens = new ArrayList();
 	@Override
@@ -49,7 +50,7 @@ package com.cadrlife.jaml;
 String output = "";
 JamlConfig config = new JamlConfig();
 Helper util = new Helper(config,this);
-boolean shouldParseText = true;
+boolean isWithinFilter = false;
 public void pushElementScopeForTesting() {
   element_stack.push(new element_scope());
 }
@@ -91,14 +92,14 @@ element returns [String rendering]
   :
   elementDeclaration (FORWARD_SLASH {selfClosing = true;})?
    ( freeformText[false] {content = $freeformText.rendering;} | 
-     NEWLINE (content {content = $content.rendering;})?)
+     newline (content {content = $content.rendering;})?)
   {$rendering = util.elem($element.text, $element::type, $elementDeclaration.attrMap, content, selfClosing);}
   ;
 
 line returns [String rendering] @init { $rendering = ""; } :
   element {$rendering = $element.rendering;}
   | freeformText[true] {$rendering = $freeformText.rendering;}
-  | NEWLINE
+  | newline
   ;
   
 freeformText[boolean beginningOfLine] returns [String rendering] 
@@ -106,26 +107,26 @@ freeformText[boolean beginningOfLine] returns [String rendering]
   String txt = "";
   boolean isFilter = false;
 }:
-  TEXT NEWLINE {
+  TEXT {
     txt = $TEXT.text; 
-    if (shouldParseText && beginningOfLine && txt.startsWith(":")) {
+    if (!isWithinFilter && beginningOfLine && txt.startsWith(":")) {
       isFilter = true;
-      shouldParseText = false;
+      isWithinFilter = true;
     }
-  }
+  } newline
   (content {
     if (isFilter) {
     	int contentPos = $content.start.getCharPositionInLine();
-    	txt = txt + $NEWLINE.text + util.spaces(contentPos) + $content.text;
+    	txt = txt + $newline.text + util.spaces(contentPos) + $content.text;
     } else {
     	txt += $content.rendering;
     }
   })? 
   {
     if (isFilter) {
-      shouldParseText = true;
+      isWithinFilter = false;
     }
-    if (shouldParseText) {
+    if (!isWithinFilter) {
       String currentElementType = element_stack.isEmpty() ? null : $element::type;  
       $rendering = util.parseFreeFormText(currentElementType, txt);
     }
@@ -147,9 +148,13 @@ elementDeclaration returns [Map<String,String> attrMap]
 
 content returns [String rendering] @init { $rendering = ""; } :
 INDENT 
- ( e1=element {$rendering += $e1.rendering + "\n";} | 
-  freeformText[true] {$rendering += $freeformText.rendering + "\n";} | 
-  (blankLines)=> blankLines )+
+ (
+   (e1=element {$rendering += $e1.rendering + "\n";} | 
+    freeformText[true] {$rendering += $freeformText.rendering + "\n";} | 
+    (blankLines)=> blankLines)+
+   // For multiple indents within filters
+   | inner=content {$rendering += $inner.rendering;} 
+  )
 DEDENT
 {$rendering = "\n" + util.indent(util.stripTrailingNewline($rendering)) + "\n";}
 ;
@@ -180,6 +185,11 @@ idSpecifier returns [String id]: POUND ID? {$id = $ID.text;};
 classSpecifier returns [String klass]:
 DOT ID? {$klass = $ID.text;};
 
+// First alternate avoids validating indentation for blank lines.
+newline: (NEWLINE DEDENT* NEWLINE)=> NEWLINE | NEWLINE{
+  util.validateIndentation(isWithinFilter, $NEWLINE.text.substring(1));
+};
+
 // LEXER
 
 POUND:   '#' {textMode = false; beginningOfLine=false;};
@@ -200,18 +210,22 @@ IGNORED_NEWLINE  : { hashMode }?=> NL ;
 
 CHANGE_INDENT 
 @init { String spaces = ""; } :{ !hashMode }?=> 
-	(NL) (' ' {spaces+=" ";})* {
+	(NL) (' ' {spaces+=" ";} | '\t' {spaces+="\t";})* {
 	          emit(new CommonToken(NEWLINE, "\n" + spaces));
 	          System.out.println("NEWLINE");
 	          int tb = spaces.length();
 	          System.out.println(tb + "/" + currentIndentation);
+	          
 	          if (tb > currentIndentation) {
-	              for(int i = 0; i < tb - currentIndentation; i+=2) {
+	              if (indentationSize == -1 ) {
+	                indentationSize = tb;
+	              }
+	              for(int i = 0; i < tb - currentIndentation; i+=indentationSize) {
 		              emit(new CommonToken(INDENT,""));
 		              System.out.println("INDENT");
 	              }
 	          } else if(tb < currentIndentation) {
-	              for(int i = 0; i < currentIndentation - tb; i+=2) {
+	              for(int i = 0; i < currentIndentation - tb; i+=indentationSize) {
 	    	          emit(new CommonToken(DEDENT,""));
 		    	      System.out.println("DEDENT");
 	              }

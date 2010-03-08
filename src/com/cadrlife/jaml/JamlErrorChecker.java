@@ -6,6 +6,9 @@ import com.cadrlife.jaml.util.IndentUtils;
 import com.google.common.base.CharMatcher;
 
 public class JamlErrorChecker {
+	private static final String INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES = "Indentation can't use both tabs and spaces.";
+	private static final String THE_LINE_WAS_INDENTED_DEEPER_THAN_THE_PREVIOUS_LINE = "The line was indented %d levels deeper than the previous line.";
+	private static final String INCONSISTENT_INDENTATION = "Inconsistent indentation: %s %s used for indentation, but the rest of the document was indented using %s.";
 	private static final String INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL = "Indenting at the beginning of the document is illegal.";
 	private static final String SELF_CLOSING_TAGS_CAN_T_HAVE_CONTENT = "Self-closing tags can't have content.";
 	private static final String INVALID_FILTER_NAME = "Invalid filter name \":%s\".";
@@ -87,8 +90,43 @@ public class JamlErrorChecker {
 		}
 	}
 	public void checkDocumentDoesNotBeginWithIndentation(String input) {
-		if (CharMatcher.is('\n').trimLeadingFrom(input).startsWith(" ")) {
-			throwError(1, INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL);
+		int lineNumber = 1;
+		for (String line : input.split("\n")) {
+			if (!line.trim().isEmpty()) {
+				if (line.startsWith(" ") || line.startsWith("\t")) {
+					throwError(lineNumber, INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL);
+				}
+				return;
+			}
+			lineNumber++;
+		}
+	}
+	public void checkIndentationIsConsistent(int indentationSize,
+			boolean isIndentWithTabs, int currentIndentation, String actualIndentation, String effectiveIndentation) {
+		if (effectiveIndentation.isEmpty()) {
+			return;
+		}
+		boolean indentationIsInvalidLength = effectiveIndentation.length() % indentationSize != 0;
+		int indentationLevels = (effectiveIndentation.length() - currentIndentation) / indentationSize;
+		boolean isAllTabs = CharMatcher.is('\t').matchesAllOf(effectiveIndentation);
+		boolean isAllSpaces = CharMatcher.is(' ').matchesAllOf(effectiveIndentation);
+		boolean indentationIsWrongType = isIndentWithTabs != isAllTabs;
+		boolean indentationIsMixed = !(isAllTabs || isAllSpaces);
+		if (indentationIsInvalidLength || indentationIsWrongType || indentationIsMixed) {
+			String indentationDescription = IndentUtils.describe(actualIndentation);
+			String wasOrWere = indentationDescription.endsWith("s") ? "were" : "was";
+			throwError(parser.getCurrentLineNumber()+1,String.format(INCONSISTENT_INDENTATION,indentationDescription,wasOrWere , IndentUtils.describe(isIndentWithTabs,indentationSize)));
+		}
+		System.err.println("Indentation levels: " + indentationLevels);
+		if (indentationLevels > 1) {
+			throwError(parser.getCurrentLineNumber()+1, String.format(THE_LINE_WAS_INDENTED_DEEPER_THAN_THE_PREVIOUS_LINE,indentationLevels));
+		}
+	}
+	public void checkInitialIndentation(String indentation) {
+		boolean isAllTabs = CharMatcher.is('\t').matchesAllOf(indentation);
+		boolean isAllSpaces = CharMatcher.is(' ').matchesAllOf(indentation);
+		if (!(isAllTabs || isAllSpaces)) {
+			throwError(parser.getCurrentLineNumber()+1,INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES);
 		}
 	}
 }

@@ -37,9 +37,13 @@ public class JamlParserWrapper {
 
 	public jamlSource_return parseJaml(String input) throws JamlParseException {
 		try {
-			JamlParser parser = primeJamlParser(input, false);
+			JamlLexer lexer = new JamlLexer(new ANTLRInputStream(
+					new StringInputStream(input)));
+			JamlConfig config = new JamlConfig();
+			CommonTokenStream tokens = new CommonTokenStream(lexer);
+			JamlParser parser = new JamlParser(tokens);
 			new JamlErrorChecker(parser).checkDocumentDoesNotBeginWithIndentation(input);
-			jamlSource_return result = parser.jamlSource(new JamlConfig());
+			jamlSource_return result = parser.jamlSource(config);
 			throwForParseErrors(parser);
 			return result;
 		} catch (IOException e) {
@@ -56,14 +60,6 @@ public class JamlParserWrapper {
 			throw new RuntimeException();
 		}
 
-	}
-
-	private JamlParser primeJamlParser(String input, boolean b) throws IOException {
-		JamlLexer lexer = new JamlLexer(new ANTLRInputStream(
-				new StringInputStream(input)));
-		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		JamlParser parser = new JamlParser(tokens);
-		return parser;	
 	}
 
 	public CommonTokenStream tokenizeJaml(String input) throws IOException {

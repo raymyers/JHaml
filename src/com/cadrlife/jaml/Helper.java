@@ -144,6 +144,7 @@ public class Helper {
 		if (text.startsWith(":")) {
 			return filter(text.substring(1));
 		}
+		System.err.println(text);
 		errorChecker.checkNoNestingWithinContent(currentElementType, text);
 		return CharMatcher.is(' ').trimTrailingFrom(text);
 	}
@@ -243,6 +244,29 @@ public class Helper {
 			string += " ";
 		}
 		return string;
+	}
+
+	int currentIndentation = 0;
+	int indentationSize = -1;
+	boolean isIndentWithTabs = false;
+	public void validateIndentation(boolean isWithinFilter, String indentation) {
+		if (indentation.isEmpty()) {
+			currentIndentation = 0;
+			return;
+		}
+		if (indentationSize == -1 && !indentation.isEmpty()) {
+			indentationSize = indentation.length();
+			isIndentWithTabs |=  CharMatcher.is('\t').matchesAllOf(indentation);
+			errorChecker.checkInitialIndentation(indentation);
+		}
+		String effectiveIndentation = indentation;
+		int nextLevel = currentIndentation + indentationSize;
+		if (isWithinFilter && indentation.length() > nextLevel) {
+			effectiveIndentation = indentation.substring(0, nextLevel);
+		}
+		errorChecker.checkIndentationIsConsistent(indentationSize,isIndentWithTabs,currentIndentation,indentation,effectiveIndentation);
+		currentIndentation = isWithinFilter ? currentIndentation : indentation.length();
+		System.err.println("current indentation" + currentIndentation);
 	}
 	
 }

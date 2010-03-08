@@ -30,4 +30,18 @@ public class IndentUtils {
 		int endOfFirstLine = text.contains("\n") ? text.indexOf('\n') : text.length();
 		return !text.substring(0, endOfFirstLine).trim().isEmpty();
 	}
+
+	public static String describe(boolean isIndentWithTabs, int indentationSize) {
+		return indentationSize + (isIndentWithTabs ? " tab" : " space") + (indentationSize == 1 ? "" : "s");
+	}
+
+	public static String describe(String indentation) {
+		if (CharMatcher.is('\t').matchesAllOf(indentation)) {
+			return describe(true, indentation.length());
+		}
+		if (CharMatcher.is(' ').matchesAllOf(indentation)) {
+			return describe(false, indentation.length());
+		}
+		return "\"" + indentation.replaceAll("\t", "\\\\t")+ "\"";
+	}
 }

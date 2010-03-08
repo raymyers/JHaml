@@ -45,18 +45,18 @@ public class ErrorMessagesTest {
 		%p This line is un-indented, so it isn't part of the "if" block
 		MESSAGE
 		*/
-//		assertInputThrows(" \n\t\n %p foo", "Indenting at the beginning of the document is illegal.", 3);
-		    /*"\n\n %p foo", "Indenting at the beginning of the document is illegal.", 3,
-		    "%p\n  foo\n foo", "Inconsistent indentation: 1 space was used for indentation, but the rest of the document was indented using 2 spaces.", 3,
-		    "%p\n  foo\n%p\n foo", "Inconsistent indentation: 1 space was used for indentation, but the rest of the document was indented using 2 spaces.", 4,
-		    "%p\n\t\tfoo\n\tfoo", "Inconsistent indentation: 1 tab was used for indentation, but the rest of the document was indented using 2 tabs.", 3,
-		    "%p\n  foo\n   foo", "Inconsistent indentation: 3 spaces were used for indentation, but the rest of the document was indented using 2 spaces.", 3,
-		    "%p\n  foo\n  %p\n   bar", "Inconsistent indentation: 3 spaces were used for indentation, but the rest of the document was indented using 2 spaces.", 4,
-		    "%p\n  :plain\n     bar\n   \t  baz", 'Inconsistent indentation: "   \t  " was used for indentation, but the rest of the document was indented using 2 spaces.', 4,
-		    "%p\n  foo\n%p\n    bar", "The line was indented 2 levels deeper than the previous line.", 4,
-		    "%p\n  foo\n  %p\n        bar", "The line was indented 3 levels deeper than the previous line.", 4,
-		    "%p\n \tfoo", "Indentation can't use both tabs and spaces.", 2,
-		    "%p(", "Invalid attribute list: \"(\".",
+		assertInputThrows(" \n\t\n %p foo", "Indenting at the beginning of the document is illegal.", 3);
+		assertInputThrows("\n\n %p foo", "Indenting at the beginning of the document is illegal.", 3);
+		assertInputThrows("%p\n  foo\n foo", "Inconsistent indentation: 1 space was used for indentation, but the rest of the document was indented using 2 spaces.", 3);
+		assertInputThrows("%p\n  foo\n%p\n foo", "Inconsistent indentation: 1 space was used for indentation, but the rest of the document was indented using 2 spaces.", 4);
+		assertInputThrows("%p\n\t\tfoo\n\tfoo", "Inconsistent indentation: 1 tab was used for indentation, but the rest of the document was indented using 2 tabs.", 3);
+		assertInputThrows("%p\n  foo\n   foo", "Inconsistent indentation: 3 spaces were used for indentation, but the rest of the document was indented using 2 spaces.", 3);
+		assertInputThrows("%p\n  foo\n  %p\n   bar", "Inconsistent indentation: 3 spaces were used for indentation, but the rest of the document was indented using 2 spaces.", 4);
+		assertInputThrows("%p\n  :plain\n     bar\n   \t  baz", "Inconsistent indentation: \"   \\t  \" was used for indentation, but the rest of the document was indented using 2 spaces.", 4);
+		assertInputThrows("%p\n  foo\n%p\n    bar", "The line was indented 2 levels deeper than the previous line.", 4);
+		assertInputThrows("%p\n  foo\n  %p\n        bar", "The line was indented 3 levels deeper than the previous line.", 4);
+		assertInputThrows("%p\n \tfoo", "Indentation can't use both tabs and spaces.", 2);
+		/*    "%p(", "Invalid attribute list: \"(\".",
 		    "%p(foo=\nbar)", "Invalid attribute list: \"(foo=\".", 1,
 		    "%p(foo=)", "Invalid attribute list: \"(foo=)\".",
 		    "%p(foo 'bar')", "Invalid attribute list: \"(foo 'bar')\".",
