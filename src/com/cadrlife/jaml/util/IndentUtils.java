@@ -3,11 +3,21 @@ package com.cadrlife.jaml.util;
 import com.google.common.base.CharMatcher;
 
 public class IndentUtils {
+//	public static String rebaseIndent(String text, int amount) {
+//		String current = spaces(baseIndentation(text));
+//		String textWithoutFirstIndent = CharMatcher.is(' ').trimLeadingFrom(text);
+//		String target = spaces(amount);
+//		return target + textWithoutFirstIndent.replaceAll("\n", "\n"+target ); 
+//	}
 	public static String indent(String text, int amount) {
-		String current = spaces(baseIndentation(text));
-		String textWithoutFirstIndent = CharMatcher.is(' ').trimLeadingFrom(text);
-		String target = spaces(amount);
-		return target + textWithoutFirstIndent.replaceAll("\n"+current, "\n"+target ); 
+		if (amount >= 0) {
+			String target = spaces(amount);
+			return target + text.replaceAll("\n", "\n"+target).replaceAll("\n"+target+"\\z", "\n"); 
+		}
+		if (text.length() < -amount) {
+			return text;
+		}
+		return text.substring(-amount).replaceAll("\n" + spaces(-amount), "\n");
 	}
 	
 	public static String spaces(int spaces) {

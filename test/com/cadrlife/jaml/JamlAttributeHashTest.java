@@ -2,16 +2,10 @@ package com.cadrlife.jaml;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
-import org.antlr.runtime.ANTLRInputStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
 import org.junit.Test;
-
-import com.cadrlife.jaml.JamlParser.elementDeclaration_return;
-import com.cadrlife.util.StringInputStream;
 
 public class JamlAttributeHashTest {
 	
@@ -107,22 +101,7 @@ public class JamlAttributeHashTest {
 	}
 	
 	private Map<String, String> readAttrs(String input) {
-		try {
-			
-			JamlLexer lexer = new JamlLexer(new ANTLRInputStream(
-					new StringInputStream(("%p" + input))));
-			CommonTokenStream tokens = new CommonTokenStream(lexer);
-			JamlParser parser = new JamlParser(tokens);
-			parser.pushElementScopeForTesting();
-			elementDeclaration_return prog = parser.elementDeclaration();
-			if (parser.failed()) {
-				throw new RuntimeException();
-			}
-			return prog.attrMap;
-		} catch (RecognitionException e) {
-			throw new RuntimeException(e);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+		List<Line> lines = new JamlParserWrapper().parseJaml("%p" + input + "\n");
+		return lines.get(0).attrMap;
 	}
 }

@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-03-08 10:47:24
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-03-13 14:44:12
 
 package com.cadrlife.jaml;
 import java.util.LinkedHashMap;
@@ -14,40 +14,51 @@ import java.util.HashMap;
 
 import org.antlr.runtime.tree.*;
 
-@SuppressWarnings({"unused","unchecked"}) public class JamlParser extends Parser {
+@SuppressWarnings("all") public class JamlParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "INDENT", "DEDENT", "NEWLINE", "FORWARD_SLASH", "TEXT", "PERCENT", "ID", "BEGIN_HASH", "END_HASH", "POUND", "DOT", "COMMA", "Spaces", "WS", "NL", "IGNORED_NEWLINE", "CHANGE_INDENT", "SpacesQ", "EscapeSequence", "StringLiteral", "CHARLITERAL", "UnicodeEscape", "OctalEscape", "HexDigit", "HASH_CONTENTS", "LBRACE", "RBRACE", "JAVA_LBRACE", "JAVA_RBRACE"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "NEWLINE", "TEXT", "PERCENT", "ID", "FORWARD_SLASH", "INDENTATION", "BEGIN_HASH", "COMMA", "END_HASH", "MAP_TO", "ATTRIBUTE_NAME", "JAVA_CODE", "JAVA_LBRACE", "JAVA_RBRACE", "STRING_LITERAL", "CHAR_LITERAL", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "TRUE", "FALSE", "NULL", "DOT", "POUND", "Space", "WS", "WS_WITHIN_HASH", "NL", "IGNORED_NEWLINE", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "EscapeSequence", "TextLine", "InLineText", "RemainderOfLineText", "LBRACE", "RBRACE"
     };
-    public static final int RBRACE=30;
-    public static final int PERCENT=9;
-    public static final int IGNORED_NEWLINE=19;
-    public static final int POUND=13;
+    public static final int EXPONENT=36;
     public static final int END_HASH=12;
-    public static final int LBRACE=29;
-    public static final int CHANGE_INDENT=20;
-    public static final int SpacesQ=21;
-    public static final int DEDENT=5;
-    public static final int TEXT=8;
-    public static final int ID=10;
+    public static final int LBRACE=42;
+    public static final int ID=7;
     public static final int EOF=-1;
-    public static final int HexDigit=27;
-    public static final int BEGIN_HASH=11;
-    public static final int INDENT=4;
-    public static final int StringLiteral=23;
-    public static final int HASH_CONTENTS=28;
-    public static final int WS=17;
-    public static final int NEWLINE=6;
-    public static final int COMMA=15;
-    public static final int UnicodeEscape=25;
-    public static final int Spaces=16;
-    public static final int CHARLITERAL=24;
-    public static final int JAVA_LBRACE=31;
-    public static final int NL=18;
-    public static final int DOT=14;
-    public static final int OctalEscape=26;
-    public static final int EscapeSequence=22;
-    public static final int FORWARD_SLASH=7;
-    public static final int JAVA_RBRACE=32;
+    public static final int Space=29;
+    public static final int STRING_LITERAL=18;
+    public static final int FLOATING_POINT_LITERAL=23;
+    public static final int COMMA=11;
+    public static final int HEX_LITERAL=20;
+    public static final int MAP_TO=13;
+    public static final int NL=32;
+    public static final int DOT=27;
+    public static final int JAVA_RBRACE=17;
+    public static final int FLOAT_TYPE_SUFFIX=37;
+    public static final int TextLine=39;
+    public static final int PERCENT=6;
+    public static final int IGNORED_NEWLINE=33;
+    public static final int RBRACE=43;
+    public static final int POUND=28;
+    public static final int NULL=26;
+    public static final int OCTAL_LITERAL=21;
+    public static final int HEX_DIGIT=34;
+    public static final int TEXT=5;
+    public static final int InLineText=40;
+    public static final int TRUE=24;
+    public static final int BEGIN_HASH=10;
+    public static final int RemainderOfLineText=41;
+    public static final int ATTRIBUTE_NAME=14;
+    public static final int WS=30;
+    public static final int WS_WITHIN_HASH=31;
+    public static final int NEWLINE=4;
+    public static final int CHAR_LITERAL=19;
+    public static final int JAVA_CODE=15;
+    public static final int JAVA_LBRACE=16;
+    public static final int FALSE=25;
+    public static final int DECIMAL_LITERAL=22;
+    public static final int INTEGER_TYPE_SUFFIX=35;
+    public static final int EscapeSequence=38;
+    public static final int FORWARD_SLASH=8;
+    public static final int INDENTATION=9;
 
     // delegates
     // delegators
@@ -74,41 +85,17 @@ import org.antlr.runtime.tree.*;
     public String getGrammarFileName() { return "../etc/Jaml.g"; }
 
 
-    String output = "";
-    JamlConfig config = new JamlConfig();
-    Helper util = new Helper(config,this);
-    boolean isWithinFilter = false;
-    public void pushElementScopeForTesting() {
-      element_stack.push(new element_scope());
-    }
-    public int getCurrentLineNumber() {
-      int i=-1;
-      for (; input.LT(i).getLine() <= 0; i--) {
-        System.out.println(">>>>");
-        System.out.println(input.LT(i).getLine());
-        System.out.println(input.LT(i));
-      }
-      System.out.println(">>>>");
-      System.out.println(input.LT(i).getLine());
-      System.out.println(input.LT(i));
-      return input.LT(i).getLine();
-    }
-    public int getCurrentLineNumber(String token) {
-      int i=-1;
-      for (; !token.equals(input.LT(i).getText()); i--);
-      return input.LT(i).getLine();
-    }
-
+    Helper helper;
 
 
     public static class jamlSource_return extends ParserRuleReturnScope {
-        public String rendering;
+        public List<Line> lines;
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
     // $ANTLR start "jamlSource"
-    // ../etc/Jaml.g:76:1: jamlSource[JamlConfig config] returns [String rendering] : ( line )* ;
+    // ../etc/Jaml.g:29:1: jamlSource[JamlConfig config] returns [List<Line> lines] : ( line[$lines] NEWLINE )+ EOF ;
     public final JamlParser.jamlSource_return jamlSource(JamlConfig config) throws RecognitionException {
     traceIn("jamlSource", 1);
         JamlParser.jamlSource_return retval = new JamlParser.jamlSource_return();
@@ -116,54 +103,70 @@ import org.antlr.runtime.tree.*;
 
         CommonTree root_0 = null;
 
+        Token NEWLINE2=null;
+        Token EOF3=null;
         JamlParser.line_return line1 = null;
 
 
+        CommonTree NEWLINE2_tree=null;
+        CommonTree EOF3_tree=null;
 
 
-          retval.rendering = ""; 
-          this.config = config;
-          Helper util = new Helper(config, this);
+          helper = new Helper(config);
+          retval.lines = new ArrayList<Line>();
 
         try {
-            // ../etc/Jaml.g:82:1: ( ( line )* )
-            // ../etc/Jaml.g:82:3: ( line )*
+            // ../etc/Jaml.g:34:1: ( ( line[$lines] NEWLINE )+ EOF )
+            // ../etc/Jaml.g:34:3: ( line[$lines] NEWLINE )+ EOF
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/Jaml.g:82:3: ( line )*
+            // ../etc/Jaml.g:34:3: ( line[$lines] NEWLINE )+
+            int cnt1=0;
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==NEWLINE||(LA1_0>=TEXT && LA1_0<=PERCENT)||(LA1_0>=POUND && LA1_0<=DOT)) ) {
+                if ( ((LA1_0>=NEWLINE && LA1_0<=PERCENT)||LA1_0==INDENTATION||(LA1_0>=DOT && LA1_0<=POUND)) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // ../etc/Jaml.g:82:4: line
+            	    // ../etc/Jaml.g:34:4: line[$lines] NEWLINE
             	    {
-            	    pushFollow(FOLLOW_line_in_jamlSource97);
-            	    line1=line();
+            	    pushFollow(FOLLOW_line_in_jamlSource77);
+            	    line1=line(retval.lines);
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) adaptor.addChild(root_0, line1.getTree());
+            	    NEWLINE2=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_jamlSource80); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
-            	      retval.rendering += (line1!=null?line1.rendering:null) + "\n";
+            	    NEWLINE2_tree = (CommonTree)adaptor.create(NEWLINE2);
+            	    adaptor.addChild(root_0, NEWLINE2_tree);
             	    }
 
             	    }
             	    break;
 
             	default :
-            	    break loop1;
+            	    if ( cnt1 >= 1 ) break loop1;
+            	    if (state.backtracking>0) {state.failed=true; return retval;}
+                        EarlyExitException eee =
+                            new EarlyExitException(1, input);
+                        throw eee;
                 }
+                cnt1++;
             } while (true);
 
+            EOF3=(Token)match(input,EOF,FOLLOW_EOF_in_jamlSource84); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            EOF3_tree = (CommonTree)adaptor.create(EOF3);
+            adaptor.addChild(root_0, EOF3_tree);
+            }
 
             }
 
@@ -188,292 +191,122 @@ import org.antlr.runtime.tree.*;
     }
     // $ANTLR end "jamlSource"
 
-    protected static class element_scope {
-        String type;
+    protected static class line_scope {
+        Line val;
+        line_return node;
     }
-    protected Stack element_stack = new Stack();
-
-    public static class element_return extends ParserRuleReturnScope {
-        public String rendering;
-        CommonTree tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start "element"
-    // ../etc/Jaml.g:84:1: element returns [String rendering] : elementDeclaration ( FORWARD_SLASH )? ( freeformText[false] | newline ( content )? ) ;
-    public final JamlParser.element_return element() throws RecognitionException {
-    traceIn("element", 2);
-        element_stack.push(new element_scope());
-        JamlParser.element_return retval = new JamlParser.element_return();
-        retval.start = input.LT(1);
-
-        CommonTree root_0 = null;
-
-        Token FORWARD_SLASH3=null;
-        JamlParser.elementDeclaration_return elementDeclaration2 = null;
-
-        JamlParser.freeformText_return freeformText4 = null;
-
-        JamlParser.newline_return newline5 = null;
-
-        JamlParser.content_return content6 = null;
-
-
-        CommonTree FORWARD_SLASH3_tree=null;
-
-
-          	String content = ""; 
-          	boolean selfClosing=false;
-          
-        try {
-            // ../etc/Jaml.g:92:3: ( elementDeclaration ( FORWARD_SLASH )? ( freeformText[false] | newline ( content )? ) )
-            // ../etc/Jaml.g:93:3: elementDeclaration ( FORWARD_SLASH )? ( freeformText[false] | newline ( content )? )
-            {
-            root_0 = (CommonTree)adaptor.nil();
-
-            pushFollow(FOLLOW_elementDeclaration_in_element131);
-            elementDeclaration2=elementDeclaration();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, elementDeclaration2.getTree());
-            // ../etc/Jaml.g:93:22: ( FORWARD_SLASH )?
-            int alt2=2;
-            int LA2_0 = input.LA(1);
-
-            if ( (LA2_0==FORWARD_SLASH) ) {
-                alt2=1;
-            }
-            switch (alt2) {
-                case 1 :
-                    // ../etc/Jaml.g:93:23: FORWARD_SLASH
-                    {
-                    FORWARD_SLASH3=(Token)match(input,FORWARD_SLASH,FOLLOW_FORWARD_SLASH_in_element134); if (state.failed) return retval;
-                    if ( state.backtracking==0 ) {
-                    FORWARD_SLASH3_tree = (CommonTree)adaptor.create(FORWARD_SLASH3);
-                    adaptor.addChild(root_0, FORWARD_SLASH3_tree);
-                    }
-                    if ( state.backtracking==0 ) {
-                      selfClosing = true;
-                    }
-
-                    }
-                    break;
-
-            }
-
-            // ../etc/Jaml.g:94:4: ( freeformText[false] | newline ( content )? )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( (LA4_0==TEXT) ) {
-                alt4=1;
-            }
-            else if ( (LA4_0==NEWLINE) ) {
-                alt4=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return retval;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
-
-                throw nvae;
-            }
-            switch (alt4) {
-                case 1 :
-                    // ../etc/Jaml.g:94:6: freeformText[false]
-                    {
-                    pushFollow(FOLLOW_freeformText_in_element145);
-                    freeformText4=freeformText(false);
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, freeformText4.getTree());
-                    if ( state.backtracking==0 ) {
-                      content = (freeformText4!=null?freeformText4.rendering:null);
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // ../etc/Jaml.g:95:6: newline ( content )?
-                    {
-                    pushFollow(FOLLOW_newline_in_element158);
-                    newline5=newline();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, newline5.getTree());
-                    // ../etc/Jaml.g:95:14: ( content )?
-                    int alt3=2;
-                    int LA3_0 = input.LA(1);
-
-                    if ( (LA3_0==INDENT) ) {
-                        alt3=1;
-                    }
-                    switch (alt3) {
-                        case 1 :
-                            // ../etc/Jaml.g:95:15: content
-                            {
-                            pushFollow(FOLLOW_content_in_element161);
-                            content6=content();
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-                            if ( state.backtracking==0 ) adaptor.addChild(root_0, content6.getTree());
-                            if ( state.backtracking==0 ) {
-                              content = (content6!=null?content6.rendering:null);
-                            }
-
-                            }
-                            break;
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            if ( state.backtracking==0 ) {
-              retval.rendering = util.elem(input.toString(retval.start,input.LT(-1)), ((element_scope)element_stack.peek()).type, (elementDeclaration2!=null?elementDeclaration2.attrMap:null), content, selfClosing);
-            }
-
-            }
-
-            retval.stop = input.LT(-1);
-
-            if ( state.backtracking==0 ) {
-
-            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-        finally {
-    traceOut("element", 2);
-            element_stack.pop();
-        }
-        return retval;
-    }
-    // $ANTLR end "element"
+    protected Stack line_stack = new Stack();
 
     public static class line_return extends ParserRuleReturnScope {
-        public String rendering;
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
     // $ANTLR start "line"
-    // ../etc/Jaml.g:99:1: line returns [String rendering] : ( element | freeformText[true] | newline );
-    public final JamlParser.line_return line() throws RecognitionException {
-    traceIn("line", 3);
+    // ../etc/Jaml.g:36:1: line[List<Line> lines] : ( indentation )? ( element | plainText )? ;
+    public final JamlParser.line_return line(List<Line> lines) throws RecognitionException {
+    traceIn("line", 2);
+        line_stack.push(new line_scope());
         JamlParser.line_return retval = new JamlParser.line_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        JamlParser.element_return element7 = null;
+        JamlParser.indentation_return indentation4 = null;
 
-        JamlParser.freeformText_return freeformText8 = null;
+        JamlParser.element_return element5 = null;
 
-        JamlParser.newline_return newline9 = null;
+        JamlParser.plainText_return plainText6 = null;
 
 
 
-         retval.rendering = ""; 
+
+        ((line_scope)line_stack.peek()).val = new Line();
+        ((line_scope)line_stack.peek()).node = retval; 
+
         try {
-            // ../etc/Jaml.g:99:60: ( element | freeformText[true] | newline )
-            int alt5=3;
-            switch ( input.LA(1) ) {
-            case PERCENT:
-            case POUND:
-            case DOT:
-                {
-                alt5=1;
-                }
-                break;
-            case TEXT:
-                {
-                alt5=2;
-                }
-                break;
-            case NEWLINE:
-                {
-                alt5=3;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return retval;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+            // ../etc/Jaml.g:50:1: ( ( indentation )? ( element | plainText )? )
+            // ../etc/Jaml.g:50:4: ( indentation )? ( element | plainText )?
+            {
+            root_0 = (CommonTree)adaptor.nil();
 
-                throw nvae;
+            // ../etc/Jaml.g:50:4: ( indentation )?
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0==INDENTATION) ) {
+                alt2=1;
             }
-
-            switch (alt5) {
+            switch (alt2) {
                 case 1 :
-                    // ../etc/Jaml.g:100:3: element
+                    // ../etc/Jaml.g:50:4: indentation
                     {
-                    root_0 = (CommonTree)adaptor.nil();
-
-                    pushFollow(FOLLOW_element_in_line192);
-                    element7=element();
+                    pushFollow(FOLLOW_indentation_in_line107);
+                    indentation4=indentation();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, element7.getTree());
-                    if ( state.backtracking==0 ) {
-                      retval.rendering = (element7!=null?element7.rendering:null);
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, indentation4.getTree());
+
                     }
+                    break;
+
+            }
+
+            // ../etc/Jaml.g:50:17: ( element | plainText )?
+            int alt3=3;
+            int LA3_0 = input.LA(1);
+
+            if ( (LA3_0==PERCENT||(LA3_0>=DOT && LA3_0<=POUND)) ) {
+                alt3=1;
+            }
+            else if ( (LA3_0==TEXT) ) {
+                alt3=2;
+            }
+            switch (alt3) {
+                case 1 :
+                    // ../etc/Jaml.g:50:18: element
+                    {
+                    pushFollow(FOLLOW_element_in_line111);
+                    element5=element();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, element5.getTree());
 
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:101:5: freeformText[true]
+                    // ../etc/Jaml.g:50:28: plainText
                     {
-                    root_0 = (CommonTree)adaptor.nil();
-
-                    pushFollow(FOLLOW_freeformText_in_line200);
-                    freeformText8=freeformText(true);
+                    pushFollow(FOLLOW_plainText_in_line115);
+                    plainText6=plainText();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, freeformText8.getTree());
-                    if ( state.backtracking==0 ) {
-                      retval.rendering = (freeformText8!=null?freeformText8.rendering:null);
-                    }
-
-                    }
-                    break;
-                case 3 :
-                    // ../etc/Jaml.g:102:5: newline
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-                    pushFollow(FOLLOW_newline_in_line209);
-                    newline9=newline();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, newline9.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, plainText6.getTree());
 
                     }
                     break;
 
             }
+
+
+            }
+
             retval.stop = input.LT(-1);
 
             if ( state.backtracking==0 ) {
 
             retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+            if ( state.backtracking==0 ) {
+
+              ((line_scope)line_stack.peek()).val.text = input.toString(retval.start,input.LT(-1));
+              ((line_scope)line_stack.peek()).val.lineNumber = retval.start.getLine();
+              lines.add(((line_scope)line_stack.peek()).val);
+
             }
         }
         catch (RecognitionException re) {
@@ -483,108 +316,44 @@ import org.antlr.runtime.tree.*;
 
         }
         finally {
-    traceOut("line", 3);
+    traceOut("line", 2);
+            line_stack.pop();
         }
         return retval;
     }
     // $ANTLR end "line"
 
-    public static class freeformText_return extends ParserRuleReturnScope {
-        public String rendering;
+    public static class plainText_return extends ParserRuleReturnScope {
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "freeformText"
-    // ../etc/Jaml.g:105:1: freeformText[boolean beginningOfLine] returns [String rendering] : TEXT newline ( content )? ;
-    public final JamlParser.freeformText_return freeformText(boolean beginningOfLine) throws RecognitionException {
-    traceIn("freeformText", 4);
-        JamlParser.freeformText_return retval = new JamlParser.freeformText_return();
+    // $ANTLR start "plainText"
+    // ../etc/Jaml.g:52:1: plainText : TEXT ;
+    public final JamlParser.plainText_return plainText() throws RecognitionException {
+    traceIn("plainText", 3);
+        JamlParser.plainText_return retval = new JamlParser.plainText_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token TEXT10=null;
-        JamlParser.newline_return newline11 = null;
+        Token TEXT7=null;
 
-        JamlParser.content_return content12 = null;
-
-
-        CommonTree TEXT10_tree=null;
-
-
-          String txt = "";
-          boolean isFilter = false;
+        CommonTree TEXT7_tree=null;
 
         try {
-            // ../etc/Jaml.g:109:2: ( TEXT newline ( content )? )
-            // ../etc/Jaml.g:110:3: TEXT newline ( content )?
+            // ../etc/Jaml.g:52:10: ( TEXT )
+            // ../etc/Jaml.g:52:12: TEXT
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            TEXT10=(Token)match(input,TEXT,FOLLOW_TEXT_in_freeformText234); if (state.failed) return retval;
+            TEXT7=(Token)match(input,TEXT,FOLLOW_TEXT_in_plainText124); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            TEXT10_tree = (CommonTree)adaptor.create(TEXT10);
-            adaptor.addChild(root_0, TEXT10_tree);
+            TEXT7_tree = (CommonTree)adaptor.create(TEXT7);
+            adaptor.addChild(root_0, TEXT7_tree);
             }
             if ( state.backtracking==0 ) {
-
-                  txt = (TEXT10!=null?TEXT10.getText():null); 
-                  if (!isWithinFilter && beginningOfLine && txt.startsWith(":")) {
-                    isFilter = true;
-                    isWithinFilter = true;
-                  }
-                
-            }
-            pushFollow(FOLLOW_newline_in_freeformText238);
-            newline11=newline();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, newline11.getTree());
-            // ../etc/Jaml.g:117:3: ( content )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
-
-            if ( (LA6_0==INDENT) ) {
-                alt6=1;
-            }
-            switch (alt6) {
-                case 1 :
-                    // ../etc/Jaml.g:117:4: content
-                    {
-                    pushFollow(FOLLOW_content_in_freeformText243);
-                    content12=content();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, content12.getTree());
-                    if ( state.backtracking==0 ) {
-
-                          if (isFilter) {
-                          	int contentPos = (content12!=null?((Token)content12.start):null).getCharPositionInLine();
-                          	txt = txt + (newline11!=null?input.toString(newline11.start,newline11.stop):null) + util.spaces(contentPos) + (content12!=null?input.toString(content12.start,content12.stop):null);
-                          } else {
-                          	txt += (content12!=null?content12.rendering:null);
-                          }
-                        
-                    }
-
-                    }
-                    break;
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-                  if (isFilter) {
-                    isWithinFilter = false;
-                  }
-                  if (!isWithinFilter) {
-                    String currentElementType = element_stack.isEmpty() ? null : ((element_scope)element_stack.peek()).type;  
-                    retval.rendering = util.parseFreeFormText(currentElementType, txt);
-                  }
-                
+              ((line_scope)line_stack.peek()).val.inLineContent = (TEXT7!=null?TEXT7.getText():null);
             }
 
             }
@@ -604,422 +373,61 @@ import org.antlr.runtime.tree.*;
 
         }
         finally {
-    traceOut("freeformText", 4);
+    traceOut("plainText", 3);
         }
         return retval;
     }
-    // $ANTLR end "freeformText"
+    // $ANTLR end "plainText"
 
-    public static class elementDeclaration_return extends ParserRuleReturnScope {
-        public Map<String,String> attrMap;
+    public static class element_return extends ParserRuleReturnScope {
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "elementDeclaration"
-    // ../etc/Jaml.g:135:1: elementDeclaration returns [Map<String,String> attrMap] : ( ( divAttrs[ids,classes] ( attrHash[$attrMap] )? ) | ( attrs[ids,classes] ( attrHash[$attrMap] )? ) );
-    public final JamlParser.elementDeclaration_return elementDeclaration() throws RecognitionException {
-    traceIn("elementDeclaration", 5);
-        JamlParser.elementDeclaration_return retval = new JamlParser.elementDeclaration_return();
+    // $ANTLR start "element"
+    // ../etc/Jaml.g:54:1: element : ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? );
+    public final JamlParser.element_return element() throws RecognitionException {
+    traceIn("element", 4);
+        JamlParser.element_return retval = new JamlParser.element_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        JamlParser.divAttrs_return divAttrs13 = null;
+        Token PERCENT8=null;
+        Token ID9=null;
+        JamlParser.idSpecifier_return idSpecifier10 = null;
 
-        JamlParser.attrHash_return attrHash14 = null;
+        JamlParser.classSpecifier_return classSpecifier11 = null;
 
-        JamlParser.attrs_return attrs15 = null;
+        JamlParser.attributeHash_return attributeHash12 = null;
 
-        JamlParser.attrHash_return attrHash16 = null;
+        JamlParser.selfClose_return selfClose13 = null;
 
+        JamlParser.inLineContent_return inLineContent14 = null;
 
+        JamlParser.idSpecifier_return idSpecifier15 = null;
 
+        JamlParser.classSpecifier_return classSpecifier16 = null;
 
-          	retval.attrMap = new LinkedHashMap<String,String>();
-          	List<String> ids = new ArrayList<String>();
-          	List<String> classes = new ArrayList<String>();
-          
-        try {
-            // ../etc/Jaml.g:143:4: ( ( divAttrs[ids,classes] ( attrHash[$attrMap] )? ) | ( attrs[ids,classes] ( attrHash[$attrMap] )? ) )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+        JamlParser.attributeHash_return attributeHash17 = null;
 
-            if ( ((LA9_0>=POUND && LA9_0<=DOT)) ) {
-                alt9=1;
-            }
-            else if ( (LA9_0==PERCENT) ) {
-                alt9=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return retval;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+        JamlParser.selfClose_return selfClose18 = null;
 
-                throw nvae;
-            }
-            switch (alt9) {
-                case 1 :
-                    // ../etc/Jaml.g:144:3: ( divAttrs[ids,classes] ( attrHash[$attrMap] )? )
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
+        JamlParser.inLineContent_return inLineContent19 = null;
 
-                    // ../etc/Jaml.g:144:3: ( divAttrs[ids,classes] ( attrHash[$attrMap] )? )
-                    // ../etc/Jaml.g:144:4: divAttrs[ids,classes] ( attrHash[$attrMap] )?
-                    {
-                    pushFollow(FOLLOW_divAttrs_in_elementDeclaration287);
-                    divAttrs13=divAttrs(ids, classes);
 
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, divAttrs13.getTree());
-                    if ( state.backtracking==0 ) {
-                      ((element_scope)element_stack.peek()).type = "div";
-                    }
-                    // ../etc/Jaml.g:144:52: ( attrHash[$attrMap] )?
-                    int alt7=2;
-                    int LA7_0 = input.LA(1);
-
-                    if ( (LA7_0==BEGIN_HASH) ) {
-                        alt7=1;
-                    }
-                    switch (alt7) {
-                        case 1 :
-                            // ../etc/Jaml.g:144:52: attrHash[$attrMap]
-                            {
-                            pushFollow(FOLLOW_attrHash_in_elementDeclaration292);
-                            attrHash14=attrHash(retval.attrMap);
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-                            if ( state.backtracking==0 ) adaptor.addChild(root_0, attrHash14.getTree());
-
-                            }
-                            break;
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../etc/Jaml.g:146:2: ( attrs[ids,classes] ( attrHash[$attrMap] )? )
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-                    // ../etc/Jaml.g:146:2: ( attrs[ids,classes] ( attrHash[$attrMap] )? )
-                    // ../etc/Jaml.g:146:3: attrs[ids,classes] ( attrHash[$attrMap] )?
-                    {
-                    pushFollow(FOLLOW_attrs_in_elementDeclaration302);
-                    attrs15=attrs(ids, classes);
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, attrs15.getTree());
-                    // ../etc/Jaml.g:146:22: ( attrHash[$attrMap] )?
-                    int alt8=2;
-                    int LA8_0 = input.LA(1);
-
-                    if ( (LA8_0==BEGIN_HASH) ) {
-                        alt8=1;
-                    }
-                    switch (alt8) {
-                        case 1 :
-                            // ../etc/Jaml.g:146:22: attrHash[$attrMap]
-                            {
-                            pushFollow(FOLLOW_attrHash_in_elementDeclaration305);
-                            attrHash16=attrHash(retval.attrMap);
-
-                            state._fsp--;
-                            if (state.failed) return retval;
-                            if ( state.backtracking==0 ) adaptor.addChild(root_0, attrHash16.getTree());
-
-                            }
-                            break;
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-            retval.stop = input.LT(-1);
-
-            if ( state.backtracking==0 ) {
-
-            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-            if ( state.backtracking==0 ) {
-
-                	util.mergeAttributes(retval.attrMap, ids, classes);
-                
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-        finally {
-    traceOut("elementDeclaration", 5);
-        }
-        return retval;
-    }
-    // $ANTLR end "elementDeclaration"
-
-    public static class content_return extends ParserRuleReturnScope {
-        public String rendering;
-        CommonTree tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start "content"
-    // ../etc/Jaml.g:149:1: content returns [String rendering] : INDENT ( (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ | inner= content ) DEDENT ;
-    public final JamlParser.content_return content() throws RecognitionException {
-    traceIn("content", 6);
-        JamlParser.content_return retval = new JamlParser.content_return();
-        retval.start = input.LT(1);
-
-        CommonTree root_0 = null;
-
-        Token INDENT17=null;
-        Token DEDENT20=null;
-        JamlParser.element_return e1 = null;
-
-        JamlParser.content_return inner = null;
-
-        JamlParser.freeformText_return freeformText18 = null;
-
-        JamlParser.blankLines_return blankLines19 = null;
-
-
-        CommonTree INDENT17_tree=null;
-        CommonTree DEDENT20_tree=null;
-
-         retval.rendering = ""; 
-        try {
-            // ../etc/Jaml.g:149:63: ( INDENT ( (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ | inner= content ) DEDENT )
-            // ../etc/Jaml.g:150:1: INDENT ( (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ | inner= content ) DEDENT
-            {
-            root_0 = (CommonTree)adaptor.nil();
-
-            INDENT17=(Token)match(input,INDENT,FOLLOW_INDENT_in_content328); if (state.failed) return retval;
-            if ( state.backtracking==0 ) {
-            INDENT17_tree = (CommonTree)adaptor.create(INDENT17);
-            adaptor.addChild(root_0, INDENT17_tree);
-            }
-            // ../etc/Jaml.g:151:2: ( (e1= element | freeformText[true] | ( blankLines )=> blankLines )+ | inner= content )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
-
-            if ( (LA11_0==DEDENT||(LA11_0>=TEXT && LA11_0<=PERCENT)||(LA11_0>=POUND && LA11_0<=DOT)) ) {
-                alt11=1;
-            }
-            else if ( (LA11_0==INDENT) ) {
-                alt11=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return retval;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
-
-                throw nvae;
-            }
-            switch (alt11) {
-                case 1 :
-                    // ../etc/Jaml.g:152:4: (e1= element | freeformText[true] | ( blankLines )=> blankLines )+
-                    {
-                    // ../etc/Jaml.g:152:4: (e1= element | freeformText[true] | ( blankLines )=> blankLines )+
-                    int cnt10=0;
-                    loop10:
-                    do {
-                        int alt10=4;
-                        switch ( input.LA(1) ) {
-                        case DEDENT:
-                            {
-                            int LA10_1 = input.LA(2);
-
-                            if ( (synpred1_Jaml()) ) {
-                                alt10=3;
-                            }
-
-
-                            }
-                            break;
-                        case PERCENT:
-                        case POUND:
-                        case DOT:
-                            {
-                            alt10=1;
-                            }
-                            break;
-                        case TEXT:
-                            {
-                            alt10=2;
-                            }
-                            break;
-
-                        }
-
-                        switch (alt10) {
-                    	case 1 :
-                    	    // ../etc/Jaml.g:152:5: e1= element
-                    	    {
-                    	    pushFollow(FOLLOW_element_in_content340);
-                    	    e1=element();
-
-                    	    state._fsp--;
-                    	    if (state.failed) return retval;
-                    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, e1.getTree());
-                    	    if ( state.backtracking==0 ) {
-                    	      retval.rendering += (e1!=null?e1.rendering:null) + "\n";
-                    	    }
-
-                    	    }
-                    	    break;
-                    	case 2 :
-                    	    // ../etc/Jaml.g:153:5: freeformText[true]
-                    	    {
-                    	    pushFollow(FOLLOW_freeformText_in_content351);
-                    	    freeformText18=freeformText(true);
-
-                    	    state._fsp--;
-                    	    if (state.failed) return retval;
-                    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, freeformText18.getTree());
-                    	    if ( state.backtracking==0 ) {
-                    	      retval.rendering += (freeformText18!=null?freeformText18.rendering:null) + "\n";
-                    	    }
-
-                    	    }
-                    	    break;
-                    	case 3 :
-                    	    // ../etc/Jaml.g:154:5: ( blankLines )=> blankLines
-                    	    {
-                    	    pushFollow(FOLLOW_blankLines_in_content368);
-                    	    blankLines19=blankLines();
-
-                    	    state._fsp--;
-                    	    if (state.failed) return retval;
-                    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, blankLines19.getTree());
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt10 >= 1 ) break loop10;
-                    	    if (state.backtracking>0) {state.failed=true; return retval;}
-                                EarlyExitException eee =
-                                    new EarlyExitException(10, input);
-                                throw eee;
-                        }
-                        cnt10++;
-                    } while (true);
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../etc/Jaml.g:156:6: inner= content
-                    {
-                    pushFollow(FOLLOW_content_in_content383);
-                    inner=content();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, inner.getTree());
-                    if ( state.backtracking==0 ) {
-                      retval.rendering += (inner!=null?inner.rendering:null);
-                    }
-
-                    }
-                    break;
-
-            }
-
-            DEDENT20=(Token)match(input,DEDENT,FOLLOW_DEDENT_in_content392); if (state.failed) return retval;
-            if ( state.backtracking==0 ) {
-            DEDENT20_tree = (CommonTree)adaptor.create(DEDENT20);
-            adaptor.addChild(root_0, DEDENT20_tree);
-            }
-            if ( state.backtracking==0 ) {
-              retval.rendering = "\n" + util.indent(util.stripTrailingNewline(retval.rendering)) + "\n";
-            }
-
-            }
-
-            retval.stop = input.LT(-1);
-
-            if ( state.backtracking==0 ) {
-
-            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-        finally {
-    traceOut("content", 6);
-        }
-        return retval;
-    }
-    // $ANTLR end "content"
-
-    public static class blankLines_return extends ParserRuleReturnScope {
-        CommonTree tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start "blankLines"
-    // ../etc/Jaml.g:162:1: blankLines : DEDENT ( ( NEWLINE )+ | blankLines ) INDENT ;
-    public final JamlParser.blankLines_return blankLines() throws RecognitionException {
-    traceIn("blankLines", 7);
-        JamlParser.blankLines_return retval = new JamlParser.blankLines_return();
-        retval.start = input.LT(1);
-
-        CommonTree root_0 = null;
-
-        Token DEDENT21=null;
-        Token NEWLINE22=null;
-        Token INDENT24=null;
-        JamlParser.blankLines_return blankLines23 = null;
-
-
-        CommonTree DEDENT21_tree=null;
-        CommonTree NEWLINE22_tree=null;
-        CommonTree INDENT24_tree=null;
+        CommonTree PERCENT8_tree=null;
+        CommonTree ID9_tree=null;
 
         try {
-            // ../etc/Jaml.g:162:12: ( DEDENT ( ( NEWLINE )+ | blankLines ) INDENT )
-            // ../etc/Jaml.g:162:14: DEDENT ( ( NEWLINE )+ | blankLines ) INDENT
-            {
-            root_0 = (CommonTree)adaptor.nil();
-
-            DEDENT21=(Token)match(input,DEDENT,FOLLOW_DEDENT_in_blankLines403); if (state.failed) return retval;
-            if ( state.backtracking==0 ) {
-            DEDENT21_tree = (CommonTree)adaptor.create(DEDENT21);
-            adaptor.addChild(root_0, DEDENT21_tree);
-            }
-            // ../etc/Jaml.g:162:21: ( ( NEWLINE )+ | blankLines )
+            // ../etc/Jaml.g:55:1: ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==NEWLINE) ) {
+            if ( (LA13_0==PERCENT) ) {
                 alt13=1;
             }
-            else if ( (LA13_0==DEDENT) ) {
+            else if ( ((LA13_0>=DOT && LA13_0<=POUND)) ) {
                 alt13=2;
             }
             else {
@@ -1031,65 +439,525 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt13) {
                 case 1 :
-                    // ../etc/Jaml.g:162:22: ( NEWLINE )+
+                    // ../etc/Jaml.g:56:3: PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )?
                     {
-                    // ../etc/Jaml.g:162:22: ( NEWLINE )+
-                    int cnt12=0;
-                    loop12:
-                    do {
-                        int alt12=2;
-                        int LA12_0 = input.LA(1);
+                    root_0 = (CommonTree)adaptor.nil();
 
-                        if ( (LA12_0==NEWLINE) ) {
-                            alt12=1;
+                    PERCENT8=(Token)match(input,PERCENT,FOLLOW_PERCENT_in_element143); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    PERCENT8_tree = (CommonTree)adaptor.create(PERCENT8);
+                    adaptor.addChild(root_0, PERCENT8_tree);
+                    }
+                    // ../etc/Jaml.g:56:11: ( ID )?
+                    int alt4=2;
+                    int LA4_0 = input.LA(1);
+
+                    if ( (LA4_0==ID) ) {
+                        alt4=1;
+                    }
+                    switch (alt4) {
+                        case 1 :
+                            // ../etc/Jaml.g:56:11: ID
+                            {
+                            ID9=(Token)match(input,ID,FOLLOW_ID_in_element145); if (state.failed) return retval;
+                            if ( state.backtracking==0 ) {
+                            ID9_tree = (CommonTree)adaptor.create(ID9);
+                            adaptor.addChild(root_0, ID9_tree);
+                            }
+
+                            }
+                            break;
+
+                    }
+
+                    // ../etc/Jaml.g:56:15: ( idSpecifier | classSpecifier )*
+                    loop5:
+                    do {
+                        int alt5=3;
+                        int LA5_0 = input.LA(1);
+
+                        if ( (LA5_0==DOT) ) {
+                            alt5=1;
+                        }
+                        else if ( (LA5_0==POUND) ) {
+                            alt5=2;
                         }
 
 
-                        switch (alt12) {
+                        switch (alt5) {
                     	case 1 :
-                    	    // ../etc/Jaml.g:162:22: NEWLINE
+                    	    // ../etc/Jaml.g:56:16: idSpecifier
                     	    {
-                    	    NEWLINE22=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_blankLines406); if (state.failed) return retval;
-                    	    if ( state.backtracking==0 ) {
-                    	    NEWLINE22_tree = (CommonTree)adaptor.create(NEWLINE22);
-                    	    adaptor.addChild(root_0, NEWLINE22_tree);
+                    	    pushFollow(FOLLOW_idSpecifier_in_element149);
+                    	    idSpecifier10=idSpecifier();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return retval;
+                    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, idSpecifier10.getTree());
+
                     	    }
+                    	    break;
+                    	case 2 :
+                    	    // ../etc/Jaml.g:56:30: classSpecifier
+                    	    {
+                    	    pushFollow(FOLLOW_classSpecifier_in_element153);
+                    	    classSpecifier11=classSpecifier();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return retval;
+                    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, classSpecifier11.getTree());
 
                     	    }
                     	    break;
 
                     	default :
-                    	    if ( cnt12 >= 1 ) break loop12;
+                    	    break loop5;
+                        }
+                    } while (true);
+
+                    // ../etc/Jaml.g:56:47: ( attributeHash )?
+                    int alt6=2;
+                    int LA6_0 = input.LA(1);
+
+                    if ( (LA6_0==BEGIN_HASH) ) {
+                        alt6=1;
+                    }
+                    switch (alt6) {
+                        case 1 :
+                            // ../etc/Jaml.g:56:47: attributeHash
+                            {
+                            pushFollow(FOLLOW_attributeHash_in_element157);
+                            attributeHash12=attributeHash();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) adaptor.addChild(root_0, attributeHash12.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    // ../etc/Jaml.g:56:62: ( selfClose )?
+                    int alt7=2;
+                    int LA7_0 = input.LA(1);
+
+                    if ( (LA7_0==FORWARD_SLASH) ) {
+                        alt7=1;
+                    }
+                    switch (alt7) {
+                        case 1 :
+                            // ../etc/Jaml.g:56:62: selfClose
+                            {
+                            pushFollow(FOLLOW_selfClose_in_element160);
+                            selfClose13=selfClose();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) adaptor.addChild(root_0, selfClose13.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    // ../etc/Jaml.g:56:73: ( inLineContent )?
+                    int alt8=2;
+                    int LA8_0 = input.LA(1);
+
+                    if ( (LA8_0==TEXT) ) {
+                        alt8=1;
+                    }
+                    switch (alt8) {
+                        case 1 :
+                            // ../etc/Jaml.g:56:73: inLineContent
+                            {
+                            pushFollow(FOLLOW_inLineContent_in_element163);
+                            inLineContent14=inLineContent();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) adaptor.addChild(root_0, inLineContent14.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    if ( state.backtracking==0 ) {
+                      ((line_scope)line_stack.peek()).val.tag = (ID9!=null?ID9.getText():null);
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // ../etc/Jaml.g:58:5: ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )?
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    // ../etc/Jaml.g:58:5: ( idSpecifier | classSpecifier )+
+                    int cnt9=0;
+                    loop9:
+                    do {
+                        int alt9=3;
+                        int LA9_0 = input.LA(1);
+
+                        if ( (LA9_0==DOT) ) {
+                            alt9=1;
+                        }
+                        else if ( (LA9_0==POUND) ) {
+                            alt9=2;
+                        }
+
+
+                        switch (alt9) {
+                    	case 1 :
+                    	    // ../etc/Jaml.g:58:6: idSpecifier
+                    	    {
+                    	    pushFollow(FOLLOW_idSpecifier_in_element177);
+                    	    idSpecifier15=idSpecifier();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return retval;
+                    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, idSpecifier15.getTree());
+
+                    	    }
+                    	    break;
+                    	case 2 :
+                    	    // ../etc/Jaml.g:58:20: classSpecifier
+                    	    {
+                    	    pushFollow(FOLLOW_classSpecifier_in_element181);
+                    	    classSpecifier16=classSpecifier();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return retval;
+                    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, classSpecifier16.getTree());
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt9 >= 1 ) break loop9;
                     	    if (state.backtracking>0) {state.failed=true; return retval;}
                                 EarlyExitException eee =
-                                    new EarlyExitException(12, input);
+                                    new EarlyExitException(9, input);
                                 throw eee;
                         }
-                        cnt12++;
+                        cnt9++;
+                    } while (true);
+
+                    // ../etc/Jaml.g:58:37: ( attributeHash )?
+                    int alt10=2;
+                    int LA10_0 = input.LA(1);
+
+                    if ( (LA10_0==BEGIN_HASH) ) {
+                        alt10=1;
+                    }
+                    switch (alt10) {
+                        case 1 :
+                            // ../etc/Jaml.g:58:37: attributeHash
+                            {
+                            pushFollow(FOLLOW_attributeHash_in_element185);
+                            attributeHash17=attributeHash();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) adaptor.addChild(root_0, attributeHash17.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    // ../etc/Jaml.g:58:52: ( selfClose )?
+                    int alt11=2;
+                    int LA11_0 = input.LA(1);
+
+                    if ( (LA11_0==FORWARD_SLASH) ) {
+                        alt11=1;
+                    }
+                    switch (alt11) {
+                        case 1 :
+                            // ../etc/Jaml.g:58:52: selfClose
+                            {
+                            pushFollow(FOLLOW_selfClose_in_element188);
+                            selfClose18=selfClose();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) adaptor.addChild(root_0, selfClose18.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    // ../etc/Jaml.g:58:63: ( inLineContent )?
+                    int alt12=2;
+                    int LA12_0 = input.LA(1);
+
+                    if ( (LA12_0==TEXT) ) {
+                        alt12=1;
+                    }
+                    switch (alt12) {
+                        case 1 :
+                            // ../etc/Jaml.g:58:63: inLineContent
+                            {
+                            pushFollow(FOLLOW_inLineContent_in_element191);
+                            inLineContent19=inLineContent();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) adaptor.addChild(root_0, inLineContent19.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    if ( state.backtracking==0 ) {
+                      ((line_scope)line_stack.peek()).val.tag = "div";
+                    }
+
+                    }
+                    break;
+
+            }
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+            if ( state.backtracking==0 ) {
+              ((line_scope)line_stack.peek()).val.isElement = true;
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+    traceOut("element", 4);
+        }
+        return retval;
+    }
+    // $ANTLR end "element"
+
+    public static class selfClose_return extends ParserRuleReturnScope {
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "selfClose"
+    // ../etc/Jaml.g:61:1: selfClose : FORWARD_SLASH ;
+    public final JamlParser.selfClose_return selfClose() throws RecognitionException {
+    traceIn("selfClose", 5);
+        JamlParser.selfClose_return retval = new JamlParser.selfClose_return();
+        retval.start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        Token FORWARD_SLASH20=null;
+
+        CommonTree FORWARD_SLASH20_tree=null;
+
+        try {
+            // ../etc/Jaml.g:61:10: ( FORWARD_SLASH )
+            // ../etc/Jaml.g:61:12: FORWARD_SLASH
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            FORWARD_SLASH20=(Token)match(input,FORWARD_SLASH,FOLLOW_FORWARD_SLASH_in_selfClose206); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            FORWARD_SLASH20_tree = (CommonTree)adaptor.create(FORWARD_SLASH20);
+            adaptor.addChild(root_0, FORWARD_SLASH20_tree);
+            }
+            if ( state.backtracking==0 ) {
+              ((line_scope)line_stack.peek()).val.isSelfClosing = true;
+            }
+
+            }
+
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+    traceOut("selfClose", 5);
+        }
+        return retval;
+    }
+    // $ANTLR end "selfClose"
+
+    public static class indentation_return extends ParserRuleReturnScope {
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "indentation"
+    // ../etc/Jaml.g:63:1: indentation : INDENTATION ;
+    public final JamlParser.indentation_return indentation() throws RecognitionException {
+    traceIn("indentation", 6);
+        JamlParser.indentation_return retval = new JamlParser.indentation_return();
+        retval.start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        Token INDENTATION21=null;
+
+        CommonTree INDENTATION21_tree=null;
+
+        try {
+            // ../etc/Jaml.g:63:12: ( INDENTATION )
+            // ../etc/Jaml.g:63:14: INDENTATION
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            INDENTATION21=(Token)match(input,INDENTATION,FOLLOW_INDENTATION_in_indentation215); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            INDENTATION21_tree = (CommonTree)adaptor.create(INDENTATION21);
+            adaptor.addChild(root_0, INDENTATION21_tree);
+            }
+            if ( state.backtracking==0 ) {
+              ((line_scope)line_stack.peek()).val.leadingWhitespace = (INDENTATION21!=null?INDENTATION21.getText():null);
+            }
+
+            }
+
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+    traceOut("indentation", 6);
+        }
+        return retval;
+    }
+    // $ANTLR end "indentation"
+
+    public static class attributeHash_return extends ParserRuleReturnScope {
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "attributeHash"
+    // ../etc/Jaml.g:65:1: attributeHash : BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH ;
+    public final JamlParser.attributeHash_return attributeHash() throws RecognitionException {
+    traceIn("attributeHash", 7);
+        JamlParser.attributeHash_return retval = new JamlParser.attributeHash_return();
+        retval.start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        Token BEGIN_HASH22=null;
+        Token COMMA24=null;
+        Token END_HASH26=null;
+        JamlParser.attributeMapping_return attributeMapping23 = null;
+
+        JamlParser.attributeMapping_return attributeMapping25 = null;
+
+
+        CommonTree BEGIN_HASH22_tree=null;
+        CommonTree COMMA24_tree=null;
+        CommonTree END_HASH26_tree=null;
+
+        try {
+            // ../etc/Jaml.g:65:14: ( BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH )
+            // ../etc/Jaml.g:65:16: BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            BEGIN_HASH22=(Token)match(input,BEGIN_HASH,FOLLOW_BEGIN_HASH_in_attributeHash225); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            BEGIN_HASH22_tree = (CommonTree)adaptor.create(BEGIN_HASH22);
+            adaptor.addChild(root_0, BEGIN_HASH22_tree);
+            }
+            // ../etc/Jaml.g:65:27: ( attributeMapping ( COMMA attributeMapping )* )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
+
+            if ( (LA15_0==ATTRIBUTE_NAME||(LA15_0>=STRING_LITERAL && LA15_0<=NULL)) ) {
+                alt15=1;
+            }
+            switch (alt15) {
+                case 1 :
+                    // ../etc/Jaml.g:65:28: attributeMapping ( COMMA attributeMapping )*
+                    {
+                    pushFollow(FOLLOW_attributeMapping_in_attributeHash228);
+                    attributeMapping23=attributeMapping();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, attributeMapping23.getTree());
+                    // ../etc/Jaml.g:65:45: ( COMMA attributeMapping )*
+                    loop14:
+                    do {
+                        int alt14=2;
+                        int LA14_0 = input.LA(1);
+
+                        if ( (LA14_0==COMMA) ) {
+                            alt14=1;
+                        }
+
+
+                        switch (alt14) {
+                    	case 1 :
+                    	    // ../etc/Jaml.g:65:46: COMMA attributeMapping
+                    	    {
+                    	    COMMA24=(Token)match(input,COMMA,FOLLOW_COMMA_in_attributeHash231); if (state.failed) return retval;
+                    	    if ( state.backtracking==0 ) {
+                    	    COMMA24_tree = (CommonTree)adaptor.create(COMMA24);
+                    	    adaptor.addChild(root_0, COMMA24_tree);
+                    	    }
+                    	    pushFollow(FOLLOW_attributeMapping_in_attributeHash233);
+                    	    attributeMapping25=attributeMapping();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return retval;
+                    	    if ( state.backtracking==0 ) adaptor.addChild(root_0, attributeMapping25.getTree());
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop14;
+                        }
                     } while (true);
 
 
                     }
                     break;
-                case 2 :
-                    // ../etc/Jaml.g:162:33: blankLines
-                    {
-                    pushFollow(FOLLOW_blankLines_in_blankLines411);
-                    blankLines23=blankLines();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, blankLines23.getTree());
-
-                    }
-                    break;
 
             }
 
-            INDENT24=(Token)match(input,INDENT,FOLLOW_INDENT_in_blankLines414); if (state.failed) return retval;
+            END_HASH26=(Token)match(input,END_HASH,FOLLOW_END_HASH_in_attributeHash239); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            INDENT24_tree = (CommonTree)adaptor.create(INDENT24);
-            adaptor.addChild(root_0, INDENT24_tree);
+            END_HASH26_tree = (CommonTree)adaptor.create(END_HASH26);
+            adaptor.addChild(root_0, END_HASH26_tree);
             }
 
             }
@@ -1109,303 +977,61 @@ import org.antlr.runtime.tree.*;
 
         }
         finally {
-    traceOut("blankLines", 7);
+    traceOut("attributeHash", 7);
         }
         return retval;
     }
-    // $ANTLR end "blankLines"
+    // $ANTLR end "attributeHash"
 
-    public static class attrs_return extends ParserRuleReturnScope {
+    public static class attributeMapping_return extends ParserRuleReturnScope {
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "attrs"
-    // ../etc/Jaml.g:164:1: attrs[List<String> ids, List<String> classes] : PERCENT ( ID )? ( idSpecifier | classSpecifier )* ;
-    public final JamlParser.attrs_return attrs(List<String> ids, List<String> classes) throws RecognitionException {
-    traceIn("attrs", 8);
-        JamlParser.attrs_return retval = new JamlParser.attrs_return();
+    // $ANTLR start "attributeMapping"
+    // ../etc/Jaml.g:67:1: attributeMapping : attribute MAP_TO attribute_value ;
+    public final JamlParser.attributeMapping_return attributeMapping() throws RecognitionException {
+    traceIn("attributeMapping", 8);
+        JamlParser.attributeMapping_return retval = new JamlParser.attributeMapping_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token PERCENT25=null;
-        Token ID26=null;
-        JamlParser.idSpecifier_return idSpecifier27 = null;
+        Token MAP_TO28=null;
+        JamlParser.attribute_return attribute27 = null;
 
-        JamlParser.classSpecifier_return classSpecifier28 = null;
+        JamlParser.attribute_value_return attribute_value29 = null;
 
 
-        CommonTree PERCENT25_tree=null;
-        CommonTree ID26_tree=null;
+        CommonTree MAP_TO28_tree=null;
 
         try {
-            // ../etc/Jaml.g:164:46: ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* )
-            // ../etc/Jaml.g:165:1: PERCENT ( ID )? ( idSpecifier | classSpecifier )*
+            // ../etc/Jaml.g:67:17: ( attribute MAP_TO attribute_value )
+            // ../etc/Jaml.g:67:19: attribute MAP_TO attribute_value
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            PERCENT25=(Token)match(input,PERCENT,FOLLOW_PERCENT_in_attrs422); if (state.failed) return retval;
-            if ( state.backtracking==0 ) {
-            PERCENT25_tree = (CommonTree)adaptor.create(PERCENT25);
-            adaptor.addChild(root_0, PERCENT25_tree);
-            }
-            // ../etc/Jaml.g:165:9: ( ID )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
-
-            if ( (LA14_0==ID) ) {
-                alt14=1;
-            }
-            switch (alt14) {
-                case 1 :
-                    // ../etc/Jaml.g:165:9: ID
-                    {
-                    ID26=(Token)match(input,ID,FOLLOW_ID_in_attrs424); if (state.failed) return retval;
-                    if ( state.backtracking==0 ) {
-                    ID26_tree = (CommonTree)adaptor.create(ID26);
-                    adaptor.addChild(root_0, ID26_tree);
-                    }
-
-                    }
-                    break;
-
-            }
-
-            if ( state.backtracking==0 ) {
-              ((element_scope)element_stack.peek()).type = (ID26!=null?ID26.getText():null);
-            }
-            // ../etc/Jaml.g:166:1: ( idSpecifier | classSpecifier )*
-            loop15:
-            do {
-                int alt15=3;
-                int LA15_0 = input.LA(1);
-
-                if ( (LA15_0==POUND) ) {
-                    alt15=1;
-                }
-                else if ( (LA15_0==DOT) ) {
-                    alt15=2;
-                }
-
-
-                switch (alt15) {
-            	case 1 :
-            	    // ../etc/Jaml.g:166:2: idSpecifier
-            	    {
-            	    pushFollow(FOLLOW_idSpecifier_in_attrs430);
-            	    idSpecifier27=idSpecifier();
-
-            	    state._fsp--;
-            	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, idSpecifier27.getTree());
-            	    if ( state.backtracking==0 ) {
-            	      ids.add((idSpecifier27!=null?idSpecifier27.id:null));
-            	    }
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // ../etc/Jaml.g:167:2: classSpecifier
-            	    {
-            	    pushFollow(FOLLOW_classSpecifier_in_attrs437);
-            	    classSpecifier28=classSpecifier();
-
-            	    state._fsp--;
-            	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, classSpecifier28.getTree());
-            	    if ( state.backtracking==0 ) {
-            	      classes.add((classSpecifier28!=null?classSpecifier28.klass:null));
-            	    }
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop15;
-                }
-            } while (true);
-
-
-            }
-
-            retval.stop = input.LT(-1);
-
-            if ( state.backtracking==0 ) {
-
-            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-        finally {
-    traceOut("attrs", 8);
-        }
-        return retval;
-    }
-    // $ANTLR end "attrs"
-
-    public static class divAttrs_return extends ParserRuleReturnScope {
-        CommonTree tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start "divAttrs"
-    // ../etc/Jaml.g:169:1: divAttrs[List<String> ids, List<String> classes] : ( idSpecifier | classSpecifier )+ ;
-    public final JamlParser.divAttrs_return divAttrs(List<String> ids, List<String> classes) throws RecognitionException {
-    traceIn("divAttrs", 9);
-        JamlParser.divAttrs_return retval = new JamlParser.divAttrs_return();
-        retval.start = input.LT(1);
-
-        CommonTree root_0 = null;
-
-        JamlParser.idSpecifier_return idSpecifier29 = null;
-
-        JamlParser.classSpecifier_return classSpecifier30 = null;
-
-
-
-        try {
-            // ../etc/Jaml.g:169:50: ( ( idSpecifier | classSpecifier )+ )
-            // ../etc/Jaml.g:170:1: ( idSpecifier | classSpecifier )+
-            {
-            root_0 = (CommonTree)adaptor.nil();
-
-            // ../etc/Jaml.g:170:1: ( idSpecifier | classSpecifier )+
-            int cnt16=0;
-            loop16:
-            do {
-                int alt16=3;
-                int LA16_0 = input.LA(1);
-
-                if ( (LA16_0==POUND) ) {
-                    alt16=1;
-                }
-                else if ( (LA16_0==DOT) ) {
-                    alt16=2;
-                }
-
-
-                switch (alt16) {
-            	case 1 :
-            	    // ../etc/Jaml.g:170:2: idSpecifier
-            	    {
-            	    pushFollow(FOLLOW_idSpecifier_in_divAttrs451);
-            	    idSpecifier29=idSpecifier();
-
-            	    state._fsp--;
-            	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, idSpecifier29.getTree());
-            	    if ( state.backtracking==0 ) {
-            	      ids.add((idSpecifier29!=null?idSpecifier29.id:null));
-            	    }
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // ../etc/Jaml.g:171:2: classSpecifier
-            	    {
-            	    pushFollow(FOLLOW_classSpecifier_in_divAttrs458);
-            	    classSpecifier30=classSpecifier();
-
-            	    state._fsp--;
-            	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, classSpecifier30.getTree());
-            	    if ( state.backtracking==0 ) {
-            	      classes.add((classSpecifier30!=null?classSpecifier30.klass:null));
-            	    }
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt16 >= 1 ) break loop16;
-            	    if (state.backtracking>0) {state.failed=true; return retval;}
-                        EarlyExitException eee =
-                            new EarlyExitException(16, input);
-                        throw eee;
-                }
-                cnt16++;
-            } while (true);
-
-
-            }
-
-            retval.stop = input.LT(-1);
-
-            if ( state.backtracking==0 ) {
-
-            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-        finally {
-    traceOut("divAttrs", 9);
-        }
-        return retval;
-    }
-    // $ANTLR end "divAttrs"
-
-    public static class attrHash_return extends ParserRuleReturnScope {
-        CommonTree tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start "attrHash"
-    // ../etc/Jaml.g:173:1: attrHash[Map<String,String> attrMap] : BEGIN_HASH hashAttrs END_HASH ;
-    public final JamlParser.attrHash_return attrHash(Map<String,String> attrMap) throws RecognitionException {
-    traceIn("attrHash", 10);
-        JamlParser.attrHash_return retval = new JamlParser.attrHash_return();
-        retval.start = input.LT(1);
-
-        CommonTree root_0 = null;
-
-        Token BEGIN_HASH31=null;
-        Token END_HASH33=null;
-        JamlParser.hashAttrs_return hashAttrs32 = null;
-
-
-        CommonTree BEGIN_HASH31_tree=null;
-        CommonTree END_HASH33_tree=null;
-
-        try {
-            // ../etc/Jaml.g:173:38: ( BEGIN_HASH hashAttrs END_HASH )
-            // ../etc/Jaml.g:174:3: BEGIN_HASH hashAttrs END_HASH
-            {
-            root_0 = (CommonTree)adaptor.nil();
-
-            BEGIN_HASH31=(Token)match(input,BEGIN_HASH,FOLLOW_BEGIN_HASH_in_attrHash473); if (state.failed) return retval;
-            if ( state.backtracking==0 ) {
-            BEGIN_HASH31_tree = (CommonTree)adaptor.create(BEGIN_HASH31);
-            adaptor.addChild(root_0, BEGIN_HASH31_tree);
-            }
-            if ( state.backtracking==0 ) {
-              System.out.println("BEGIN " + input.toString(retval.start,input.LT(-1)));
-            }
-            pushFollow(FOLLOW_hashAttrs_in_attrHash479);
-            hashAttrs32=hashAttrs();
+            pushFollow(FOLLOW_attribute_in_attributeMapping246);
+            attribute27=attribute();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, hashAttrs32.getTree());
-            END_HASH33=(Token)match(input,END_HASH,FOLLOW_END_HASH_in_attrHash484); if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, attribute27.getTree());
+            MAP_TO28=(Token)match(input,MAP_TO,FOLLOW_MAP_TO_in_attributeMapping248); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            END_HASH33_tree = (CommonTree)adaptor.create(END_HASH33);
-            adaptor.addChild(root_0, END_HASH33_tree);
+            MAP_TO28_tree = (CommonTree)adaptor.create(MAP_TO28);
+            adaptor.addChild(root_0, MAP_TO28_tree);
             }
+            pushFollow(FOLLOW_attribute_value_in_attributeMapping250);
+            attribute_value29=attribute_value();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, attribute_value29.getTree());
             if ( state.backtracking==0 ) {
-              util.parseAttrHash((hashAttrs32!=null?hashAttrs32.contents:null), attrMap);
+
+              ((line_scope)line_stack.peek()).val.attrMap.put((attribute27!=null?attribute27.name:null), (attribute_value29!=null?attribute_value29.value:null));
+
             }
 
             }
@@ -1425,69 +1051,435 @@ import org.antlr.runtime.tree.*;
 
         }
         finally {
-    traceOut("attrHash", 10);
+    traceOut("attributeMapping", 8);
         }
         return retval;
     }
-    // $ANTLR end "attrHash"
+    // $ANTLR end "attributeMapping"
 
-    public static class hashAttrs_return extends ParserRuleReturnScope {
-        public String contents;
+    public static class attribute_return extends ParserRuleReturnScope {
+        public String name;
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "hashAttrs"
-    // ../etc/Jaml.g:178:1: hashAttrs returns [String contents] : ( notEndHash )* ;
-    public final JamlParser.hashAttrs_return hashAttrs() throws RecognitionException {
-    traceIn("hashAttrs", 11);
-        JamlParser.hashAttrs_return retval = new JamlParser.hashAttrs_return();
+    // $ANTLR start "attribute"
+    // ../etc/Jaml.g:73:1: attribute returns [String name] : (n= ATTRIBUTE_NAME | literal );
+    public final JamlParser.attribute_return attribute() throws RecognitionException {
+    traceIn("attribute", 9);
+        JamlParser.attribute_return retval = new JamlParser.attribute_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        JamlParser.notEndHash_return notEndHash34 = null;
+        Token n=null;
+        JamlParser.literal_return literal30 = null;
 
 
+        CommonTree n_tree=null;
 
-        retval.contents ="";
         try {
-            // ../etc/Jaml.g:178:59: ( ( notEndHash )* )
-            // ../etc/Jaml.g:179:1: ( notEndHash )*
+            // ../etc/Jaml.g:73:32: (n= ATTRIBUTE_NAME | literal )
+            int alt16=2;
+            int LA16_0 = input.LA(1);
+
+            if ( (LA16_0==ATTRIBUTE_NAME) ) {
+                alt16=1;
+            }
+            else if ( ((LA16_0>=STRING_LITERAL && LA16_0<=NULL)) ) {
+                alt16=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 16, 0, input);
+
+                throw nvae;
+            }
+            switch (alt16) {
+                case 1 :
+                    // ../etc/Jaml.g:74:3: n= ATTRIBUTE_NAME
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    n=(Token)match(input,ATTRIBUTE_NAME,FOLLOW_ATTRIBUTE_NAME_in_attribute269); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    n_tree = (CommonTree)adaptor.create(n);
+                    adaptor.addChild(root_0, n_tree);
+                    }
+                    if ( state.backtracking==0 ) {
+                      retval.name = (n!=null?n.getText():null).substring(1);
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // ../etc/Jaml.g:75:3: literal
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    pushFollow(FOLLOW_literal_in_attribute277);
+                    literal30=literal();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, literal30.getTree());
+                    if ( state.backtracking==0 ) {
+                      retval.name = (literal30!=null?literal30.value:null);
+                    }
+
+                    }
+                    break;
+
+            }
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+    traceOut("attribute", 9);
+        }
+        return retval;
+    }
+    // $ANTLR end "attribute"
+
+    public static class attribute_value_return extends ParserRuleReturnScope {
+        public String value;
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "attribute_value"
+    // ../etc/Jaml.g:78:1: attribute_value returns [String value] : ( ( ( literal ( COMMA | END_HASH ) )=> literal ) | ex= javaExpression );
+    public final JamlParser.attribute_value_return attribute_value() throws RecognitionException {
+    traceIn("attribute_value", 10);
+        JamlParser.attribute_value_return retval = new JamlParser.attribute_value_return();
+        retval.start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        JamlParser.javaExpression_return ex = null;
+
+        JamlParser.literal_return literal31 = null;
+
+
+
+        try {
+            // ../etc/Jaml.g:78:39: ( ( ( literal ( COMMA | END_HASH ) )=> literal ) | ex= javaExpression )
+            int alt17=2;
+            switch ( input.LA(1) ) {
+            case STRING_LITERAL:
+                {
+                int LA17_1 = input.LA(2);
+
+                if ( (synpred1_Jaml()) ) {
+                    alt17=1;
+                }
+                else if ( (true) ) {
+                    alt17=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return retval;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 17, 1, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case CHAR_LITERAL:
+                {
+                int LA17_2 = input.LA(2);
+
+                if ( (synpred1_Jaml()) ) {
+                    alt17=1;
+                }
+                else if ( (true) ) {
+                    alt17=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return retval;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 17, 2, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case HEX_LITERAL:
+            case OCTAL_LITERAL:
+            case DECIMAL_LITERAL:
+                {
+                int LA17_3 = input.LA(2);
+
+                if ( (synpred1_Jaml()) ) {
+                    alt17=1;
+                }
+                else if ( (true) ) {
+                    alt17=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return retval;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 17, 3, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case FLOATING_POINT_LITERAL:
+                {
+                int LA17_4 = input.LA(2);
+
+                if ( (synpred1_Jaml()) ) {
+                    alt17=1;
+                }
+                else if ( (true) ) {
+                    alt17=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return retval;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 17, 4, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case TRUE:
+            case FALSE:
+            case NULL:
+                {
+                int LA17_5 = input.LA(2);
+
+                if ( (synpred1_Jaml()) ) {
+                    alt17=1;
+                }
+                else if ( (true) ) {
+                    alt17=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return retval;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 17, 5, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case JAVA_CODE:
+            case JAVA_LBRACE:
+            case JAVA_RBRACE:
+                {
+                alt17=2;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 17, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt17) {
+                case 1 :
+                    // ../etc/Jaml.g:79:3: ( ( literal ( COMMA | END_HASH ) )=> literal )
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    // ../etc/Jaml.g:79:3: ( ( literal ( COMMA | END_HASH ) )=> literal )
+                    // ../etc/Jaml.g:79:4: ( literal ( COMMA | END_HASH ) )=> literal
+                    {
+                    pushFollow(FOLLOW_literal_in_attribute_value307);
+                    literal31=literal();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, literal31.getTree());
+                    if ( state.backtracking==0 ) {
+                      retval.value =(literal31!=null?literal31.value:null);
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // ../etc/Jaml.g:80:3: ex= javaExpression
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    pushFollow(FOLLOW_javaExpression_in_attribute_value320);
+                    ex=javaExpression();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, ex.getTree());
+                    if ( state.backtracking==0 ) {
+
+                        retval.value = helper.jspExpression(input.toString(((line_scope)line_stack.peek()).node.start,input.LT(-1)), input.toString(retval.start,input.LT(-1)));
+                        
+                    }
+
+                    }
+                    break;
+
+            }
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+    traceOut("attribute_value", 10);
+        }
+        return retval;
+    }
+    // $ANTLR end "attribute_value"
+
+    public static class javaExpression_return extends ParserRuleReturnScope {
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "javaExpression"
+    // ../etc/Jaml.g:85:1: javaExpression : ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE )+ ;
+    public final JamlParser.javaExpression_return javaExpression() throws RecognitionException {
+    traceIn("javaExpression", 11);
+        JamlParser.javaExpression_return retval = new JamlParser.javaExpression_return();
+        retval.start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        Token JAVA_CODE32=null;
+        Token JAVA_LBRACE34=null;
+        Token JAVA_RBRACE35=null;
+        JamlParser.literal_return literal33 = null;
+
+
+        CommonTree JAVA_CODE32_tree=null;
+        CommonTree JAVA_LBRACE34_tree=null;
+        CommonTree JAVA_RBRACE35_tree=null;
+
+        try {
+            // ../etc/Jaml.g:85:15: ( ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE )+ )
+            // ../etc/Jaml.g:85:17: ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE )+
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/Jaml.g:179:1: ( notEndHash )*
-            loop17:
+            // ../etc/Jaml.g:85:17: ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE )+
+            int cnt18=0;
+            loop18:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt18=5;
+                switch ( input.LA(1) ) {
+                case JAVA_CODE:
+                    {
+                    alt18=1;
+                    }
+                    break;
+                case STRING_LITERAL:
+                case CHAR_LITERAL:
+                case HEX_LITERAL:
+                case OCTAL_LITERAL:
+                case DECIMAL_LITERAL:
+                case FLOATING_POINT_LITERAL:
+                case TRUE:
+                case FALSE:
+                case NULL:
+                    {
+                    alt18=2;
+                    }
+                    break;
+                case JAVA_LBRACE:
+                    {
+                    alt18=3;
+                    }
+                    break;
+                case JAVA_RBRACE:
+                    {
+                    alt18=4;
+                    }
+                    break;
 
-                if ( ((LA17_0>=INDENT && LA17_0<=BEGIN_HASH)||(LA17_0>=POUND && LA17_0<=JAVA_RBRACE)) ) {
-                    alt17=1;
                 }
 
-
-                switch (alt17) {
+                switch (alt18) {
             	case 1 :
-            	    // ../etc/Jaml.g:179:2: notEndHash
+            	    // ../etc/Jaml.g:85:18: JAVA_CODE
             	    {
-            	    pushFollow(FOLLOW_notEndHash_in_hashAttrs504);
-            	    notEndHash34=notEndHash();
+            	    JAVA_CODE32=(Token)match(input,JAVA_CODE,FOLLOW_JAVA_CODE_in_javaExpression331); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    JAVA_CODE32_tree = (CommonTree)adaptor.create(JAVA_CODE32);
+            	    adaptor.addChild(root_0, JAVA_CODE32_tree);
+            	    }
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // ../etc/Jaml.g:85:30: literal
+            	    {
+            	    pushFollow(FOLLOW_literal_in_javaExpression335);
+            	    literal33=literal();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, notEndHash34.getTree());
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, literal33.getTree());
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // ../etc/Jaml.g:85:40: JAVA_LBRACE
+            	    {
+            	    JAVA_LBRACE34=(Token)match(input,JAVA_LBRACE,FOLLOW_JAVA_LBRACE_in_javaExpression339); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
-            	      retval.contents += (notEndHash34!=null?input.toString(notEndHash34.start,notEndHash34.stop):null);
+            	    JAVA_LBRACE34_tree = (CommonTree)adaptor.create(JAVA_LBRACE34);
+            	    adaptor.addChild(root_0, JAVA_LBRACE34_tree);
+            	    }
+
+            	    }
+            	    break;
+            	case 4 :
+            	    // ../etc/Jaml.g:85:54: JAVA_RBRACE
+            	    {
+            	    JAVA_RBRACE35=(Token)match(input,JAVA_RBRACE,FOLLOW_JAVA_RBRACE_in_javaExpression343); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    JAVA_RBRACE35_tree = (CommonTree)adaptor.create(JAVA_RBRACE35);
+            	    adaptor.addChild(root_0, JAVA_RBRACE35_tree);
             	    }
 
             	    }
             	    break;
 
             	default :
-            	    break loop17;
+            	    if ( cnt18 >= 1 ) break loop18;
+            	    if (state.backtracking>0) {state.failed=true; return retval;}
+                        EarlyExitException eee =
+                            new EarlyExitException(18, input);
+                        throw eee;
                 }
+                cnt18++;
             } while (true);
 
 
@@ -1508,60 +1500,169 @@ import org.antlr.runtime.tree.*;
 
         }
         finally {
-    traceOut("hashAttrs", 11);
+    traceOut("javaExpression", 11);
         }
         return retval;
     }
-    // $ANTLR end "hashAttrs"
+    // $ANTLR end "javaExpression"
 
-    public static class notEndHash_return extends ParserRuleReturnScope {
+    public static class literal_return extends ParserRuleReturnScope {
+        public String value;
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "notEndHash"
-    // ../etc/Jaml.g:181:1: notEndHash : (~ END_HASH ) ;
-    public final JamlParser.notEndHash_return notEndHash() throws RecognitionException {
-    traceIn("notEndHash", 12);
-        JamlParser.notEndHash_return retval = new JamlParser.notEndHash_return();
+    // $ANTLR start "literal"
+    // ../etc/Jaml.g:87:1: literal returns [String value] : (lit= STRING_LITERAL | lit= CHAR_LITERAL | lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= ( TRUE | FALSE | NULL ) );
+    public final JamlParser.literal_return literal() throws RecognitionException {
+    traceIn("literal", 12);
+        JamlParser.literal_return retval = new JamlParser.literal_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token set35=null;
+        Token lit=null;
 
-        CommonTree set35_tree=null;
+        CommonTree lit_tree=null;
 
         try {
-            // ../etc/Jaml.g:181:12: ( (~ END_HASH ) )
-            // ../etc/Jaml.g:181:14: (~ END_HASH )
-            {
-            root_0 = (CommonTree)adaptor.nil();
-
-            // ../etc/Jaml.g:181:14: (~ END_HASH )
-            // ../etc/Jaml.g:181:15: ~ END_HASH
-            {
-            set35=(Token)input.LT(1);
-            if ( (input.LA(1)>=INDENT && input.LA(1)<=BEGIN_HASH)||(input.LA(1)>=POUND && input.LA(1)<=JAVA_RBRACE) ) {
-                input.consume();
-                if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set35));
-                state.errorRecovery=false;state.failed=false;
-            }
-            else {
+            // ../etc/Jaml.g:87:31: (lit= STRING_LITERAL | lit= CHAR_LITERAL | lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= ( TRUE | FALSE | NULL ) )
+            int alt19=5;
+            switch ( input.LA(1) ) {
+            case STRING_LITERAL:
+                {
+                alt19=1;
+                }
+                break;
+            case CHAR_LITERAL:
+                {
+                alt19=2;
+                }
+                break;
+            case HEX_LITERAL:
+            case OCTAL_LITERAL:
+            case DECIMAL_LITERAL:
+                {
+                alt19=3;
+                }
+                break;
+            case FLOATING_POINT_LITERAL:
+                {
+                alt19=4;
+                }
+                break;
+            case TRUE:
+            case FALSE:
+            case NULL:
+                {
+                alt19=5;
+                }
+                break;
+            default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                throw mse;
+                NoViableAltException nvae =
+                    new NoViableAltException("", 19, 0, input);
+
+                throw nvae;
             }
 
+            switch (alt19) {
+                case 1 :
+                    // ../etc/Jaml.g:88:3: lit= STRING_LITERAL
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    lit=(Token)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal361); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    lit_tree = (CommonTree)adaptor.create(lit);
+                    adaptor.addChild(root_0, lit_tree);
+                    }
+                    if ( state.backtracking==0 ) {
+                      retval.value = helper.parseStringLiteral((lit!=null?lit.getText():null));
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // ../etc/Jaml.g:89:3: lit= CHAR_LITERAL
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    lit=(Token)match(input,CHAR_LITERAL,FOLLOW_CHAR_LITERAL_in_literal371); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    lit_tree = (CommonTree)adaptor.create(lit);
+                    adaptor.addChild(root_0, lit_tree);
+                    }
+                    if ( state.backtracking==0 ) {
+                      retval.value = helper.parseCharLiteral((lit!=null?lit.getText():null));
+                    }
+
+                    }
+                    break;
+                case 3 :
+                    // ../etc/Jaml.g:90:3: lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL )
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    lit=(Token)input.LT(1);
+                    if ( (input.LA(1)>=HEX_LITERAL && input.LA(1)<=DECIMAL_LITERAL) ) {
+                        input.consume();
+                        if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(lit));
+                        state.errorRecovery=false;state.failed=false;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return retval;}
+                        MismatchedSetException mse = new MismatchedSetException(null,input);
+                        throw mse;
+                    }
+
+                    if ( state.backtracking==0 ) {
+                      retval.value = helper.parseIntegerLiteral((lit!=null?lit.getText():null));
+                    }
+
+                    }
+                    break;
+                case 4 :
+                    // ../etc/Jaml.g:91:3: lit= FLOATING_POINT_LITERAL
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    lit=(Token)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal397); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    lit_tree = (CommonTree)adaptor.create(lit);
+                    adaptor.addChild(root_0, lit_tree);
+                    }
+                    if ( state.backtracking==0 ) {
+                      retval.value = helper.parseFloatLiteral((lit!=null?lit.getText():null));
+                    }
+
+                    }
+                    break;
+                case 5 :
+                    // ../etc/Jaml.g:92:3: lit= ( TRUE | FALSE | NULL )
+                    {
+                    root_0 = (CommonTree)adaptor.nil();
+
+                    lit=(Token)input.LT(1);
+                    if ( (input.LA(1)>=TRUE && input.LA(1)<=NULL) ) {
+                        input.consume();
+                        if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(lit));
+                        state.errorRecovery=false;state.failed=false;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return retval;}
+                        MismatchedSetException mse = new MismatchedSetException(null,input);
+                        throw mse;
+                    }
+
+                    if ( state.backtracking==0 ) {
+                      retval.value = (lit!=null?lit.getText():null);
+                    }
+
+                    }
+                    break;
 
             }
-
-            if ( state.backtracking==0 ) {
-              System.out.println("() " + input.toString(retval.start,input.LT(-1)));
-            }
-
-            }
-
             retval.stop = input.LT(-1);
 
             if ( state.backtracking==0 ) {
@@ -1577,20 +1678,19 @@ import org.antlr.runtime.tree.*;
 
         }
         finally {
-    traceOut("notEndHash", 12);
+    traceOut("literal", 12);
         }
         return retval;
     }
-    // $ANTLR end "notEndHash"
+    // $ANTLR end "literal"
 
     public static class idSpecifier_return extends ParserRuleReturnScope {
-        public String id;
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
     // $ANTLR start "idSpecifier"
-    // ../etc/Jaml.g:183:1: idSpecifier returns [String id] : POUND ( ID )? ;
+    // ../etc/Jaml.g:95:1: idSpecifier : DOT ( ID )? ;
     public final JamlParser.idSpecifier_return idSpecifier() throws RecognitionException {
     traceIn("idSpecifier", 13);
         JamlParser.idSpecifier_return retval = new JamlParser.idSpecifier_return();
@@ -1598,35 +1698,35 @@ import org.antlr.runtime.tree.*;
 
         CommonTree root_0 = null;
 
-        Token POUND36=null;
+        Token DOT36=null;
         Token ID37=null;
 
-        CommonTree POUND36_tree=null;
+        CommonTree DOT36_tree=null;
         CommonTree ID37_tree=null;
 
         try {
-            // ../etc/Jaml.g:183:32: ( POUND ( ID )? )
-            // ../etc/Jaml.g:183:34: POUND ( ID )?
+            // ../etc/Jaml.g:95:12: ( DOT ( ID )? )
+            // ../etc/Jaml.g:95:14: DOT ( ID )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            POUND36=(Token)match(input,POUND,FOLLOW_POUND_in_idSpecifier532); if (state.failed) return retval;
+            DOT36=(Token)match(input,DOT,FOLLOW_DOT_in_idSpecifier423); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            POUND36_tree = (CommonTree)adaptor.create(POUND36);
-            adaptor.addChild(root_0, POUND36_tree);
+            DOT36_tree = (CommonTree)adaptor.create(DOT36);
+            adaptor.addChild(root_0, DOT36_tree);
             }
-            // ../etc/Jaml.g:183:40: ( ID )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // ../etc/Jaml.g:95:18: ( ID )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA18_0==ID) ) {
-                alt18=1;
+            if ( (LA20_0==ID) ) {
+                alt20=1;
             }
-            switch (alt18) {
+            switch (alt20) {
                 case 1 :
-                    // ../etc/Jaml.g:183:40: ID
+                    // ../etc/Jaml.g:95:18: ID
                     {
-                    ID37=(Token)match(input,ID,FOLLOW_ID_in_idSpecifier534); if (state.failed) return retval;
+                    ID37=(Token)match(input,ID,FOLLOW_ID_in_idSpecifier425); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     ID37_tree = (CommonTree)adaptor.create(ID37);
                     adaptor.addChild(root_0, ID37_tree);
@@ -1638,7 +1738,7 @@ import org.antlr.runtime.tree.*;
             }
 
             if ( state.backtracking==0 ) {
-              retval.id = (ID37!=null?ID37.getText():null);
+              ((line_scope)line_stack.peek()).val.classes.add((ID37!=null?ID37.getText():null));
             }
 
             }
@@ -1665,13 +1765,12 @@ import org.antlr.runtime.tree.*;
     // $ANTLR end "idSpecifier"
 
     public static class classSpecifier_return extends ParserRuleReturnScope {
-        public String klass;
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
     // $ANTLR start "classSpecifier"
-    // ../etc/Jaml.g:185:1: classSpecifier returns [String klass] : DOT ( ID )? ;
+    // ../etc/Jaml.g:97:1: classSpecifier : POUND ( ID )? ;
     public final JamlParser.classSpecifier_return classSpecifier() throws RecognitionException {
     traceIn("classSpecifier", 14);
         JamlParser.classSpecifier_return retval = new JamlParser.classSpecifier_return();
@@ -1679,35 +1778,35 @@ import org.antlr.runtime.tree.*;
 
         CommonTree root_0 = null;
 
-        Token DOT38=null;
+        Token POUND38=null;
         Token ID39=null;
 
-        CommonTree DOT38_tree=null;
+        CommonTree POUND38_tree=null;
         CommonTree ID39_tree=null;
 
         try {
-            // ../etc/Jaml.g:185:38: ( DOT ( ID )? )
-            // ../etc/Jaml.g:186:1: DOT ( ID )?
+            // ../etc/Jaml.g:97:15: ( POUND ( ID )? )
+            // ../etc/Jaml.g:97:17: POUND ( ID )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            DOT38=(Token)match(input,DOT,FOLLOW_DOT_in_classSpecifier548); if (state.failed) return retval;
+            POUND38=(Token)match(input,POUND,FOLLOW_POUND_in_classSpecifier436); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            DOT38_tree = (CommonTree)adaptor.create(DOT38);
-            adaptor.addChild(root_0, DOT38_tree);
+            POUND38_tree = (CommonTree)adaptor.create(POUND38);
+            adaptor.addChild(root_0, POUND38_tree);
             }
-            // ../etc/Jaml.g:186:5: ( ID )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // ../etc/Jaml.g:97:23: ( ID )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA19_0==ID) ) {
-                alt19=1;
+            if ( (LA21_0==ID) ) {
+                alt21=1;
             }
-            switch (alt19) {
+            switch (alt21) {
                 case 1 :
-                    // ../etc/Jaml.g:186:5: ID
+                    // ../etc/Jaml.g:97:23: ID
                     {
-                    ID39=(Token)match(input,ID,FOLLOW_ID_in_classSpecifier550); if (state.failed) return retval;
+                    ID39=(Token)match(input,ID,FOLLOW_ID_in_classSpecifier438); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     ID39_tree = (CommonTree)adaptor.create(ID39);
                     adaptor.addChild(root_0, ID39_tree);
@@ -1719,7 +1818,7 @@ import org.antlr.runtime.tree.*;
             }
 
             if ( state.backtracking==0 ) {
-              retval.klass = (ID39!=null?ID39.getText():null);
+              ((line_scope)line_stack.peek()).val.ids.add((ID39!=null?ID39.getText():null));
             }
 
             }
@@ -1745,89 +1844,41 @@ import org.antlr.runtime.tree.*;
     }
     // $ANTLR end "classSpecifier"
 
-    public static class newline_return extends ParserRuleReturnScope {
+    public static class inLineContent_return extends ParserRuleReturnScope {
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "newline"
-    // ../etc/Jaml.g:188:1: newline : ( ( NEWLINE ( DEDENT )* NEWLINE )=> NEWLINE | NEWLINE );
-    public final JamlParser.newline_return newline() throws RecognitionException {
-    traceIn("newline", 15);
-        JamlParser.newline_return retval = new JamlParser.newline_return();
+    // $ANTLR start "inLineContent"
+    // ../etc/Jaml.g:99:1: inLineContent : TEXT ;
+    public final JamlParser.inLineContent_return inLineContent() throws RecognitionException {
+    traceIn("inLineContent", 15);
+        JamlParser.inLineContent_return retval = new JamlParser.inLineContent_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token NEWLINE40=null;
-        Token NEWLINE41=null;
+        Token TEXT40=null;
 
-        CommonTree NEWLINE40_tree=null;
-        CommonTree NEWLINE41_tree=null;
+        CommonTree TEXT40_tree=null;
 
         try {
-            // ../etc/Jaml.g:188:8: ( ( NEWLINE ( DEDENT )* NEWLINE )=> NEWLINE | NEWLINE )
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../etc/Jaml.g:99:14: ( TEXT )
+            // ../etc/Jaml.g:99:16: TEXT
+            {
+            root_0 = (CommonTree)adaptor.nil();
 
-            if ( (LA20_0==NEWLINE) ) {
-                int LA20_1 = input.LA(2);
-
-                if ( (synpred2_Jaml()) ) {
-                    alt20=1;
-                }
-                else if ( (true) ) {
-                    alt20=2;
-                }
-                else {
-                    if (state.backtracking>0) {state.failed=true; return retval;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 20, 1, input);
-
-                    throw nvae;
-                }
+            TEXT40=(Token)match(input,TEXT,FOLLOW_TEXT_in_inLineContent448); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            TEXT40_tree = (CommonTree)adaptor.create(TEXT40);
+            adaptor.addChild(root_0, TEXT40_tree);
             }
-            else {
-                if (state.backtracking>0) {state.failed=true; return retval;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
-
-                throw nvae;
+            if ( state.backtracking==0 ) {
+              ((line_scope)line_stack.peek()).val.inLineContent = (TEXT40!=null?TEXT40.getText():null);
             }
-            switch (alt20) {
-                case 1 :
-                    // ../etc/Jaml.g:188:10: ( NEWLINE ( DEDENT )* NEWLINE )=> NEWLINE
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-                    NEWLINE40=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_newline570); if (state.failed) return retval;
-                    if ( state.backtracking==0 ) {
-                    NEWLINE40_tree = (CommonTree)adaptor.create(NEWLINE40);
-                    adaptor.addChild(root_0, NEWLINE40_tree);
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // ../etc/Jaml.g:188:48: NEWLINE
-                    {
-                    root_0 = (CommonTree)adaptor.nil();
-
-                    NEWLINE41=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_newline574); if (state.failed) return retval;
-                    if ( state.backtracking==0 ) {
-                    NEWLINE41_tree = (CommonTree)adaptor.create(NEWLINE41);
-                    adaptor.addChild(root_0, NEWLINE41_tree);
-                    }
-                    if ( state.backtracking==0 ) {
-
-                        util.validateIndentation(isWithinFilter, (NEWLINE41!=null?NEWLINE41.getText():null).substring(1));
-
-                    }
-
-                    }
-                    break;
 
             }
+
             retval.stop = input.LT(-1);
 
             if ( state.backtracking==0 ) {
@@ -1843,24 +1894,34 @@ import org.antlr.runtime.tree.*;
 
         }
         finally {
-    traceOut("newline", 15);
+    traceOut("inLineContent", 15);
         }
         return retval;
     }
-    // $ANTLR end "newline"
+    // $ANTLR end "inLineContent"
 
     // $ANTLR start synpred1_Jaml
     public final void synpred1_Jaml_fragment() throws RecognitionException {   
         traceIn("synpred1_Jaml_fragment", 16);
         try {
-            // ../etc/Jaml.g:154:5: ( blankLines )
-            // ../etc/Jaml.g:154:6: blankLines
+            // ../etc/Jaml.g:79:4: ( literal ( COMMA | END_HASH ) )
+            // ../etc/Jaml.g:79:5: literal ( COMMA | END_HASH )
             {
-            pushFollow(FOLLOW_blankLines_in_synpred1_Jaml364);
-            blankLines();
+            pushFollow(FOLLOW_literal_in_synpred1_Jaml295);
+            literal();
 
             state._fsp--;
             if (state.failed) return ;
+            if ( (input.LA(1)>=COMMA && input.LA(1)<=END_HASH) ) {
+                input.consume();
+                state.errorRecovery=false;state.failed=false;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return ;}
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                throw mse;
+            }
+
 
             }
 
@@ -1870,65 +1931,8 @@ import org.antlr.runtime.tree.*;
         }}
     // $ANTLR end synpred1_Jaml
 
-    // $ANTLR start synpred2_Jaml
-    public final void synpred2_Jaml_fragment() throws RecognitionException {   
-        traceIn("synpred2_Jaml_fragment", 17);
-        try {
-            // ../etc/Jaml.g:188:10: ( NEWLINE ( DEDENT )* NEWLINE )
-            // ../etc/Jaml.g:188:11: NEWLINE ( DEDENT )* NEWLINE
-            {
-            match(input,NEWLINE,FOLLOW_NEWLINE_in_synpred2_Jaml561); if (state.failed) return ;
-            // ../etc/Jaml.g:188:19: ( DEDENT )*
-            loop21:
-            do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
-
-                if ( (LA21_0==DEDENT) ) {
-                    alt21=1;
-                }
-
-
-                switch (alt21) {
-            	case 1 :
-            	    // ../etc/Jaml.g:188:19: DEDENT
-            	    {
-            	    match(input,DEDENT,FOLLOW_DEDENT_in_synpred2_Jaml563); if (state.failed) return ;
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop21;
-                }
-            } while (true);
-
-            match(input,NEWLINE,FOLLOW_NEWLINE_in_synpred2_Jaml566); if (state.failed) return ;
-
-            }
-
-        }
-        finally {
-            traceOut("synpred2_Jaml_fragment", 17);
-        }}
-    // $ANTLR end synpred2_Jaml
-
     // Delegated rules
 
-    public final boolean synpred2_Jaml() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred2_Jaml_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred1_Jaml() {
         state.backtracking++;
         int start = input.mark();
@@ -1947,52 +1951,54 @@ import org.antlr.runtime.tree.*;
 
  
 
-    public static final BitSet FOLLOW_line_in_jamlSource97 = new BitSet(new long[]{0x0000000000006342L});
-    public static final BitSet FOLLOW_elementDeclaration_in_element131 = new BitSet(new long[]{0x00000000000063D0L});
-    public static final BitSet FOLLOW_FORWARD_SLASH_in_element134 = new BitSet(new long[]{0x0000000000006350L});
-    public static final BitSet FOLLOW_freeformText_in_element145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newline_in_element158 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_content_in_element161 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_element_in_line192 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_freeformText_in_line200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newline_in_line209 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TEXT_in_freeformText234 = new BitSet(new long[]{0x0000000000006350L});
-    public static final BitSet FOLLOW_newline_in_freeformText238 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_content_in_freeformText243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_divAttrs_in_elementDeclaration287 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_attrHash_in_elementDeclaration292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_attrs_in_elementDeclaration302 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_attrHash_in_elementDeclaration305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INDENT_in_content328 = new BitSet(new long[]{0x0000000000006330L});
-    public static final BitSet FOLLOW_element_in_content340 = new BitSet(new long[]{0x0000000000006320L});
-    public static final BitSet FOLLOW_freeformText_in_content351 = new BitSet(new long[]{0x0000000000006320L});
-    public static final BitSet FOLLOW_blankLines_in_content368 = new BitSet(new long[]{0x0000000000006320L});
-    public static final BitSet FOLLOW_content_in_content383 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_DEDENT_in_content392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEDENT_in_blankLines403 = new BitSet(new long[]{0x0000000000006360L});
-    public static final BitSet FOLLOW_NEWLINE_in_blankLines406 = new BitSet(new long[]{0x0000000000000050L});
-    public static final BitSet FOLLOW_blankLines_in_blankLines411 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_INDENT_in_blankLines414 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PERCENT_in_attrs422 = new BitSet(new long[]{0x0000000000006402L});
-    public static final BitSet FOLLOW_ID_in_attrs424 = new BitSet(new long[]{0x0000000000006002L});
-    public static final BitSet FOLLOW_idSpecifier_in_attrs430 = new BitSet(new long[]{0x0000000000006002L});
-    public static final BitSet FOLLOW_classSpecifier_in_attrs437 = new BitSet(new long[]{0x0000000000006002L});
-    public static final BitSet FOLLOW_idSpecifier_in_divAttrs451 = new BitSet(new long[]{0x0000000000006002L});
-    public static final BitSet FOLLOW_classSpecifier_in_divAttrs458 = new BitSet(new long[]{0x0000000000006002L});
-    public static final BitSet FOLLOW_BEGIN_HASH_in_attrHash473 = new BitSet(new long[]{0x00000001FFFFFFF0L});
-    public static final BitSet FOLLOW_hashAttrs_in_attrHash479 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_END_HASH_in_attrHash484 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_notEndHash_in_hashAttrs504 = new BitSet(new long[]{0x00000001FFFFEFF2L});
-    public static final BitSet FOLLOW_set_in_notEndHash517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POUND_in_idSpecifier532 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_ID_in_idSpecifier534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_classSpecifier548 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_ID_in_classSpecifier550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEWLINE_in_newline570 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEWLINE_in_newline574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_blankLines_in_synpred1_Jaml364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEWLINE_in_synpred2_Jaml561 = new BitSet(new long[]{0x0000000000000060L});
-    public static final BitSet FOLLOW_DEDENT_in_synpred2_Jaml563 = new BitSet(new long[]{0x0000000000000060L});
-    public static final BitSet FOLLOW_NEWLINE_in_synpred2_Jaml566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_line_in_jamlSource77 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NEWLINE_in_jamlSource80 = new BitSet(new long[]{0x0000000018000270L});
+    public static final BitSet FOLLOW_EOF_in_jamlSource84 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_indentation_in_line107 = new BitSet(new long[]{0x0000000018000062L});
+    public static final BitSet FOLLOW_element_in_line111 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_plainText_in_line115 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_plainText124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PERCENT_in_element143 = new BitSet(new long[]{0x00000000180005E2L});
+    public static final BitSet FOLLOW_ID_in_element145 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_idSpecifier_in_element149 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_classSpecifier_in_element153 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_attributeHash_in_element157 = new BitSet(new long[]{0x0000000000000122L});
+    public static final BitSet FOLLOW_selfClose_in_element160 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_inLineContent_in_element163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_idSpecifier_in_element177 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_classSpecifier_in_element181 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_attributeHash_in_element185 = new BitSet(new long[]{0x0000000000000122L});
+    public static final BitSet FOLLOW_selfClose_in_element188 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_inLineContent_in_element191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FORWARD_SLASH_in_selfClose206 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INDENTATION_in_indentation215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BEGIN_HASH_in_attributeHash225 = new BitSet(new long[]{0x0000000007FC5000L});
+    public static final BitSet FOLLOW_attributeMapping_in_attributeHash228 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_COMMA_in_attributeHash231 = new BitSet(new long[]{0x0000000007FC4000L});
+    public static final BitSet FOLLOW_attributeMapping_in_attributeHash233 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_END_HASH_in_attributeHash239 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_attribute_in_attributeMapping246 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_MAP_TO_in_attributeMapping248 = new BitSet(new long[]{0x0000000007FFC000L});
+    public static final BitSet FOLLOW_attribute_value_in_attributeMapping250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ATTRIBUTE_NAME_in_attribute269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_attribute277 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_attribute_value307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_javaExpression_in_attribute_value320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_JAVA_CODE_in_javaExpression331 = new BitSet(new long[]{0x0000000007FFC002L});
+    public static final BitSet FOLLOW_literal_in_javaExpression335 = new BitSet(new long[]{0x0000000007FFC002L});
+    public static final BitSet FOLLOW_JAVA_LBRACE_in_javaExpression339 = new BitSet(new long[]{0x0000000007FFC002L});
+    public static final BitSet FOLLOW_JAVA_RBRACE_in_javaExpression343 = new BitSet(new long[]{0x0000000007FFC002L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_literal361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHAR_LITERAL_in_literal371 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_literal381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal397 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_literal407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_idSpecifier423 = new BitSet(new long[]{0x0000000000000082L});
+    public static final BitSet FOLLOW_ID_in_idSpecifier425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POUND_in_classSpecifier436 = new BitSet(new long[]{0x0000000000000082L});
+    public static final BitSet FOLLOW_ID_in_classSpecifier438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_inLineContent448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_synpred1_Jaml295 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_set_in_synpred1_Jaml297 = new BitSet(new long[]{0x0000000000000002L});
 
 }

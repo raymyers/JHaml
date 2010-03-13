@@ -11,6 +11,8 @@ public class PlainFilter extends Filter {
 
 	@Override
 	public String process(String input) {
-		return CharMatcher.WHITESPACE.trimTrailingFrom(indent(input,0));
+		System.err.println(input);
+		
+		return CharMatcher.WHITESPACE.trimTrailingFrom(indent(input,-4));
 	}
 }

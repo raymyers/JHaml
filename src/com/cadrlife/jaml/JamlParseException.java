@@ -9,7 +9,7 @@ public class JamlParseException extends RuntimeException {
 	}
 	
 	public JamlParseException(String message, int lineNumber) {
-		super(message);
+		super("Line " + lineNumber + ": " + message);
 		this.lineNumber = lineNumber;
 	}
 

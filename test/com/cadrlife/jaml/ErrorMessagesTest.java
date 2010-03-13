@@ -94,7 +94,7 @@ public class ErrorMessagesTest {
 			String output = new Jaml().parse(input);
 			fail("No exception thrown, expected: " + message + "\nOutput:\n" + output);
 		} catch (JamlParseException e) {
-			assertEquals(message, e.getMessage());
+			assertEquals(message, e.getMessage().replaceFirst("Line \\d+: ", ""));
 			assertEquals(line, e.getLineNumber());
 		}
 	}

@@ -21,12 +21,12 @@ public class JamlErrorChecker {
 	private static final String ILLEGAL_NESTING_NESTING_WITHIN_PLAIN_TEXT_IS_ILLEGAL = "Illegal nesting: nesting within plain text is illegal.";
 	private static final String ILLEGAL_NESTING_NESTING_WITHIN_A_HEADER_COMMAND_IS_ILLEGAL = "Illegal nesting: nesting within a header command is illegal.";
 	private static final String ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES = "Illegal element: classes and ids must have values.";
-	private final JamlParser parser;
-	public JamlErrorChecker(JamlParser parser) {
-		this.parser = parser;
+	private int lineNumber = -1;
+	public JamlErrorChecker() {
 	}
-	public void checkHeaderHasNoNestedContent(String header) {
+	public void checkHeaderHasNoNestedContent(Line line, String header) {
 		if (header.contains("\n")) {
+			this.lineNumber++;
 			throwError(ILLEGAL_NESTING_NESTING_WITHIN_A_HEADER_COMMAND_IS_ILLEGAL);
 		}
 	}
@@ -35,29 +35,35 @@ public class JamlErrorChecker {
 	}
 	
 	private void throwError(String message) {
-		throwError(parser.getCurrentLineNumber(), message);
+		throwError(getCurrentLineNumber(), message);
 	}
 	public void checkForNullClassesAndIds(List<String> classes,
 			List<String> ids) {
 		if (classes.contains(null)) {
-			throwError(parser.getCurrentLineNumber("."), ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
+			throwError(getCurrentLineNumber(), ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
 		}
 		if (ids.contains(null)) {
-			throwError(parser.getCurrentLineNumber("#"), ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
+			throwError(getCurrentLineNumber(), ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
 		}
 		
 	}
-	public void checkNoNestingWithinContent(String currentElementType, String text) {
-		if (IndentUtils.containsNesting(text)) {
-			if (null == currentElementType) {
-				throwError(ILLEGAL_NESTING_NESTING_WITHIN_PLAIN_TEXT_IS_ILLEGAL);
+	public void checkNoNestingWithinContent(Line line) {
+		System.out.println("." + line + ".");
+		if (line.hasNestedContent() && line.hasInLineContent() && !line.isFilter()) {
+			this.setCurrentLineNumber(line.block.get(0).lineNumber);
+			if (line.isElement()) {
+				throwError(String.format(ILLEGAL_NESTING_CONTENT_CAN_T_BE_BOTH_GIVEN_ON_THE_SAME_LINE_AND_NESTED_WITHIN_IT,line.tag));
 			} else {
-				throwError(String.format(ILLEGAL_NESTING_CONTENT_CAN_T_BE_BOTH_GIVEN_ON_THE_SAME_LINE_AND_NESTED_WITHIN_IT,currentElementType));
+				throwError(ILLEGAL_NESTING_NESTING_WITHIN_PLAIN_TEXT_IS_ILLEGAL);
 			}
 		}
 	}
+	public void setCurrentLineNumber(int lineNumber) {
+		this.lineNumber = lineNumber;
+	}
 	public void checkNoNestingWithContentOnFirstLine(String text) {
 		if (IndentUtils.hasContentOnFirstLine(text) && IndentUtils.containsNesting(text)) {
+			this.lineNumber++;
 			throwError(ILLEGAL_NESTING_NESTING_WITHIN_A_TAG_THAT_ALREADY_HAS_CONTENT_IS_ILLEGAL);
 		}
 	}
@@ -67,27 +73,39 @@ public class JamlErrorChecker {
 			throwError(String.format(INVALID_TAG,tag.trim()));
 		}
 	}
-	public void checkJavaCodeIsNotEmpty(String operation, String code) {
+	public void checkJavaCodeIsNotEmpty(String lineText, String operation, String code) {
 		if (code.trim().isEmpty()) {
+			advanceBeyondElementDeclaration(lineText);
 			throwError(String.format(THERE_S_NO_JAVA_CODE_FOR_OPERATION_TO_EVALUATE,operation));
 		}
 	}
-	public void checkContentOfSelfClosingTags(String content) {
+	public void checkContentOfSelfClosingTags(String lineText, String content) {
+		advanceBeyondElementDeclaration(lineText);
 		if (!content.trim().isEmpty()) {
 			if (content.contains("\n")) {
+				this.lineNumber++;
 				throwError(ILLEGAL_NESTING_NESTING_WITHIN_A_SELF_CLOSING_TAG_IS_ILLEGAL);
 			}
 			throwError(SELF_CLOSING_TAGS_CAN_T_HAVE_CONTENT);
 		}
 	}
+	private void advanceBeyondElementDeclaration(String lineText) {
+		int newlinesInElementDeclaration = CharMatcher.is('\n').countIn(lineText);
+		this.lineNumber += newlinesInElementDeclaration;
+		
+		System.out.println("newlinesInElementDeclaration " + newlinesInElementDeclaration);
+	}
 	public void checkFilterIsDefined(JamlConfig config, String filter, String content) {
 		if (!config.filters.containsKey(filter)) {
 			int contentLines = CharMatcher.is('\n').countIn(content);
 			if (filter.contains(" ")) {
-				throwError(parser.getCurrentLineNumber()-contentLines, String.format(INVALID_FILTER_NAME,filter));
+				throwError(getCurrentLineNumber()-contentLines, String.format(INVALID_FILTER_NAME,filter));
 			}
-			throwError(parser.getCurrentLineNumber()-contentLines, String.format(FILTER_IS_NOT_DEFINED,filter));
+			throwError(getCurrentLineNumber()-contentLines, String.format(FILTER_IS_NOT_DEFINED,filter));
 		}
+	}
+	private int getCurrentLineNumber() {
+		return this.lineNumber;
 	}
 	public void checkDocumentDoesNotBeginWithIndentation(String input) {
 		int lineNumber = 1;
@@ -115,18 +133,18 @@ public class JamlErrorChecker {
 		if (indentationIsInvalidLength || indentationIsWrongType || indentationIsMixed) {
 			String indentationDescription = IndentUtils.describe(actualIndentation);
 			String wasOrWere = indentationDescription.endsWith("s") ? "were" : "was";
-			throwError(parser.getCurrentLineNumber()+1,String.format(INCONSISTENT_INDENTATION,indentationDescription,wasOrWere , IndentUtils.describe(isIndentWithTabs,indentationSize)));
+			throwError(getCurrentLineNumber(),String.format(INCONSISTENT_INDENTATION,indentationDescription,wasOrWere, IndentUtils.describe(isIndentWithTabs,indentationSize)));
 		}
 		System.err.println("Indentation levels: " + indentationLevels);
 		if (indentationLevels > 1) {
-			throwError(parser.getCurrentLineNumber()+1, String.format(THE_LINE_WAS_INDENTED_DEEPER_THAN_THE_PREVIOUS_LINE,indentationLevels));
+			throwError(getCurrentLineNumber(), String.format(THE_LINE_WAS_INDENTED_DEEPER_THAN_THE_PREVIOUS_LINE,indentationLevels));
 		}
 	}
 	public void checkInitialIndentation(String indentation) {
 		boolean isAllTabs = CharMatcher.is('\t').matchesAllOf(indentation);
 		boolean isAllSpaces = CharMatcher.is(' ').matchesAllOf(indentation);
 		if (!(isAllTabs || isAllSpaces)) {
-			throwError(parser.getCurrentLineNumber()+1,INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES);
+			throwError(getCurrentLineNumber(),INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES);
 		}
 	}
 }

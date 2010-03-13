@@ -11,7 +11,7 @@ public class PreserveFilter extends Filter {
 
 	@Override
 	public String process(String input) {
-		String normalizedInput = CharMatcher.WHITESPACE.trimTrailingFrom(indent(input,0));
+		String normalizedInput = CharMatcher.WHITESPACE.trimTrailingFrom(indent(input,-2));
 		return normalizedInput.replaceAll("\n", "&#x000A;");
 	}
 

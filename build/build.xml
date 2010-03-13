@@ -7,11 +7,9 @@
           </path>
 
           <target name="antlr"
-                  depends="antlr-jaml,antlr-jaml-attrhash"
+                  depends="antlr-jaml"
                   description="Generate Java parser files from the ANTLR grammars">
           </target>
-
-
 
        <target name="antlr-jaml"
                      depends="prepare-antlr"
@@ -35,76 +33,20 @@
                 </move>
                 <!-- Add suppress warnings to parsers. -->
        			<replaceregexp file="${antlrdir}/${jaml.grammar.name}Lexer.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" /> 
-       			<replaceregexp file="${antlrdir}/${jaml.grammar.name}Parser.java" match="^public class" replace="@SuppressWarnings({&quot;unused&quot;,&quot;unchecked&quot;}) public class" flags="m" /> 
+       			<replaceregexp file="${antlrdir}/${jaml.grammar.name}Parser.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" /> 
                 <!-- Move generated Java code to the correct package directory. -->
                 <move todir="${srcdir}/${jaml.parse.package}">
                    <fileset dir="${antlrdir}" includes="*.java" />
-                   <fileset dir="${antlrdir}" includes="*.tokens" />
                 </move>
-             </target>
-       <target name="antlr-jaml-attrhash"
-                     depends="prepare-antlr"
-                     unless="jamlAttrHashGrammarProcessed"
-                     description="Generate Java lexer file from the ANTLR lexer grammar">
-       			<java classname="org.antlr.Tool"
-       	                      classpathref="ANTLR.classpath"
-       	                      fork="true">
-       	                   <arg line="${tool.options} ${antlrdir}/${jaml.grammar.name}AttrHash.g" />
-       	                </java>
-       			<move todir="${antlrdir}">
-       	        	<fileset dir="" includes="*.java" />
-       	        	<fileset dir="" includes="*.tokens" />
-       	        </move>
-       	
-                <!-- Add suppress warnings to parsers. -->
-       			<replaceregexp file="${antlrdir}/${jaml.grammar.name}AttrHashLexer.java" match="^public class" replace="@SuppressWarnings(&quot;unused&quot;) public class" flags="m" /> 
-       			<replaceregexp file="${antlrdir}/${jaml.grammar.name}AttrHashParser.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" />
-
-                <!-- Move generated Java code to the correct package directory. -->
                 <move todir="${srcdir}/${jaml.parse.package}">
-                   <fileset dir="${antlrdir}" includes="*.java" />
                    <fileset dir="${antlrdir}" includes="*.tokens" />
                 </move>
              </target>
-    <target name="antlr-java"
-                  depends="prepare-antlr"
-                  unless="javaGrammarProcessed"
-                  description="Generate Java lexer file from the ANTLR
-lexer grammar">
-             <!-- does not work, unfortunately
-             <antlr:antlr3 xmlns:antlr="antlib:org/apache/tools/ant/antlr"
-                           target="${srcdir}/ANTLR/${grammar.name}.g"
-                           outputdirectory="${srcdir}/${parse.package}"
-                           libdirectory="/home/hendrik/Java/antlr-3.1.1/lib"
-                           multithreaded="true" />
-             -->
-             <java classname="org.antlr.Tool"
-                   classpathref="ANTLR.classpath"
-                   fork="true">
-                <arg line="${tool.options} ${antlrdir}/${java.grammar.name}.g" />
-             </java>
-             <!-- Move generated Java code to the correct package directory. -->
-             <move todir="${srcdir}/${java.parse.package}">
-                <fileset dir="${antlrdir}" includes="*.java" />
-                <fileset dir="${antlrdir}" includes="*.tokens" />
-             </move>
-          </target>
-	
           <target name="prepare-antlr">
              <uptodate property="jamlGrammarProcessed"
                        srcfile="${antlrdir}/${jaml.grammar.name}.g">
                 <mapper type="merge"
                         to="${srcdir}/${jaml.parse.package}/${jaml.grammar.name}Parser.java" />
              </uptodate>
-             <uptodate property="jamlAttrHashGrammarProcessed"
-                       srcfile="${antlrdir}/${jaml.grammar.name}AttrHash.g">
-                <mapper type="merge"
-                        to="${srcdir}/${jaml.parse.package}/${jaml.grammar.name}AttrHashParser.java" />
-             </uptodate>
-             <uptodate property="javaGrammarProcessed"
-          	                       srcfile="${antlrdir}/${java.grammar.name}.g">
-          	                <mapper type="merge"
-          	                        to="${srcdir}/${java.parse.package}/${java.grammar.name}.java" />
-          	             </uptodate>
           </target>
 </project>
