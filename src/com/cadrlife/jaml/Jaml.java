@@ -21,7 +21,6 @@ public class Jaml {
 			return "";
 		}
 		input = sanitizeInput(input);
-		System.out.println("in  " + input);
 		try {
 			List<Line> lines = jamlParserWrapper.parseJaml(input);
 			List<Line> lineTree = processNesting(lines);
@@ -35,7 +34,6 @@ public class Jaml {
 	}
 
 	private String renderLines(List<Line> lineTree) {
-		System.out.println(lineTree.size());
 		String result = "";
 		for (Line line : lineTree) {
 			result += renderLine(line) + "\n";
@@ -58,14 +56,8 @@ public class Jaml {
 					line.isWithinFilter = true;
 				}
 				parentLine.block.add(line);
-				if (line.isBlank()) {
-					System.out.println("parent " + parentLine);;
-				}
 			} else {
 				lineTree.add(line);
-				if (line.isBlank()) {
-					System.out.println(" no parent ");;
-				}
 			}
 		}
 		return lineTree;
@@ -77,10 +69,6 @@ public class Jaml {
 			if (!line.isBlank() && !line.isWithinFilter) {
 				lastLine = line;
 			}
-		}
-		if (childLine.isBlank()) {
-			System.out.println(lineTree);
-			System.out.println("last " + lastLine);
 		}
 		if (lastLine != null) {
 			if (isDeeper(lastLine, childLine) || childLine.isBlank()) {
@@ -120,9 +108,6 @@ public class Jaml {
 		}
 		
 		String textBlock = textBlock(line);
-		System.out.println("==>");
-		System.out.println(textBlock);
-		System.out.println("<====");
 		return helper.parseFreeFormText(line, "", textBlock);
 	}
 
@@ -143,8 +128,6 @@ public class Jaml {
 		int parentIndent = parentLine.indentation.length();
 		this.helper.errorChecker.setCurrentLineNumber(line.lineNumber);
 		line.indentation = line.leadingWhitespace;
-		System.err.println("'" + line.indentation.replaceAll("\t", "\\t") + "'");
-		System.err.println("within filter " +parentLine.isFilter());
 		if (line.indentation.isEmpty() || line.isBlank()) {
 			return;
 		}
@@ -159,6 +142,5 @@ public class Jaml {
 			effectiveIndentation = line.indentation.substring(0, nextLevel);
 		}
 		this.helper.errorChecker.checkIndentationIsConsistent(indentationSize,isIndentWithTabs,parentIndent,line.indentation,effectiveIndentation);
-//		System.err.println("current indentation" + currentIndentation);
 	}
 }

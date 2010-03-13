@@ -134,7 +134,7 @@ INDENTATION : { lineMode == EMode.BEGINNING }?=>
   Space+;
 
 WS : { lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH }?=>
-  Space+ { $channel = HIDDEN; lineMode = EMode.TEXT; System.err.println("WSWS");};
+  Space+ { $channel = HIDDEN; lineMode = EMode.TEXT; };
 
 WS_WITHIN_HASH : { lineMode == EMode.ATTRIBUTE_HASH }?=>
   Space { $channel = HIDDEN; };

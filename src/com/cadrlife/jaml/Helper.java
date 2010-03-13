@@ -129,7 +129,6 @@ public class Helper {
 		if (text.startsWith(":")) {
 			return filter(text.substring(1));
 		}
-		System.err.println(text);
 		errorChecker.checkNoNestingWithinContent(line);
 		return CharMatcher.is(' ').trimTrailingFrom(text);
 	}

@@ -48,7 +48,6 @@ public class JamlErrorChecker {
 		
 	}
 	public void checkNoNestingWithinContent(Line line) {
-		System.out.println("." + line + ".");
 		if (line.hasNestedContent() && line.hasInLineContent() && !line.isFilter()) {
 			this.setCurrentLineNumber(line.block.get(0).lineNumber);
 			if (line.isElement()) {
@@ -92,8 +91,6 @@ public class JamlErrorChecker {
 	private void advanceBeyondElementDeclaration(String lineText) {
 		int newlinesInElementDeclaration = CharMatcher.is('\n').countIn(lineText);
 		this.lineNumber += newlinesInElementDeclaration;
-		
-		System.out.println("newlinesInElementDeclaration " + newlinesInElementDeclaration);
 	}
 	public void checkFilterIsDefined(JamlConfig config, String filter, String content) {
 		if (!config.filters.containsKey(filter)) {
@@ -135,7 +132,6 @@ public class JamlErrorChecker {
 			String wasOrWere = indentationDescription.endsWith("s") ? "were" : "was";
 			throwError(getCurrentLineNumber(),String.format(INCONSISTENT_INDENTATION,indentationDescription,wasOrWere, IndentUtils.describe(isIndentWithTabs,indentationSize)));
 		}
-		System.err.println("Indentation levels: " + indentationLevels);
 		if (indentationLevels > 1) {
 			throwError(getCurrentLineNumber(), String.format(THE_LINE_WAS_INDENTED_DEEPER_THAN_THE_PREVIOUS_LINE,indentationLevels));
 		}
