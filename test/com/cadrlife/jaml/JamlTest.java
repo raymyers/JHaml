@@ -166,7 +166,7 @@ public class JamlTest {
 	
 	@Test
 	public void doctypeHeader() {
-		String header = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+		String header = Helper.DOCTYPE_XHTML_1_0_TRANSITIONAL;
 		assertEquals(header + "\n<p />", jaml.parse("!!!\n%p/"));
 	}
 	@Test

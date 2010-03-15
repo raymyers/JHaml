@@ -10,9 +10,16 @@ import com.google.common.base.Joiner;
 
 public class Jaml {
 	private final JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
-	private Helper helper = new Helper(new JamlConfig());
+	private Helper helper;
 	private int indentationSize = -1;
 	private boolean isIndentWithTabs = false;
+	
+	public Jaml() {
+		helper = new Helper(new JamlConfig());
+	}
+	public Jaml(JamlConfig config) {
+		helper = new Helper(config);
+	}
 	
 	public String parse(String input) {
 		indentationSize = -1;
