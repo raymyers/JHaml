@@ -18,7 +18,7 @@ public class JamlConfig {
 	String format = "xthml";
 	List<String> autoclose = new ArrayList<String>(Arrays.asList("meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"));
 	List<String> preserve = new ArrayList<String>(Arrays.asList("textarea", "pre"));
-	public String attrWrapper = "";
+	public String attrWrapper = "'";
 	public Map<String,Filter> filters = new HashMap<String,Filter>();
 	{
 		filters.put("plain", new PlainFilter(this));
