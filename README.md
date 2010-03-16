@@ -21,5 +21,7 @@ This implementation is licensed under the GNU GPL version 3.0, with the exceptio
 libraries, which are licensed as specified in their source folders.
 
 Antlr: BSD
+
 Google Guava: Apache 2.0
+
 Apache Commons Lang: Apache 2.0
