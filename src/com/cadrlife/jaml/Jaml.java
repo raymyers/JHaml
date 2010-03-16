@@ -13,11 +13,13 @@ public class Jaml {
 	private Helper helper;
 	private int indentationSize = -1;
 	private boolean isIndentWithTabs = false;
+	private final JamlConfig config;
 	
 	public Jaml() {
-		helper = new Helper(new JamlConfig());
+		this(new JamlConfig());
 	}
 	public Jaml(JamlConfig config) {
+		this.config = config;
 		helper = new Helper(config);
 	}
 	
@@ -29,7 +31,7 @@ public class Jaml {
 		}
 		input = sanitizeInput(input);
 		try {
-			List<Line> lines = jamlParserWrapper.parseJaml(input);
+			List<Line> lines = jamlParserWrapper.parseJaml(input,config);
 			List<Line> lineTree = processNesting(lines);
 			return renderLines(lineTree).replaceAll("\n\n+", "\n").trim();
 		} catch (RuntimeException e) {

@@ -41,23 +41,42 @@ public class Helper {
 		return "<" + el + attribs(attribMap) + ">" + content + "</" + el + ">";
 	}
 
-	public String attribs(String... s) {
-		String result = "";
-		for (int i = 0; i < s.length; i += 2) {
-			String attr = s[i];
-			String value = s[i + 1];
-			result += " " + attr + "=" + "'" + value + "'";
-		}
-		return result;
-	}
+//	public String attribs(String... s) {
+//		String result = "";
+//		for (int i = 0; i < s.length; i += 2) {
+//			String attr = s[i];
+//			String value = s[i + 1];
+//			result += " " + attr + "=" + this.config.attrWrapper + value + this.config.attrWrapper;
+//		}
+//		return result;
+//	}
 
 	public String attribs(Map<String, String> attribMap) {
+		String attrWrapper = this.config.attrWrapper;
+		String quoteEscape = "\"".equals(attrWrapper) ? "&quot;" : "&apos;";
+	    String otherQuoteChar = "\"".equals(attrWrapper) ? "'" : "\"";
 		String result = "";
 		if (null != attribMap) {
 			for (Entry<String, String> e : attribMap.entrySet()) {
 				String attr = e.getKey();
 				String value = e.getValue();
-				result += " " + attr + "=" + "'" + value + "'";
+				String thisAttrWrapper = attrWrapper;
+				// Should do the same as Haml's Helper.escape_once
+				value = StringEscapeUtils.escapeHtml(StringEscapeUtils.unescapeHtml(value));
+				System.err.println(value);
+				// Helpers.preserve
+				value = value.replaceAll("\n", "&#x000A;");
+				// We want to decide whether or not to escape quotes
+				value = value.replaceAll("&quot;","\"");
+		        if (value.contains(attrWrapper)) {
+		        	if (value.contains(otherQuoteChar)) {
+		        		value = value.replaceAll(attrWrapper, quoteEscape);
+		        	} else {
+		        		thisAttrWrapper = otherQuoteChar;
+		        	}
+		        }
+		        		
+				result += " " + attr + "=" + thisAttrWrapper + value + thisAttrWrapper;
 			}
 		}
 		return result;

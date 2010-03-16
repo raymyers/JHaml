@@ -15,7 +15,7 @@ import com.cadrlife.jaml.filters.PlainFilter;
 import com.cadrlife.jaml.filters.PreserveFilter;
 
 public class JamlConfig {
-	String format = "xthml";
+	String format = "xhtml";
 	List<String> autoclose = new ArrayList<String>(Arrays.asList("meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"));
 	List<String> preserve = new ArrayList<String>(Arrays.asList("textarea", "pre"));
 	public String attrWrapper = "'";

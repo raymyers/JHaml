@@ -101,7 +101,7 @@ public class JamlAttributeHashTest {
 	}
 	
 	private Map<String, String> readAttrs(String input) {
-		List<Line> lines = new JamlParserWrapper().parseJaml("%p" + input + "\n");
+		List<Line> lines = new JamlParserWrapper().parseJaml("%p" + input + "\n", new JamlConfig());
 		return lines.get(0).attrMap;
 	}
 }

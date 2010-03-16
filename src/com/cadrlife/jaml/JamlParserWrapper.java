@@ -12,11 +12,10 @@ import com.cadrlife.util.StringInputStream;
 
 public class JamlParserWrapper {
 
-	public List<Line> parseJaml(String input) throws JamlParseException {
+	public List<Line> parseJaml(String input, JamlConfig config) throws JamlParseException {
 		try {
 			JamlLexer lexer = new JamlLexer(new ANTLRInputStream(
 					new StringInputStream(input)));
-			JamlConfig config = new JamlConfig();
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			JamlParser parser = new JamlParser(tokens);
 			new JamlErrorChecker().checkDocumentDoesNotBeginWithIndentation(input);

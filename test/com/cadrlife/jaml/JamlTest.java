@@ -6,7 +6,8 @@ import org.junit.Test;
 
 public class JamlTest {
 	private String INDENT = "\n  ";
-	private Jaml jaml = new Jaml();
+	private JamlConfig config = new JamlConfig();
+	private Jaml jaml = new Jaml(config);	
 
 	@Test
 	public void emptyRender() {
@@ -181,5 +182,17 @@ public class JamlTest {
 		assertEquals("<p>\n  foo\n</p>\n<q>\n  bar\n  <a>\n    baz\n  </a>\n</q>", jaml.parse("%p\n foo\n%q\n bar\n %a\n  baz"));
 		assertEquals("<p>\n  foo\n</p>\n<q>\n  bar\n  <a>\n    baz\n  </a>\n</q>", jaml.parse("%p\n\tfoo\n%q\n\tbar\n\t%a\n\t\tbaz"));
 		assertEquals("<p>\n      \t \t bar\n   baz\n</p>", jaml.parse("%p\n  :plain\n        \t \t bar\n     baz"));
+	}
+	
+	@Test
+	public void attrWrapper() {
+		this.config.attrWrapper = "*";
+		assertEquals("<p strange=*attrs*></p>", jaml.parse("%p{ :strange => 'attrs'}"));
+		this.config.attrWrapper = "\"";
+		assertEquals("<p escaped='quo\"te'></p>", jaml.parse("%p{ :escaped => 'quo\"te'}"));
+		assertEquals("<p escaped=\"quo'te\"></p>", jaml.parse("%p{ :escaped => 'quo\\'te'}"));
+	    assertEquals("<p escaped=\"q'uo&quot;te\"></p>", jaml.parse("%p{ :escaped => 'q\\'uo\"te'}"));
+	    assertEquals("<?xml version=\"1.0\" encoding=\"utf-8\" ?>", jaml.parse("!!! XML"));
+	    this.config.attrWrapper = "'";
 	}
 }
