@@ -1,4 +1,4 @@
-package com.cadrlife.jaml.util;
+package com.cadrlife.jhaml.util;
 
 import com.google.common.base.CharMatcher;
 

@@ -10,6 +10,8 @@ Haml features not currently supported:
 
 * Ugly mode for faster rendering speed.
 
+* Many more...
+
 ## Authors
 
 JHaml was created by [Ray Myers](http://cadrlife.com), with very special thanks to the implementers of the 

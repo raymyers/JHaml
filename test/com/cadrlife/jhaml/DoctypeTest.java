@@ -1,8 +1,12 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.cadrlife.jhaml.Helper;
+import com.cadrlife.jhaml.JHaml;
+import com.cadrlife.jhaml.JHamlConfig;
 
 public class DoctypeTest {
 	
@@ -26,13 +30,13 @@ public class DoctypeTest {
 	}
 	
 	private String render(String haml) {
-		Jaml jaml = new Jaml();
-		return jaml.parse(haml);
+		JHaml jhaml = new JHaml();
+		return jhaml.parse(haml);
 	}
 	private String renderWithFormat(String format, String haml) {
-		JamlConfig config = new JamlConfig();
-		Jaml jaml = new Jaml(config);
+		JHamlConfig config = new JHamlConfig();
+		JHaml jhaml = new JHaml(config);
 		config.format = format;
-		return jaml.parse(haml);
+		return jhaml.parse(haml);
 	}
 }

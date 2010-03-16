@@ -1,11 +1,13 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.cadrlife.jhaml.JHaml;
+
 public class FiltersTest {
-	private Jaml jaml = new Jaml();
+	private JHaml jhaml = new JHaml();
 	
 	@Test
 	public void javascript() {
@@ -20,7 +22,7 @@ public class FiltersTest {
 			"    jQuery(function() {});\n" + 
 			"  //]]>\n" + 
 			"</script>";
-		assertEquals(html, jaml.parse(haml));
+		assertEquals(html, jhaml.parse(haml));
 	}
 	@Test
 	public void cdata() {
@@ -36,7 +38,7 @@ public class FiltersTest {
 			"    %p\n" + 
 			"  ]]>\n" +
 			"</p>"; 
-		assertEquals(html, jaml.parse(haml));
+		assertEquals(html, jhaml.parse(haml));
 	}
 	@Test
 	public void emptyCdata() {
@@ -47,7 +49,7 @@ public class FiltersTest {
 			"<![CDATA[\n" + 
 			"]]>\n" + 
 			"Hello";
-		assertEquals(html, jaml.parse(haml));
+		assertEquals(html, jhaml.parse(haml));
 	}
 	@Test
 	public void plain() {
@@ -61,7 +63,7 @@ public class FiltersTest {
 			"  %div\n" + 
 			"  Hello\n" +
 			"</p>"; 
-		assertEquals(html, jaml.parse(haml));
+		assertEquals(html, jhaml.parse(haml));
 	}
 	@Test
 	public void escaped() {
@@ -69,7 +71,7 @@ public class FiltersTest {
 			":escaped\n" +
 			"  <div />";
 		String html = "&lt;div /&gt;"; 
-		assertEquals(html, jaml.parse(haml));
+		assertEquals(html, jhaml.parse(haml));
 	}
 	@Test
 	public void preserve() {
@@ -77,7 +79,7 @@ public class FiltersTest {
 			":preserve\n" +
 			"  a\n   b\n\n    c";
 		String html = "a&#x000A; b&#x000A;&#x000A;  c"; 
-		assertEquals(html, jaml.parse(haml));
+		assertEquals(html, jhaml.parse(haml));
 	}
 	
 	@Test
@@ -91,6 +93,6 @@ public class FiltersTest {
 			"  body {}\n" +
 			"-->\n" +
 			"</style>"; 
-		assertEquals(html, jaml.parse(haml));
+		assertEquals(html, jhaml.parse(haml));
 	}
 }

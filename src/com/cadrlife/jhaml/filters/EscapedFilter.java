@@ -1,13 +1,13 @@
-package com.cadrlife.jaml.filters;
+package com.cadrlife.jhaml.filters;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
-import com.cadrlife.jaml.JamlConfig;
+import com.cadrlife.jhaml.JHamlConfig;
 import com.google.common.base.CharMatcher;
 
 public class EscapedFilter extends Filter {
 
-	public EscapedFilter(JamlConfig config) {
+	public EscapedFilter(JHamlConfig config) {
 		super(config);
 	}
 

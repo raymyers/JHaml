@@ -1,4 +1,4 @@
-grammar Jaml;
+grammar JHaml;
 
 options {
   output=AST;
@@ -6,13 +6,13 @@ options {
 }
 
 @parser::header {
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 import java.util.LinkedHashMap;
 import java.util.Map;
 }
 
 @lexer::header {
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 }
 @lexer::members {
 static enum EMode {
@@ -26,7 +26,7 @@ int braceDepth = 0;
 Helper helper;
 }
  
-jamlSource[JamlConfig config] returns [List<Line> lines]
+jhamlSource[JHamlConfig config] returns [List<Line> lines]
 @init {
   helper = new Helper(config);
   $lines = new ArrayList<Line>();

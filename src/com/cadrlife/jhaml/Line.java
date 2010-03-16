@@ -1,4 +1,4 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

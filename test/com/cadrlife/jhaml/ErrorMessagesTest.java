@@ -1,7 +1,10 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import com.cadrlife.jhaml.JHaml;
+import com.cadrlife.jhaml.JHamlParseException;
 import com.google.common.base.CharMatcher;
 
 public class ErrorMessagesTest {
@@ -91,9 +94,9 @@ public class ErrorMessagesTest {
 	}
 	private void assertInputThrows(String input, String message, int line) {
 		try {
-			String output = new Jaml().parse(input);
+			String output = new JHaml().parse(input);
 			fail("No exception thrown, expected: " + message + "\nOutput:\n" + output);
-		} catch (JamlParseException e) {
+		} catch (JHamlParseException e) {
 			assertEquals(message, e.getMessage().replaceFirst("Line \\d+: ", ""));
 			assertEquals(line, e.getLineNumber());
 		}

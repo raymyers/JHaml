@@ -1,14 +1,14 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
-public class JamlParseException extends RuntimeException {
+public class JHamlParseException extends RuntimeException {
 	private final int lineNumber;
 
-	public JamlParseException(String message) {
+	public JHamlParseException(String message) {
 		super(message);
 		lineNumber = -1;
 	}
 	
-	public JamlParseException(String message, int lineNumber) {
+	public JHamlParseException(String message, int lineNumber) {
 		super("Line " + lineNumber + ": " + message);
 		this.lineNumber = lineNumber;
 	}

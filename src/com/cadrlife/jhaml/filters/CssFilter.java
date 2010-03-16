@@ -1,12 +1,12 @@
-package com.cadrlife.jaml.filters;
+package com.cadrlife.jhaml.filters;
 
-import com.cadrlife.jaml.JamlConfig;
+import com.cadrlife.jhaml.JHamlConfig;
 import com.google.common.base.CharMatcher;
 
 
 public class CssFilter extends Filter {
 
-	public CssFilter(JamlConfig config) {
+	public CssFilter(JHamlConfig config) {
 		super(config);
 	}
 

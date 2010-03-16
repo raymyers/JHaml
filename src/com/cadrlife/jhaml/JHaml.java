@@ -1,24 +1,24 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cadrlife.jaml.util.IndentUtils;
+import com.cadrlife.jhaml.util.IndentUtils;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 
 
-public class Jaml {
-	private final JamlParserWrapper jamlParserWrapper = new JamlParserWrapper();
+public class JHaml {
+	private final JHamlParserWrapper jhamlParserWrapper = new JHamlParserWrapper();
 	private Helper helper;
 	private int indentationSize = -1;
 	private boolean isIndentWithTabs = false;
-	private final JamlConfig config;
+	private final JHamlConfig config;
 	
-	public Jaml() {
-		this(new JamlConfig());
+	public JHaml() {
+		this(new JHamlConfig());
 	}
-	public Jaml(JamlConfig config) {
+	public JHaml(JHamlConfig config) {
 		this.config = config;
 		helper = new Helper(config);
 	}
@@ -31,7 +31,7 @@ public class Jaml {
 		}
 		input = sanitizeInput(input);
 		try {
-			List<Line> lines = jamlParserWrapper.parseJaml(input,config);
+			List<Line> lines = jhamlParserWrapper.parseJhaml(input,config);
 			List<Line> lineTree = processNesting(lines);
 			return renderLines(lineTree).replaceAll("\n\n+", "\n").trim();
 		} catch (RuntimeException e) {

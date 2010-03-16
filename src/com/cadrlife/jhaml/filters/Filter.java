@@ -1,12 +1,12 @@
-package com.cadrlife.jaml.filters;
+package com.cadrlife.jhaml.filters;
 
-import com.cadrlife.jaml.JamlConfig;
-import com.cadrlife.jaml.util.IndentUtils;
+import com.cadrlife.jhaml.JHamlConfig;
+import com.cadrlife.jhaml.util.IndentUtils;
 
 public abstract class Filter {
-	protected final JamlConfig config;
+	protected final JHamlConfig config;
 
-	public Filter(JamlConfig config) {
+	public Filter(JHamlConfig config) {
 		this.config = config;
 	}
 	

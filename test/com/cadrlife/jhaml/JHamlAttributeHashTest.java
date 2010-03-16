@@ -1,4 +1,4 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import static org.junit.Assert.*;
 
@@ -7,7 +7,11 @@ import java.util.Map;
 
 import org.junit.Test;
 
-public class JamlAttributeHashTest {
+import com.cadrlife.jhaml.JHamlConfig;
+import com.cadrlife.jhaml.JHamlParserWrapper;
+import com.cadrlife.jhaml.Line;
+
+public class JHamlAttributeHashTest {
 	
 	@Test
 	public void string() {
@@ -101,7 +105,7 @@ public class JamlAttributeHashTest {
 	}
 	
 	private Map<String, String> readAttrs(String input) {
-		List<Line> lines = new JamlParserWrapper().parseJaml("%p" + input + "\n", new JamlConfig());
+		List<Line> lines = new JHamlParserWrapper().parseJhaml("%p" + input + "\n", new JHamlConfig());
 		return lines.get(0).attrMap;
 	}
 }

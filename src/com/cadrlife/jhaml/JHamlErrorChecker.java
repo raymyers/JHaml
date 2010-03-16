@@ -1,11 +1,11 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import java.util.List;
 
-import com.cadrlife.jaml.util.IndentUtils;
+import com.cadrlife.jhaml.util.IndentUtils;
 import com.google.common.base.CharMatcher;
 
-public class JamlErrorChecker {
+public class JHamlErrorChecker {
 	private static final String INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES = "Indentation can't use both tabs and spaces.";
 	private static final String THE_LINE_WAS_INDENTED_DEEPER_THAN_THE_PREVIOUS_LINE = "The line was indented %d levels deeper than the previous line.";
 	private static final String INCONSISTENT_INDENTATION = "Inconsistent indentation: %s %s used for indentation, but the rest of the document was indented using %s.";
@@ -22,7 +22,7 @@ public class JamlErrorChecker {
 	private static final String ILLEGAL_NESTING_NESTING_WITHIN_A_HEADER_COMMAND_IS_ILLEGAL = "Illegal nesting: nesting within a header command is illegal.";
 	private static final String ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES = "Illegal element: classes and ids must have values.";
 	private int lineNumber = -1;
-	public JamlErrorChecker() {
+	public JHamlErrorChecker() {
 	}
 	public void checkHeaderHasNoNestedContent(Line line, String header) {
 		if (header.contains("\n")) {
@@ -31,7 +31,7 @@ public class JamlErrorChecker {
 		}
 	}
 	private void throwError(int lineNumber, String message) {
-		throw new JamlParseException(message, lineNumber);
+		throw new JHamlParseException(message, lineNumber);
 	}
 	
 	private void throwError(String message) {
@@ -92,7 +92,7 @@ public class JamlErrorChecker {
 		int newlinesInElementDeclaration = CharMatcher.is('\n').countIn(lineText);
 		this.lineNumber += newlinesInElementDeclaration;
 	}
-	public void checkFilterIsDefined(JamlConfig config, String filter, String content) {
+	public void checkFilterIsDefined(JHamlConfig config, String filter, String content) {
 		if (!config.filters.containsKey(filter)) {
 			int contentLines = CharMatcher.is('\n').countIn(content);
 			if (filter.contains(" ")) {

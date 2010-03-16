@@ -1,6 +1,6 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/Jaml.g 2010-03-13 15:51:39
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JHaml.g 2010-03-15 20:50:37
 
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 
 import org.antlr.runtime.*;
@@ -8,7 +8,7 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-@SuppressWarnings("all") public class JamlLexer extends Lexer {
+@SuppressWarnings("all") public class JHamlLexer extends Lexer {
     public static final int EXPONENT=36;
     public static final int END_HASH=12;
     public static final int LBRACE=42;
@@ -61,15 +61,15 @@ import java.util.ArrayList;
     // delegates
     // delegators
 
-    public JamlLexer() {;} 
-    public JamlLexer(CharStream input) {
+    public JHamlLexer() {;} 
+    public JHamlLexer(CharStream input) {
         this(input, new RecognizerSharedState());
     }
-    public JamlLexer(CharStream input, RecognizerSharedState state) {
+    public JHamlLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "../etc/Jaml.g"; }
+    public String getGrammarFileName() { return "../etc/JHaml.g"; }
 
     // $ANTLR start "PERCENT"
     public final void mPERCENT() throws RecognitionException {
@@ -77,8 +77,8 @@ import java.util.ArrayList;
         try {
             int _type = PERCENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:103:8: ({...}? => '%' )
-            // ../etc/Jaml.g:103:12: {...}? => '%'
+            // ../etc/JHaml.g:103:8: ({...}? => '%' )
+            // ../etc/JHaml.g:103:12: {...}? => '%'
             {
             if ( !((lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION)) ) {
                 throw new FailedPredicateException(input, "PERCENT", "lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION");
@@ -103,8 +103,8 @@ import java.util.ArrayList;
         try {
             int _type = POUND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:106:6: ({...}? => '#' )
-            // ../etc/Jaml.g:106:8: {...}? => '#'
+            // ../etc/JHaml.g:106:6: ({...}? => '#' )
+            // ../etc/JHaml.g:106:8: {...}? => '#'
             {
             if ( !((lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION)) ) {
                 throw new FailedPredicateException(input, "POUND", "lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION");
@@ -129,8 +129,8 @@ import java.util.ArrayList;
         try {
             int _type = DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:109:4: ({...}? => '.' )
-            // ../etc/Jaml.g:109:8: {...}? => '.'
+            // ../etc/JHaml.g:109:4: ({...}? => '.' )
+            // ../etc/JHaml.g:109:8: {...}? => '.'
             {
             if ( !((lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION)) ) {
                 throw new FailedPredicateException(input, "DOT", "lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION");
@@ -155,8 +155,8 @@ import java.util.ArrayList;
         try {
             int _type = FORWARD_SLASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:112:14: ({...}? => '/' )
-            // ../etc/Jaml.g:112:16: {...}? => '/'
+            // ../etc/JHaml.g:112:14: ({...}? => '/' )
+            // ../etc/JHaml.g:112:16: {...}? => '/'
             {
             if ( !(( lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH)) ) {
                 throw new FailedPredicateException(input, "FORWARD_SLASH", " lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH");
@@ -181,8 +181,8 @@ import java.util.ArrayList;
         try {
             int _type = COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:115:6: ({...}? => ',' )
-            // ../etc/Jaml.g:115:8: {...}? => ','
+            // ../etc/JHaml.g:115:6: ({...}? => ',' )
+            // ../etc/JHaml.g:115:8: {...}? => ','
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "COMMA", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -206,13 +206,13 @@ import java.util.ArrayList;
         try {
             int _type = JAVA_CODE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:118:10: ({...}? => (~ ( ':' | '=' | ',' | ' ' | '\\t' | '\\n' | '\\'' | '\\\"' | ( '0' .. '9' ) | '{' | '}' ) )+ )
-            // ../etc/Jaml.g:118:12: {...}? => (~ ( ':' | '=' | ',' | ' ' | '\\t' | '\\n' | '\\'' | '\\\"' | ( '0' .. '9' ) | '{' | '}' ) )+
+            // ../etc/JHaml.g:118:10: ({...}? => (~ ( ':' | '=' | ',' | ' ' | '\\t' | '\\n' | '\\'' | '\\\"' | ( '0' .. '9' ) | '{' | '}' ) )+ )
+            // ../etc/JHaml.g:118:12: {...}? => (~ ( ':' | '=' | ',' | ' ' | '\\t' | '\\n' | '\\'' | '\\\"' | ( '0' .. '9' ) | '{' | '}' ) )+
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "JAVA_CODE", " lineMode == EMode.ATTRIBUTE_HASH ");
             }
-            // ../etc/Jaml.g:119:3: (~ ( ':' | '=' | ',' | ' ' | '\\t' | '\\n' | '\\'' | '\\\"' | ( '0' .. '9' ) | '{' | '}' ) )+
+            // ../etc/JHaml.g:119:3: (~ ( ':' | '=' | ',' | ' ' | '\\t' | '\\n' | '\\'' | '\\\"' | ( '0' .. '9' ) | '{' | '}' ) )+
             int cnt1=0;
             loop1:
             do {
@@ -226,7 +226,7 @@ import java.util.ArrayList;
 
                 switch (alt1) {
             	case 1 :
-            	    // ../etc/Jaml.g:119:3: ~ ( ':' | '=' | ',' | ' ' | '\\t' | '\\n' | '\\'' | '\\\"' | ( '0' .. '9' ) | '{' | '}' )
+            	    // ../etc/JHaml.g:119:3: ~ ( ':' | '=' | ',' | ' ' | '\\t' | '\\n' | '\\'' | '\\\"' | ( '0' .. '9' ) | '{' | '}' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\u001F')||input.LA(1)=='!'||(input.LA(1)>='#' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='+')||(input.LA(1)>='-' && input.LA(1)<='/')||(input.LA(1)>=';' && input.LA(1)<='<')||(input.LA(1)>='>' && input.LA(1)<='z')||input.LA(1)=='|'||(input.LA(1)>='~' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -268,8 +268,8 @@ import java.util.ArrayList;
         try {
             int _type = ATTRIBUTE_NAME;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:122:15: ({...}? => ':' ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
-            // ../etc/Jaml.g:122:19: {...}? => ':' ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../etc/JHaml.g:122:15: ({...}? => ':' ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
+            // ../etc/JHaml.g:122:19: {...}? => ':' ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "ATTRIBUTE_NAME", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -284,7 +284,7 @@ import java.util.ArrayList;
                 recover(mse);
                 throw mse;}
 
-            // ../etc/Jaml.g:123:27: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../etc/JHaml.g:123:27: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -297,7 +297,7 @@ import java.util.ArrayList;
 
                 switch (alt2) {
             	case 1 :
-            	    // ../etc/Jaml.g:
+            	    // ../etc/JHaml.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -335,8 +335,8 @@ import java.util.ArrayList;
         try {
             int _type = MAP_TO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:126:7: ({...}? => '=>' )
-            // ../etc/Jaml.g:126:9: {...}? => '=>'
+            // ../etc/JHaml.g:126:7: ({...}? => '=>' )
+            // ../etc/JHaml.g:126:9: {...}? => '=>'
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "MAP_TO", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -361,8 +361,8 @@ import java.util.ArrayList;
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:129:3: ({...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
-            // ../etc/Jaml.g:129:7: {...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../etc/JHaml.g:129:3: ({...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )* )
+            // ../etc/JHaml.g:129:7: {...}? => ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             {
             if ( !(( lineMode == EMode.ELEMENT_DECLARATION )) ) {
                 throw new FailedPredicateException(input, "ID", " lineMode == EMode.ELEMENT_DECLARATION ");
@@ -376,7 +376,7 @@ import java.util.ArrayList;
                 recover(mse);
                 throw mse;}
 
-            // ../etc/Jaml.g:130:23: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
+            // ../etc/JHaml.g:130:23: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -389,7 +389,7 @@ import java.util.ArrayList;
 
                 switch (alt3) {
             	case 1 :
-            	    // ../etc/Jaml.g:
+            	    // ../etc/JHaml.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -427,13 +427,13 @@ import java.util.ArrayList;
         try {
             int _type = INDENTATION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:133:13: ({...}? => ( Space )+ )
-            // ../etc/Jaml.g:133:15: {...}? => ( Space )+
+            // ../etc/JHaml.g:133:13: ({...}? => ( Space )+ )
+            // ../etc/JHaml.g:133:15: {...}? => ( Space )+
             {
             if ( !(( lineMode == EMode.BEGINNING )) ) {
                 throw new FailedPredicateException(input, "INDENTATION", " lineMode == EMode.BEGINNING ");
             }
-            // ../etc/Jaml.g:134:3: ( Space )+
+            // ../etc/JHaml.g:134:3: ( Space )+
             int cnt4=0;
             loop4:
             do {
@@ -447,7 +447,7 @@ import java.util.ArrayList;
 
                 switch (alt4) {
             	case 1 :
-            	    // ../etc/Jaml.g:134:3: Space
+            	    // ../etc/JHaml.g:134:3: Space
             	    {
             	    mSpace(); 
 
@@ -481,13 +481,13 @@ import java.util.ArrayList;
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:136:4: ({...}? => ( Space )+ )
-            // ../etc/Jaml.g:136:6: {...}? => ( Space )+
+            // ../etc/JHaml.g:136:4: ({...}? => ( Space )+ )
+            // ../etc/JHaml.g:136:6: {...}? => ( Space )+
             {
             if ( !(( lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "WS", " lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH ");
             }
-            // ../etc/Jaml.g:137:3: ( Space )+
+            // ../etc/JHaml.g:137:3: ( Space )+
             int cnt5=0;
             loop5:
             do {
@@ -501,7 +501,7 @@ import java.util.ArrayList;
 
                 switch (alt5) {
             	case 1 :
-            	    // ../etc/Jaml.g:137:3: Space
+            	    // ../etc/JHaml.g:137:3: Space
             	    {
             	    mSpace(); 
 
@@ -536,8 +536,8 @@ import java.util.ArrayList;
         try {
             int _type = WS_WITHIN_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:139:16: ({...}? => Space )
-            // ../etc/Jaml.g:139:18: {...}? => Space
+            // ../etc/JHaml.g:139:16: ({...}? => Space )
+            // ../etc/JHaml.g:139:18: {...}? => Space
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "WS_WITHIN_HASH", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -560,8 +560,8 @@ import java.util.ArrayList;
     public final void mSpace() throws RecognitionException {
     traceIn("Space", 13);
         try {
-            // ../etc/Jaml.g:142:15: ( ( '\\t' | ' ' ) )
-            // ../etc/Jaml.g:142:17: ( '\\t' | ' ' )
+            // ../etc/JHaml.g:142:15: ( ( '\\t' | ' ' ) )
+            // ../etc/JHaml.g:142:17: ( '\\t' | ' ' )
             {
             if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
                 input.consume();
@@ -588,8 +588,8 @@ import java.util.ArrayList;
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:145:10: ({...}? => NL )
-            // ../etc/Jaml.g:145:12: {...}? => NL
+            // ../etc/JHaml.g:145:10: ({...}? => NL )
+            // ../etc/JHaml.g:145:12: {...}? => NL
             {
             if ( !(( lineMode != EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "NEWLINE", " lineMode != EMode.ATTRIBUTE_HASH ");
@@ -614,8 +614,8 @@ import java.util.ArrayList;
         try {
             int _type = IGNORED_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:146:18: ({...}? => NL )
-            // ../etc/Jaml.g:146:20: {...}? => NL
+            // ../etc/JHaml.g:146:18: ({...}? => NL )
+            // ../etc/JHaml.g:146:20: {...}? => NL
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "IGNORED_NEWLINE", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -640,8 +640,8 @@ import java.util.ArrayList;
         try {
             int _type = NL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:147:3: ( '\\n' )
-            // ../etc/Jaml.g:147:5: '\\n'
+            // ../etc/JHaml.g:147:3: ( '\\n' )
+            // ../etc/JHaml.g:147:5: '\\n'
             {
             match('\n'); 
 
@@ -662,8 +662,8 @@ import java.util.ArrayList;
         try {
             int _type = HEX_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:149:13: ({...}? => '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )? )
-            // ../etc/Jaml.g:149:15: {...}? => '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JHaml.g:149:13: ({...}? => '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )? )
+            // ../etc/JHaml.g:149:15: {...}? => '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )?
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "HEX_LITERAL", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -678,7 +678,7 @@ import java.util.ArrayList;
                 recover(mse);
                 throw mse;}
 
-            // ../etc/Jaml.g:149:69: ( HEX_DIGIT )+
+            // ../etc/JHaml.g:149:69: ( HEX_DIGIT )+
             int cnt6=0;
             loop6:
             do {
@@ -692,7 +692,7 @@ import java.util.ArrayList;
 
                 switch (alt6) {
             	case 1 :
-            	    // ../etc/Jaml.g:149:69: HEX_DIGIT
+            	    // ../etc/JHaml.g:149:69: HEX_DIGIT
             	    {
             	    mHEX_DIGIT(); 
 
@@ -708,7 +708,7 @@ import java.util.ArrayList;
                 cnt6++;
             } while (true);
 
-            // ../etc/Jaml.g:149:80: ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JHaml.g:149:80: ( INTEGER_TYPE_SUFFIX )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -717,7 +717,7 @@ import java.util.ArrayList;
             }
             switch (alt7) {
                 case 1 :
-                    // ../etc/Jaml.g:149:80: INTEGER_TYPE_SUFFIX
+                    // ../etc/JHaml.g:149:80: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -744,13 +744,13 @@ import java.util.ArrayList;
         try {
             int _type = DECIMAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:151:17: ({...}? => ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )? )
-            // ../etc/Jaml.g:151:19: {...}? => ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JHaml.g:151:17: ({...}? => ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )? )
+            // ../etc/JHaml.g:151:19: {...}? => ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )?
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "DECIMAL_LITERAL", " lineMode == EMode.ATTRIBUTE_HASH ");
             }
-            // ../etc/Jaml.g:151:59: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // ../etc/JHaml.g:151:59: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -768,17 +768,17 @@ import java.util.ArrayList;
             }
             switch (alt9) {
                 case 1 :
-                    // ../etc/Jaml.g:151:60: '0'
+                    // ../etc/JHaml.g:151:60: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:151:66: '1' .. '9' ( '0' .. '9' )*
+                    // ../etc/JHaml.g:151:66: '1' .. '9' ( '0' .. '9' )*
                     {
                     matchRange('1','9'); 
-                    // ../etc/Jaml.g:151:75: ( '0' .. '9' )*
+                    // ../etc/JHaml.g:151:75: ( '0' .. '9' )*
                     loop8:
                     do {
                         int alt8=2;
@@ -791,7 +791,7 @@ import java.util.ArrayList;
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../etc/Jaml.g:151:75: '0' .. '9'
+                    	    // ../etc/JHaml.g:151:75: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -809,7 +809,7 @@ import java.util.ArrayList;
 
             }
 
-            // ../etc/Jaml.g:151:86: ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JHaml.g:151:86: ( INTEGER_TYPE_SUFFIX )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -818,7 +818,7 @@ import java.util.ArrayList;
             }
             switch (alt10) {
                 case 1 :
-                    // ../etc/Jaml.g:151:86: INTEGER_TYPE_SUFFIX
+                    // ../etc/JHaml.g:151:86: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -845,14 +845,14 @@ import java.util.ArrayList;
         try {
             int _type = OCTAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:153:15: ({...}? => '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )? )
-            // ../etc/Jaml.g:153:17: {...}? => '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JHaml.g:153:15: ({...}? => '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )? )
+            // ../etc/JHaml.g:153:17: {...}? => '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )?
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "OCTAL_LITERAL", " lineMode == EMode.ATTRIBUTE_HASH ");
             }
             match('0'); 
-            // ../etc/Jaml.g:153:61: ( '0' .. '7' )+
+            // ../etc/JHaml.g:153:61: ( '0' .. '7' )+
             int cnt11=0;
             loop11:
             do {
@@ -866,7 +866,7 @@ import java.util.ArrayList;
 
                 switch (alt11) {
             	case 1 :
-            	    // ../etc/Jaml.g:153:62: '0' .. '7'
+            	    // ../etc/JHaml.g:153:62: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -882,7 +882,7 @@ import java.util.ArrayList;
                 cnt11++;
             } while (true);
 
-            // ../etc/Jaml.g:153:73: ( INTEGER_TYPE_SUFFIX )?
+            // ../etc/JHaml.g:153:73: ( INTEGER_TYPE_SUFFIX )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -891,7 +891,7 @@ import java.util.ArrayList;
             }
             switch (alt12) {
                 case 1 :
-                    // ../etc/Jaml.g:153:73: INTEGER_TYPE_SUFFIX
+                    // ../etc/JHaml.g:153:73: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -916,8 +916,8 @@ import java.util.ArrayList;
     public final void mHEX_DIGIT() throws RecognitionException {
     traceIn("HEX_DIGIT", 20);
         try {
-            // ../etc/Jaml.g:156:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // ../etc/Jaml.g:156:13: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // ../etc/JHaml.g:156:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // ../etc/JHaml.g:156:13: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -942,8 +942,8 @@ import java.util.ArrayList;
     public final void mINTEGER_TYPE_SUFFIX() throws RecognitionException {
     traceIn("INTEGER_TYPE_SUFFIX", 21);
         try {
-            // ../etc/Jaml.g:159:21: ( ( 'l' | 'L' ) )
-            // ../etc/Jaml.g:159:23: ( 'l' | 'L' )
+            // ../etc/JHaml.g:159:21: ( ( 'l' | 'L' ) )
+            // ../etc/JHaml.g:159:23: ( 'l' | 'L' )
             {
             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                 input.consume();
@@ -970,8 +970,8 @@ import java.util.ArrayList;
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:161:5: ({...}? => 'true' )
-            // ../etc/Jaml.g:161:7: {...}? => 'true'
+            // ../etc/JHaml.g:161:5: ({...}? => 'true' )
+            // ../etc/JHaml.g:161:7: {...}? => 'true'
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "TRUE", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -996,8 +996,8 @@ import java.util.ArrayList;
         try {
             int _type = FALSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:162:6: ({...}? => 'false' )
-            // ../etc/Jaml.g:162:8: {...}? => 'false'
+            // ../etc/JHaml.g:162:6: ({...}? => 'false' )
+            // ../etc/JHaml.g:162:8: {...}? => 'false'
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "FALSE", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -1022,8 +1022,8 @@ import java.util.ArrayList;
         try {
             int _type = NULL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:163:5: ({...}? => 'null' )
-            // ../etc/Jaml.g:163:7: {...}? => 'null'
+            // ../etc/JHaml.g:163:5: ({...}? => 'null' )
+            // ../etc/JHaml.g:163:7: {...}? => 'null'
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "NULL", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -1048,7 +1048,7 @@ import java.util.ArrayList;
         try {
             int _type = FLOATING_POINT_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:166:5: ({...}? => ( '0' .. '9' )+ ( '.' ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX ) | DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? )
+            // ../etc/JHaml.g:166:5: ({...}? => ( '0' .. '9' )+ ( '.' ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX ) | DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? )
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -1066,12 +1066,12 @@ import java.util.ArrayList;
             }
             switch (alt22) {
                 case 1 :
-                    // ../etc/Jaml.g:166:7: {...}? => ( '0' .. '9' )+ ( '.' ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
+                    // ../etc/JHaml.g:166:7: {...}? => ( '0' .. '9' )+ ( '.' ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
                     {
                     if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                         throw new FailedPredicateException(input, "FLOATING_POINT_LITERAL", " lineMode == EMode.ATTRIBUTE_HASH ");
                     }
-                    // ../etc/Jaml.g:167:9: ( '0' .. '9' )+
+                    // ../etc/JHaml.g:167:9: ( '0' .. '9' )+
                     int cnt13=0;
                     loop13:
                     do {
@@ -1085,7 +1085,7 @@ import java.util.ArrayList;
 
                         switch (alt13) {
                     	case 1 :
-                    	    // ../etc/Jaml.g:167:10: '0' .. '9'
+                    	    // ../etc/JHaml.g:167:10: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1101,7 +1101,7 @@ import java.util.ArrayList;
                         cnt13++;
                     } while (true);
 
-                    // ../etc/Jaml.g:168:9: ( '.' ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
+                    // ../etc/JHaml.g:168:9: ( '.' ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
                     int alt18=3;
                     switch ( input.LA(1) ) {
                     case '.':
@@ -1132,10 +1132,10 @@ import java.util.ArrayList;
 
                     switch (alt18) {
                         case 1 :
-                            // ../etc/Jaml.g:169:13: '.' ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
+                            // ../etc/JHaml.g:169:13: '.' ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
                             {
                             match('.'); 
-                            // ../etc/Jaml.g:169:17: ( '0' .. '9' )*
+                            // ../etc/JHaml.g:169:17: ( '0' .. '9' )*
                             loop14:
                             do {
                                 int alt14=2;
@@ -1148,7 +1148,7 @@ import java.util.ArrayList;
 
                                 switch (alt14) {
                             	case 1 :
-                            	    // ../etc/Jaml.g:169:18: '0' .. '9'
+                            	    // ../etc/JHaml.g:169:18: '0' .. '9'
                             	    {
                             	    matchRange('0','9'); 
 
@@ -1160,7 +1160,7 @@ import java.util.ArrayList;
                                 }
                             } while (true);
 
-                            // ../etc/Jaml.g:169:29: ( EXPONENT )?
+                            // ../etc/JHaml.g:169:29: ( EXPONENT )?
                             int alt15=2;
                             int LA15_0 = input.LA(1);
 
@@ -1169,7 +1169,7 @@ import java.util.ArrayList;
                             }
                             switch (alt15) {
                                 case 1 :
-                                    // ../etc/Jaml.g:169:29: EXPONENT
+                                    // ../etc/JHaml.g:169:29: EXPONENT
                                     {
                                     mEXPONENT(); 
 
@@ -1178,7 +1178,7 @@ import java.util.ArrayList;
 
                             }
 
-                            // ../etc/Jaml.g:169:39: ( FLOAT_TYPE_SUFFIX )?
+                            // ../etc/JHaml.g:169:39: ( FLOAT_TYPE_SUFFIX )?
                             int alt16=2;
                             int LA16_0 = input.LA(1);
 
@@ -1187,7 +1187,7 @@ import java.util.ArrayList;
                             }
                             switch (alt16) {
                                 case 1 :
-                                    // ../etc/Jaml.g:169:39: FLOAT_TYPE_SUFFIX
+                                    // ../etc/JHaml.g:169:39: FLOAT_TYPE_SUFFIX
                                     {
                                     mFLOAT_TYPE_SUFFIX(); 
 
@@ -1200,10 +1200,10 @@ import java.util.ArrayList;
                             }
                             break;
                         case 2 :
-                            // ../etc/Jaml.g:170:13: EXPONENT ( FLOAT_TYPE_SUFFIX )?
+                            // ../etc/JHaml.g:170:13: EXPONENT ( FLOAT_TYPE_SUFFIX )?
                             {
                             mEXPONENT(); 
-                            // ../etc/Jaml.g:170:22: ( FLOAT_TYPE_SUFFIX )?
+                            // ../etc/JHaml.g:170:22: ( FLOAT_TYPE_SUFFIX )?
                             int alt17=2;
                             int LA17_0 = input.LA(1);
 
@@ -1212,7 +1212,7 @@ import java.util.ArrayList;
                             }
                             switch (alt17) {
                                 case 1 :
-                                    // ../etc/Jaml.g:170:22: FLOAT_TYPE_SUFFIX
+                                    // ../etc/JHaml.g:170:22: FLOAT_TYPE_SUFFIX
                                     {
                                     mFLOAT_TYPE_SUFFIX(); 
 
@@ -1225,7 +1225,7 @@ import java.util.ArrayList;
                             }
                             break;
                         case 3 :
-                            // ../etc/Jaml.g:171:13: FLOAT_TYPE_SUFFIX
+                            // ../etc/JHaml.g:171:13: FLOAT_TYPE_SUFFIX
                             {
                             mFLOAT_TYPE_SUFFIX(); 
 
@@ -1238,10 +1238,10 @@ import java.util.ArrayList;
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:173:9: DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
+                    // ../etc/JHaml.g:173:9: DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
                     {
                     mDOT(); 
-                    // ../etc/Jaml.g:173:13: ( '0' .. '9' )+
+                    // ../etc/JHaml.g:173:13: ( '0' .. '9' )+
                     int cnt19=0;
                     loop19:
                     do {
@@ -1255,7 +1255,7 @@ import java.util.ArrayList;
 
                         switch (alt19) {
                     	case 1 :
-                    	    // ../etc/Jaml.g:173:14: '0' .. '9'
+                    	    // ../etc/JHaml.g:173:14: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1271,7 +1271,7 @@ import java.util.ArrayList;
                         cnt19++;
                     } while (true);
 
-                    // ../etc/Jaml.g:173:25: ( EXPONENT )?
+                    // ../etc/JHaml.g:173:25: ( EXPONENT )?
                     int alt20=2;
                     int LA20_0 = input.LA(1);
 
@@ -1280,7 +1280,7 @@ import java.util.ArrayList;
                     }
                     switch (alt20) {
                         case 1 :
-                            // ../etc/Jaml.g:173:25: EXPONENT
+                            // ../etc/JHaml.g:173:25: EXPONENT
                             {
                             mEXPONENT(); 
 
@@ -1289,7 +1289,7 @@ import java.util.ArrayList;
 
                     }
 
-                    // ../etc/Jaml.g:173:35: ( FLOAT_TYPE_SUFFIX )?
+                    // ../etc/JHaml.g:173:35: ( FLOAT_TYPE_SUFFIX )?
                     int alt21=2;
                     int LA21_0 = input.LA(1);
 
@@ -1298,7 +1298,7 @@ import java.util.ArrayList;
                     }
                     switch (alt21) {
                         case 1 :
-                            // ../etc/Jaml.g:173:35: FLOAT_TYPE_SUFFIX
+                            // ../etc/JHaml.g:173:35: FLOAT_TYPE_SUFFIX
                             {
                             mFLOAT_TYPE_SUFFIX(); 
 
@@ -1325,8 +1325,8 @@ import java.util.ArrayList;
     public final void mFLOAT_TYPE_SUFFIX() throws RecognitionException {
     traceIn("FLOAT_TYPE_SUFFIX", 26);
         try {
-            // ../etc/Jaml.g:177:19: ( ( 'f' | 'F' | 'd' | 'D' ) )
-            // ../etc/Jaml.g:177:21: ( 'f' | 'F' | 'd' | 'D' )
+            // ../etc/JHaml.g:177:19: ( ( 'f' | 'F' | 'd' | 'D' ) )
+            // ../etc/JHaml.g:177:21: ( 'f' | 'F' | 'd' | 'D' )
             {
             if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='d'||input.LA(1)=='f' ) {
                 input.consume();
@@ -1351,8 +1351,8 @@ import java.util.ArrayList;
     public final void mEXPONENT() throws RecognitionException {
     traceIn("EXPONENT", 27);
         try {
-            // ../etc/Jaml.g:180:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // ../etc/Jaml.g:180:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // ../etc/JHaml.g:180:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // ../etc/JHaml.g:180:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -1363,7 +1363,7 @@ import java.util.ArrayList;
                 recover(mse);
                 throw mse;}
 
-            // ../etc/Jaml.g:180:22: ( '+' | '-' )?
+            // ../etc/JHaml.g:180:22: ( '+' | '-' )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -1372,7 +1372,7 @@ import java.util.ArrayList;
             }
             switch (alt23) {
                 case 1 :
-                    // ../etc/Jaml.g:
+                    // ../etc/JHaml.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -1389,7 +1389,7 @@ import java.util.ArrayList;
 
             }
 
-            // ../etc/Jaml.g:180:33: ( '0' .. '9' )+
+            // ../etc/JHaml.g:180:33: ( '0' .. '9' )+
             int cnt24=0;
             loop24:
             do {
@@ -1403,7 +1403,7 @@ import java.util.ArrayList;
 
                 switch (alt24) {
             	case 1 :
-            	    // ../etc/Jaml.g:180:34: '0' .. '9'
+            	    // ../etc/JHaml.g:180:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1435,14 +1435,14 @@ import java.util.ArrayList;
         try {
             int _type = CHAR_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:184:5: ({...}? => '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' ) )* '\\'' )
-            // ../etc/Jaml.g:184:7: {...}? => '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' ) )* '\\''
+            // ../etc/JHaml.g:184:5: ({...}? => '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' ) )* '\\'' )
+            // ../etc/JHaml.g:184:7: {...}? => '\\'' ( EscapeSequence | ~ ( '\\'' | '\\\\' ) )* '\\''
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "CHAR_LITERAL", " lineMode == EMode.ATTRIBUTE_HASH ");
             }
             match('\''); 
-            // ../etc/Jaml.g:184:52: ( EscapeSequence | ~ ( '\\'' | '\\\\' ) )*
+            // ../etc/JHaml.g:184:52: ( EscapeSequence | ~ ( '\\'' | '\\\\' ) )*
             loop25:
             do {
                 int alt25=3;
@@ -1458,14 +1458,14 @@ import java.util.ArrayList;
 
                 switch (alt25) {
             	case 1 :
-            	    // ../etc/Jaml.g:184:54: EscapeSequence
+            	    // ../etc/JHaml.g:184:54: EscapeSequence
             	    {
             	    mEscapeSequence(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/Jaml.g:184:71: ~ ( '\\'' | '\\\\' )
+            	    // ../etc/JHaml.g:184:71: ~ ( '\\'' | '\\\\' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1504,14 +1504,14 @@ import java.util.ArrayList;
         try {
             int _type = STRING_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:188:5: ({...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' ) )* '\"' )
-            // ../etc/Jaml.g:188:7: {...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' ) )* '\"'
+            // ../etc/JHaml.g:188:5: ({...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' ) )* '\"' )
+            // ../etc/JHaml.g:188:7: {...}? => '\"' ( EscapeSequence | ~ ( '\\\\' | '\"' ) )* '\"'
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "STRING_LITERAL", " lineMode == EMode.ATTRIBUTE_HASH ");
             }
             match('\"'); 
-            // ../etc/Jaml.g:188:51: ( EscapeSequence | ~ ( '\\\\' | '\"' ) )*
+            // ../etc/JHaml.g:188:51: ( EscapeSequence | ~ ( '\\\\' | '\"' ) )*
             loop26:
             do {
                 int alt26=3;
@@ -1527,14 +1527,14 @@ import java.util.ArrayList;
 
                 switch (alt26) {
             	case 1 :
-            	    // ../etc/Jaml.g:188:53: EscapeSequence
+            	    // ../etc/JHaml.g:188:53: EscapeSequence
             	    {
             	    mEscapeSequence(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/Jaml.g:188:70: ~ ( '\\\\' | '\"' )
+            	    // ../etc/JHaml.g:188:70: ~ ( '\\\\' | '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1571,8 +1571,8 @@ import java.util.ArrayList;
     public final void mEscapeSequence() throws RecognitionException {
     traceIn("EscapeSequence", 30);
         try {
-            // ../etc/Jaml.g:192:15: ( '\\\\' ~ NL )
-            // ../etc/Jaml.g:192:17: '\\\\' ~ NL
+            // ../etc/JHaml.g:192:15: ( '\\\\' ~ NL )
+            // ../etc/JHaml.g:192:17: '\\\\' ~ NL
             {
             match('\\'); 
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='\uFFFF') ) {
@@ -1600,10 +1600,10 @@ import java.util.ArrayList;
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:194:5: ( ( TextLine | InLineText )? ( RemainderOfLineText )? )
-            // ../etc/Jaml.g:194:7: ( TextLine | InLineText )? ( RemainderOfLineText )?
+            // ../etc/JHaml.g:194:5: ( ( TextLine | InLineText )? ( RemainderOfLineText )? )
+            // ../etc/JHaml.g:194:7: ( TextLine | InLineText )? ( RemainderOfLineText )?
             {
-            // ../etc/Jaml.g:194:7: ( TextLine | InLineText )?
+            // ../etc/JHaml.g:194:7: ( TextLine | InLineText )?
             int alt27=3;
             int LA27_0 = input.LA(1);
 
@@ -1626,14 +1626,14 @@ import java.util.ArrayList;
             }
             switch (alt27) {
                 case 1 :
-                    // ../etc/Jaml.g:194:8: TextLine
+                    // ../etc/JHaml.g:194:8: TextLine
                     {
                     mTextLine(); 
 
                     }
                     break;
                 case 2 :
-                    // ../etc/Jaml.g:194:19: InLineText
+                    // ../etc/JHaml.g:194:19: InLineText
                     {
                     mInLineText(); 
 
@@ -1642,7 +1642,7 @@ import java.util.ArrayList;
 
             }
 
-            // ../etc/Jaml.g:194:32: ( RemainderOfLineText )?
+            // ../etc/JHaml.g:194:32: ( RemainderOfLineText )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -1651,7 +1651,7 @@ import java.util.ArrayList;
             }
             switch (alt28) {
                 case 1 :
-                    // ../etc/Jaml.g:194:32: RemainderOfLineText
+                    // ../etc/JHaml.g:194:32: RemainderOfLineText
                     {
                     mRemainderOfLineText(); 
 
@@ -1678,13 +1678,13 @@ import java.util.ArrayList;
         try {
             int _type = RemainderOfLineText;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:196:20: ({...}? => (~ '\\n' )+ )
-            // ../etc/Jaml.g:196:22: {...}? => (~ '\\n' )+
+            // ../etc/JHaml.g:196:20: ({...}? => (~ '\\n' )+ )
+            // ../etc/JHaml.g:196:22: {...}? => (~ '\\n' )+
             {
             if ( !(( lineMode == EMode.TEXT )) ) {
                 throw new FailedPredicateException(input, "RemainderOfLineText", " lineMode == EMode.TEXT ");
             }
-            // ../etc/Jaml.g:196:52: (~ '\\n' )+
+            // ../etc/JHaml.g:196:52: (~ '\\n' )+
             int cnt29=0;
             loop29:
             do {
@@ -1698,7 +1698,7 @@ import java.util.ArrayList;
 
                 switch (alt29) {
             	case 1 :
-            	    // ../etc/Jaml.g:196:53: ~ '\\n'
+            	    // ../etc/JHaml.g:196:53: ~ '\\n'
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1740,14 +1740,14 @@ import java.util.ArrayList;
         try {
             int _type = TextLine;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:198:9: ({...}? => (~ ( '.' | '#' | '%' | NL | Space ) ) )
-            // ../etc/Jaml.g:198:11: {...}? => (~ ( '.' | '#' | '%' | NL | Space ) )
+            // ../etc/JHaml.g:198:9: ({...}? => (~ ( '.' | '#' | '%' | NL | Space ) ) )
+            // ../etc/JHaml.g:198:11: {...}? => (~ ( '.' | '#' | '%' | NL | Space ) )
             {
             if ( !(( lineMode == EMode.BEGINNING )) ) {
                 throw new FailedPredicateException(input, "TextLine", " lineMode == EMode.BEGINNING ");
             }
-            // ../etc/Jaml.g:199:3: (~ ( '.' | '#' | '%' | NL | Space ) )
-            // ../etc/Jaml.g:199:4: ~ ( '.' | '#' | '%' | NL | Space )
+            // ../etc/JHaml.g:199:3: (~ ( '.' | '#' | '%' | NL | Space ) )
+            // ../etc/JHaml.g:199:4: ~ ( '.' | '#' | '%' | NL | Space )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='\"')||input.LA(1)=='$'||(input.LA(1)>='&' && input.LA(1)<='-')||(input.LA(1)>='/' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -1780,8 +1780,8 @@ import java.util.ArrayList;
         try {
             int _type = InLineText;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:201:11: ({...}? => ( '-' | '=' ) )
-            // ../etc/Jaml.g:201:13: {...}? => ( '-' | '=' )
+            // ../etc/JHaml.g:201:11: ({...}? => ( '-' | '=' ) )
+            // ../etc/JHaml.g:201:13: {...}? => ( '-' | '=' )
             {
             if ( !(( lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "InLineText", " lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH ");
@@ -1814,8 +1814,8 @@ import java.util.ArrayList;
         try {
             int _type = BEGIN_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:205:13: ({...}? => LBRACE )
-            // ../etc/Jaml.g:205:15: {...}? => LBRACE
+            // ../etc/JHaml.g:205:13: ({...}? => LBRACE )
+            // ../etc/JHaml.g:205:15: {...}? => LBRACE
             {
             if ( !(( lineMode == EMode.ELEMENT_DECLARATION )) ) {
                 throw new FailedPredicateException(input, "BEGIN_HASH", " lineMode == EMode.ELEMENT_DECLARATION ");
@@ -1840,8 +1840,8 @@ import java.util.ArrayList;
         try {
             int _type = END_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:206:11: ({...}? => RBRACE )
-            // ../etc/Jaml.g:206:13: {...}? => RBRACE
+            // ../etc/JHaml.g:206:11: ({...}? => RBRACE )
+            // ../etc/JHaml.g:206:13: {...}? => RBRACE
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH && braceDepth == 1 )) ) {
                 throw new FailedPredicateException(input, "END_HASH", " lineMode == EMode.ATTRIBUTE_HASH && braceDepth == 1 ");
@@ -1866,8 +1866,8 @@ import java.util.ArrayList;
         try {
             int _type = JAVA_LBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:208:13: ({...}? => LBRACE )
-            // ../etc/Jaml.g:208:15: {...}? => LBRACE
+            // ../etc/JHaml.g:208:13: ({...}? => LBRACE )
+            // ../etc/JHaml.g:208:15: {...}? => LBRACE
             {
             if ( !(( lineMode == EMode.ATTRIBUTE_HASH )) ) {
                 throw new FailedPredicateException(input, "JAVA_LBRACE", " lineMode == EMode.ATTRIBUTE_HASH ");
@@ -1891,8 +1891,8 @@ import java.util.ArrayList;
         try {
             int _type = JAVA_RBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../etc/Jaml.g:209:13: ({...}? => RBRACE )
-            // ../etc/Jaml.g:209:15: {...}? => RBRACE
+            // ../etc/JHaml.g:209:13: ({...}? => RBRACE )
+            // ../etc/JHaml.g:209:15: {...}? => RBRACE
             {
             if ( !(( braceDepth > 1 )) ) {
                 throw new FailedPredicateException(input, "JAVA_RBRACE", " braceDepth > 1 ");
@@ -1914,8 +1914,8 @@ import java.util.ArrayList;
     public final void mLBRACE() throws RecognitionException {
     traceIn("LBRACE", 39);
         try {
-            // ../etc/Jaml.g:211:17: ( '{' )
-            // ../etc/Jaml.g:211:19: '{'
+            // ../etc/JHaml.g:211:17: ( '{' )
+            // ../etc/JHaml.g:211:19: '{'
             {
             match('{'); 
             braceDepth++;
@@ -1933,8 +1933,8 @@ import java.util.ArrayList;
     public final void mRBRACE() throws RecognitionException {
     traceIn("RBRACE", 40);
         try {
-            // ../etc/Jaml.g:212:18: ( '}' )
-            // ../etc/Jaml.g:212:20: '}'
+            // ../etc/JHaml.g:212:18: ( '}' )
+            // ../etc/JHaml.g:212:20: '}'
             {
             match('}'); 
             braceDepth--;
@@ -1949,229 +1949,229 @@ import java.util.ArrayList;
     // $ANTLR end "RBRACE"
 
     public void mTokens() throws RecognitionException {
-        // ../etc/Jaml.g:1:8: ( PERCENT | POUND | DOT | FORWARD_SLASH | COMMA | JAVA_CODE | ATTRIBUTE_NAME | MAP_TO | ID | INDENTATION | WS | WS_WITHIN_HASH | NEWLINE | IGNORED_NEWLINE | NL | HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | TRUE | FALSE | NULL | FLOATING_POINT_LITERAL | CHAR_LITERAL | STRING_LITERAL | TEXT | RemainderOfLineText | TextLine | InLineText | BEGIN_HASH | END_HASH | JAVA_LBRACE | JAVA_RBRACE )
+        // ../etc/JHaml.g:1:8: ( PERCENT | POUND | DOT | FORWARD_SLASH | COMMA | JAVA_CODE | ATTRIBUTE_NAME | MAP_TO | ID | INDENTATION | WS | WS_WITHIN_HASH | NEWLINE | IGNORED_NEWLINE | NL | HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | TRUE | FALSE | NULL | FLOATING_POINT_LITERAL | CHAR_LITERAL | STRING_LITERAL | TEXT | RemainderOfLineText | TextLine | InLineText | BEGIN_HASH | END_HASH | JAVA_LBRACE | JAVA_RBRACE )
         int alt30=32;
         alt30 = dfa30.predict(input);
         switch (alt30) {
             case 1 :
-                // ../etc/Jaml.g:1:10: PERCENT
+                // ../etc/JHaml.g:1:10: PERCENT
                 {
                 mPERCENT(); 
 
                 }
                 break;
             case 2 :
-                // ../etc/Jaml.g:1:18: POUND
+                // ../etc/JHaml.g:1:18: POUND
                 {
                 mPOUND(); 
 
                 }
                 break;
             case 3 :
-                // ../etc/Jaml.g:1:24: DOT
+                // ../etc/JHaml.g:1:24: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
             case 4 :
-                // ../etc/Jaml.g:1:28: FORWARD_SLASH
+                // ../etc/JHaml.g:1:28: FORWARD_SLASH
                 {
                 mFORWARD_SLASH(); 
 
                 }
                 break;
             case 5 :
-                // ../etc/Jaml.g:1:42: COMMA
+                // ../etc/JHaml.g:1:42: COMMA
                 {
                 mCOMMA(); 
 
                 }
                 break;
             case 6 :
-                // ../etc/Jaml.g:1:48: JAVA_CODE
+                // ../etc/JHaml.g:1:48: JAVA_CODE
                 {
                 mJAVA_CODE(); 
 
                 }
                 break;
             case 7 :
-                // ../etc/Jaml.g:1:58: ATTRIBUTE_NAME
+                // ../etc/JHaml.g:1:58: ATTRIBUTE_NAME
                 {
                 mATTRIBUTE_NAME(); 
 
                 }
                 break;
             case 8 :
-                // ../etc/Jaml.g:1:73: MAP_TO
+                // ../etc/JHaml.g:1:73: MAP_TO
                 {
                 mMAP_TO(); 
 
                 }
                 break;
             case 9 :
-                // ../etc/Jaml.g:1:80: ID
+                // ../etc/JHaml.g:1:80: ID
                 {
                 mID(); 
 
                 }
                 break;
             case 10 :
-                // ../etc/Jaml.g:1:83: INDENTATION
+                // ../etc/JHaml.g:1:83: INDENTATION
                 {
                 mINDENTATION(); 
 
                 }
                 break;
             case 11 :
-                // ../etc/Jaml.g:1:95: WS
+                // ../etc/JHaml.g:1:95: WS
                 {
                 mWS(); 
 
                 }
                 break;
             case 12 :
-                // ../etc/Jaml.g:1:98: WS_WITHIN_HASH
+                // ../etc/JHaml.g:1:98: WS_WITHIN_HASH
                 {
                 mWS_WITHIN_HASH(); 
 
                 }
                 break;
             case 13 :
-                // ../etc/Jaml.g:1:113: NEWLINE
+                // ../etc/JHaml.g:1:113: NEWLINE
                 {
                 mNEWLINE(); 
 
                 }
                 break;
             case 14 :
-                // ../etc/Jaml.g:1:121: IGNORED_NEWLINE
+                // ../etc/JHaml.g:1:121: IGNORED_NEWLINE
                 {
                 mIGNORED_NEWLINE(); 
 
                 }
                 break;
             case 15 :
-                // ../etc/Jaml.g:1:137: NL
+                // ../etc/JHaml.g:1:137: NL
                 {
                 mNL(); 
 
                 }
                 break;
             case 16 :
-                // ../etc/Jaml.g:1:140: HEX_LITERAL
+                // ../etc/JHaml.g:1:140: HEX_LITERAL
                 {
                 mHEX_LITERAL(); 
 
                 }
                 break;
             case 17 :
-                // ../etc/Jaml.g:1:152: DECIMAL_LITERAL
+                // ../etc/JHaml.g:1:152: DECIMAL_LITERAL
                 {
                 mDECIMAL_LITERAL(); 
 
                 }
                 break;
             case 18 :
-                // ../etc/Jaml.g:1:168: OCTAL_LITERAL
+                // ../etc/JHaml.g:1:168: OCTAL_LITERAL
                 {
                 mOCTAL_LITERAL(); 
 
                 }
                 break;
             case 19 :
-                // ../etc/Jaml.g:1:182: TRUE
+                // ../etc/JHaml.g:1:182: TRUE
                 {
                 mTRUE(); 
 
                 }
                 break;
             case 20 :
-                // ../etc/Jaml.g:1:187: FALSE
+                // ../etc/JHaml.g:1:187: FALSE
                 {
                 mFALSE(); 
 
                 }
                 break;
             case 21 :
-                // ../etc/Jaml.g:1:193: NULL
+                // ../etc/JHaml.g:1:193: NULL
                 {
                 mNULL(); 
 
                 }
                 break;
             case 22 :
-                // ../etc/Jaml.g:1:198: FLOATING_POINT_LITERAL
+                // ../etc/JHaml.g:1:198: FLOATING_POINT_LITERAL
                 {
                 mFLOATING_POINT_LITERAL(); 
 
                 }
                 break;
             case 23 :
-                // ../etc/Jaml.g:1:221: CHAR_LITERAL
+                // ../etc/JHaml.g:1:221: CHAR_LITERAL
                 {
                 mCHAR_LITERAL(); 
 
                 }
                 break;
             case 24 :
-                // ../etc/Jaml.g:1:234: STRING_LITERAL
+                // ../etc/JHaml.g:1:234: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
             case 25 :
-                // ../etc/Jaml.g:1:249: TEXT
+                // ../etc/JHaml.g:1:249: TEXT
                 {
                 mTEXT(); 
 
                 }
                 break;
             case 26 :
-                // ../etc/Jaml.g:1:254: RemainderOfLineText
+                // ../etc/JHaml.g:1:254: RemainderOfLineText
                 {
                 mRemainderOfLineText(); 
 
                 }
                 break;
             case 27 :
-                // ../etc/Jaml.g:1:274: TextLine
+                // ../etc/JHaml.g:1:274: TextLine
                 {
                 mTextLine(); 
 
                 }
                 break;
             case 28 :
-                // ../etc/Jaml.g:1:283: InLineText
+                // ../etc/JHaml.g:1:283: InLineText
                 {
                 mInLineText(); 
 
                 }
                 break;
             case 29 :
-                // ../etc/Jaml.g:1:294: BEGIN_HASH
+                // ../etc/JHaml.g:1:294: BEGIN_HASH
                 {
                 mBEGIN_HASH(); 
 
                 }
                 break;
             case 30 :
-                // ../etc/Jaml.g:1:305: END_HASH
+                // ../etc/JHaml.g:1:305: END_HASH
                 {
                 mEND_HASH(); 
 
                 }
                 break;
             case 31 :
-                // ../etc/Jaml.g:1:314: JAVA_LBRACE
+                // ../etc/JHaml.g:1:314: JAVA_LBRACE
                 {
                 mJAVA_LBRACE(); 
 
                 }
                 break;
             case 32 :
-                // ../etc/Jaml.g:1:326: JAVA_RBRACE
+                // ../etc/JHaml.g:1:326: JAVA_RBRACE
                 {
                 mJAVA_RBRACE(); 
 

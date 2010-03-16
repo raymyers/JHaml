@@ -1,11 +1,11 @@
-package com.cadrlife.jaml.filters;
+package com.cadrlife.jhaml.filters;
 
-import com.cadrlife.jaml.JamlConfig;
+import com.cadrlife.jhaml.JHamlConfig;
 import com.google.common.base.CharMatcher;
 
 public class PreserveFilter extends Filter {
 
-	public PreserveFilter(JamlConfig config) {
+	public PreserveFilter(JHamlConfig config) {
 		super(config);
 	}
 

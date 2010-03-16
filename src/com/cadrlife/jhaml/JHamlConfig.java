@@ -1,4 +1,4 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.cadrlife.jaml.filters.CdataFilter;
-import com.cadrlife.jaml.filters.CssFilter;
-import com.cadrlife.jaml.filters.EscapedFilter;
-import com.cadrlife.jaml.filters.Filter;
-import com.cadrlife.jaml.filters.JavaScriptFilter;
-import com.cadrlife.jaml.filters.PlainFilter;
-import com.cadrlife.jaml.filters.PreserveFilter;
+import com.cadrlife.jhaml.filters.CdataFilter;
+import com.cadrlife.jhaml.filters.CssFilter;
+import com.cadrlife.jhaml.filters.EscapedFilter;
+import com.cadrlife.jhaml.filters.Filter;
+import com.cadrlife.jhaml.filters.JavaScriptFilter;
+import com.cadrlife.jhaml.filters.PlainFilter;
+import com.cadrlife.jhaml.filters.PreserveFilter;
 
-public class JamlConfig {
+public class JHamlConfig {
 	String format = "xhtml";
 	List<String> autoclose = new ArrayList<String>(Arrays.asList("meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"));
 	List<String> preserve = new ArrayList<String>(Arrays.asList("textarea", "pre"));

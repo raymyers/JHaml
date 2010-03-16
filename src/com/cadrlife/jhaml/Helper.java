@@ -1,4 +1,4 @@
-package com.cadrlife.jaml;
+package com.cadrlife.jhaml;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -21,12 +21,12 @@ public class Helper {
 	public static final String DOCTYPE_XHTML_1_0_STRICT = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">";
 	public static final String DOCTYPE_HTML = "<!DOCTYPE html>";
 	public static final String DOCTYPE_XHTML_1_1_STRICT = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
-	private final JamlConfig config;
-	final JamlErrorChecker errorChecker;
+	private final JHamlConfig config;
+	final JHamlErrorChecker errorChecker;
 
-	public Helper(JamlConfig config) {
+	public Helper(JHamlConfig config) {
 		this.config = config;
-		errorChecker = new JamlErrorChecker();
+		errorChecker = new JHamlErrorChecker();
 	}
 
 	public String elem(String tag, String el, Map<String, String> attribMap,
