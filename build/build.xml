@@ -24,10 +24,10 @@
 
 	<target name="dist" depends="compile" description="generate the distribution">
 		<!-- Create the distribution directory -->
-		<mkdir dir="${distdir}/lib" />
+		<mkdir dir="${distdir}" />
 
-		<!-- Put everything in ${builddir} into the jhaml-${DSTAMP}.jar file -->
-		<jar jarfile="${distdir}/lib/jhaml-${DSTAMP}.jar" basedir="${builddir}" />
+		<!-- Put everything in ${builddir} into the jhaml-snapshot-${DSTAMP}.jar file -->
+		<jar jarfile="${distdir}/jhaml-snapshot-${DSTAMP}.jar" basedir="${builddir}" />
 	</target>
 
 	<target name="clean" description="clean up">
