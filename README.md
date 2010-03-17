@@ -1,6 +1,6 @@
 # JHaml
 
-A Java implementaion of Haml (XHTML Abstraction Markup Language). Work in progress.
+A Java implementaion of [Haml](http://haml-lang.com/) (XHTML Abstraction Markup Language). Work in progress.
 
 Haml features not currently supported:
 
