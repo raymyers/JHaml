@@ -11,7 +11,7 @@ import com.cadrlife.jhaml.JHamlConfig;
 import com.cadrlife.jhaml.JHamlParserWrapper;
 import com.cadrlife.jhaml.Line;
 
-public class JHamlAttributeHashTest {
+public class AttributeHashTest {
 	
 	@Test
 	public void string() {
@@ -94,6 +94,14 @@ public class JHamlAttributeHashTest {
 		assertEquals("<%= 1+2 %>", readAttrs(input).get("a"));
 		assertEquals("<%= foo(bar(baz.boo)) %>", readAttrs(input).get("b"));
 	}
+	
+	@Test
+	public void javaExpressionsWithCommasAsValues() {
+		String input = "{:a => Arrays.asList(1,2,3), :b => 1+2}";
+		assertEquals("<%= Arrays.asList(1,2,3) %>", readAttrs(input).get("a"));
+		assertEquals("<%= 1+2 %>", readAttrs(input).get("b"));
+	}
+	
 	@Test
 	public void javaExpressionWithAnonymousClassAsValue() {
 		// Non. Trivial.

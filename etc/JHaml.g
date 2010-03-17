@@ -23,6 +23,7 @@ static enum EMode {
     };
 EMode lineMode = EMode.BEGINNING;
 int braceDepth = 0;
+int parenDepth = 0;
 }
 
 @parser::members {
@@ -85,7 +86,8 @@ attribute_value returns [String value]:
   }
 ;
 
-javaExpression: (JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE)+;
+javaExpression: 
+  (JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE | JAVA_LPAREN | JAVA_RPAREN | JAVA_COMMA)+;
 
 literal returns [String value]: 
   lit=STRING_LITERAL {$value = helper.parseStringLiteral($lit.text);} |
@@ -115,11 +117,15 @@ DOT:   {lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION}?=>
 FORWARD_SLASH: { lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH}?=> 
   '/' {lineMode = EMode.TEXT;};
 
-COMMA: { lineMode == EMode.ATTRIBUTE_HASH }?=> 
-  ',';	
+
+COMMA: { lineMode == EMode.ATTRIBUTE_HASH && parenDepth <= 0}?=> 
+  ',';
+
+JAVA_COMMA: { lineMode == EMode.ATTRIBUTE_HASH && parenDepth > 0}?=> 
+  ',';
   
 JAVA_CODE: { lineMode == EMode.ATTRIBUTE_HASH }?=> 
-  ~(':' | '=' | ',' | ' ' | '\t' | '\n' | '\'' | '\"' | ('0'..'9') | '{' | '}')+;
+  ~(':' | '=' | ',' | '(' | ')' | ' ' | '\t' | '\n' | '\'' | '\"' | ('0'..'9') | '{' | '}')+;
 
 
 ATTRIBUTE_NAME:   { lineMode == EMode.ATTRIBUTE_HASH }?=> 
@@ -202,14 +208,21 @@ TextLine: { lineMode == EMode.BEGINNING }?=>
   (~('.' | '#' | '%' | NL | Space)) {lineMode = EMode.TEXT;};
 
 InLineText: { lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH }?=> 
- ('-' | '=') {lineMode = EMode.TEXT;};
+  ('-' | '=') {lineMode = EMode.TEXT;};
       
 //EQUALS  : { hashMode }?=> ;
 BEGIN_HASH  : { lineMode == EMode.ELEMENT_DECLARATION }?=> LBRACE {lineMode = EMode.ATTRIBUTE_HASH;};
 END_HASH  : { lineMode == EMode.ATTRIBUTE_HASH && braceDepth == 1 }?=> RBRACE {lineMode = EMode.AFTER_ATTRIBUTE_HASH;};
 
 JAVA_LBRACE : { lineMode == EMode.ATTRIBUTE_HASH }?=> LBRACE;
-JAVA_RBRACE : { braceDepth > 1 }?=>  RBRACE;
+
+JAVA_RBRACE : { braceDepth > 1 }?=> RBRACE;
+
+JAVA_LPAREN : { lineMode == EMode.ATTRIBUTE_HASH }?=> 
+  '(' { parenDepth++; }; 
+  
+JAVA_RPAREN : { lineMode == EMode.ATTRIBUTE_HASH }?=>
+  ')' { if (parenDepth > 0) parenDepth--; };
 
 fragment LBRACE : '{' {braceDepth++;};
 fragment RBRACE  : '}' {braceDepth--;};

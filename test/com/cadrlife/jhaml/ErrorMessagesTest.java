@@ -59,7 +59,7 @@ public class ErrorMessagesTest {
 		assertInputThrows("%p\n  foo\n%p\n    bar", "The line was indented 2 levels deeper than the previous line.", 4);
 		assertInputThrows("%p\n  foo\n  %p\n        bar", "The line was indented 3 levels deeper than the previous line.", 4);
 		assertInputThrows("%p\n \tfoo", "Indentation can't use both tabs and spaces.", 2);
-		/*    "%p(", "Invalid attribute list: \"(\".",
+		/*  "%p(", "Invalid attribute list: \"(\".",
 		    "%p(foo=\nbar)", "Invalid attribute list: \"(foo=\".", 1,
 		    "%p(foo=)", "Invalid attribute list: \"(foo=)\".",
 		    "%p(foo 'bar')", "Invalid attribute list: \"(foo 'bar')\".",

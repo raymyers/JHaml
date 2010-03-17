@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JHaml.g 2010-03-17 12:09:38
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JHaml.g 2010-03-17 12:36:37
 
 package com.cadrlife.jhaml.generated;
 import java.util.LinkedHashMap;
@@ -19,47 +19,50 @@ import org.antlr.runtime.tree.*;
 
 @SuppressWarnings("all") public class JHamlParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "NEWLINE", "TEXT", "PERCENT", "ID", "FORWARD_SLASH", "INDENTATION", "BEGIN_HASH", "COMMA", "END_HASH", "MAP_TO", "ATTRIBUTE_NAME", "JAVA_CODE", "JAVA_LBRACE", "JAVA_RBRACE", "STRING_LITERAL", "CHAR_LITERAL", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "TRUE", "FALSE", "NULL", "DOT", "POUND", "Space", "WS", "WS_WITHIN_HASH", "NL", "IGNORED_NEWLINE", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "EscapeSequence", "TextLine", "InLineText", "RemainderOfLineText", "LBRACE", "RBRACE"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "NEWLINE", "TEXT", "PERCENT", "ID", "FORWARD_SLASH", "INDENTATION", "BEGIN_HASH", "COMMA", "END_HASH", "MAP_TO", "ATTRIBUTE_NAME", "JAVA_CODE", "JAVA_LBRACE", "JAVA_RBRACE", "JAVA_LPAREN", "JAVA_RPAREN", "JAVA_COMMA", "STRING_LITERAL", "CHAR_LITERAL", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "TRUE", "FALSE", "NULL", "DOT", "POUND", "Space", "WS", "WS_WITHIN_HASH", "NL", "IGNORED_NEWLINE", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "EscapeSequence", "TextLine", "InLineText", "RemainderOfLineText", "LBRACE", "RBRACE"
     };
-    public static final int EXPONENT=36;
+    public static final int EXPONENT=39;
+    public static final int JAVA_RPAREN=19;
     public static final int END_HASH=12;
-    public static final int LBRACE=42;
+    public static final int LBRACE=45;
     public static final int ID=7;
     public static final int EOF=-1;
-    public static final int Space=29;
-    public static final int STRING_LITERAL=18;
-    public static final int FLOATING_POINT_LITERAL=23;
+    public static final int Space=32;
+    public static final int STRING_LITERAL=21;
+    public static final int FLOATING_POINT_LITERAL=26;
     public static final int COMMA=11;
-    public static final int HEX_LITERAL=20;
+    public static final int JAVA_COMMA=20;
+    public static final int HEX_LITERAL=23;
     public static final int MAP_TO=13;
-    public static final int NL=32;
-    public static final int DOT=27;
+    public static final int NL=35;
+    public static final int DOT=30;
+    public static final int JAVA_LPAREN=18;
     public static final int JAVA_RBRACE=17;
-    public static final int FLOAT_TYPE_SUFFIX=37;
-    public static final int TextLine=39;
+    public static final int FLOAT_TYPE_SUFFIX=40;
+    public static final int TextLine=42;
+    public static final int RBRACE=46;
     public static final int PERCENT=6;
-    public static final int IGNORED_NEWLINE=33;
-    public static final int RBRACE=43;
-    public static final int POUND=28;
-    public static final int NULL=26;
-    public static final int OCTAL_LITERAL=21;
-    public static final int HEX_DIGIT=34;
+    public static final int IGNORED_NEWLINE=36;
+    public static final int POUND=31;
+    public static final int NULL=29;
+    public static final int OCTAL_LITERAL=24;
+    public static final int HEX_DIGIT=37;
     public static final int TEXT=5;
-    public static final int InLineText=40;
-    public static final int TRUE=24;
+    public static final int InLineText=43;
+    public static final int TRUE=27;
+    public static final int RemainderOfLineText=44;
     public static final int BEGIN_HASH=10;
-    public static final int RemainderOfLineText=41;
     public static final int ATTRIBUTE_NAME=14;
-    public static final int WS=30;
-    public static final int WS_WITHIN_HASH=31;
+    public static final int WS=33;
+    public static final int WS_WITHIN_HASH=34;
     public static final int NEWLINE=4;
-    public static final int CHAR_LITERAL=19;
+    public static final int CHAR_LITERAL=22;
     public static final int JAVA_CODE=15;
     public static final int JAVA_LBRACE=16;
-    public static final int FALSE=25;
-    public static final int DECIMAL_LITERAL=22;
-    public static final int INTEGER_TYPE_SUFFIX=35;
-    public static final int EscapeSequence=38;
+    public static final int FALSE=28;
+    public static final int DECIMAL_LITERAL=25;
+    public static final int INTEGER_TYPE_SUFFIX=38;
+    public static final int EscapeSequence=41;
     public static final int FORWARD_SLASH=8;
     public static final int INDENTATION=9;
 
@@ -98,7 +101,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "jhamlSource"
-    // ../etc/JHaml.g:32:1: jhamlSource[JHamlConfig config] returns [List<Line> lines] : ( line[$lines] NEWLINE )+ EOF ;
+    // ../etc/JHaml.g:33:1: jhamlSource[JHamlConfig config] returns [List<Line> lines] : ( line[$lines] NEWLINE )+ EOF ;
     public final JHamlParser.jhamlSource_return jhamlSource(JHamlConfig config) throws RecognitionException {
     traceIn("jhamlSource", 1);
         JHamlParser.jhamlSource_return retval = new JHamlParser.jhamlSource_return();
@@ -119,12 +122,12 @@ import org.antlr.runtime.tree.*;
           retval.lines = new ArrayList<Line>();
 
         try {
-            // ../etc/JHaml.g:37:1: ( ( line[$lines] NEWLINE )+ EOF )
-            // ../etc/JHaml.g:37:3: ( line[$lines] NEWLINE )+ EOF
+            // ../etc/JHaml.g:38:1: ( ( line[$lines] NEWLINE )+ EOF )
+            // ../etc/JHaml.g:38:3: ( line[$lines] NEWLINE )+ EOF
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/JHaml.g:37:3: ( line[$lines] NEWLINE )+
+            // ../etc/JHaml.g:38:3: ( line[$lines] NEWLINE )+
             int cnt1=0;
             loop1:
             do {
@@ -138,7 +141,7 @@ import org.antlr.runtime.tree.*;
 
                 switch (alt1) {
             	case 1 :
-            	    // ../etc/JHaml.g:37:4: line[$lines] NEWLINE
+            	    // ../etc/JHaml.g:38:4: line[$lines] NEWLINE
             	    {
             	    pushFollow(FOLLOW_line_in_jhamlSource77);
             	    line1=line(retval.lines);
@@ -206,7 +209,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "line"
-    // ../etc/JHaml.g:39:1: line[List<Line> lines] : ( indentation )? ( element | plainText )? ;
+    // ../etc/JHaml.g:40:1: line[List<Line> lines] : ( indentation )? ( element | plainText )? ;
     public final JHamlParser.line_return line(List<Line> lines) throws RecognitionException {
     traceIn("line", 2);
         line_stack.push(new line_scope());
@@ -228,12 +231,12 @@ import org.antlr.runtime.tree.*;
         ((line_scope)line_stack.peek()).node = retval; 
 
         try {
-            // ../etc/JHaml.g:53:1: ( ( indentation )? ( element | plainText )? )
-            // ../etc/JHaml.g:53:4: ( indentation )? ( element | plainText )?
+            // ../etc/JHaml.g:54:1: ( ( indentation )? ( element | plainText )? )
+            // ../etc/JHaml.g:54:4: ( indentation )? ( element | plainText )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/JHaml.g:53:4: ( indentation )?
+            // ../etc/JHaml.g:54:4: ( indentation )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -242,7 +245,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt2) {
                 case 1 :
-                    // ../etc/JHaml.g:53:4: indentation
+                    // ../etc/JHaml.g:54:4: indentation
                     {
                     pushFollow(FOLLOW_indentation_in_line107);
                     indentation4=indentation();
@@ -256,7 +259,7 @@ import org.antlr.runtime.tree.*;
 
             }
 
-            // ../etc/JHaml.g:53:17: ( element | plainText )?
+            // ../etc/JHaml.g:54:17: ( element | plainText )?
             int alt3=3;
             int LA3_0 = input.LA(1);
 
@@ -268,7 +271,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt3) {
                 case 1 :
-                    // ../etc/JHaml.g:53:18: element
+                    // ../etc/JHaml.g:54:18: element
                     {
                     pushFollow(FOLLOW_element_in_line111);
                     element5=element();
@@ -280,7 +283,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JHaml.g:53:28: plainText
+                    // ../etc/JHaml.g:54:28: plainText
                     {
                     pushFollow(FOLLOW_plainText_in_line115);
                     plainText6=plainText();
@@ -332,7 +335,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "plainText"
-    // ../etc/JHaml.g:55:1: plainText : TEXT ;
+    // ../etc/JHaml.g:56:1: plainText : TEXT ;
     public final JHamlParser.plainText_return plainText() throws RecognitionException {
     traceIn("plainText", 3);
         JHamlParser.plainText_return retval = new JHamlParser.plainText_return();
@@ -345,8 +348,8 @@ import org.antlr.runtime.tree.*;
         CommonTree TEXT7_tree=null;
 
         try {
-            // ../etc/JHaml.g:55:10: ( TEXT )
-            // ../etc/JHaml.g:55:12: TEXT
+            // ../etc/JHaml.g:56:10: ( TEXT )
+            // ../etc/JHaml.g:56:12: TEXT
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -388,7 +391,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "element"
-    // ../etc/JHaml.g:57:1: element : ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? );
+    // ../etc/JHaml.g:58:1: element : ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? );
     public final JHamlParser.element_return element() throws RecognitionException {
     traceIn("element", 4);
         JHamlParser.element_return retval = new JHamlParser.element_return();
@@ -423,7 +426,7 @@ import org.antlr.runtime.tree.*;
         CommonTree ID9_tree=null;
 
         try {
-            // ../etc/JHaml.g:58:1: ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? )
+            // ../etc/JHaml.g:59:1: ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -442,7 +445,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt13) {
                 case 1 :
-                    // ../etc/JHaml.g:59:3: PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )?
+                    // ../etc/JHaml.g:60:3: PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -451,7 +454,7 @@ import org.antlr.runtime.tree.*;
                     PERCENT8_tree = (CommonTree)adaptor.create(PERCENT8);
                     adaptor.addChild(root_0, PERCENT8_tree);
                     }
-                    // ../etc/JHaml.g:59:11: ( ID )?
+                    // ../etc/JHaml.g:60:11: ( ID )?
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
@@ -460,7 +463,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt4) {
                         case 1 :
-                            // ../etc/JHaml.g:59:11: ID
+                            // ../etc/JHaml.g:60:11: ID
                             {
                             ID9=(Token)match(input,ID,FOLLOW_ID_in_element145); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
@@ -473,7 +476,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JHaml.g:59:15: ( idSpecifier | classSpecifier )*
+                    // ../etc/JHaml.g:60:15: ( idSpecifier | classSpecifier )*
                     loop5:
                     do {
                         int alt5=3;
@@ -489,7 +492,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../etc/JHaml.g:59:16: idSpecifier
+                    	    // ../etc/JHaml.g:60:16: idSpecifier
                     	    {
                     	    pushFollow(FOLLOW_idSpecifier_in_element149);
                     	    idSpecifier10=idSpecifier();
@@ -501,7 +504,7 @@ import org.antlr.runtime.tree.*;
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../etc/JHaml.g:59:30: classSpecifier
+                    	    // ../etc/JHaml.g:60:30: classSpecifier
                     	    {
                     	    pushFollow(FOLLOW_classSpecifier_in_element153);
                     	    classSpecifier11=classSpecifier();
@@ -518,7 +521,7 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    // ../etc/JHaml.g:59:47: ( attributeHash )?
+                    // ../etc/JHaml.g:60:47: ( attributeHash )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -527,7 +530,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../etc/JHaml.g:59:47: attributeHash
+                            // ../etc/JHaml.g:60:47: attributeHash
                             {
                             pushFollow(FOLLOW_attributeHash_in_element157);
                             attributeHash12=attributeHash();
@@ -541,7 +544,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JHaml.g:59:62: ( selfClose )?
+                    // ../etc/JHaml.g:60:62: ( selfClose )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -550,7 +553,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt7) {
                         case 1 :
-                            // ../etc/JHaml.g:59:62: selfClose
+                            // ../etc/JHaml.g:60:62: selfClose
                             {
                             pushFollow(FOLLOW_selfClose_in_element160);
                             selfClose13=selfClose();
@@ -564,7 +567,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JHaml.g:59:73: ( inLineContent )?
+                    // ../etc/JHaml.g:60:73: ( inLineContent )?
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
@@ -573,7 +576,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt8) {
                         case 1 :
-                            // ../etc/JHaml.g:59:73: inLineContent
+                            // ../etc/JHaml.g:60:73: inLineContent
                             {
                             pushFollow(FOLLOW_inLineContent_in_element163);
                             inLineContent14=inLineContent();
@@ -594,11 +597,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JHaml.g:61:5: ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )?
+                    // ../etc/JHaml.g:62:5: ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    // ../etc/JHaml.g:61:5: ( idSpecifier | classSpecifier )+
+                    // ../etc/JHaml.g:62:5: ( idSpecifier | classSpecifier )+
                     int cnt9=0;
                     loop9:
                     do {
@@ -615,7 +618,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../etc/JHaml.g:61:6: idSpecifier
+                    	    // ../etc/JHaml.g:62:6: idSpecifier
                     	    {
                     	    pushFollow(FOLLOW_idSpecifier_in_element177);
                     	    idSpecifier15=idSpecifier();
@@ -627,7 +630,7 @@ import org.antlr.runtime.tree.*;
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../etc/JHaml.g:61:20: classSpecifier
+                    	    // ../etc/JHaml.g:62:20: classSpecifier
                     	    {
                     	    pushFollow(FOLLOW_classSpecifier_in_element181);
                     	    classSpecifier16=classSpecifier();
@@ -649,7 +652,7 @@ import org.antlr.runtime.tree.*;
                         cnt9++;
                     } while (true);
 
-                    // ../etc/JHaml.g:61:37: ( attributeHash )?
+                    // ../etc/JHaml.g:62:37: ( attributeHash )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -658,7 +661,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../etc/JHaml.g:61:37: attributeHash
+                            // ../etc/JHaml.g:62:37: attributeHash
                             {
                             pushFollow(FOLLOW_attributeHash_in_element185);
                             attributeHash17=attributeHash();
@@ -672,7 +675,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JHaml.g:61:52: ( selfClose )?
+                    // ../etc/JHaml.g:62:52: ( selfClose )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -681,7 +684,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt11) {
                         case 1 :
-                            // ../etc/JHaml.g:61:52: selfClose
+                            // ../etc/JHaml.g:62:52: selfClose
                             {
                             pushFollow(FOLLOW_selfClose_in_element188);
                             selfClose18=selfClose();
@@ -695,7 +698,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JHaml.g:61:63: ( inLineContent )?
+                    // ../etc/JHaml.g:62:63: ( inLineContent )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -704,7 +707,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt12) {
                         case 1 :
-                            // ../etc/JHaml.g:61:63: inLineContent
+                            // ../etc/JHaml.g:62:63: inLineContent
                             {
                             pushFollow(FOLLOW_inLineContent_in_element191);
                             inLineContent19=inLineContent();
@@ -756,7 +759,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "selfClose"
-    // ../etc/JHaml.g:64:1: selfClose : FORWARD_SLASH ;
+    // ../etc/JHaml.g:65:1: selfClose : FORWARD_SLASH ;
     public final JHamlParser.selfClose_return selfClose() throws RecognitionException {
     traceIn("selfClose", 5);
         JHamlParser.selfClose_return retval = new JHamlParser.selfClose_return();
@@ -769,8 +772,8 @@ import org.antlr.runtime.tree.*;
         CommonTree FORWARD_SLASH20_tree=null;
 
         try {
-            // ../etc/JHaml.g:64:10: ( FORWARD_SLASH )
-            // ../etc/JHaml.g:64:12: FORWARD_SLASH
+            // ../etc/JHaml.g:65:10: ( FORWARD_SLASH )
+            // ../etc/JHaml.g:65:12: FORWARD_SLASH
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -812,7 +815,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "indentation"
-    // ../etc/JHaml.g:66:1: indentation : INDENTATION ;
+    // ../etc/JHaml.g:67:1: indentation : INDENTATION ;
     public final JHamlParser.indentation_return indentation() throws RecognitionException {
     traceIn("indentation", 6);
         JHamlParser.indentation_return retval = new JHamlParser.indentation_return();
@@ -825,8 +828,8 @@ import org.antlr.runtime.tree.*;
         CommonTree INDENTATION21_tree=null;
 
         try {
-            // ../etc/JHaml.g:66:12: ( INDENTATION )
-            // ../etc/JHaml.g:66:14: INDENTATION
+            // ../etc/JHaml.g:67:12: ( INDENTATION )
+            // ../etc/JHaml.g:67:14: INDENTATION
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -868,7 +871,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attributeHash"
-    // ../etc/JHaml.g:68:1: attributeHash : BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH ;
+    // ../etc/JHaml.g:69:1: attributeHash : BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH ;
     public final JHamlParser.attributeHash_return attributeHash() throws RecognitionException {
     traceIn("attributeHash", 7);
         JHamlParser.attributeHash_return retval = new JHamlParser.attributeHash_return();
@@ -889,8 +892,8 @@ import org.antlr.runtime.tree.*;
         CommonTree END_HASH26_tree=null;
 
         try {
-            // ../etc/JHaml.g:68:14: ( BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH )
-            // ../etc/JHaml.g:68:16: BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH
+            // ../etc/JHaml.g:69:14: ( BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH )
+            // ../etc/JHaml.g:69:16: BEGIN_HASH ( attributeMapping ( COMMA attributeMapping )* )? END_HASH
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -899,7 +902,7 @@ import org.antlr.runtime.tree.*;
             BEGIN_HASH22_tree = (CommonTree)adaptor.create(BEGIN_HASH22);
             adaptor.addChild(root_0, BEGIN_HASH22_tree);
             }
-            // ../etc/JHaml.g:68:27: ( attributeMapping ( COMMA attributeMapping )* )?
+            // ../etc/JHaml.g:69:27: ( attributeMapping ( COMMA attributeMapping )* )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -908,7 +911,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt15) {
                 case 1 :
-                    // ../etc/JHaml.g:68:28: attributeMapping ( COMMA attributeMapping )*
+                    // ../etc/JHaml.g:69:28: attributeMapping ( COMMA attributeMapping )*
                     {
                     pushFollow(FOLLOW_attributeMapping_in_attributeHash228);
                     attributeMapping23=attributeMapping();
@@ -916,7 +919,7 @@ import org.antlr.runtime.tree.*;
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, attributeMapping23.getTree());
-                    // ../etc/JHaml.g:68:45: ( COMMA attributeMapping )*
+                    // ../etc/JHaml.g:69:45: ( COMMA attributeMapping )*
                     loop14:
                     do {
                         int alt14=2;
@@ -929,7 +932,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt14) {
                     	case 1 :
-                    	    // ../etc/JHaml.g:68:46: COMMA attributeMapping
+                    	    // ../etc/JHaml.g:69:46: COMMA attributeMapping
                     	    {
                     	    COMMA24=(Token)match(input,COMMA,FOLLOW_COMMA_in_attributeHash231); if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) {
@@ -992,7 +995,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attributeMapping"
-    // ../etc/JHaml.g:70:1: attributeMapping : attribute MAP_TO attribute_value ;
+    // ../etc/JHaml.g:71:1: attributeMapping : attribute MAP_TO attribute_value ;
     public final JHamlParser.attributeMapping_return attributeMapping() throws RecognitionException {
     traceIn("attributeMapping", 8);
         JHamlParser.attributeMapping_return retval = new JHamlParser.attributeMapping_return();
@@ -1009,8 +1012,8 @@ import org.antlr.runtime.tree.*;
         CommonTree MAP_TO28_tree=null;
 
         try {
-            // ../etc/JHaml.g:70:17: ( attribute MAP_TO attribute_value )
-            // ../etc/JHaml.g:70:19: attribute MAP_TO attribute_value
+            // ../etc/JHaml.g:71:17: ( attribute MAP_TO attribute_value )
+            // ../etc/JHaml.g:71:19: attribute MAP_TO attribute_value
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -1067,7 +1070,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attribute"
-    // ../etc/JHaml.g:76:1: attribute returns [String name] : (n= ATTRIBUTE_NAME | literal );
+    // ../etc/JHaml.g:77:1: attribute returns [String name] : (n= ATTRIBUTE_NAME | literal );
     public final JHamlParser.attribute_return attribute() throws RecognitionException {
     traceIn("attribute", 9);
         JHamlParser.attribute_return retval = new JHamlParser.attribute_return();
@@ -1082,7 +1085,7 @@ import org.antlr.runtime.tree.*;
         CommonTree n_tree=null;
 
         try {
-            // ../etc/JHaml.g:76:32: (n= ATTRIBUTE_NAME | literal )
+            // ../etc/JHaml.g:77:32: (n= ATTRIBUTE_NAME | literal )
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1101,7 +1104,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt16) {
                 case 1 :
-                    // ../etc/JHaml.g:77:3: n= ATTRIBUTE_NAME
+                    // ../etc/JHaml.g:78:3: n= ATTRIBUTE_NAME
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1117,7 +1120,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JHaml.g:78:3: literal
+                    // ../etc/JHaml.g:79:3: literal
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1163,7 +1166,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "attribute_value"
-    // ../etc/JHaml.g:81:1: attribute_value returns [String value] : ( ( ( literal ( COMMA | END_HASH ) )=> literal ) | ex= javaExpression );
+    // ../etc/JHaml.g:82:1: attribute_value returns [String value] : ( ( ( literal ( COMMA | END_HASH ) )=> literal ) | ex= javaExpression );
     public final JHamlParser.attribute_value_return attribute_value() throws RecognitionException {
     traceIn("attribute_value", 10);
         JHamlParser.attribute_value_return retval = new JHamlParser.attribute_value_return();
@@ -1178,7 +1181,7 @@ import org.antlr.runtime.tree.*;
 
 
         try {
-            // ../etc/JHaml.g:81:39: ( ( ( literal ( COMMA | END_HASH ) )=> literal ) | ex= javaExpression )
+            // ../etc/JHaml.g:82:39: ( ( ( literal ( COMMA | END_HASH ) )=> literal ) | ex= javaExpression )
             int alt17=2;
             switch ( input.LA(1) ) {
             case STRING_LITERAL:
@@ -1283,6 +1286,9 @@ import org.antlr.runtime.tree.*;
             case JAVA_CODE:
             case JAVA_LBRACE:
             case JAVA_RBRACE:
+            case JAVA_LPAREN:
+            case JAVA_RPAREN:
+            case JAVA_COMMA:
                 {
                 alt17=2;
                 }
@@ -1297,12 +1303,12 @@ import org.antlr.runtime.tree.*;
 
             switch (alt17) {
                 case 1 :
-                    // ../etc/JHaml.g:82:3: ( ( literal ( COMMA | END_HASH ) )=> literal )
+                    // ../etc/JHaml.g:83:3: ( ( literal ( COMMA | END_HASH ) )=> literal )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    // ../etc/JHaml.g:82:3: ( ( literal ( COMMA | END_HASH ) )=> literal )
-                    // ../etc/JHaml.g:82:4: ( literal ( COMMA | END_HASH ) )=> literal
+                    // ../etc/JHaml.g:83:3: ( ( literal ( COMMA | END_HASH ) )=> literal )
+                    // ../etc/JHaml.g:83:4: ( literal ( COMMA | END_HASH ) )=> literal
                     {
                     pushFollow(FOLLOW_literal_in_attribute_value307);
                     literal31=literal();
@@ -1320,7 +1326,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JHaml.g:83:3: ex= javaExpression
+                    // ../etc/JHaml.g:84:3: ex= javaExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1367,7 +1373,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "javaExpression"
-    // ../etc/JHaml.g:88:1: javaExpression : ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE )+ ;
+    // ../etc/JHaml.g:89:1: javaExpression : ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE | JAVA_LPAREN | JAVA_RPAREN | JAVA_COMMA )+ ;
     public final JHamlParser.javaExpression_return javaExpression() throws RecognitionException {
     traceIn("javaExpression", 11);
         JHamlParser.javaExpression_return retval = new JHamlParser.javaExpression_return();
@@ -1378,24 +1384,30 @@ import org.antlr.runtime.tree.*;
         Token JAVA_CODE32=null;
         Token JAVA_LBRACE34=null;
         Token JAVA_RBRACE35=null;
+        Token JAVA_LPAREN36=null;
+        Token JAVA_RPAREN37=null;
+        Token JAVA_COMMA38=null;
         JHamlParser.literal_return literal33 = null;
 
 
         CommonTree JAVA_CODE32_tree=null;
         CommonTree JAVA_LBRACE34_tree=null;
         CommonTree JAVA_RBRACE35_tree=null;
+        CommonTree JAVA_LPAREN36_tree=null;
+        CommonTree JAVA_RPAREN37_tree=null;
+        CommonTree JAVA_COMMA38_tree=null;
 
         try {
-            // ../etc/JHaml.g:88:15: ( ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE )+ )
-            // ../etc/JHaml.g:88:17: ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE )+
+            // ../etc/JHaml.g:89:15: ( ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE | JAVA_LPAREN | JAVA_RPAREN | JAVA_COMMA )+ )
+            // ../etc/JHaml.g:90:3: ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE | JAVA_LPAREN | JAVA_RPAREN | JAVA_COMMA )+
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // ../etc/JHaml.g:88:17: ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE )+
+            // ../etc/JHaml.g:90:3: ( JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE | JAVA_LPAREN | JAVA_RPAREN | JAVA_COMMA )+
             int cnt18=0;
             loop18:
             do {
-                int alt18=5;
+                int alt18=8;
                 switch ( input.LA(1) ) {
                 case JAVA_CODE:
                     {
@@ -1425,14 +1437,29 @@ import org.antlr.runtime.tree.*;
                     alt18=4;
                     }
                     break;
+                case JAVA_LPAREN:
+                    {
+                    alt18=5;
+                    }
+                    break;
+                case JAVA_RPAREN:
+                    {
+                    alt18=6;
+                    }
+                    break;
+                case JAVA_COMMA:
+                    {
+                    alt18=7;
+                    }
+                    break;
 
                 }
 
                 switch (alt18) {
             	case 1 :
-            	    // ../etc/JHaml.g:88:18: JAVA_CODE
+            	    // ../etc/JHaml.g:90:4: JAVA_CODE
             	    {
-            	    JAVA_CODE32=(Token)match(input,JAVA_CODE,FOLLOW_JAVA_CODE_in_javaExpression331); if (state.failed) return retval;
+            	    JAVA_CODE32=(Token)match(input,JAVA_CODE,FOLLOW_JAVA_CODE_in_javaExpression334); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    JAVA_CODE32_tree = (CommonTree)adaptor.create(JAVA_CODE32);
             	    adaptor.addChild(root_0, JAVA_CODE32_tree);
@@ -1441,9 +1468,9 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 2 :
-            	    // ../etc/JHaml.g:88:30: literal
+            	    // ../etc/JHaml.g:90:16: literal
             	    {
-            	    pushFollow(FOLLOW_literal_in_javaExpression335);
+            	    pushFollow(FOLLOW_literal_in_javaExpression338);
             	    literal33=literal();
 
             	    state._fsp--;
@@ -1453,9 +1480,9 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 3 :
-            	    // ../etc/JHaml.g:88:40: JAVA_LBRACE
+            	    // ../etc/JHaml.g:90:26: JAVA_LBRACE
             	    {
-            	    JAVA_LBRACE34=(Token)match(input,JAVA_LBRACE,FOLLOW_JAVA_LBRACE_in_javaExpression339); if (state.failed) return retval;
+            	    JAVA_LBRACE34=(Token)match(input,JAVA_LBRACE,FOLLOW_JAVA_LBRACE_in_javaExpression342); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    JAVA_LBRACE34_tree = (CommonTree)adaptor.create(JAVA_LBRACE34);
             	    adaptor.addChild(root_0, JAVA_LBRACE34_tree);
@@ -1464,12 +1491,45 @@ import org.antlr.runtime.tree.*;
             	    }
             	    break;
             	case 4 :
-            	    // ../etc/JHaml.g:88:54: JAVA_RBRACE
+            	    // ../etc/JHaml.g:90:40: JAVA_RBRACE
             	    {
-            	    JAVA_RBRACE35=(Token)match(input,JAVA_RBRACE,FOLLOW_JAVA_RBRACE_in_javaExpression343); if (state.failed) return retval;
+            	    JAVA_RBRACE35=(Token)match(input,JAVA_RBRACE,FOLLOW_JAVA_RBRACE_in_javaExpression346); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    JAVA_RBRACE35_tree = (CommonTree)adaptor.create(JAVA_RBRACE35);
             	    adaptor.addChild(root_0, JAVA_RBRACE35_tree);
+            	    }
+
+            	    }
+            	    break;
+            	case 5 :
+            	    // ../etc/JHaml.g:90:54: JAVA_LPAREN
+            	    {
+            	    JAVA_LPAREN36=(Token)match(input,JAVA_LPAREN,FOLLOW_JAVA_LPAREN_in_javaExpression350); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    JAVA_LPAREN36_tree = (CommonTree)adaptor.create(JAVA_LPAREN36);
+            	    adaptor.addChild(root_0, JAVA_LPAREN36_tree);
+            	    }
+
+            	    }
+            	    break;
+            	case 6 :
+            	    // ../etc/JHaml.g:90:68: JAVA_RPAREN
+            	    {
+            	    JAVA_RPAREN37=(Token)match(input,JAVA_RPAREN,FOLLOW_JAVA_RPAREN_in_javaExpression354); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    JAVA_RPAREN37_tree = (CommonTree)adaptor.create(JAVA_RPAREN37);
+            	    adaptor.addChild(root_0, JAVA_RPAREN37_tree);
+            	    }
+
+            	    }
+            	    break;
+            	case 7 :
+            	    // ../etc/JHaml.g:90:82: JAVA_COMMA
+            	    {
+            	    JAVA_COMMA38=(Token)match(input,JAVA_COMMA,FOLLOW_JAVA_COMMA_in_javaExpression358); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    JAVA_COMMA38_tree = (CommonTree)adaptor.create(JAVA_COMMA38);
+            	    adaptor.addChild(root_0, JAVA_COMMA38_tree);
             	    }
 
             	    }
@@ -1516,7 +1576,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "literal"
-    // ../etc/JHaml.g:90:1: literal returns [String value] : (lit= STRING_LITERAL | lit= CHAR_LITERAL | lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= ( TRUE | FALSE | NULL ) );
+    // ../etc/JHaml.g:92:1: literal returns [String value] : (lit= STRING_LITERAL | lit= CHAR_LITERAL | lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= ( TRUE | FALSE | NULL ) );
     public final JHamlParser.literal_return literal() throws RecognitionException {
     traceIn("literal", 12);
         JHamlParser.literal_return retval = new JHamlParser.literal_return();
@@ -1529,7 +1589,7 @@ import org.antlr.runtime.tree.*;
         CommonTree lit_tree=null;
 
         try {
-            // ../etc/JHaml.g:90:31: (lit= STRING_LITERAL | lit= CHAR_LITERAL | lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= ( TRUE | FALSE | NULL ) )
+            // ../etc/JHaml.g:92:31: (lit= STRING_LITERAL | lit= CHAR_LITERAL | lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL ) | lit= FLOATING_POINT_LITERAL | lit= ( TRUE | FALSE | NULL ) )
             int alt19=5;
             switch ( input.LA(1) ) {
             case STRING_LITERAL:
@@ -1571,11 +1631,11 @@ import org.antlr.runtime.tree.*;
 
             switch (alt19) {
                 case 1 :
-                    // ../etc/JHaml.g:91:3: lit= STRING_LITERAL
+                    // ../etc/JHaml.g:93:3: lit= STRING_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal361); if (state.failed) return retval;
+                    lit=(Token)match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_literal376); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -1587,11 +1647,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 2 :
-                    // ../etc/JHaml.g:92:3: lit= CHAR_LITERAL
+                    // ../etc/JHaml.g:94:3: lit= CHAR_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,CHAR_LITERAL,FOLLOW_CHAR_LITERAL_in_literal371); if (state.failed) return retval;
+                    lit=(Token)match(input,CHAR_LITERAL,FOLLOW_CHAR_LITERAL_in_literal386); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -1603,7 +1663,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 3 :
-                    // ../etc/JHaml.g:93:3: lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL )
+                    // ../etc/JHaml.g:95:3: lit= ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1626,11 +1686,11 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 4 :
-                    // ../etc/JHaml.g:94:3: lit= FLOATING_POINT_LITERAL
+                    // ../etc/JHaml.g:96:3: lit= FLOATING_POINT_LITERAL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    lit=(Token)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal397); if (state.failed) return retval;
+                    lit=(Token)match(input,FLOATING_POINT_LITERAL,FOLLOW_FLOATING_POINT_LITERAL_in_literal412); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     lit_tree = (CommonTree)adaptor.create(lit);
                     adaptor.addChild(root_0, lit_tree);
@@ -1642,7 +1702,7 @@ import org.antlr.runtime.tree.*;
                     }
                     break;
                 case 5 :
-                    // ../etc/JHaml.g:95:3: lit= ( TRUE | FALSE | NULL )
+                    // ../etc/JHaml.g:97:3: lit= ( TRUE | FALSE | NULL )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1693,7 +1753,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "idSpecifier"
-    // ../etc/JHaml.g:98:1: idSpecifier : DOT ( ID )? ;
+    // ../etc/JHaml.g:100:1: idSpecifier : DOT ( ID )? ;
     public final JHamlParser.idSpecifier_return idSpecifier() throws RecognitionException {
     traceIn("idSpecifier", 13);
         JHamlParser.idSpecifier_return retval = new JHamlParser.idSpecifier_return();
@@ -1701,24 +1761,24 @@ import org.antlr.runtime.tree.*;
 
         CommonTree root_0 = null;
 
-        Token DOT36=null;
-        Token ID37=null;
+        Token DOT39=null;
+        Token ID40=null;
 
-        CommonTree DOT36_tree=null;
-        CommonTree ID37_tree=null;
+        CommonTree DOT39_tree=null;
+        CommonTree ID40_tree=null;
 
         try {
-            // ../etc/JHaml.g:98:12: ( DOT ( ID )? )
-            // ../etc/JHaml.g:98:14: DOT ( ID )?
+            // ../etc/JHaml.g:100:12: ( DOT ( ID )? )
+            // ../etc/JHaml.g:100:14: DOT ( ID )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            DOT36=(Token)match(input,DOT,FOLLOW_DOT_in_idSpecifier423); if (state.failed) return retval;
+            DOT39=(Token)match(input,DOT,FOLLOW_DOT_in_idSpecifier438); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            DOT36_tree = (CommonTree)adaptor.create(DOT36);
-            adaptor.addChild(root_0, DOT36_tree);
+            DOT39_tree = (CommonTree)adaptor.create(DOT39);
+            adaptor.addChild(root_0, DOT39_tree);
             }
-            // ../etc/JHaml.g:98:18: ( ID )?
+            // ../etc/JHaml.g:100:18: ( ID )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -1727,12 +1787,12 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt20) {
                 case 1 :
-                    // ../etc/JHaml.g:98:18: ID
+                    // ../etc/JHaml.g:100:18: ID
                     {
-                    ID37=(Token)match(input,ID,FOLLOW_ID_in_idSpecifier425); if (state.failed) return retval;
+                    ID40=(Token)match(input,ID,FOLLOW_ID_in_idSpecifier440); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    ID37_tree = (CommonTree)adaptor.create(ID37);
-                    adaptor.addChild(root_0, ID37_tree);
+                    ID40_tree = (CommonTree)adaptor.create(ID40);
+                    adaptor.addChild(root_0, ID40_tree);
                     }
 
                     }
@@ -1741,7 +1801,7 @@ import org.antlr.runtime.tree.*;
             }
 
             if ( state.backtracking==0 ) {
-              ((line_scope)line_stack.peek()).val.classes.add((ID37!=null?ID37.getText():null));
+              ((line_scope)line_stack.peek()).val.classes.add((ID40!=null?ID40.getText():null));
             }
 
             }
@@ -1773,7 +1833,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "classSpecifier"
-    // ../etc/JHaml.g:100:1: classSpecifier : POUND ( ID )? ;
+    // ../etc/JHaml.g:102:1: classSpecifier : POUND ( ID )? ;
     public final JHamlParser.classSpecifier_return classSpecifier() throws RecognitionException {
     traceIn("classSpecifier", 14);
         JHamlParser.classSpecifier_return retval = new JHamlParser.classSpecifier_return();
@@ -1781,24 +1841,24 @@ import org.antlr.runtime.tree.*;
 
         CommonTree root_0 = null;
 
-        Token POUND38=null;
-        Token ID39=null;
+        Token POUND41=null;
+        Token ID42=null;
 
-        CommonTree POUND38_tree=null;
-        CommonTree ID39_tree=null;
+        CommonTree POUND41_tree=null;
+        CommonTree ID42_tree=null;
 
         try {
-            // ../etc/JHaml.g:100:15: ( POUND ( ID )? )
-            // ../etc/JHaml.g:100:17: POUND ( ID )?
+            // ../etc/JHaml.g:102:15: ( POUND ( ID )? )
+            // ../etc/JHaml.g:102:17: POUND ( ID )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            POUND38=(Token)match(input,POUND,FOLLOW_POUND_in_classSpecifier436); if (state.failed) return retval;
+            POUND41=(Token)match(input,POUND,FOLLOW_POUND_in_classSpecifier451); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            POUND38_tree = (CommonTree)adaptor.create(POUND38);
-            adaptor.addChild(root_0, POUND38_tree);
+            POUND41_tree = (CommonTree)adaptor.create(POUND41);
+            adaptor.addChild(root_0, POUND41_tree);
             }
-            // ../etc/JHaml.g:100:23: ( ID )?
+            // ../etc/JHaml.g:102:23: ( ID )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -1807,12 +1867,12 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt21) {
                 case 1 :
-                    // ../etc/JHaml.g:100:23: ID
+                    // ../etc/JHaml.g:102:23: ID
                     {
-                    ID39=(Token)match(input,ID,FOLLOW_ID_in_classSpecifier438); if (state.failed) return retval;
+                    ID42=(Token)match(input,ID,FOLLOW_ID_in_classSpecifier453); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    ID39_tree = (CommonTree)adaptor.create(ID39);
-                    adaptor.addChild(root_0, ID39_tree);
+                    ID42_tree = (CommonTree)adaptor.create(ID42);
+                    adaptor.addChild(root_0, ID42_tree);
                     }
 
                     }
@@ -1821,7 +1881,7 @@ import org.antlr.runtime.tree.*;
             }
 
             if ( state.backtracking==0 ) {
-              ((line_scope)line_stack.peek()).val.ids.add((ID39!=null?ID39.getText():null));
+              ((line_scope)line_stack.peek()).val.ids.add((ID42!=null?ID42.getText():null));
             }
 
             }
@@ -1853,7 +1913,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "inLineContent"
-    // ../etc/JHaml.g:102:1: inLineContent : TEXT ;
+    // ../etc/JHaml.g:104:1: inLineContent : TEXT ;
     public final JHamlParser.inLineContent_return inLineContent() throws RecognitionException {
     traceIn("inLineContent", 15);
         JHamlParser.inLineContent_return retval = new JHamlParser.inLineContent_return();
@@ -1861,23 +1921,23 @@ import org.antlr.runtime.tree.*;
 
         CommonTree root_0 = null;
 
-        Token TEXT40=null;
+        Token TEXT43=null;
 
-        CommonTree TEXT40_tree=null;
+        CommonTree TEXT43_tree=null;
 
         try {
-            // ../etc/JHaml.g:102:14: ( TEXT )
-            // ../etc/JHaml.g:102:16: TEXT
+            // ../etc/JHaml.g:104:14: ( TEXT )
+            // ../etc/JHaml.g:104:16: TEXT
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            TEXT40=(Token)match(input,TEXT,FOLLOW_TEXT_in_inLineContent448); if (state.failed) return retval;
+            TEXT43=(Token)match(input,TEXT,FOLLOW_TEXT_in_inLineContent463); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
-            TEXT40_tree = (CommonTree)adaptor.create(TEXT40);
-            adaptor.addChild(root_0, TEXT40_tree);
+            TEXT43_tree = (CommonTree)adaptor.create(TEXT43);
+            adaptor.addChild(root_0, TEXT43_tree);
             }
             if ( state.backtracking==0 ) {
-              ((line_scope)line_stack.peek()).val.inLineContent = (TEXT40!=null?TEXT40.getText():null);
+              ((line_scope)line_stack.peek()).val.inLineContent = (TEXT43!=null?TEXT43.getText():null);
             }
 
             }
@@ -1907,8 +1967,8 @@ import org.antlr.runtime.tree.*;
     public final void synpred1_JHaml_fragment() throws RecognitionException {   
         traceIn("synpred1_JHaml_fragment", 16);
         try {
-            // ../etc/JHaml.g:82:4: ( literal ( COMMA | END_HASH ) )
-            // ../etc/JHaml.g:82:5: literal ( COMMA | END_HASH )
+            // ../etc/JHaml.g:83:4: ( literal ( COMMA | END_HASH ) )
+            // ../etc/JHaml.g:83:5: literal ( COMMA | END_HASH )
             {
             pushFollow(FOLLOW_literal_in_synpred1_JHaml295);
             literal();
@@ -1955,52 +2015,55 @@ import org.antlr.runtime.tree.*;
  
 
     public static final BitSet FOLLOW_line_in_jhamlSource77 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NEWLINE_in_jhamlSource80 = new BitSet(new long[]{0x0000000018000270L});
+    public static final BitSet FOLLOW_NEWLINE_in_jhamlSource80 = new BitSet(new long[]{0x00000000C0000270L});
     public static final BitSet FOLLOW_EOF_in_jhamlSource84 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_indentation_in_line107 = new BitSet(new long[]{0x0000000018000062L});
+    public static final BitSet FOLLOW_indentation_in_line107 = new BitSet(new long[]{0x00000000C0000062L});
     public static final BitSet FOLLOW_element_in_line111 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_plainText_in_line115 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TEXT_in_plainText124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PERCENT_in_element143 = new BitSet(new long[]{0x00000000180005E2L});
-    public static final BitSet FOLLOW_ID_in_element145 = new BitSet(new long[]{0x0000000018000562L});
-    public static final BitSet FOLLOW_idSpecifier_in_element149 = new BitSet(new long[]{0x0000000018000562L});
-    public static final BitSet FOLLOW_classSpecifier_in_element153 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_PERCENT_in_element143 = new BitSet(new long[]{0x00000000C00005E2L});
+    public static final BitSet FOLLOW_ID_in_element145 = new BitSet(new long[]{0x00000000C0000562L});
+    public static final BitSet FOLLOW_idSpecifier_in_element149 = new BitSet(new long[]{0x00000000C0000562L});
+    public static final BitSet FOLLOW_classSpecifier_in_element153 = new BitSet(new long[]{0x00000000C0000562L});
     public static final BitSet FOLLOW_attributeHash_in_element157 = new BitSet(new long[]{0x0000000000000122L});
     public static final BitSet FOLLOW_selfClose_in_element160 = new BitSet(new long[]{0x0000000000000022L});
     public static final BitSet FOLLOW_inLineContent_in_element163 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_idSpecifier_in_element177 = new BitSet(new long[]{0x0000000018000562L});
-    public static final BitSet FOLLOW_classSpecifier_in_element181 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_idSpecifier_in_element177 = new BitSet(new long[]{0x00000000C0000562L});
+    public static final BitSet FOLLOW_classSpecifier_in_element181 = new BitSet(new long[]{0x00000000C0000562L});
     public static final BitSet FOLLOW_attributeHash_in_element185 = new BitSet(new long[]{0x0000000000000122L});
     public static final BitSet FOLLOW_selfClose_in_element188 = new BitSet(new long[]{0x0000000000000022L});
     public static final BitSet FOLLOW_inLineContent_in_element191 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_FORWARD_SLASH_in_selfClose206 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_INDENTATION_in_indentation215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BEGIN_HASH_in_attributeHash225 = new BitSet(new long[]{0x0000000007FC5000L});
+    public static final BitSet FOLLOW_BEGIN_HASH_in_attributeHash225 = new BitSet(new long[]{0x000000003FE05000L});
     public static final BitSet FOLLOW_attributeMapping_in_attributeHash228 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_COMMA_in_attributeHash231 = new BitSet(new long[]{0x0000000007FC4000L});
+    public static final BitSet FOLLOW_COMMA_in_attributeHash231 = new BitSet(new long[]{0x000000003FE04000L});
     public static final BitSet FOLLOW_attributeMapping_in_attributeHash233 = new BitSet(new long[]{0x0000000000001800L});
     public static final BitSet FOLLOW_END_HASH_in_attributeHash239 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_attribute_in_attributeMapping246 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_MAP_TO_in_attributeMapping248 = new BitSet(new long[]{0x0000000007FFC000L});
+    public static final BitSet FOLLOW_MAP_TO_in_attributeMapping248 = new BitSet(new long[]{0x000000003FFFC000L});
     public static final BitSet FOLLOW_attribute_value_in_attributeMapping250 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ATTRIBUTE_NAME_in_attribute269 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_literal_in_attribute277 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_literal_in_attribute_value307 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_javaExpression_in_attribute_value320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_JAVA_CODE_in_javaExpression331 = new BitSet(new long[]{0x0000000007FFC002L});
-    public static final BitSet FOLLOW_literal_in_javaExpression335 = new BitSet(new long[]{0x0000000007FFC002L});
-    public static final BitSet FOLLOW_JAVA_LBRACE_in_javaExpression339 = new BitSet(new long[]{0x0000000007FFC002L});
-    public static final BitSet FOLLOW_JAVA_RBRACE_in_javaExpression343 = new BitSet(new long[]{0x0000000007FFC002L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_literal361 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHAR_LITERAL_in_literal371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_literal381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal397 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_literal407 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_idSpecifier423 = new BitSet(new long[]{0x0000000000000082L});
-    public static final BitSet FOLLOW_ID_in_idSpecifier425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POUND_in_classSpecifier436 = new BitSet(new long[]{0x0000000000000082L});
-    public static final BitSet FOLLOW_ID_in_classSpecifier438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TEXT_in_inLineContent448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_JAVA_CODE_in_javaExpression334 = new BitSet(new long[]{0x000000003FFFC002L});
+    public static final BitSet FOLLOW_literal_in_javaExpression338 = new BitSet(new long[]{0x000000003FFFC002L});
+    public static final BitSet FOLLOW_JAVA_LBRACE_in_javaExpression342 = new BitSet(new long[]{0x000000003FFFC002L});
+    public static final BitSet FOLLOW_JAVA_RBRACE_in_javaExpression346 = new BitSet(new long[]{0x000000003FFFC002L});
+    public static final BitSet FOLLOW_JAVA_LPAREN_in_javaExpression350 = new BitSet(new long[]{0x000000003FFFC002L});
+    public static final BitSet FOLLOW_JAVA_RPAREN_in_javaExpression354 = new BitSet(new long[]{0x000000003FFFC002L});
+    public static final BitSet FOLLOW_JAVA_COMMA_in_javaExpression358 = new BitSet(new long[]{0x000000003FFFC002L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_literal376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHAR_LITERAL_in_literal386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_literal396 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal412 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_literal422 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_idSpecifier438 = new BitSet(new long[]{0x0000000000000082L});
+    public static final BitSet FOLLOW_ID_in_idSpecifier440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POUND_in_classSpecifier451 = new BitSet(new long[]{0x0000000000000082L});
+    public static final BitSet FOLLOW_ID_in_classSpecifier453 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_inLineContent463 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_literal_in_synpred1_JHaml295 = new BitSet(new long[]{0x0000000000001800L});
     public static final BitSet FOLLOW_set_in_synpred1_JHaml297 = new BitSet(new long[]{0x0000000000000002L});
 
