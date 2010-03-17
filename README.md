@@ -10,6 +10,10 @@ Haml features not currently supported:
 
 * Ugly mode for faster rendering speed.
 
+* Support for bad syntax in attribute hash, e.g. %p{:foo => 'bar\"}
+
+* Interpreting lists as attribute values, e.g. {:id => [:a, :b]} yields id='a_b'
+
 * Many more...
 
 ## Authors
