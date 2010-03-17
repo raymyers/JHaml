@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<project name="JHaml" default="antlr-jhaml">
+<project name="JHaml" default="dist">
 	<property file="build.properties" />
 	<property environment="env" />
+	<path id="ANTLR.classpath">
+		<pathelement location="${libdir}/antlr-3.2.jar" />
+	</path>
 
 	<target name="init">
 		<!-- Create the time stamp -->
@@ -10,7 +13,7 @@
 		<mkdir dir="${builddir}" />
 	</target>
 
-	<target name="compile" depends="init" description="compile the source ">
+	<target name="compile" depends="init,antlr-jhaml" description="compile the source ">
 		<!-- Compile the java code from ${srcdir} into ${builddir} -->
 		<javac srcdir="${srcdir}" destdir="${builddir}">
 

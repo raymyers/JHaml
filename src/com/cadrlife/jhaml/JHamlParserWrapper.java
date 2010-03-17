@@ -7,7 +7,8 @@ import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 
-import com.cadrlife.jhaml.JHamlParser.jhamlSource_return;
+import com.cadrlife.jhaml.generated.JHamlLexer;
+import com.cadrlife.jhaml.generated.JHamlParser;
 import com.cadrlife.util.StringInputStream;
 
 public class JHamlParserWrapper {
@@ -19,7 +20,7 @@ public class JHamlParserWrapper {
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			JHamlParser parser = new JHamlParser(tokens);
 			new JHamlErrorChecker().checkDocumentDoesNotBeginWithIndentation(input);
-			jhamlSource_return result = parser.jhamlSource(config);
+			JHamlParser.jhamlSource_return result = parser.jhamlSource(config);
 			throwForParseErrors(parser);
 			return result.lines;
 		} catch (IOException e) {

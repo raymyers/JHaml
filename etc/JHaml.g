@@ -6,13 +6,16 @@ options {
 }
 
 @parser::header {
-package com.cadrlife.jhaml;
+package com.cadrlife.jhaml.generated;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import com.cadrlife.jhaml.Helper;
+import com.cadrlife.jhaml.JHamlConfig;
+import com.cadrlife.jhaml.Line;
 }
 
 @lexer::header {
-package com.cadrlife.jhaml;
+package com.cadrlife.jhaml.generated;
 }
 @lexer::members {
 static enum EMode {
