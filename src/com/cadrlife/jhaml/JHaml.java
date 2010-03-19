@@ -100,7 +100,7 @@ public class JHaml {
 			validateIndentation(line,nestedLine);
 		}
 		String nestedContent = renderLines(line.block);
-		String content = line.inLineContent + (nestedContent.isEmpty() ? "" : "\n" + IndentUtils.indent(nestedContent,2));
+		String content = line.inLineContent + (nestedContent.isEmpty() ? "" : "\n" + IndentUtils.indent(nestedContent,JHamlConfig.OUTPUT_INDENTATION_SIZE));
 		if (line.isElement()) {
 			helper.errorChecker.setCurrentLineNumber(line.lineNumber);
 			helper.mergeAttributes(line);
@@ -111,7 +111,7 @@ public class JHaml {
 		}
 		if (line.isStatement() || line.isComment()) {
 			if (line.hasNestedContent()) {
-				return helper.parseFreeFormText(line, "",line.inLineContent + "\n" + IndentUtils.indent(renderLines(line.block),2));
+				return helper.parseFreeFormText(line, "",line.inLineContent + "\n" + IndentUtils.indent(renderLines(line.block),JHamlConfig.OUTPUT_INDENTATION_SIZE));
 			}
 			return helper.parseFreeFormText(line, "",line.inLineContent);
 		}
@@ -121,10 +121,10 @@ public class JHaml {
 	}
 
 	private String textBlock(Line line) {
-		String result = line.text.substring(line.leadingWhitespace.length());
+		String result = line.text.substring(line.indentation.length());
 		List<String> content = new ArrayList<String>();
 		for (Line contentLine : line.block) {
-			content.add(contentLine.leadingWhitespace + textBlock(contentLine));
+			content.add(textBlock(contentLine));
 		}
 		return result + (content.isEmpty() ? "" : "\n") + Joiner.on("\n").join(content);
 	}
@@ -145,11 +145,11 @@ public class JHaml {
 			isIndentWithTabs =  CharMatcher.is('\t').matchesAllOf(line.indentation);
 			this.helper.errorChecker.checkInitialIndentation(line.indentation);
 		}
-		String effectiveIndentation = line.indentation;
 		int nextLevel = parentIndent + indentationSize;
 		if (parentLine.isFilter() && line.indentation.length() > nextLevel) {
-			effectiveIndentation = line.indentation.substring(0, nextLevel);
+			line.indentation = line.indentation.substring(0, nextLevel);
+			line.inLineContent = line.indentation.substring(nextLevel) + line.inLineContent;
 		}
-		this.helper.errorChecker.checkIndentationIsConsistent(indentationSize,isIndentWithTabs,parentIndent,line.indentation,effectiveIndentation);
+		this.helper.errorChecker.checkIndentationIsConsistent(indentationSize,isIndentWithTabs,parentIndent, line.leadingWhitespace, line.indentation);
 	}
 }

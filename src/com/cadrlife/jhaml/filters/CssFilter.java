@@ -14,7 +14,7 @@ public class CssFilter extends Filter {
 	public String process(String input) {
 		return "<style type='text/css'>\n" + 
 		"<!--\n" + 
-		indent(CharMatcher.WHITESPACE.trimTrailingFrom(input), 0) + "\n" + 
+		indent(CharMatcher.WHITESPACE.trimTrailingFrom(input), JHamlConfig.OUTPUT_INDENTATION_SIZE) + "\n" + 
 		"-->\n" + 
 		"</style>";
 	}

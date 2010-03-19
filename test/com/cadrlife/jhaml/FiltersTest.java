@@ -95,4 +95,16 @@ public class FiltersTest {
 			"</style>"; 
 		assertEquals(html, jhaml.parse(haml));
 	}
+	
+	@Test
+	public void jsp() {
+		String haml=
+			":jsp\n" +
+			"  %dontParseMe\n" +
+			"  <%= foo(); %>";
+		String html = 
+			"%dontParseMe\n" +
+			"<%= foo(); %>";
+		assertEquals(html, jhaml.parse(haml));
+	}
 }

@@ -3,7 +3,9 @@ package com.cadrlife.jhaml.util;
 import com.google.common.base.CharMatcher;
 
 public class IndentUtils {
-//	public static String rebaseIndent(String text, int amount) {
+private static final CharMatcher INDENTATION_MATCHER = CharMatcher.anyOf("\t ");
+
+	//	public static String rebaseIndent(String text, int amount) {
 //		String current = spaces(baseIndentation(text));
 //		String textWithoutFirstIndent = CharMatcher.is(' ').trimLeadingFrom(text);
 //		String target = spaces(amount);
@@ -14,7 +16,7 @@ public class IndentUtils {
 			String target = spaces(amount);
 			return target + text.replaceAll("\n", "\n"+target).replaceAll("\n"+target+"\\z", "\n"); 
 		}
-		if (text.length() < -amount) {
+		if (text.length() < -amount || !INDENTATION_MATCHER.matchesAllOf(text.substring(0,-amount))) {
 			return text;
 		}
 		return text.substring(-amount).replaceAll("\n" + spaces(-amount), "\n");
@@ -27,9 +29,9 @@ public class IndentUtils {
 		}
 		return string;
 	}
-
+ 
 	public static int baseIndentation(String text) {
-		return text.length() - CharMatcher.is(' ').trimLeadingFrom(text).length();
+		return text.length() - INDENTATION_MATCHER.trimLeadingFrom(text).length();
 	}
 
 	public static boolean containsNesting(String text) {

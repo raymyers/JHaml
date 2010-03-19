@@ -14,6 +14,16 @@ Haml features not currently supported:
 
 * Interpreting lists as attribute values, e.g. {:id => [:a, :b]} yields id='a_b'
 
+* Whitespace removal with '<' and '>'
+
+* Multiline with |
+
+* Escaping of expressions with '!=' and '&=' 
+
+* HTML-style Attributes: ()
+
+* Attribute Methods
+
 * Many more...
 
 ## Authors

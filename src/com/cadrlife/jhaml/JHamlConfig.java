@@ -11,10 +11,12 @@ import com.cadrlife.jhaml.filters.CssFilter;
 import com.cadrlife.jhaml.filters.EscapedFilter;
 import com.cadrlife.jhaml.filters.Filter;
 import com.cadrlife.jhaml.filters.JavaScriptFilter;
+import com.cadrlife.jhaml.filters.JspFilter;
 import com.cadrlife.jhaml.filters.PlainFilter;
 import com.cadrlife.jhaml.filters.PreserveFilter;
 
 public class JHamlConfig {
+	public static final int OUTPUT_INDENTATION_SIZE = 2;
 	String format = "xhtml";
 	List<String> autoclose = new ArrayList<String>(Arrays.asList("meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"));
 	List<String> preserve = new ArrayList<String>(Arrays.asList("textarea", "pre"));
@@ -27,7 +29,7 @@ public class JHamlConfig {
 		filters.put("cdata", new CdataFilter(this));
 		filters.put("escaped", new EscapedFilter(this));
 		filters.put("preserve", new PreserveFilter(this));
-		filters.put("jsp", new PlainFilter(this));
+		filters.put("jsp", new JspFilter(this));
 		filters.put("css", new CssFilter(this));
 	}
 	

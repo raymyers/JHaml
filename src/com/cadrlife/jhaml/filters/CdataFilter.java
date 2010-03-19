@@ -11,8 +11,9 @@ public class CdataFilter extends Filter {
 
 	@Override
 	public String process(String input) {
-		return "<![CDATA[\n" + CharMatcher.WHITESPACE.trimTrailingFrom(indent(input,-2))
+		return "<![CDATA[\n" + CharMatcher.WHITESPACE.trimTrailingFrom(indent(input,JHamlConfig.OUTPUT_INDENTATION_SIZE))
 				+ "\n]]>";
 	}
-
 }
+
+
