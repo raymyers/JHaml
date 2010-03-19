@@ -3,7 +3,6 @@ package com.cadrlife.jhaml.filters;
 import org.apache.commons.lang.StringEscapeUtils;
 
 import com.cadrlife.jhaml.JHamlConfig;
-import com.google.common.base.CharMatcher;
 
 public class EscapedFilter extends Filter {
 
@@ -13,7 +12,6 @@ public class EscapedFilter extends Filter {
 
 	@Override
 	public String process(String input) {
-		String escaped = StringEscapeUtils.escapeHtml(input);
-		return CharMatcher.WHITESPACE.trimTrailingFrom(indent(escaped,0));
+		return trimEnd(indent(StringEscapeUtils.escapeHtml(input),0));
 	}
 }
