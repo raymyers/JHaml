@@ -64,20 +64,22 @@ public class Helper {
 					continue;
 				}
 				String thisAttrWrapper = attrWrapper;
-				// Should do the same as Haml's Helper.escape_once
-				value = StringEscapeUtils.escapeHtml(StringEscapeUtils.unescapeHtml(value));
-				System.err.println(value);
-				// Helpers.preserve
-				value = value.replaceAll("\n", "&#x000A;");
-				// We want to decide whether or not to escape quotes
-				value = value.replaceAll("&quot;","\"");
-		        if (value.contains(attrWrapper)) {
-		        	if (value.contains(otherQuoteChar)) {
-		        		value = value.replaceAll(attrWrapper, quoteEscape);
-		        	} else {
-		        		thisAttrWrapper = otherQuoteChar;
-		        	}
-		        }
+				if (!e.getValue().isJspExpression()) {
+					// Should do the same as Haml's Helper.escape_once
+					value = StringEscapeUtils.escapeHtml(StringEscapeUtils.unescapeHtml(value));
+					System.err.println(value);
+					// Helpers.preserve
+					value = value.replaceAll("\n", "&#x000A;");
+					// We want to decide whether or not to escape quotes
+					value = value.replaceAll("&quot;","\"");
+			        if (value.contains(attrWrapper)) {
+			        	if (value.contains(otherQuoteChar)) {
+			        		value = value.replaceAll(attrWrapper, quoteEscape);
+			        	} else {
+			        		thisAttrWrapper = otherQuoteChar;
+			        	}
+			        }
+				}
 	        	if (e.getValue().isTrue()) {
 					if (this.config.isXhtml()) {
 						result += " " + attr + "=" + thisAttrWrapper + attr + thisAttrWrapper;
@@ -348,7 +350,7 @@ public class Helper {
 		if ("null".equals(code.trim()) || "true".equals(code.trim()) || "false".equals(code.trim())) {
 			return AttributeValue.literal(code.trim());
 		}
-		return AttributeValue.quoted(jspExpression(lineText, code));
+		return AttributeValue.literal(jspExpression(lineText, code));
 	}
 
 }

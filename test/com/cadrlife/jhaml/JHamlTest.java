@@ -23,6 +23,17 @@ public class JHamlTest {
 		assertEquals("<div class='atlantis'></div>", jhaml
 				.parse("%div.atlantis").trim());
 	}
+	
+	@Test
+	public void elementTypesWithColons() {
+		assertEquals("<jsp:declaraion>ABC</jsp:declaraion>", jhaml
+				.parse("%jsp:declaraion ABC").trim());
+	}
+	
+	@Test
+	public void numbersInElementTypeAndSpecifiers() {
+		assertEquals("<1 class='2' id='3'>456</1>", jhaml.parse("%1.2#3 456"));
+	}
 
 	@Test
 	public void twoElements() {

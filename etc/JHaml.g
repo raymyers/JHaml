@@ -19,7 +19,7 @@ package com.cadrlife.jhaml.generated;
 }
 @lexer::members {
 static enum EMode {
-      BEGINNING,ELEMENT_DECLARATION,ATTRIBUTE_HASH,AFTER_ATTRIBUTE_HASH,TEXT
+      BEGINNING,ELEMENT_TYPE,ELEMENT_DECLARATION,ATTRIBUTE_HASH,AFTER_ATTRIBUTE_HASH,TEXT
     };
 EMode lineMode = EMode.BEGINNING;
 int braceDepth = 0;
@@ -57,8 +57,8 @@ plainText: TEXT {$line::val.inLineContent = $TEXT.text;};
 
 element @after{$line::val.isElement = true;} 
 :	 
-  PERCENT ID? (idSpecifier | classSpecifier)* attributeHash? selfClose? inLineContent?
-    {$line::val.tag = $ID.text;}
+  PERCENT ELEMENT_TYPE? (idSpecifier | classSpecifier)* attributeHash? selfClose? inLineContent?
+    {$line::val.tag = $ELEMENT_TYPE.text;}
   | (idSpecifier | classSpecifier)+ attributeHash? selfClose? inLineContent? 
     {$line::val.tag = "div";};
 
@@ -104,16 +104,16 @@ inLineContent: TEXT {$line::val.inLineContent = $TEXT.text;};
 
 // LEXER
 
-PERCENT:   {lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION}?=>
-  '%' {lineMode = EMode.ELEMENT_DECLARATION;};
+PERCENT:   {lineMode == EMode.BEGINNING}?=>
+  '%' {lineMode = EMode.ELEMENT_TYPE;};
 
-POUND: {lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION}?=>
+POUND: {lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.ELEMENT_TYPE}?=>
   '#' {lineMode = EMode.ELEMENT_DECLARATION;};
 
-DOT:   {lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION}?=>
+DOT:   {lineMode == EMode.BEGINNING || lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.ELEMENT_TYPE}?=>
   '.' {lineMode = EMode.ELEMENT_DECLARATION;};
 
-FORWARD_SLASH: { lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH}?=> 
+FORWARD_SLASH: { lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH || lineMode == EMode.ELEMENT_TYPE}?=> 
   '/' {lineMode = EMode.TEXT;};
 
 
@@ -135,13 +135,16 @@ MAP_TO: { lineMode == EMode.ATTRIBUTE_HASH }?=>
   '=>';
 
 ID:   { lineMode == EMode.ELEMENT_DECLARATION }?=> 
-  ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*
+  ('a'..'z'|'A'..'Z'|'0'..'9')+
+  ;
+ELEMENT_TYPE:   { lineMode == EMode.ELEMENT_TYPE }?=> 
+  ('a'..'z'|'A'..'Z'|'0'..'9'|':')+ { lineMode = EMode.ELEMENT_DECLARATION; }
   ;
 
 INDENTATION : { lineMode == EMode.BEGINNING }?=>
   Space+;
 
-WS : { lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH }?=>
+WS : { lineMode == EMode.ELEMENT_TYPE || lineMode == EMode.ELEMENT_DECLARATION || lineMode == EMode.AFTER_ATTRIBUTE_HASH }?=>
   Space+ { $channel = HIDDEN; lineMode = EMode.TEXT; };
 
 WS_WITHIN_HASH : { lineMode == EMode.ATTRIBUTE_HASH }?=>
@@ -168,13 +171,14 @@ INTEGER_TYPE_SUFFIX : ('l'|'L') ;
 
 FLOATING_POINT_LITERAL
     : { lineMode == EMode.ATTRIBUTE_HASH }?=>
-        ('0'..'9')+ 
+      ( ('0'..'9')+ 
         (
             '.' ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
         |   EXPONENT FLOAT_TYPE_SUFFIX?
         |   FLOAT_TYPE_SUFFIX
         )
-    |   DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+     |  '.' ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+    )
     ;
 
 fragment

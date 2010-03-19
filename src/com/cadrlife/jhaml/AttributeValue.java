@@ -22,4 +22,7 @@ public class AttributeValue {
 	public boolean isFalse() {
 		return !quoted && "false".equals(value);
 	}
+	public boolean isJspExpression() {
+		return !quoted && value.startsWith("<%=");
+	}
 }

@@ -119,6 +119,12 @@ public class AttributeHashTest {
 	}
 	
 	@Test
+	public void doNotEscapeJavaExpressionValues() {
+		String input = "%p{:a => foo(\"'<>&\")}";
+		assertEquals("<p a='<%= foo(\"'<>&\") %>'></p>",new JHaml().parse(input));
+	}
+	
+	@Test
 	public void nullValues() {
 		String input = "%p{:a => null}";
 		assertEquals("<p></p>", new JHaml().parse(input));

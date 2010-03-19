@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JHaml.g 2010-03-19 10:21:19
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 ../etc/JHaml.g 2010-03-19 14:38:38
 
 package com.cadrlife.jhaml.generated;
 import java.util.Map;
@@ -19,47 +19,48 @@ import org.antlr.runtime.tree.*;
 
 @SuppressWarnings("all") public class JHamlParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "NEWLINE", "TEXT", "PERCENT", "ID", "FORWARD_SLASH", "INDENTATION", "BEGIN_HASH", "COMMA", "END_HASH", "MAP_TO", "ATTRIBUTE_NAME", "JAVA_CODE", "JAVA_LBRACE", "JAVA_RBRACE", "JAVA_LPAREN", "JAVA_RPAREN", "JAVA_COMMA", "STRING_LITERAL", "CHAR_LITERAL", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "DOT", "POUND", "Space", "WS", "WS_WITHIN_HASH", "NL", "IGNORED_NEWLINE", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "EscapeSequence", "TextLine", "InLineText", "RemainderOfLineText", "LBRACE", "RBRACE"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "NEWLINE", "TEXT", "PERCENT", "ELEMENT_TYPE", "FORWARD_SLASH", "INDENTATION", "BEGIN_HASH", "COMMA", "END_HASH", "MAP_TO", "ATTRIBUTE_NAME", "JAVA_CODE", "JAVA_LBRACE", "JAVA_RBRACE", "JAVA_LPAREN", "JAVA_RPAREN", "JAVA_COMMA", "STRING_LITERAL", "CHAR_LITERAL", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "DOT", "ID", "POUND", "Space", "WS", "WS_WITHIN_HASH", "NL", "IGNORED_NEWLINE", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "EscapeSequence", "TextLine", "InLineText", "RemainderOfLineText", "LBRACE", "RBRACE"
     };
-    public static final int EXPONENT=36;
+    public static final int EXPONENT=37;
     public static final int JAVA_RPAREN=19;
     public static final int END_HASH=12;
-    public static final int LBRACE=42;
-    public static final int ID=7;
+    public static final int LBRACE=43;
+    public static final int ID=28;
     public static final int EOF=-1;
-    public static final int Space=29;
+    public static final int Space=30;
     public static final int STRING_LITERAL=21;
     public static final int FLOATING_POINT_LITERAL=26;
     public static final int COMMA=11;
+    public static final int ELEMENT_TYPE=7;
     public static final int JAVA_COMMA=20;
     public static final int HEX_LITERAL=23;
     public static final int MAP_TO=13;
-    public static final int NL=32;
+    public static final int NL=33;
     public static final int DOT=27;
     public static final int JAVA_LPAREN=18;
     public static final int JAVA_RBRACE=17;
-    public static final int FLOAT_TYPE_SUFFIX=37;
-    public static final int TextLine=39;
+    public static final int FLOAT_TYPE_SUFFIX=38;
+    public static final int TextLine=40;
+    public static final int RBRACE=44;
     public static final int PERCENT=6;
-    public static final int IGNORED_NEWLINE=33;
-    public static final int RBRACE=43;
-    public static final int POUND=28;
+    public static final int IGNORED_NEWLINE=34;
+    public static final int POUND=29;
     public static final int OCTAL_LITERAL=24;
-    public static final int HEX_DIGIT=34;
+    public static final int HEX_DIGIT=35;
     public static final int TEXT=5;
-    public static final int InLineText=40;
+    public static final int InLineText=41;
     public static final int BEGIN_HASH=10;
-    public static final int RemainderOfLineText=41;
+    public static final int RemainderOfLineText=42;
     public static final int ATTRIBUTE_NAME=14;
-    public static final int WS=30;
-    public static final int WS_WITHIN_HASH=31;
+    public static final int WS=31;
+    public static final int WS_WITHIN_HASH=32;
     public static final int NEWLINE=4;
     public static final int CHAR_LITERAL=22;
     public static final int JAVA_CODE=15;
     public static final int JAVA_LBRACE=16;
     public static final int DECIMAL_LITERAL=25;
-    public static final int INTEGER_TYPE_SUFFIX=35;
-    public static final int EscapeSequence=38;
+    public static final int INTEGER_TYPE_SUFFIX=36;
+    public static final int EscapeSequence=39;
     public static final int FORWARD_SLASH=8;
     public static final int INDENTATION=9;
 
@@ -131,7 +132,7 @@ import org.antlr.runtime.tree.*;
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=NEWLINE && LA1_0<=PERCENT)||LA1_0==INDENTATION||(LA1_0>=DOT && LA1_0<=POUND)) ) {
+                if ( ((LA1_0>=NEWLINE && LA1_0<=PERCENT)||LA1_0==INDENTATION||LA1_0==DOT||LA1_0==POUND) ) {
                     alt1=1;
                 }
 
@@ -260,7 +261,7 @@ import org.antlr.runtime.tree.*;
             int alt3=3;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==PERCENT||(LA3_0>=DOT && LA3_0<=POUND)) ) {
+            if ( (LA3_0==PERCENT||LA3_0==DOT||LA3_0==POUND) ) {
                 alt3=1;
             }
             else if ( (LA3_0==TEXT) ) {
@@ -388,7 +389,7 @@ import org.antlr.runtime.tree.*;
     };
 
     // $ANTLR start "element"
-    // ../etc/JHaml.g:58:1: element : ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? );
+    // ../etc/JHaml.g:58:1: element : ( PERCENT ( ELEMENT_TYPE )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? );
     public final JHamlParser.element_return element() throws RecognitionException {
     traceIn("element", 4);
         JHamlParser.element_return retval = new JHamlParser.element_return();
@@ -397,7 +398,7 @@ import org.antlr.runtime.tree.*;
         CommonTree root_0 = null;
 
         Token PERCENT8=null;
-        Token ID9=null;
+        Token ELEMENT_TYPE9=null;
         JHamlParser.idSpecifier_return idSpecifier10 = null;
 
         JHamlParser.classSpecifier_return classSpecifier11 = null;
@@ -420,17 +421,17 @@ import org.antlr.runtime.tree.*;
 
 
         CommonTree PERCENT8_tree=null;
-        CommonTree ID9_tree=null;
+        CommonTree ELEMENT_TYPE9_tree=null;
 
         try {
-            // ../etc/JHaml.g:59:1: ( PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? )
+            // ../etc/JHaml.g:59:1: ( PERCENT ( ELEMENT_TYPE )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )? | ( idSpecifier | classSpecifier )+ ( attributeHash )? ( selfClose )? ( inLineContent )? )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
             if ( (LA13_0==PERCENT) ) {
                 alt13=1;
             }
-            else if ( ((LA13_0>=DOT && LA13_0<=POUND)) ) {
+            else if ( (LA13_0==DOT||LA13_0==POUND) ) {
                 alt13=2;
             }
             else {
@@ -442,7 +443,7 @@ import org.antlr.runtime.tree.*;
             }
             switch (alt13) {
                 case 1 :
-                    // ../etc/JHaml.g:60:3: PERCENT ( ID )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )?
+                    // ../etc/JHaml.g:60:3: PERCENT ( ELEMENT_TYPE )? ( idSpecifier | classSpecifier )* ( attributeHash )? ( selfClose )? ( inLineContent )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -451,21 +452,21 @@ import org.antlr.runtime.tree.*;
                     PERCENT8_tree = (CommonTree)adaptor.create(PERCENT8);
                     adaptor.addChild(root_0, PERCENT8_tree);
                     }
-                    // ../etc/JHaml.g:60:11: ( ID )?
+                    // ../etc/JHaml.g:60:11: ( ELEMENT_TYPE )?
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
-                    if ( (LA4_0==ID) ) {
+                    if ( (LA4_0==ELEMENT_TYPE) ) {
                         alt4=1;
                     }
                     switch (alt4) {
                         case 1 :
-                            // ../etc/JHaml.g:60:11: ID
+                            // ../etc/JHaml.g:60:11: ELEMENT_TYPE
                             {
-                            ID9=(Token)match(input,ID,FOLLOW_ID_in_element145); if (state.failed) return retval;
+                            ELEMENT_TYPE9=(Token)match(input,ELEMENT_TYPE,FOLLOW_ELEMENT_TYPE_in_element145); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
-                            ID9_tree = (CommonTree)adaptor.create(ID9);
-                            adaptor.addChild(root_0, ID9_tree);
+                            ELEMENT_TYPE9_tree = (CommonTree)adaptor.create(ELEMENT_TYPE9);
+                            adaptor.addChild(root_0, ELEMENT_TYPE9_tree);
                             }
 
                             }
@@ -473,7 +474,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JHaml.g:60:15: ( idSpecifier | classSpecifier )*
+                    // ../etc/JHaml.g:60:25: ( idSpecifier | classSpecifier )*
                     loop5:
                     do {
                         int alt5=3;
@@ -489,7 +490,7 @@ import org.antlr.runtime.tree.*;
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../etc/JHaml.g:60:16: idSpecifier
+                    	    // ../etc/JHaml.g:60:26: idSpecifier
                     	    {
                     	    pushFollow(FOLLOW_idSpecifier_in_element149);
                     	    idSpecifier10=idSpecifier();
@@ -501,7 +502,7 @@ import org.antlr.runtime.tree.*;
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../etc/JHaml.g:60:30: classSpecifier
+                    	    // ../etc/JHaml.g:60:40: classSpecifier
                     	    {
                     	    pushFollow(FOLLOW_classSpecifier_in_element153);
                     	    classSpecifier11=classSpecifier();
@@ -518,7 +519,7 @@ import org.antlr.runtime.tree.*;
                         }
                     } while (true);
 
-                    // ../etc/JHaml.g:60:47: ( attributeHash )?
+                    // ../etc/JHaml.g:60:57: ( attributeHash )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -527,7 +528,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../etc/JHaml.g:60:47: attributeHash
+                            // ../etc/JHaml.g:60:57: attributeHash
                             {
                             pushFollow(FOLLOW_attributeHash_in_element157);
                             attributeHash12=attributeHash();
@@ -541,7 +542,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JHaml.g:60:62: ( selfClose )?
+                    // ../etc/JHaml.g:60:72: ( selfClose )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -550,7 +551,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt7) {
                         case 1 :
-                            // ../etc/JHaml.g:60:62: selfClose
+                            // ../etc/JHaml.g:60:72: selfClose
                             {
                             pushFollow(FOLLOW_selfClose_in_element160);
                             selfClose13=selfClose();
@@ -564,7 +565,7 @@ import org.antlr.runtime.tree.*;
 
                     }
 
-                    // ../etc/JHaml.g:60:73: ( inLineContent )?
+                    // ../etc/JHaml.g:60:83: ( inLineContent )?
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
@@ -573,7 +574,7 @@ import org.antlr.runtime.tree.*;
                     }
                     switch (alt8) {
                         case 1 :
-                            // ../etc/JHaml.g:60:73: inLineContent
+                            // ../etc/JHaml.g:60:83: inLineContent
                             {
                             pushFollow(FOLLOW_inLineContent_in_element163);
                             inLineContent14=inLineContent();
@@ -588,7 +589,7 @@ import org.antlr.runtime.tree.*;
                     }
 
                     if ( state.backtracking==0 ) {
-                      ((line_scope)line_stack.peek()).val.tag = (ID9!=null?ID9.getText():null);
+                      ((line_scope)line_stack.peek()).val.tag = (ELEMENT_TYPE9!=null?ELEMENT_TYPE9.getText():null);
                     }
 
                     }
@@ -1958,21 +1959,21 @@ import org.antlr.runtime.tree.*;
  
 
     public static final BitSet FOLLOW_line_in_jhamlSource77 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NEWLINE_in_jhamlSource80 = new BitSet(new long[]{0x0000000018000270L});
+    public static final BitSet FOLLOW_NEWLINE_in_jhamlSource80 = new BitSet(new long[]{0x0000000028000270L});
     public static final BitSet FOLLOW_EOF_in_jhamlSource84 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_indentation_in_line107 = new BitSet(new long[]{0x0000000018000062L});
+    public static final BitSet FOLLOW_indentation_in_line107 = new BitSet(new long[]{0x0000000028000062L});
     public static final BitSet FOLLOW_element_in_line111 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_plainText_in_line115 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TEXT_in_plainText124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PERCENT_in_element143 = new BitSet(new long[]{0x00000000180005E2L});
-    public static final BitSet FOLLOW_ID_in_element145 = new BitSet(new long[]{0x0000000018000562L});
-    public static final BitSet FOLLOW_idSpecifier_in_element149 = new BitSet(new long[]{0x0000000018000562L});
-    public static final BitSet FOLLOW_classSpecifier_in_element153 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_PERCENT_in_element143 = new BitSet(new long[]{0x00000000280005E2L});
+    public static final BitSet FOLLOW_ELEMENT_TYPE_in_element145 = new BitSet(new long[]{0x0000000028000562L});
+    public static final BitSet FOLLOW_idSpecifier_in_element149 = new BitSet(new long[]{0x0000000028000562L});
+    public static final BitSet FOLLOW_classSpecifier_in_element153 = new BitSet(new long[]{0x0000000028000562L});
     public static final BitSet FOLLOW_attributeHash_in_element157 = new BitSet(new long[]{0x0000000000000122L});
     public static final BitSet FOLLOW_selfClose_in_element160 = new BitSet(new long[]{0x0000000000000022L});
     public static final BitSet FOLLOW_inLineContent_in_element163 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_idSpecifier_in_element177 = new BitSet(new long[]{0x0000000018000562L});
-    public static final BitSet FOLLOW_classSpecifier_in_element181 = new BitSet(new long[]{0x0000000018000562L});
+    public static final BitSet FOLLOW_idSpecifier_in_element177 = new BitSet(new long[]{0x0000000028000562L});
+    public static final BitSet FOLLOW_classSpecifier_in_element181 = new BitSet(new long[]{0x0000000028000562L});
     public static final BitSet FOLLOW_attributeHash_in_element185 = new BitSet(new long[]{0x0000000000000122L});
     public static final BitSet FOLLOW_selfClose_in_element188 = new BitSet(new long[]{0x0000000000000022L});
     public static final BitSet FOLLOW_inLineContent_in_element191 = new BitSet(new long[]{0x0000000000000002L});
@@ -2001,9 +2002,9 @@ import org.antlr.runtime.tree.*;
     public static final BitSet FOLLOW_CHAR_LITERAL_in_literal386 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_literal396 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_FLOATING_POINT_LITERAL_in_literal412 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_idSpecifier422 = new BitSet(new long[]{0x0000000000000082L});
+    public static final BitSet FOLLOW_DOT_in_idSpecifier422 = new BitSet(new long[]{0x0000000010000002L});
     public static final BitSet FOLLOW_ID_in_idSpecifier424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POUND_in_classSpecifier435 = new BitSet(new long[]{0x0000000000000082L});
+    public static final BitSet FOLLOW_POUND_in_classSpecifier435 = new BitSet(new long[]{0x0000000010000002L});
     public static final BitSet FOLLOW_ID_in_classSpecifier437 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TEXT_in_inLineContent447 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_literal_in_synpred1_JHaml295 = new BitSet(new long[]{0x0000000000001800L});
