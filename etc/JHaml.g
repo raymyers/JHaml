@@ -7,11 +7,11 @@ options {
 
 @parser::header {
 package com.cadrlife.jhaml.generated;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import com.cadrlife.jhaml.Helper;
 import com.cadrlife.jhaml.JHamlConfig;
 import com.cadrlife.jhaml.Line;
+import com.cadrlife.jhaml.AttributeValue;
 }
 
 @lexer::header {
@@ -76,25 +76,24 @@ $line::val.attrMap.put($attribute.name, $attribute_value.value);
 
 attribute returns [String name]: 
   n=ATTRIBUTE_NAME {$name = $n.text.substring(1);} |
-  literal {$name = $literal.value;}
+  literal {$name = $literal.value.value;}
 ;
 
-attribute_value returns [String value]:
+attribute_value returns [AttributeValue value]:
   ((literal (COMMA | END_HASH))=> literal  {$value=$literal.value;}) | 
   ex=javaExpression {
-  $value = helper.jspExpression(input.toString($line::node.start,input.LT(-1)), $attribute_value.text);
+  $value = helper.parseJavaAttrValue(input.toString($line::node.start,input.LT(-1)), $attribute_value.text);
   }
 ;
 
 javaExpression: 
   (JAVA_CODE | literal | JAVA_LBRACE | JAVA_RBRACE | JAVA_LPAREN | JAVA_RPAREN | JAVA_COMMA)+;
 
-literal returns [String value]: 
-  lit=STRING_LITERAL {$value = helper.parseStringLiteral($lit.text);} |
-  lit=CHAR_LITERAL {$value = helper.parseCharLiteral($lit.text);} |
-  lit=(HEX_LITERAL|OCTAL_LITERAL|DECIMAL_LITERAL) {$value = helper.parseIntegerLiteral($lit.text);} |
-  lit=FLOATING_POINT_LITERAL {$value = helper.parseFloatLiteral($lit.text);} |
-  lit=(TRUE|FALSE|NULL) {$value = $lit.text;}
+literal returns [AttributeValue value]: 
+  lit=STRING_LITERAL {$value = AttributeValue.quoted(helper.parseStringLiteral($lit.text));} |
+  lit=CHAR_LITERAL {$value = AttributeValue.quoted(helper.parseCharLiteral($lit.text));} |
+  lit=(HEX_LITERAL|OCTAL_LITERAL|DECIMAL_LITERAL) {$value = AttributeValue.literal(helper.parseIntegerLiteral($lit.text));} |
+  lit=FLOATING_POINT_LITERAL {$value = AttributeValue.quoted(helper.parseFloatLiteral($lit.text));}
 ;
 
 idSpecifier: DOT ID? {$line::val.classes.add($ID.text);};
@@ -166,10 +165,6 @@ HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F') ;
 
 fragment
 INTEGER_TYPE_SUFFIX : ('l'|'L') ;
-
-TRUE: { lineMode == EMode.ATTRIBUTE_HASH }?=> 'true';
-FALSE: { lineMode == EMode.ATTRIBUTE_HASH }?=> 'false';
-NULL: { lineMode == EMode.ATTRIBUTE_HASH }?=> 'null';
 
 FLOATING_POINT_LITERAL
     : { lineMode == EMode.ATTRIBUTE_HASH }?=>

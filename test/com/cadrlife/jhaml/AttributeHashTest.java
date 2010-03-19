@@ -16,90 +16,96 @@ public class AttributeHashTest {
 	@Test
 	public void string() {
 		String input = "{:a => \"Hello World\"}";
-		assertEquals("Hello World", readAttrs(input).get("a"));
+		assertAttributeValue(input,"a","Hello World");
+	}
+	
+	@Test
+	public void emptyString() {
+		String input = "{:a => \"\"}";
+		assertAttributeValue(input,"a","");
 	}
 	
 	@Test
 	public void unJavaLikeSingleQuotedString() {
 		String input = "{:a => 'Hello'}";
-		assertEquals("Hello", readAttrs(input).get("a"));
+		assertAttributeValue(input,"a","Hello");
 	}
 	
 	@Test
 	public void character() {
 		String input = "{:a => 'H'}";
-		assertEquals("H", readAttrs(input).get("a"));
+		assertAttributeValue(input,"a","H");
 	}
 	
 	@Test
 	public void stringEscaping() {
 		String input = "{:a => \"\\\"Hello\\\" World\"}";
-		assertEquals("\"Hello\" World", readAttrs(input).get("a"));
+		assertAttributeValue(input,"a","\"Hello\" World");
 	}
 	
 	@Test
 	public void integer() {
 		String input = "{:a => 42}";
-		assertEquals("42", readAttrs(input).get("a"));
+		assertAttributeValue(input,"a","42");
 	}
 	
 	@Test
 	public void octalInteger() {
 		String input = "{:a => 042}";
-		assertEquals("34", readAttrs(input).get("a"));
+		assertAttributeValue(input,"a","34");
 	}
 	
 	@Test
 	public void hexInteger() {
 		String input = "{:a => 0x42}";
-		assertEquals("66", readAttrs(input).get("a"));
+		assertAttributeValue(input,"a","66");
 	}
 	
 	@Test
 	public void hexLong() {
 		String input = "{:a => 0x42l}";
-		assertEquals("66", readAttrs(input).get("a"));
+		assertAttributeValue(input,"a","66");
 	}
 	
 	@Test
 	public void floatingPoint() {
 		String input = "{:a => 42.01, :b => 42.02f, :c => 42.03d}";
-		assertEquals("42.01", readAttrs(input).get("a"));
-		assertEquals("42.02", readAttrs(input).get("b"));
-		assertEquals("42.03", readAttrs(input).get("c"));
+		assertAttributeValue(input,"a","42.01");
+		assertAttributeValue(input,"b","42.02");
+		assertAttributeValue(input,"c","42.03");
 	}
 	
 	@Test
 	public void numbersAsAttributeNames() {
 		String input = "{1 => 42}";
-		assertEquals("42", readAttrs(input).get("1"));
+		assertAttributeValue(input,"1","42");
 	}
 	
 	@Test
 	public void stringsAsAttributeNames() {
 		String input = "{\"1\" => 42 }";
-		assertEquals("42", readAttrs(input).get("1"));
+		assertAttributeValue(input,"1","42");
 	}
 	
 	@Test
 	public void bracesWithinValues() {
 		// Broken in Haml 2.09 -- Ray
-		assertEquals("}{", readAttrs("{\"1\" => \"}{\"}").get("1"));
-		assertEquals("{", readAttrs("{\"1\" => '{'}").get("1"));
+		assertAttributeValue("{\"1\" => \"}{\"}","1","}{");
+		assertAttributeValue("{\"1\" => '{'}", "1", "{");
 	}
 	
 	@Test
 	public void javaExpressionsAsValues() {
 		String input = "{:a => 1+2 , :b => foo(bar(baz.boo))}";
-		assertEquals("<%= 1+2 %>", readAttrs(input).get("a"));
-		assertEquals("<%= foo(bar(baz.boo)) %>", readAttrs(input).get("b"));
+		assertAttributeValue(input, "a", "<%= 1+2 %>");
+		assertAttributeValue(input, "b", "<%= foo(bar(baz.boo)) %>");
 	}
 	
 	@Test
 	public void javaExpressionsWithCommasAsValues() {
 		String input = "{:a => Arrays.asList(1,2,3), :b => 1+2}";
-		assertEquals("<%= Arrays.asList(1,2,3) %>", readAttrs(input).get("a"));
-		assertEquals("<%= 1+2 %>", readAttrs(input).get("b"));
+		assertAttributeValue(input, "a", "<%= Arrays.asList(1,2,3) %>");
+		assertAttributeValue(input, "b", "<%= 1+2 %>");
 	}
 	
 	@Test
@@ -107,13 +113,38 @@ public class AttributeHashTest {
 		// Non. Trivial.
 		String anon = "new Runnable() {\n@Override\npublic void run() {\n throw new RuntimeException();}\n}";
 		String input = "{:a => 1+2 , :b => " + anon + ", :c => 3}";
-		assertEquals("<%= 1+2 %>", readAttrs(input).get("a"));
-		assertEquals("<%= " + anon + " %>", readAttrs(input).get("b"));
-		assertEquals("3", readAttrs(input).get("c"));
+		assertAttributeValue(input, "a", "<%= 1+2 %>");
+		assertAttributeValue(input, "b", "<%= " + anon + " %>");
+		assertAttributeValue(input, "c", "3");
 	}
 	
-	private Map<String, String> readAttrs(String input) {
+	@Test
+	public void nullValues() {
+		String input = "%p{:a => null}";
+		assertEquals("<p></p>", new JHaml().parse(input));
+	}
+	
+	@Test
+	public void booleanAttributes() {
+		assertEquals("<p bar baz='true' foo='bar'></p>", renderWithFormat("html4", "%p{:foo => 'bar', :bar => true, :baz => 'true'}"));
+		assertEquals("<p bar='bar' baz='true' foo='bar'></p>", renderWithFormat("xhtml", "%p{:foo => 'bar', :bar => true, :baz => 'true'}"));
+		assertEquals("<p baz='false' foo='bar'></p>", renderWithFormat("html4", "%p{:foo => 'bar', :bar => false, :baz => 'false'}"));
+		assertEquals("<p baz='false' foo='bar'></p>", renderWithFormat("xhtml", "%p{:foo => 'bar', :bar => false, :baz => 'false'}"));
+	}
+	
+	private String renderWithFormat(String format, String haml) {
+		JHamlConfig config = new JHamlConfig();
+		config.format = format;
+		return new JHaml(config).parse(haml);
+	}
+
+	private void assertAttributeValue(String input, String attr, String value) {
+		assertEquals(value, readAttrs(input).get(attr).value);
+	}
+
+	private Map<String, AttributeValue> readAttrs(String input) {
 		List<Line> lines = new JHamlParserWrapper().parseJhaml("%p" + input + "\n", new JHamlConfig());
+		
 		return lines.get(0).attrMap;
 	}
 }

@@ -29,7 +29,7 @@ public class Helper {
 		errorChecker = new JHamlErrorChecker();
 	}
 
-	public String elem(String tag, String el, Map<String, String> attribMap,
+	public String elem(String tag, String el, Map<String, AttributeValue> attribMap,
 			String content, boolean selfClosing) {
 		content = content == null ? "" : content;
 		errorChecker.checkElementHasLegalTag(tag, el);
@@ -51,15 +51,18 @@ public class Helper {
 //		return result;
 //	}
 
-	public String attribs(Map<String, String> attribMap) {
+	public String attribs(Map<String, AttributeValue> attribMap) {
 		String attrWrapper = this.config.attrWrapper;
 		String quoteEscape = "\"".equals(attrWrapper) ? "&quot;" : "&apos;";
 	    String otherQuoteChar = "\"".equals(attrWrapper) ? "'" : "\"";
 		String result = "";
 		if (null != attribMap) {
-			for (Entry<String, String> e : attribMap.entrySet()) {
+			for (Entry<String, AttributeValue> e : attribMap.entrySet()) {
 				String attr = e.getKey();
-				String value = e.getValue();
+				String value = e.getValue().value;
+				if (e.getValue().isNull() || e.getValue().isFalse()) {
+					continue;
+				}
 				String thisAttrWrapper = attrWrapper;
 				// Should do the same as Haml's Helper.escape_once
 				value = StringEscapeUtils.escapeHtml(StringEscapeUtils.unescapeHtml(value));
@@ -75,8 +78,15 @@ public class Helper {
 		        		thisAttrWrapper = otherQuoteChar;
 		        	}
 		        }
-		        		
-				result += " " + attr + "=" + thisAttrWrapper + value + thisAttrWrapper;
+	        	if (e.getValue().isTrue()) {
+					if (this.config.isXhtml()) {
+						result += " " + attr + "=" + thisAttrWrapper + attr + thisAttrWrapper;
+					} else {
+						result += " " + attr;
+					}
+				} else {
+					result += " " + attr + "=" + thisAttrWrapper + value + thisAttrWrapper;
+				}
 			}
 		}
 		return result;
@@ -296,25 +306,25 @@ public class Helper {
 	}
 
 	public void mergeAttributes(Line line) {
-		Map<String, String> attrMap = line.attrMap;
+		Map<String, AttributeValue> attrMap = line.attrMap;
 		List<String> ids = line.ids;
 		List<String> classes = line.classes;
 		// Classes go first, Ids go last.
-		Map<String, String> attrsFromHash = new LinkedHashMap<String, String>();
+		Map<String, AttributeValue> attrsFromHash = new LinkedHashMap<String, AttributeValue>();
 		attrsFromHash.putAll(attrMap);
 		attrMap.clear();
 		if (attrsFromHash.containsKey("id")) {
-			ids.add(attrsFromHash.get("id"));
+			ids.add(attrsFromHash.get("id").value);
 			attrsFromHash.remove("id");
 		}
 		if (attrsFromHash.containsKey("class")) {
-			classes.add(0, attrsFromHash.get("class"));
+			classes.add(0, attrsFromHash.get("class").value);
 			attrsFromHash.remove("class");
 		}
 		errorChecker.setCurrentLineNumber(line.lineNumber);
 		errorChecker.checkForNullClassesAndIds(classes, ids);
 		if (!classes.isEmpty()) {
-			attrMap.put("class", Joiner.on(" ").join(classes));
+			attrMap.put("class", AttributeValue.quoted(Joiner.on(" ").join(classes)));
 		}
 		attrMap.putAll(attrsFromHash);
 		if (!ids.isEmpty()) {
@@ -322,7 +332,7 @@ public class Helper {
 				ids = ids.subList(ids.size() - 2, ids.size());
 			}
 
-			attrMap.put("id", Joiner.on("_").join(ids));
+			attrMap.put("id", AttributeValue.quoted(Joiner.on("_").join(ids)));
 		}
 	}
 
@@ -332,6 +342,13 @@ public class Helper {
 			string += " ";
 		}
 		return string;
+	}
+
+	public AttributeValue parseJavaAttrValue(String lineText, String code) {
+		if ("null".equals(code.trim()) || "true".equals(code.trim()) || "false".equals(code.trim())) {
+			return AttributeValue.literal(code.trim());
+		}
+		return AttributeValue.quoted(jspExpression(lineText, code));
 	}
 
 }

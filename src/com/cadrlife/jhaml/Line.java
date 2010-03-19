@@ -1,9 +1,9 @@
 package com.cadrlife.jhaml;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Line {
 
@@ -11,7 +11,7 @@ public class Line {
 	public List<String> classes = new ArrayList<String>();
 	public String tag = "";
 	public String inLineContent = "";
-	public Map<String, String> attrMap = new LinkedHashMap<String, String>();
+	public Map<String, AttributeValue> attrMap = new TreeMap<String, AttributeValue>();
 	public String leadingWhitespace = "";
 	public String indentation = "";
 	public List<Line> block = new ArrayList<Line>();
