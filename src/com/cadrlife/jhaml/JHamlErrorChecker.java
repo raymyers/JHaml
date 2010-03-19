@@ -6,6 +6,7 @@ import com.cadrlife.jhaml.util.IndentUtils;
 import com.google.common.base.CharMatcher;
 
 public class JHamlErrorChecker {
+	private static final String INVALID_OUTPUT_FORMAT = "Invalid output format: %s";
 	private static final String INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES = "Indentation can't use both tabs and spaces.";
 	private static final String THE_LINE_WAS_INDENTED_DEEPER_THAN_THE_PREVIOUS_LINE = "The line was indented %d levels deeper than the previous line.";
 	private static final String INCONSISTENT_INDENTATION = "Inconsistent indentation: %s %s used for indentation, but the rest of the document was indented using %s.";
@@ -141,6 +142,11 @@ public class JHamlErrorChecker {
 		boolean isAllSpaces = CharMatcher.is(' ').matchesAllOf(indentation);
 		if (!(isAllTabs || isAllSpaces)) {
 			throwError(getCurrentLineNumber(),INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES);
+		}
+	}
+	public void validateConfig(JHamlConfig config) {
+		if (!JHamlConfig.validFormats.contains(config.format)) {
+			throwError(0,String.format(INVALID_OUTPUT_FORMAT,config.format));
 		}
 	}
 }

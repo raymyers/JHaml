@@ -17,6 +17,7 @@ import com.cadrlife.jhaml.filters.PreserveFilter;
 
 public class JHamlConfig {
 	public static final int OUTPUT_INDENTATION_SIZE = 2;
+	public static final List<String> validFormats = Arrays.asList("xhtml","html4","html5");
 	String format = "xhtml";
 	List<String> autoclose = new ArrayList<String>(Arrays.asList("meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"));
 	List<String> preserve = new ArrayList<String>(Arrays.asList("textarea", "pre"));

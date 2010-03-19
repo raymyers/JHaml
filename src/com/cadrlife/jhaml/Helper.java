@@ -1,6 +1,5 @@
 package com.cadrlife.jhaml;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -308,27 +307,23 @@ public class Helper {
 	}
 
 	public void mergeAttributes(Line line) {
-		Map<String, AttributeValue> attrMap = line.attrMap;
 		List<String> ids = line.ids;
 		List<String> classes = line.classes;
 		// Classes go first, Ids go last.
-		Map<String, AttributeValue> attrsFromHash = new LinkedHashMap<String, AttributeValue>();
-		attrsFromHash.putAll(attrMap);
-		attrMap.clear();
-		if (attrsFromHash.containsKey("id")) {
-			ids.add(attrsFromHash.get("id").value);
-			attrsFromHash.remove("id");
+		Map<String, AttributeValue> attrMap = line.attrMap;
+		if (attrMap.containsKey("id")) {
+			ids.add(attrMap.get("id").value);
+			attrMap.remove("id");
 		}
-		if (attrsFromHash.containsKey("class")) {
-			classes.add(0, attrsFromHash.get("class").value);
-			attrsFromHash.remove("class");
+		if (attrMap.containsKey("class")) {
+			classes.add(0, attrMap.get("class").value);
+			attrMap.remove("class");
 		}
 		errorChecker.setCurrentLineNumber(line.lineNumber);
 		errorChecker.checkForNullClassesAndIds(classes, ids);
 		if (!classes.isEmpty()) {
 			attrMap.put("class", AttributeValue.quoted(Joiner.on(" ").join(classes)));
 		}
-		attrMap.putAll(attrsFromHash);
 		if (!ids.isEmpty()) {
 			if (ids.size() > 2) {
 				ids = ids.subList(ids.size() - 2, ids.size());

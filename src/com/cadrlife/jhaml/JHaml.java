@@ -24,6 +24,7 @@ public class JHaml {
 	}
 	
 	public String parse(String input) {
+		helper.errorChecker.validateConfig(this.config);
 		indentationSize = -1;
 		isIndentWithTabs = false;
 		if (input.trim().isEmpty()) {

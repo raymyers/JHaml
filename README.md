@@ -2,7 +2,7 @@
 
 A Java implementaion of [Haml](http://haml-lang.com/) (XHTML Abstraction Markup Language). Work in progress.
 
-Haml features not currently supported:
+Haml features not currently supported (many of which do not make sense when rendering JSPs):
 
 * Interpolation.
 
@@ -24,7 +24,11 @@ Haml features not currently supported:
 
 * Attribute Methods
 
-* Many more...
+* Object Reference: []
+
+* HTML5 Data Attributes
+
+* 'encoding' option
 
 ## Authors
 

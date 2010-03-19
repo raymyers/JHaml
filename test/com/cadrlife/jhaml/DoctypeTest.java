@@ -7,6 +7,7 @@ import org.junit.Test;
 import com.cadrlife.jhaml.Helper;
 import com.cadrlife.jhaml.JHaml;
 import com.cadrlife.jhaml.JHamlConfig;
+import com.google.common.base.CharMatcher;
 
 public class DoctypeTest {
 	
@@ -27,6 +28,13 @@ public class DoctypeTest {
 		assertEquals(Helper.DOCTYPE_HTML_4_01_FRAMESET, renderWithFormat("html4", "!!! frameset"));
 		assertEquals(Helper.DOCTYPE_HTML_4_01_TRANSITIONAL, renderWithFormat("html4", "!!! transitional"));
 		assertEquals(Helper.DOCTYPE_HTML_4_01_TRANSITIONAL, renderWithFormat("html4", "!!!"));
+	}
+	
+	@Test
+	public void htmlIgnoresXmlPrologDeclaration() {
+		assertEquals("", renderWithFormat("html4", "!!! XML"));
+		// because anything before the doctype triggers quirks mode in IE
+	    assertFalse(CharMatcher.WHITESPACE.matches(renderWithFormat("html4", "!!! xml\n!!!").charAt(0)));
 	}
 	
 	private String render(String haml) {

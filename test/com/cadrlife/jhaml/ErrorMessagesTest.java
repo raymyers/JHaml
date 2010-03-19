@@ -1,14 +1,21 @@
 package com.cadrlife.jhaml;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-import com.cadrlife.jhaml.JHaml;
-import com.cadrlife.jhaml.JHamlParseException;
+import org.junit.Before;
+import org.junit.Test;
+
 import com.google.common.base.CharMatcher;
 
 public class ErrorMessagesTest {
-
+	
+	private JHamlConfig config;
+	
+	@Before
+	public void setup() {
+		config = new JHamlConfig();
+	}
 	@Test
 	public void errorMessages() {
 		assertInputThrows("!!!\n  a", "Illegal nesting: nesting within a header command is illegal.");
@@ -85,7 +92,14 @@ public class ErrorMessagesTest {
 		    "foo\n:ruby\n  1\n  2\n  3\n- raise 'foo'", "foo", 6,
 		    "foo\n:erb\n  1\n  2\n  3\n- raise 'foo'", "foo", 6,
 		    "= raise 'foo'\nfoo\nbar\nbaz\nbang", "foo", 1,*/
-		  }
+	}
+	
+	@Test
+	public void badOutputOption() {
+		config.format = "html1";
+		assertInputThrows("%br", "Invalid output format: html1", 0);
+	}
+	
 	private void assertInputThrows(String input, String message) {
 		assertInputThrows(input, message, lastLineNumber(input));
 	}
@@ -94,7 +108,7 @@ public class ErrorMessagesTest {
 	}
 	private void assertInputThrows(String input, String message, int line) {
 		try {
-			String output = new JHaml().parse(input);
+			String output = new JHaml(config).parse(input);
 			fail("No exception thrown, expected: " + message + "\nOutput:\n" + output);
 		} catch (JHamlParseException e) {
 			assertEquals(message, e.getMessage().replaceFirst("Line \\d+: ", ""));
