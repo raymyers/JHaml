@@ -150,7 +150,6 @@ public class AttributeHashTest {
 
 	private Map<String, AttributeValue> readAttrs(String input) {
 		List<Line> lines = new JHamlParserWrapper().parseJhaml("%p" + input + "\n", new JHamlConfig());
-		
 		return lines.get(0).attrMap;
 	}
 }
