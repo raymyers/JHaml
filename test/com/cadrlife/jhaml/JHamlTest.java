@@ -210,4 +210,9 @@ public class JHamlTest {
 	    assertEquals("<?xml version=\"1.0\" encoding=\"utf-8\" ?>", jhaml.parse("!!! XML"));
 	    this.config.attrWrapper = "'";
 	}
+	
+	@Test
+	public void escapeAtBeginningOfLine() {
+		assertEquals("<title>\n  = @title\n</title>", jhaml.parse("%title\n  \\= @title"));
+	}
 }

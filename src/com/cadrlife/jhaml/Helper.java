@@ -173,6 +173,9 @@ public class Helper {
 		if (text.startsWith(":")) {
 			return filter(text.substring(1));
 		}
+		if (text.startsWith("\\")) {
+			return CharMatcher.is(' ').trimTrailingFrom(text.substring(1));
+		}
 		errorChecker.checkNoNestingWithinContent(line);
 		return CharMatcher.is(' ').trimTrailingFrom(text);
 	}
