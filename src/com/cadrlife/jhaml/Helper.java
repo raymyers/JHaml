@@ -65,7 +65,6 @@ public class Helper {
 				if (!e.getValue().isJspExpression()) {
 					// Should do the same as Haml's Helper.escape_once
 					value = StringEscapeUtils.escapeHtml(StringEscapeUtils.unescapeHtml(value));
-					System.err.println(value);
 					// Helpers.preserve
 					value = value.replaceAll("\n", "&#x000A;");
 					// We want to decide whether or not to escape quotes
@@ -211,8 +210,8 @@ public class Helper {
 			type = version;
 			version = "";
 		}
-		System.err.println("<" + version + ">");
-		System.err.println("<" + type + ">");
+//		System.err.println("<" + version + ">");
+//		System.err.println("<" + type + ">");
 		// version, type = text.scan(DOCTYPE_REGEX )[0]
 		if (config.isXhtml()) {
 			if ("1.1".equals(version)) {

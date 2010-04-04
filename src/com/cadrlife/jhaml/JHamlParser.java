@@ -55,22 +55,78 @@ public class JHamlParser {
 			if (!hasElementTypeSpecifier) {
 				line.tag = "div";
 			}
-			attributeHash(line);
+			attributeHashes(line);
 			return true;
 		}
 		return false;
 	}
+	private void attributeHashes(Line line) {
+		boolean foundAttributeHash = attributeHash(line);
+		htmlStyleAttributeHash(line);
+		if (!foundAttributeHash) {
+			attributeHash(line);
+		}
+	}
 	
+	private boolean htmlStyleAttributeHash(Line line) {
+		CharMatcher CLOSE_PAREN = CharMatcher.is(')');
+		if (reader.isNextChar('(')) {
+			reader.skip(1);
+			ignoreWhitespaceIncludingNewline();
+			htmlStyleAttributeMapping(line, CharMatcher.WHITESPACE, CLOSE_PAREN);
+			ignoreWhitespaceIncludingNewline();
+			while (!reader.isNextChar(')') && !reader.eof()) {
+				htmlStyleAttributeMapping(line, CharMatcher.WHITESPACE, CLOSE_PAREN);
+				ignoreWhitespaceIncludingNewline();
+			}
+			if (reader.isNextChar(')')) {
+				reader.skip(1);
+				return true;
+			}
+			fail();
+		}
+	 	return false;
+	}
+	private boolean htmlStyleAttributeMapping(Line line, CharMatcher separator, CharMatcher endOfAttributes) {
+		String attr = ""; 
+		attr = reader.consumeMatching(ATTRIBUTE_MATCHER);
+		if (attr.isEmpty()) {
+			return false;
+		}
+//		if (reader.isNextChar(':')) {
+//		} else if (reader.isNextCharOneOf("0123456789")) {
+//			attr = numberLiteral();
+//		} else if (reader.isNextCharOneOf("'\"")) {
+//			attr = helper.parseStringLiteral(stringLiteral());
+//		} else {
+//			return false;
+//		}
+		ignoreWhitespaceIncludingNewline();
+		if (reader.isNextChar('=')) {
+			reader.skip(1);
+			ignoreWhitespaceIncludingNewline();
+			line.attrMap.put(attr, attributeValue(separator.or(endOfAttributes)));
+			return true;
+		} else {
+			line.attrMap.put(attr, AttributeValue.literal("true"));
+			return true;
+		}
+//		fail();
+//		return false;
+		
+	}
 	private boolean attributeHash(Line line) {
+		CharMatcher COMMA = CharMatcher.is(',');
+		CharMatcher CLOSE_BRACE = CharMatcher.is('}');
 		if (reader.isNextChar('{')) {
 			reader.skip(1);
 			ignoreWhitespaceIncludingNewline();
-			attributeMapping(line);
+			attributeMapping(line, COMMA, CLOSE_BRACE);
 			ignoreWhitespaceIncludingNewline();
-			while (reader.isNextChar(',')) {
+			while (reader.nextCharMatches(COMMA)) {
 				reader.skip(1);
 				ignoreWhitespaceIncludingNewline();
-				attributeMapping(line);
+				attributeMapping(line, COMMA, CLOSE_BRACE);
 				ignoreWhitespaceIncludingNewline();
 			}
 			if (reader.isNextChar('}')) {
@@ -84,11 +140,14 @@ public class JHamlParser {
 	private void fail() {
 		throw new RuntimeException();	
 	}
-	private boolean attributeMapping(Line line) {
+	private boolean attributeMapping(Line line, CharMatcher separator, CharMatcher endOfAttributes) {
 		String attr = ""; 
 		if (reader.isNextChar(':')) {
 			reader.skip(1);
 			attr = reader.consumeMatching(ATTRIBUTE_MATCHER);
+			if (attr.isEmpty()) {
+				return false;
+			}
 		} else if (reader.isNextCharOneOf("0123456789")) {
 			attr = numberLiteral();
 		} else if (reader.isNextCharOneOf("'\"")) {
@@ -100,15 +159,15 @@ public class JHamlParser {
 		if (reader.isNextInput("=>")) {
 			reader.skip(2);
 			ignoreWhitespaceIncludingNewline();
-			line.attrMap.put(attr, attributeValue());
+			line.attrMap.put(attr, attributeValue(separator.or(endOfAttributes)));
 			return true;
 		}
 		fail();
 		return false;
 	}
 	
-	private AttributeValue attributeValue() {
-		String exp = expression().trim();
+	private AttributeValue attributeValue(CharMatcher separator) {
+		String exp = expression(separator).trim();
 		if (exp.startsWith("'") || exp.startsWith("\"")) {
 			return AttributeValue.quoted(helper.parseStringLiteral(exp));
 		} else {
@@ -131,13 +190,13 @@ public class JHamlParser {
 //		return null;
 	}
 	
-	private String expression() {
+	private String expression(CharMatcher delim) {
 		int parenDepth = 0;
 		int braceDepth = 0;
 		int bracketDepth = 0;
 		String exp = "";
 		while (!reader.eof()) {
-			if (parenDepth < 1 && braceDepth <1 && braceDepth <1 && bracketDepth <1 && reader.isNextCharOneOf(",}")) {
+			if (parenDepth < 1 && braceDepth <1 && braceDepth <1 && bracketDepth <1 && reader.nextCharMatches(delim)) {
 				break;
 			}
 			if (reader.isNextCharOneOf("'\"")) {

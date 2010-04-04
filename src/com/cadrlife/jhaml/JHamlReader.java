@@ -119,4 +119,8 @@ public class JHamlReader {
 		this.writer = appendable == null ? NullWriter.NULL_WRITER : appendable;
 	}
 
+	public boolean nextCharMatches(CharMatcher matcher) {
+		return matcher.matches((char)peek());
+	}
+
 }
