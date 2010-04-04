@@ -1,5 +1,6 @@
 package com.cadrlife.jhaml;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -47,5 +48,29 @@ public class Line {
 	}
 	public boolean canHaveNesting() {
 		return this.isElement || this.isFilter() || this.isComment() || this.isStatement();
+	}
+	
+	// TODO: Return the same instance each time.
+	public Appendable textWriter() {
+		return new Appendable() {
+
+			public Appendable append(CharSequence csq) throws IOException {
+				text += csq;
+				return this;
+			}
+
+			public Appendable append(char c) throws IOException {
+				text += c;
+				return this;
+			}
+
+			public Appendable append(CharSequence csq, int start, int end)
+					throws IOException {
+				text += csq.subSequence(start, end);
+				return this;
+			}
+
+			
+		};
 	}
 }

@@ -19,6 +19,11 @@ public class JHamlTest {
 	}
 
 	@Test
+	public void text() {
+		assertEquals("Hello\nWorld", jhaml.parse("Hello\nWorld").trim());
+	}
+	
+	@Test
 	public void element() {
 		assertEquals("<div class='atlantis'></div>", jhaml
 				.parse("%div.atlantis").trim());
@@ -155,9 +160,9 @@ public class JHamlTest {
 	
 	@Test
 	public void preserveTags() {
-//		for (String elem : new JHamlConfig().autoclose) {
-//			assertEquals("<" + elem + " />", jhaml.parse("%" + elem + ""));
-//		}
+		for (String elem : new JHamlConfig().autoclose) {
+			assertEquals("<" + elem + " />", jhaml.parse("%" + elem + ""));
+		}
 	}
 
 	@Test

@@ -7,7 +7,7 @@ import com.google.common.base.CharMatcher;
 
 public class JHamlErrorChecker {
 	private static final String INVALID_OUTPUT_FORMAT = "Invalid output format: %s";
-	private static final String INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES = "Indentation can't use both tabs and spaces.";
+	private static final String INDENTATION_CANT_USE_BOTH_TABS_AND_SPACES = "Indentation can't use both tabs and spaces.";
 	private static final String THE_LINE_WAS_INDENTED_DEEPER_THAN_THE_PREVIOUS_LINE = "The line was indented %d levels deeper than the previous line.";
 	private static final String INCONSISTENT_INDENTATION = "Inconsistent indentation: %s %s used for indentation, but the rest of the document was indented using %s.";
 	private static final String INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL = "Indenting at the beginning of the document is illegal.";
@@ -40,10 +40,10 @@ public class JHamlErrorChecker {
 	}
 	public void checkForNullClassesAndIds(List<String> classes,
 			List<String> ids) {
-		if (classes.contains(null)) {
+		if (classes.contains(null) || classes.contains("")) {
 			throwError(getCurrentLineNumber(), ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
 		}
-		if (ids.contains(null)) {
+		if (ids.contains(null) || classes.contains("")) {
 			throwError(getCurrentLineNumber(), ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES);
 		}
 		
@@ -68,9 +68,9 @@ public class JHamlErrorChecker {
 		}
 	}
 	
-	public void checkElementHasLegalTag(String tag, String el) {
-		if (null == el) {
-			throwError(String.format(INVALID_TAG,tag.trim()));
+	public void checkElementHasLegalTag(Line line) {
+		if (line.tag == null || line.tag.isEmpty()) {
+			throwError(String.format(INVALID_TAG,line.text.trim()));
 		}
 	}
 	public void checkJavaCodeIsNotEmpty(String lineText, String operation, String code) {
@@ -105,16 +105,14 @@ public class JHamlErrorChecker {
 	private int getCurrentLineNumber() {
 		return this.lineNumber;
 	}
-	public void checkDocumentDoesNotBeginWithIndentation(String input) {
-		int lineNumber = 1;
-		for (String line : input.split("\n")) {
-			if (!line.trim().isEmpty()) {
-				if (line.startsWith(" ") || line.startsWith("\t")) {
-					throwError(lineNumber, INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL);
+	public void checkDocumentDoesNotBeginWithIndentation(List<Line> lines) {
+		for (Line line : lines) {
+			if (!line.text.trim().isEmpty()) {
+				if (line.text.startsWith(" ") || line.text.startsWith("\t")) {
+					throwError(line.lineNumber, INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL);
 				}
 				return;
 			}
-			lineNumber++;
 		}
 	}
 	public void checkIndentationIsConsistent(int indentationSize,
@@ -141,7 +139,7 @@ public class JHamlErrorChecker {
 		boolean isAllTabs = CharMatcher.is('\t').matchesAllOf(indentation);
 		boolean isAllSpaces = CharMatcher.is(' ').matchesAllOf(indentation);
 		if (!(isAllTabs || isAllSpaces)) {
-			throwError(getCurrentLineNumber(),INDENTATION_CAN_T_USE_BOTH_TABS_AND_SPACES);
+			throwError(getCurrentLineNumber(),INDENTATION_CANT_USE_BOTH_TABS_AND_SPACES);
 		}
 	}
 	public void validateConfig(JHamlConfig config) {

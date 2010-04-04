@@ -28,16 +28,15 @@ public class Helper {
 		errorChecker = new JHamlErrorChecker();
 	}
 
-	public String elem(String tag, String el, Map<String, AttributeValue> attribMap,
-			String content, boolean selfClosing) {
+	public String elem(Line line, String content, boolean selfClosing) {
 		content = content == null ? "" : content;
-		errorChecker.checkElementHasLegalTag(tag, el);
-		boolean autoClose = config.autoclose.contains(el) && content.isEmpty();
+		errorChecker.checkElementHasLegalTag(line);
+		boolean autoClose = config.autoclose.contains(line.tag) && content.isEmpty();
 		if (selfClosing || autoClose) {
-			errorChecker.checkContentOfSelfClosingTags(tag, content);
-			return "<" + el + attribs(attribMap) + " />";
+			errorChecker.checkContentOfSelfClosingTags(line.text, content);
+			return "<" + line.tag + attribs(line.attrMap) + " />";
 		}
-		return "<" + el + attribs(attribMap) + ">" + content + "</" + el + ">";
+		return "<" + line.tag + attribs(line.attrMap) + ">" + content + "</" + line.tag + ">";
 	}
 
 //	public String attribs(String... s) {
@@ -125,12 +124,12 @@ public class Helper {
 		return parseStringLiteral(lit);
 	}
 
-	public String parseLongLiteral(String lit) {
-		return parseIntegerLiteral(lit.substring(0, lit.length() - 1));
-	}
-
 	public String parseDoubleLiteral(String lit) {
 		return Double.toString(Double.parseDouble(lit));
+	}
+	
+	public String parseNumberLiteral(String lit) {
+		return lit.contains(".") ? parseDoubleLiteral(lit) : parseIntegerLiteral(lit);
 	}
 
 	public String jspExpression(String lineText, String code) {
@@ -350,5 +349,6 @@ public class Helper {
 		}
 		return AttributeValue.literal(jspExpression(lineText, code));
 	}
+
 
 }

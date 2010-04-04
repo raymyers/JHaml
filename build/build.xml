@@ -2,10 +2,7 @@
 <project name="JHaml" default="dist">
 	<property file="build.properties" />
 	<property environment="env" />
-	<path id="ANTLR.classpath">
-		<pathelement location="${libdir}/antlr-3.2.jar" />
-	</path>
-
+	
 	<target name="init">
 		<!-- Create the time stamp -->
 		<tstamp />
@@ -13,7 +10,7 @@
 		<mkdir dir="${builddir}" />
 	</target>
 
-	<target name="compile" depends="init,antlr-jhaml" description="compile the source ">
+	<target name="compile" depends="init" description="compile the source ">
 		<!-- Compile the java code from ${srcdir} into ${builddir} -->
 		<javac srcdir="${srcdir}" destdir="${builddir}">
 
@@ -39,38 +36,4 @@
 		<delete dir="${distdir}" />
 	</target>
 
-	<target name="antlr" depends="antlr-jhaml" description="Generate Java parser files from the ANTLR grammars">
-	</target>
-
-	<target name="antlr-jhaml" depends="prepare-antlr" unless="jhamlGrammarProcessed" description="Generate Java lexer file from the ANTLR lexer grammar">
-		<!-- does not work, unfortunately
-                <antlr:antlr3 xmlns:antlr="antlib:org/apache/tools/ant/antlr"
-                              target="${srcdir}/ANTLR/${grammar.name}.g"
-                              outputdirectory="${srcdir}/${parse.package}"
-                              libdirectory="/home/hendrik/Java/antlr-3.1.1/lib"
-                              multithreaded="true" />
-                -->
-		<java classname="org.antlr.Tool" classpathref="ANTLR.classpath" fork="true">
-			<arg line="${tool.options} ${antlrdir}/${jhaml.grammar.name}.g" />
-		</java>
-		<move todir="${antlrdir}">
-			<fileset dir="" includes="*.java" />
-			<fileset dir="" includes="*.tokens" />
-		</move>
-		<!-- Add suppress warnings to parsers. -->
-		<replaceregexp file="${antlrdir}/${jhaml.grammar.name}Lexer.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" />
-		<replaceregexp file="${antlrdir}/${jhaml.grammar.name}Parser.java" match="^public class" replace="@SuppressWarnings(&quot;all&quot;) public class" flags="m" />
-		<!-- Move generated Java code to the correct package directory. -->
-		<move todir="${srcdir}/${jhaml.parse.package}">
-			<fileset dir="${antlrdir}" includes="*.java" />
-		</move>
-		<move todir="${srcdir}/${jhaml.parse.package}">
-			<fileset dir="${antlrdir}" includes="*.tokens" />
-		</move>
-	</target>
-	<target name="prepare-antlr">
-		<uptodate property="jhamlGrammarProcessed" srcfile="${antlrdir}/${jhaml.grammar.name}.g">
-			<mapper type="merge" to="${srcdir}/${jhaml.parse.package}/${jhaml.grammar.name}Parser.java" />
-		</uptodate>
-	</target>
 </project>

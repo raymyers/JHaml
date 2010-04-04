@@ -33,6 +33,7 @@ public class JHaml {
 		input = sanitizeInput(input);
 		try {
 			List<Line> lines = jhamlParserWrapper.parseJhaml(input,config);
+			helper.errorChecker.checkDocumentDoesNotBeginWithIndentation(lines);
 			List<Line> lineTree = processNesting(lines);
 			return renderLines(lineTree).replaceAll("\n\n+", "\n").trim();
 		} catch (RuntimeException e) {
@@ -107,7 +108,7 @@ public class JHaml {
 			helper.mergeAttributes(line);
 			String parsedContent = helper.parseFreeFormText(line, "", content);
 			parsedContent = parsedContent.replaceAll("\\n+\\s*\\z", "\n");
-			String element = helper.elem(line.text, line.tag, line.attrMap, parsedContent, line.isSelfClosing);
+			String element = helper.elem(line, parsedContent, line.isSelfClosing);
 			return element;
 		}
 		if (line.isStatement() || line.isComment()) {
