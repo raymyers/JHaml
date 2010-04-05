@@ -28,6 +28,10 @@ Haml features not currently supported (some of which do not make sense when rend
 
 * 'encoding' option
 
+## Using
+
+    String html = new JHaml().parse("some haml");
+
 ## Authors
 
 JHaml was created by [Ray Myers](http://cadrlife.com), with very special thanks to the implementers of the 
