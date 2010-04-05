@@ -7,12 +7,6 @@ import com.google.common.base.CharMatcher;
 import com.google.common.collect.ImmutableSet;
 
 public class JHamlParser {
-	private static final CharMatcher ELEMENT_TYPE_MATCHER = CharMatcher.JAVA_LETTER_OR_DIGIT.or(CharMatcher.is(':'));
-	private static final CharMatcher CLASS_MATCHER = CharMatcher.JAVA_LETTER_OR_DIGIT.or(CharMatcher.is(':'));
-	private static final CharMatcher INDENTATION_MATCHER = CharMatcher.anyOf(" \t");
-	private static final CharMatcher ID_MATCHER = CLASS_MATCHER;
-	private static final CharMatcher ATTRIBUTE_MATCHER = ID_MATCHER;
-
 	private final JHamlReader reader;
 	private Helper helper;
 	public JHamlParser(JHamlReader reader) {
@@ -32,7 +26,7 @@ public class JHamlParser {
 		line.lineNumber = reader.getLineNumber()+1;
 		lines.add(line);
 		reader.setObserver(line.textWriter());
-		line.leadingWhitespace = reader.consumeMatching(INDENTATION_MATCHER);
+		line.leadingWhitespace = reader.consumeMatching(CharMatchers.INDENTATION_CHAR);
 		if (elementDeclaration(line)) {
 			line.isElement = true;
 			if (reader.isNextChar('/')) {
@@ -89,18 +83,12 @@ public class JHamlParser {
 	}
 	private boolean htmlStyleAttributeMapping(Line line, CharMatcher separator, CharMatcher endOfAttributes) {
 		String attr = ""; 
-		attr = reader.consumeMatching(ATTRIBUTE_MATCHER);
+		if (reader.nextCharMatches(CharMatchers.XML_NAME_START_CHAR)) {
+			attr = reader.consumeMatching(CharMatchers.XML_NAME_CHAR);
+		}
 		if (attr.isEmpty()) {
 			return false;
 		}
-//		if (reader.isNextChar(':')) {
-//		} else if (reader.isNextCharOneOf("0123456789")) {
-//			attr = numberLiteral();
-//		} else if (reader.isNextCharOneOf("'\"")) {
-//			attr = helper.parseStringLiteral(stringLiteral());
-//		} else {
-//			return false;
-//		}
 		ignoreWhitespaceIncludingNewline();
 		if (reader.isNextChar('=')) {
 			reader.skip(1);
@@ -144,7 +132,7 @@ public class JHamlParser {
 		String attr = ""; 
 		if (reader.isNextChar(':')) {
 			reader.skip(1);
-			attr = reader.consumeMatching(ATTRIBUTE_MATCHER);
+			attr = reader.consumeMatching(CharMatchers.XML_NAME_CHAR);
 			if (attr.isEmpty()) {
 				return false;
 			}
@@ -249,7 +237,7 @@ public class JHamlParser {
 		return null;
 	}
 	private void ignoreWhitespace() {
-		reader.consumeMatching(INDENTATION_MATCHER);
+		reader.consumeMatching(CharMatchers.INDENTATION_CHAR);
 	}
 	private void ignoreWhitespaceIncludingNewline() {
 		reader.consumeMatching(CharMatcher.WHITESPACE);
@@ -257,7 +245,7 @@ public class JHamlParser {
 	private boolean elementTypeSpecifier(Line line) {
 		if (reader.isNextChar('%')) {
 			reader.skip(1);
-			line.tag = reader.consumeMatching(ELEMENT_TYPE_MATCHER);
+			line.tag = reader.consumeMatching(CharMatchers.XML_NAME_CHAR);
 			return true;
 		}
 		return false;
@@ -265,7 +253,7 @@ public class JHamlParser {
 	private boolean classSpecifier(Line line) {
 		if (reader.isNextChar('.')) {
 			reader.skip(1);
-			line.classes.add(reader.consumeMatching(CLASS_MATCHER));
+			line.classes.add(reader.consumeMatching(CharMatchers.CLASS_CHAR));
 			return true;
 		}
 		return false;
@@ -273,7 +261,7 @@ public class JHamlParser {
 	private boolean idSpecifier(Line line) {
 		if (reader.isNextChar('#')) {
 			reader.skip(1);
-			line.ids.add(reader.consumeMatching(ID_MATCHER));
+			line.ids.add(reader.consumeMatching(CharMatchers.ID_CHAR));
 			return true;
 		}
 		return false;
