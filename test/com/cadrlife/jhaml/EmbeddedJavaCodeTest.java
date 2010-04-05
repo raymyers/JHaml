@@ -12,7 +12,7 @@ public class EmbeddedJavaCodeTest {
 	@Test
     public void jspScriptlet() {
  	   assertEquals("<% foo(bar); %>", jhaml.parse("- foo(bar);"));
- 	   assertEquals("<p><% foo(bar); %></p>", jhaml.parse("%p- foo(bar);"));
+ 	   assertEquals("<p>\n  <% foo(bar); %>\n</p>", jhaml.parse("%p\n - foo(bar);"));
     }
     
     @Test

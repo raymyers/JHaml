@@ -6,7 +6,7 @@ public class CharMatchers {
 	// http://www.w3.org/TR/xml11/#sec-common-syn
 	// Differs from the XML spec:
 	//   Allows names to begin with digits.
-	//   Does not allow periods or hyphens.
+	//   Does not allow periods.
 	
 	public static final CharMatcher XML_NAME_START_CHAR = 
 		CharMatcher.JAVA_LETTER_OR_DIGIT
@@ -25,6 +25,7 @@ public class CharMatchers {
 	
 	public static final CharMatcher XML_NAME_CHAR = 
 		XML_NAME_START_CHAR
+		.or(CharMatcher.is('-'))
 		.or(CharMatcher.is('\u00b7'))
 		.or(CharMatcher.inRange('\u0300','\u036f'))
 		.or(CharMatcher.inRange('\u203f','\u2040'));
