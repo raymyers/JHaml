@@ -1,7 +1,12 @@
 package com.cadrlife.jhaml;
 
+import java.io.LineNumberReader;
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -12,8 +17,13 @@ public class JHamlParser {
 	private final JHamlReader reader;
 	private Helper helper;
 	public JHamlParser(JHamlReader reader) {
-		helper = new Helper(new JHamlConfig());
+		// TODO the Helper methods called from this class do not require a config.
+		// Perhaps Helper should become 2 classes: one that takes a config and one that does not.
+		helper = new Helper(null);
 		this.reader = reader;
+	}
+	public JHamlParser(Reader in) {
+		this(new JHamlReader(new LineNumberReader(in)));
 	}
 	public List<Line> jHamlSource() {
 		ArrayList<Line> lines = new ArrayList<Line>();
@@ -51,28 +61,28 @@ public class JHamlParser {
 			if (!hasElementTypeSpecifier) {
 				line.tag = "div";
 			}
-			attributeHashes(line);
+			attributeHashes(line.attrMap);
 			return true;
 		}
 		return false;
 	}
-	private void attributeHashes(Line line) {
-		boolean foundAttributeHash = attributeHash(line);
-		htmlStyleAttributeHash(line);
+	private void attributeHashes(Map<String, AttributeValue> attrMap) {
+		boolean foundAttributeHash = attributeHash(attrMap);
+		htmlStyleAttributeHash(attrMap);
 		if (!foundAttributeHash) {
-			attributeHash(line);
+			attributeHash(attrMap);
 		}
 	}
 	
-	private boolean htmlStyleAttributeHash(Line line) {
+	private boolean htmlStyleAttributeHash(Map<String, AttributeValue> attrMap) {
 		CharMatcher CLOSE_PAREN = CharMatcher.is(')');
 		if (reader.isNextChar('(')) {
 			reader.skip(1);
 			ignoreWhitespaceIncludingNewline();
-			htmlStyleAttributeMapping(line, CharMatcher.WHITESPACE, CLOSE_PAREN);
+			htmlStyleAttributeMapping(attrMap, CharMatcher.WHITESPACE, CLOSE_PAREN);
 			ignoreWhitespaceIncludingNewline();
 			while (!reader.isNextChar(')') && !reader.eof()) {
-				htmlStyleAttributeMapping(line, CharMatcher.WHITESPACE, CLOSE_PAREN);
+				htmlStyleAttributeMapping(attrMap, CharMatcher.WHITESPACE, CLOSE_PAREN);
 				ignoreWhitespaceIncludingNewline();
 			}
 			if (reader.isNextChar(')')) {
@@ -83,7 +93,7 @@ public class JHamlParser {
 		}
 	 	return false;
 	}
-	private boolean htmlStyleAttributeMapping(Line line, CharMatcher separator, CharMatcher endOfAttributes) {
+	private boolean htmlStyleAttributeMapping(Map<String, AttributeValue> attrMap, CharMatcher separator, CharMatcher endOfAttributes) {
 		String attr = ""; 
 		if (reader.nextCharMatches(CharMatchers.XML_NAME_START_CHAR)) {
 			attr = reader.consumeMatching(CharMatchers.XML_NAME_CHAR);
@@ -95,28 +105,28 @@ public class JHamlParser {
 		if (reader.isNextChar('=')) {
 			reader.skip(1);
 			ignoreWhitespaceIncludingNewline();
-			line.attrMap.put(attr, attributeValue(separator.or(endOfAttributes)));
+			attrMap.put(attr, attributeValue(separator.or(endOfAttributes)));
 			return true;
 		} else {
-			line.attrMap.put(attr, AttributeValue.literal("true"));
+			attrMap.put(attr, AttributeValue.literal("true"));
 			return true;
 		}
 //		fail();
 //		return false;
 		
 	}
-	private boolean attributeHash(Line line) {
+	private boolean attributeHash(Map<String, AttributeValue> attrMap) {
 		CharMatcher COMMA = CharMatcher.is(',');
 		CharMatcher CLOSE_BRACE = CharMatcher.is('}');
 		if (reader.isNextChar('{')) {
 			reader.skip(1);
 			ignoreWhitespaceIncludingNewline();
-			attributeMapping(line, COMMA, CLOSE_BRACE);
+			attributeMapping(attrMap, COMMA, CLOSE_BRACE);
 			ignoreWhitespaceIncludingNewline();
 			while (reader.nextCharMatches(COMMA)) {
 				reader.skip(1);
 				ignoreWhitespaceIncludingNewline();
-				attributeMapping(line, COMMA, CLOSE_BRACE);
+				attributeMapping(attrMap, COMMA, CLOSE_BRACE);
 				ignoreWhitespaceIncludingNewline();
 			}
 			if (reader.isNextChar('}')) {
@@ -130,7 +140,7 @@ public class JHamlParser {
 	private void fail() {
 		throw new RuntimeException();	
 	}
-	private boolean attributeMapping(Line line, CharMatcher separator, CharMatcher endOfAttributes) {
+	private boolean attributeMapping(Map<String, AttributeValue> attrMap, CharMatcher separator, CharMatcher endOfAttributes) {
 		String attr = ""; 
 		if (reader.isNextChar(':')) {
 			reader.skip(1);
@@ -149,13 +159,28 @@ public class JHamlParser {
 		if (reader.isNextInput("=>")) {
 			reader.skip(2);
 			ignoreWhitespaceIncludingNewline();
-			line.attrMap.put(attr, attributeValue(separator.or(endOfAttributes)));
+			if (!html5DataAttributeMap(attr, attrMap)) {
+				attrMap.put(attr, attributeValue(separator.or(endOfAttributes)));
+			}
 			return true;
 		}
 		fail();
 		return false;
 	}
 	
+	private boolean html5DataAttributeMap(String attr, Map<String, AttributeValue> attrMap) {
+		Map<String, AttributeValue> dataAttributes = new HashMap<String, AttributeValue>();
+		if (attr.equals("data") && attributeHash(dataAttributes)) {
+			for (Entry<String, AttributeValue> e : dataAttributes.entrySet()) {
+				String key = attr + "-" + e.getKey();
+				if (!attrMap.containsKey(key)) {
+					attrMap.put(key, e.getValue());
+				}
+			}
+			return true;
+		}
+		return false;
+	}
 	private AttributeValue attributeValue(CharMatcher separator) {
 		String exp = expression(separator).trim();
 		if (exp.startsWith("'") || exp.startsWith("\"")) {

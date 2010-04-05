@@ -1,5 +1,6 @@
 package com.cadrlife.jhaml;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,6 @@ import com.google.common.base.Joiner;
 
 
 public class JHaml {
-	private final JHamlParserWrapper jhamlParserWrapper = new JHamlParserWrapper();
 	private Helper helper;
 	private int indentationSize = -1;
 	private boolean isIndentWithTabs = false;
@@ -34,7 +34,7 @@ public class JHaml {
 		}
 		input = sanitizeInput(input);
 		try {
-			List<Line> lines = jhamlParserWrapper.parseJhaml(input,config);
+			List<Line> lines = new JHamlParser(new StringReader(input)).jHamlSource();
 			helper.errorChecker.checkDocumentDoesNotBeginWithIndentation(lines);
 			List<Line> lineTree = processNesting(lines);
 			return renderLines(lineTree).replaceAll("\n\n+", "\n").trim();

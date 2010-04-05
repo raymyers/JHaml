@@ -2,14 +2,11 @@ package com.cadrlife.jhaml;
 
 import static org.junit.Assert.*;
 
+import java.io.StringReader;
 import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-
-import com.cadrlife.jhaml.JHamlConfig;
-import com.cadrlife.jhaml.JHamlParserWrapper;
-import com.cadrlife.jhaml.Line;
 
 public class AttributeHashTest {
 	
@@ -119,6 +116,27 @@ public class AttributeHashTest {
 	}
 	
 	@Test
+	public void html5DataAttributes() {
+		String input = "{:data => {:author_id => 123, :foo => 'bar', :biz => 'baz'}}";
+		assertAttributeValue(input, "data-author_id", "123");
+		assertAttributeValue(input, "data-foo", "bar");
+		assertAttributeValue(input, "data-biz", "baz");
+	}
+	
+	@Test
+	public void html5DataAttributes_withJavaExpressions() {
+		assertAttributeValue("{:data => {:one_plus_one => 1+1}}", "data-one_plus_one", "<%= 1+1 %>");
+	}
+	
+	@Test
+	public void html5DataAttributes_multipleDefs_useTheMoreExplicitAttribute() {
+		String input1 = "{:data => {:foo => 'first'}, 'data-foo' => 'second'}";
+		assertAttributeValue(input1, "data-foo", "second");
+		String input2 = "{'data-foo' => 'first', :data => {:foo => 'second'}}";
+		assertAttributeValue(input2, "data-foo", "first");
+	}
+	
+	@Test
 	public void doNotEscapeJavaExpressionValues() {
 		String input = "%p{:a => foo(\"'<>&\")}";
 		assertEquals("<p a='<%= foo(\"'<>&\") %>'></p>",new JHaml().parse(input));
@@ -145,11 +163,14 @@ public class AttributeHashTest {
 	}
 
 	private void assertAttributeValue(String input, String attr, String value) {
-		assertEquals(value, readAttrs(input).get(attr).value);
+		Map<String, AttributeValue> attrs = readAttrs(input);
+		assertTrue("attribute " + attr + " not present", attrs.containsKey(attr));
+		assertEquals(value, attrs.get(attr).value);
 	}
 
 	private Map<String, AttributeValue> readAttrs(String input) {
-		List<Line> lines = new JHamlParserWrapper().parseJhaml("%p" + input + "\n", new JHamlConfig());
+		String haml = "%p" + input + "\n";
+		List<Line> lines = new JHamlParser(new StringReader(haml)).jHamlSource();
 		return lines.get(0).attrMap;
 	}
 }

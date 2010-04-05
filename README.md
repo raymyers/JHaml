@@ -24,8 +24,6 @@ Haml features not currently supported (some of which do not make sense when rend
 
 * Object Reference: []
 
-* HTML5 Data Attributes
-
 * 'encoding' option
 
 ## Using
