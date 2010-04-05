@@ -3,6 +3,8 @@ package com.cadrlife.jhaml;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.cadrlife.jhaml.util.IndentUtils;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
@@ -27,7 +29,7 @@ public class JHaml {
 		helper.errorChecker.validateConfig(this.config);
 		indentationSize = -1;
 		isIndentWithTabs = false;
-		if (input.trim().isEmpty()) {
+		if (StringUtils.isBlank(input.trim())) {
 			return "";
 		}
 		input = sanitizeInput(input);
@@ -96,13 +98,13 @@ public class JHaml {
 	private boolean isDeeper(Line previousLine, Line line) {
 		return previousLine.leadingWhitespace.length() < line.leadingWhitespace.length();
 	}
-
+	
 	private String renderLine(Line line) {
 		for (Line nestedLine : line.block) {
 			validateIndentation(line,nestedLine);
 		}
 		String nestedContent = renderLines(line.block);
-		String content = line.inlineContent + (nestedContent.isEmpty() ? "" : "\n" + IndentUtils.indent(nestedContent,JHamlConfig.OUTPUT_INDENTATION_SIZE));
+		String content = line.inlineContent + (StringUtils.isBlank(nestedContent) ? "" : "\n" + IndentUtils.indent(nestedContent,JHamlConfig.OUTPUT_INDENTATION_SIZE));
 		if (line.isElement()) {
 			helper.errorChecker.setCurrentLineNumber(line.lineNumber);
 			helper.mergeAttributes(line);
@@ -139,10 +141,10 @@ public class JHaml {
 		int parentIndent = parentLine.indentation.length();
 		this.helper.errorChecker.setCurrentLineNumber(line.lineNumber);
 		line.indentation = line.leadingWhitespace;
-		if (line.indentation.isEmpty() || line.isBlank()) {
+		if (StringUtils.isEmpty(line.indentation)|| line.isBlank()) {
 			return;
 		}
-		if (indentationSize == -1 && !line.indentation.isEmpty()) {
+		if (indentationSize == -1 && StringUtils.isNotEmpty(line.indentation)) {
 			indentationSize = line.indentation.length();
 			isIndentWithTabs =  CharMatcher.is('\t').matchesAllOf(line.indentation);
 			this.helper.errorChecker.checkInitialIndentation(line.indentation);

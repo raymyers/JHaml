@@ -2,6 +2,8 @@ package com.cadrlife.jhaml;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.cadrlife.jhaml.util.IndentUtils;
 import com.google.common.base.CharMatcher;
 
@@ -69,19 +71,19 @@ public class JHamlErrorChecker {
 	}
 	
 	public void checkElementHasLegalTag(Line line) {
-		if (line.tag == null || line.tag.isEmpty()) {
+		if (StringUtils.isBlank(line.tag)) {
 			throwError(String.format(INVALID_TAG,line.text.trim()));
 		}
 	}
 	public void checkJavaCodeIsNotEmpty(String lineText, String operation, String code) {
-		if (code.trim().isEmpty()) {
+		if (StringUtils.isBlank(code.trim())) {
 			advanceBeyondElementDeclaration(lineText);
 			throwError(String.format(THERE_S_NO_JAVA_CODE_FOR_OPERATION_TO_EVALUATE,operation));
 		}
 	}
 	public void checkContentOfSelfClosingTags(String lineText, String content) {
 		advanceBeyondElementDeclaration(lineText);
-		if (!content.trim().isEmpty()) {
+		if (StringUtils.isNotBlank(content.trim())) {
 			if (content.contains("\n")) {
 				this.lineNumber++;
 				throwError(ILLEGAL_NESTING_NESTING_WITHIN_A_SELF_CLOSING_TAG_IS_ILLEGAL);
@@ -107,7 +109,7 @@ public class JHamlErrorChecker {
 	}
 	public void checkDocumentDoesNotBeginWithIndentation(List<Line> lines) {
 		for (Line line : lines) {
-			if (!line.text.trim().isEmpty()) {
+			if (StringUtils.isNotBlank(line.text)) {
 				if (line.text.startsWith(" ") || line.text.startsWith("\t")) {
 					throwError(line.lineNumber, INDENTING_AT_THE_BEGINNING_OF_THE_DOCUMENT_IS_ILLEGAL);
 				}
@@ -117,7 +119,7 @@ public class JHamlErrorChecker {
 	}
 	public void checkIndentationIsConsistent(int indentationSize,
 			boolean isIndentWithTabs, int currentIndentation, String actualIndentation, String effectiveIndentation) {
-		if (effectiveIndentation.isEmpty()) {
+		if (StringUtils.isEmpty(effectiveIndentation)) {
 			return;
 		}
 		boolean indentationIsInvalidLength = effectiveIndentation.length() % indentationSize != 0;

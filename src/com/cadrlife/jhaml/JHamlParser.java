@@ -3,6 +3,8 @@ package com.cadrlife.jhaml;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.google.common.base.CharMatcher;
 import com.google.common.collect.ImmutableSet;
 
@@ -86,7 +88,7 @@ public class JHamlParser {
 		if (reader.nextCharMatches(CharMatchers.XML_NAME_START_CHAR)) {
 			attr = reader.consumeMatching(CharMatchers.XML_NAME_CHAR);
 		}
-		if (attr.isEmpty()) {
+		if (StringUtils.isBlank(attr)) {
 			return false;
 		}
 		ignoreWhitespaceIncludingNewline();
@@ -133,7 +135,7 @@ public class JHamlParser {
 		if (reader.isNextChar(':')) {
 			reader.skip(1);
 			attr = reader.consumeMatching(CharMatchers.XML_NAME_CHAR);
-			if (attr.isEmpty()) {
+			if (StringUtils.isBlank(attr)) {
 				return false;
 			}
 		} else if (reader.isNextCharOneOf("0123456789")) {

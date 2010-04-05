@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.commons.lang.StringUtils;
+
 public class Line {
 
 	public boolean isElement = false;
@@ -25,7 +27,7 @@ public class Line {
 		return isElement;
 	}
 	public boolean isBlank() {
-		return !isElement() && this.inlineContent.trim().isEmpty();
+		return !isElement() && StringUtils.isBlank(this.inlineContent);
 	}
 	public boolean isComment() {
 		return !isElement() && inlineContent.startsWith("/");
@@ -44,7 +46,7 @@ public class Line {
 		return !isElement() && inlineContent.startsWith("-");
 	}
 	public boolean hasInLineContent() {
-		return !inlineContent.isEmpty();
+		return StringUtils.isNotBlank(inlineContent);
 	}
 	public boolean canHaveNesting() {
 		return this.isElement || this.isFilter() || this.isComment() || this.isStatement();

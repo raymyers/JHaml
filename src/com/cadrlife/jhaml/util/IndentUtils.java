@@ -1,5 +1,7 @@
 package com.cadrlife.jhaml.util;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.google.common.base.CharMatcher;
 
 public class IndentUtils {
@@ -40,7 +42,7 @@ private static final CharMatcher INDENTATION_MATCHER = CharMatcher.anyOf("\t ");
 
 	public static boolean hasContentOnFirstLine(String text) {
 		int endOfFirstLine = text.contains("\n") ? text.indexOf('\n') : text.length();
-		return !text.substring(0, endOfFirstLine).trim().isEmpty();
+		return StringUtils.isNotBlank(text.substring(0, endOfFirstLine));
 	}
 
 	public static String describe(boolean isIndentWithTabs, int indentationSize) {

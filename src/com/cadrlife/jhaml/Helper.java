@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
@@ -29,9 +30,9 @@ public class Helper {
 	}
 
 	public String elem(Line line, String content, boolean selfClosing) {
-		content = content == null ? "" : content;
+//		content = content == null ? "" : content;
 		errorChecker.checkElementHasLegalTag(line);
-		boolean autoClose = config.autoclose.contains(line.tag) && content.isEmpty();
+		boolean autoClose = config.autoclose.contains(line.tag) && StringUtils.isBlank(content);
 		if (selfClosing || autoClose) {
 			errorChecker.checkContentOfSelfClosingTags(line.text, content);
 			return "<" + line.tag + attribs(line.attrMap) + " />";
