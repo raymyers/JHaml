@@ -102,7 +102,7 @@ public class JHaml {
 			validateIndentation(line,nestedLine);
 		}
 		String nestedContent = renderLines(line.block);
-		String content = line.inLineContent + (nestedContent.isEmpty() ? "" : "\n" + IndentUtils.indent(nestedContent,JHamlConfig.OUTPUT_INDENTATION_SIZE));
+		String content = line.inlineContent + (nestedContent.isEmpty() ? "" : "\n" + IndentUtils.indent(nestedContent,JHamlConfig.OUTPUT_INDENTATION_SIZE));
 		if (line.isElement()) {
 			helper.errorChecker.setCurrentLineNumber(line.lineNumber);
 			helper.mergeAttributes(line);
@@ -113,9 +113,9 @@ public class JHaml {
 		}
 		if (line.isStatement() || line.isComment()) {
 			if (line.hasNestedContent()) {
-				return helper.parseFreeFormText(line, "",line.inLineContent + "\n" + IndentUtils.indent(renderLines(line.block),JHamlConfig.OUTPUT_INDENTATION_SIZE));
+				return helper.parseFreeFormText(line, "",line.inlineContent + "\n" + IndentUtils.indent(renderLines(line.block),JHamlConfig.OUTPUT_INDENTATION_SIZE));
 			}
-			return helper.parseFreeFormText(line, "",line.inLineContent);
+			return helper.parseFreeFormText(line, "",line.inlineContent);
 		}
 		
 		String textBlock = textBlock(line);
@@ -150,7 +150,7 @@ public class JHaml {
 		int nextLevel = parentIndent + indentationSize;
 		if (parentLine.isFilter() && line.indentation.length() > nextLevel) {
 			line.indentation = line.indentation.substring(0, nextLevel);
-			line.inLineContent = line.indentation.substring(nextLevel) + line.inLineContent;
+			line.inlineContent = line.indentation.substring(nextLevel) + line.inlineContent;
 		}
 		this.helper.errorChecker.checkIndentationIsConsistent(indentationSize,isIndentWithTabs,parentIndent, line.leadingWhitespace, line.indentation);
 	}

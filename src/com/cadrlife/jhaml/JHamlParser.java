@@ -25,7 +25,7 @@ public class JHamlParser {
 		Line line = new Line();
 		line.lineNumber = reader.getLineNumber()+1;
 		lines.add(line);
-		reader.setObserver(line.textWriter());
+		reader.setObserver(line.getTextWriter());
 		line.leadingWhitespace = reader.consumeMatching(CharMatchers.INDENTATION_CHAR);
 		if (elementDeclaration(line)) {
 			line.isElement = true;
@@ -34,11 +34,11 @@ public class JHamlParser {
 				line.isSelfClosing = true;
 			}
 			ignoreWhitespace();
-			line.inLineContent = reader.readLine();
+			line.inlineContent = reader.readLine();
 			reader.setObserver(null);
 			return true;
 		}
-		line.inLineContent = reader.readLine();
+		line.inlineContent = reader.readLine();
 		reader.setObserver(null);
 		return true;
 	}
