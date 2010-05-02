@@ -221,4 +221,9 @@ public class JHamlTest {
 		assertEquals("<title>\n  = @title\n</title>", jhaml.parse("%title\n  \\= @title"));
 	}
 	
+	@Test
+	public void whitespaceAtEndIsIgnored() {
+		assertEquals("<div>\n  <p>Hello</p>\n</div>", jhaml.parse("%div\n  %p Hello\n  "));
+	}
+	
 }

@@ -43,11 +43,13 @@ public class JHaml {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-
 	}
 	
 	private String preProcess(String input) {
-		return normalizeWhitespace(normalizeLineBreaks(input));
+		input = normalizeLineBreaks(input);
+		input = normalizeWhitespace(input);
+		input = CharMatcher.WHITESPACE.trimTrailingFrom(input);
+		return input + "\n";
 	}
 
 	private String normalizeWhitespace(String input) {
@@ -56,7 +58,7 @@ public class JHaml {
 		return input.replaceAll("" + nonBreakingSpace, "" + space);
 	}
 	private String normalizeLineBreaks(String input) {
-		return input.replaceAll("\r\n", "\n").replaceAll("\n\r", "\n").replaceAll("\r", "\n") + "\n";
+		return input.replaceAll("\r\n", "\n").replaceAll("\n\r", "\n").replaceAll("\r", "\n");
 	}
 	private String postProcess(String string) {
 		return string.replaceAll("\n\n+", "\n").trim().replaceAll("<%\\s*\\}\\s*%>\\s*<%\\s*else", "<% } else");
