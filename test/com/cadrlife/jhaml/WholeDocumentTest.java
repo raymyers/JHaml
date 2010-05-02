@@ -22,6 +22,15 @@ public class WholeDocumentTest {
 		assertEquals(html, jhaml.parse(haml));
 	}
 	
+	@Test
+	public void threeColumnDocument() throws IOException {
+		String hamlFile = "three-column.haml";
+		String htmlFile = "three-column.html";
+		String haml = read(hamlFile);
+		String html = read(htmlFile).replaceAll("\r\n", "\n");
+		assertEquals(html, jhaml.parse(haml));
+	}
+	
 	private String read(String hamlFile) throws IOException {
 		return Resources.toString(Resources.getResource(this.getClass(), hamlFile), Charset.defaultCharset());
 	}

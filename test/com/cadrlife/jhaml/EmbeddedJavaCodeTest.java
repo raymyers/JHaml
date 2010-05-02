@@ -28,9 +28,27 @@ public class EmbeddedJavaCodeTest {
     }
     
     @Test
+    public void ifStatementWithElse() {
+    	String html = "<% if (1+1==2) { %>\n  <p />\n<% } else { %>\n  <br />\n<% } %>";
+		assertEquals(html, jhaml.parse("- if (1+1==2)\n  %p/\n- else\n  %br/"));
+    }
+    
+    @Test
+    public void ifStatementWithElseIf() {
+    	String html = "<% if (1+1==2) { %>\n  <p />\n<% } else if (1==4) { %>\n  <br />\n<% } %>";
+		assertEquals(html, jhaml.parse("- if (1+1==2)\n  %p/\n- else if (1==4)\n  %br/"));
+    }
+   
+    @Test
     public void ifStatementNoParens() {
     	String html = "<% if (1 + 1 == 2) { %>\n  <p />\n<% } %>";
     	assertEquals(html, jhaml.parse("- if 1 + 1 == 2\n  %p/"));
+    }
+    
+    @Test
+    public void ifStatementWithElseIfNoParens() {
+    	String html = "<% if (1+1==2) { %>\n  <p />\n<% } else if (1==4) { %>\n  <br />\n<% } %>";
+    	assertEquals(html, jhaml.parse("- if (1+1==2)\n  %p/\n- else if 1==4\n  %br/"));
     }
     
     @Test
@@ -49,5 +67,11 @@ public class EmbeddedJavaCodeTest {
     public void forLoopNoParens() {
     	String html = "<% for (String s : strings) { %>\n  <p />\n<% } %>";
     	assertEquals(html, jhaml.parse("- for String s : strings\n  %p/"));
+    }
+    
+    @Test
+    public void groovyStyleEachLoop() {
+    	String html = "<% aList.each { %>\n  <p />\n<% } %>";
+    	assertEquals(html, jhaml.parse("- aList.each\n  %p/"));
     }
 }

@@ -220,4 +220,5 @@ public class JHamlTest {
 	public void escapeAtBeginningOfLine() {
 		assertEquals("<title>\n  = @title\n</title>", jhaml.parse("%title\n  \\= @title"));
 	}
+	
 }

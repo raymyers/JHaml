@@ -32,12 +32,12 @@ public class JHaml {
 		if (StringUtils.isBlank(input.trim())) {
 			return "";
 		}
-		input = sanitizeInput(input);
+		input = preProcess(input);
 		try {
 			List<Line> lines = new JHamlParser(new StringReader(input)).jHamlSource();
 			helper.errorChecker.checkDocumentDoesNotBeginWithIndentation(lines);
 			List<Line> lineTree = processNesting(lines);
-			return renderLines(lineTree).replaceAll("\n\n+", "\n").trim();
+			return postProcess(renderLines(lineTree));
 		} catch (RuntimeException e) {
 			throw e;
 		} catch (Exception e) {
@@ -45,7 +45,23 @@ public class JHaml {
 		}
 
 	}
+	
+	private String preProcess(String input) {
+		return normalizeWhitespace(normalizeLineBreaks(input));
+	}
 
+	private String normalizeWhitespace(String input) {
+		char nonBreakingSpace = (char)160;
+		char space = ' ';
+		return input.replaceAll("" + nonBreakingSpace, "" + space);
+	}
+	private String normalizeLineBreaks(String input) {
+		return input.replaceAll("\r\n", "\n").replaceAll("\n\r", "\n").replaceAll("\r", "\n") + "\n";
+	}
+	private String postProcess(String string) {
+		return string.replaceAll("\n\n+", "\n").trim().replaceAll("<%\\s*\\}\\s*%>\\s*<%\\s*else", "<% } else");
+	}
+	
 	private String renderLines(List<Line> lineTree) {
 		String result = "";
 		for (Line line : lineTree) {
@@ -131,10 +147,6 @@ public class JHaml {
 			content.add(textBlock(contentLine));
 		}
 		return result + (content.isEmpty() ? "" : "\n") + Joiner.on("\n").join(content);
-	}
-
-	private String sanitizeInput(String input) {
-		return input.replaceAll("\r\n", "\n").replaceAll("\n\r", "\n").replaceAll("\r", "\n") + "\n";
 	}
 	
 	public void validateIndentation(Line parentLine, Line line) {

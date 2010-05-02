@@ -142,11 +142,17 @@ public class Helper {
 		if (code.startsWith("if") && isMultiLine) {
 			return ifBlock(code);
 		}
+		if (code.startsWith("else") && isMultiLine) {
+			return elseBlock(code);
+		}
 		if (code.startsWith("while") && isMultiLine) {
 			return whileLoop(code);
 		}
 		if (code.startsWith("for") && isMultiLine) {
 			return forLoop(code);
+		}
+		if (isMultiLine && code.split("\n")[0].matches(".*\\.each\\s*$")) {
+			return groovyEachLoop(code);
 		}
 		return "<% " + code + " %>";
 	}
@@ -267,6 +273,16 @@ public class Helper {
 		String remainingLines = string.substring(string.indexOf("\n"));
 		return "<% if " + condition + " { %>" + remainingLines + "\n<% } %>";
 	}
+	
+	private String elseBlock(String string) {
+		String firstLine = string.substring(0, string.indexOf("\n"));
+		if (firstLine.contains("if") && firstLine.replaceAll("\\s", "").startsWith("elseif")) {
+			String ifClause = string.substring(string.indexOf("if"));
+			return ifBlock(ifClause).replaceFirst("if", "else if");
+		}
+		String remainingLines = string.substring(string.indexOf("\n"));
+		return "<% else { %>" + remainingLines + "\n<% } %>";
+	}
 
 	private String whileLoop(String string) {
 		String condition = string.substring(string.indexOf("while") + 5,
@@ -286,6 +302,12 @@ public class Helper {
 		}
 		String remainingLines = string.substring(string.indexOf("\n"));
 		return "<% for " + condition + " { %>" + remainingLines + "\n<% } %>";
+	}
+	
+	private String groovyEachLoop(String string) {
+		String listName = string.substring(0, string.indexOf(".each")).trim();
+		String remainingLines = string.substring(string.indexOf("\n"));
+		return "<% " + listName + ".each { %>" + remainingLines + "\n<% } %>";
 	}
 
 	private String ieConditionalComment(String string) {
