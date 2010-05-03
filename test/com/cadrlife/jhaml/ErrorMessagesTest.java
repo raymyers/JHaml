@@ -6,7 +6,8 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.common.base.CharMatcher;
+import com.cadrlife.jhaml.internal.JHamlParseException;
+import com.cadrlife.jhaml.internal.com.google.common.base.CharMatcher;
 
 public class ErrorMessagesTest {
 	

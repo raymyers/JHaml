@@ -4,9 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.cadrlife.jhaml.Helper;
-import com.cadrlife.jhaml.JHaml;
 import com.cadrlife.jhaml.JHamlConfig;
+import com.cadrlife.jhaml.internal.Helper;
 
 public class JHamlTest {
 	private String INDENT = "\n  ";

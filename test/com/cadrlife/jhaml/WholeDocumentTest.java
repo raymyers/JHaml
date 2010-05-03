@@ -7,8 +7,7 @@ import java.nio.charset.Charset;
 
 import org.junit.Test;
 
-import com.cadrlife.jhaml.JHaml;
-import com.google.common.io.Resources;
+import com.cadrlife.jhaml.internal.com.google.common.io.Resources;
 
 public class WholeDocumentTest {
 	private JHaml jhaml = new JHaml();

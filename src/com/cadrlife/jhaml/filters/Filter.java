@@ -1,8 +1,8 @@
 package com.cadrlife.jhaml.filters;
 
 import com.cadrlife.jhaml.JHamlConfig;
-import com.cadrlife.jhaml.util.IndentUtils;
-import com.google.common.base.CharMatcher;
+import com.cadrlife.jhaml.internal.com.google.common.base.CharMatcher;
+import com.cadrlife.jhaml.internal.util.IndentUtils;
 
 public abstract class Filter {
 	protected final JHamlConfig config;

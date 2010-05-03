@@ -4,10 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.cadrlife.jhaml.Helper;
-import com.cadrlife.jhaml.JHaml;
 import com.cadrlife.jhaml.JHamlConfig;
-import com.google.common.base.CharMatcher;
+import com.cadrlife.jhaml.internal.Helper;
+import com.cadrlife.jhaml.internal.com.google.common.base.CharMatcher;
 
 public class DoctypeTest {
 	

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.cadrlife.jhaml.JHaml;
 
 public class CommentsTest {
 	private JHaml jhaml = new JHaml();

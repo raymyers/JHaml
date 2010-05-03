@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.cadrlife.jhaml.JHaml;
 
 public class EmbeddedJavaCodeTest {
 	private JHaml jhaml = new JHaml();

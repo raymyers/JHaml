@@ -6,8 +6,11 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.cadrlife.jhaml.util.IndentUtils;
-import com.google.common.base.CharMatcher;
+import com.cadrlife.jhaml.internal.Helper;
+import com.cadrlife.jhaml.internal.JHamlParser;
+import com.cadrlife.jhaml.internal.Line;
+import com.cadrlife.jhaml.internal.com.google.common.base.CharMatcher;
+import com.cadrlife.jhaml.internal.util.IndentUtils;
 import com.google.common.base.Joiner;
 
 
@@ -26,7 +29,7 @@ public class JHaml {
 	}
 	
 	public String parse(String input) {
-		helper.errorChecker.validateConfig(this.config);
+		helper.getErrorChecker().validateConfig(this.config);
 		indentationSize = -1;
 		isIndentWithTabs = false;
 		if (StringUtils.isBlank(input.trim())) {
@@ -35,7 +38,7 @@ public class JHaml {
 		input = preProcess(input);
 		try {
 			List<Line> lines = new JHamlParser(new StringReader(input)).jHamlSource();
-			helper.errorChecker.checkDocumentDoesNotBeginWithIndentation(lines);
+			helper.getErrorChecker().checkDocumentDoesNotBeginWithIndentation(lines);
 			List<Line> lineTree = processNesting(lines);
 			return postProcess(renderLines(lineTree));
 		} catch (RuntimeException e) {
@@ -124,7 +127,7 @@ public class JHaml {
 		String nestedContent = renderLines(line.block);
 		String content = line.inlineContent + (StringUtils.isBlank(nestedContent) ? "" : "\n" + IndentUtils.indent(nestedContent,JHamlConfig.OUTPUT_INDENTATION_SIZE));
 		if (line.isElement()) {
-			helper.errorChecker.setCurrentLineNumber(line.lineNumber);
+			helper.getErrorChecker().setCurrentLineNumber(line.lineNumber);
 			helper.mergeAttributes(line);
 			String parsedContent = helper.parseFreeFormText(line, "", content);
 			parsedContent = parsedContent.replaceAll("\\n+\\s*\\z", "\n");
@@ -151,9 +154,9 @@ public class JHaml {
 		return result + (content.isEmpty() ? "" : "\n") + Joiner.on("\n").join(content);
 	}
 	
-	public void validateIndentation(Line parentLine, Line line) {
+	private void validateIndentation(Line parentLine, Line line) {
 		int parentIndent = parentLine.indentation.length();
-		this.helper.errorChecker.setCurrentLineNumber(line.lineNumber);
+		this.helper.getErrorChecker().setCurrentLineNumber(line.lineNumber);
 		line.indentation = line.leadingWhitespace;
 		if (StringUtils.isEmpty(line.indentation)|| line.isBlank()) {
 			return;
@@ -161,13 +164,13 @@ public class JHaml {
 		if (indentationSize == -1 && StringUtils.isNotEmpty(line.indentation)) {
 			indentationSize = line.indentation.length();
 			isIndentWithTabs =  CharMatcher.is('\t').matchesAllOf(line.indentation);
-			this.helper.errorChecker.checkInitialIndentation(line.indentation);
+			this.helper.getErrorChecker().checkInitialIndentation(line.indentation);
 		}
 		int nextLevel = parentIndent + indentationSize;
 		if (parentLine.isFilter() && line.indentation.length() > nextLevel) {
 			line.indentation = line.indentation.substring(0, nextLevel);
 			line.inlineContent = line.indentation.substring(nextLevel) + line.inlineContent;
 		}
-		this.helper.errorChecker.checkIndentationIsConsistent(indentationSize,isIndentWithTabs,parentIndent, line.leadingWhitespace, line.indentation);
+		this.helper.getErrorChecker().checkIndentationIsConsistent(indentationSize,isIndentWithTabs,parentIndent, line.leadingWhitespace, line.indentation);
 	}
 }

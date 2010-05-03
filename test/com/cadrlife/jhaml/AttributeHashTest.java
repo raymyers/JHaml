@@ -8,6 +8,10 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.cadrlife.jhaml.internal.AttributeValue;
+import com.cadrlife.jhaml.internal.JHamlParser;
+import com.cadrlife.jhaml.internal.Line;
+
 public class AttributeHashTest {
 	
 	@Test

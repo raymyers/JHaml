@@ -1,7 +1,5 @@
 package com.cadrlife.jhaml;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,13 +12,15 @@ import com.cadrlife.jhaml.filters.JavaScriptFilter;
 import com.cadrlife.jhaml.filters.JspFilter;
 import com.cadrlife.jhaml.filters.PlainFilter;
 import com.cadrlife.jhaml.filters.PreserveFilter;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 
 public class JHamlConfig {
 	public static final int OUTPUT_INDENTATION_SIZE = 2;
-	public static final List<String> validFormats = Arrays.asList("xhtml","html4","html5");
-	String format = "xhtml";
-	List<String> autoclose = new ArrayList<String>(Arrays.asList("meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"));
-	List<String> preserve = new ArrayList<String>(Arrays.asList("textarea", "pre"));
+	public static final ImmutableList<String> validFormats = ImmutableList.of("xhtml","html4","html5");
+	public String format = "xhtml";
+	public List<String> autoclose = Lists.newArrayList("meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base");
+	public List<String> preserve = Lists.newArrayList("textarea", "pre");
 	public String attrWrapper = "'";
 	
 	public Map<String,Filter> filters = new HashMap<String,Filter>();
@@ -34,11 +34,6 @@ public class JHamlConfig {
 		filters.put("css", new CssFilter(this));
 	}
 	
-	// These options escapeHtml, suppressEval, and encoding may not be necessary.
-//	boolean escapeHtml = false;
-//	boolean suppressEval = false;
-//	String encoding = "utf-8";
-	
 	public boolean isXhtml() {
 		return !isHtml();
 	}
@@ -51,4 +46,9 @@ public class JHamlConfig {
 	public boolean isHtml5() {
 		return "html5".equals(this.format);
 	}
+	
+	// These options escapeHtml, suppressEval, and encoding may not be necessary.
+	//	boolean escapeHtml = false;
+	//	boolean suppressEval = false;
+	//	String encoding = "utf-8";
 }
