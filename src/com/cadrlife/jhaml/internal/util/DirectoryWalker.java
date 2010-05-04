@@ -8,7 +8,6 @@ import java.util.Collection;
 public abstract class DirectoryWalker {
 
 	public DirectoryWalker() {
-		super();
 	}
 
 	protected abstract void handleFile(File file, Collection<File> results)

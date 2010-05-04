@@ -16,12 +16,12 @@ public class JHamlBatchConverter extends DirectoryWalker {
 	private String hamlExtension = "haml";
 	private String targetExtenstion = "jsp";
 	private Charset charset = Charset.defaultCharset();
+	
 	public List<File> convertAllInPath(File startDirectory) throws IOException {
 		List<File> results = new ArrayList<File>();
 		walk(startDirectory, results);
 		return results;
 	}
-	
 
 	@Override
 	protected void handleFile(File file, Collection<File> results) throws IOException {
@@ -62,11 +62,9 @@ public class JHamlBatchConverter extends DirectoryWalker {
 		return hamlExtension;
 	}
 
-
 	public void setCharset(Charset charset) {
 		this.charset = charset;
 	}
-
 
 	public Charset getCharset() {
 		return charset;
