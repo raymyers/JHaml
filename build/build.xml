@@ -2,7 +2,7 @@
 <project name="JHaml" default="dist">
 	<property file="build.properties" />
 	<property environment="env" />
-	
+
 	<target name="init">
 		<!-- Create the time stamp -->
 		<tstamp />
@@ -27,7 +27,19 @@
 		<mkdir dir="${distdir}" />
 
 		<!-- Put everything in ${builddir} into the jhaml-snapshot-${DSTAMP}.jar file -->
-		<jar jarfile="${distdir}/jhaml-snapshot-${DSTAMP}.jar" basedir="${builddir}" />
+		<jar jarfile="${distdir}/jhaml-${version}-${DSTAMP}.jar" basedir="${builddir}">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Specification-Title" value="JHaml" />
+				<attribute name="Specification-Version" value="${version}" />
+				<attribute name="Specification-Vendor" value="${vendor}" />
+				<attribute name="Implementation-Title" value="JHaml" />
+				<attribute name="Implementation-Version" value="${version} ${TODAY}" />
+				<attribute name="Implementation-Vendor" value="${vendor}" />
+			</manifest>
+
+
+		</jar>
 	</target>
 
 	<target name="clean" description="clean up">
