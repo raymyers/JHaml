@@ -15,6 +15,7 @@ public class JHamlBatchConverter extends DirectoryWalker {
 	private boolean deleteHamlFiles = false;
 	private String hamlExtension = "haml";
 	private String targetExtenstion = "jsp";
+	private boolean outputModificationWarning = true;
 	private Charset charset = Charset.defaultCharset();
 	
 	public List<File> convertAllInPath(File startDirectory) throws IOException {
@@ -26,16 +27,24 @@ public class JHamlBatchConverter extends DirectoryWalker {
 	@Override
 	protected void handleFile(File file, Collection<File> results) throws IOException {
 		if (file.getName().endsWith("." + hamlExtension)) {
-				String gsp = new JHaml()
-						.parse(Files.toString(file, getCharset()));
-				String gspFileName = file.getAbsolutePath().replaceAll(
-						"\\." + Pattern.quote(hamlExtension) + "$", "." + targetExtenstion);
-				Files.write(gsp, new File(gspFileName), getCharset());
+			String warning = warning(file.getName());
+			String gsp = new JHaml()
+					.parse(Files.toString(file, getCharset()));
+			String gspFileName = file.getAbsolutePath().replaceAll(
+					"\\." + Pattern.quote(hamlExtension) + "$", "." + targetExtenstion);
+			Files.write(warning + gsp, new File(gspFileName), getCharset());
 			if (isDeleteHamlFiles()) {
 				file.delete();
 			}
 		}
 		results.add(file);
+	}
+
+	private String warning(String filename) {
+		if (isOutputModificationWarning()) {
+			return "<%-- DO NOT MODIFY THIS FILE, IT IS AUTOMATICALLY GENERATED. INSTEAD MODIFY " + filename + " --%>\n";
+		}
+		return "";
 	}
 
 	public void setDeleteHamlFiles(boolean deleteHamlFiles) {
@@ -68,6 +77,14 @@ public class JHamlBatchConverter extends DirectoryWalker {
 
 	public Charset getCharset() {
 		return charset;
+	}
+
+	public void setOutputModificationWarning(boolean outputModificationWarning) {
+		this.outputModificationWarning = outputModificationWarning;
+	}
+
+	public boolean isOutputModificationWarning() {
+		return outputModificationWarning;
 	}
 
 }

@@ -1,14 +1,14 @@
 # JHaml
 
-A Java implementaion of [Haml](http://haml-lang.com/) (XHTML Abstraction Markup Language). Work in progress.
+A Java implementaion of [Haml](http://haml-lang.com/) (XHTML Abstraction Markup Language).
 
 Haml features not currently supported (some of which do not make sense when rendering JSPs):
 
 * Interpolation.
 
-* External languages like MarkDown and Sass.
+* External languages like MarkDown and Sass. (Sass port and markdown integration coming soon)
 
-* Ugly mode for faster rendering speed.
+* Ugly mode for faster rendering speed. (Everything will be prerendered anyway)
 
 * Support for bad syntax in attribute hash, e.g. %p{:foo => 'bar\"}
 
@@ -33,7 +33,7 @@ Haml features not currently supported (some of which do not make sense when rend
 ## Authors
 
 JHaml was created by [Ray Myers](http://cadrlife.com), with very special thanks to the implementers of the 
-original Haml, [Hampton Catlin](http://hamptoncatlin.com) and [Nathan Weizenbaum](http://nex-3.com).
+original Haml for Ruby, [Hampton Catlin](http://hamptoncatlin.com) and [Nathan Weizenbaum](http://nex-3.com).
 
 This implementation is licensed under the GNU GPL version 3.0, with the exception of the included 
 libraries, which are licensed as specified in their source folders.
