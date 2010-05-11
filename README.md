@@ -41,3 +41,5 @@ libraries, which are licensed as specified in their source folders.
 Google Guava: Apache 2.0
 
 Apache Commons Lang: Apache 2.0
+
+markdownj: BSD

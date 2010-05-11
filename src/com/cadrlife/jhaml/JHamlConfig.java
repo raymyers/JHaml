@@ -10,6 +10,7 @@ import com.cadrlife.jhaml.filters.EscapedFilter;
 import com.cadrlife.jhaml.filters.Filter;
 import com.cadrlife.jhaml.filters.JavaScriptFilter;
 import com.cadrlife.jhaml.filters.JspFilter;
+import com.cadrlife.jhaml.filters.MarkdownFilter;
 import com.cadrlife.jhaml.filters.PlainFilter;
 import com.cadrlife.jhaml.filters.PreserveFilter;
 import com.google.common.collect.ImmutableList;
@@ -32,6 +33,7 @@ public class JHamlConfig {
 		filters.put("preserve", new PreserveFilter(this));
 		filters.put("jsp", new JspFilter(this));
 		filters.put("css", new CssFilter(this));
+		filters.put("markdown", new MarkdownFilter(this));
 	}
 	
 	public boolean isXhtml() {

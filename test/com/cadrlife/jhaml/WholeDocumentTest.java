@@ -20,6 +20,16 @@ public class WholeDocumentTest {
 		String html = read(htmlFile).replaceAll("\r\n", "\n");
 		assertEquals(html, jhaml.parse(haml));
 	}
+	@Test
+	public void markdownExampleDocument() throws IOException {
+		String hamlFile = "markdown.example.haml";
+		String htmlFile = "markdown.example.html";
+		String haml = read(hamlFile);
+		String html = read(htmlFile).replaceAll("\r\n", "\n");
+		String parse = jhaml.parse(haml);
+		System.out.println(parse);
+		assertEquals(html, parse);
+	}
 	
 	private String read(String hamlFile) throws IOException {
 		return Resources.toString(Resources.getResource(this.getClass(), hamlFile), Charset.defaultCharset());

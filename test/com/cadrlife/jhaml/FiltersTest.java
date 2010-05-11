@@ -106,4 +106,23 @@ public class FiltersTest {
 			"<%= foo(); %>";
 		assertEquals(html, jhaml.parse(haml));
 	}
+	
+	@Test
+	public void markdown() {
+		String haml=
+			":markdown\n" +
+			"  *Bold*";
+		String html = "<p><em>Bold</em></p>";
+		assertEquals(html, jhaml.parse(haml));
+	}
+	
+	@Test
+	public void markdownWithinDiv() {
+		String haml=
+			"%div\n" +
+			"  :markdown\n" +
+			"    *Bold*";
+		String html = "<div>\n  <p><em>Bold</em></p>\n</div>";
+		assertEquals(html, jhaml.parse(haml));
+	}
 }
