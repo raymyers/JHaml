@@ -4,9 +4,9 @@ A Java implementaion of [Haml](http://haml-lang.com/) (XHTML Abstraction Markup 
 
 Haml features not currently supported (some of which do not make sense when rendering JSPs):
 
-* Interpolation.
+* Interpolation. (Handled be Grails if rendering to GSP)
 
-* External languages like MarkDown and Sass. (Sass port and markdown integration coming soon)
+* Sass/SCSS. (Coming soon)
 
 * Ugly mode for faster rendering speed. (Everything will be prerendered anyway)
 
