@@ -12,7 +12,7 @@
 
 	<target name="compile" depends="init" description="compile the source ">
 		<!-- Compile the java code from ${srcdir} into ${builddir} -->
-		<javac srcdir="${srcdir}" destdir="${builddir}">
+		<javac srcdir="${srcdir}" destdir="${builddir}" source="1.5" target="1.5">
 
 			<classpath>
 				<fileset dir="${libdir}">
