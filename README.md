@@ -2,9 +2,9 @@
 
 A Java implementaion of [Haml](http://haml-lang.com/) (XHTML Abstraction Markup Language).
 
-Haml features not currently supported (some of which do not make sense when rendering JSPs):
+Haml features not currently supported:
 
-* Interpolation. (Handled be Grails if rendering to GSP)
+* Interpolation. (Handled by Grails if rendering to GSP)
 
 * Sass/SCSS. (Coming soon)
 
@@ -22,7 +22,7 @@ Haml features not currently supported (some of which do not make sense when rend
 
 * Attribute Methods
 
-* Object Reference: []
+* Object References: []
 
 * 'encoding' option
 
