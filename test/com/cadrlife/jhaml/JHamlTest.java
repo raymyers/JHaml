@@ -35,6 +35,22 @@ public class JHamlTest {
 	}
 	
 	@Test
+	public void elementTypesWithHyphens() {
+		assertEquals("<a-b>ABC</a-b>", jhaml
+				.parse("%a-b ABC").trim());
+	}
+	
+	
+	@Test
+	public void classesWithHyphens() {
+		assertEquals("<div class='a-b'>ABC</div>", jhaml
+				.parse(".a-b ABC").trim());
+	}
+	@Test
+	public void idsWithHyphens() {
+		assertEquals("<div id='a-b'>ABC</div>", jhaml
+				.parse("#a-b ABC").trim());
+	}
 	public void numbersInElementTypeAndSpecifiers() {
 		assertEquals("<1 class='2' id='3'>456</1>", jhaml.parse("%1.2#3 456"));
 	}

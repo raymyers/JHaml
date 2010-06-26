@@ -3,11 +3,11 @@ package com.cadrlife.jhaml.internal;
 import com.cadrlife.jhaml.internal.com.google.common.base.CharMatcher;
 
 public class CharMatchers {
+	
 	// http://www.w3.org/TR/xml11/#sec-common-syn
 	// Differs from the XML spec:
 	//   Allows names to begin with digits.
 	//   Does not allow periods.
-	
 	public static final CharMatcher XML_NAME_START_CHAR = 
 		CharMatcher.JAVA_LETTER_OR_DIGIT
 		.or(CharMatcher.anyOf(":_"))
@@ -30,7 +30,7 @@ public class CharMatchers {
 		.or(CharMatcher.inRange('\u0300','\u036f'))
 		.or(CharMatcher.inRange('\u203f','\u2040'));
 	
-	public static final CharMatcher CLASS_CHAR = CharMatcher.JAVA_LETTER_OR_DIGIT.or(CharMatcher.is(':'));
+	public static final CharMatcher CLASS_CHAR = CharMatcher.JAVA_LETTER_OR_DIGIT.or(CharMatcher.anyOf(":-"));
 	
 	public static final CharMatcher INDENTATION_CHAR = CharMatcher.anyOf(" \t");
 	
