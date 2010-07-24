@@ -1,46 +1,0 @@
-9
-
-dir
-11
-http://guava-libraries.googlecode.com/svn/trunk/javadoc/com/google/common
-http://guava-libraries.googlecode.com/svn
-
-
-
-2010-01-05T05:03:17.553948Z
-8
-kevinb@google.com
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-8138a162-5c33-11de-8abc-d1c337b90d21
-
-collect
-dir
-
-io
-dir
-
-base
-dir
-
-primitives
-dir
-
-util
-dir
-
-annotations
-dir
-
