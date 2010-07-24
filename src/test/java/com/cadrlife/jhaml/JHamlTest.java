@@ -51,6 +51,16 @@ public class JHamlTest {
 		assertEquals("<div id='a-b'>ABC</div>", jhaml
 				.parse("#a-b ABC").trim());
 	}
+	@Test
+	public void classesWithUnderscores() {
+		assertEquals("<div class='a_b'>ABC</div>", jhaml
+				.parse(".a_b ABC").trim());
+	}
+	@Test
+	public void idsWithUnderscores() {
+		assertEquals("<div id='a_b'>ABC</div>", jhaml
+				.parse("#a_b ABC").trim());
+	}
 	public void numbersInElementTypeAndSpecifiers() {
 		assertEquals("<1 class='2' id='3'>456</1>", jhaml.parse("%1.2#3 456"));
 	}

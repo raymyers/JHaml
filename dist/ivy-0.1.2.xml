@@ -2,9 +2,9 @@
 <ivy-module version="1.0" xmlns:m="http://ant.apache.org/ivy/maven">
 	<info organisation="com.cadrlife.jhaml"
 		module="JHaml"
-		revision="0.1.1"
+		revision="0.1.2"
 		status="integration"
-		publication="20100724140039"
+		publication="20100724155704"
 	/>
 	<configurations>
 		<conf name="archives" visibility="public" description="Configuration for the default artifacts."/>

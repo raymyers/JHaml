@@ -30,7 +30,7 @@ public class CharMatchers {
 		.or(CharMatcher.inRange('\u0300','\u036f'))
 		.or(CharMatcher.inRange('\u203f','\u2040'));
 	
-	public static final CharMatcher CLASS_CHAR = CharMatcher.JAVA_LETTER_OR_DIGIT.or(CharMatcher.anyOf(":-"));
+	public static final CharMatcher CLASS_CHAR = CharMatcher.JAVA_LETTER_OR_DIGIT.or(CharMatcher.anyOf(":-_"));
 	
 	public static final CharMatcher INDENTATION_CHAR = CharMatcher.anyOf(" \t");
 	
