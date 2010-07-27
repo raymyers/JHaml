@@ -93,6 +93,8 @@ public class ErrorMessagesTest {
 		    "foo\n:erb\n  1\n  2\n  3\n- raise 'foo'", "foo", 6,
 		    "= raise 'foo'\nfoo\nbar\nbaz\nbang", "foo", 1,*/
 		assertInputThrows("%p(a='b'\n  foo", "Invalid attribute list: \"(a='b' foo\".");
+		assertInputThrows("%p(a='b'\n  %foo", "Invalid attribute list: \"(a='b'\".",1);
+		assertInputThrows("%p{:a=>'b'\n  %foo", "Invalid attribute list: \"{:a=>'b' %foo\".");
 	}
 	
 	@Test

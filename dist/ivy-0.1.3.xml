@@ -4,7 +4,7 @@
 		module="JHaml"
 		revision="0.1.3"
 		status="integration"
-		publication="20100726174000"
+		publication="20100726180219"
 	/>
 	<configurations>
 		<conf name="archives" visibility="public" description="Configuration for the default artifacts."/>

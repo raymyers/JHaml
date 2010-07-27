@@ -88,10 +88,10 @@ public class JHamlParser {
 		if (reader.isNextChar('(')) {
 			reader.skip(1);
 			ignoreWhitespaceIncludingNewline();
-			htmlStyleAttributeMapping(attrMap, CharMatcher.WHITESPACE, CLOSE_PAREN);
+			boolean attrFound = htmlStyleAttributeMapping(attrMap, CharMatcher.WHITESPACE, CLOSE_PAREN);
 			ignoreWhitespaceIncludingNewline();
-			while (!reader.isNextChar(')') && !reader.eof()) {
-				htmlStyleAttributeMapping(attrMap, CharMatcher.WHITESPACE, CLOSE_PAREN);
+			while (attrFound && !reader.isNextChar(')') && !reader.eof()) {
+				attrFound = htmlStyleAttributeMapping(attrMap, CharMatcher.WHITESPACE, CLOSE_PAREN);
 				ignoreWhitespaceIncludingNewline();
 			}
 			if (reader.isNextChar(')')) {
@@ -130,9 +130,9 @@ public class JHamlParser {
 		if (reader.isNextChar('{')) {
 			reader.skip(1);
 			ignoreWhitespaceIncludingNewline();
-			attributeMapping(attrMap, COMMA, CLOSE_BRACE);
+			boolean attrFound = attributeMapping(attrMap, COMMA, CLOSE_BRACE);
 			ignoreWhitespaceIncludingNewline();
-			while (reader.nextCharMatches(COMMA)) {
+			while (attrFound && reader.nextCharMatches(COMMA)) {
 				reader.skip(1);
 				ignoreWhitespaceIncludingNewline();
 				attributeMapping(attrMap, COMMA, CLOSE_BRACE);
