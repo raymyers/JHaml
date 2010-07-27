@@ -1,4 +1,4 @@
-package com.cadrlife.jhaml.internal;
+package com.cadrlife.jhaml;
 
 public class JHamlParseException extends RuntimeException {
 	private final int lineNumber;

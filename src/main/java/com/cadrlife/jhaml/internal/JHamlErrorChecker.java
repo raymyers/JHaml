@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import com.cadrlife.jhaml.JHamlConfig;
+import com.cadrlife.jhaml.JHamlParseException;
 import com.google.common.base.CharMatcher;
 import com.cadrlife.jhaml.internal.util.IndentUtils;
 
@@ -25,6 +26,8 @@ public class JHamlErrorChecker {
 	private static final String ILLEGAL_NESTING_NESTING_WITHIN_PLAIN_TEXT_IS_ILLEGAL = "Illegal nesting: nesting within plain text is illegal.";
 	private static final String ILLEGAL_NESTING_NESTING_WITHIN_A_HEADER_COMMAND_IS_ILLEGAL = "Illegal nesting: nesting within a header command is illegal.";
 	private static final String ILLEGAL_ELEMENT_CLASSES_AND_IDS_MUST_HAVE_VALUES = "Illegal element: classes and ids must have values.";
+	private static final String INVALID_ATTRIBUTE_LIST = "Invalid attribute list: \"%s\".";
+	
 	private int lineNumber = -1;
 	public JHamlErrorChecker() {
 	}
@@ -142,12 +145,16 @@ public class JHamlErrorChecker {
 		boolean isAllTabs = CharMatcher.is('\t').matchesAllOf(indentation);
 		boolean isAllSpaces = CharMatcher.is(' ').matchesAllOf(indentation);
 		if (!(isAllTabs || isAllSpaces)) {
-			throwError(getCurrentLineNumber(),INDENTATION_CANT_USE_BOTH_TABS_AND_SPACES);
+			throwError(getCurrentLineNumber(), INDENTATION_CANT_USE_BOTH_TABS_AND_SPACES);
 		}
 	}
 	public void validateConfig(JHamlConfig config) {
 		if (!JHamlConfig.validFormats.contains(config.format)) {
-			throwError(0,String.format(INVALID_OUTPUT_FORMAT,config.format));
+			throwError(0, String.format(INVALID_OUTPUT_FORMAT,config.format));
 		}
+	}
+	public void invalidAttributeList(String attrList) {
+		String formattedAttrList = attrList.replaceAll("\n\\s*", " ").trim();
+		throwError(getCurrentLineNumber(), String.format(INVALID_ATTRIBUTE_LIST, formattedAttrList));
 	}
 }

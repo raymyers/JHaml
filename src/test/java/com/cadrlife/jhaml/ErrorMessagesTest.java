@@ -6,7 +6,6 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.cadrlife.jhaml.internal.JHamlParseException;
 import com.google.common.base.CharMatcher;
 
 public class ErrorMessagesTest {
@@ -93,6 +92,7 @@ public class ErrorMessagesTest {
 		    "foo\n:ruby\n  1\n  2\n  3\n- raise 'foo'", "foo", 6,
 		    "foo\n:erb\n  1\n  2\n  3\n- raise 'foo'", "foo", 6,
 		    "= raise 'foo'\nfoo\nbar\nbaz\nbang", "foo", 1,*/
+		assertInputThrows("%p(a='b'\n  foo", "Invalid attribute list: \"(a='b' foo\".");
 	}
 	
 	@Test

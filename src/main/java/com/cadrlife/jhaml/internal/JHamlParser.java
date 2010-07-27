@@ -20,6 +20,7 @@ public class JHamlParser {
 		// TODO the Helper methods called from this class do not require a config.
 		// Perhaps Helper should become 2 classes: one that takes a config and one that does not.
 		helper = new Helper(null);
+		
 		this.reader = reader;
 	}
 	public JHamlParser(Reader in) {
@@ -61,20 +62,28 @@ public class JHamlParser {
 			if (!hasElementTypeSpecifier) {
 				line.tag = "div";
 			}
-			attributeHashes(line.attrMap);
+			attributeHashes(line);
 			return true;
 		}
 		return false;
 	}
-	private void attributeHashes(Map<String, AttributeValue> attrMap) {
-		boolean foundAttributeHash = attributeHash(attrMap);
-		htmlStyleAttributeHash(attrMap);
-		if (!foundAttributeHash) {
-			attributeHash(attrMap);
+	
+	private void attributeHashes(Line line) {
+		String textBeforeAttrHashes = line.text;
+		try {
+			boolean foundAttributeHash = attributeHash(line.attrMap);
+			htmlStyleAttributeHash(line.attrMap);
+			if (!foundAttributeHash) {
+				attributeHash(line.attrMap);
+			}
+		} catch (JHamlInternalParseException e) {
+			helper.getErrorChecker().setCurrentLineNumber(reader.getLineNumber());
+			helper.getErrorChecker().invalidAttributeList(line.text.substring(textBeforeAttrHashes.length()));
 		}
+		
 	}
 	
-	private boolean htmlStyleAttributeHash(Map<String, AttributeValue> attrMap) {
+	private boolean htmlStyleAttributeHash(Map<String, AttributeValue> attrMap) throws JHamlInternalParseException {
 		CharMatcher CLOSE_PAREN = CharMatcher.is(')');
 		if (reader.isNextChar('(')) {
 			reader.skip(1);
@@ -93,7 +102,7 @@ public class JHamlParser {
 		}
 	 	return false;
 	}
-	private boolean htmlStyleAttributeMapping(Map<String, AttributeValue> attrMap, CharMatcher separator, CharMatcher endOfAttributes) {
+	private boolean htmlStyleAttributeMapping(Map<String, AttributeValue> attrMap, CharMatcher separator, CharMatcher endOfAttributes) throws JHamlInternalParseException {
 		String attr = ""; 
 		if (reader.nextCharMatches(CharMatchers.XML_NAME_START_CHAR)) {
 			attr = reader.consumeMatching(CharMatchers.XML_NAME_CHAR);
@@ -115,7 +124,7 @@ public class JHamlParser {
 //		return false;
 		
 	}
-	private boolean attributeHash(Map<String, AttributeValue> attrMap) {
+	private boolean attributeHash(Map<String, AttributeValue> attrMap) throws JHamlInternalParseException {
 		CharMatcher COMMA = CharMatcher.is(',');
 		CharMatcher CLOSE_BRACE = CharMatcher.is('}');
 		if (reader.isNextChar('{')) {
@@ -137,10 +146,12 @@ public class JHamlParser {
 		}
 	 	return false;
 	}
-	private void fail() {
-		throw new RuntimeException();	
+	
+	private void fail() throws JHamlInternalParseException {
+		throw new JHamlInternalParseException();	
 	}
-	private boolean attributeMapping(Map<String, AttributeValue> attrMap, CharMatcher separator, CharMatcher endOfAttributes) {
+	
+	private boolean attributeMapping(Map<String, AttributeValue> attrMap, CharMatcher separator, CharMatcher endOfAttributes) throws JHamlInternalParseException {
 		String attr = ""; 
 		if (reader.isNextChar(':')) {
 			reader.skip(1);
@@ -168,7 +179,7 @@ public class JHamlParser {
 		return false;
 	}
 	
-	private boolean html5DataAttributeMap(String attr, Map<String, AttributeValue> attrMap) {
+	private boolean html5DataAttributeMap(String attr, Map<String, AttributeValue> attrMap) throws JHamlInternalParseException {
 		Map<String, AttributeValue> dataAttributes = new HashMap<String, AttributeValue>();
 		if (attr.equals("data") && attributeHash(dataAttributes)) {
 			for (Entry<String, AttributeValue> e : dataAttributes.entrySet()) {
@@ -181,7 +192,7 @@ public class JHamlParser {
 		}
 		return false;
 	}
-	private AttributeValue attributeValue(CharMatcher separator) {
+	private AttributeValue attributeValue(CharMatcher separator) throws JHamlInternalParseException {
 		String exp = expression(separator).trim();
 		if (exp.startsWith("'") || exp.startsWith("\"")) {
 			return AttributeValue.quoted(helper.parseStringLiteral(exp));
@@ -205,7 +216,7 @@ public class JHamlParser {
 //		return null;
 	}
 	
-	private String expression(CharMatcher delim) {
+	private String expression(CharMatcher delim) throws JHamlInternalParseException {
 		int parenDepth = 0;
 		int braceDepth = 0;
 		int bracketDepth = 0;
@@ -252,7 +263,7 @@ public class JHamlParser {
 			}
 			return helper.parseIntegerLiteral(val);
 	}
-	private String stringLiteral() {
+	private String stringLiteral() throws JHamlInternalParseException {
 		char quote = (char) reader.read();
 		String val = reader.consumeMatchingWithEscaping(CharMatcher.is(quote).negate(),'\\');
 //		String ret = StringEscapeUtils.unescapeJava(val);
