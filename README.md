@@ -35,7 +35,7 @@ Haml features not currently supported:
 JHaml was created by [Ray Myers](http://cadrlife.com), with very special thanks to the implementers of the 
 original Haml for Ruby, [Hampton Catlin](http://hamptoncatlin.com) and [Nathan Weizenbaum](http://nex-3.com).
 
-This implementation is licensed under the GNU GPL version 3.0. The libraries it depends on are licensed as follows.
+This implementation is licensed under the GNU GPL version 3.0 OR Apache 2.0 at your option. The libraries it depends on are licensed as follows.
 
 Google Guava: Apache 2.0
 
