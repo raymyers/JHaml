@@ -19,8 +19,25 @@ public class BlankLinesTest {
 			"<head>\n" +
 			"  <title>A title</title>\n" +
 			"</head>\n" +
-				"<body>\n" +
-			"</body>";
+			"<body></body>";
+		
+		assertEquals(html, jhaml.parse(haml));
+	}
+	
+	@Test
+	public void emptyLineAtStart() {
+		String haml =
+			"\n" +
+			"%head\n" +
+			"  %title A title\n" +
+			"\n" +
+			"%body\n";
+		
+		String html =
+			"<head>\n" +
+			"  <title>A title</title>\n" +
+			"</head>\n" +
+			"<body></body>";
 		
 		assertEquals(html, jhaml.parse(haml));
 	}
