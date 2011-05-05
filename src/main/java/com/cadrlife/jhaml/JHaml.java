@@ -89,6 +89,9 @@ public class JHaml {
 				if (parentLine.isFilter()) {
 					line.isWithinFilter = true;
 				}
+				if (line.isBlank() && !line.isWithinFilter) {
+					continue;
+				}
 				parentLine.block.add(line);
 			} else {
 				lineTree.add(line);
