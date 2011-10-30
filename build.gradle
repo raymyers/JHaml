@@ -1,15 +1,24 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 
 archivesBaseName = 'jhaml'
 group = 'com.cadrlife.jhaml'
-version = '0.1.3'
+
+
+gradle.taskGraph.whenReady {taskGraph ->
+    if (taskGraph.hasTask(release)) {
+        version = '0.1.4'
+    } else {
+        version = '0.1.4-SNAPSHOT'
+    }
+}
 sourceCompatibility = 1.5
 
 repositories {
     mavenCentral()
     // for markdownj
-    mavenRepo(urls : "http://scala-tools.org/repo-releases")
+    mavenRepo(url : "http://scala-tools.org/repo-releases")
 }
 
 dependencies {
@@ -27,8 +36,24 @@ task copyToLib(dependsOn: build, type: Copy) {
 
 uploadArchives {
     repositories {
-       flatDir(dirs: file('dist'))
+        flatDir(dirs: file('dist'))
+        mavenDeployer {
+            repository(url: "file:///home/ray/repos/raymyers-mvn-repo/releases")
+            snapshotRepository(url: "file:///home/ray/repos/raymyers-mvn-repo/snapshots")
+        
+            pom.project {
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+            }
+        }
     }
 }
 
 task dist(dependsOn: [copyToLib, uploadArchives])
+
+task release(dependsOn: [dist])

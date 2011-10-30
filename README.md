@@ -6,11 +6,7 @@ Haml features not currently supported:
 
 * Interpolation. (Handled by Grails if rendering to GSP)
 
-* Sass/SCSS. (Coming soon)
-
-* Ugly mode for faster rendering speed. (Everything will be prerendered anyway)
-
-* Support for bad syntax in attribute hash, e.g. %p{:foo => 'bar\"}
+* Ugly mode for faster rendering speed.
 
 * Interpreting lists as attribute values, e.g. {:id => [:a, :b]} yields id='a_b'
 
@@ -26,9 +22,13 @@ Haml features not currently supported:
 
 * 'encoding' option
 
+Is is possible to use the related project Sass/SCSS from Java by using JRuby. Emil Hernvall is also working on a Java port of SCSS, called [SassyBarista](https://github.com/EmilHernvall/SassyBarista). The similar CSS framework LESS can be called from Java with Mozilla Rhino, as the [Asual](http://www.asual.com/lesscss/) project does.
+
 ## Using
 
     String html = new JHaml().parse("some haml");
+
+    Integration with Spring MVC 3 is in progress, with other frameworks to follow. The biggest barrier is taglib support. Contact me if interested.
 
 ## Authors
 
