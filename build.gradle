@@ -34,42 +34,7 @@ task copyToLib(dependsOn: build, type: Copy) {
     into "lib"
     from configurations.runtime
 }
-/*
-uploadArchives {
-  repositories {
-    mavenDeployer {
-      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-      repository(url: "http://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-      //repository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        authentication(userName: System.getProperty('nexusUser'), password: System.getProperty('nexusPassword'))
-      }
-      pom.project {
-        name project.name
-        description "Gradle build plugin to handle Protocol Buffers automated code generation and compilation"
-        url "https://github.com/aantono/gradle-plugin-protobuf"
-        licenses {
-          license {
-            name "New BSD License"
-            url "http://www.opensource.org/licenses/bsd-license.php"
-          }
-        }
-        developers {
-			developer {
-			  id "raymyers"
-			  name "Ray Myers"
-			  email "ray.myers@gmail.com"
-			}
-		}
-        scm {
-          connection "scm:git:git://github.com/aantono/gradle-plugin-protobuf.git"
-          developerConnection "scm:git:git@github.com:aantono/gradle-plugin-protobuf.git"
-          url "https://github.com/aantono/gradle-plugin-protobuf"
-        }
-      }
-    }
-  }
-}
-*/
+
 uploadArchives {
 	repositories {
 	 mavenDeployer {
