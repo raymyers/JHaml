@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
+apply plugin: 'signing'
 
 archivesBaseName = 'jhaml'
 group = 'com.cadrlife.jhaml'
@@ -33,25 +34,94 @@ task copyToLib(dependsOn: build, type: Copy) {
     into "lib"
     from configurations.runtime
 }
-
+/*
 uploadArchives {
-    repositories {
-        flatDir(dirs: file('dist'))
-        mavenDeployer {
-            repository(url: "file:///home/ray/repos/raymyers-mvn-repo/releases")
-            snapshotRepository(url: "file:///home/ray/repos/raymyers-mvn-repo/snapshots")
-        
-            pom.project {
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        distribution 'repo'
-                    }
-                }
-            }
+  repositories {
+    mavenDeployer {
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+      repository(url: "http://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+      //repository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+        authentication(userName: System.getProperty('nexusUser'), password: System.getProperty('nexusPassword'))
+      }
+      pom.project {
+        name project.name
+        description "Gradle build plugin to handle Protocol Buffers automated code generation and compilation"
+        url "https://github.com/aantono/gradle-plugin-protobuf"
+        licenses {
+          license {
+            name "New BSD License"
+            url "http://www.opensource.org/licenses/bsd-license.php"
+          }
         }
+        developers {
+			developer {
+			  id "raymyers"
+			  name "Ray Myers"
+			  email "ray.myers@gmail.com"
+			}
+		}
+        scm {
+          connection "scm:git:git://github.com/aantono/gradle-plugin-protobuf.git"
+          developerConnection "scm:git:git@github.com:aantono/gradle-plugin-protobuf.git"
+          url "https://github.com/aantono/gradle-plugin-protobuf"
+        }
+      }
     }
+  }
+}
+*/
+uploadArchives {
+	repositories {
+	 mavenDeployer {
+		 beforeDeployment { MavenDeployment deployment -> signPom(deployment) }
+	repository(url: "http://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+	authentication(userName: System.getProperty('maven.user'), password: System.getProperty('maven.password'))
+	  repository(url: "https://github.com/raymyers/JHaml")
+	  pom.whenConfigured { pomToConfigure ->
+		pomToConfigure.project {
+		  name project.name
+		  description "Haml (XHTML Abstraction Markup Language) implementation in Java."
+		  url "http://github.com/linkedin/gradle-plugins"
+		  licenses {
+			license {
+			  name "GNU GENERAL PUBLIC LICENSE version 3"
+			  url "http://www.gnu.org/licenses/gpl.html"
+			}
+		  }
+		  developers {
+			developer {
+			  id "raymyers"
+			  name "Ray Myers"
+			  email "ray.myers@gmail.com"
+			}
+		  }
+		  scm {
+			connection "scm:git:git://github.com:raymyers/JHaml.git"
+			developerConnection "scm:git:git@github.com:raymyers/JHaml.git"
+			url "https://github.com/raymyers/JHaml"
+		  }
+		}
+	  }
+	}
+	pom.withXml { XmlProvider xmlProvider ->
+		def xml = xmlProvider.asString()
+		def pomXml = new XmlParser().parse(new ByteArrayInputStream(xml.toString().bytes))
+
+		pomXml.version[0] + { packaging('jar') }
+
+		def newXml = new StringWriter()
+		def printer = new XmlNodePrinter(new PrintWriter(newXml))
+		printer.preserveWhitespace = true
+		printer.print(pomXml)
+		xml.setLength(0)
+		xml.append(newXml.toString())
+	}
+  }	
+}
+}
+
+signing {
+	sign configurations.archives
 }
 
 task dist(dependsOn: [copyToLib, uploadArchives])
