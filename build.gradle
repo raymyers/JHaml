@@ -1,7 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
-apply plugin: 'signing'
 
 archivesBaseName = 'jhaml'
 group = 'com.cadrlife.jhaml'
@@ -9,9 +8,9 @@ group = 'com.cadrlife.jhaml'
 
 gradle.taskGraph.whenReady {taskGraph ->
     if (taskGraph.hasTask(release)) {
-        version = '0.1.4'
+        version = '0.1.5'
     } else {
-        version = '0.1.4-SNAPSHOT'
+        version = '0.1.5-SNAPSHOT'
     }
 }
 sourceCompatibility = 1.5
@@ -36,57 +35,23 @@ task copyToLib(dependsOn: build, type: Copy) {
 }
 
 uploadArchives {
-	repositories {
-	 mavenDeployer {
-		 beforeDeployment { MavenDeployment deployment -> signPom(deployment) }
-	repository(url: "http://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-	authentication(userName: System.getProperty('maven.user'), password: System.getProperty('maven.password'))
-	  repository(url: "https://github.com/raymyers/JHaml")
-	  pom.whenConfigured { pomToConfigure ->
-		pomToConfigure.project {
-		  name project.name
-		  description "Haml (XHTML Abstraction Markup Language) implementation in Java."
-		  url "http://github.com/linkedin/gradle-plugins"
-		  licenses {
-			license {
-			  name "GNU GENERAL PUBLIC LICENSE version 3"
-			  url "http://www.gnu.org/licenses/gpl.html"
-			}
-		  }
-		  developers {
-			developer {
-			  id "raymyers"
-			  name "Ray Myers"
-			  email "ray.myers@gmail.com"
-			}
-		  }
-		  scm {
-			connection "scm:git:git://github.com:raymyers/JHaml.git"
-			developerConnection "scm:git:git@github.com:raymyers/JHaml.git"
-			url "https://github.com/raymyers/JHaml"
-		  }
-		}
-	  }
-	}
-	pom.withXml { XmlProvider xmlProvider ->
-		def xml = xmlProvider.asString()
-		def pomXml = new XmlParser().parse(new ByteArrayInputStream(xml.toString().bytes))
-
-		pomXml.version[0] + { packaging('jar') }
-
-		def newXml = new StringWriter()
-		def printer = new XmlNodePrinter(new PrintWriter(newXml))
-		printer.preserveWhitespace = true
-		printer.print(pomXml)
-		xml.setLength(0)
-		xml.append(newXml.toString())
-	}
-  }	
-}
-}
-
-signing {
-	sign configurations.archives
+    repositories {
+        flatDir(dirs: file('dist'))
+        mavenDeployer {
+            repository(url: "file:///home/ray/repos/raymyers-mvn-repo/releases")
+            snapshotRepository(url: "file:///home/ray/repos/raymyers-mvn-repo/snapshots")
+        
+            pom.project {
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+            }
+        }
+    }
 }
 
 task dist(dependsOn: [copyToLib, uploadArchives])
