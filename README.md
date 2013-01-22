@@ -28,7 +28,7 @@ Is is possible to use the related project Sass/SCSS from Java by using JRuby. Em
 
     String html = new JHaml().parse("some haml");
 
-    Integration with Spring MVC 3 is in progress, with other frameworks to follow. The biggest barrier is taglib support. Contact me if interested.
+There is a Grails plugin, Haml4Grails, that can be used to generate GSPs on the fly from Haml views. Integration with Spring MVC 3 and other Java frameworks is being explored. The biggest barrier is taglib support. Contact me (Ray) if interested.
 
 ## Authors
 
