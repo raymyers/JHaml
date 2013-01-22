@@ -66,7 +66,7 @@ public class Helper {
 				String thisAttrWrapper = attrWrapper;
 				if (!e.getValue().isJspExpression()) {
 					// Should do the same as Haml's Helper.escape_once
-					value = StringEscapeUtils.escapeHtml(StringEscapeUtils.unescapeHtml(value));
+					value = escapeAttributeValue(value);
 					// Helpers.preserve
 					value = value.replaceAll("\n", "&#x000A;");
 					// We want to decide whether or not to escape quotes
@@ -91,6 +91,14 @@ public class Helper {
 			}
 		}
 		return result;
+	}
+
+	private String escapeAttributeValue(String value) {
+		// Do not escape attr value if it looks like it contains an EL expression.
+		if (value.contains("${")) {
+			return value;
+		}
+		return StringEscapeUtils.escapeHtml(StringEscapeUtils.unescapeHtml(value));
 	}
 
 	public String parseStringLiteral(String lit) {

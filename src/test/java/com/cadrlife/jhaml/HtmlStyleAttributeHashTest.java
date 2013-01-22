@@ -37,6 +37,20 @@ public class HtmlStyleAttributeHashTest {
 	}
 	
 	@Test
+	public void attributesCanContainElWhichShouldNotBeEscaped() {
+		assertEquals("<html a='${foo(arg)}'></html>", render("%html(a=\"${foo(arg)}\")"));
+		assertEquals("<html a='${a && b}'></html>", render("%html(a=\"${a && b}\")"));
+		
+		assertEquals("<html a='blah ${a && b}'></html>", render("%html(a=\"blah ${a && b}\")"));
+		
+		/* The code is not yet sophisticated enough to know to escape the parts outside the EL but not inside.
+		   In the meantime, just avoiding escaping entirely when an attribute value looks like it contains EL.
+		   Can do more if/when the need arises.
+		*/
+//		assertEquals("<html a='&amp; ${a && b}'></html>", render("%html(a=\"& ${a && b}\")"));
+	}
+	
+	@Test
 	public void bothStylesOfAttributes() {
 		assertEquals("<html a='b' b='c'></html>", render("%html(a='b'){:b=>'c'}"));
 		assertEquals("<html a='b' b='c'></html>", render("%html{:b=>'c'}(a='b')"));
