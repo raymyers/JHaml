@@ -349,7 +349,10 @@ public class Helper {
 			attrMap.remove("id");
 		}
 		if (attrMap.containsKey("class")) {
-			classes.add(0, attrMap.get("class").value);
+			String className = attrMap.get("class").value;
+			if (!classes.contains(className)) {
+				classes.add(0, className);
+			}
 			attrMap.remove("class");
 		}
 		getErrorChecker().setCurrentLineNumber(line.lineNumber);
