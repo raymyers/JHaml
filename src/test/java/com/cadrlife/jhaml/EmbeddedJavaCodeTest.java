@@ -8,7 +8,7 @@ import org.junit.Test;
 public class EmbeddedJavaCodeTest {
 	private JHaml jhaml = new JHaml();
 	
-	@Test
+    @Test
     public void jspScriptlet() {
  	   assertEquals("<% foo(bar); %>", jhaml.parse("- foo(bar);"));
  	   assertEquals("<p>\n  <% foo(bar); %>\n</p>", jhaml.parse("%p\n - foo(bar);"));
@@ -19,7 +19,14 @@ public class EmbeddedJavaCodeTest {
  	   assertEquals("<%= foo(bar); %>", jhaml.parse("= foo(bar);"));
  	   assertEquals("<p><%= foo(bar); %></p>", jhaml.parse("%p= foo(bar);"));
     }
-    
+
+    @Test
+    public void nestedExpression() {
+	    String haml = "%li=item\n  #nested_div";
+	    String html = "<li><%= item %>\n  <div id='nested_div'></div>\n</li>";
+	    assertEquals(html,jhaml.parse(haml));
+    }
+
     @Test
     public void ifStatement() {
     	String html = "<% if (1+1==2) { %>\n  <p />\n<% } %>";

@@ -147,7 +147,7 @@ public class Helper {
 		if (parts.length>2) // should never happen according to contract of String#split()
 			throw new RuntimeException("Have bug!");
 		if (parts.length>1)
-			return "<%= " + parts[0] + " %>\n" + parts[1];
+			return "<%= " + parts[0] + " %>\n" + parts[1]+"\n";
 		return "<%= " + code + " %>";
 	}
 
