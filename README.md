@@ -26,6 +26,18 @@ Is is possible to use the related project Sass/SCSS from Java by using JRuby. Em
 
 ## Using
 
+The project is available in a maven repo. To include with gradle:
+
+	repositories {
+        mavenCentral()
+        mavenRepo url: "https://raw.github.com/raymyers/raymyers-mvn-repo/master/releases"
+    }
+    dependencies {
+        compile group: 'com.cadrlife.jhaml', name: 'jhaml', version: '0.1.7'
+    }
+
+Then parse Haml to HTML from code:
+
     String html = new JHaml().parse("some haml");
 
 There is a Grails plugin, Haml4Grails, that can be used to generate GSPs on the fly from Haml views. Integration with Spring MVC 3 and other Java frameworks is being explored. The biggest barrier is taglib support. Contact me (Ray) if interested.
