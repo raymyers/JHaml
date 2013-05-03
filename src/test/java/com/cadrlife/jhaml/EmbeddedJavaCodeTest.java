@@ -73,4 +73,10 @@ public class EmbeddedJavaCodeTest {
     	String html = "<% aList.each { %>\n  <p />\n<% } %>";
     	assertEquals(html, jhaml.parse("- aList.each\n  %p/"));
     }
+
+	@Test
+	public void forLoopIfInnerElementWithClass() {
+		String html = "<% for (int i=0; i<2; i++) { %>\n  <p class='test' />\n<% } %>";
+		assertEquals(html, jhaml.parse("- for (int i=0; i<2; i++)\n  %p.test/"));
+	}
 }

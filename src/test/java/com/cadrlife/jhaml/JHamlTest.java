@@ -198,8 +198,8 @@ public class JHamlTest {
 
 	@Test
 	public void elementsWithMultipleClasses() {
-		String html = "<p class='a b c'></p>";
-		assertEquals(html, jhaml.parse("%p.b.c{:class=>'a'}"));
+		assertEquals("<p class='a b'></p>", jhaml.parse("%p.a.b"));
+		assertEquals("<p class='a b c'></p>", jhaml.parse("%p.b.c{:class=>'a'}"));
 	}
 
 	@Test
