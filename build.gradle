@@ -1,12 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-//apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
-archivesBaseName = 'jhaml'
 group = 'com.cadrlife.jhaml'
 
-version = '0.1.6'
+version = '0.1.7'
 sourceCompatibility = 1.5
 
 publishing {
